@@ -1,0 +1,39 @@
+{
+  "name": "react-start-kit",
+  "author": "Tkachuk Zakhar",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development parcel index.html",
+    "build": "cross-env NODE_ENV=production parcel build index.html --no-minify --public-url /"
+  },
+  "dependencies": {
+    "antd": "^3.7.1",
+    "autoprefixer": "^7.2.1",
+    "babel-preset-react-app": "^3.1.0",
+    "babel-runtime": "^6.26.0",
+    "cross-env": "^5.2.0",
+    "immutable": "^3.8.2",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "node-sass": "^4.9.2",
+    "parcel-bundler": "latest",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-preloading-component": "^0.0.5",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "postcss": {
+    "modules": false,
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "not ie < 9"
+        ],
+        "flexbox": "no-2009"
+      }
+    }
+  }
+}

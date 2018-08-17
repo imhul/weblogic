@@ -1,0 +1,9 @@
+$media-desktop-min: 1401px; // размер по умолчанию. Можно задать через медиа, что-бы в других разрешениях не переопределять
+
+$media-desktop-small-min: 769px;
+$media-desktop-small-max: 1400px;
+
+$media-tablet-min: 1025px;
+$media-tablet-max: 768px;
+
+// todo: на оснавании настроек делать миксины для медиа.

@@ -1,0 +1,105 @@
+body {
+	color: $color-text;
+	font: $font-text;
+	//letter-spacing: 0.85px;
+}
+
+a {
+	color: $color-link;
+	// todo: use function color
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.content {
+	color: $color-text;
+	font: $font-text;
+
+	h1 {
+		font-size: 25px;
+	}
+
+	h2 {
+		font-size: 22px;
+	}
+
+	h3 {
+		margin-bottom: 20px;
+		font-size: 18px;
+	}
+
+	h4 {
+		font-size: 17px;
+	}
+
+	h5 {
+		font-size: 16px;
+	}
+
+	h6 {
+		font-size: 15px;
+	}
+
+	* + * {
+		margin-top: 20px;
+	}
+
+	a {
+		color: $color-link;
+		text-decoration: underline;
+
+		&:hover {
+			color: $color-link-hover;
+		}
+	}
+
+	li + li {
+		margin-top: 10px;
+	}
+
+	ul,
+	ul li {
+		list-style-type: square;
+		list-style-position: inside;
+	}
+
+	ol,
+	ol li {
+		list-style-type: decimal;
+		list-style-position: inside;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+
+		th {
+			font-weight: bold;
+		}
+
+		td {
+			padding: 14px 15px;
+			border-top: 1px solid $color-content-table-bd;
+			border-bottom: 1px solid $color-content-table-bd;
+		}
+
+		&.zebra {
+
+			tr:nth-child(even) {
+				background-color: $color-content-table-bg;
+			}
+
+			td {
+				border: 1px solid $color-content-table-bd;
+			}
+		}
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+}
