@@ -1,8 +1,3 @@
-html,
-body {
-	height: 100%;
-}
-
 * {
 	padding: 0;
 	margin: 0;
@@ -17,5 +12,210 @@ body {
 	&:active {
 		outline: none;
 	}
+} 
+@-ms-viewport {
+    width: device-width;
+}
+@media screen and (max-width: 400px) {
+    @-ms-viewport { width: 300px; }
+    @-o-viewport { width: device-width; }
+    @viewport { width: device-width; }
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    border: 0;
+    background-color: #607d8b;
+    -ms-text-size-adjust: auto;
+    -webkit-text-size-adjust: auto;
+    cursor: crosshair !important;
+    overflow-x: hidden;
+}
+html {
+    -webkit-tap-highlight-color: $transparent;
+    color: $color-white;
+    font: $font-text;
 }
 
+.mobile-fix, svg {
+    -webkit-tap-highlight-color: $transparent !important;
+    -webkit-focus-ring-color: $transparent !important;
+        -moz-user-select: none !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+        outline: none !important;
+    // user-select: none !important;
+}
+.align-left {
+    text-align: left;
+}
+.align-right {
+    text-align: right;
+}
+#particles-js {
+    width: 100%;
+    height: 100%;
+    background-color: $color-back;
+    background-image: url('');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    #root {
+        .ant-layout,
+        .ant-layout-header,
+        .ant-layout-footer {
+            background: $transparent;
+        }
+        .LayoutMain {
+            .Main {
+                .ant-layout-content {
+                    .Home {
+                        height: 280px;
+                        max-width: 500px;
+                        top: 50%;
+                        left: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        display: table;
+                        position: absolute;
+                            @media (max-width: 639px) {
+                                max-width: 320px;
+                            }
+                        .heading-hero {
+                            color: $color-white;
+                            text-shadow: 0 0 20px $color-text-shadow;
+                            font-size: 3.8rem;
+                            line-height: 1.1;
+                            margin: 0;
+                                @media (max-width: 639px) {
+                                    margin-left: 20px;
+                                }
+                                @media (min-width: 640px) {
+                                    font-size: 6rem;
+                                    line-height: 1;
+                                }
+                                @media (min-width: 960px) {
+                                    font-size: 8rem;
+                                    line-height: 1;
+                                }
+                            span {
+                                white-space: pre-wrap;
+                            }
+                            a {
+                                color: $transparent;
+                                cursor: crosshair !important;
+                                .icon-lamp {
+                                    font-family: 'lamp' !important;
+                                    speak: none;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-variant: normal;
+                                    text-transform: none;
+                                    line-height: 1;
+                                    position: relative;
+                                    top: 8px;
+                                    color: #bcc8ce;
+                                    text-shadow: 0 0 8px $color-text-shadow;
+                                    -webkit-transition: all 1.6s ease;;
+                                    -moz-transition: all 1.6s ease;;
+                                    -o-transition: all 1.6s ease;;
+                                    transition: all 1.6s ease;
+                                    &:before {
+                                        content: "\e900";
+                                    }
+                                    &:hover {
+                                        color: $color-link-hover;
+                                        text-shadow: 0 0 20px $color-link-hover;
+                                    }
+                                }
+                            }
+                            .github {
+                                color: $color-white;
+                                text-shadow: 0 0 20px $color-text-shadow;
+                                font-size: 18px;
+                                &:hover i {
+                                    color: $color-link-hover;
+                                    text-shadow: 0 0 20px $color-link-hover;
+                                }
+                            }
+                        }
+                    }
+                    .Folio {
+                        height: -webkit-fill-available;
+                        width: 100%;
+                        max-width: 100%;
+                        top: 0;
+                        left: 0;
+                        -webkit-transform: none;
+                        transform: none;
+                        display: block;
+                        position: absolute;
+                        overflow: hidden;
+                        .ant-collapse {
+                            background-color: $transparent;
+                            border: 0;
+                            border-radius: 0;
+                            &.active {
+                                .ant-collapse-item {
+                                    height: 10vh;
+                                    .ant-collapse-header {
+                                        height: 10vh;
+                                        line-height: 5vh;
+                                        font-size: 8vh;
+                                        i {
+                                            line-height: 10vh;
+                                            font-size: 6vh;
+                                        }
+                                    }
+                                }
+                            }
+                            .ant-collapse-item {
+                                border-bottom-color: $color-white;
+                                height: 25vh;
+                                .ant-collapse-header {
+                                    height: 25vh;
+                                    line-height: 18vh;
+                                    font-size: 18vh;
+                                    color: $color-white;
+                                    i {
+                                        line-height: 25vh;
+                                        font-size: 13vh;
+                                        left: unset;
+                                        right: 40px;
+                                    }
+                                }
+                            }
+                            .ant-collapse-item-active {
+                                height: 10vh;
+                                .ant-collapse-header {
+                                    height: 10vh;
+                                    line-height: 5vh;
+                                    font-size: 8vh;
+                                    i {
+                                        line-height: 10vh;
+                                        font-size: 6vh;
+                                    }
+                                }
+                                .ant-collapse-content-active {
+                                    min-height: 60vh;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+    .mobile-show {
+        display: block !important;
+        max-height: none !important;
+    }
+    .mobile-hide {
+        display: none !important;
+    }
+}

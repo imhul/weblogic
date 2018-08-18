@@ -1,16 +1,21 @@
-$color-black: #000;
-$color-red: #000;
+$color-back: #607d8b !default;
+$transparent: rgba(0,0,0,0) !default;
+
+$color-black: #000 !default;
+$color-white: #bcc8ce !default;
 
 $color-title: #555 !default;
-//$color-title-light: #555 !default;
-//$color-title-dark: #555 !default;
 
 $color-text: #555 !default;
 $color-text-light: #555 !default;
 $color-text-dark: #555 !default;
 
+$color-text-shadow: rgba(0,0,0,0.2);
+
 $color-link: #2f4cb4 !default;
-$color-link-hover: #4160ff !default;
+$color-link-hover: #fdd835 !default;
 
 $color-content-table-bd: #2c2c2c !default;
 $color-content-table-bg: #2c2c2c !default;
+
+$color-footer: rgba(0, 0, 0, 0.65) !default;

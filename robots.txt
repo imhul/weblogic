@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /app/data
+Allow: /app
+Allow: /app/css
+Allow: /app/fonts
+Allow: /app/img
+Allow: /app/js
+Allow: /app/lab
+Allow: /app/lab/calc
+Allow: /app/lab/game
+Allow: /app/lab/presentation

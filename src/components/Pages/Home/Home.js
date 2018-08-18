@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Wave } from 'react-preloading-component';
+import { Link } from 'react-router-dom';
+import { Icon } from 'antd';
 
 class Home extends Component {
     constructor(props) {
@@ -10,13 +11,24 @@ class Home extends Component {
     }
 
     render() {
-        const someStyles = {
-            textAlign: 'center',
-        };
         return (
             <div className="Home">
-                <h1 style={someStyles}>Home Page</h1>
-                <Wave />
+                <h1 className="mobile-fix heading-hero">
+                    <span>WebLogic Studio</span>
+                    <Link to="/folio">
+                        <i className="icon-lamp"></i>
+                    </Link>
+                    <div>
+                        <a 
+                            href="https://github.com/imhul/weblogic" 
+                            title="github project" 
+                            className="github" 
+                            target="_blank"
+                        >
+                            by Tkachuk Zakhar <Icon type="github" />
+                        </a>
+                    </div>
+                </h1>
             </div>
         );
     }
