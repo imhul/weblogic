@@ -12,24 +12,40 @@ class Folio extends Component {
             active: false,
         };
         this.onCollapse = this.onCollapse.bind(this);
-        this.onPanel = this.onPanel.bind(this);
     }
 
     componentDidMount() {
         setTimeout(() => this.setState({
             loaded: true
         }), 2000)
+        console.log("::::componentDidMount::::", this.state.active);
     }
 
     onCollapse() {
-        this.setState({
-            active: !this.state.active
-        });
-        console.log("::::onCollapse::::", !this.state.active);
-    }
+        const activePanel = document.getElementsByClassName('ant-collapse-item-active').length;
 
-    onPanel(index) {
-        console.log("::::panel index::::", index);
+        // if( !this.state.active ) {
+            if ( activePanel == 0 || ( activePanel == 0 && this.state.active == true ) ) {
+                this.setState({
+                    active: true
+                });
+                console.log("::::if 1::::", this.state.active);
+            } else if ( ( activePanel == 0 && activePanel == 1 ) && this.state.active == true ) {
+                this.setState({
+                    active: false
+                });
+                console.log("::::if 2::::", this.state.active);
+            } else if ( activePanel == 1 && this.state.active == false) {
+                this.setState({
+                    active: true
+                });
+                console.log("::::if 3::::", this.state.active);
+            }
+        // }
+
+
+        // console.log("::::activePanel::::", activePanel);
+        // console.log("::::this.state.active::::", this.state.active);
     }
 
     render() {
@@ -53,11 +69,14 @@ class Folio extends Component {
             }
         ];
 
+        
+
         return (
             <div className="Folio">
                 { !this.state.loaded ? <Wave color="#fdd835" /> : 
                     <Collapse 
                         accordion 
+                        destroyInactivePanel
                         onChange={ this.onCollapse } 
                         className={ this.state.active ? 'active' : null }
                     >

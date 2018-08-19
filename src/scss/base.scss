@@ -75,7 +75,6 @@ html {
                         max-width: 500px;
                         top: 50%;
                         left: 50%;
-                        -webkit-transform: translate(-50%, -50%);
                         transform: translate(-50%, -50%);
                         display: table;
                         position: absolute;
@@ -117,9 +116,6 @@ html {
                                     top: 8px;
                                     color: #bcc8ce;
                                     text-shadow: 0 0 8px $color-text-shadow;
-                                    -webkit-transition: all 1.6s ease;;
-                                    -moz-transition: all 1.6s ease;;
-                                    -o-transition: all 1.6s ease;;
                                     transition: all 1.6s ease;
                                     &:before {
                                         content: "\e900";
@@ -147,7 +143,6 @@ html {
                         max-width: 100%;
                         top: 0;
                         left: 0;
-                        -webkit-transform: none;
                         transform: none;
                         display: block;
                         position: absolute;
@@ -156,9 +151,15 @@ html {
                             background-color: $transparent;
                             border: 0;
                             border-radius: 0;
+                            & * {
+                                transition: height 0.1s ease-in-out 0.1s;
+                            }
                             &.active {
                                 .ant-collapse-item {
                                     height: 10vh;
+                                    &.ant-collapse-item-active {
+                                        height: 70vh;
+                                    }
                                     .ant-collapse-header {
                                         height: 10vh;
                                         line-height: 5vh;
@@ -183,6 +184,14 @@ html {
                                         font-size: 13vh;
                                         left: unset;
                                         right: 40px;
+                                    }
+                                }
+                                .ant-collapse-content {
+                                    background: $color-content-bg;
+                                    font-size: 18px;
+                                    color: $color-white;
+                                    &:hover {
+                                        background: $color-content-bg-hover;
                                     }
                                 }
                             }
