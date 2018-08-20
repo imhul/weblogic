@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Wave } from 'react-preloading-component';
 import { Collapse } from 'antd';
-import Gravatar from 'react-gravatar';
+import texts from './texts';
 
 const Panel = Collapse.Panel;
 
@@ -39,30 +39,6 @@ class Folio extends Component {
     }
 
     render() {
-        const texts = [
-            {
-                name: 'introduce',
-                text: () => ( 
-                    <div>
-                        <Gravatar email="blashirk@gmail.com" size={ 100 } />
-                        <span>introduce</span>
-                    </div>
-                )
-            },
-            {
-                name: 'about',
-                text: () => (<div>about</div>)
-            },
-            {
-                name: 'works',
-                text: () => (<div>works</div>)
-            },
-            {
-                name: 'contacts',
-                text: () => (<div>contacts</div>)
-            }
-        ];
-
         return (
             <div className="Folio">
                 { !this.state.loaded ? <Wave color="#fdd835" /> : 

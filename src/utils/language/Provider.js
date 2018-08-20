@@ -30,3 +30,7 @@ const TranslatableText = props => (
 );
 
 export default LanguageProvider
+
+// TODO: lang switcher !!!!!!!
+// TODO: https://codesandbox.io/s/ppom5x84l7?from-embed !!!!!!!
+// TODO: toolbar for lang switcher !!!!!!!
