@@ -8,13 +8,6 @@ import Folio from '../../Pages/Folio';
 const { Content } = Layout;
 
 class LayoutMain extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        };
-    }
-
     render() {
         const NotFound = () => {
             <h1>Sorry! Page Not Found:(</h1>

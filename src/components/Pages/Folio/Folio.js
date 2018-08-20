@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Wave } from 'react-preloading-component';
 import { Collapse } from 'antd';
+import Gravatar from 'react-gravatar';
 
 const Panel = Collapse.Panel;
 
@@ -21,38 +22,32 @@ class Folio extends Component {
         console.log("::::componentDidMount::::", this.state.active);
     }
 
-    onCollapse() {
-        const activePanel = document.getElementsByClassName('ant-collapse-item-active').length;
-
-        // if( !this.state.active ) {
-            if ( activePanel == 0 || ( activePanel == 0 && this.state.active == true ) ) {
-                this.setState({
-                    active: true
-                });
-                console.log("::::if 1::::", this.state.active);
-            } else if ( ( activePanel == 0 && activePanel == 1 ) && this.state.active == true ) {
-                this.setState({
-                    active: false
-                });
-                console.log("::::if 2::::", this.state.active);
-            } else if ( activePanel == 1 && this.state.active == false) {
-                this.setState({
-                    active: true
-                });
-                console.log("::::if 3::::", this.state.active);
-            }
-        // }
-
-
-        // console.log("::::activePanel::::", activePanel);
-        // console.log("::::this.state.active::::", this.state.active);
+    onCollapse(event) {
+        if( !event ) {
+            this.setState({
+                active: false
+            });
+        } else if ( event && this.state.active == true ) {
+            this.setState({
+                active: true
+            });
+        } else if ( event && this.state.active == false ) {
+            this.setState({
+                active: true
+            });
+        }
     }
 
     render() {
         const texts = [
             {
                 name: 'introduce',
-                text: () => (<div>introduce</div>)
+                text: () => ( 
+                    <div>
+                        <Gravatar email="blashirk@gmail.com" size={ 100 } />
+                        <span>introduce</span>
+                    </div>
+                )
             },
             {
                 name: 'about',
@@ -65,11 +60,8 @@ class Folio extends Component {
             {
                 name: 'contacts',
                 text: () => (<div>contacts</div>)
-
             }
         ];
-
-        
 
         return (
             <div className="Folio">
@@ -81,8 +73,10 @@ class Folio extends Component {
                         className={ this.state.active ? 'active' : null }
                     >
                         { texts.map(( load, index ) => (
-                                <Panel header={ load.name } key={ index } onClick={this.onPanel}>
-                                    { load.text() }
+                                <Panel header={ load.name } key={ index }>
+                                    <div onClick={this.onPanel}>
+                                        { load.text() }
+                                    </div>
                                 </Panel>
                             )
                         ) } 

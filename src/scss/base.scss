@@ -152,7 +152,7 @@ html {
                             border: 0;
                             border-radius: 0;
                             & * {
-                                transition: height 0.1s ease-in-out 0.1s;
+                                transition: height 0.2s ease-in-out;
                             }
                             &.active {
                                 .ant-collapse-item {
@@ -192,6 +192,9 @@ html {
                                     color: $color-white;
                                     &:hover {
                                         background: $color-content-bg-hover;
+                                    }
+                                    .react-gravatar {
+                                        border-radius: 50%;
                                     }
                                 }
                             }
