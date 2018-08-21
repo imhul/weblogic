@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 
 const LanguageContext = React.createContext();
+const LanguageConsumer = LanguageContext.Consumer;
 
 class LanguageProvider extends Component {
-  state = {
-    language: "english"
-  };
+  constructor(props) {
+        super(props);
+        this.state = {
+            language: "english"
+        }
+  }
 
-  updateLanguage = e => this.setState({ language: e.target.value });
+  updateLanguage = e => { 
+      this.setState({ language: e ? 'english' : 'russian' });
+  }
 
   render() {
     return (
@@ -23,14 +29,10 @@ class LanguageProvider extends Component {
   }
 }
 
-const TranslatableText = props => (
+const Language = props => (
     <LanguageConsumer>
-      {({ language }) => props.dictionary[language]}
+        {({ language }) => props.dictionary[language]}
     </LanguageConsumer>
 );
 
-export default LanguageProvider
-
-// TODO: lang switcher !!!!!!!
-// TODO: https://codesandbox.io/s/ppom5x84l7?from-embed !!!!!!!
-// TODO: toolbar for lang switcher !!!!!!!
+export { LanguageProvider, LanguageConsumer, Language }

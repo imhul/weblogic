@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Wave } from 'react-preloading-component';
 import { Collapse } from 'antd';
-import texts from './texts';
+import Texts from './Texts';
+import Toolbar from './Toolbar';
 
 const Panel = Collapse.Panel;
 
@@ -41,6 +42,7 @@ class Folio extends Component {
     render() {
         return (
             <div className="Folio">
+                <Toolbar />
                 { !this.state.loaded ? <Wave color="#fdd835" /> : 
                     <Collapse 
                         accordion 
@@ -48,7 +50,7 @@ class Folio extends Component {
                         onChange={ this.onCollapse } 
                         className={ this.state.active ? 'active' : null }
                     >
-                        { texts.map(( load, index ) => (
+                        { Texts.map(( load, index ) => (
                                 <Panel header={ load.name } key={ index }>
                                     <div onClick={this.onPanel}>
                                         { load.text() }
@@ -63,4 +65,4 @@ class Folio extends Component {
     }
 }
 
-export default Folio;
+export default Folio
