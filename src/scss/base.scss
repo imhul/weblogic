@@ -159,6 +159,7 @@ html {
                             border-top: 0;
                             z-index: 10;
                             transition: top 0.3s ease-out;
+                            transform: translateX(50%);
                             background-color: $color-content-bg-hover;
                             &.active {
                                 top: 0;

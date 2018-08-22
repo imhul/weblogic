@@ -17,7 +17,7 @@ class Toolbar extends Component {
         });
         setTimeout(() => this.setState({
             active: false
-        }), 99000)
+        }), 4000)
     }
 
     render() {
@@ -36,7 +36,7 @@ class Toolbar extends Component {
                         <Switch size="small" defaultChecked onChange={ updateLanguage } unCheckedChildren="ru" checkedChildren="en" />
                     )}
                 </LanguageConsumer>
-                <div onClick={this.toolbarToggle}>. . .</div>
+                <div onMouseOver={this.toolbarToggle}>. . .</div>
             </div>
         );
     }

@@ -20,7 +20,6 @@ class Folio extends Component {
         setTimeout(() => this.setState({
             loaded: true
         }), 2000)
-        console.log("::::componentDidMount::::", this.state.active);
     }
 
     onCollapse(event) {

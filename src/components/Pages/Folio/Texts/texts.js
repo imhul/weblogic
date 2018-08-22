@@ -1,4 +1,5 @@
 import React from 'react';
+import { Language } from '../../../../utils/language/provider';
 import Intro from './Intro';
 import About from './About';
 import Works from './Works';
@@ -6,7 +7,10 @@ import Contact from './Contact';
 
 const texts = [
     {
-        name: 'introduce',
+        name: <Language dictionary={{
+                english: "introduce",
+                russian: "вступление"
+        }} />,
         text: () => <Intro />
     },
     {
