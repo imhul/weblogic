@@ -137,6 +137,8 @@ html {
                             }
                         }
                     }
+
+                    /* Folio */
                     .Folio {
                         height: -webkit-fill-available;
                         width: 100%;
@@ -147,6 +149,8 @@ html {
                         display: block;
                         position: absolute;
                         overflow: hidden;
+
+                        /* Toolbar */
                         .Toolbar {
                             position: absolute;
                             top: -30px;
@@ -211,7 +215,7 @@ html {
                                 height: 25vh;
                                 .ant-collapse-header {
                                     height: 25vh;
-                                    line-height: 18vh;
+                                    line-height: 16vh;
                                     font-size: 18vh;
                                     color: $color-white;
                                     i {
@@ -225,11 +229,45 @@ html {
                                     background: $color-content-bg;
                                     font-size: 18px;
                                     color: $color-white;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
                                     &:hover {
                                         background: $color-content-bg-hover;
                                     }
-                                    .react-gravatar {
-                                        border-radius: 50%;
+                                    .content {
+                                        max-width: 600px;
+                                        width: 80%;
+                                        margin: 0 auto;
+                                        color: $color-white;
+                                        .react-gravatar {
+                                            border-radius: 50%;
+                                            margin-top: 25px;
+                                        }
+                                        h2 {
+                                            color: $color-white;
+                                        }
+                                        .name {
+                                            margin-bottom: 5px;
+                                        }
+                                        .italic {
+                                            font-size: 16px;
+                                            font-weight: 100;
+                                            font-style: italic;
+                                            margin-top: 16px;
+                                        }
+                                        mark {
+                                            background-color: $transparent;
+                                            color: $color-link-hover;
+                                        }
+                                        .ant-btn-background-ghost {
+                                            color: $color-white;
+                                            border-color: $color-white;
+                                            text-decoration: none;
+                                            i {
+                                                margin-right: 10px;
+                                            }
+                                        }
                                     }
                                 }
                             }

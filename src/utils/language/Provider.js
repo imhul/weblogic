@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import store from '../store/store';
 
 const LanguageContext = React.createContext();
 const LanguageConsumer = LanguageContext.Consumer;
@@ -13,6 +14,11 @@ class LanguageProvider extends Component {
 
   updateLanguage = e => { 
       this.setState({ language: e ? 'english' : 'russian' });
+      this.sendLangToStore();
+  }
+
+  sendLangToStore() {
+    store.setItem('lang', this.state.language);
   }
 
   render() {

@@ -8,21 +8,30 @@ import Contact from './Contact';
 const texts = [
     {
         name: <Language dictionary={{
-                english: "introduce",
-                russian: "вступление"
+                english: "Introduce",
+                russian: "Вступление"
         }} />,
         text: () => <Intro />
     },
     {
-        name: 'about',
+        name: <Language dictionary={{
+            english: "About",
+            russian: "Обо мне"
+    }} />,
         text: () => <About />
     },
     {
-        name: 'works',
+        name: <Language dictionary={{
+            english: "Works",
+            russian: "Работы"
+    }} />,
         text: () => <Works />
     },
     {
-        name: 'contacts',
+        name: <Language dictionary={{
+            english: "Contacts",
+            russian: "Контакты"
+    }} />,
         text: () => <Contact />
     }
 ];

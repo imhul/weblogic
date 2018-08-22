@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import { Row, Col, Button, Icon, message } from 'antd';
 import { Language } from '../../../../utils/language/provider';
+import store from '../../../../utils/store/store';
 import Gravatar from 'react-gravatar';
-
-const summarySuccess = () => {
-    message.info('Summary already downloaded');
-};
 
 class Intro extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            iconLoading: false,
+            language: '',
+        }
+    }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.language !== this.state.language) {
+            this.setState({
+                language: store.lang,
+            })
         }
     }
 
     render() {
         return (
-            <div className="container">
+            <div className="Intro content">
                 <Row gutter={24}>
                     <Col span={6}>
                         <Gravatar email="blashirk@gmail.com" size={100} />
@@ -31,39 +37,50 @@ class Intro extends Component {
                                 }}
                             /> ;)
                         </h2>
-                        <p>
-                            <Language
-                                dictionary={{
-                                    english: "Tkachuk Zakhar",
-                                    russian: "Ткачук Захар"
-                                }}
-                            />
-                        </p>
-                        <p>
-                            <Language
-                                dictionary={{
-                                    english: "front-end developer",
-                                    russian: "фронт-энд разработчик"
-                                }}
-                            />
-                        </p>
 
-                        <Button type="default" icon="download" loading={this.state.iconLoading} onClick={this.summarySuccess}>
-                            <Language
-                                dictionary={{
-                                    english: "summary",
-                                    russian: "Резюме"
-                                }}
-                            />
-                        </Button>
+                        <Row gutter={24}>
+                            <Col span={12}>
+                                <p className="name">
+                                    <Language
+                                        dictionary={{
+                                            english: "Tkachuk Zakhar",
+                                            russian: "Ткачук Захар"
+                                        }}
+                                    />
+                                </p>
+                                <p className="italic">
+                                    <Language
+                                        dictionary={{
+                                            english: "front-end developer",
+                                            russian: "фронт-энд разработчик"
+                                        }}
+                                    />
+                                </p>
+                            </Col>
+
+                            <Col span={12}>
+                                <a 
+                                    className="ant-btn ant-btn-background-ghost"
+                                    target='_blank'
+                                    href='https://www.linkedin.com/in/tkachuk-zakhar-04733892/'
+                                    title="my linkedin page">
+                                    <Icon type='linkedin' />
+                                    <Language
+                                        dictionary={{
+                                            english: "summary",
+                                            russian: "Резюме"
+                                        }}
+                                    />
+                                </a>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
-
 
                 <p>
                     <Language
                         dictionary={{
-                            english: "Having gone a long way, having gained experience, I chose the best of modern technologies for creating my products. I create sites and applications, drawing inspiration from the Material Design concept and React library for building user interfaces.",
+                            english: <span>Having gone a long way, having gained experience, I chose the best of modern technologies for creating my products. I create sites and applications, drawing inspiration from the <mark>Material Design</mark> concept and <mark>React</mark> library for building user interfaces.</span>,
                             russian: "Привет!"
                         }}
                     />
