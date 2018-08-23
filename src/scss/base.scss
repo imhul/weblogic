@@ -153,37 +153,17 @@ html {
                         /* Toolbar */
                         .Toolbar {
                             position: absolute;
-                            top: -30px;
-                            right: 50%;
-                            padding: 10px 10px 0 10px;
-                            width: 100px;
-                            border-bottom-left-radius: 4px;
-                            border-bottom-right-radius: 4px;
-                            border: 1px solid $color-white;
+                            top: 0;
+                            right: 0px;
+                            padding: 10px;
+                            width: 60px;
                             border-top: 0;
                             z-index: 10;
-                            transition: top 0.3s ease-out;
-                            transform: translateX(50%);
-                            background-color: $color-content-bg-hover;
-                            &.active {
-                                top: 0;
-                            }
-                            a {
-                                margin-right: 10px;
-                                margin-left: 8px;
-                                i {
-                                    vertical-align: bottom;
-                                    color: $color-white;
-                                }
+                            .ant-switch {
+                                line-height: 1;
                             }
                             .ant-switch-checked {
                                 background-color: $color-white;
-                            }
-                            div {
-                                text-align: center;
-                                color: $color-white;
-                                cursor: pointer;
-                                padding: 2px 5px 8px 5px;
                             }
                         }
                         .ant-collapse {

@@ -7,35 +7,13 @@ class Toolbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: false,
+       
         };
-        this.toolbarIn = this.toolbarIn.bind(this);
-        this.toolbarOut = this.toolbarOut.bind(this)
-    }
-
-    toolbarIn() {
-        this.setState({
-            active: true 
-        });  
-    }
-
-    toolbarOut() {
-        setTimeout(() => this.setState({
-            active: false
-        }), 4000)
     }
 
     render() {
         return (
-            <div className={ this.state.active ? 'Toolbar active' : 'Toolbar' } onMouseOver={this.toolbarIn} onMouseOut={this.toolbarOut}>
-                <a 
-                    href="https://github.com/imhul/weblogic" 
-                    title="github project" 
-                    className="github" 
-                    target="_blank"
-                >
-                    <Icon type="github" />
-                </a>
+            <div className="Toolbar">
                 {console.log("::::store.lang::::", store.lang)}
                 <LanguageConsumer>
                     {({ updateLanguage }) => (
@@ -48,7 +26,6 @@ class Toolbar extends Component {
                         />
                     )}
                 </LanguageConsumer>
-                <div>. . .</div>
             </div>
         );
     }
