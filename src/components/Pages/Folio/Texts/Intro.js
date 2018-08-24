@@ -24,10 +24,10 @@ class Intro extends Component {
         return (
             <div className="Intro content">
                 <Row gutter={24}>
-                    <Col span={6}>
+                    <Col span={6} style={{ maxHeight: '14vw'}}>
                         <Gravatar email="blashirk@gmail.com" size={100} />
                     </Col>
-                    <Col span={18}>
+                    <Col span={18} style={{ marginTop: 0}}>
                         <h2>
                             <Language
                                 dictionary={{
