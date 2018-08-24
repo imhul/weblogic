@@ -80,7 +80,7 @@ class Intro extends Component {
                     <Language
                         dictionary={{
                             english: <span>Having gone a long way, having gained experience, I chose the best of modern technologies for creating my products. I create sites and applications, drawing inspiration from the <mark>Material Design</mark> concept and <mark>React</mark> library for building user interfaces.</span>,
-                            russian: "Привет!"
+                            russian: <span>Пройдя длинный путь, получив опыт, я выбрал лучшие из современных технологий для создания своих продуктов. Я создаю сайты и приложения, черпая вдохновение из концепции <mark>Material Design</mark> и использую <mark>React</mark> для создания пользовательских интерфейсов.</span>
                         }}
                     />
                 </p>

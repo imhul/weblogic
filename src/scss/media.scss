@@ -1,9 +1,11 @@
-$media-desktop-min: 1401px;
+$media-x-large: 1367px;
 
-$media-desktop-small-min: 769px;
-$media-desktop-small-max: 1400px;
+$media-large-min: 1025px;
+$media-large-max: 1366px;
 
-$media-tablet-min: 1025px;
-$media-tablet-max: 768px;
+$media-medium-min: 768px;
+$media-medium-max: 1024px;
 
-// todo: на оснавании настроек делать миксины для медиа.
+$media-small: 767px;
+
+// todo: media sizes for mixins

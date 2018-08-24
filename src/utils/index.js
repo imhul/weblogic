@@ -4,12 +4,10 @@ import 'antd/dist/antd.css';
 import '../fonts/fonts.css';
 import '../scss/index.scss';
 
-import '../utils/particles';
-import '../utils/app';
-import '../utils/stats';
+import './bg';
 
 import Output from '../components/Output';
-import registerServiceWorker from '../utils/worker/registerServiceWorker';
+import registerServiceWorker from './worker/registerServiceWorker';
 
 ReactDOM.render(<Output />, document.getElementById('root'));
 registerServiceWorker();
