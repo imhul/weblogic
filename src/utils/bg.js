@@ -1193,7 +1193,7 @@ var bgJS = function(tag_id, params){
   bgJS.fn.vendors.destroypJS = function(){
     cancelAnimationFrame(bgJS.fn.drawAnimFrame);
     canvas_el.remove();
-    pJSDom = null;
+    bgJSDom = null;
   };
 
 
@@ -1424,7 +1424,7 @@ function isInArray(value, array) {
 
 /* ---------- parts.js functions - start ------------ */
 
-window.pJSDom = [];
+window.bgJSDom = [];
 
 window.backgroundJS = function(tag_id, params){
 
@@ -1466,7 +1466,7 @@ window.backgroundJS = function(tag_id, params){
 
   /* launch particle.js */
   if(canvas != null){
-    pJSDom.push(new bgJS(tag_id, params));
+    bgJSDom.push(new bgJS(tag_id, params));
   }
 
 };
@@ -1626,80 +1626,27 @@ var Stats = function () {
 
 	var container = document.createElement( 'div' );
 	container.id = 'stats';
-	container.addEventListener( 'mousedown', function ( event ) { event.preventDefault(); setMode( ++ mode % 2 ) }, false );
-	container.style.cssText = 'width:80px;opacity:0.9';
 
 	var fpsDiv = document.createElement( 'div' );
 	fpsDiv.id = 'fps';
-	fpsDiv.style.cssText = 'padding:0 0 3px 3px;text-align:left;background-color:#002';
 	container.appendChild( fpsDiv );
 
-	var fpsText = document.createElement( 'div' );
+	var fpsDesc = document.createElement( 'div' );
+    fpsDesc.id = 'fpsDesc';
+    fpsDesc.textContent = "fps";
+    fpsDiv.appendChild( fpsDesc );
+    
+    var fpsText = document.createElement( 'div' );
 	fpsText.id = 'fpsText';
-	fpsText.style.cssText = 'color:#0ff;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px';
-	fpsText.innerHTML = 'FPS';
 	fpsDiv.appendChild( fpsText );
 
-	var fpsGraph = document.createElement( 'div' );
-	fpsGraph.id = 'fpsGraph';
-	fpsGraph.style.cssText = 'position:relative;width:74px;height:30px;background-color:#0ff';
-	fpsDiv.appendChild( fpsGraph );
-
-	while ( fpsGraph.children.length < 74 ) {
-
-		var bar = document.createElement( 'span' );
-		bar.style.cssText = 'width:1px;height:30px;float:left;background-color:#113';
-		fpsGraph.appendChild( bar );
-
-	}
-
-	var msDiv = document.createElement( 'div' );
-	msDiv.id = 'ms';
-	msDiv.style.cssText = 'padding:0 0 3px 3px;text-align:left;background-color:#020;display:none';
-	container.appendChild( msDiv );
-
-	var msText = document.createElement( 'div' );
-	msText.id = 'msText';
-	msText.style.cssText = 'color:#0f0;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px';
-	msText.innerHTML = 'MS';
-	msDiv.appendChild( msText );
-
-	var msGraph = document.createElement( 'div' );
-	msGraph.id = 'msGraph';
-	msGraph.style.cssText = 'position:relative;width:74px;height:30px;background-color:#0f0';
-	msDiv.appendChild( msGraph );
-
-	while ( msGraph.children.length < 74 ) {
-
-		var bar = document.createElement( 'span' );
-		bar.style.cssText = 'width:1px;height:30px;float:left;background-color:#131';
-		msGraph.appendChild( bar );
-
-	}
-
-	var setMode = function ( value ) {
-
-		mode = value;
-
-		switch ( mode ) {
-
-			case 0:
-				fpsDiv.style.display = 'block';
-				msDiv.style.display = 'none';
-				break;
-			case 1:
-				fpsDiv.style.display = 'none';
-				msDiv.style.display = 'block';
-				break;
-		}
-
+	var setMode = function() {
+		fpsDiv.style.display = 'block';
 	};
 
 	var updateGraph = function ( dom, value ) {
-
 		var child = dom.appendChild( dom.firstChild );
 		child.style.height = value + 'px';
-
 	};
 
 	return {
@@ -1724,9 +1671,6 @@ var Stats = function () {
 			msMin = Math.min( msMin, ms );
 			msMax = Math.max( msMax, ms );
 
-			msText.textContent = ms + ' MS (' + msMin + '-' + msMax + ')';
-			updateGraph( msGraph, Math.min( 30, 30 - ( ms / 200 ) * 30 ) );
-
 			frames ++;
 
 			if ( time > prevTime + 1000 ) {
@@ -1735,8 +1679,7 @@ var Stats = function () {
 				fpsMin = Math.min( fpsMin, fps );
 				fpsMax = Math.max( fpsMax, fps );
 
-				fpsText.textContent = fps + ' FPS (' + fpsMin + '-' + fpsMax + ')';
-				updateGraph( fpsGraph, Math.min( 30, 30 - ( fps / 100 ) * 30 ) );
+				fpsText.textContent = fps;
 
 				prevTime = time;
 				frames = 0;
@@ -1757,8 +1700,42 @@ var Stats = function () {
 
 };
 
-if ( typeof module === 'object' ) {
+// function updateAll() {
+//     var count_parts, stats, update;
+//     stats = new Stats;
+//     stats.setMode(0);
+//     document.body.appendChild(stats.domElement);
+//     count_parts = document.querySelector('.js-count-parts');
 
-	module.exports = Stats;
+//     var containerMain = document.querySelector('.count-parts');
+//     var partsDesc = document.createElement( 'div' );
+//     partsDesc.id = 'partsDesc';
+//     partsDesc.innerHTML = 'parts';
+//     containerMain.appendChild( partsDesc );
 
-}
+//     update = function() {
+//         stats.begin();
+//         stats.end();
+//         if (window.bgJSDom[0].bgJS.parts && window.bgJSDom[0].bgJS.parts.array) {
+//             count_parts.innerText = window.bgJSDom[0].bgJS.parts.array.length;
+//         }
+//         requestAnimationFrame(update);
+//     };
+//     requestAnimationFrame(update);
+// }
+
+// document.addEventListener("DOMContentLoaded", function() {
+    
+//     var containerLeft = document.querySelector('.count-parts');
+//     var containerRight = document.querySelector('#fps');
+
+//         if(window.location.pathname !== "/folio") {
+//             containerLeft.style.cssText = 'display: block';
+//             containerRight.style.cssText = 'display: block';
+//             updateAll();
+//         } else if(window.location.pathname === "/folio") {
+//             containerLeft.style.cssText = 'display: none';
+//             containerRight.style.cssText = 'display: none';
+//         }
+// });
+

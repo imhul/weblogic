@@ -29,9 +29,12 @@ class Home extends Component {
                     <span className="span-12">d</span>
                     <span className="span-13">i</span>
                     <span className="span-14">o</span>
-                    <Link to="/folio">
-                        <i className="icon-lamp"></i>
-                    </Link>
+                    <span className="span-15">
+                        <Link to="/folio">
+                            <i className="icon-lamp"></i>
+                        </Link>
+                    </span>
+                    
                     <div>
                         <a
                             href="https://github.com/imhul/weblogic"
