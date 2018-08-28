@@ -33,10 +33,10 @@ class Home extends Component {
                         <i className="icon-lamp"></i>
                     </Link>
                     <div>
-                        <a 
-                            href="https://github.com/imhul/weblogic" 
-                            title="github project" 
-                            className="github" 
+                        <a
+                            href="https://github.com/imhul/weblogic"
+                            title="github project"
+                            className="github"
                             target="_blank"
                         >
                             by Tkachuk Zakhar <Icon type="github" />
