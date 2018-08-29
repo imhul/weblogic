@@ -35,16 +35,6 @@ class Home extends Component {
                         </span>
                     </h1>
                 </Link>
-                <div>
-                    <a
-                        href="https://github.com/imhul/weblogic"
-                        title="github project"
-                        className="github"
-                        target="_blank"
-                    >
-                        by Tkachuk Zakhar <Icon type="github" />
-                    </a>
-                </div>
             </div>
         );
     }

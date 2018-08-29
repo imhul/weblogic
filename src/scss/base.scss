@@ -1,28 +1,37 @@
 /* Common styles */
+
 * {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
+    &,
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
 
-	&,
-	&::before,
-	&::after {
-		box-sizing: border-box;
-	}
-
-	&:focus,
-	&:active {
-		outline: none;
-	}
-} 
 @-ms-viewport {
     width: device-width;
 }
+
 @media screen and (max-width: 400px) {
-    @-ms-viewport { width: 300px; }
-    @-o-viewport { width: device-width; }
-    @viewport { width: device-width; }
+    @-ms-viewport {
+        width: 300px;
+    }
+    @-o-viewport {
+        width: device-width;
+    }
+    @viewport {
+        width: device-width;
+    }
 }
-html, body {
+
+html,
+body {
     width: 100%;
     height: 100%;
     outline: 0;
@@ -33,29 +42,38 @@ html, body {
     cursor: crosshair !important;
     overflow-x: hidden;
 }
+
 html {
     -webkit-tap-highlight-color: $transparent;
     color: $color-white;
     font: $font-text;
 }
 
-.mobile-fix, svg {
+.mobile-fix,
+svg {
     -webkit-tap-highlight-color: $transparent !important;
     -webkit-focus-ring-color: $transparent !important;
-        -moz-user-select: none !important;
+    -moz-user-select: none !important;
     -webkit-user-select: none !important;
     -ms-user-select: none !important;
-        outline: none !important;
-    // user-select: none !important;
+    user-select: none !important;
+    outline: none !important; 
 }
+
+.icon-lamp {
+    outline: none !important;
+}
+
 .align-left {
     text-align: left;
 }
+
 .align-right {
     text-align: right;
 }
 
 /* App background */
+
 #bg-app {
     width: 100%;
     height: 100%;
@@ -64,7 +82,6 @@ html {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-
     /* App */
     #root {
         .ant-layout,
@@ -75,40 +92,59 @@ html {
         .LayoutMain {
             .Main {
                 .ant-layout-content {
-
-                    /* Home page */
+                    /*--------------Home page----------------*/
+                    /*parts-------------------------------fps*/
+                    /*---------------------------------------*/
+                    /*---------------------------------------*/
+                    /*-----------------Hero------------------*/
+                    /*---------------------------------------*/
+                    /*---------------------------------------*/
+                    /*---------------------------------------*/
                     .Home {
                         height: 280px;
-                        max-width: 580px;
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
                         display: table;
                         position: absolute;
-                            @media (max-width: $media-small) {
-                                max-width: 320px;
-                            }
-                        .heading-hero {
-                            color: $color-white;
-                            font-size: 3.8rem;
-                            line-height: 1.1;
-                            margin: 0;
+                        @media (max-width: $media-small) {
+                            max-width: 320px;
+                        }
+                        @media (max-width: $media-small) and (orientation: landscape) {
+                            max-width: 300px;
+                            height: 0;
+                        }
+                        @media (min-width: $media-medium-min) {
+                            max-width: 450px;
+                        }
+                        @media (min-width: $media-large-min) {
+                            max-width: 580px;
+                        }
+                        a {
+                            cursor: pointer;
                             &:hover {
-                                cursor: pointer;
-                                
+                                text-shadow: 0;
+                            }
+                            .heading-hero {
+                                color: $color-white;
+                                font-size: 3.8rem;
+                                line-height: 1.1;
+                                margin: 0;
+
                                 /* Hero animation "back to 0" */
-                                @for $i from 0 through 15 {
-                                    $rondomTranslate: random(5) / 1.1;
-                                    span.span-#{$i} {
-                                        transform: rotate(0deg);
-                                        transition: transform #{$rondomTranslate}s;
-                                        .icon-lamp {
-                                            color: $color-link-hover;
-                                            text-shadow: 0 0 20px $color-link-hover;
+                                &:hover {
+                                    @for $i from 0 through 15 {
+                                        $rondomTranslate: random(5) / 1.1;
+                                        span.span-#{$i} {
+                                            transform: rotate(0deg);
+                                            transition: transform #{$rondomTranslate}s;
+                                            .icon-lamp {
+                                                color: $color-link-hover;
+                                                text-shadow: 0 0 8px $color-link-hover;
+                                            }
                                         }
                                     }
                                 }
-                            }
                                 @media (max-width: $media-small) {
                                     margin-left: 20px;
                                 }
@@ -123,64 +159,70 @@ html {
                                 @media (max-width: $media-small) and (orientation: landscape) {
                                     display: table-footer-group;
                                 }
-                            a {
-                                color: $transparent;
-                                text-shadow: 0 0 20px $color-text-shadow;
-                                .icon-lamp {
-                                    font-family: 'lamp' !important;
-                                    speak: none;
-                                    font-style: normal;
-                                    font-weight: normal;
-                                    font-variant: normal;
-                                    text-transform: none;
-                                    line-height: 1;
-                                    position: relative;
-                                    top: 8px;
-                                    color: #bcc8ce;
-                                    text-shadow: 0 0 16px $color-white;
-                                    transition: all 1.6s ease;
-                                    &:before {
-                                        content: "\e900";
+
+                                /* Hero animation start */
+                                @for $i from 0 through 15 {
+                                    $rondomAngle: random(360);
+                                    $rondomTranslate: random(5) / 1.1;
+                                    $opacity: random(9);
+                                    $shadow: random(12);
+                                    span.span-#{$i} {
+                                        opacity: #{'0.' + $opacity};
+                                        text-shadow: 0 0 #{$shadow}px #{$color-white};
+                                        color: rgba(188, 200, 206, 1);
+                                        display: inline-block;
+                                        transform: rotate(#{$rondomAngle + 360}deg);
+                                        transition: transform #{$rondomTranslate}s;
+                                        @media (max-width: $media-small) {
+                                            transform: rotate(0deg);
+                                        }
+                                        .icon-lamp {
+                                            font-family: 'lamp' !important;
+                                            speak: none;
+                                            font-style: normal;
+                                            font-weight: normal;
+                                            font-variant: normal;
+                                            text-transform: none;
+                                            line-height: 1;
+                                            position: relative;
+                                            top: 8px;
+                                            color: $color-white;
+                                            transition: all 1.6s ease;
+                                            @media (max-width: $media-small) {
+                                                color: $color-link-hover;
+                                                text-shadow: 0 0 8px $color-link-hover;
+                                            }
+                                            &:before {
+                                                content: "\e900";
+                                            }
+                                            &:hover {
+                                                color: $color-link-hover;
+                                                text-shadow: 0 0 8px $color-link-hover;
+                                            }
+                                        }
                                     }
-                                    &:hover {
-                                        color: $color-link-hover;
-                                        text-shadow: 0 0 8px $color-link-hover;
-                                    }
-                                }
-                                &:hover {
-                                    text-shadow: 0;
-                                }
-                            }
-                            /* Hero animation start */
-                            @for $i from 0 through 15 {
-                                $rondomAngle: random(360);
-                                $rondomTranslate: random(5) / 1.1;
-                                $opacity: random(9);
-                                $shadow: random(12);
-                                span.span-#{$i} {
-                                    opacity: #{'0.' + $opacity};
-                                    text-shadow: 0 0 #{$shadow}px #{$color-white};
-                                    color: rgba(188, 200, 206, 1);
-                                    display: inline-block;
-                                    transform: rotate(#{$rondomAngle + 360}deg);
-                                    transition: transform #{$rondomTranslate}s;
-                                }
-                            }
-                            .github {
-                                color: $color-white;
-                                text-shadow: 0 0 20px $color-white;
-                                font-size: 18px;
-                                &:hover {
-                                    text-shadow: 0 0 8px $color-text-shadow;
-                                    i {
-                                        color: $color-link-hover;
-                                        text-shadow: 0 0 16px $color-link-hover;
+                                    span.span-15 {
+                                        opacity: 1;
                                     }
                                 }
                             }
                         }
+                        // div {
+                        //     padding-left: 15px;
+                        //     .github {
+                        //         color: $color-white;
+                        //         text-shadow: 0 0 20px $color-white;
+                        //         font-size: 18px;
+                        //         &:hover {
+                        //             text-shadow: 0 0 8px $color-text-shadow;
+                        //             i {
+                        //                 color: $color-link-hover;
+                        //                 text-shadow: 0 0 16px $color-link-hover;
+                        //             }
+                        //         }
+                        //     }
+                        // }
                     }
-
                     /* Folio page */
                     .Folio {
                         height: -webkit-fill-available;
@@ -192,7 +234,6 @@ html {
                         display: block;
                         position: absolute;
                         overflow: hidden;
-
                         /* Toolbar */
                         .Toolbar {
                             position: absolute;
@@ -208,7 +249,6 @@ html {
                                 background-color: $color-white;
                             }
                         }
-
                         /* Collapse */
                         /* not active */
                         .ant-collapse {
@@ -250,7 +290,6 @@ html {
                                         right: 50px;
                                     }
                                 }
-
                                 /* Static content styles */
                                 .ant-collapse-content {
                                     background: $color-content-bg;
@@ -280,7 +319,7 @@ html {
                                                 font-size: 4vw;
                                             }
                                             p {
-                                                font-size: 3vw;  
+                                                font-size: 3vw;
                                             }
                                             .name {
                                                 margin-bottom: 5px;
@@ -307,7 +346,6 @@ html {
                                     }
                                 }
                             }
-
                             /* active content section */
                             .ant-collapse-item-active {
                                 height: 10vh;
@@ -320,31 +358,30 @@ html {
                                         font-size: 6vh;
                                     }
                                 }
-
                                 /* active content */
                                 .ant-collapse-content-active {
                                     min-height: 60vh;
                                     max-height: 60vh;
                                     overflow-y: auto;
-                                    &::-webkit-scrollbar              {
+                                    &::-webkit-scrollbar {
                                         background-color: $transparent;
                                     }
-                                    &::-webkit-scrollbar-button       {
+                                    &::-webkit-scrollbar-button {
                                         background-color: $transparent;
                                     }
-                                    &::-webkit-scrollbar-track        {
+                                    &::-webkit-scrollbar-track {
                                         background-color: $transparent;
                                     }
-                                    &::-webkit-scrollbar-track-piece  {
+                                    &::-webkit-scrollbar-track-piece {
                                         background-color: $transparent;
                                     }
-                                    &::-webkit-scrollbar-thumb        {
+                                    &::-webkit-scrollbar-thumb {
                                         background-color: $color-black;
                                     }
-                                    &::-webkit-scrollbar-corner       {
+                                    &::-webkit-scrollbar-corner {
                                         background-color: $transparent;
                                     }
-                                    &::-webkit-resizer                {
+                                    &::-webkit-resizer {
                                         background-color: $transparent;
                                     }
                                 }
@@ -358,6 +395,7 @@ html {
 }
 
 /* Mobile hide */
+
 @media only screen and ($media-small) {
     .mobile-show {
         display: block !important;
@@ -369,10 +407,10 @@ html {
 }
 
 /* landscape */
+
 @media screen and (orientation: landscape) {
     /* Folio page */
     .Folio {
-
         /* Collapse */
         /* not active */
         .ant-collapse {
@@ -413,7 +451,6 @@ html {
                         right: 50px;
                     }
                 }
-
                 /* Static content styles */
                 .ant-collapse-content {
                     font-size: 18px;
@@ -422,13 +459,10 @@ html {
                         width: 80%;
                         margin: 0 auto;
                         color: $color-white;
-                        .react-gravatar {
-
-                        }
+                        .react-gravatar {}
                     }
                 }
             }
-
             /* active content section */
             .ant-collapse-item-active {
                 height: 10vh;
@@ -441,7 +475,6 @@ html {
                         font-size: 6vh;
                     }
                 }
-
                 /* active content */
                 .ant-collapse-content-active {
                     min-height: 60vh;
@@ -453,12 +486,11 @@ html {
     }
 }
 
-
 /* portrait */
+
 @media screen and (orientation: portrait) {
     /* Folio page */
     .Folio {
-
         /* Collapse */
         /* not active */
         .ant-collapse {
@@ -496,7 +528,6 @@ html {
                         font-size: 10vh !important;
                     }
                 }
-
                 /* Static content styles */
                 .ant-collapse-content {
                     font-size: 18px;
@@ -513,7 +544,6 @@ html {
                     }
                 }
             }
-
             /* active content section */
             .ant-collapse-item-active {
                 .ant-collapse-header {

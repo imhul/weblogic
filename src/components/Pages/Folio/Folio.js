@@ -41,14 +41,13 @@ class Folio extends Component {
     render() {
         return (
             <div className="Folio">
-                <Toolbar />
                 { !this.state.loaded ? <Wave color="#fdd835" /> : 
                     <Collapse 
                         accordion 
                         destroyInactivePanel
                         onChange={ this.onCollapse } 
                         className={ this.state.active ? 'active' : null }
-                    >
+                    ><Toolbar />
                         { Texts.map(( load, index ) => (
                                 <Panel header={ load.name } key={ index }>
                                     <div onClick={this.onPanel}>

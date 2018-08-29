@@ -53,6 +53,17 @@ class Contact extends Component {
                     <br />Разработка и создание сайтов, SEO оптимизация, раскрутка и продвижение сайтов, а так же обучающие курсы по
                     созданию и продвижению сайтов.</p>
 
+                                    <div>
+                    <a
+                        href="https://github.com/imhul/weblogic"
+                        title="github project"
+                        className="github"
+                        target="_blank"
+                    >
+                        by Tkachuk Zakhar <Icon type="github" />
+                    </a>
+                </div>
+
             </div>
                 )
             }
