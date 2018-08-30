@@ -18,7 +18,6 @@ class Toolbar extends Component {
                 <LanguageConsumer>
                     {({ updateLanguage }) => (
                         <Switch 
-                            size="small" 
                             defaultChecked={ true }
                             onChange={ updateLanguage } 
                             unCheckedChildren="ru" 

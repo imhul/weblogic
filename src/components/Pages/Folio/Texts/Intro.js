@@ -24,10 +24,8 @@ class Intro extends Component {
         return (
             <div className="Intro content">
                 <Row gutter={24}>
-                    <Col span={6} style={{ maxHeight: '14vw'}}>
-                        <Gravatar email="blashirk@gmail.com" size={100} />
-                    </Col>
-                    <Col span={18} style={{ marginTop: 0}}>
+
+                    <Col span={24}>
                         <h2>
                             <Language
                                 dictionary={{
@@ -36,55 +34,68 @@ class Intro extends Component {
                                 }}
                             /> ;)
                         </h2>
+                    </Col>
 
-                        <Row gutter={24}>
-                            <Col span={12}>
-                                <p className="name">
-                                    <Language
-                                        dictionary={{
-                                            english: "Tkachuk Zakhar",
-                                            russian: "Ткачук Захар"
-                                        }}
-                                    />
-                                </p>
-                                <p className="italic">
-                                    <Language
-                                        dictionary={{
-                                            english: "front-end developer",
-                                            russian: "фронт-энд разработчик"
-                                        }}
-                                    />
-                                </p>
-                            </Col>
+                    <Col span={24}>
+                        <Language
+                            dictionary={{
+                                english: <span>Using new technologies, such as <mark> React </mark> or <mark> Hyperapp </mark> always gives inspiration. I prefer non-standard <mark>UI</mark> and <mark>UX</mark> solutions, taking as a basis the concept of <mark>Material Design</mark></span>,
+                                russian: <span>Использование новых технологий, таких как <mark>React</mark> или <mark>Hyperapp</mark> всегда даёт вдохновение. Я предпочитаю нестандартные <mark>UI</mark> и <mark>UX</mark> решения, беря за основу концепции <mark>Material Design</mark></span>
+                            }}
+                        />
+                    </Col>
 
-                            <Col span={12}>
-                                <a 
-                                    className="ant-btn ant-btn-background-ghost"
-                                    target='_blank'
-                                    href='https://www.linkedin.com/in/tkachuk-zakhar-04733892/'
-                                    title="my linkedin page">
-                                    <Icon type='linkedin' />
-                                    <Language
-                                        dictionary={{
-                                            english: "summary",
-                                            russian: "Резюме"
-                                        }}
-                                    />
-                                </a>
-                            </Col>
-                        </Row>
+                    <Col span={24} style={{ height: '90px'}}>
+                        <Gravatar email="blashirk@gmail.com" size={100} />
+                    </Col>
+
+                    <Col span={24} style={{ marginTop: 0}}>
+                        <p className="name">
+                            <Language
+                                dictionary={{
+                                    english: "Tkachuk Zakhar",
+                                    russian: "Ткачук Захар"
+                                }}
+                            />
+                        </p>
+                        <p className="italic">
+                            <Language
+                                dictionary={{
+                                    english: "front-end developer",
+                                    russian: "фронт-энд разработчик"
+                                }}
+                            />
+                        </p>
+                    </Col>
+
+                    <Col span={12} className="left-btn">
+                        <a 
+                            title="my linkedin page"
+                            href='https://www.linkedin.com/in/tkachuk-zakhar-04733892/'
+                            className="ant-btn ant-btn-background-ghost"
+                            target='_blank'
+                        >
+                            <Icon type='linkedin' />
+                            <Language
+                                dictionary={{
+                                    english: "summary",
+                                    russian: "Резюме"
+                                }}
+                            />
+                        </a>
+                    </Col>
+
+                    <Col span={12} className="right-btn">
+                        <a
+                            title="github project"
+                            href="https://github.com/imhul/weblogic"
+                            className="ant-btn ant-btn-background-ghost"
+                            target="_blank"
+                        >
+                            <Icon type="github" /> github
+                        </a>
                     </Col>
                 </Row>
-
-                <p>
-                    <Language
-                        dictionary={{
-                            english: <span>Having gone a long way, having gained experience, I chose the best of modern technologies for creating my products. I create sites and applications, drawing inspiration from the <mark>Material Design</mark> concept and <mark>React</mark> library for building user interfaces.</span>,
-                            russian: <span>Пройдя длинный путь, получив опыт, я выбрал лучшие из современных технологий для создания своих продуктов. Я создаю сайты и приложения, черпая вдохновение из концепции <mark>Material Design</mark> и использую <mark>React</mark> для создания пользовательских интерфейсов.</span>
-                        }}
-                    />
-                </p>
-
             </div>
         )
     }

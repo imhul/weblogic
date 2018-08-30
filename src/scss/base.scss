@@ -140,7 +140,7 @@ svg {
                                             transition: transform #{$rondomTranslate}s;
                                             .icon-lamp {
                                                 color: $color-link-hover;
-                                                text-shadow: 0 0 8px $color-link-hover;
+                                                text-shadow: 0 0 20px $color-link-hover;
                                             }
                                         }
                                     }
@@ -190,14 +190,14 @@ svg {
                                             transition: all 1.6s ease;
                                             @media (max-width: $media-small) {
                                                 color: $color-link-hover;
-                                                text-shadow: 0 0 8px $color-link-hover;
+                                                text-shadow: 0 0 20px $color-link-hover;
                                             }
                                             &:before {
                                                 content: "\e900";
                                             }
                                             &:hover {
                                                 color: $color-link-hover;
-                                                text-shadow: 0 0 8px $color-link-hover;
+                                                text-shadow: 0 0 20px $color-link-hover;
                                             }
                                         }
                                     }
@@ -234,19 +234,34 @@ svg {
                         display: block;
                         position: absolute;
                         overflow: hidden;
+                        .PreLoading-Wave {
+                            & > * {
+                                text-shadow: 0 0 8px $color-link-hover;
+                            }
+                        }
                         /* Toolbar */
                         .Toolbar {
                             position: absolute;
-                            top: 0;
-                            right: 0px;
-                            padding: 10px;
+                            top: -10px;
+                            right: -10px;
+                            width: 60px;
+                            height: 60px;
+                            padding: 20px 0px 0 0;
+                            background-color: rgba(0,0,0,0.2);
                             border-top: 0;
+                            border-radius: 50%;
                             z-index: 10;
+                            &:hover {
+                                .ant-switch {
+                                    text-shadow: 0 0 8px $color-white;
+                                }
+                            }
                             .ant-switch {
                                 line-height: 1;
-                            }
-                            .ant-switch-checked {
-                                background-color: $color-white;
+                                background-color: $transparent;
+                                .ant-switch-inner {
+                                    font-size: 16px;
+                                }
                             }
                         }
                         /* Collapse */
@@ -283,6 +298,9 @@ svg {
                                     line-height: 16vh;
                                     font-size: 18vh;
                                     color: $color-white;
+                                    &:hover {
+                                        text-shadow: 0 0 20px $color-white;
+                                    }
                                     i {
                                         line-height: 25vh;
                                         font-size: 13vh;
@@ -302,44 +320,89 @@ svg {
                                         background: $color-content-bg-hover;
                                     }
                                     .ant-collapse-content-box {
-                                        padding: 80px 0;
-                                        height: 100%;
+                                        position: relative;
+                                        top: 110px;
+                                        height: auto;
+                                        padding: 0;
+                                        margin: 0 auto 50px auto;
+                                        @media (max-width: $media-small) {
+                                            top: 50px;
+                                        }
                                         .content {
                                             max-width: 100%;
                                             width: 80%;
                                             margin: 0 auto;
                                             color: $color-white;
-                                            .react-gravatar {
-                                                border-radius: 50%;
-                                                height: 100%;
-                                                width: auto;
-                                            }
-                                            h2 {
-                                                color: $color-white;
-                                                font-size: 4vw;
-                                            }
-                                            p {
-                                                font-size: 3vw;
-                                            }
-                                            .name {
-                                                margin-bottom: 5px;
-                                            }
-                                            .italic {
-                                                font-size: 14px;
-                                                font-weight: 100;
-                                                font-style: italic;
-                                                margin-top: 0;
-                                            }
-                                            mark {
-                                                background-color: $transparent;
-                                                color: $color-link-hover;
-                                            }
-                                            .ant-btn-background-ghost {
-                                                color: $color-white;
-                                                border-color: $color-white;
-                                                text-decoration: none;
-                                                i {
-                                                    margin-right: 10px;
+                                            & > div {
+                                                text-align: center;
+                                                .react-gravatar {
+                                                    border-radius: 50%;
+                                                    height: 100%;
+                                                    width: auto;
+                                                }
+                                                h2 {
+                                                    color: $color-white;
+                                                    font-size: 4vw;
+                                                    text-align: center;
+                                                    @media (max-width: $media-small) {
+                                                        font-size: 7vw;
+                                                    }
+                                                }
+                                                p, span {
+                                                    font-size: 3vw;
+                                                    line-height: 4vw;
+                                                    @media (max-width: $media-small) {
+                                                        font-size: 5vw;
+                                                        line-height: 8vw;
+                                                    }
+                                                }
+                                                .name {
+                                                    margin: 10px 0 0;
+                                                }
+                                                .italic {
+                                                    font-size: 2vw;
+                                                    font-weight: 100;
+                                                    font-style: italic;
+                                                    margin-top: 0;
+                                                    @media (max-width: $media-small) {
+                                                        font-size: 4vw;
+                                                    }
+                                                }
+                                                mark {
+                                                    background-color: $transparent;
+                                                    color: $color-link-hover;
+                                                }
+                                                .ant-btn-background-ghost {
+                                                    color: $color-white;
+                                                    border-color: $color-white;
+                                                    text-decoration: none;
+                                                    &:hover {
+                                                        text-shadow: 0 0 20px $color-white;
+                                                    }
+                                                    i {
+                                                        margin-right: 5px;
+                                                    }
+                                                }
+                                                // .github {
+                                                //     color: $color-white;
+                                                //     text-shadow: 0 0 20px $color-white;
+                                                //     font-size: 18px;
+                                                //     &:hover {
+                                                //         text-shadow: 0 0 8px $color-text-shadow;
+                                                //         i {
+                                                //             color: $color-link-hover;
+                                                //             text-shadow: 0 0 20px $color-link-hover;
+                                                //         }
+                                                //     }
+                                                // }
+                                                .left-btn {
+                                                    text-align: right;
+                                                }
+                                                .right-btn {
+                                                    text-align: left;
+                                                }
+                                                .right-btn, .left-btn {
+                                                    margin: 0;
                                                 }
                                             }
                                         }
@@ -395,7 +458,6 @@ svg {
 }
 
 /* Mobile hide */
-
 @media only screen and ($media-small) {
     .mobile-show {
         display: block !important;
@@ -407,7 +469,6 @@ svg {
 }
 
 /* landscape */
-
 @media screen and (orientation: landscape) {
     /* Folio page */
     .Folio {
@@ -459,7 +520,6 @@ svg {
                         width: 80%;
                         margin: 0 auto;
                         color: $color-white;
-                        .react-gravatar {}
                     }
                 }
             }
@@ -487,7 +547,6 @@ svg {
 }
 
 /* portrait */
-
 @media screen and (orientation: portrait) {
     /* Folio page */
     .Folio {
@@ -538,7 +597,6 @@ svg {
                             color: $color-white;
                             .react-gravatar {
                                 border-radius: 50%;
-                                margin-top: 25px;
                             }
                         }
                     }
