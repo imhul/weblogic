@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Icon } from 'antd';
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
-
     render() {
         return (
             <div className="Home">
-                <Link to="/folio">
+                <Link to="/folio" id="folio">
                     <h1 className="mobile-fix heading-hero">
                         <span className="span-0">W</span>
                         <span className="span-1">e</span>

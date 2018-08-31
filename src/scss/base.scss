@@ -207,22 +207,8 @@ svg {
                                 }
                             }
                         }
-                        // div {
-                        //     padding-left: 15px;
-                        //     .github {
-                        //         color: $color-white;
-                        //         text-shadow: 0 0 20px $color-white;
-                        //         font-size: 18px;
-                        //         &:hover {
-                        //             text-shadow: 0 0 8px $color-text-shadow;
-                        //             i {
-                        //                 color: $color-link-hover;
-                        //                 text-shadow: 0 0 16px $color-link-hover;
-                        //             }
-                        //         }
-                        //     }
-                        // }
                     }
+
                     /* Folio page */
                     .Folio {
                         height: -webkit-fill-available;
@@ -239,6 +225,7 @@ svg {
                                 text-shadow: 0 0 8px $color-link-hover;
                             }
                         }
+
                         /* Toolbar */
                         .Toolbar {
                             position: absolute;
@@ -264,6 +251,7 @@ svg {
                                 }
                             }
                         }
+
                         /* Collapse */
                         /* not active */
                         .ant-collapse {
@@ -383,18 +371,6 @@ svg {
                                                         margin-right: 5px;
                                                     }
                                                 }
-                                                // .github {
-                                                //     color: $color-white;
-                                                //     text-shadow: 0 0 20px $color-white;
-                                                //     font-size: 18px;
-                                                //     &:hover {
-                                                //         text-shadow: 0 0 8px $color-text-shadow;
-                                                //         i {
-                                                //             color: $color-link-hover;
-                                                //             text-shadow: 0 0 20px $color-link-hover;
-                                                //         }
-                                                //     }
-                                                // }
                                                 .left-btn {
                                                     text-align: right;
                                                 }

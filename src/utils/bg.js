@@ -1700,42 +1700,43 @@ var Stats = function () {
 
 };
 
-// function updateAll() {
-//     var count_parts, stats, update;
-//     stats = new Stats;
-//     stats.setMode(0);
-//     document.body.appendChild(stats.domElement);
-//     count_parts = document.querySelector('.js-count-parts');
+function updateAll() {
+    let count_parts, stats, update;
+    const containerMain = document.querySelector('.count-parts');
+    const partsDesc = document.createElement( 'div' );
+    const folio = document.getElementById('folio');
+    const counterLeft = document.getElementById('data-counters');
+    const counterRight = document.getElementById('stats');
 
-//     var containerMain = document.querySelector('.count-parts');
-//     var partsDesc = document.createElement( 'div' );
-//     partsDesc.id = 'partsDesc';
-//     partsDesc.innerHTML = 'parts';
-//     containerMain.appendChild( partsDesc );
+    stats = new Stats;
+    stats.setMode(0);
+    document.body.appendChild(stats.domElement);
+    count_parts = document.querySelector('.js-count-parts');
+    partsDesc.id = 'partsDesc';
+    partsDesc.innerHTML = 'parts';
+    containerMain.appendChild( partsDesc );
 
-//     update = function() {
-//         stats.begin();
-//         stats.end();
-//         if (window.bgJSDom[0].bgJS.parts && window.bgJSDom[0].bgJS.parts.array) {
-//             count_parts.innerText = window.bgJSDom[0].bgJS.parts.array.length;
-//         }
-//         requestAnimationFrame(update);
-//     };
-//     requestAnimationFrame(update);
-// }
+    update = function() {
+        stats.begin();
+        stats.end();
+        if (window.bgJSDom[0].bgJS.parts && window.bgJSDom[0].bgJS.parts.array) {
+            count_parts.innerText = window.bgJSDom[0].bgJS.parts.array.length;
+        }
+        requestAnimationFrame(update);
+    };
 
-// document.addEventListener("DOMContentLoaded", function() {
-    
-//     var containerLeft = document.querySelector('.count-parts');
-//     var containerRight = document.querySelector('#fps');
+    requestAnimationFrame(update);
 
-//         if(window.location.pathname !== "/folio") {
-//             containerLeft.style.cssText = 'display: block';
-//             containerRight.style.cssText = 'display: block';
-//             updateAll();
-//         } else if(window.location.pathname === "/folio") {
-//             containerLeft.style.cssText = 'display: none';
-//             containerRight.style.cssText = 'display: none';
-//         }
-// });
+    if( folio ) {
+        folio.addEventListener('click', () => {
+            if( folio.length > 0 ) return;
+            // TODO: remove counters by click on the hero
+            counterLeft.classList.add('hidden');
+            counterRight.classList.add('hidden');
+        })
+    };
+}
+
+
+document.addEventListener("DOMContentLoaded", updateAll());
 
