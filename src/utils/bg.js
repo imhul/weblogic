@@ -1704,39 +1704,51 @@ function updateAll() {
     let count_parts, stats, update;
     const containerMain = document.querySelector('.count-parts');
     const partsDesc = document.createElement( 'div' );
-    const folio = document.getElementById('folio');
     const counterLeft = document.getElementById('data-counters');
     const counterRight = document.getElementById('stats');
 
-    stats = new Stats;
-    stats.setMode(0);
-    document.body.appendChild(stats.domElement);
-    count_parts = document.querySelector('.js-count-parts');
-    partsDesc.id = 'partsDesc';
-    partsDesc.innerHTML = 'parts';
-    containerMain.appendChild( partsDesc );
+    if( window.location.pathname === '/folio' && counterLeft && counterRight ) {
+        console.log("remove counters by window.location.pathname", window.location.pathname);
+        counterLeft.remove();
+        counterRight.remove();
+        containerMain.remove();
+    } else {
+        stats = new Stats;
+        stats.setMode(0);
+        document.body.appendChild(stats.domElement);
+        count_parts = document.querySelector('.js-count-parts');
+        partsDesc.id = 'partsDesc';
+        partsDesc.innerHTML = 'parts';
+        containerMain.appendChild( partsDesc );
+    }
 
     update = function() {
-        stats.begin();
-        stats.end();
-        if (window.bgJSDom[0].bgJS.parts && window.bgJSDom[0].bgJS.parts.array) {
-            count_parts.innerText = window.bgJSDom[0].bgJS.parts.array.length;
+        if(stats) {
+            stats.begin();
+            stats.end();
+            if (window.bgJSDom[0].bgJS.parts && window.bgJSDom[0].bgJS.parts.array) {
+                count_parts.innerText = window.bgJSDom[0].bgJS.parts.array.length;
+            }
+            requestAnimationFrame(update);
         }
-        requestAnimationFrame(update);
     };
-
     requestAnimationFrame(update);
 
-    if( folio ) {
-        folio.addEventListener('click', () => {
-            if( folio.length > 0 ) return;
-            // TODO: remove counters by click on the hero
-            counterLeft.classList.add('hidden');
-            counterRight.classList.add('hidden');
-        })
-    };
+    window.addEventListener('click', (e) => {
+        const target = e.target.className;
+        if( target === "mobile-fix heading-hero" ) {
+            console.log("remove counters by click");
+            counterLeft.remove();
+            counterRight.remove();
+        } else {
+            console.log("some one else click");
+        }
+    });
 }
 
-
 document.addEventListener("DOMContentLoaded", updateAll());
+
+if( window.location.pathname === '/folio') updateAll();
+
+
 
