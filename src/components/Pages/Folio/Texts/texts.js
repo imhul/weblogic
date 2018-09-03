@@ -11,6 +11,7 @@ const texts = [
                 english: "Introduce",
                 russian: "Вступление"
         }} />,
+        key: 1,
         text: () => <Intro />
     },
     {
@@ -18,6 +19,7 @@ const texts = [
             english: "About",
             russian: "Обо мне"
     }} />,
+        key: 2,
         text: () => <About />
     },
     {
@@ -25,6 +27,7 @@ const texts = [
             english: "Works",
             russian: "Работы"
     }} />,
+        key: 3,
         text: () => <Works />
     },
     {
@@ -32,6 +35,7 @@ const texts = [
             english: "Contacts",
             russian: "Контакты"
     }} />,
+        key: 4,
         text: () => <Contact />
     }
 ];

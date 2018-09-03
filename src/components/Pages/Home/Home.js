@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Home extends Component {
     render() {
         return (
-            <div className="Home" id="folio">
+            <div className="Home">
                 <Link to="/folio">
                     <h1 className="mobile-fix heading-hero">
                         <span className="span-0">W</span>

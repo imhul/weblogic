@@ -18,36 +18,36 @@ class Contact extends Component {
     render() {
         return (
             <div className="container">
-                <h2 class="uk-text-center">Connect with us</h2>
+                <h2 className="uk-text-center">Connect with us</h2>
 
-                <div class="uk-margin-bottom" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                    <ul class="uk-list">
+                <div className="uk-margin-bottom" itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
+                    <ul className="uk-list">
                         <li>
-                            <div class="uk-clearfix">
-                                <div class="uk-float-right">
-                                    <a href="" onclick="event.preventDefault()" id="copy-mail" class="uk-button uk-button-default uk-button-small center msgs"
+                            <div className="uk-clearfix">
+                                <div className="uk-float-right">
+                                    <a href="" id="copy-mail" className="uk-button uk-button-default uk-button-small center msgs"
                                         data-message="<span uk-icon='icon: check'></span> Mail is copied ;)">Copy to clipboard</a>
                                 </div>
-                                <div class="uk-float-left">
-                                    <span id="decoded-mail" class="mobile-fix uk-margin-bottom uk-display-block uk-text-center"></span>
+                                <div className="uk-float-left">
+                                    <span id="decoded-mail" className="mobile-fix uk-margin-bottom uk-display-block uk-text-center"></span>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <div class="uk-clearfix">
-                                <div class="uk-float-right">
-                                    <a href="" onclick="event.preventDefault()" id="copy-phone" class="uk-button uk-button-default uk-button-small center msgs"
+                            <div className="uk-clearfix">
+                                <div className="uk-float-right">
+                                    <a href="" id="copy-phone" className="uk-button uk-button-default uk-button-small center msgs"
                                         data-message="<span uk-icon='icon: check'></span> Phone is copied ;)">Copy to clipboard</a>
                                 </div>
-                                <div class="uk-float-left">
-                                    <span id="decoded-phone" class="mobile-fix uk-margin-bottom uk-display-block uk-text-center"></span>
+                                <div className="uk-float-left">
+                                    <span id="decoded-phone" className="mobile-fix uk-margin-bottom uk-display-block uk-text-center"></span>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
 
-                <p class="" itemprop="description">
+                <p className="" itemProp="description">
                     Development, design and creation of sites, SEO optimization, website promotion, as well as training courses on the creation
                     and promotion of sites.
                     <br />Разработка и создание сайтов, SEO оптимизация, раскрутка и продвижение сайтов, а так же обучающие курсы по

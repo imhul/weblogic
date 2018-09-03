@@ -5,8 +5,6 @@ import Texts from './Texts';
 import Toolbar from './Toolbar';
 
 const Panel = Collapse.Panel;
-const counterLeft = document.getElementById('data-counters');
-const counterRight = document.getElementById('stats');
 
 class Folio extends Component {
     constructor(props) {
@@ -22,11 +20,6 @@ class Folio extends Component {
         setTimeout(() => this.setState({
             loaded: true
         }), 2000);
-        if( counterLeft && counterRight ) {
-            console.log("REMOVED");
-            counterLeft.remove();
-            counterRight.remove();
-        }
     }
 
     onCollapse(event) {
@@ -54,9 +47,10 @@ class Folio extends Component {
                         destroyInactivePanel
                         onChange={ this.onCollapse } 
                         className={ this.state.active ? 'active' : null }
-                    ><Toolbar />
-                        { Texts.map(( load, index ) => (
-                                <Panel header={ load.name } key={ index }>
+                    >
+                        <Toolbar key={0} />
+                        { Texts.map(( load ) => (
+                                <Panel header={ load.name } key={ load.key }>
                                     <div onClick={this.onPanel}>
                                         { load.text() }
                                     </div>
