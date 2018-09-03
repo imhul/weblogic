@@ -1442,7 +1442,7 @@ window.backgroundJS = function(tag_id, params){
   }
 
   /* bgJS elements */
-  var pJS_tag = document.getElementById(tag_id),
+  const pJS_tag = document.getElementById(tag_id),
       pJS_canvas_class = 'bg-app-canvas-el',
       exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
 
@@ -1454,7 +1454,7 @@ window.backgroundJS = function(tag_id, params){
   }
 
   /* create canvas element */
-  var canvas_el = document.createElement('canvas');
+  const canvas_el = document.createElement('canvas');
   canvas_el.className = pJS_canvas_class;
 
   /* set size canvas */
@@ -1462,7 +1462,7 @@ window.backgroundJS = function(tag_id, params){
   canvas_el.style.height = "100%";
 
   /* append canvas */
-  var canvas = document.getElementById(tag_id).appendChild(canvas_el);
+  const canvas = document.getElementById(tag_id).appendChild(canvas_el);
 
   /* launch particle.js */
   if(canvas != null){
@@ -1474,7 +1474,7 @@ window.backgroundJS = function(tag_id, params){
 window.backgroundJS.load = function(tag_id, path_config_json, callback){
 
   /* load json config */
-  var xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.open('GET', path_config_json);
   xhr.onreadystatechange = function (data) {
     if(xhr.readyState == 4){
@@ -1619,33 +1619,33 @@ backgroundJS('bg-app',
 
 var Stats = function () {
 
-	var startTime = Date.now(), prevTime = startTime;
-	var ms = 0, msMin = Infinity, msMax = 0;
-	var fps = 0, fpsMin = Infinity, fpsMax = 0;
-	var frames = 0, mode = 0;
+	let startTime = Date.now(), prevTime = startTime;
+	let ms = 0, msMin = Infinity, msMax = 0;
+	let fps = 0, fpsMin = Infinity, fpsMax = 0;
+	let frames = 0;
 
-	var container = document.createElement( 'div' );
+	const container = document.createElement( 'div' );
 	container.id = 'stats';
 
-	var fpsDiv = document.createElement( 'div' );
+	const fpsDiv = document.createElement( 'div' );
 	fpsDiv.id = 'fps';
 	container.appendChild( fpsDiv );
 
-	var fpsDesc = document.createElement( 'div' );
+	const fpsDesc = document.createElement( 'div' );
     fpsDesc.id = 'fpsDesc';
     fpsDesc.textContent = "fps";
     fpsDiv.appendChild( fpsDesc );
     
-    var fpsText = document.createElement( 'div' );
+    const fpsText = document.createElement( 'div' );
 	fpsText.id = 'fpsText';
 	fpsDiv.appendChild( fpsText );
 
-	var setMode = function() {
+	const setMode = function() {
 		fpsDiv.style.display = 'block';
 	};
 
-	var updateGraph = function ( dom, value ) {
-		var child = dom.appendChild( dom.firstChild );
+	const updateGraph = function ( dom, value ) {
+		const child = dom.appendChild( dom.firstChild );
 		child.style.height = value + 'px';
 	};
 
@@ -1665,7 +1665,7 @@ var Stats = function () {
 
 		end: function () {
 
-			var time = Date.now();
+			const time = Date.now();
 
 			ms = time - startTime;
 			msMin = Math.min( msMin, ms );
@@ -1704,23 +1704,14 @@ function updateAll() {
     let count_parts, stats, update;
     const containerMain = document.querySelector('.count-parts');
     const partsDesc = document.createElement( 'div' );
-    const counterLeft = document.getElementById('data-counters');
-    const counterRight = document.getElementById('stats');
 
-    if( window.location.pathname === '/folio' && counterLeft && counterRight ) {
-        console.log("remove counters by window.location.pathname", window.location.pathname);
-        counterLeft.remove();
-        counterRight.remove();
-        containerMain.remove();
-    } else {
-        stats = new Stats;
-        stats.setMode(0);
-        document.body.appendChild(stats.domElement);
-        count_parts = document.querySelector('.js-count-parts');
-        partsDesc.id = 'partsDesc';
-        partsDesc.innerHTML = 'parts';
-        containerMain.appendChild( partsDesc );
-    }
+    stats = new Stats;
+    stats.setMode(0);
+    document.body.appendChild(stats.domElement);
+    count_parts = document.querySelector('.js-count-parts');
+    partsDesc.id = 'partsDesc';
+    partsDesc.innerHTML = 'parts';
+    containerMain.appendChild( partsDesc );
 
     update = function() {
         if(stats) {
@@ -1733,22 +1724,11 @@ function updateAll() {
         }
     };
     requestAnimationFrame(update);
-
-    window.addEventListener('click', (e) => {
-        const target = e.target.className;
-        if( target === "mobile-fix heading-hero" ) {
-            console.log("remove counters by click");
-            counterLeft.remove();
-            counterRight.remove();
-        } else {
-            console.log("some one else click");
-        }
-    });
 }
 
-document.addEventListener("DOMContentLoaded", updateAll());
-
-if( window.location.pathname === '/folio') updateAll();
+document.addEventListener("DOMContentLoaded", function() {
+    if(window.location.pathname !== '/folio') updateAll()
+});
 
 
 

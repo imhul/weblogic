@@ -5,6 +5,8 @@ import Texts from './Texts';
 import Toolbar from './Toolbar';
 
 const Panel = Collapse.Panel;
+const counterLeft = document.getElementById('data-counters');
+const counterRight = document.getElementById('stats');
 
 class Folio extends Component {
     constructor(props) {
@@ -19,7 +21,12 @@ class Folio extends Component {
     componentDidMount() {
         setTimeout(() => this.setState({
             loaded: true
-        }), 2000)
+        }), 2000);
+        if( counterLeft && counterRight ) {
+            console.log("REMOVED");
+            counterLeft.remove();
+            counterRight.remove();
+        }
     }
 
     onCollapse(event) {
