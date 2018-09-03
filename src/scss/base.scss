@@ -308,6 +308,7 @@ svg {
                                         background: $color-content-bg-hover;
                                     }
                                     .ant-collapse-content-box {
+                                        width: 100%;
                                         position: relative;
                                         top: 110px;
                                         height: auto;
@@ -380,6 +381,21 @@ svg {
                                                 .right-btn, .left-btn {
                                                     margin: 0;
                                                 }
+                                            }
+                                            .ant-list-item-content {
+                                                font-size: 3vw;
+                                                line-height: 0;
+                                                margin-top: 0;
+                                                a {
+                                                    i {
+                                                        margin-left: 25px;
+                                                        font-size: 3vw;
+                                                    }
+                                                }
+
+                                            }
+                                            .ant-list-item-meta {
+                                                font-size: 3vw;
                                             }
                                         }
                                     }
