@@ -57,7 +57,7 @@ svg {
     -webkit-user-select: none !important;
     -ms-user-select: none !important;
     user-select: none !important;
-    outline: none !important; 
+    outline: none !important;
 }
 
 .icon-lamp {
@@ -130,7 +130,6 @@ svg {
                                 font-size: 3.8rem;
                                 line-height: 1.1;
                                 margin: 0;
-
                                 /* Hero animation "back to 0" */
                                 &:hover {
                                     @for $i from 0 through 15 {
@@ -159,7 +158,6 @@ svg {
                                 @media (max-width: $media-small) and (orientation: landscape) {
                                     display: table-footer-group;
                                 }
-
                                 /* Hero animation start */
                                 @for $i from 0 through 15 {
                                     $rondomAngle: random(360);
@@ -208,7 +206,6 @@ svg {
                             }
                         }
                     }
-
                     /* Folio page */
                     .Folio {
                         height: -webkit-fill-available;
@@ -221,11 +218,10 @@ svg {
                         position: absolute;
                         overflow: hidden;
                         .PreLoading-Wave {
-                            & > * {
+                            &>* {
                                 text-shadow: 0 0 8px $color-link-hover;
                             }
                         }
-
                         /* Toolbar */
                         .Toolbar {
                             position: absolute;
@@ -234,7 +230,7 @@ svg {
                             width: 60px;
                             height: 60px;
                             padding: 20px 0px 0 0;
-                            background-color: rgba(0,0,0,0.2);
+                            background-color: rgba(0, 0, 0, 0.2);
                             border-top: 0;
                             border-radius: 50%;
                             z-index: 10;
@@ -251,7 +247,6 @@ svg {
                                 }
                             }
                         }
-
                         /* Collapse */
                         /* not active */
                         .ant-collapse {
@@ -303,17 +298,18 @@ svg {
                                     color: $color-white;
                                     display: flex;
                                     justify-content: center;
-                                    align-items: center;
+                                    align-items: normal;
                                     &:hover {
                                         background: $color-content-bg-hover;
                                     }
                                     .ant-collapse-content-box {
                                         width: 100%;
                                         position: relative;
-                                        top: 110px;
+                                        top: 50px;
                                         height: auto;
                                         padding: 0;
-                                        margin: 0 auto 50px auto;
+                                        margin: 0 auto 50px;
+                                        display: table;
                                         @media (max-width: $media-small) {
                                             top: 50px;
                                         }
@@ -322,82 +318,125 @@ svg {
                                             width: 80%;
                                             margin: 0 auto;
                                             color: $color-white;
-                                            & > div {
+                                            &>div {
                                                 text-align: center;
-                                                .react-gravatar {
-                                                    border-radius: 50%;
-                                                    height: 100%;
-                                                    width: auto;
-                                                }
-                                                h2 {
-                                                    color: $color-white;
-                                                    font-size: 4vw;
-                                                    text-align: center;
-                                                    @media (max-width: $media-small) {
-                                                        font-size: 7vw;
-                                                    }
-                                                }
-                                                p, span {
-                                                    font-size: 3vw;
-                                                    line-height: 4vw;
-                                                    @media (max-width: $media-small) {
-                                                        font-size: 5vw;
-                                                        line-height: 8vw;
-                                                    }
-                                                }
-                                                .name {
-                                                    margin: 10px 0 0;
-                                                }
-                                                .italic {
-                                                    font-size: 2vw;
-                                                    font-weight: 100;
-                                                    font-style: italic;
-                                                    margin-top: 0;
-                                                    @media (max-width: $media-small) {
-                                                        font-size: 4vw;
-                                                    }
-                                                }
-                                                mark {
-                                                    background-color: $transparent;
-                                                    color: $color-link-hover;
-                                                }
-                                                .ant-btn-background-ghost {
-                                                    color: $color-white;
-                                                    border-color: $color-white;
-                                                    text-decoration: none;
-                                                    &:hover {
-                                                        text-shadow: 0 0 20px $color-white;
-                                                    }
-                                                    i {
-                                                        margin-right: 5px;
-                                                    }
-                                                }
-                                                .left-btn {
-                                                    text-align: right;
-                                                }
-                                                .right-btn {
-                                                    text-align: left;
-                                                }
-                                                .right-btn, .left-btn {
-                                                    margin: 0;
-                                                }
-                                            }
-                                            .ant-list-item-content {
-                                                font-size: 3vw;
-                                                line-height: 0;
-                                                margin-top: 0;
-                                                a {
-                                                    i {
-                                                        margin-left: 25px;
-                                                        font-size: 3vw;
-                                                    }
-                                                }
-
-                                            }
-                                            .ant-list-item-meta {
-                                                font-size: 3vw;
                                             }
                                         }
+                                        /* Intro */
+                                        .Intro {
+                                            .react-gravatar {
+                                                border-radius: 50%;
+                                                height: 100%;
+                                                width: auto;
+                                            }
+                                            h2 {
+                                                color: $color-white;
+                                                font-size: 4vw;
+                                                text-align: center;
+                                                @media (max-width: $media-small) {
+                                                    font-size: 7vw;
+                                                }
+                                            }
+                                            p,
+                                            span {
+                                                font-size: 3vw;
+                                                line-height: 4vw;
+                                                @media (max-width: $media-small) {
+                                                    font-size: 5vw;
+                                                    line-height: 8vw;
+                                                }
+                                            }
+                                            .name {
+                                                margin: 10px 0 0;
+                                            }
+                                            .italic {
+                                                font-size: 2vw;
+                                                font-weight: 100;
+                                                font-style: italic;
+                                                margin-top: 0;
+                                                @media (max-width: $media-small) {
+                                                    font-size: 4vw;
+                                                }
+                                            }
+                                            mark {
+                                                background-color: $transparent;
+                                                color: $color-link-hover;
+                                            }
+                                            .ant-btn-background-ghost {
+                                                color: $color-white;
+                                                border-color: $color-white;
+                                                text-decoration: none;
+                                                &:hover {
+                                                    text-shadow: 0 0 20px $color-white;
+                                                }
+                                                i {
+                                                    margin-right: 5px;
+                                                }
+                                            }
+                                            .left-btn {
+                                                text-align: right;
+                                            }
+                                            .right-btn {
+                                                text-align: left;
+                                            }
+                                            .right-btn,
+                                            .left-btn {
+                                                margin: 0;
+                                            }
+                                        }
+                                        /* About */
+                                        .About {}
+                                        /* Works */
+                                        .Works {
+                                            .ant-list {
+                                                color: $color-white;
+                                                .ant-list-item-content {
+                                                    font-size: 18px;
+                                                    line-height: 0;
+                                                    margin-top: 0;
+                                                    a {
+                                                        text-decoration: none;
+                                                        color: $color-white;
+                                                        &:hover {
+                                                            color: $color-link-hover;
+                                                        }
+                                                        i {
+                                                            margin-left: 25px;
+                                                            font-size: 18px;
+                                                            @media all and (max-width: $media-small) {
+                                                                margin: 20px;
+                                                            }
+                                                        }
+                                                    }
+                                                    h4 {
+                                                        font-size: 18px;
+                                                    }
+                                                }
+                                                .ant-list-item-meta {
+                                                    font-size: 18px;
+                                                    .ant-list-item-meta-title {
+                                                        color: $color-white;
+                                                    }
+                                                }
+                                                .ant-list-header {
+                                                    font-size: 18px;
+                                                    font-weight: 100;
+                                                    .ant-row {
+                                                        &>div {
+                                                            margin: 0;
+                                                        }
+                                                    }
+                                                }
+                                                .ant-spin-nested-loading {
+                                                    margin: 0;
+                                                    .ant-list-item {
+                                                        margin: 0;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        /* Contact */
+                                        .Contact {}
                                     }
                                 }
                             }
@@ -450,7 +489,8 @@ svg {
 }
 
 /* Mobile hide */
-@media only screen and ($media-small) {
+
+@media only screen and (max-width: $media-small) {
     .mobile-show {
         display: block !important;
         max-height: unset !important;
@@ -461,6 +501,7 @@ svg {
 }
 
 /* landscape */
+
 @media screen and (orientation: landscape) {
     /* Folio page */
     .Folio {
@@ -539,6 +580,7 @@ svg {
 }
 
 /* portrait */
+
 @media screen and (orientation: portrait) {
     /* Folio page */
     .Folio {

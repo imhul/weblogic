@@ -45,36 +45,27 @@ class Works extends Component {
         return (
             <div className="Works content">
 
-                <Row gutter={24}>
-                    <Col span={12}>
-                        <Language
-                            dictionary={{
-                                english: "Project description",
-                                russian: "Описание проекта"
-                            }}
-                        />
-                    </Col>
-                    <Col span={12}>
-                        <Language
-                            dictionary={{
-                                english: "Status",
-                                russian: "Статус"
-                            }}
-                        />
-                    </Col>
-                </Row>
-
                 <List
                     size="large"
-                    header={<h2 className="mobile-fix">
-                        <Language
-                            dictionary={{
-                                english: "My works",
-                                russian: "Мои работы"
-                            }}
-                        />
-                    </h2>}
-                    footer={<div>Footer</div>}
+                    header={
+                        <Row gutter={24}>
+                            <Col span={12} style={{ textAlign: 'left' }}>
+                                <Language
+                                    dictionary={{
+                                        english: "Project description",
+                                        russian: "Описание проекта"
+                                    }}
+                                />
+                            </Col>
+                            <Col span={12} style={{ textAlign: 'right' }}>
+                                <Language
+                                    dictionary={{
+                                        english: "Status",
+                                        russian: "Статус"
+                                    }}
+                                />
+                            </Col>
+                        </Row>}
                     bordered
                     dataSource={links}
                     renderItem={item => (
@@ -83,10 +74,7 @@ class Works extends Component {
                                 {item.type}
                                 <Icon
                                     type="link"
-                                    style={{
-                                        fontSize: '16px',
-                                        color: item.type === 'Released' ? '#fdd835' : '#bcc8ce'
-                                    }}
+                                    style={{ color: item.type === 'Released' ? '#fdd835' : '#bcc8ce' }}
                                 />
                             </a>
 
