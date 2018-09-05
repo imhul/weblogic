@@ -5,34 +5,41 @@ const LanguageContext = React.createContext();
 const LanguageConsumer = LanguageContext.Consumer;
 
 class LanguageProvider extends Component {
-  constructor(props) {
+    constructor(props) {
         super(props);
         this.state = {
             language: "english"
         }
-  }
+        this.updateLanguage = this.updateLanguage.bind(this)
+    }
 
-  updateLanguage = e => { 
-      this.setState({ language: e ? 'english' : 'russian' });
-      this.sendLangToStore();
-  }
+    componentDidMount() {
+        store.setItem('lang', this.state.language)
+    }
 
-  sendLangToStore() {
-    store.setItem('lang', this.state.language);
-  }
+    componentDidUpdate(noused, prevState) {
+        if(this.state.language !== prevState.language) {
+            store.setItem('lang', this.state.language)
+            console.log("::::store.lang in provider::::", store.lang)
+        }
+    }
 
-  render() {
-    return (
-      <LanguageContext.Provider
-        value={{
-          language: this.state.language,
-          updateLanguage: this.updateLanguage
-        }}
-      >
-        {this.props.children}
-      </LanguageContext.Provider>
-    );
-  }
+    updateLanguage(e) {
+        this.setState({ language: e ? 'english' : 'russian' })
+    }
+
+    render() {
+        return (
+            <LanguageContext.Provider
+                value={{
+                    language: this.state.language,
+                    updateLanguage: this.updateLanguage
+                }}
+            >
+                {this.props.children}
+            </LanguageContext.Provider>
+        )
+    }
 }
 
 const Language = props => (
