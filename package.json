@@ -1,7 +1,7 @@
 {
   "name": "react-start-kit",
   "author": "Tkachuk Zakhar",
-  "license": "GPL-3.0-or-later",
+  "license": "ISC",
   "homepage": "http://weblogic.com.ua/",
   "repository": {
     "type": "git",

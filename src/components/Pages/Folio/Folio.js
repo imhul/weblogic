@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Wave } from 'react-preloading-component';
 import { Collapse } from 'antd';
-import Texts from './Texts';
+import texts from './Texts';
 import Toolbar from './Toolbar';
 
 const Panel = Collapse.Panel;
@@ -49,7 +49,7 @@ class Folio extends Component {
                         className={ this.state.active ? 'active' : null }
                     >
                         <Toolbar key={0} />
-                        { Texts.map(( load ) => (
+                        { texts.map(( load ) => (
                                 <Panel header={ load.name } key={ load.key }>
                                     <div onClick={this.onPanel}>
                                         { load.text() }

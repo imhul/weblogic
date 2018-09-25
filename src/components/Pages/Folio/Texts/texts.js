@@ -18,7 +18,7 @@ const texts = [
         name: <Language dictionary={{
             english: "About",
             russian: "Обо мне"
-    }} />,
+        }} />,
         key: 2,
         text: () => <About />
     },
@@ -26,7 +26,7 @@ const texts = [
         name: <Language dictionary={{
             english: "Works",
             russian: "Работы"
-    }} />,
+        }} />,
         key: 3,
         text: () => <Works />
     },
@@ -34,7 +34,7 @@ const texts = [
         name: <Language dictionary={{
             english: "Contacts",
             russian: "Контакты"
-    }} />,
+        }} />,
         key: 4,
         text: () => <Contact />
     }
