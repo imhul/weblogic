@@ -392,7 +392,23 @@ svg {
                                             }
                                         }
                                         /* About */
-                                        .About {}
+                                        .About.content {
+                                            & * + * {
+                                                margin-top: 0;
+                                            }
+                                            .ant-timeline-alternate {
+                                                list-style: none;
+                                                transition: unset;
+                                                .ant-timeline-item {
+                                                    list-style: none;
+                                                    transition: unset;
+                                                    span {
+                                                        font-weight: 600;
+                                                        transition: unset;
+                                                    }
+                                                }
+                                            }
+                                        }
                                         /* Works */
                                         .Works {
                                             .ant-list {
