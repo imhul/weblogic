@@ -398,13 +398,32 @@ svg {
                                             }
                                             .ant-timeline-alternate {
                                                 list-style: none;
-                                                transition: unset;
                                                 .ant-timeline-item {
                                                     list-style: none;
-                                                    transition: unset;
+                                                    a {
+                                                        color: $color-link-hover;
+                                                        text-decoration: none;
+                                                    }
                                                     span {
                                                         font-weight: 600;
-                                                        transition: unset;
+                                                        color: $color-white;
+                                                    }
+                                                    .ant-timeline-item-tail {
+                                                        border-left-color: $color-timeline-icon-bg;
+                                                    }
+                                                    .ant-timeline-item-head {
+                                                        background-color: $color-back;
+                                                        border-color: $color-link-hover;
+                                                    }
+                                                    .ant-timeline-item-content {
+                                                        color: $color-white;
+                                                    }
+                                                }
+                                                .ant-timeline-item-pending {
+                                                    margin-top: 15px;
+                                                    .ant-timeline-item-head-custom {
+                                                        background-color: $transparent;
+                                                        color: $color-link-hover;
                                                     }
                                                 }
                                             }

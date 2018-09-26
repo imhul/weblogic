@@ -36,15 +36,6 @@ class Intro extends Component {
                         </h2>
                     </Col>
 
-                    <Col span={24}>
-                        <Language
-                            dictionary={{
-                                english: <span>Using new technologies, such as <mark> React </mark> or <mark> Hyperapp </mark> always gives inspiration. I prefer non-standard <mark>UI</mark> and <mark>UX</mark> solutions, taking as a basis the concept of <mark>Material Design</mark></span>,
-                                russian: <span>Использование новых технологий, таких как <mark>React</mark> или <mark>Hyperapp</mark> всегда даёт вдохновение. Я предпочитаю нестандартные <mark>UI</mark> и <mark>UX</mark> решения, беря за основу концепции <mark>Material Design</mark></span>
-                            }}
-                        />
-                    </Col>
-
                     <Col span={24} style={{ height: '90px'}}>
                         <Gravatar email="blashirk@gmail.com" size={100} />
                     </Col>
@@ -95,6 +86,16 @@ class Intro extends Component {
                             <Icon type="github" /> github
                         </a>
                     </Col>
+                    
+                    <Col span={24}>
+                        <Language
+                            dictionary={{
+                                english: <span>Using new technologies, such as <mark> React </mark> or <mark> Hyperapp </mark> always gives inspiration. I prefer non-standard <mark>UI</mark> and <mark>UX</mark> solutions, taking as a basis the concept of <mark>Material Design</mark></span>,
+                                russian: <span>Использование новых технологий, таких как <mark>React</mark> или <mark>Hyperapp</mark> всегда даёт вдохновение. Я предпочитаю нестандартные <mark>UI</mark> и <mark>UX</mark> решения, беря за основу концепции <mark>Material Design</mark></span>
+                            }}
+                        />
+                    </Col>
+
                 </Row>
             </div>
         )

@@ -17,13 +17,19 @@ class About extends Component {
     }
 
     render() {
+        const pending =(
+            <div>
+                Redux + connect, <a href="https://ant.design/docs/react/practical-projects" title="antd DVA docs" target="_blank">DVA</a>, SSR 
+                <span> :Roadmap 2018-2019</span>
+            </div>
+        );
         return (
             // ant-timeline-alternate
             <div className="About content">
-                <Timeline pending="2018: REDUX..." mode="alternate">
-                    <TimelineItem color="green">
+                <Timeline pending={pending} mode="alternate">
+                    <TimelineItem>
                         <span>Nov 2009: </span>
-                        I started learning CSS, HTML, Joomla CMS and the web design basics with Photoshop. I made the first site on pure html and one more on Joomla</TimelineItem>
+                        I started learning CSS, HTML, Joomla CMS and the web design basics with Adpbe Photoshop. I made the first site on pure html + css and one more on Joomla</TimelineItem>
                     <TimelineItem>
                         Got carried away by studying SEO
                         <span> :2011</span>
@@ -38,11 +44,15 @@ class About extends Component {
                     </TimelineItem>
                     <TimelineItem>
                         <span>2016: </span>
-                        There was a little experience with Angular. Learned the basics of Git, Jira, GitBash
+                        There was a little experience with Angular. Learned the basics of Git, Jira, GitBash, Webpack, Gulp, etc.
                     </TimelineItem>
                     <TimelineItem>
                         Started learning React
                         <span> :Dec 2017</span>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <span>Aug 2018: </span>
+                        Started learning React-router
                     </TimelineItem>
                 </Timeline>
             </div>
