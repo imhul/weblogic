@@ -21,16 +21,24 @@ class Works extends Component {
                         russian: "Игра 'Пазлы', JavaScript + Canvas"
                     }}
                 />),
-                type: 'Live demo',
+                type: (<Language dictionary={{
+                        english: "Live demo",
+                        russian: "Демо"
+                    }}
+                />),
                 href: '../../../../lab/game/index.html'
             },
             {
                 name: ( <Language dictionary={{
                         english: "Corporate project, Joomla CMS 3.6.2",
-                        russian: "Корпоративный сайт на базе Joomla CMS 3.6.2"
+                        russian: "Корпоративный сайт, Joomla CMS 3.6.2"
                     }}
                 />),
-                type: 'Released',
+                type: (<Language dictionary={{
+                        english: "Released",
+                        russian: "Релиз"
+                    }}
+                />),
                 href: 'http://ekta.ua/'
             },
             {
@@ -39,17 +47,37 @@ class Works extends Component {
                         russian: "Калькулятор LED панелей, Angular + Materialize"
                     }}
                 />),
-                type: 'Live demo',
+                type: (<Language dictionary={{
+                        english: "Live demo",
+                        russian: "Демо"
+                    }}
+                />),
                 href: '../../../../lab/calc/index.html'
             },
             {
-                name: 'Analytical project, js + python + Materialize',
-                type: 'Released',
+                name: ( <Language dictionary={{
+                        english: "Analytical resource, JavaScript + Python + Materialize",
+                        russian: "Аналитический ресурс, Angular + Materialize"
+                    }}
+                />),
+                type: (<Language dictionary={{
+                        english: "Released",
+                        russian: "Релиз"
+                    }}
+                />),
                 href: 'https://seezislab.com/'
             },
             {
-                name: 'Web presentation, Rreveal.js',
-                type: 'Live demo',
+                name: ( <Language dictionary={{
+                        english: "Web presentation, ",
+                        russian: "Веб-презентация, Rreveal.js"
+                    }}
+                />),
+                type: (<Language dictionary={{
+                        english: "Live demo",
+                        russian: "Демо"
+                    }}
+                />),
                 href: '../../../../lab/presentation/index.html'
             }
         ];
@@ -84,10 +112,7 @@ class Works extends Component {
                         <ListItem>
                             <a href={item.href}>
                                 {item.type}
-                                <Icon
-                                    type="link"
-                                    style={{ color: item.type === 'Released' ? '#fdd835' : '#bcc8ce' }}
-                                />
+                                <Icon type="link" />
                             </a>
 
                             <ListMeta title={item.name} />

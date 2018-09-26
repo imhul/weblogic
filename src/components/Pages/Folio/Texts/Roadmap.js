@@ -20,7 +20,7 @@ class Roadmap extends Component {
         const pending =(
             <div>
                 Redux + connect, <a href="https://ant.design/docs/react/practical-projects" title="antd DVA docs" target="_blank">DVA</a>, SSR 
-                <span> :Roadmap 2018-2019</span>
+                <span> :2018-2019</span>
             </div>
         );
         return (

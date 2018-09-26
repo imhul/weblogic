@@ -6,12 +6,18 @@
             font-size: 18px;
             line-height: 0;
             margin-top: 0;
+            &:hover {
+                a {
+                    color: $color-link-hover;
+                    i {
+                        color: $color-link-hover;
+                    }
+                }
+            }
             a {
                 text-decoration: none;
                 color: $color-white;
-                &:hover {
-                    color: $color-link-hover;
-                }
+                
                 i {
                     margin-left: 25px;
                     font-size: 18px;

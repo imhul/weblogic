@@ -1506,21 +1506,16 @@ backgroundJS('bg-app',
         }
       },
       "color": {
-        "value": "#cfd8dc"
+        "value": "#fdd835"
       },
       "shape": {
         "type": "circle",
         "stroke": {
           "width": 0,
-          "color": "#000000"
+          "color": "#fdd835"
         },
         "polygon": {
           "nb_sides": 5
-        },
-        "image": {
-          "src": "img/github.svg",
-          "width": 100,
-          "height": 100
         }
       },
       "opacity": {
@@ -1603,14 +1598,6 @@ backgroundJS('bg-app',
       }
     },
     "retina_detect": true,
-    "config_demo": {
-      "hide_card": false,
-      "background_color": "#ff4400",
-      "background_image": "",
-      "background_position": "50% 50%",
-      "background_repeat": "no-repeat",
-      "background_size": "cover"
-    }
   }
 
 );
