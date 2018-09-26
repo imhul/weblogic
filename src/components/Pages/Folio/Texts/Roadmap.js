@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Button, Icon, Timeline, message } from 'antd';
+import { Timeline, message } from 'antd';
 import { LanguageProvider, Language } from '../../../../utils/language/provider';
 
 const summarySuccess = () => {
@@ -29,7 +29,7 @@ class Roadmap extends Component {
                 <Timeline pending={pending} mode="alternate">
                     <TimelineItem>
                         <span>Nov 2009: </span>
-                        I started learning CSS, HTML, Joomla CMS and the web design basics with Adpbe Photoshop. I made the first site on pure html + css and one more on Joomla</TimelineItem>
+                        I started learning CSS, HTML, Joomla CMS and the web design basics with Adobe Photoshop. I made the first site on pure html + css and one more on Joomla</TimelineItem>
                     <TimelineItem>
                         Got carried away by studying SEO
                         <span> :2011</span>

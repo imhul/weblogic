@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Wave } from 'react-preloading-component';
+import { Icon } from 'antd';
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            styles: {}
+            styles: {},
+            spin: true
         }
+        this.handleMouseOver = this.handleMouseOver.bind(this);
+        this.handleMouseOut = this.handleMouseOut.bind(this);
     }
 
     componentDidMount() {          
@@ -16,14 +20,27 @@ class Home extends Component {
         }), 2000)
     }
 
+    handleMouseOver(event) {
+        console.log("over", event);
+        this.setState({ spin: false })
+    }
+
+    handleMouseOut(event) {
+        console.log("out", event);
+        this.setState({ spin: true })
+    }
+
     render() {
         const hero = [ 'W','e','b','L','o','g','i','c',' ','S','t','u','d','i','o' ];
         return (
-            <div className="Home">
+            <div className="Home" onMouseOver={() => this.handleMouseOver(this) } onMouseLeave={() => this.handleMouseOut(this) }>
                 <Link to="/folio">
-                    <h1 className="mobile-fix heading-hero" style={this.state.styles}>
+                    <h1 className="mobile-fix heading-hero" style={ this.state.styles }>
                         { hero.map((symbol, index) => { return ( 
-                            <span key={index} className={`span-${index}`}>
+                            <span 
+                                key={index} 
+                                className={`span-${index}`}
+                            >
                                 { symbol }
                             </span> )
                         } ) }
@@ -38,3 +55,11 @@ class Home extends Component {
 }
 
 export default Home;
+
+// style={ this.state.spin ? { 
+//     transform: 'rotate(360deg)',
+//     transitionDuration: '1s',
+//     transitionDelay: 'now',
+//     animationTimingFunction: 'linear',
+//     animationIterationCount: 'infinite',
+// } : null }

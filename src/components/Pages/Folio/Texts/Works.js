@@ -16,17 +16,29 @@ class Works extends Component {
     render() {
         const links = [
             {
-                name: 'Puzzle game, JavaScript',
+                name: ( <Language dictionary={{
+                        english: "Puzzle game, JavaScript + Canvas",
+                        russian: "Игра 'Пазлы', JavaScript + Canvas"
+                    }}
+                />),
                 type: 'Live demo',
                 href: '../../../../lab/game/index.html'
             },
             {
-                name: 'Corporate project, CMS Joomla 3.6.2',
+                name: ( <Language dictionary={{
+                        english: "Corporate project, Joomla CMS 3.6.2",
+                        russian: "Корпоративный сайт на базе Joomla CMS 3.6.2"
+                    }}
+                />),
                 type: 'Released',
                 href: 'http://ekta.ua/'
             },
             {
-                name: 'LED-screen calculator, Angular + Materialize',
+                name: ( <Language dictionary={{
+                        english: "LED-screen calculator, Angular + Materialize",
+                        russian: "Калькулятор LED панелей, Angular + Materialize"
+                    }}
+                />),
                 type: 'Live demo',
                 href: '../../../../lab/calc/index.html'
             },
@@ -41,31 +53,31 @@ class Works extends Component {
                 href: '../../../../lab/presentation/index.html'
             }
         ];
+        const header = (<Row gutter={24}>
+            <Col span={12} style={{ textAlign: 'left' }}>
+                <Language
+                    dictionary={{
+                        english: "Project description",
+                        russian: "Описание проекта"
+                    }}
+                />
+            </Col>
+            <Col span={12} style={{ textAlign: 'right' }}>
+                <Language
+                    dictionary={{
+                        english: "Status",
+                        russian: "Статус"
+                    }}
+                />
+            </Col>
+        </Row>);
 
         return (
             <div className="Works content">
 
                 <List
                     size="large"
-                    header={
-                        <Row gutter={24}>
-                            <Col span={12} style={{ textAlign: 'left' }}>
-                                <Language
-                                    dictionary={{
-                                        english: "Project description",
-                                        russian: "Описание проекта"
-                                    }}
-                                />
-                            </Col>
-                            <Col span={12} style={{ textAlign: 'right' }}>
-                                <Language
-                                    dictionary={{
-                                        english: "Status",
-                                        russian: "Статус"
-                                    }}
-                                />
-                            </Col>
-                        </Row>}
+                    header={ header }
                     bordered
                     dataSource={links}
                     renderItem={item => (
