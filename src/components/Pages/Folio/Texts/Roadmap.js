@@ -8,7 +8,7 @@ const summarySuccess = () => {
 
 const TimelineItem = Timeline.Item;
 
-class About extends Component {
+class Roadmap extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,7 +25,7 @@ class About extends Component {
         );
         return (
             // ant-timeline-alternate
-            <div className="About content">
+            <div className="Roadmap content">
                 <Timeline pending={pending} mode="alternate">
                     <TimelineItem>
                         <span>Nov 2009: </span>
@@ -44,7 +44,7 @@ class About extends Component {
                     </TimelineItem>
                     <TimelineItem>
                         <span>2016: </span>
-                        There was a little experience with Angular. Learned the basics of Git, Jira, GitBash, Webpack, Gulp, etc.
+                        There was a little experience with Angular. Learned the basics of Yarn, Git, Jira, GitBash, Webpack, Gulp, etc.
                     </TimelineItem>
                     <TimelineItem>
                         Started learning React
@@ -52,7 +52,7 @@ class About extends Component {
                     </TimelineItem>
                     <TimelineItem>
                         <span>Aug 2018: </span>
-                        Started learning React-router
+                        Started learning React-router + hystory. Was very pleasantly surprised by the Parcel!
                     </TimelineItem>
                 </Timeline>
             </div>
@@ -60,4 +60,4 @@ class About extends Component {
     }
 }
 
-export default About
+export default Roadmap

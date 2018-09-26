@@ -9,3 +9,166 @@ $media-medium-max: 1024px;
 $media-small: 767px;
 
 // todo: media sizes for mixins
+
+/* Mobile hide */
+
+@media only screen and (max-width: $media-small) {
+    .mobile-show {
+        display: block !important;
+        max-height: unset !important;
+    }
+    .mobile-hide {
+        display: none !important;
+    }
+}
+
+/* landscape */
+
+@media screen and (orientation: landscape) {
+    /* Folio page */
+    .Folio {
+        /* Collapse */
+        /* not active */
+        .ant-collapse {
+            background-color: $transparent;
+            border: 0;
+            border-radius: 0;
+            & * {
+                transition: height 0.2s ease-in-out;
+            }
+            &.active {
+                .ant-collapse-item {
+                    height: 10vh;
+                    &.ant-collapse-item-active {
+                        height: 70vh;
+                    }
+                    .ant-collapse-header {
+                        height: 10vh;
+                        line-height: 5vh;
+                        i {
+                            line-height: 10vh;
+                            font-size: 6vh;
+                        }
+                    }
+                }
+            }
+            .ant-collapse-item {
+                border-bottom-color: $color-white;
+                height: 25vh;
+                .ant-collapse-header {
+                    height: 25vh;
+                    line-height: 16vh;
+                    font-size: 18vh;
+                    color: $color-white;
+                    i {
+                        line-height: 25vh;
+                        font-size: 13vh;
+                        left: unset;
+                        right: 50px;
+                    }
+                }
+                /* Static content styles */
+                .ant-collapse-content {
+                    font-size: 18px;
+                    .content {
+                        max-width: 600px;
+                        width: 80%;
+                        margin: 0 auto;
+                        color: $color-white;
+                    }
+                }
+            }
+            /* active content section */
+            .ant-collapse-item-active {
+                height: 10vh;
+                .ant-collapse-header {
+                    height: 10vh;
+                    line-height: 5vh;
+                    font-size: 8vh;
+                    i {
+                        line-height: 10vh;
+                        font-size: 6vh;
+                    }
+                }
+                /* active content */
+                .ant-collapse-content-active {
+                    min-height: 60vh;
+                    max-height: 60vh;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+}
+
+/* portrait */
+
+@media screen and (orientation: portrait) {
+    /* Folio page */
+    .Folio {
+        /* Collapse */
+        /* not active */
+        .ant-collapse {
+            &.active {
+                .ant-collapse-item {
+                    height: 10vh;
+                    &.ant-collapse-item-active {
+                        height: 70vh;
+                    }
+                    .ant-collapse-header {
+                        height: 10vh;
+                        font-size: 8vw !important;
+                        line-height: 6vw !important;
+                        i {
+                            line-height: 10vh;
+                            font-size: 6vh;
+                        }
+                    }
+                }
+            }
+            .ant-collapse-item {
+                border-bottom-color: $color-white;
+                .ant-collapse-header {
+                    font-size: 16vw !important;
+                    line-height: 21vh !important;
+                    @media (max-width: $media-small) {
+                        padding: 12px;
+                        text-align: center;
+                        font-size: 20vw !important;
+                        i {
+                            display: none;
+                        }
+                    }
+                    i {
+                        font-size: 10vh !important;
+                    }
+                }
+                /* Static content styles */
+                .ant-collapse-content {
+                    font-size: 18px;
+                    .ant-collapse-content-box {
+                        width: 100%;
+                        .content {
+                            margin: 0 auto;
+                            color: $color-white;
+                            .react-gravatar {
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                }
+            }
+            /* active content section */
+            .ant-collapse-item-active {
+                .ant-collapse-header {
+                    font-size: 8vw !important;
+                    line-height: 6vw !important;
+                    i {
+                        line-height: 10vh;
+                        font-size: 6vh;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Language } from '../../../../utils/language/provider';
 import Intro from './Intro';
-import About from './About';
+import Roadmap from './Roadmap';
 import Works from './Works';
 import Contact from './Contact';
 
@@ -16,11 +16,11 @@ const texts = [
     },
     {
         name: <Language dictionary={{
-            english: "About",
-            russian: "Обо мне"
+            english: "Roadmap",
+            russian: "Roadmap"
         }} />,
         key: 2,
-        text: () => <About />
+        text: () => <Roadmap />
     },
     {
         name: <Language dictionary={{

@@ -1,7 +1,14 @@
+/* common */
 @import "normalize";
 @import "colors";
-@import "media";
 @import "fonts";
+@import "media";
 @import "base";
 @import "typography";
 @import "others";
+
+/* pages */
+@import "./pages/intro.scss";
+@import "./pages/roadmap.scss";
+@import "./pages/works.scss";
+@import "./pages/contact.scss";
