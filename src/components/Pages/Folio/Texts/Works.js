@@ -21,11 +21,11 @@ class Works extends Component {
                         russian: "Игра 'Пазлы', JavaScript + Canvas"
                     }}
                 />),
-                type: (<Language dictionary={{
+                type: (<span><Language dictionary={{
                         english: "Live demo",
                         russian: "Демо"
                     }}
-                />),
+                /><Icon type="experiment" theme="outlined" /> </span>),
                 href: '../../../../lab/game/index.html'
             },
             {
@@ -34,11 +34,11 @@ class Works extends Component {
                         russian: "Корпоративный сайт, Joomla CMS 3.6.2"
                     }}
                 />),
-                type: (<Language dictionary={{
+                type: (<span><Language dictionary={{
                         english: "Released",
                         russian: "Релиз"
                     }}
-                />),
+                /><Icon type="link" theme="outlined" /> </span>),
                 href: 'http://ekta.ua/'
             },
             {
@@ -47,11 +47,11 @@ class Works extends Component {
                         russian: "Калькулятор LED панелей, Angular + Materialize"
                     }}
                 />),
-                type: (<Language dictionary={{
+                type: (<span><Language dictionary={{
                         english: "Live demo",
                         russian: "Демо"
                     }}
-                />),
+                /><Icon type="experiment" theme="outlined" /> </span>),
                 href: '../../../../lab/calc/index.html'
             },
             {
@@ -60,11 +60,11 @@ class Works extends Component {
                         russian: "Аналитический ресурс, Angular + Materialize"
                     }}
                 />),
-                type: (<Language dictionary={{
+                type: (<span><Language dictionary={{
                         english: "Released",
                         russian: "Релиз"
                     }}
-                />),
+                /><Icon type="link" theme="outlined" /> </span>),
                 href: 'https://seezislab.com/'
             },
             {
@@ -73,11 +73,11 @@ class Works extends Component {
                         russian: "Веб-презентация, Rreveal.js"
                     }}
                 />),
-                type: (<Language dictionary={{
+                type: (<span><Language dictionary={{
                         english: "Live demo",
                         russian: "Демо"
                     }}
-                />),
+                    /><Icon type="experiment" theme="outlined" /></span>),
                 href: '../../../../lab/presentation/index.html'
             }
         ];
@@ -112,7 +112,6 @@ class Works extends Component {
                         <ListItem>
                             <a href={item.href}>
                                 {item.type}
-                                <Icon type="link" />
                             </a>
 
                             <ListMeta title={item.name} />
