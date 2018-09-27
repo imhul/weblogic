@@ -50,9 +50,9 @@ class Folio extends Component {
                     >
                         <Toolbar key={0} />
                         { texts.map(( load ) => (
-                                <Panel header={ load.name } key={ load.key }>
+                                <Panel header={ load.name } key={ load.key } showArrow={ false }>
                                     <div onClick={this.onPanel}>
-                                        { load.text() }
+                                        { load.text }
                                     </div>
                                 </Panel>
                             )

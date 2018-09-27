@@ -291,6 +291,7 @@ svg {
                                         i {
                                             line-height: 10vh;
                                             font-size: 6vh;
+                                            margin-top: 0;
                                         }
                                     }
                                 }
@@ -306,11 +307,15 @@ svg {
                                     &:hover {
                                         text-shadow: 0 0 20px $color-white;
                                     }
+                                    &:hover i {
+                                        text-shadow: 0 0 20px $color-white;
+                                    }
                                     i {
-                                        line-height: 25vh;
+                                        float: right;
+                                        margin-right: 50px;
                                         font-size: 13vh;
-                                        left: unset;
-                                        right: 50px;
+                                        display: block;
+                                        margin-top: 5vh;
                                     }
                                 }
                                 /* Static content styles */
@@ -357,6 +362,7 @@ svg {
                                     i {
                                         line-height: 10vh;
                                         font-size: 6vh;
+                                        margin-top: 0;
                                     }
                                 }
                                 /* active content */

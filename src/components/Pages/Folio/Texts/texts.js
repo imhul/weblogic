@@ -4,39 +4,40 @@ import Intro from './Intro';
 import Roadmap from './Roadmap';
 import Works from './Works';
 import Contact from './Contact';
+import { Icon } from 'antd';
 
 const texts = [
     {
-        name: <Language dictionary={{
+        name: <div><Language dictionary={{
                 english: "Introduce",
                 russian: "Вступление"
-        }} />,
+        }} /><Icon type="poweroff" /></div>,
         key: 1,
-        text: () => <Intro />
+        text: <Intro />
     },
     {
-        name: <Language dictionary={{
+        name: <div><Language dictionary={{
             english: "Roadmap",
             russian: "Roadmap"
-        }} />,
+        }} /><Icon type="compass" /></div>,
         key: 2,
-        text: () => <Roadmap />
+        text: <Roadmap />
     },
     {
-        name: <Language dictionary={{
+        name: <div><Language dictionary={{
             english: "Works",
             russian: "Работы"
-        }} />,
+        }} /><Icon type="rocket" /></div>,
         key: 3,
-        text: () => <Works />
+        text: <Works />
     },
     {
-        name: <Language dictionary={{
+        name: <div><Language dictionary={{
             english: "Contacts",
             russian: "Контакты"
-        }} />,
+        }} /><Icon type="message" /></div>,
         key: 4,
-        text: () => <Contact />
+        text: <Contact />
     }
 ];
 
