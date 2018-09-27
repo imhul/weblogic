@@ -292,6 +292,7 @@ svg {
                                             line-height: 10vh;
                                             font-size: 6vh;
                                             margin-top: 0;
+                                            
                                         }
                                     }
                                 }
@@ -307,9 +308,8 @@ svg {
                                     &:hover {
                                         text-shadow: 0 0 20px $color-white;
                                     }
-                                    &:hover i {
-                                        text-shadow: 0 0 20px $color-white;
-                                    }
+                                    &:hover i > svg {
+                                        filter: drop-shadow( 0 0 20px $color-white );                                    }
                                     i {
                                         float: right;
                                         margin-right: 50px;
