@@ -83,7 +83,7 @@ class Intro extends Component {
                             className="ant-btn ant-btn-background-ghost"
                             target="_blank"
                         >
-                            <Icon type="github" /> github
+                            <Icon type="github" />github
                         </a>
                     </Col>
                     

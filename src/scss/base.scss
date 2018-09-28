@@ -292,7 +292,12 @@ svg {
                                             line-height: 10vh;
                                             font-size: 6vh;
                                             margin-top: 0;
-                                            
+                                            @media (max-width: $media-small) {
+                                                display: inline-block;
+                                                font-size: 8vw !important;
+                                                margin: 0 0 0 20px;
+                                                float: none;
+                                            }
                                         }
                                     }
                                 }
@@ -312,7 +317,7 @@ svg {
                                         filter: drop-shadow( 0 0 20px $color-white );                                    }
                                     i {
                                         float: right;
-                                        margin-right: 50px;
+                                        margin-right: 60px;
                                         font-size: 13vh;
                                         display: block;
                                         margin-top: 5vh;
