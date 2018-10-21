@@ -14,6 +14,9 @@ class Works extends Component {
     }
 
     render() {
+        const base = window.location.origin;
+        console.info("base: ", base);
+        // TODO: Require to copy Lab folder from the root to dist!!!
         const links = [
             {
                 name: ( <Language dictionary={{
@@ -26,7 +29,7 @@ class Works extends Component {
                         russian: "Демо"
                     }}
                 /><Icon type="experiment" theme="outlined" /> </span>),
-                href: '../../../../lab/game/index.html'
+                href: `${base}/Lab/Game/index.html`,
             },
             {
                 name: ( <Language dictionary={{
@@ -52,7 +55,7 @@ class Works extends Component {
                         russian: "Демо"
                     }}
                 /><Icon type="experiment" theme="outlined" /> </span>),
-                href: '../../../../lab/calc/index.html'
+               href: `${base}/Lab/Calc/index.html`,
             },
             {
                 name: ( <Language dictionary={{
@@ -78,7 +81,7 @@ class Works extends Component {
                         russian: "Демо"
                     }}
                     /><Icon type="experiment" theme="outlined" /></span>),
-                href: '../../../../lab/presentation/index.html'
+               href: `${base}/Lab/Presentation/index.html`,
             }
         ];
         const header = (<Row gutter={24}>
