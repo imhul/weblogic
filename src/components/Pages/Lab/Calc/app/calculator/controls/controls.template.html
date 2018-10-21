@@ -1,0 +1,59 @@
+<div>
+<div class="tune collection" ng-form="parameters.form_of_stuff">
+    <div class="switch collection-item">
+        <label>Indoor
+            <input
+              type="checkbox"
+              ng-model="vm.calc_data.is_outdoor"
+              ng-disabled="vm.calc_data.is_rental"
+              ng-change="vm.byLocation()">
+            <span class="lever"></span> Outdoor
+        </label>
+    </div>
+
+    <div class="switch collection-item">
+        <label>
+          <div class="tooltip" data-title="LED displays for fixed installations in advertising, sports, retail, and entertainment business">
+            <span>Fixed&nbsp;&nbsp;</span>
+          </div>
+            <input
+              type="checkbox"
+              ng-model="vm.calc_data.is_rental"
+              ng-disabled="vm.calc_data.is_outdoor"
+              ng-change="vm.byApplication()">
+            <span class="lever"></span>
+            <div class="tooltip" data-title="LED displays designed specifically to address the challenges in the rental business">
+              <span>Rental</span>
+            </div>
+        </label>
+    </div>
+    <!-- TODO
+    <div class="switch collection-item">
+        <label>
+            metric
+            <input type="checkbox" ng-model="vm.calc_data.is_imperial">
+            <span class="lever"></span> imperial
+        </label>
+    </div> -->
+    <div class="collection-item">
+        <rzslider
+            rz-slider-model="parameters.sliderOptions.horizontal.value"
+            rz-slider-options="parameters.sliderOptions.horizontal.options">
+        </rzslider>
+    </div>
+    <div class="collection-item">
+        <rzslider
+            rz-slider-model="parameters.sliderOptions.vertical.value"
+            rz-slider-options="parameters.sliderOptions.vertical.options">
+         </rzslider>
+    </div>
+    <!-- TODO
+      Убрал, чтобы не путать людей двумя показателями минимального расстояния просмотра, т.к. это результат, а не исходные данные!
+    <div class="collection-item">
+        <rzslider
+            rz-slider-model="parameters.sliderOptions.distance.value"
+            rz-slider-options="parameters.sliderOptions.distance.options">
+         </rzslider>
+    </div> -->
+</div>
+</div>
