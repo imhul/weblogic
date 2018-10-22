@@ -1,6 +1,6 @@
-var bgJS = function(tag_id, params){
+var bgJS = function (tag_id, params) {
 
-    var canvas_el = document.querySelector('#'+tag_id+' > .bg-app-canvas-el');
+  var canvas_el = document.querySelector('#' + tag_id + ' > .bg-app-canvas-el');
 
   this.bgJS = {
     canvas: {
@@ -91,35 +91,35 @@ var bgJS = function(tag_id, params){
         resize: true
       },
       modes: {
-        grab:{
+        grab: {
           distance: 100,
-          line_linked:{
+          line_linked: {
             opacity: 1
           }
         },
-        bubble:{
+        bubble: {
           distance: 200,
           size: 80,
           duration: 0.4
         },
-        repulse:{
+        repulse: {
           distance: 200,
           duration: 0.4
         },
-        push:{
+        push: {
           particles_nb: 4
         },
-        remove:{
+        remove: {
           particles_nb: 2
         }
       },
-      mouse:{}
+      mouse: {}
     },
     retina_detect: false,
     fn: {
       interact: {},
       modes: {},
-      vendors:{}
+      vendors: {}
     },
     tmp: {}
   };
@@ -127,7 +127,7 @@ var bgJS = function(tag_id, params){
   var bgJS = this.bgJS;
 
   /* params settings */
-  if(params){
+  if (params) {
     Object.deepExtend(bgJS, params);
   }
 
@@ -144,13 +144,13 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.retinaInit = function(){
+  bgJS.fn.retinaInit = function () {
 
-    if(bgJS.retina_detect && window.devicePixelRatio > 1){
-      bgJS.canvas.pxratio = window.devicePixelRatio; 
+    if (bgJS.retina_detect && window.devicePixelRatio > 1) {
+      bgJS.canvas.pxratio = window.devicePixelRatio;
       bgJS.tmp.retina = true;
-    } 
-    else{
+    }
+    else {
       bgJS.canvas.pxratio = 1;
       bgJS.tmp.retina = false;
     }
@@ -174,38 +174,38 @@ var bgJS = function(tag_id, params){
 
   /* ---------- bgJS functions - canvas ------------ */
 
-  bgJS.fn.canvasInit = function(){
+  bgJS.fn.canvasInit = function () {
     bgJS.canvas.ctx = bgJS.canvas.el.getContext('2d');
   };
 
-  bgJS.fn.canvasSize = function(){
+  bgJS.fn.canvasSize = function () {
 
     bgJS.canvas.el.width = bgJS.canvas.w;
     bgJS.canvas.el.height = bgJS.canvas.h;
 
-    if(bgJS && bgJS.interactivity.events.resize){
+    if (bgJS && bgJS.interactivity.events.resize) {
 
-      window.addEventListener('resize', function(){
+      window.addEventListener('resize', function () {
 
-          bgJS.canvas.w = bgJS.canvas.el.offsetWidth;
-          bgJS.canvas.h = bgJS.canvas.el.offsetHeight;
+        bgJS.canvas.w = bgJS.canvas.el.offsetWidth;
+        bgJS.canvas.h = bgJS.canvas.el.offsetHeight;
 
-          /* resize canvas */
-          if(bgJS.tmp.retina){
-            bgJS.canvas.w *= bgJS.canvas.pxratio;
-            bgJS.canvas.h *= bgJS.canvas.pxratio;
-          }
+        /* resize canvas */
+        if (bgJS.tmp.retina) {
+          bgJS.canvas.w *= bgJS.canvas.pxratio;
+          bgJS.canvas.h *= bgJS.canvas.pxratio;
+        }
 
-          bgJS.canvas.el.width = bgJS.canvas.w;
-          bgJS.canvas.el.height = bgJS.canvas.h;
+        bgJS.canvas.el.width = bgJS.canvas.w;
+        bgJS.canvas.el.height = bgJS.canvas.h;
 
-          /* repaint canvas on anim disabled */
-          if(!bgJS.parts.move.enable){
-            bgJS.fn.particlesEmpty();
-            bgJS.fn.particlesCreate();
-            bgJS.fn.particlesDraw();
-            bgJS.fn.vendors.densityAutoParticles();
-          }
+        /* repaint canvas on anim disabled */
+        if (!bgJS.parts.move.enable) {
+          bgJS.fn.particlesEmpty();
+          bgJS.fn.particlesCreate();
+          bgJS.fn.particlesDraw();
+          bgJS.fn.vendors.densityAutoParticles();
+        }
 
         /* density parts enabled */
         bgJS.fn.vendors.densityAutoParticles();
@@ -217,25 +217,25 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.canvasPaint = function(){
+  bgJS.fn.canvasPaint = function () {
     bgJS.canvas.ctx.fillRect(0, 0, bgJS.canvas.w, bgJS.canvas.h);
   };
 
-  bgJS.fn.canvasClear = function(){
+  bgJS.fn.canvasClear = function () {
     bgJS.canvas.ctx.clearRect(0, 0, bgJS.canvas.w, bgJS.canvas.h);
   };
 
 
   /* --------- bgJS functions - parts ----------- */
 
-  bgJS.fn.particle = function(color, opacity, position){
+  bgJS.fn.particle = function (color, opacity, position) {
 
     /* size */
     this.radius = (bgJS.parts.size.random ? Math.random() : 1) * bgJS.parts.size.value;
-    if(bgJS.parts.size.anim.enable){
+    if (bgJS.parts.size.anim.enable) {
       this.size_status = false;
       this.vs = bgJS.parts.size.anim.speed / 100;
-      if(!bgJS.parts.size.anim.sync){
+      if (!bgJS.parts.size.anim.sync) {
         this.vs = this.vs * Math.random();
       }
     }
@@ -245,32 +245,32 @@ var bgJS = function(tag_id, params){
     this.y = position ? position.y : Math.random() * bgJS.canvas.h;
 
     /* check position  - into the canvas */
-    if(this.x > bgJS.canvas.w - this.radius*2) this.x = this.x - this.radius;
-    else if(this.x < this.radius*2) this.x = this.x + this.radius;
-    if(this.y > bgJS.canvas.h - this.radius*2) this.y = this.y - this.radius;
-    else if(this.y < this.radius*2) this.y = this.y + this.radius;
+    if (this.x > bgJS.canvas.w - this.radius * 2) this.x = this.x - this.radius;
+    else if (this.x < this.radius * 2) this.x = this.x + this.radius;
+    if (this.y > bgJS.canvas.h - this.radius * 2) this.y = this.y - this.radius;
+    else if (this.y < this.radius * 2) this.y = this.y + this.radius;
 
     /* check position - avoid overlap */
-    if(bgJS.parts.move.bounce){
+    if (bgJS.parts.move.bounce) {
       bgJS.fn.vendors.checkOverlap(this, position);
     }
 
     /* color */
     this.color = {};
-    if(typeof(color.value) == 'object'){
+    if (typeof (color.value) == 'object') {
 
-      if(color.value instanceof Array){
+      if (color.value instanceof Array) {
         var color_selected = color.value[Math.floor(Math.random() * bgJS.parts.color.value.length)];
         this.color.rgb = hexToRgb(color_selected);
-      }else{
-        if(color.value.r != undefined && color.value.g != undefined && color.value.b != undefined){
+      } else {
+        if (color.value.r != undefined && color.value.g != undefined && color.value.b != undefined) {
           this.color.rgb = {
             r: color.value.r,
             g: color.value.g,
             b: color.value.b
           }
         }
-        if(color.value.h != undefined && color.value.s != undefined && color.value.l != undefined){
+        if (color.value.h != undefined && color.value.s != undefined && color.value.l != undefined) {
           this.color.hsl = {
             h: color.value.h,
             s: color.value.s,
@@ -280,254 +280,254 @@ var bgJS = function(tag_id, params){
       }
 
     }
-    else if(color.value == 'random'){
+    else if (color.value == 'random') {
       this.color.rgb = {
         r: (Math.floor(Math.random() * (255 - 0 + 1)) + 0),
         g: (Math.floor(Math.random() * (255 - 0 + 1)) + 0),
         b: (Math.floor(Math.random() * (255 - 0 + 1)) + 0)
       }
     }
-    else if(typeof(color.value) == 'string'){
+    else if (typeof (color.value) == 'string') {
       this.color = color;
       this.color.rgb = hexToRgb(this.color.value);
     }
 
     /* opacity */
     this.opacity = (bgJS.parts.opacity.random ? Math.random() : 1) * bgJS.parts.opacity.value;
-    if(bgJS.parts.opacity.anim.enable){
+    if (bgJS.parts.opacity.anim.enable) {
       this.opacity_status = false;
       this.vo = bgJS.parts.opacity.anim.speed / 100;
-      if(!bgJS.parts.opacity.anim.sync){
+      if (!bgJS.parts.opacity.anim.sync) {
         this.vo = this.vo * Math.random();
       }
     }
 
     /* animation - velocity for speed */
     var velbase = {}
-    switch(bgJS.parts.move.direction){
+    switch (bgJS.parts.move.direction) {
       case 'top':
-        velbase = { x:0, y:-1 };
-      break;
+        velbase = { x: 0, y: -1 };
+        break;
       case 'top-right':
-        velbase = { x:0.5, y:-0.5 };
-      break;
+        velbase = { x: 0.5, y: -0.5 };
+        break;
       case 'right':
-        velbase = { x:1, y:-0 };
-      break;
+        velbase = { x: 1, y: -0 };
+        break;
       case 'bottom-right':
-        velbase = { x:0.5, y:0.5 };
-      break;
+        velbase = { x: 0.5, y: 0.5 };
+        break;
       case 'bottom':
-        velbase = { x:0, y:1 };
-      break;
+        velbase = { x: 0, y: 1 };
+        break;
       case 'bottom-left':
-        velbase = { x:-0.5, y:1 };
-      break;
+        velbase = { x: -0.5, y: 1 };
+        break;
       case 'left':
-        velbase = { x:-1, y:0 };
-      break;
+        velbase = { x: -1, y: 0 };
+        break;
       case 'top-left':
-        velbase = { x:-0.5, y:-0.5 };
-      break;
+        velbase = { x: -0.5, y: -0.5 };
+        break;
       default:
-        velbase = { x:0, y:0 };
-      break;
+        velbase = { x: 0, y: 0 };
+        break;
     }
 
-    if(bgJS.parts.move.straight){
+    if (bgJS.parts.move.straight) {
       this.vx = velbase.x;
       this.vy = velbase.y;
-      if(bgJS.parts.move.random){
+      if (bgJS.parts.move.random) {
         this.vx = this.vx * (Math.random());
         this.vy = this.vy * (Math.random());
       }
-    }else{
-      this.vx = velbase.x + Math.random()-0.5;
-      this.vy = velbase.y + Math.random()-0.5;
+    } else {
+      this.vx = velbase.x + Math.random() - 0.5;
+      this.vy = velbase.y + Math.random() - 0.5;
     }
 
     this.vx_i = this.vx;
     this.vy_i = this.vy;
 
     var shape_type = bgJS.parts.shape.type;
-    if(typeof(shape_type) == 'object'){
-      if(shape_type instanceof Array){
+    if (typeof (shape_type) == 'object') {
+      if (shape_type instanceof Array) {
         var shape_selected = shape_type[Math.floor(Math.random() * shape_type.length)];
         this.shape = shape_selected;
       }
-    }else{
+    } else {
       this.shape = shape_type;
     }
 
-    if(this.shape == 'image'){
+    if (this.shape == 'image') {
       var sh = bgJS.parts.shape;
       this.img = {
         src: sh.image.src,
         ratio: sh.image.width / sh.image.height
       }
-      if(!this.img.ratio) this.img.ratio = 1;
-      if(bgJS.tmp.img_type == 'svg' && bgJS.tmp.source_svg != undefined){
+      if (!this.img.ratio) this.img.ratio = 1;
+      if (bgJS.tmp.img_type == 'svg' && bgJS.tmp.source_svg != undefined) {
         bgJS.fn.vendors.createSvgImg(this);
-        if(bgJS.tmp.pushing){
+        if (bgJS.tmp.pushing) {
           this.img.loaded = false;
         }
       }
     }
   };
 
-  bgJS.fn.particle.prototype.draw = function() {
+  bgJS.fn.particle.prototype.draw = function () {
 
     var p = this;
 
-    if(p.radius_bubble != undefined){
-      var radius = p.radius_bubble; 
-    }else{
+    if (p.radius_bubble != undefined) {
+      var radius = p.radius_bubble;
+    } else {
       var radius = p.radius;
     }
 
-    if(p.opacity_bubble != undefined){
+    if (p.opacity_bubble != undefined) {
       var opacity = p.opacity_bubble;
-    }else{
+    } else {
       var opacity = p.opacity;
     }
 
-    if(p.color.rgb){
-      var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+opacity+')';
-    }else{
-      var color_value = 'hsla('+p.color.hsl.h+','+p.color.hsl.s+'%,'+p.color.hsl.l+'%,'+opacity+')';
+    if (p.color.rgb) {
+      var color_value = 'rgba(' + p.color.rgb.r + ',' + p.color.rgb.g + ',' + p.color.rgb.b + ',' + opacity + ')';
+    } else {
+      var color_value = 'hsla(' + p.color.hsl.h + ',' + p.color.hsl.s + '%,' + p.color.hsl.l + '%,' + opacity + ')';
     }
 
     bgJS.canvas.ctx.fillStyle = color_value;
     bgJS.canvas.ctx.beginPath();
 
-    switch(p.shape){
+    switch (p.shape) {
 
       case 'circle':
         bgJS.canvas.ctx.arc(p.x, p.y, radius, 0, Math.PI * 2, false);
-      break;
+        break;
 
       case 'edge':
-        bgJS.canvas.ctx.rect(p.x-radius, p.y-radius, radius*2, radius*2);
-      break;
+        bgJS.canvas.ctx.rect(p.x - radius, p.y - radius, radius * 2, radius * 2);
+        break;
 
       case 'triangle':
-        bgJS.fn.vendors.drawShape(bgJS.canvas.ctx, p.x-radius, p.y+radius / 1.66, radius*2, 3, 2);
-      break;
+        bgJS.fn.vendors.drawShape(bgJS.canvas.ctx, p.x - radius, p.y + radius / 1.66, radius * 2, 3, 2);
+        break;
 
       case 'polygon':
         bgJS.fn.vendors.drawShape(
           bgJS.canvas.ctx,
-          p.x - radius / (bgJS.parts.shape.polygon.nb_sides/3.5), // startX
-          p.y - radius / (2.66/3.5), // startY
-          radius*2.66 / (bgJS.parts.shape.polygon.nb_sides/3), // sideLength
+          p.x - radius / (bgJS.parts.shape.polygon.nb_sides / 3.5), // startX
+          p.y - radius / (2.66 / 3.5), // startY
+          radius * 2.66 / (bgJS.parts.shape.polygon.nb_sides / 3), // sideLength
           bgJS.parts.shape.polygon.nb_sides, // sideCountNumerator
           1 // sideCountDenominator
         );
-      break;
+        break;
 
       case 'star':
         bgJS.fn.vendors.drawShape(
           bgJS.canvas.ctx,
-          p.x - radius*2 / (bgJS.parts.shape.polygon.nb_sides/4), // startX
-          p.y - radius / (2*2.66/3.5), // startY
-          radius*2*2.66 / (bgJS.parts.shape.polygon.nb_sides/3), // sideLength
+          p.x - radius * 2 / (bgJS.parts.shape.polygon.nb_sides / 4), // startX
+          p.y - radius / (2 * 2.66 / 3.5), // startY
+          radius * 2 * 2.66 / (bgJS.parts.shape.polygon.nb_sides / 3), // sideLength
           bgJS.parts.shape.polygon.nb_sides, // sideCountNumerator
           2 // sideCountDenominator
         );
-      break;
+        break;
 
       case 'image':
 
-        function draw(){
+        function draw() {
           bgJS.canvas.ctx.drawImage(
             img_obj,
-            p.x-radius,
-            p.y-radius,
-            radius*2,
-            radius*2 / p.img.ratio
+            p.x - radius,
+            p.y - radius,
+            radius * 2,
+            radius * 2 / p.img.ratio
           );
         }
 
-        if(bgJS.tmp.img_type == 'svg'){
+        if (bgJS.tmp.img_type == 'svg') {
           var img_obj = p.img.obj;
-        }else{
+        } else {
           var img_obj = bgJS.tmp.img_obj;
         }
 
-        if(img_obj){
+        if (img_obj) {
           draw();
         }
 
-      break;
+        break;
 
     }
 
     bgJS.canvas.ctx.closePath();
 
-    if(bgJS.parts.shape.stroke.width > 0){
+    if (bgJS.parts.shape.stroke.width > 0) {
       bgJS.canvas.ctx.strokeStyle = bgJS.parts.shape.stroke.color;
       bgJS.canvas.ctx.lineWidth = bgJS.parts.shape.stroke.width;
       bgJS.canvas.ctx.stroke();
     }
-    
+
     bgJS.canvas.ctx.fill();
-    
+
   };
 
 
-  bgJS.fn.particlesCreate = function(){
-    for(var i = 0; i < bgJS.parts.number.value; i++) {
+  bgJS.fn.particlesCreate = function () {
+    for (var i = 0; i < bgJS.parts.number.value; i++) {
       bgJS.parts.array.push(new bgJS.fn.particle(bgJS.parts.color, bgJS.parts.opacity.value));
     }
   };
 
-  bgJS.fn.particlesUpdate = function(){
+  bgJS.fn.particlesUpdate = function () {
 
-    for(var i = 0; i < bgJS.parts.array.length; i++){
+    for (var i = 0; i < bgJS.parts.array.length; i++) {
 
       /* the particle */
       var p = bgJS.parts.array[i];
 
       /* move the particle */
-      if(bgJS.parts.move.enable){
-        var ms = bgJS.parts.move.speed/2;
+      if (bgJS.parts.move.enable) {
+        var ms = bgJS.parts.move.speed / 2;
         p.x += p.vx * ms;
         p.y += p.vy * ms;
       }
 
       /* change opacity status */
-      if(bgJS.parts.opacity.anim.enable) {
-        if(p.opacity_status == true) {
-          if(p.opacity >= bgJS.parts.opacity.value) p.opacity_status = false;
+      if (bgJS.parts.opacity.anim.enable) {
+        if (p.opacity_status == true) {
+          if (p.opacity >= bgJS.parts.opacity.value) p.opacity_status = false;
           p.opacity += p.vo;
-        }else {
-          if(p.opacity <= bgJS.parts.opacity.anim.opacity_min) p.opacity_status = true;
+        } else {
+          if (p.opacity <= bgJS.parts.opacity.anim.opacity_min) p.opacity_status = true;
           p.opacity -= p.vo;
         }
-        if(p.opacity < 0) p.opacity = 0;
+        if (p.opacity < 0) p.opacity = 0;
       }
 
       /* change size */
-      if(bgJS.parts.size.anim.enable){
-        if(p.size_status == true){
-          if(p.radius >= bgJS.parts.size.value) p.size_status = false;
+      if (bgJS.parts.size.anim.enable) {
+        if (p.size_status == true) {
+          if (p.radius >= bgJS.parts.size.value) p.size_status = false;
           p.radius += p.vs;
-        }else{
-          if(p.radius <= bgJS.parts.size.anim.size_min) p.size_status = true;
+        } else {
+          if (p.radius <= bgJS.parts.size.anim.size_min) p.size_status = true;
           p.radius -= p.vs;
         }
-        if(p.radius < 0) p.radius = 0;
+        if (p.radius < 0) p.radius = 0;
       }
 
       /* change particle position if it is out of canvas */
-      if(bgJS.parts.move.out_mode == 'bounce'){
+      if (bgJS.parts.move.out_mode == 'bounce') {
         var new_pos = {
           x_left: p.radius,
-          x_right:  bgJS.canvas.w,
+          x_right: bgJS.canvas.w,
           y_top: p.radius,
           y_bottom: bgJS.canvas.h
         }
-      }else{
+      } else {
         var new_pos = {
           x_left: -p.radius,
           x_right: bgJS.canvas.w + p.radius,
@@ -536,64 +536,64 @@ var bgJS = function(tag_id, params){
         }
       }
 
-      if(p.x - p.radius > bgJS.canvas.w){
+      if (p.x - p.radius > bgJS.canvas.w) {
         p.x = new_pos.x_left;
         p.y = Math.random() * bgJS.canvas.h;
       }
-      else if(p.x + p.radius < 0){
+      else if (p.x + p.radius < 0) {
         p.x = new_pos.x_right;
         p.y = Math.random() * bgJS.canvas.h;
       }
-      if(p.y - p.radius > bgJS.canvas.h){
+      if (p.y - p.radius > bgJS.canvas.h) {
         p.y = new_pos.y_top;
         p.x = Math.random() * bgJS.canvas.w;
       }
-      else if(p.y + p.radius < 0){
+      else if (p.y + p.radius < 0) {
         p.y = new_pos.y_bottom;
         p.x = Math.random() * bgJS.canvas.w;
       }
 
       /* out of canvas modes */
-      switch(bgJS.parts.move.out_mode){
+      switch (bgJS.parts.move.out_mode) {
         case 'bounce':
           if (p.x + p.radius > bgJS.canvas.w) p.vx = -p.vx;
           else if (p.x - p.radius < 0) p.vx = -p.vx;
           if (p.y + p.radius > bgJS.canvas.h) p.vy = -p.vy;
           else if (p.y - p.radius < 0) p.vy = -p.vy;
-        break;
+          break;
       }
 
       /* events */
-      if(isInArray('grab', bgJS.interactivity.events.onhover.mode)){
+      if (isInArray('grab', bgJS.interactivity.events.onhover.mode)) {
         bgJS.fn.modes.grabParticle(p);
       }
 
-      if(isInArray('bubble', bgJS.interactivity.events.onhover.mode) || isInArray('bubble', bgJS.interactivity.events.onclick.mode)){
+      if (isInArray('bubble', bgJS.interactivity.events.onhover.mode) || isInArray('bubble', bgJS.interactivity.events.onclick.mode)) {
         bgJS.fn.modes.bubbleParticle(p);
       }
 
-      if(isInArray('repulse', bgJS.interactivity.events.onhover.mode) || isInArray('repulse', bgJS.interactivity.events.onclick.mode)){
+      if (isInArray('repulse', bgJS.interactivity.events.onhover.mode) || isInArray('repulse', bgJS.interactivity.events.onclick.mode)) {
         bgJS.fn.modes.repulseParticle(p);
       }
 
       /* interaction auto between parts */
-      if(bgJS.parts.line_linked.enable || bgJS.parts.move.attract.enable){
-        for(var j = i + 1; j < bgJS.parts.array.length; j++){
+      if (bgJS.parts.line_linked.enable || bgJS.parts.move.attract.enable) {
+        for (var j = i + 1; j < bgJS.parts.array.length; j++) {
           var p2 = bgJS.parts.array[j];
 
           /* link parts */
-          if(bgJS.parts.line_linked.enable){
-            bgJS.fn.interact.linkParticles(p,p2);
+          if (bgJS.parts.line_linked.enable) {
+            bgJS.fn.interact.linkParticles(p, p2);
           }
 
           /* attract parts */
-          if(bgJS.parts.move.attract.enable){
-            bgJS.fn.interact.attractParticles(p,p2);
+          if (bgJS.parts.move.attract.enable) {
+            bgJS.fn.interact.attractParticles(p, p2);
           }
 
           /* bounce parts */
-          if(bgJS.parts.move.bounce){
-            bgJS.fn.interact.bounceParticles(p,p2);
+          if (bgJS.parts.move.bounce) {
+            bgJS.fn.interact.bounceParticles(p, p2);
           }
 
         }
@@ -604,7 +604,7 @@ var bgJS = function(tag_id, params){
 
   };
 
-  bgJS.fn.particlesDraw = function(){
+  bgJS.fn.particlesDraw = function () {
 
     /* clear canvas */
     bgJS.canvas.ctx.clearRect(0, 0, bgJS.canvas.w, bgJS.canvas.h);
@@ -613,18 +613,18 @@ var bgJS = function(tag_id, params){
     bgJS.fn.particlesUpdate();
 
     /* draw each particle */
-    for(var i = 0; i < bgJS.parts.array.length; i++){
+    for (var i = 0; i < bgJS.parts.array.length; i++) {
       var p = bgJS.parts.array[i];
       p.draw();
     }
 
   };
 
-  bgJS.fn.particlesEmpty = function(){
+  bgJS.fn.particlesEmpty = function () {
     bgJS.parts.array = [];
   };
 
-  bgJS.fn.particlesRefresh = function(){
+  bgJS.fn.particlesRefresh = function () {
 
     /* init all */
     cancelRequestAnimFrame(bgJS.fn.checkAnimFrame);
@@ -634,7 +634,7 @@ var bgJS = function(tag_id, params){
     bgJS.tmp.count_svg = 0;
     bgJS.fn.particlesEmpty();
     bgJS.fn.canvasClear();
-    
+
     /* restart */
     bgJS.fn.vendors.start();
 
@@ -643,25 +643,25 @@ var bgJS = function(tag_id, params){
 
   /* ---------- bgJS functions - parts interaction ------------ */
 
-  bgJS.fn.interact.linkParticles = function(p1, p2){
+  bgJS.fn.interact.linkParticles = function (p1, p2) {
 
     var dx = p1.x - p2.x,
-        dy = p1.y - p2.y,
-        dist = Math.sqrt(dx*dx + dy*dy);
+      dy = p1.y - p2.y,
+      dist = Math.sqrt(dx * dx + dy * dy);
 
     /* draw a line between p1 and p2 if the distance between them is under the config distance */
-    if(dist <= bgJS.parts.line_linked.distance){
+    if (dist <= bgJS.parts.line_linked.distance) {
 
-      var opacity_line = bgJS.parts.line_linked.opacity - (dist / (1/bgJS.parts.line_linked.opacity)) / bgJS.parts.line_linked.distance;
+      var opacity_line = bgJS.parts.line_linked.opacity - (dist / (1 / bgJS.parts.line_linked.opacity)) / bgJS.parts.line_linked.distance;
 
-      if(opacity_line > 0){        
-        
+      if (opacity_line > 0) {
+
         /* style */
         var color_line = bgJS.parts.line_linked.color_rgb_line;
-        bgJS.canvas.ctx.strokeStyle = 'rgba('+color_line.r+','+color_line.g+','+color_line.b+','+opacity_line+')';
+        bgJS.canvas.ctx.strokeStyle = 'rgba(' + color_line.r + ',' + color_line.g + ',' + color_line.b + ',' + opacity_line + ')';
         bgJS.canvas.ctx.lineWidth = bgJS.parts.line_linked.width;
         //bgJS.canvas.ctx.lineCap = 'round'; /* performance issue */
-        
+
         /* path */
         bgJS.canvas.ctx.beginPath();
         bgJS.canvas.ctx.moveTo(p1.x, p1.y);
@@ -676,17 +676,17 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.interact.attractParticles  = function(p1, p2){
+  bgJS.fn.interact.attractParticles = function (p1, p2) {
 
     /* condensed parts */
     var dx = p1.x - p2.x,
-        dy = p1.y - p2.y,
-        dist = Math.sqrt(dx*dx + dy*dy);
+      dy = p1.y - p2.y,
+      dist = Math.sqrt(dx * dx + dy * dy);
 
-    if(dist <= bgJS.parts.line_linked.distance){
+    if (dist <= bgJS.parts.line_linked.distance) {
 
-      var ax = dx/(bgJS.parts.move.attract.rotateX*1000),
-          ay = dy/(bgJS.parts.move.attract.rotateY*1000);
+      var ax = dx / (bgJS.parts.move.attract.rotateX * 1000),
+        ay = dy / (bgJS.parts.move.attract.rotateY * 1000);
 
       p1.vx -= ax;
       p1.vy -= ay;
@@ -695,19 +695,19 @@ var bgJS = function(tag_id, params){
       p2.vy += ay;
 
     }
-    
+
 
   }
 
 
-  bgJS.fn.interact.bounceParticles = function(p1, p2){
+  bgJS.fn.interact.bounceParticles = function (p1, p2) {
 
     var dx = p1.x - p2.x,
-        dy = p1.y - p2.y,
-        dist = Math.sqrt(dx*dx + dy*dy),
-        dist_p = p1.radius+p2.radius;
+      dy = p1.y - p2.y,
+      dist = Math.sqrt(dx * dx + dy * dy),
+      dist_p = p1.radius + p2.radius;
 
-    if(dist <= dist_p){
+    if (dist <= dist_p) {
       p1.vx = -p1.vx;
       p1.vy = -p1.vy;
 
@@ -720,11 +720,11 @@ var bgJS = function(tag_id, params){
 
   /* ---------- bgJS functions - modes events ------------ */
 
-  bgJS.fn.modes.pushParticles = function(nb, pos){
+  bgJS.fn.modes.pushParticles = function (nb, pos) {
 
     bgJS.tmp.pushing = true;
 
-    for(var i = 0; i < nb; i++){
+    for (var i = 0; i < nb; i++) {
       bgJS.parts.array.push(
         new bgJS.fn.particle(
           bgJS.parts.color,
@@ -735,8 +735,8 @@ var bgJS = function(tag_id, params){
           }
         )
       )
-      if(i == nb-1){
-        if(!bgJS.parts.move.enable){
+      if (i == nb - 1) {
+        if (!bgJS.parts.move.enable) {
           bgJS.fn.particlesDraw();
         }
         bgJS.tmp.pushing = false;
@@ -746,50 +746,50 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.modes.removeParticles = function(nb){
+  bgJS.fn.modes.removeParticles = function (nb) {
 
     bgJS.parts.array.splice(0, nb);
-    if(!bgJS.parts.move.enable){
+    if (!bgJS.parts.move.enable) {
       bgJS.fn.particlesDraw();
     }
 
   };
 
 
-  bgJS.fn.modes.bubbleParticle = function(p){
+  bgJS.fn.modes.bubbleParticle = function (p) {
 
     /* on hover event */
-    if(bgJS.interactivity.events.onhover.enable && isInArray('bubble', bgJS.interactivity.events.onhover.mode)){
+    if (bgJS.interactivity.events.onhover.enable && isInArray('bubble', bgJS.interactivity.events.onhover.mode)) {
 
       var dx_mouse = p.x - bgJS.interactivity.mouse.pos_x,
-          dy_mouse = p.y - bgJS.interactivity.mouse.pos_y,
-          dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse),
-          ratio = 1 - dist_mouse / bgJS.interactivity.modes.bubble.distance;
+        dy_mouse = p.y - bgJS.interactivity.mouse.pos_y,
+        dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse),
+        ratio = 1 - dist_mouse / bgJS.interactivity.modes.bubble.distance;
 
-      function init(){
+      function init() {
         p.opacity_bubble = p.opacity;
         p.radius_bubble = p.radius;
       }
 
       /* mousemove - check ratio */
-      if(dist_mouse <= bgJS.interactivity.modes.bubble.distance){
+      if (dist_mouse <= bgJS.interactivity.modes.bubble.distance) {
 
-        if(ratio >= 0 && bgJS.interactivity.status == 'mousemove'){
-          
+        if (ratio >= 0 && bgJS.interactivity.status == 'mousemove') {
+
           /* size */
-          if(bgJS.interactivity.modes.bubble.size != bgJS.parts.size.value){
+          if (bgJS.interactivity.modes.bubble.size != bgJS.parts.size.value) {
 
-            if(bgJS.interactivity.modes.bubble.size > bgJS.parts.size.value){
-              var size = p.radius + (bgJS.interactivity.modes.bubble.size*ratio);
-              if(size >= 0){
+            if (bgJS.interactivity.modes.bubble.size > bgJS.parts.size.value) {
+              var size = p.radius + (bgJS.interactivity.modes.bubble.size * ratio);
+              if (size >= 0) {
                 p.radius_bubble = size;
               }
-            }else{
+            } else {
               var dif = p.radius - bgJS.interactivity.modes.bubble.size,
-                  size = p.radius - (dif*ratio);
-              if(size > 0){
+                size = p.radius - (dif * ratio);
+              if (size > 0) {
                 p.radius_bubble = size;
-              }else{
+              } else {
                 p.radius_bubble = 0;
               }
             }
@@ -797,78 +797,78 @@ var bgJS = function(tag_id, params){
           }
 
           /* opacity */
-          if(bgJS.interactivity.modes.bubble.opacity != bgJS.parts.opacity.value){
+          if (bgJS.interactivity.modes.bubble.opacity != bgJS.parts.opacity.value) {
 
-            if(bgJS.interactivity.modes.bubble.opacity > bgJS.parts.opacity.value){
-              var opacity = bgJS.interactivity.modes.bubble.opacity*ratio;
-              if(opacity > p.opacity && opacity <= bgJS.interactivity.modes.bubble.opacity){
+            if (bgJS.interactivity.modes.bubble.opacity > bgJS.parts.opacity.value) {
+              var opacity = bgJS.interactivity.modes.bubble.opacity * ratio;
+              if (opacity > p.opacity && opacity <= bgJS.interactivity.modes.bubble.opacity) {
                 p.opacity_bubble = opacity;
               }
-            }else{
-              var opacity = p.opacity - (bgJS.parts.opacity.value-bgJS.interactivity.modes.bubble.opacity)*ratio;
-              if(opacity < p.opacity && opacity >= bgJS.interactivity.modes.bubble.opacity){
+            } else {
+              var opacity = p.opacity - (bgJS.parts.opacity.value - bgJS.interactivity.modes.bubble.opacity) * ratio;
+              if (opacity < p.opacity && opacity >= bgJS.interactivity.modes.bubble.opacity) {
                 p.opacity_bubble = opacity;
               }
             }
           }
         }
 
-      }else{
+      } else {
         init();
       }
 
       /* mouseleave */
-      if(bgJS.interactivity.status == 'mouseleave'){
+      if (bgJS.interactivity.status == 'mouseleave') {
         init();
       }
-    
+
     }
 
     /* on click event */
-    else if(bgJS.interactivity.events.onclick.enable && isInArray('bubble', bgJS.interactivity.events.onclick.mode)){
+    else if (bgJS.interactivity.events.onclick.enable && isInArray('bubble', bgJS.interactivity.events.onclick.mode)) {
 
 
-      if(bgJS.tmp.bubble_clicking){
+      if (bgJS.tmp.bubble_clicking) {
         var dx_mouse = p.x - bgJS.interactivity.mouse.click_pos_x,
-            dy_mouse = p.y - bgJS.interactivity.mouse.click_pos_y,
-            dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse),
-            time_spent = (new Date().getTime() - bgJS.interactivity.mouse.click_time)/1000;
+          dy_mouse = p.y - bgJS.interactivity.mouse.click_pos_y,
+          dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse),
+          time_spent = (new Date().getTime() - bgJS.interactivity.mouse.click_time) / 1000;
 
-        if(time_spent > bgJS.interactivity.modes.bubble.duration){
+        if (time_spent > bgJS.interactivity.modes.bubble.duration) {
           bgJS.tmp.bubble_duration_end = true;
         }
 
-        if(time_spent > bgJS.interactivity.modes.bubble.duration*2){
+        if (time_spent > bgJS.interactivity.modes.bubble.duration * 2) {
           bgJS.tmp.bubble_clicking = false;
           bgJS.tmp.bubble_duration_end = false;
         }
       }
 
 
-      function process(bubble_param, particles_param, p_obj_bubble, p_obj, id){
+      function process(bubble_param, particles_param, p_obj_bubble, p_obj, id) {
 
-        if(bubble_param != particles_param){
+        if (bubble_param != particles_param) {
 
-          if(!bgJS.tmp.bubble_duration_end){
-            if(dist_mouse <= bgJS.interactivity.modes.bubble.distance){
-              if(p_obj_bubble != undefined) var obj = p_obj_bubble;
+          if (!bgJS.tmp.bubble_duration_end) {
+            if (dist_mouse <= bgJS.interactivity.modes.bubble.distance) {
+              if (p_obj_bubble != undefined) var obj = p_obj_bubble;
               else var obj = p_obj;
-              if(obj != bubble_param){
+              if (obj != bubble_param) {
                 var value = p_obj - (time_spent * (p_obj - bubble_param) / bgJS.interactivity.modes.bubble.duration);
-                if(id == 'size') p.radius_bubble = value;
-                if(id == 'opacity') p.opacity_bubble = value;
+                if (id == 'size') p.radius_bubble = value;
+                if (id == 'opacity') p.opacity_bubble = value;
               }
-            }else{
-              if(id == 'size') p.radius_bubble = undefined;
-              if(id == 'opacity') p.opacity_bubble = undefined;
+            } else {
+              if (id == 'size') p.radius_bubble = undefined;
+              if (id == 'opacity') p.opacity_bubble = undefined;
             }
-          }else{
-            if(p_obj_bubble != undefined){
+          } else {
+            if (p_obj_bubble != undefined) {
               var value_tmp = p_obj - (time_spent * (p_obj - bubble_param) / bgJS.interactivity.modes.bubble.duration),
-                  dif = bubble_param - value_tmp;
-                  value = bubble_param + dif;
-              if(id == 'size') p.radius_bubble = value;
-              if(id == 'opacity') p.opacity_bubble = value;
+                dif = bubble_param - value_tmp;
+              value = bubble_param + dif;
+              if (id == 'size') p.radius_bubble = value;
+              if (id == 'opacity') p.opacity_bubble = value;
             }
           }
 
@@ -876,7 +876,7 @@ var bgJS = function(tag_id, params){
 
       }
 
-      if(bgJS.tmp.bubble_clicking){
+      if (bgJS.tmp.bubble_clicking) {
         /* size */
         process(bgJS.interactivity.modes.bubble.size, bgJS.parts.size.value, p.radius_bubble, p.radius, 'size');
         /* opacity */
@@ -888,61 +888,61 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.modes.repulseParticle = function(p){
+  bgJS.fn.modes.repulseParticle = function (p) {
 
-    if(bgJS.interactivity.events.onhover.enable && isInArray('repulse', bgJS.interactivity.events.onhover.mode) && bgJS.interactivity.status == 'mousemove') {
+    if (bgJS.interactivity.events.onhover.enable && isInArray('repulse', bgJS.interactivity.events.onhover.mode) && bgJS.interactivity.status == 'mousemove') {
 
       var dx_mouse = p.x - bgJS.interactivity.mouse.pos_x,
-          dy_mouse = p.y - bgJS.interactivity.mouse.pos_y,
-          dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse);
+        dy_mouse = p.y - bgJS.interactivity.mouse.pos_y,
+        dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
 
-      var normVec = {x: dx_mouse/dist_mouse, y: dy_mouse/dist_mouse},
-          repulseRadius = bgJS.interactivity.modes.repulse.distance,
-          velocity = 100,
-          repulseFactor = clamp((1/repulseRadius)*(-1*Math.pow(dist_mouse/repulseRadius,2)+1)*repulseRadius*velocity, 0, 50);
-      
+      var normVec = { x: dx_mouse / dist_mouse, y: dy_mouse / dist_mouse },
+        repulseRadius = bgJS.interactivity.modes.repulse.distance,
+        velocity = 100,
+        repulseFactor = clamp((1 / repulseRadius) * (-1 * Math.pow(dist_mouse / repulseRadius, 2) + 1) * repulseRadius * velocity, 0, 50);
+
       var pos = {
         x: p.x + normVec.x * repulseFactor,
         y: p.y + normVec.y * repulseFactor
       }
 
-      if(bgJS.parts.move.out_mode == 'bounce'){
-        if(pos.x - p.radius > 0 && pos.x + p.radius < bgJS.canvas.w) p.x = pos.x;
-        if(pos.y - p.radius > 0 && pos.y + p.radius < bgJS.canvas.h) p.y = pos.y;
-      }else{
+      if (bgJS.parts.move.out_mode == 'bounce') {
+        if (pos.x - p.radius > 0 && pos.x + p.radius < bgJS.canvas.w) p.x = pos.x;
+        if (pos.y - p.radius > 0 && pos.y + p.radius < bgJS.canvas.h) p.y = pos.y;
+      } else {
         p.x = pos.x;
         p.y = pos.y;
       }
-    
+
     }
 
 
-    else if(bgJS.interactivity.events.onclick.enable && isInArray('repulse', bgJS.interactivity.events.onclick.mode)) {
+    else if (bgJS.interactivity.events.onclick.enable && isInArray('repulse', bgJS.interactivity.events.onclick.mode)) {
 
-      if(!bgJS.tmp.repulse_finish){
+      if (!bgJS.tmp.repulse_finish) {
         bgJS.tmp.repulse_count++;
-        if(bgJS.tmp.repulse_count == bgJS.parts.array.length){
+        if (bgJS.tmp.repulse_count == bgJS.parts.array.length) {
           bgJS.tmp.repulse_finish = true;
         }
       }
 
-      if(bgJS.tmp.repulse_clicking){
+      if (bgJS.tmp.repulse_clicking) {
 
-        var repulseRadius = Math.pow(bgJS.interactivity.modes.repulse.distance/6, 3);
+        var repulseRadius = Math.pow(bgJS.interactivity.modes.repulse.distance / 6, 3);
 
         var dx = bgJS.interactivity.mouse.click_pos_x - p.x,
-            dy = bgJS.interactivity.mouse.click_pos_y - p.y,
-            d = dx*dx + dy*dy;
+          dy = bgJS.interactivity.mouse.click_pos_y - p.y,
+          d = dx * dx + dy * dy;
 
         var force = -repulseRadius / d * 1;
 
-        function process(){
+        function process() {
 
-          var f = Math.atan2(dy,dx);
+          var f = Math.atan2(dy, dx);
           p.vx = force * Math.cos(f);
           p.vy = force * Math.sin(f);
 
-          if(bgJS.parts.move.out_mode == 'bounce'){
+          if (bgJS.parts.move.out_mode == 'bounce') {
             var pos = {
               x: p.x + p.vx,
               y: p.y + p.vy
@@ -956,17 +956,17 @@ var bgJS = function(tag_id, params){
         }
 
         // default
-        if(d <= repulseRadius){
+        if (d <= repulseRadius) {
           process();
         }
 
-      }else{
+      } else {
 
-        if(bgJS.tmp.repulse_clicking == false){
+        if (bgJS.tmp.repulse_clicking == false) {
 
           p.vx = p.vx_i;
           p.vy = p.vy_i;
-        
+
         }
 
       }
@@ -976,27 +976,27 @@ var bgJS = function(tag_id, params){
   }
 
 
-  bgJS.fn.modes.grabParticle = function(p){
+  bgJS.fn.modes.grabParticle = function (p) {
 
-    if(bgJS.interactivity.events.onhover.enable && bgJS.interactivity.status == 'mousemove'){
+    if (bgJS.interactivity.events.onhover.enable && bgJS.interactivity.status == 'mousemove') {
 
       var dx_mouse = p.x - bgJS.interactivity.mouse.pos_x,
-          dy_mouse = p.y - bgJS.interactivity.mouse.pos_y,
-          dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse);
+        dy_mouse = p.y - bgJS.interactivity.mouse.pos_y,
+        dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
 
       /* draw a line between the cursor and the particle if the distance between them is under the config distance */
-      if(dist_mouse <= bgJS.interactivity.modes.grab.distance){
+      if (dist_mouse <= bgJS.interactivity.modes.grab.distance) {
 
-        var opacity_line = bgJS.interactivity.modes.grab.line_linked.opacity - (dist_mouse / (1/bgJS.interactivity.modes.grab.line_linked.opacity)) / bgJS.interactivity.modes.grab.distance;
+        var opacity_line = bgJS.interactivity.modes.grab.line_linked.opacity - (dist_mouse / (1 / bgJS.interactivity.modes.grab.line_linked.opacity)) / bgJS.interactivity.modes.grab.distance;
 
-        if(opacity_line > 0){
+        if (opacity_line > 0) {
 
           /* style */
           var color_line = bgJS.parts.line_linked.color_rgb_line;
-          bgJS.canvas.ctx.strokeStyle = 'rgba('+color_line.r+','+color_line.g+','+color_line.b+','+opacity_line+')';
+          bgJS.canvas.ctx.strokeStyle = 'rgba(' + color_line.r + ',' + color_line.g + ',' + color_line.b + ',' + opacity_line + ')';
           bgJS.canvas.ctx.lineWidth = bgJS.parts.line_linked.width;
           //bgJS.canvas.ctx.lineCap = 'round'; /* performance issue */
-          
+
           /* path */
           bgJS.canvas.ctx.beginPath();
           bgJS.canvas.ctx.moveTo(p.x, p.y);
@@ -1016,35 +1016,35 @@ var bgJS = function(tag_id, params){
 
   /* ---------- bgJS functions - vendors ------------ */
 
-  bgJS.fn.vendors.eventsListeners = function(){
+  bgJS.fn.vendors.eventsListeners = function () {
 
     /* events target element */
-    if(bgJS.interactivity.detect_on == 'window'){
+    if (bgJS.interactivity.detect_on == 'window') {
       bgJS.interactivity.el = window;
-    }else{
+    } else {
       bgJS.interactivity.el = bgJS.canvas.el;
     }
 
 
     /* detect mouse pos - on hover / click event */
-    if(bgJS.interactivity.events.onhover.enable || bgJS.interactivity.events.onclick.enable){
+    if (bgJS.interactivity.events.onhover.enable || bgJS.interactivity.events.onclick.enable) {
 
       /* el on mousemove */
-      bgJS.interactivity.el.addEventListener('mousemove', function(e){
+      bgJS.interactivity.el.addEventListener('mousemove', function (e) {
 
-        if(bgJS.interactivity.el == window){
+        if (bgJS.interactivity.el == window) {
           var pos_x = e.clientX,
-              pos_y = e.clientY;
+            pos_y = e.clientY;
         }
-        else{
+        else {
           var pos_x = e.offsetX || e.clientX,
-              pos_y = e.offsetY || e.clientY;
+            pos_y = e.offsetY || e.clientY;
         }
 
         bgJS.interactivity.mouse.pos_x = pos_x;
         bgJS.interactivity.mouse.pos_y = pos_y;
 
-        if(bgJS.tmp.retina){
+        if (bgJS.tmp.retina) {
           bgJS.interactivity.mouse.pos_x *= bgJS.canvas.pxratio;
           bgJS.interactivity.mouse.pos_y *= bgJS.canvas.pxratio;
         }
@@ -1054,7 +1054,7 @@ var bgJS = function(tag_id, params){
       });
 
       /* el on onmouseleave */
-      bgJS.interactivity.el.addEventListener('mouseleave', function(e){
+      bgJS.interactivity.el.addEventListener('mouseleave', function (e) {
 
         bgJS.interactivity.mouse.pos_x = null;
         bgJS.interactivity.mouse.pos_y = null;
@@ -1065,67 +1065,67 @@ var bgJS = function(tag_id, params){
     }
 
     /* on click event */
-    if(bgJS.interactivity.events.onclick.enable){
+    if (bgJS.interactivity.events.onclick.enable) {
 
-      bgJS.interactivity.el.addEventListener('click', function(){
+      bgJS.interactivity.el.addEventListener('click', function () {
 
         bgJS.interactivity.mouse.click_pos_x = bgJS.interactivity.mouse.pos_x;
         bgJS.interactivity.mouse.click_pos_y = bgJS.interactivity.mouse.pos_y;
         bgJS.interactivity.mouse.click_time = new Date().getTime();
 
-        if(bgJS.interactivity.events.onclick.enable){
+        if (bgJS.interactivity.events.onclick.enable) {
 
-          switch(bgJS.interactivity.events.onclick.mode){
+          switch (bgJS.interactivity.events.onclick.mode) {
 
             case 'push':
-              if(bgJS.parts.move.enable){
+              if (bgJS.parts.move.enable) {
                 bgJS.fn.modes.pushParticles(bgJS.interactivity.modes.push.particles_nb, bgJS.interactivity.mouse);
-              }else{
-                if(bgJS.interactivity.modes.push.particles_nb == 1){
+              } else {
+                if (bgJS.interactivity.modes.push.particles_nb == 1) {
                   bgJS.fn.modes.pushParticles(bgJS.interactivity.modes.push.particles_nb, bgJS.interactivity.mouse);
                 }
-                else if(bgJS.interactivity.modes.push.particles_nb > 1){
+                else if (bgJS.interactivity.modes.push.particles_nb > 1) {
                   bgJS.fn.modes.pushParticles(bgJS.interactivity.modes.push.particles_nb);
                 }
               }
-            break;
+              break;
 
             case 'remove':
               bgJS.fn.modes.removeParticles(bgJS.interactivity.modes.remove.particles_nb);
-            break;
+              break;
 
             case 'bubble':
               bgJS.tmp.bubble_clicking = true;
-            break;
+              break;
 
             case 'repulse':
               bgJS.tmp.repulse_clicking = true;
               bgJS.tmp.repulse_count = 0;
               bgJS.tmp.repulse_finish = false;
-              setTimeout(function(){
+              setTimeout(function () {
                 bgJS.tmp.repulse_clicking = false;
-              }, bgJS.interactivity.modes.repulse.duration*1000)
-            break;
+              }, bgJS.interactivity.modes.repulse.duration * 1000)
+              break;
 
           }
 
         }
 
       });
-        
+
     }
 
 
   };
 
-  bgJS.fn.vendors.densityAutoParticles = function(){
+  bgJS.fn.vendors.densityAutoParticles = function () {
 
-    if(bgJS.parts.number.density.enable){
+    if (bgJS.parts.number.density.enable) {
 
       /* calc area */
       var area = bgJS.canvas.el.width * bgJS.canvas.el.height / 1000;
-      if(bgJS.tmp.retina){
-        area = area/(bgJS.canvas.pxratio*2);
+      if (bgJS.tmp.retina) {
+        area = area / (bgJS.canvas.pxratio * 2);
       }
 
       /* calc number of parts based on density area */
@@ -1133,7 +1133,7 @@ var bgJS = function(tag_id, params){
 
       /* add or remove X parts */
       var missing_particles = bgJS.parts.array.length - nb_particles;
-      if(missing_particles < 0) bgJS.fn.modes.pushParticles(Math.abs(missing_particles));
+      if (missing_particles < 0) bgJS.fn.modes.pushParticles(Math.abs(missing_particles));
       else bgJS.fn.modes.removeParticles(missing_particles);
 
     }
@@ -1141,15 +1141,15 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.vendors.checkOverlap = function(p1, position){
-    for(var i = 0; i < bgJS.parts.array.length; i++){
+  bgJS.fn.vendors.checkOverlap = function (p1, position) {
+    for (var i = 0; i < bgJS.parts.array.length; i++) {
       var p2 = bgJS.parts.array[i];
 
       var dx = p1.x - p2.x,
-          dy = p1.y - p2.y,
-          dist = Math.sqrt(dx*dx + dy*dy);
+        dy = p1.y - p2.y,
+        dist = Math.sqrt(dx * dx + dy * dy);
 
-      if(dist <= p1.radius + p2.radius){
+      if (dist <= p1.radius + p2.radius) {
         p1.x = position ? position.x : Math.random() * bgJS.canvas.w;
         p1.y = position ? position.y : Math.random() * bgJS.canvas.h;
         bgJS.fn.vendors.checkOverlap(p1);
@@ -1158,28 +1158,28 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.vendors.createSvgImg = function(p){
+  bgJS.fn.vendors.createSvgImg = function (p) {
 
     /* set color to svg element */
     var svgXml = bgJS.tmp.source_svg,
-        rgbHex = /#([0-9A-F]{3,6})/gi,
-        coloredSvgXml = svgXml.replace(rgbHex, function (m, r, g, b) {
-          if(p.color.rgb){
-            var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+p.opacity+')';
-          }else{
-            var color_value = 'hsla('+p.color.hsl.h+','+p.color.hsl.s+'%,'+p.color.hsl.l+'%,'+p.opacity+')';
-          }
-          return color_value;
-        });
+      rgbHex = /#([0-9A-F]{3,6})/gi,
+      coloredSvgXml = svgXml.replace(rgbHex, function (m, r, g, b) {
+        if (p.color.rgb) {
+          var color_value = 'rgba(' + p.color.rgb.r + ',' + p.color.rgb.g + ',' + p.color.rgb.b + ',' + p.opacity + ')';
+        } else {
+          var color_value = 'hsla(' + p.color.hsl.h + ',' + p.color.hsl.s + '%,' + p.color.hsl.l + '%,' + p.opacity + ')';
+        }
+        return color_value;
+      });
 
     /* prepare to create img with colored svg */
-    var svg = new Blob([coloredSvgXml], {type: 'image/svg+xml;charset=utf-8'}),
-        DOMURL = window.URL || window.webkitURL || window,
-        url = DOMURL.createObjectURL(svg);
+    var svg = new Blob([coloredSvgXml], { type: 'image/svg+xml;charset=utf-8' }),
+      DOMURL = window.URL || window.webkitURL || window,
+      url = DOMURL.createObjectURL(svg);
 
     /* create particle img obj */
     var img = new Image();
-    img.addEventListener('load', function(){
+    img.addEventListener('load', function () {
       p.img.obj = img;
       p.img.loaded = true;
       DOMURL.revokeObjectURL(url);
@@ -1190,14 +1190,14 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.vendors.destroypJS = function(){
+  bgJS.fn.vendors.destroypJS = function () {
     cancelAnimationFrame(bgJS.fn.drawAnimFrame);
     canvas_el.remove();
     bgJSDom = null;
   };
 
 
-  bgJS.fn.vendors.drawShape = function(c, startX, startY, sideLength, sideCountNumerator, sideCountDenominator){
+  bgJS.fn.vendors.drawShape = function (c, startX, startY, sideLength, sideCountNumerator, sideCountDenominator) {
 
     // By Programming Thomas - https://programmingthomas.wordpress.com/2013/04/03/n-sided-shapes/
     var sideCount = sideCountNumerator * sideCountDenominator;
@@ -1207,10 +1207,10 @@ var bgJS = function(tag_id, params){
     c.save();
     c.beginPath();
     c.translate(startX, startY);
-    c.moveTo(0,0);
+    c.moveTo(0, 0);
     for (var i = 0; i < sideCount; i++) {
-      c.lineTo(sideLength,0);
-      c.translate(sideLength,0);
+      c.lineTo(sideLength, 0);
+      c.translate(sideLength, 0);
       c.rotate(interiorAngle);
     }
     //c.stroke();
@@ -1219,27 +1219,27 @@ var bgJS = function(tag_id, params){
 
   };
 
-  bgJS.fn.vendors.exportImg = function(){
+  bgJS.fn.vendors.exportImg = function () {
     window.open(bgJS.canvas.el.toDataURL('image/png'), '_blank');
   };
 
 
-  bgJS.fn.vendors.loadImg = function(type){
+  bgJS.fn.vendors.loadImg = function (type) {
 
     bgJS.tmp.img_error = undefined;
 
-    if(bgJS.parts.shape.image.src != ''){
+    if (bgJS.parts.shape.image.src != '') {
 
-      if(type == 'svg'){
+      if (type == 'svg') {
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', bgJS.parts.shape.image.src);
         xhr.onreadystatechange = function (data) {
-          if(xhr.readyState == 4){
-            if(xhr.status == 200){
+          if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
               bgJS.tmp.source_svg = data.currentTarget.response;
               bgJS.fn.vendors.checkBeforeDraw();
-            }else{
+            } else {
               console.log('Error bgJS - Image not found');
               bgJS.tmp.img_error = true;
             }
@@ -1247,10 +1247,10 @@ var bgJS = function(tag_id, params){
         }
         xhr.send();
 
-      }else{
+      } else {
 
         var img = new Image();
-        img.addEventListener('load', function(){
+        img.addEventListener('load', function () {
           bgJS.tmp.img_obj = img;
           bgJS.fn.vendors.checkBeforeDraw();
         });
@@ -1258,7 +1258,7 @@ var bgJS = function(tag_id, params){
 
       }
 
-    }else{
+    } else {
       console.log('Error bgJS - No image.src');
       bgJS.tmp.img_error = true;
     }
@@ -1266,60 +1266,60 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.vendors.draw = function(){
+  bgJS.fn.vendors.draw = function () {
 
-    if(bgJS.parts.shape.type == 'image'){
+    if (bgJS.parts.shape.type == 'image') {
 
-      if(bgJS.tmp.img_type == 'svg'){
+      if (bgJS.tmp.img_type == 'svg') {
 
-        if(bgJS.tmp.count_svg >= bgJS.parts.number.value){
+        if (bgJS.tmp.count_svg >= bgJS.parts.number.value) {
           bgJS.fn.particlesDraw();
-          if(!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
+          if (!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
           else bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
-        }else{
+        } else {
           //console.log('still loading...');
-          if(!bgJS.tmp.img_error) bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
+          if (!bgJS.tmp.img_error) bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
         }
 
-      }else{
+      } else {
 
-        if(bgJS.tmp.img_obj != undefined){
+        if (bgJS.tmp.img_obj != undefined) {
           bgJS.fn.particlesDraw();
-          if(!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
+          if (!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
           else bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
-        }else{
-          if(!bgJS.tmp.img_error) bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
+        } else {
+          if (!bgJS.tmp.img_error) bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
         }
 
       }
 
-    }else{
+    } else {
       bgJS.fn.particlesDraw();
-      if(!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
+      if (!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
       else bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
     }
 
   };
 
 
-  bgJS.fn.vendors.checkBeforeDraw = function(){
+  bgJS.fn.vendors.checkBeforeDraw = function () {
 
     // if shape is image
-    if(bgJS.parts.shape.type == 'image'){
+    if (bgJS.parts.shape.type == 'image') {
 
-      if(bgJS.tmp.img_type == 'svg' && bgJS.tmp.source_svg == undefined){
+      if (bgJS.tmp.img_type == 'svg' && bgJS.tmp.source_svg == undefined) {
         bgJS.tmp.checkAnimFrame = requestAnimFrame(check);
-      }else{
+      } else {
         //console.log('images loaded! cancel check');
         cancelRequestAnimFrame(bgJS.tmp.checkAnimFrame);
-        if(!bgJS.tmp.img_error){
+        if (!bgJS.tmp.img_error) {
           bgJS.fn.vendors.init();
           bgJS.fn.vendors.draw();
         }
-        
+
       }
 
-    }else{
+    } else {
       bgJS.fn.vendors.init();
       bgJS.fn.vendors.draw();
     }
@@ -1327,7 +1327,7 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.vendors.init = function(){
+  bgJS.fn.vendors.init = function () {
 
     /* init canvas + parts */
     bgJS.fn.retinaInit();
@@ -1343,12 +1343,12 @@ var bgJS = function(tag_id, params){
   };
 
 
-  bgJS.fn.vendors.start = function(){
+  bgJS.fn.vendors.start = function () {
 
-    if(isInArray('image', bgJS.parts.shape.type)){
+    if (isInArray('image', bgJS.parts.shape.type)) {
       bgJS.tmp.img_type = bgJS.parts.shape.image.src.substr(bgJS.parts.shape.image.src.length - 3);
       bgJS.fn.vendors.loadImg(bgJS.tmp.img_type);
-    }else{
+    } else {
       bgJS.fn.vendors.checkBeforeDraw();
     }
 
@@ -1365,10 +1365,10 @@ var bgJS = function(tag_id, params){
 
 /* ---------- global functions - vendors ------------ */
 
-Object.deepExtend = function(destination, source) {
+Object.deepExtend = function (destination, source) {
   for (var property in source) {
     if (source[property] && source[property].constructor &&
-     source[property].constructor === Object) {
+      source[property].constructor === Object) {
       destination[property] = destination[property] || {};
       arguments.callee(destination[property], source[property]);
     } else {
@@ -1378,38 +1378,38 @@ Object.deepExtend = function(destination, source) {
   return destination;
 };
 
-window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame ||
+window.requestAnimFrame = (function () {
+  return window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame    ||
-    window.oRequestAnimationFrame      ||
-    window.msRequestAnimationFrame     ||
-    function(callback){
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
       window.setTimeout(callback, 1000 / 60);
     };
 })();
 
-window.cancelRequestAnimFrame = ( function() {
-  return window.cancelAnimationFrame         ||
+window.cancelRequestAnimFrame = (function () {
+  return window.cancelAnimationFrame ||
     window.webkitCancelRequestAnimationFrame ||
-    window.mozCancelRequestAnimationFrame    ||
-    window.oCancelRequestAnimationFrame      ||
-    window.msCancelRequestAnimationFrame     ||
+    window.mozCancelRequestAnimationFrame ||
+    window.oCancelRequestAnimationFrame ||
+    window.msCancelRequestAnimationFrame ||
     clearTimeout
-} )();
+})();
 
-function hexToRgb(hex){
+function hexToRgb(hex) {
   // By Tim Down - http://stackoverflow.com/a/5624139/3493650
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-     return r + r + g + g + b + b;
+  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+    return r + r + g + g + b + b;
   });
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16)
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
   } : null;
 };
 
@@ -1426,29 +1426,29 @@ function isInArray(value, array) {
 
 window.bgJSDom = [];
 
-window.backgroundJS = function(tag_id, params){
+window.backgroundJS = function (tag_id, params) {
 
   //console.log(params);
 
   /* no string id? so it's object params, and set the id with default id */
-  if(typeof(tag_id) != 'string'){
+  if (typeof (tag_id) != 'string') {
     params = tag_id;
     tag_id = 'bg-app';
   }
 
   /* no id? set the id to default id */
-  if(!tag_id){
+  if (!tag_id) {
     tag_id = 'bg-app';
   }
 
   /* bgJS elements */
   const pJS_tag = document.getElementById(tag_id),
-      pJS_canvas_class = 'bg-app-canvas-el',
-      exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
+    pJS_canvas_class = 'bg-app-canvas-el',
+    exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
 
   /* remove canvas if exists into the bgJS target tag */
-  if(exist_canvas.length){
-    while(exist_canvas.length > 0){
+  if (exist_canvas.length) {
+    while (exist_canvas.length > 0) {
       pJS_tag.removeChild(exist_canvas[0]);
     }
   }
@@ -1465,25 +1465,25 @@ window.backgroundJS = function(tag_id, params){
   const canvas = document.getElementById(tag_id).appendChild(canvas_el);
 
   /* launch particle.js */
-  if(canvas != null){
+  if (canvas != null) {
     bgJSDom.push(new bgJS(tag_id, params));
   }
 
 };
 
-window.backgroundJS.load = function(tag_id, path_config_json, callback){
+window.backgroundJS.load = function (tag_id, path_config_json, callback) {
 
   /* load json config */
   const xhr = new XMLHttpRequest();
   xhr.open('GET', path_config_json);
   xhr.onreadystatechange = function (data) {
-    if(xhr.readyState == 4){
-      if(xhr.status == 200){
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
         var params = JSON.parse(data.currentTarget.response);
         window.backgroundJS(tag_id, params);
-        if(callback) callback();
-      }else{
-        console.log('Error bgJS - XMLHttpRequest status: '+xhr.status);
+        if (callback) callback();
+      } else {
+        console.log('Error bgJS - XMLHttpRequest status: ' + xhr.status);
         console.log('Error bgJS - File config not found');
       }
     }
@@ -1601,3 +1601,91 @@ backgroundJS('bg-app',
   }
 
 );
+
+// TODO: delete Stats here------------------------------------------------------------------
+const Stats = () => {
+  let startTime = Date.now();
+  let prevTime = startTime;
+  let ms = 0;
+  let msMin = Infinity;
+  let msMax = 0;
+  let fps = 0;
+  let fpsMin = Infinity;
+  let fpsMax = 0;
+  let frames = 0;
+  const container = document.createElement('div');
+  container.id = 'stats';
+  const fpsDiv = document.createElement('div');
+  fpsDiv.id = 'fps';
+  container.appendChild(fpsDiv);
+  const fpsDesc = document.createElement('div');
+  fpsDesc.id = 'fpsDesc';
+  fpsDesc.textContent = "fps";
+  fpsDiv.appendChild(fpsDesc);
+
+  const fpsText = document.createElement('div');
+  fpsText.id = 'fpsText';
+  fpsDiv.appendChild(fpsText);
+  const setMode = () => {
+    fpsDiv.style.display = 'block';
+  };
+  const updateGraph = (dom, value) => {
+    const child = dom.appendChild(dom.firstChild);
+    child.style.height = `${value}px`;
+  };
+  return {
+    REVISION: 12,
+    domElement: container,
+    setMode,
+    begin() {
+      startTime = Date.now();
+    },
+    end() {
+      const time = Date.now();
+      ms = time - startTime;
+      msMin = Math.min(msMin, ms);
+      msMax = Math.max(msMax, ms);
+      frames++;
+      if (time > prevTime + 1000) {
+        fps = Math.round((frames * 1000) / (time - prevTime));
+        fpsMin = Math.min(fpsMin, fps);
+        fpsMax = Math.max(fpsMax, fps);
+        fpsText.textContent = fps;
+        prevTime = time;
+        frames = 0;
+      }
+      return time;
+    },
+    update() {
+      startTime = this.end();
+    }
+  }
+};
+  function updateAll() {
+    let count_parts;
+    let stats;
+    let update;
+    const containerMain = document.querySelector('.count-parts');
+    const partsDesc = document.createElement('div');
+    stats = new Stats;
+    stats.setMode(0);
+    document.body.appendChild(stats.domElement);
+    count_parts = document.querySelector('.js-count-parts');
+    partsDesc.id = 'partsDesc';
+    partsDesc.innerHTML = 'parts';
+    containerMain.appendChild(partsDesc);
+    update = () => {
+      if (stats) {
+        stats.begin();
+        stats.end();
+        if (window.bgJSDom[0].bgJS.parts && window.bgJSDom[0].bgJS.parts.array) {
+          count_parts.innerText = window.bgJSDom[0].bgJS.parts.array.length;
+        }
+        requestAnimationFrame(update);
+      }
+    };
+    requestAnimationFrame(update);
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname !== '/folio') updateAll()
+  });
