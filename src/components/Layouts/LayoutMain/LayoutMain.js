@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
 import { Layout } from 'antd';
+import history from '../../../utils/history/history';
 // components
 import Home from '../../Pages/Home';
 import Folio from '../../Pages/Folio';
+import Stats from '../../Stats';
 
 const { Content } = Layout;
 
@@ -14,7 +16,7 @@ class LayoutMain extends Component {
         }
         return (
             <Layout className="LayoutMain">
-
+                {history.location.pathname === '/' ? <Stats /> : null}
                 <Layout className="Main">
                     <Content>
                         <Switch>

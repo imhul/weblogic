@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Wave } from 'react-preloading-component';
-import { Icon } from 'antd';
+// import Stats from '../../Stats';
 
 class Home extends Component {
     constructor(props) {
@@ -14,36 +13,41 @@ class Home extends Component {
         this.handleMouseOut = this.handleMouseOut.bind(this);
     }
 
-    componentDidMount() {          
+    componentDidMount() {
         setTimeout(() => this.setState({
             styles: { transform: "scale(1)", opacity: 1 },
         }), 2000)
     }
 
     handleMouseOver(event) {
-        console.log("over", event);
+        // console.log("over", event);
         this.setState({ spin: false })
     }
 
     handleMouseOut(event) {
-        console.log("out", event);
+        // console.log("out", event);
         this.setState({ spin: true })
     }
 
     render() {
-        const hero = [ 'W','e','b','L','o','g','i','c',' ','S','t','u','d','i','o' ];
+        const hero = ['W', 'e', 'b', 'L', 'o', 'g', 'i', 'c', ' ', 'S', 't', 'u', 'd', 'i', 'o'];
         return (
-            <div className="Home" onMouseOver={() => this.handleMouseOver(this) } onMouseLeave={() => this.handleMouseOut(this) }>
+            <div 
+                className="Home" 
+                onMouseOver={() => this.handleMouseOver(this)} 
+                onMouseLeave={() => this.handleMouseOut(this)}>
+                
                 <Link to="/folio">
-                    <h1 className="mobile-fix heading-hero" style={ this.state.styles }>
-                        { hero.map((symbol, index) => { return ( 
-                            <span 
-                                key={index} 
-                                className={`span-${index}`}
-                            >
-                                { symbol }
-                            </span> )
-                        } ) }
+                    <h1 className="mobile-fix heading-hero" style={this.state.styles}>
+                        {hero.map((symbol, index) => {
+                            return (
+                                <span
+                                    key={index}
+                                    className={`span-${index}`}
+                                >
+                                    {symbol}
+                                </span>)
+                        })}
                         <span className="span-15">
                             <i className="icon-lamp"></i>
                         </span>

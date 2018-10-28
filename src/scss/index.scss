@@ -8,7 +8,12 @@
 @import "others";
 
 /* pages */
+@import "./pages/home.scss";
+@import "./pages/folio.scss";
 @import "./pages/intro.scss";
 @import "./pages/roadmap.scss";
 @import "./pages/works.scss";
 @import "./pages/contact.scss";
+
+/* pages */
+@import "./components/stats.scss";

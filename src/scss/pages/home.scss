@@ -1,0 +1,112 @@
+/* Home page */
+
+.Home {
+    height: 280px;
+    top: 50%;
+    left: 50%;
+    display: table;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    @media (max-width: $media-small) {
+        max-width: 320px;
+    }
+    @media (max-width: $media-small) and (orientation: landscape) {
+        max-width: 300px;
+        height: 0;
+    }
+    @media (min-width: $media-medium-min) {
+        max-width: 450px;
+    }
+    @media (min-width: $media-large-min) {
+        max-width: 580px;
+    }
+    a {
+        cursor: pointer;
+        &:hover {
+            text-shadow: 0;
+        }
+        .heading-hero {
+            color: $color-white;
+            font-size: 3.8rem;
+            line-height: 1.1;
+            opacity: 0;
+            margin: 0;
+            transform: scale(0.5);
+            transition: all ease 1s;
+            /* Hero animation "back to 0" */
+            &:hover {
+                @for $i from 0 through 15 {
+                    $rondomTranslate: random(5) / 1.1;
+                    .span-#{$i} {
+                        animation: stop #{$rondomTranslate}s;
+                        transition: transition #{$rondomTranslate}s;
+                        .icon-lamp {
+                            color: $color-link-hover;
+                            text-shadow: 0 0 20px $color-link-hover;
+                        }
+                    }
+                }
+            }
+            @media (max-width: $media-small) {
+                margin-left: 20px;
+            }
+            @media (min-width: $media-medium-min) {
+                font-size: 6rem;
+                line-height: 1;
+            }
+            @media (min-width: $media-large-min) {
+                font-size: 8rem;
+                line-height: 1;
+            }
+            @media (max-width: $media-small) and (orientation: landscape) {
+                display: table-footer-group;
+            }
+            /* Hero animation start */
+            @for $i from 0 through 15 {
+                $rondomAngle: random(360);
+                $rondomTranslate: random(5) / 1.1;
+                $opacity: random(9);
+                $shadow: random(12);
+                .span-#{$i} {
+                    opacity: #{'0.' + $opacity};
+                    text-shadow: 0 0 #{$shadow}px #{$color-white};
+                    color: rgba(188, 200, 206, 1);
+                    display: inline-block;
+                    animation: rotate #{$rondomTranslate}s ease-in-out infinite; // transform: rotate(#{$rondomAngle + 360}deg);
+                    transition: transform #{$rondomTranslate}s;
+                    @media (max-width: $media-small) {
+                        transform: rotate(0deg);
+                        animation: none;
+                    }
+                    .icon-lamp {
+                        font-family: 'lamp' !important;
+                        speak: none;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-variant: normal;
+                        text-transform: none;
+                        line-height: 1;
+                        position: relative;
+                        top: 8px;
+                        color: $color-white;
+                        transition: all 1.6s ease;
+                        @media (max-width: $media-small) {
+                            color: $color-link-hover;
+                            text-shadow: 0 0 20px $color-link-hover;
+                        }
+                        &:before {
+                            content: "\e900";
+                        }
+                        &:hover {
+                            color: $color-link-hover;
+                            text-shadow: 0 0 20px $color-link-hover;
+                        }
+                    }
+                }
+                .span-15 {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
