@@ -1,5 +1,9 @@
 .Stats {
-    & > div {
+    & * {
+        outline: none;
+        user-select: none;
+    }
+    &>div {
         position: fixed;
         top: 0;
         font-size: 50px;
@@ -16,7 +20,7 @@
         }
     }
     .left {
-       left: 0; 
+        left: 0;
     }
     .right {
         right: 0;
