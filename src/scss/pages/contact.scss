@@ -1,7 +1,12 @@
 /* Contact */
+
 .Contact {
+    @media all and (max-width: $media-x-small) {
+        font-size: 6vw;
+    }
     .ant-row-flex {
         margin-bottom: 20px;
+
     }
     p {
         margin: 20px 0;

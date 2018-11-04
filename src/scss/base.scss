@@ -85,6 +85,18 @@ svg {
     text-align: right;
 }
 
+/* Mobile hide */
+
+@media only screen and (max-width: $media-small) {
+    .mobile-show {
+        display: block !important;
+        max-height: unset !important;
+    }
+    .mobile-hide {
+        display: none !important;
+    }
+}
+
 /* App background */
 
 #bg-app {

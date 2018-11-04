@@ -1,42 +1,8 @@
 /* Works */
+
 .Works {
     .ant-list {
         color: $color-white;
-        .ant-list-item-content {
-            font-size: 18px;
-            line-height: 0;
-            margin-top: 0;
-            &:hover {
-                a {
-                    color: $color-link-hover;
-                    i {
-                        color: $color-link-hover;
-                    }
-                }
-            }
-            a {
-                text-decoration: none;
-                color: $color-white;
-                
-                i {
-                    margin-left: 25px;
-                    font-size: 18px;
-                    @media all and (max-width: $media-small) {
-                        margin: 20px;
-                    }
-                }
-            }
-            h4 {
-                font-size: 18px;
-            }
-        }
-        .ant-list-item-meta {
-            font-size: 18px;
-            text-align: left;
-            .ant-list-item-meta-title {
-                color: $color-white;
-            }
-        }
         .ant-list-header {
             font-size: 18px;
             font-weight: 100;
@@ -50,6 +16,48 @@
             margin: 0;
             .ant-list-item {
                 margin: 0;
+                &:hover {
+                    * {
+                        color: $color-link-hover !important;
+                    }
+                }
+                .ant-list-item-content {
+                    font-size: 18px;
+                    line-height: 0;
+                    margin-top: 0;
+                    a {
+                        text-decoration: none;
+                        color: $color-white;
+                        span {
+                            @media all and (max-width: $media-small) {
+                                display: flex;
+                                justify-content: center;
+                                flex-direction: column;
+                            }
+                            i {
+                                margin-left: 25px;
+                                font-size: 18px;
+                                @media all and (max-width: $media-small) {
+                                    margin: 20px 20px 0 20px;
+                                }
+                            }
+                        }
+                    }
+                    h4 {
+                        font-size: 18px;
+                    }
+                }
+                .ant-list-item-meta {
+                    font-size: 18px;
+                    text-align: left;
+                    .ant-list-item-meta-title {
+                        color: $color-white;
+                        @media all and (max-width: $media-x-small) {
+                            font-size: 6vw;
+                            line-height: 6vw;
+                        }
+                    }
+                }
             }
         }
     }

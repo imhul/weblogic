@@ -1,0 +1,77 @@
+/* Folio page: landscape orientation */
+
+@media screen and (orientation: landscape) {
+    .Folio {
+        /* Collapse */
+        /* not active */
+        .ant-collapse {
+            background-color: $transparent;
+            border: 0;
+            border-radius: 0;
+            & * {
+                transition: height 0.2s ease-in-out;
+            }
+            &.active {
+                .ant-collapse-item {
+                    height: 10vh;
+                    &.ant-collapse-item-active {
+                        height: 70vh;
+                    }
+                    .ant-collapse-header {
+                        height: 10vh;
+                        line-height: 5vh;
+                        i {
+                            line-height: 10vh;
+                            font-size: 6vh;
+                        }
+                    }
+                }
+            }
+            .ant-collapse-item {
+                border-bottom-color: $color-white;
+                height: 25vh;
+                .ant-collapse-header {
+                    height: 25vh;
+                    line-height: 16vh;
+                    font-size: 18vh;
+                    color: $color-white;
+                    i {
+                        line-height: 25vh;
+                        font-size: 13vh;
+                        left: unset;
+                        right: 50px;
+                    }
+                }
+                /* Static content styles */
+                .ant-collapse-content {
+                    font-size: 18px;
+                    .content {
+                        max-width: 600px;
+                        width: 80%;
+                        margin: 0 auto;
+                        color: $color-white;
+                    }
+                }
+            }
+            /* active content section */
+            .ant-collapse-item-active {
+                height: 10vh;
+                .ant-collapse-header {
+                    height: 10vh;
+                    line-height: 5vh;
+                    font-size: 8vh;
+                    i {
+                        line-height: 10vh;
+                        font-size: 6vh;
+                    }
+                }
+                /* active content */
+                .ant-collapse-content-active {
+                    min-height: 60vh;
+                    max-height: 60vh;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+}

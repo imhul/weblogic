@@ -27,10 +27,7 @@ class Contact extends Component {
             <div className="Contact content" itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
 
                 <Row gutter={24} type="flex" justify="center" align="middle">
-                    <Col span={12}>
-                        {mCode}
-                    </Col>
-                    <Col span={12}>
+                    <Col span={24}>
                         <Clipboard
                             className="ant-btn ant-btn-background-ghost"
                             option-text={() => mCode}
@@ -38,8 +35,8 @@ class Contact extends Component {
                             <Icon type="copy" />
                             <Language
                                 dictionary={{
-                                    english: "Copy to clipboard",
-                                    russian: "Копировать"
+                                    english: "Copy email to clipboard",
+                                    russian: "Копировать email"
                                 }}
                             />
                         </Clipboard>
@@ -47,10 +44,7 @@ class Contact extends Component {
                 </Row>
 
                 <Row gutter={24} type="flex" justify="center" align="middle">
-                    <Col span={12}>
-                        {fCode}
-                    </Col>
-                    <Col span={12}>
+                    <Col span={24}>
                         <Clipboard
                             className="ant-btn ant-btn-background-ghost"
                             option-text={() => fCode}
@@ -58,8 +52,8 @@ class Contact extends Component {
                             <Icon type="copy" />
                             <Language
                                 dictionary={{
-                                    english: "Copy to clipboard",
-                                    russian: "Копировать"
+                                    english: "Copy phone to clipboard",
+                                    russian: "Копировать телефон"
                                 }}
                             />
                         </Clipboard>
@@ -67,8 +61,7 @@ class Contact extends Component {
                 </Row>
 
                 <Row gutter={24} type="flex" justify="center" align="middle">
-                    <Col span={12}></Col>
-                    <Col span={12}>
+                    <Col span={24}>
                         <Button
                             ghost={ true }
                             title="my linkedin page"
@@ -78,7 +71,7 @@ class Contact extends Component {
                             <Icon type='linkedin' />
                             <Language
                                 dictionary={{
-                                    english: "summary",
+                                    english: "Summary",
                                     russian: "Резюме"
                                 }}
                             />
@@ -87,15 +80,14 @@ class Contact extends Component {
                 </Row>
 
                 <Row gutter={24} type="flex" justify="center" align="middle">
-                    <Col span={12}></Col>
-                    <Col span={12}>
+                   <Col span={24}>
                         <Button
                             ghost={ true }
                             title="github project"
                             href="https://github.com/imhul/weblogic"
                             target="_blank"
                         >
-                            <Icon type="github" />github
+                            <Icon type="github" />Github
                         </Button>
                     </Col>
                 </Row>

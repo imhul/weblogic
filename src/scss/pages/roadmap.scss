@@ -25,6 +25,9 @@
             .ant-timeline-item-content {
                 color: $color-white;
                 font-size: 3vw;
+                @media all and (max-width: $media-x-small) {
+                    font-size: 6vw;
+                }
             }
         }
         .ant-timeline-item-pending {

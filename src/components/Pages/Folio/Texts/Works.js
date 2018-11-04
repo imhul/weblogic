@@ -19,96 +19,98 @@ class Works extends Component {
         // TODO: Require to copy Lab folder from the root to dist!!!
         const links = [
             {
-                name: ( <Language dictionary={{
-                        english: "Puzzle game, JavaScript + Canvas",
-                        russian: "Игра 'Пазлы', JavaScript + Canvas"
-                    }}
+                name: (<Language dictionary={{
+                    english: "Puzzle game, JavaScript + Canvas",
+                    russian: "Игра 'Пазлы', JavaScript + Canvas"
+                }}
                 />),
-                type: (<span><Language dictionary={{
-                        english: "Live demo",
-                        russian: "Демо"
-                    }}
+                type: (<span className="mobile-flex"><Language dictionary={{
+                    english: "Live demo",
+                    russian: "Демо"
+                }}
                 /><Icon type="experiment" theme="outlined" /> </span>),
                 href: `${base}/Lab/Game/index.html`,
             },
             {
-                name: ( <Language dictionary={{
-                        english: "Corporate project, Joomla CMS 3.6.2",
-                        russian: "Корпоративный сайт, Joomla CMS 3.6.2"
-                    }}
+                name: (<Language dictionary={{
+                    english: "Corporate project, Joomla CMS 3.6.2",
+                    russian: "Корпоративный сайт, Joomla CMS 3.6.2"
+                }}
                 />),
-                type: (<span><Language dictionary={{
-                        english: "Released",
-                        russian: "Релиз"
-                    }}
+                type: (<span className="mobile-flex"><Language dictionary={{
+                    english: "Released",
+                    russian: "Релиз"
+                }}
                 /><Icon type="link" theme="outlined" /> </span>),
                 href: 'http://ekta.ua/'
             },
             {
-                name: ( <Language dictionary={{
-                        english: "LED-screen calculator, Angular + Materialize",
-                        russian: "Калькулятор LED панелей, Angular + Materialize"
-                    }}
+                name: (<Language dictionary={{
+                    english: "LED-screen calculator, Angular + Materialize",
+                    russian: "Калькулятор LED панелей, Angular + Materialize"
+                }}
                 />),
-                type: (<span><Language dictionary={{
-                        english: "Live demo",
-                        russian: "Демо"
-                    }}
+                type: (<span className="mobile-flex"><Language dictionary={{
+                    english: "Live demo",
+                    russian: "Демо"
+                }}
                 /><Icon type="experiment" theme="outlined" /> </span>),
-               href: `${base}/Lab/Calc/index.html`,
+                href: `${base}/Lab/Calc/index.html`,
             },
             {
-                name: ( <Language dictionary={{
-                        english: "Analytical resource, JavaScript + Python + Materialize",
-                        russian: "Аналитический ресурс, Angular + Materialize"
-                    }}
+                name: (<Language dictionary={{
+                    english: "Analytical resource, JavaScript + Python + Materialize",
+                    russian: "Аналитический ресурс, Angular + Materialize"
+                }}
                 />),
-                type: (<span><Language dictionary={{
-                        english: "Released",
-                        russian: "Релиз"
-                    }}
+                type: (<span className="mobile-flex"><Language dictionary={{
+                    english: "Released",
+                    russian: "Релиз"
+                }}
                 /><Icon type="link" theme="outlined" /> </span>),
                 href: 'https://seezislab.com/'
             },
             {
-                name: ( <Language dictionary={{
-                        english: "Web presentation, ",
-                        russian: "Веб-презентация, Rreveal.js"
-                    }}
+                name: (<Language dictionary={{
+                    english: "Web presentation, ",
+                    russian: "Веб-презентация, Rreveal.js"
+                }}
                 />),
-                type: (<span><Language dictionary={{
-                        english: "Live demo",
-                        russian: "Демо"
-                    }}
-                    /><Icon type="experiment" theme="outlined" /></span>),
-               href: `${base}/Lab/Presentation/index.html`,
+                type: (<span className="mobile-flex"><Language dictionary={{
+                    english: "Live demo",
+                    russian: "Демо"
+                }}
+                /><Icon type="experiment" theme="outlined" /></span>),
+                href: `${base}/Lab/Presentation/index.html`,
             }
         ];
-        const header = (<Row gutter={24}>
-            <Col span={12} style={{ textAlign: 'left' }}>
-                <Language
-                    dictionary={{
-                        english: "Project description",
-                        russian: "Описание проекта"
-                    }}
-                />
-            </Col>
-            <Col span={12} style={{ textAlign: 'right' }}>
-                <Language
-                    dictionary={{
-                        english: "Status",
-                        russian: "Статус"
-                    }}
-                />
-            </Col>
-        </Row>);
+        const header = (
+            <Row gutter={24}>
+                <Col span={12} style={{ textAlign: 'left' }}>
+                    <Language
+                        dictionary={{
+                            english: "Project description",
+                            russian: "Описание проекта"
+                        }}
+                    />
+                </Col>
+                <Col span={12} style={{ textAlign: 'right' }}>
+                    <Language
+                        dictionary={{
+                            english: "Status",
+                            russian: "Статус"
+                        }}
+                    />
+                </Col>
+            </Row>
+        );
 
         return (
             <div className="Works content">
 
                 <List
                     size="large"
-                    header={ header }
+                    header={header}
                     bordered
                     dataSource={links}
                     renderItem={item => (

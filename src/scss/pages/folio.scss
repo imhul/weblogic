@@ -15,35 +15,7 @@
             text-shadow: 0 0 8px $color-link-hover;
         }
     }
-    /* Toolbar */
-    .Toolbar {
-        position: absolute;
-        top: -60px;
-        right: -60px;
-        width: 120px;
-        height: 120px;
-        padding-top: 70px;
-        background-color: rgba(0, 0, 0, 0.2);
-        border-top: 0;
-        border-radius: 50%;
-        z-index: 10;
-        &:hover {
-            .ant-switch {
-                text-shadow: 0 0 8px $color-white;
-            }
-        }
-        .ant-switch {
-            line-height: 1;
-            background-color: $transparent;
-            margin-left: 12px;
-            .ant-switch-inner {
-                font-size: 16px;
-            }
-        }
-        .ant-switch-checked {
-            margin-left: 5px;
-        }
-    }
+    
     /* Collapse */
     /* not active */
     .ant-collapse {

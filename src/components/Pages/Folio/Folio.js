@@ -48,7 +48,9 @@ class Folio extends Component {
                         onChange={ this.onCollapse } 
                         className={ this.state.active ? 'active' : null }
                     >
+                    
                         <Toolbar key={0} />
+
                         { texts.map(( load ) => (
                                 <Panel header={ load.name } key={ load.key } showArrow={ false }>
                                     <div onClick={this.onPanel}>
