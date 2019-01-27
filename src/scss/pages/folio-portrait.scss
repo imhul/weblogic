@@ -15,9 +15,19 @@
                         height: 10vh;
                         font-size: 8vw !important;
                         line-height: 6vw !important;
+                        // iPhones, iPads
+                        @media (max-width: $media-medium-max) {
+                            line-height: 8vw !important;
+                        }
                         i {
                             line-height: 10vh;
                             font-size: 6vh;
+                            margin-top: 1vh;
+                            // iPhones, iPads
+                            @media (max-width: $media-medium-max) {
+                                margin-top: 1vh;
+                                font-size: 6vh !important;
+                            }
                         }
                     }
                 }
@@ -37,6 +47,7 @@
                     }
                     i {
                         font-size: 10vh !important;
+                        margin-top: 6vh;
                     }
                 }
                 /* Static content styles */

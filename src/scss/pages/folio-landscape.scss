@@ -1,6 +1,6 @@
 /* Folio page: landscape orientation */
 
-@media screen and (orientation: landscape) {
+@media all and (orientation: landscape) {
     .Folio {
         /* Collapse */
         /* not active */
@@ -20,9 +20,29 @@
                     .ant-collapse-header {
                         height: 10vh;
                         line-height: 5vh;
+                        // iPhones
+                        @media all and (max-width: $media-x-large) and (max-height: 1024px) {
+                            line-height: 7vh;
+                        } 
+                        @media all and (max-width: $media-medium-max) {
+                            height: 10vh;
+                            line-height: 8vh;
+                            padding: 0 0 0 12px;
+                        }
                         i {
                             line-height: 10vh;
                             font-size: 6vh;
+                            // iPhones
+                            @media (max-width: $media-small) {
+                                font-size: 6vh !important;
+                            } 
+                            @media (min-width: $media-medium-min) and (max-width: $media-medium-max) {
+                                margin-top: 2vh;
+                            }
+                            // iPads
+                            @media all and (max-width: $media-x-large) and (min-height: 1024px) {
+                                margin-top: 1vh;
+                            }
                         }
                     }
                 }
@@ -32,7 +52,7 @@
                 height: 25vh;
                 .ant-collapse-header {
                     height: 25vh;
-                    line-height: 16vh;
+                    line-height: 18vh;
                     font-size: 18vh;
                     color: $color-white;
                     i {

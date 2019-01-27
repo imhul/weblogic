@@ -30,7 +30,6 @@ class FPS extends Component {
                 lastTime = t;
                 values.push(count / (max * period * 0.001));
                 count = 0;
-                // window.fps = (values[values.length - 1] * max).toFixed(0)
                 self.setState({
                     fps: (values[values.length - 1] * max).toFixed(0)
                 })
@@ -40,7 +39,7 @@ class FPS extends Component {
     }
 
     render() {
-        return (<div className="fps">{this.state.fps}</div>)
+        return (<div className="FPS">{this.state.fps}</div>)
     }
 }
 

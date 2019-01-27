@@ -8,17 +8,17 @@
 @import "others";
 
 /* pages */
-@import "./pages/home.scss";
-@import "./pages/folio.scss";
-@import "./pages/folio-landscape.scss";
-@import "./pages/folio-portrait.scss";
+@import "./pages/home";
+@import "./pages/folio";
+@import "./pages/folio-landscape";
+@import "./pages/folio-portrait";
 
 /* tabs */
-@import "./pages/intro.scss";
-@import "./pages/roadmap.scss";
-@import "./pages/works.scss";
-@import "./pages/contact.scss";
+@import "./pages/intro";
+@import "./pages/roadmap";
+@import "./pages/works";
+@import "./pages/contact";
 
 /* components */
-@import "./components/stats.scss";
-@import "./components/toolbar.scss";
+@import "./components/stats";
+@import "./components/toolbar";
