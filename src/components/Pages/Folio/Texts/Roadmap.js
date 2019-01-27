@@ -15,8 +15,8 @@ class Roadmap extends Component {
     render() {
         const pending = (
             <div>
-                <span>2018-2019: </span>
-                Redux, <a href="https://ant.design/docs/react/practical-projects" title="antd DVA docs" target="_blank">DVA</a>, SSR
+                <span>2019: </span>
+                <a href="https://ant.design/docs/react/practical-projects" title="antd DVA docs" target="_blank">DVA</a>, SSR
             </div>
         );
         return (
@@ -85,8 +85,8 @@ class Roadmap extends Component {
                         }}
                         /> 2018: </span>
                         <Language dictionary={{
-                            english: "Started learning React-router + hystory. Was very pleasantly surprised by the Parcel!",
-                            russian: "Начал изучать React-router + hystory. Был приятно удивлён появлением Parcel!"
+                            english: "Learned React-router + hystory. Started Lectrum 2 month Redux Intensive courses and learned next libraries: Redux, Redux-Saga, immutable.js, socket.io. Was very pleasantly surprised by the Parcel!",
+                            russian: "Изучил React-router + hystory. Прошел двухмесячный курс Lectrum Redux Intensive, где изучил такие библиотеки: Redux, Redux-Saga, immutable.js, socket.io. Был приятно удивлён появлением Parcel!"
                         }}
                         />
                     </TimelineItem>
