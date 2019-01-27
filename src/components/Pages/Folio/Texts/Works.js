@@ -20,12 +20,12 @@ class Works extends Component {
         const links = [
             {
                 name: (<Language dictionary={{
-                    english: "Puzzle game, JavaScript + Canvas",
-                    russian: "Игра 'Пазлы', JavaScript + Canvas"
+                    english: "Puzzle game, JavaScript + Canvas + design",
+                    russian: "Игра 'Пазлы', JavaScript + Canvas + design"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Live demo",
+                    english: "Demo",
                     russian: "Демо"
                 }}
                 /><Icon type="experiment" theme="outlined" /> </span>),
@@ -33,8 +33,8 @@ class Works extends Component {
             },
             {
                 name: (<Language dictionary={{
-                    english: "Corporate project, Joomla CMS 3.6.2",
-                    russian: "Корпоративный сайт, Joomla CMS 3.6.2"
+                    english: "Corporate project, Joomla + design",
+                    russian: "Корпоративный сайт, Joomla + design"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{
@@ -46,12 +46,12 @@ class Works extends Component {
             },
             {
                 name: (<Language dictionary={{
-                    english: "LED-screen calculator, Angular + Materialize",
-                    russian: "Калькулятор LED панелей, Angular + Materialize"
+                    english: "LED-screen calculator, Angular + Materialize + design",
+                    russian: "Калькулятор LED панелей, Angular + Materialize + design"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Live demo",
+                    english: "Demo",
                     russian: "Демо"
                 }}
                 /><Icon type="experiment" theme="outlined" /> </span>),
@@ -59,8 +59,8 @@ class Works extends Component {
             },
             {
                 name: (<Language dictionary={{
-                    english: "Analytical resource, JavaScript + Python + Materialize",
-                    russian: "Аналитический ресурс, Angular + Materialize"
+                    english: "Analytical resource, JavaScript + jQuery + Materialize + design",
+                    russian: "Аналитический ресурс, Angular + jQuery + Materialize + design"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{
@@ -72,17 +72,30 @@ class Works extends Component {
             },
             {
                 name: (<Language dictionary={{
-                    english: "Web presentation, ",
+                    english: "Web presentation, Rreveal.js",
                     russian: "Веб-презентация, Rreveal.js"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Live demo",
+                    english: "Demo",
                     russian: "Демо"
                 }}
                 /><Icon type="experiment" theme="outlined" /></span>),
                 href: `${base}/Lab/Presentation/index.html`,
-            }
+            },
+            {
+                name: (<Language dictionary={{
+                    english: "e-commerce project, React + Redux + masonry + design",
+                    russian: "Интернет-магазин', React + Redux + masonry + design"
+                }}
+                />),
+                type: (<span className="mobile-flex"><Language dictionary={{
+                    english: "Released",
+                    russian: "Релиз"
+                }}
+                /><Icon type="link" theme="outlined" /> </span>),
+                href: 'https://silverstemcannabis.com/',
+            },
         ];
         const header = (
             <Row gutter={24}>
