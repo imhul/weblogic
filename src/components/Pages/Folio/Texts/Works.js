@@ -15,7 +15,6 @@ class Works extends Component {
 
     render() {
         const base = window.location.origin;
-        console.info("base: ", base);
         // TODO: Require to copy Lab folder from the root to dist!!!
         const links = [
             {

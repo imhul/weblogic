@@ -1,4 +1,4 @@
-/* Common styles */
+/* Reset styles */
 
 * {
     padding: 0;
@@ -17,6 +17,8 @@
 @-ms-viewport {
     width: device-width;
 }
+
+/* Animations */
 
 @keyframes rotate {
     0% { transform: rotate(0deg) }
@@ -42,6 +44,8 @@
         width: device-width;
     }
 }
+
+/* Common styles */
 
 html,
 body {
@@ -113,20 +117,6 @@ svg {
         .ant-layout-header,
         .ant-layout-footer {
             background: $transparent;
-        }
-        .LayoutMain {
-            .Main {
-                .ant-layout-content {
-                    /*--------------Home page----------------*/
-                    /*parts-------------------------------fps*/
-                    /*---------------------------------------*/
-                    /*---------------------------------------*/
-                    /*-----------------Hero------------------*/
-                    /*---------------------------------------*/
-                    /*---------------------------------------*/
-                    /*---------------------------------------*/
-                }
-            }
         }
     }
 }

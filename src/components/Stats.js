@@ -3,7 +3,7 @@ import FPS from './FPS';
 
 function Parts(props) {
 	return <div className="parts">{props.date}</div>;
-}
+};
 
 class Stats extends Component {
 	constructor(props) {
@@ -12,24 +12,24 @@ class Stats extends Component {
 			parts: window.bgJSDom[0].bgJS.parts.array ?
 				window.bgJSDom[0].bgJS.parts.array.length : null,
 		}
-	}
+	};
 
 	componentDidMount() {
 		this.timerID = setInterval(
 			() => this.tick(),
 			1000
-		);
-	}
+		)
+	};
 
 	componentWillUnmount() {
 		clearInterval(this.timerID)
-	}
+	};
 
 	tick() {
 		this.setState({
 			parts: window.bgJSDom[0].bgJS.parts.array.length
-		});
-	}
+		})
+	};
 
 	render() {
 
@@ -46,6 +46,6 @@ class Stats extends Component {
 			</div>
 		)
 	}
-}
+};
 
 export default Stats;
