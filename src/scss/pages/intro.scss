@@ -56,15 +56,34 @@
     }
     .stack-logo {
         width: 100%;
+        max-width: 250px;
+        @media (max-width: $media-small) {
+            height: 20vh;
+        }
+        @media (max-width: $media-x-small) {
+            height: 16vh;
+        }
     }
-    ul {
-        list-style: none;
-        line-height: 2;
-        li {
-            a {
-                color: $color-white;
-                &:hover {
-                    color: $color-link-hover;
+    .tech {
+        margin-top: 20px;
+        h3 {
+            @media (max-width: $media-small) {
+                font-size: 12vw;
+            } 
+        }
+        ul {
+            list-style: none;
+            line-height: 2;
+            li {
+                a {
+                    color: $color-white;
+                    &:hover {
+                        color: $color-link-hover;
+                    }
+                    @media (max-width: $media-small) {
+                            font-size: 8vw;
+                            line-height: 1.5;
+                    }
                 }
             }
         }

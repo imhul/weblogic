@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Wave } from 'react-preloading-component';
-import { Collapse } from 'antd';
+import { Collapse, BackTop } from 'antd';
 import texts from './Texts';
 import Toolbar from './Toolbar';
 
@@ -13,32 +13,33 @@ class Folio extends Component {
             loaded: false,
             active: false,
         };
-        this.onCollapse = this.onCollapse.bind(this);
-    }
+        this.onCollapse = this.onCollapse.bind(this)
+    };
 
     componentDidMount() {
         setTimeout(() => this.setState({
-            loaded: true
-        }), 2000);
-    }
+            loaded: true,
+        }), 2000)
+    };
 
     onCollapse(event) {
         if( !event ) {
             this.setState({
                 active: false
-            });
+            })
         } else if ( event && this.state.active == true ) {
             this.setState({
                 active: true
-            });
+            })
         } else if ( event && this.state.active == false ) {
             this.setState({
                 active: true
-            });
+            })
         }
-    }
+    };
 
     render() {
+
         return (
             <div className="Folio">
                 { !this.state.loaded ? <Wave color="#fdd835" /> : 
@@ -53,17 +54,15 @@ class Folio extends Component {
 
                         { texts.map(( load ) => (
                                 <Panel header={ load.name } key={ load.key } showArrow={ false }>
-                                    <div onClick={this.onPanel}>
-                                        { load.text }
-                                    </div>
+                                    { load.text }
                                 </Panel>
                             )
                         ) } 
                     </Collapse>
                 }
             </div>
-        );
+        )
     }
-}
+};
 
-export default Folio
+export default Folio;

@@ -20,10 +20,9 @@ class Intro extends Component {
                 lang: store.lang,
             })
         }
-    }
+    };
 
     render() {
-
         const technologies = [
             {
                 id: 'Parcel',
@@ -396,7 +395,7 @@ class Intro extends Component {
                             </Col>
                         </Row>
 
-                        <Row gutter={24} type="flex" justify="center" align="top">
+                        <Row className="tech" gutter={24} type="flex" justify="center" align="top">
                             <Col lg={{span: 8}} xs={{ span: 24 }} sm={{ span: 24 }} md={{ span: 8 }}>
                                 <h3>Libraries</h3>
                                 <ul>
@@ -548,6 +547,6 @@ class Intro extends Component {
             </div>
         )
     }
-}
+};
 
 export default Intro;
