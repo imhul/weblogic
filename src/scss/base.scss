@@ -1,5 +1,24 @@
 /* Reset styles */
 
+html {
+    -webkit-tap-highlight-color: $transparent;
+    color: $color-white;
+    font: $font-text;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    border: 0;
+    background-color: #607d8b;
+    -ms-text-size-adjust: auto;
+    -webkit-text-size-adjust: auto;
+    cursor: crosshair !important;
+    overflow-x: hidden;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -18,6 +37,18 @@
     width: device-width;
 }
 
+@media screen and (max-width: 400px) {
+    @-ms-viewport {
+        width: 300px;
+    }
+    @-o-viewport {
+        width: device-width;
+    }
+    @viewport {
+        width: device-width;
+    }
+}
+
 /* Animations */
 
 @keyframes rotate {
@@ -33,75 +64,7 @@
     100% { transform: rotate(360deg) }
 }
 
-@media screen and (max-width: 400px) {
-    @-ms-viewport {
-        width: 300px;
-    }
-    @-o-viewport {
-        width: device-width;
-    }
-    @viewport {
-        width: device-width;
-    }
-}
-
-/* Common styles */
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    outline: 0;
-    border: 0;
-    background-color: #607d8b;
-    -ms-text-size-adjust: auto;
-    -webkit-text-size-adjust: auto;
-    cursor: crosshair !important;
-    overflow-x: hidden;
-}
-
-html {
-    -webkit-tap-highlight-color: $transparent;
-    color: $color-white;
-    font: $font-text;
-}
-
-.mobile-fix,
-svg {
-    -webkit-tap-highlight-color: $transparent !important;
-    -webkit-focus-ring-color: $transparent !important;
-    -moz-user-select: none !important;
-    -webkit-user-select: none !important;
-    -ms-user-select: none !important;
-    user-select: none !important;
-    outline: none !important;
-}
-
-.icon-lamp {
-    outline: none !important;
-}
-
-.align-left {
-    text-align: left;
-}
-
-.align-right {
-    text-align: right;
-}
-
-/* Mobile hide */
-
-@media only screen and (max-width: $media-small) {
-    .mobile-show {
-        display: block !important;
-        max-height: unset !important;
-    }
-    .mobile-hide {
-        display: none !important;
-    }
-}
-
-/* App background */
+/* App */
 
 #bg-app {
     width: 100%;
@@ -111,12 +74,48 @@ svg {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    /* App */
     #root {
         .ant-layout,
         .ant-layout-header,
         .ant-layout-footer {
             background: $transparent;
+        }
+        .mobile-fix,
+        svg {
+            -webkit-tap-highlight-color: $transparent !important;
+            -webkit-focus-ring-color: $transparent !important;
+            -moz-user-select: none !important;
+            -webkit-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            outline: none !important;
+        }
+        .icon-lamp {
+            outline: none !important;
+        }
+        .align-left {
+            text-align: left !important;
+        }
+        .align-right {
+            text-align: right !important;
+        }
+        .mb-0 {
+            margin-bottom: 0 !important;
+        }
+        .mb-10 {
+            margin-bottom: 10px !important;
+        }
+        .mb-20 {
+            margin-bottom: 20px !important;
+        }
+        @media only screen and (max-width: $media-small) {
+            .mobile-show {
+                display: block !important;
+                max-height: unset !important;
+            }
+            .mobile-hide {
+                display: none !important;
+            }
         }
     }
 }
