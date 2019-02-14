@@ -155,16 +155,18 @@ class Contact extends Component {
                             />
                         </Clipboard>
                     </Col>
-                </Row>
 
-                <p itemProp="description">
-                    <Language
-                        dictionary={{
-                            english: "Always ready for mutually beneficial cooperation.",
-                            russian: "Всегда готов к взаимовыгодному сотрудудничеству."
-                        }}
-                    />
-                </p>
+                    <Col span={24}>
+                        <p>
+                            <Language
+                                dictionary={{
+                                    english: "Always ready for mutually beneficial cooperation.",
+                                    russian: "Всегда готов к взаимовыгодному сотрудудничеству."
+                                }}
+                            />
+                        </p>
+                    </Col>
+                </Row>
             </div>
         )
     }

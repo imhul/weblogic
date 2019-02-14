@@ -31,15 +31,16 @@
             line-height: 1.1;
             opacity: 0;
             margin: 0;
-            transform: scale(0.5);
-            transition: all ease 1s;
+            transform: scale(.6);
+            transition-delay: 0ms !important;
+            transition: all ease-in .5s;
             /* Hero animation "back to 0" */
             &:hover {
                 @for $i from 0 through 15 {
-                    $rondomTranslate: random(5) / 1.1;
+                    // $rondomTranslate: random(5) / 1.1;
                     .span-#{$i} {
-                        animation: stop #{$rondomTranslate}s;
-                        transition: transition #{$rondomTranslate}s;
+                        // animation: stop #{$rondomTranslate}s;
+                        // transition: transition #{$rondomTranslate}s;
                         .icon-lamp {
                             color: $color-link-hover;
                             text-shadow: 0 0 20px $color-link-hover;
@@ -64,7 +65,7 @@
             /* Hero animation start */
             @for $i from 0 through 15 {
                 $rondomAngle: random(360);
-                $rondomTranslate: random(5) / 1.1;
+                $rondomTranslate: random(6) * 0.38;
                 $opacity: random(9);
                 $shadow: random(12);
                 .span-#{$i} {
@@ -72,7 +73,8 @@
                     text-shadow: 0 0 #{$shadow}px #{$color-white};
                     color: rgba(188, 200, 206, 1);
                     display: inline-block;
-                    animation: rotate #{$rondomTranslate}s ease-in-out infinite; // transform: rotate(#{$rondomAngle + 360}deg);
+                    // animation: start #{$rondomTranslate}s ease-in-out infinite; // transform: rotate(#{$rondomAngle + 360}deg);
+                    animation: rotate #{$rondomTranslate}s ease-in 3, stop #{$rondomTranslate}s ease-out; // transform: rotate(#{$rondomAngle + 360}deg);
                     transition: transform #{$rondomTranslate}s;
                     @media (max-width: $media-small) {
                         transform: rotate(0deg);
