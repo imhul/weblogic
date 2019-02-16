@@ -33,7 +33,7 @@ class Contact extends Component {
 
             <Row gutter={24} type="flex" justify="center" align="middle">
     
-                    <Col span={12} className="mb-20">
+                    <Col span={12} className="mb-20 align-right">
                         <Button
                             ghost={ true }
                             title="my linkedin page"
@@ -50,7 +50,7 @@ class Contact extends Component {
                         </Button>
                     </Col>
   
-                    <Col span={12} className="mb-20">
+                    <Col span={12} className="mb-20 align-left">
                         <Button
                             ghost={ true }
                             title="github project"
@@ -69,14 +69,14 @@ class Contact extends Component {
                             action="https://formspree.io/blashirk@gmail.com?subject=WebLogic-Request">
                             <Row gutter={24} type="flex" justify="center" align="middle">
                                 <Col span={24} className="mb-10">
-                                    <h3 className="white">
+                                    <h2 className="white">
                                         <Language
                                             dictionary={{
                                                 english: "Contact Form",
                                                 russian: "Форма обратной связи"
                                             }}
                                         />
-                                    </h3>
+                                    </h2>
                                 </Col>
                                 <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                                     <Input 

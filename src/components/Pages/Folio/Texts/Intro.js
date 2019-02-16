@@ -84,6 +84,11 @@ class Intro extends Component {
                 link: '#',
             },
             {
+                id: 'helmet',
+                list: 'library',
+                link: '#',
+            },
+            {
                 id: 'Ant Design',
                 list: 'fw',
                 link: 'https://ant.design/',
