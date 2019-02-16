@@ -33,7 +33,7 @@ class Contact extends Component {
 
             <Row gutter={24} type="flex" justify="center" align="middle">
     
-                    <Col span={24} className="mb-20">
+                    <Col span={12} className="mb-20">
                         <Button
                             ghost={ true }
                             title="my linkedin page"
@@ -50,7 +50,7 @@ class Contact extends Component {
                         </Button>
                     </Col>
   
-                    <Col span={24} className="mb-20">
+                    <Col span={12} className="mb-20">
                         <Button
                             ghost={ true }
                             title="github project"
@@ -78,7 +78,7 @@ class Contact extends Component {
                                         />
                                     </h3>
                                 </Col>
-                                <Col span={12}>
+                                <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                                     <Input 
                                         name="email" 
                                         tabIndex="1" 

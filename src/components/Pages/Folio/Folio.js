@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Helmet} from "react-helmet";
 import { Wave } from 'react-preloading-component';
 import { Collapse, BackTop } from 'antd';
 import texts from './Texts';
@@ -42,6 +43,11 @@ class Folio extends Component {
 
         return (
             <div className="Folio">
+
+                <Helmet>
+                    <title>My Portfolio</title>
+                </Helmet>
+
                 { !this.state.loaded ? <Wave color="#fdd835" /> : 
                     <Collapse 
                         accordion 
