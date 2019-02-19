@@ -19,6 +19,22 @@ body {
     overflow-x: hidden;
 }
 
+// Messages
+body {
+    .ant-message {
+        top: unset !important;
+        bottom: 25px;
+        .ant-message-notice-content {
+            background-color: $transparent;
+            color: $color-white;
+            i {
+                color: $color-white !important;
+            }
+        }
+    }
+    
+}
+
 * {
     padding: 0;
     margin: 0;

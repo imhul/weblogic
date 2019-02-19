@@ -252,7 +252,7 @@ class Intro extends Component {
                         <h2>
                             <Language
                                 dictionary={{
-                                    english: "I believe that design makes the world a better",
+                                    english: "I believe that design makes the world better",
                                     russian: "Я верю, что дизайн делает мир лучше"
                                 }}
                             /> ;)
@@ -292,7 +292,7 @@ class Intro extends Component {
                             <Icon type='linkedin' />
                             <Language
                                 dictionary={{
-                                    english: "summary",
+                                    english: "Summary",
                                     russian: "Резюме"
                                 }}
                             />

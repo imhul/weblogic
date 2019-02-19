@@ -34,6 +34,7 @@
             transform: scale(.6);
             transition-delay: 0ms !important;
             transition: all ease-in .5s;
+            .context-menu
             /* Hero animation "back to 0" */
             &:hover {
                 @for $i from 0 through 15 {
@@ -74,7 +75,7 @@
                     color: rgba(188, 200, 206, 1);
                     display: inline-block;
                     // animation: start #{$rondomTranslate}s ease-in-out infinite; // transform: rotate(#{$rondomAngle + 360}deg);
-                    animation: rotate #{$rondomTranslate}s ease-in 3, stop #{$rondomTranslate}s ease-out; // transform: rotate(#{$rondomAngle + 360}deg);
+                    animation: rotate #{$rondomTranslate}s ease-in 2, stop #{$rondomTranslate}s ease-out; // transform: rotate(#{$rondomAngle + 360}deg);
                     transition: transform #{$rondomTranslate}s;
                     @media (max-width: $media-small) {
                         transform: rotate(0deg);
@@ -111,4 +112,29 @@
             }
         }
     }
+    .react-contextmenu {
+            &.react-contextmenu--visible {
+                min-width: 135px;
+                top: 14rem !important; 
+                left: 0 !important;
+                background-color: $color-black;
+                @media only screen and (max-width: $media-small) {
+                    top: 10rem !important; 
+                }
+                .react-contextmenu-item {
+                    color: $color-white;
+                    padding: 10px 20px;
+                    a {
+                        color: $color-white;
+                    }
+                    &.react-contextmenu-item--selected {
+                        background-color: $color-footer;
+                        color: $color-link-hover;
+                        a {
+                            color: $color-link-hover;
+                        }
+                    }
+                }
+            }
+        }
 }

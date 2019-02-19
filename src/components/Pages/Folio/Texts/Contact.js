@@ -30,23 +30,20 @@ class Contact extends Component {
 
         return (
             <div className="Contact content">
-
-            <Row gutter={24} type="flex" justify="center" align="middle">
-    
+            
+                <Row gutter={24} type="flex" justify="center" align="middle">
                     <Col span={12} className="mb-20 align-right">
                         <Button
                             ghost={ true }
                             title="my linkedin page"
                             href='https://www.linkedin.com/in/tkachuk-zakhar-04733892/'
-                            target='_blank'
-                        >
+                            target='_blank'>
                             <Icon type='linkedin' />
                             <Language
                                 dictionary={{
                                     english: "Summary",
                                     russian: "Резюме"
-                                }}
-                            />
+                                }} />
                         </Button>
                     </Col>
   
@@ -54,7 +51,7 @@ class Contact extends Component {
                         <Button
                             ghost={ true }
                             title="github project"
-                            href="https://github.com/imhul/weblogic"
+                            href="https://github.com/imhul"
                             target="_blank"
                         >
                             <Icon type="github" />Github
