@@ -24,6 +24,10 @@
         cursor: pointer;
         &:hover {
             text-shadow: 0;
+            .icon-lamp {
+                color: $color-link-hover;
+                text-shadow: 0 0 20px $color-link-hover;
+            }
         }
         .heading-hero {
             color: $color-white;
@@ -34,21 +38,6 @@
             transform: scale(.6);
             transition-delay: 0ms !important;
             transition: all ease-in .5s;
-            .context-menu
-            /* Hero animation "back to 0" */
-            &:hover {
-                @for $i from 0 through 15 {
-                    // $rondomTranslate: random(5) / 1.1;
-                    .span-#{$i} {
-                        // animation: stop #{$rondomTranslate}s;
-                        // transition: transition #{$rondomTranslate}s;
-                        .icon-lamp {
-                            color: $color-link-hover;
-                            text-shadow: 0 0 20px $color-link-hover;
-                        }
-                    }
-                }
-            }
             @media (max-width: $media-small) {
                 margin-left: 20px;
             }
@@ -63,7 +52,7 @@
             @media (max-width: $media-small) and (orientation: landscape) {
                 display: table-footer-group;
             }
-            /* Hero animation start */
+            /* Hero animation */
             @for $i from 0 through 15 {
                 $rondomAngle: random(360);
                 $rondomTranslate: random(6) * 0.38;
@@ -74,8 +63,7 @@
                     text-shadow: 0 0 #{$shadow}px #{$color-white};
                     color: rgba(188, 200, 206, 1);
                     display: inline-block;
-                    // animation: start #{$rondomTranslate}s ease-in-out infinite; // transform: rotate(#{$rondomAngle + 360}deg);
-                    animation: rotate #{$rondomTranslate}s ease-in 2, stop #{$rondomTranslate}s ease-out; // transform: rotate(#{$rondomAngle + 360}deg);
+                    animation: rotate #{$rondomTranslate}s ease-in 2, stop #{$rondomTranslate}s ease-out;
                     transition: transform #{$rondomTranslate}s;
                     @media (max-width: $media-small) {
                         transform: rotate(0deg);
@@ -91,7 +79,6 @@
                         line-height: 1;
                         position: relative;
                         top: 8px;
-                        color: $color-white;
                         transition: all 1.6s ease;
                         @media (max-width: $media-small) {
                             color: $color-link-hover;
@@ -99,10 +86,6 @@
                         }
                         &:before {
                             content: "\e900";
-                        }
-                        &:hover {
-                            color: $color-link-hover;
-                            text-shadow: 0 0 20px $color-link-hover;
                         }
                     }
                 }
@@ -113,28 +96,28 @@
         }
     }
     .react-contextmenu {
-            &.react-contextmenu--visible {
-                min-width: 135px;
-                top: 14rem !important; 
-                left: 0 !important;
-                background-color: $color-black;
-                @media only screen and (max-width: $media-small) {
-                    top: 10rem !important; 
-                }
-                .react-contextmenu-item {
+        &.react-contextmenu--visible {
+            min-width: 135px;
+            top: 14rem !important; 
+            left: 0 !important;
+            background-color: $color-black;
+            @media only screen and (max-width: $media-small) {
+                top: 10rem !important; 
+            }
+            .react-contextmenu-item {
+                color: $color-white;
+                padding: 10px 20px;
+                a {
                     color: $color-white;
-                    padding: 10px 20px;
+                }
+                &.react-contextmenu-item--selected {
+                    background-color: $color-footer;
+                    color: $color-link-hover;
                     a {
-                        color: $color-white;
-                    }
-                    &.react-contextmenu-item--selected {
-                        background-color: $color-footer;
                         color: $color-link-hover;
-                        a {
-                            color: $color-link-hover;
-                        }
                     }
                 }
             }
         }
+    }
 }
