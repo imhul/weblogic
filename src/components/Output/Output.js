@@ -1,7 +1,10 @@
 // Компонент-обёртка для LayoutMain, позволяющая осуществлять роутинг внутри себя
 
 import React, { Component } from 'react';
-import history from '../../utils/history/history';
+import { Provider, connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { store } from '../../index';
+import history from '../../utils/history';
 import { Switch, Route, Router } from "react-router-dom";
 import { Layout } from 'antd';
 import { LanguageProvider, Language } from '../../utils/language/provider';
@@ -19,22 +22,24 @@ class Output extends Component {
             <h1>Sorry! Page Not Found:(</h1>
         }
         return (
-            <Router history={history}>
-                <LanguageProvider>
-                    <Layout className="LayoutMain">
-                        { Stats ? <Stats /> : null }
-                        <Layout className="Main">
-                            <Content>
-                                <Switch>
-                                    <Route exact path="/" component={Home} />
-                                    <Route path="/folio" component={Folio} />
-                                    <Route component={NotFound} />
-                                </Switch>
-                            </Content>
+            <Provider store={store}>
+                <Router history={history}>
+                    <LanguageProvider>
+                        <Layout className="LayoutMain">
+                            { Stats ? <Stats /> : null }
+                            <Layout className="Main">
+                                <Content>
+                                    <Switch>
+                                        <Route exact path="/" component={Home} />
+                                        <Route path="/folio" component={Folio} />
+                                        <Route component={NotFound} />
+                                    </Switch>
+                                </Content>
+                            </Layout>
                         </Layout>
-                    </Layout>
-                </LanguageProvider>
-            </Router>
+                    </LanguageProvider>
+                </Router>
+            </Provider>
         );
     }
 }

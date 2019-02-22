@@ -124,6 +124,9 @@ body {
         .mb-20 {
             margin-bottom: 20px !important;
         }
+        .hidden {
+            display: none !important;
+        }
         @media only screen and (max-width: $media-small) {
             .mobile-show {
                 display: block !important;

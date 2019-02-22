@@ -63,7 +63,8 @@ class Contact extends Component {
                             method="POST" 
                             className="mb-20"
                             encType="text/plain" 
-                            action="https://formspree.io/blashirk@gmail.com?subject=WebLogic-Request">
+                            action="https://formspree.io/blashirk@gmail.com"
+                            >
                             <Row gutter={24} type="flex" justify="center" align="middle">
                                 <Col span={24} className="mb-10">
                                     <h2 className="white">

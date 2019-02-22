@@ -1,86 +1,44 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { Icon, message } from 'antd';
 import { Language } from '../../../utils/language/provider';
 import JsonLd from '../../../utils/microdata';
-// import anime from 'lib';
+import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
+import anime from "animejs";
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import '../../../images/print.png';
 import '../../../images/logo.png';
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            styles: {},
-            spin: true
-        }
-        this.handleMouseOver = this.handleMouseOver.bind(this);
-        this.handleMouseOut = this.handleMouseOut.bind(this)
-    };
 
     componentDidMount() {
         this.info();
         setTimeout(() => {          
-            this.setState({
-                styles: { transform: "scale(1)", opacity: 1 },
+            this.props.uiActions.heroAnimate();
+            anime({
+                targets: '.icon-lamp svg path',
+                strokeDashoffset: [anime.setDashoffset, 0],
+                easing: 'easeInOutSine',
+                duration: 1500,
+                delay: function(el, i) { return i * 250 },
+                direction: 'alternate',
+                loop: true
             })
-        }, 500)
+        }, 500);
     };
 
     info() {
         message.info('Keep clicking anywhere on the screen around the header to check how strong your device is', 6)
     };
 
-    handleMouseOver(event) {
-        this.setState({ spin: false })
-    };
-
-    handleMouseOut(event) {
-        this.setState({ spin: true })
-    };
-
     render() {
-        const hero = ['W', 'e', 'b', 'L', 'o', 'g', 'i', 'c', ' ', 'S', 't', 'u', 'd', 'i', 'o'];
-        const microdata = {
-            '@context': 'http://www.schema.org',
-            '@type': ['WebPage'],
-            name: 'WebLogic Studio',
-            url: 'http://weblogiv.com.ua/',
-            inLanguage: 'en-US',
-            mainEntityOfPage: 'http://weblogiv.com.ua/',
-            logo: '/app/logo.png',
-            image: '/app/print.png',
-            description: 'WebLogic Studio - Website development and creation, as well as SEO optimization and website promotion in Kiev',
-            address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'Kiyv',
-                addressRegion: 'Kiyv',
-                postalCode: '03110',
-                addressCountry: 'Ukraine',
-            },
-            contactPoint: {
-                '@type': 'ContactPoint',
-                telephone: '+38 063 442-2537',
-                contactType: 'customer support',
-            },
-            telephone: '+38 063 442-2537',
-            aggregateRating: {
-                '@context': 'http://www.schema.org',
-                '@type': 'aggregateRating',
-                name: 'WebLogic Studio Rating',
-                reviewCount: 439,
-                ratingValue: 91,
-                bestRating: 100,
-                worstRating: 1,
-            },
-        };
+        const { uiAction, hero, microdata, heroStyle } = this.props.ui;
+
         return (
-            <div 
-                className="Home" 
-                onMouseOver={() => this.handleMouseOver(this)} 
-                onMouseLeave={() => this.handleMouseOut(this)}>
+            <div className="Home">
                 <ContextMenuTrigger id="context-menu">
 
                     <Helmet>
@@ -89,13 +47,13 @@ class Home extends Component {
                     </Helmet>
                     
                     <Link to="/folio">
-                        <h1 className="mobile-fix heading-hero" style={this.state.styles}>
-                            { hero.map((symbol, index) => {
+                        <h1 className="mobile-fix heading-hero" style={ heroStyle }>
+                            { hero.map(( symbol, index ) => {
                                 return (
                                     <span
-                                        key={index}
-                                        className={`span-${index}`}>
-                                        {symbol}
+                                        key={ index }
+                                        className={`span-${ index }`}>
+                                        { symbol }
                                     </span>)
                             })}
                             <span className="span-15">
@@ -125,33 +83,24 @@ class Home extends Component {
                                         </g>
                                     </svg> */}
                                 </i>
-                                {/* { anime({
-                                    targets: '.icon-lamp svg path',
-                                    strokeDashoffset: [anime.setDashoffset, 0],
-                                    easing: 'easeInOutSine',
-                                    duration: 1500,
-                                    delay: function(el, i) { return i * 250 },
-                                    direction: 'alternate',
-                                    loop: true
-                                    }) 
-                                } */}
+                                
                             </span>
                         </h1>
                     </Link>
                     <JsonLd data={microdata} />
                 </ContextMenuTrigger>
                 <ContextMenu id="context-menu">
-                    <MenuItem>
+                    <MenuItem key="folio">
                         <Link to="/folio"><Icon type="experiment" theme="outlined" /> About</Link>
                     </MenuItem>
-                    <MenuItem>
+                    <MenuItem key="linkedin">
                         <Link to="/linkedin" onClick={(e) => {
                             e.preventDefault();
                             window.open("https://www.linkedin.com/in/tkachuk-zakhar-04733892/")
                         }}>
                             <Icon type='linkedin' /> Summary</Link>
                     </MenuItem>
-                    <MenuItem>
+                    <MenuItem key="github">
                         <Link to="/github" onClick={(e) => {
                             e.preventDefault();
                             window.open("https://github.com/imhul")
@@ -159,7 +108,7 @@ class Home extends Component {
                             <Icon type="github" /> Github
                         </Link>
                     </MenuItem>
-                    <MenuItem onClick={this.info}>
+                    <MenuItem onClick={this.info} key="how-to">
                         <Icon type="question-circle" /> How-to
                     </MenuItem>
                 </ContextMenu>
@@ -168,4 +117,16 @@ class Home extends Component {
     }
 };
 
-export default Home;
+function mapDispatchToProps(dispatch) {
+  return {
+    uiActions: bindActionCreators(UI_ACTIONS, dispatch),
+  }
+};
+
+function mapStateToProps(state) {
+  return {
+    ui: state.ui,
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
