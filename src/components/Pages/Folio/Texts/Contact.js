@@ -3,7 +3,6 @@ import { Row, Col, Form, Input, Rate, Button, Icon, message } from 'antd';
 import { Language } from '../../../../utils/language/provider';
 import Base64 from '../../../../utils/decode';
 import Clipboard from 'react-clipboard.js';
-import Gravatar from 'react-gravatar';
 
 const { TextArea } = Input;
 
@@ -91,7 +90,13 @@ class Contact extends Component {
                                         rows={4} />
                                 </Col>
                                 <Col span={24} className="mb-2">
-                                    <span className="white">Rate this page</span>
+                                    <span className="white">
+                                        <Language
+                                            dictionary={{
+                                                english: "Rate this page",
+                                                russian: "Оцените этот сайт"
+                                            }}
+                                        /></span>
                                 </Col>
                                 <Col span={24} className="mb-20">
                                     <Rate character={<Icon type="heart" theme="filled" />} />

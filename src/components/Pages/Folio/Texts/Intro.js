@@ -1,249 +1,16 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Row, Col, Button, Icon, message } from 'antd';
 import { Language } from '../../../../utils/language/provider';
-import store from '../../../../utils/store/store';
 import Gravatar from 'react-gravatar';
 
 import logos from '../../../../images/logos';
 
 class Intro extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            lang: '',
-        }
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.lang !== this.state.lang) {
-            this.setState({
-                lang: store.lang,
-            })
-        }
-    };
-
     render() {
-        const technologies = [
-            {
-                id: 'Parcel',
-                list: 'bundler',
-                link: 'https://parceljs.org/',
-                img: logos.parcelLogo
-            },
-            {
-                id: 'Webpack',
-                list: 'bundler',
-                link: 'https://webpack.js.org/',
-            },
-            {
-                id: 'Gulp',
-                list: 'bundler',
-                link: 'https://gulpjs.com/',
-            },
-            {
-                id: 'React',
-                list: 'library',
-                link: 'https://reactjs.org/',
-                img: logos.reactLogo,
-            },
-            {
-                id: 'Redux',
-                list: 'library',
-                link: 'https://redux.js.org/',
-                img: logos.reduxLogo
-            },
-            {
-                id: 'redux-saga',
-                list: 'library',
-                link: 'https://redux-saga.js.org/',
-                img: logos.reduxSagaLogo
-            },
-                        {
-                id: 'redux-thunk',
-                list: 'library',
-                link: 'https://github.com/reduxjs/redux-thunk',
-            },
-            {
-                id: 'redux-logger',
-                list: 'library',
-                link: 'https://github.com/LogRocket/redux-logger',
-            },
-            {
-                id: 'react-redux-form',
-                list: 'library',
-                link: 'https://github.com/davidkpiano/react-redux-form',
-            },
-            {
-                id: 'history',
-                list: 'library',
-                link: 'https://github.com/ReactTraining/history',
-            },
-            {
-                id: 'react-router',
-                list: 'library',
-                link: '#',
-            },
-            {
-                id: 'helmet',
-                list: 'library',
-                link: '#',
-            },
-            {
-                id: 'Ant Design',
-                list: 'fw',
-                link: 'https://ant.design/',
-                img: logos.antdLogo
-            },
-            {
-                id: 'Immutable.js',
-                list: 'library',
-                link: 'https://facebook.github.io/immutable-js/',
-            },
-            {
-                id: 'socket.io',
-                list: 'library',
-                link: 'https://socket.io/',
-            },
-            {
-                id: 'lodash',
-                list: 'library',
-                link: 'https://lodash.com/',
-            },
-            {
-                id: 'jQuery, jQuery-UI',
-                list: 'library',
-                link: 'https://jquery.com/',
-            },
-            {
-                id: 'Highcharts',
-                list: 'library',
-                link: 'https://www.highcharts.com/',
-            },
-            {
-                id: 'Odometr.js',
-                list: 'library',
-                link: 'https://github.hubspot.com/odometer/docs/welcome/',
-            },
-            {
-                id: 'Materialize',
-                list: 'fw',
-                link: 'https://materializecss.com/',
-                img: logos.materializeLogo
-            },
-            {
-                id: 'UIKit',
-                list: 'fw',
-                link: 'https://getuikit.com/',
-                img: logos.uikitLogo
-            },
-            {
-                id: 'Bootstrap',
-                list: 'fw',
-                link: 'https://getbootstrap.com/',
-                img: logos.bootstrapLogo
-            },
-            {
-                id: 'JavaScript, ES6',
-                list: 'lang',
-                link: '#',
-            },
-            {
-                id: 'HTML5, JSX',
-                list: 'lang',
-                link: 'https://reactjs.org/docs/introducing-jsx.html',
-            },
-            {
-                id: 'SASS, SCSS, CSS',
-                list: 'lang',
-                link: 'https://sass-lang.com/',
-                img: logos.sassLogo
-            },
-            {
-                id: 'JSON, xml',
-                list: 'lang',
-                link: '#',
-            },
-            {
-                id: 'RESTful Web API',
-                list: 'api',
-                link: '#',
-            },
-            {
-                id: 'Google Maps API',
-                list: 'api',
-                link: 'https://developers.google.com/maps/documentation/',
-            },
-            {
-                id: 'YouTube Data API',
-                list: 'api',
-                link: 'https://developers.google.com/youtube/v3/',
-            },
-            {
-                id: 'Instagram API',
-                list: 'api',
-                link: 'https://developers.facebook.com/docs/instagram-api/',
-            },
-            {
-                id: 'Photoshop',
-                list: 'design',
-                link: '#',
-            },
-            {
-                id: 'Zeplin',
-                list: 'design',
-                link: '#',
-            },
-            {
-                id: 'Atlassian JIRA',
-                list: 'track',
-                link: 'https://jira.atlassian.com/',
-            },
-            {
-                id: 'Trello',
-                list: 'track',
-                link: 'https://trello.com/',
-            },
-            {
-                id: 'GitHub',
-                list: 'git',
-                link: 'https://github.com/',
-            },
-            {
-                id: 'GitLab',
-                list: 'git',
-                link: 'https://gitlab.com/',
-            },
-            {
-                id: 'Tortoise SVN',
-                list: 'git',
-                link: 'https://tortoisesvn.net/',
-            },
-            {
-                id: 'VS CODE',
-                list: 'ide',
-                link: 'https://code.visualstudio.com/',
-            },
-            {
-                id: 'WebStorm, Intellij IDEA',
-                list: 'ide',
-                link: 'https://www.jetbrains.com/',
-            },
-            {
-                id: 'Search Console',
-                list: 'seo',
-                link: '#',
-            },
-            {
-                id: 'Google Analytics',
-                list: 'seo',
-                link: '#',
-            },
-            {
-                id: 'Joomla CMS',
-                list: 'cms',
-                link: 'https://www.joomla.org/',
-            },
-        ];
+        const { technologies } = this.props.ui;
+        
         return (
             <div className="Intro content">
                 <Row gutter={24}>
@@ -340,8 +107,8 @@ class Intro extends Component {
                         <h2 className="margin">
                             <Language
                                 dictionary={{
-                                    english: "Technology stack",
-                                    russian: "Стек технологий"
+                                    english: "Favorite technologies",
+                                    russian: "Любимые технологии"
                                 }}
                             />
                         </h2>
@@ -426,6 +193,19 @@ class Intro extends Component {
                                         )
                                     }) }
                                 </ul>
+
+                                <h3>Package Managers</h3>
+                                <ul>
+                                    { technologies.filter((item) => item.list === 'packmen').map((item) => {
+                                        return (
+                                            <li key={item.id}>
+                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
+                                                    {item.id}
+                                                </a>
+                                            </li>
+                                        )
+                                    }) }
+                                </ul>
                                 
                             </Col>
                             
@@ -466,9 +246,10 @@ class Intro extends Component {
                                         )
                                     }) }
                                 </ul>
-                                <h3>IDEs</h3>
+
+                                <h3>Other</h3>
                                 <ul>
-                                    { technologies.filter((item) => item.list === 'ide').map((item) => {
+                                    { technologies.filter((item) => item.list === 'other').map((item) => {
                                         return (
                                             <li key={item.id}>
                                                 <a href={item.link} target="_blank" title={`${item.id} page`}>
@@ -531,6 +312,20 @@ class Intro extends Component {
                                         )
                                     }) }
                                 </ul>
+
+                                <h3>IDEs</h3>
+                                <ul>
+                                    { technologies.filter((item) => item.list === 'ide').map((item) => {
+                                        return (
+                                            <li key={item.id}>
+                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
+                                                    {item.id}
+                                                </a>
+                                            </li>
+                                        )
+                                    }) }
+                                </ul>
+
                                 <h3>CMS</h3>
                                 <ul>
                                     { technologies.filter((item) => item.list === 'cms').map((item) => {
@@ -554,4 +349,11 @@ class Intro extends Component {
     }
 };
 
-export default Intro;
+
+function mapStateToProps(state) {
+  return {
+    ui: state.ui,
+  }
+};
+
+export default connect(mapStateToProps)(Intro);

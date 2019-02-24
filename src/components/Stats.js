@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import raf from 'raf';
 import now from 'right-now';
 import * as UI_ACTIONS from '../redux/actions/ui_actions';
-import history from '../utils/history';
+import history from './../utils/history/index';
 
 function Parts(props) {
 	return <div className="parts">{props.date}</div>;
@@ -12,7 +12,7 @@ function Parts(props) {
 
 class Stats extends Component {
 	
-	start() {
+		start() {
         let count = 0;
         let lastTime = 0;
         const values = [];
@@ -21,27 +21,30 @@ class Stats extends Component {
         const self = this;
         raf(function measure() {
             count++;
-            let t = now();
-            if (t - lastTime > period) {
-                lastTime = t;
-                values.push(count / (max * period * 0.001));
-                count = 0;
-                self.props.uiActions.getFPS(
+						let t = now();
+						if (t - lastTime > period) {
+								lastTime = t;
+								values.push(count / (max * period * 0.001));
+								count = 0;
+								self.props.uiActions.getFPS(
 										(
 												values[values.length - 1] * max
 										).toFixed(0)
 								)
-            };
-            raf(measure)
+						};
+						raf(measure)
         })
     };
 
+		mount() {
+			this.start();
+			this.timerID = setInterval(
+					() => this.props.uiActions.tick(),
+			1000 )
+		};
+
 	componentDidMount() {
-		this.start();
-		this.timerID = setInterval(
-			() => this.props.uiActions.tick(),
-			1000
-		)
+			history.location.pathname === '/' ? this.mount() : null;
 	};
 
 	componentWillUnmount() {
@@ -49,11 +52,9 @@ class Stats extends Component {
 	};
 
 	render() {
-		const { location, parts, fps } = this.props.ui;
-		history.listen((location, action) => {
-				this.props.uiActions.changeLocation(history.location.pathname)
-		});
-		return ( location === '/' ? 
+		const { parts, fps } = this.props.ui;
+
+		return ( history.location.pathname === '/' ?
 			<div className="Stats">
 				<div className="left">
 					<Parts date={parts} />

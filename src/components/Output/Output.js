@@ -7,7 +7,7 @@ import { store } from '../../index';
 import history from '../../utils/history';
 import { Switch, Route, Router } from "react-router-dom";
 import { Layout } from 'antd';
-import { LanguageProvider, Language } from '../../utils/language/provider';
+import LanguageProvider, { Language } from '../../utils/language/provider';
 
 // components
 import Home from '../Pages/Home';
@@ -18,15 +18,17 @@ const { Content } = Layout;
 
 class Output extends Component {
     render() {
+
         const NotFound = () => {
             <h1>Sorry! Page Not Found:(</h1>
         }
+
         return (
             <Provider store={store}>
                 <Router history={history}>
                     <LanguageProvider>
                         <Layout className="LayoutMain">
-                            { Stats ? <Stats /> : null }
+                            <Stats />
                             <Layout className="Main">
                                 <Content>
                                     <Switch>

@@ -34,8 +34,12 @@ class Home extends Component {
         message.info('Keep clicking anywhere on the screen around the header to check how strong your device is', 6)
     };
 
+    changeLocation() {
+        this.props.uiActions.changeLocation(false)
+    };
+
     render() {
-        const { uiAction, hero, microdata, heroStyle } = this.props.ui;
+        const { hero, microdata, heroStyle } = this.props.ui;
 
         return (
             <div className="Home">
@@ -46,7 +50,7 @@ class Home extends Component {
                         <link rel="canonical" href="http://weblogic.com.ua/" />
                     </Helmet>
                     
-                    <Link to="/folio">
+                    <Link to="/folio" onClick={ this.changeLocation }>
                         <h1 className="mobile-fix heading-hero" style={ heroStyle }>
                             { hero.map(( symbol, index ) => {
                                 return (
@@ -87,11 +91,13 @@ class Home extends Component {
                             </span>
                         </h1>
                     </Link>
-                    <JsonLd data={microdata} />
+                    <JsonLd data={microdata.home} />
                 </ContextMenuTrigger>
                 <ContextMenu id="context-menu">
                     <MenuItem key="folio">
-                        <Link to="/folio"><Icon type="experiment" theme="outlined" /> About</Link>
+                        <Link to="/folio">
+                            <Icon type="experiment" theme="outlined" /> About
+                        </Link>
                     </MenuItem>
                     <MenuItem key="linkedin">
                         <Link to="/linkedin" onClick={(e) => {

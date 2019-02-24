@@ -1,41 +1,46 @@
 import { initState } from './initState';
-import { types } from '../constants/action_types';
+import { types } from '../constants/types';
 
 export default (state = initState, action) => {
-  switch (action.type) {
-    
-    case types.TICK:
-      return { 
-        ...state,
-        parts: window.bgJSDom[0].bgJS.parts.array.length,
-      };
+    switch (action.type) {
 
-    case types.GET_FPS:
-      return { 
-        ...state,
-        fps: action.payload,
-      };
+        case types.HERO_ANIMATE:
+            return { 
+                ...state,
+                heroStyle: { transform: "scale(1)", opacity: 1 },
+            };
+        
+        case types.TICK:
+            return { 
+                ...state,
+                parts: window.bgJSDom[0].bgJS.parts.array.length,
+            };
 
-    case types.HERO_ANIMATE:
-      return { 
-        ...state,
-        heroStyle: { transform: "scale(1)", opacity: 1 },
-      };
+        case types.GET_FPS:
+            return { 
+                ...state,
+                fps: action.payload,
+            };
 
-    case types.CHANGE_LOCATION:
-      return { 
-        ...state,
-        location: action.payload, 
-      };
+        case types.LOAD_FOLIO:
+            return { 
+                ...state,
+                loaded: true,
+            };
 
-    // case types.DROP_FIGURE:
-    //   const { payload } = action;
-    //   return {
-    //     ...state,
-    //     boards: [...state.boards, payload],
-    //   };
+        case types.TAB_MODIFY:
+            return { 
+                ...state,
+                active: action.payload,
+            };
 
-    default:
-      return state;
+        case types.CHANGE_LANG:
+            return { 
+                ...state,
+                lang: action.payload ? 'english' : 'russian',
+            };
+
+        default:
+            return state;
     }
 };

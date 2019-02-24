@@ -1,0 +1,9 @@
+export const types = {
+  HERO_ANIMATE: 'HERO_ANIMATE',
+  CHANGE_LANG: 'CHANGE_LANG',
+  TAB_NUM: 'TAB_NUM',
+  TICK: 'TICK',
+  GET_FPS: 'GET_FPS',
+  LOAD_FOLIO: 'LOAD_FOLIO',
+  TAB_MODIFY: 'TAB_MODIFY',
+};

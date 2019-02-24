@@ -1,14 +1,4 @@
-import { types } from '../constants/action_types';
-
-export function changeLocation(location) {
-  console.info("action location: ", location );
-  return (dispatch) => {
-    dispatch({
-      type: types.CHANGE_LOCATION,
-      payload: location,
-    })
-  }
-};
+import { types } from '../constants/types';
 
 export function tick() {
   return (dispatch) => {
@@ -22,7 +12,7 @@ export function getFPS(payload) {
   return (dispatch) => {
     dispatch({
       type: types.GET_FPS,
-      payload: payload
+      payload: payload,
     })
   }
 };
@@ -35,17 +25,28 @@ export function heroAnimate() {
   }
 };
 
-// export function dropFigure(figureArr) {
-//   return (dispatch, getState) => {
-//     const { ui } = getState();
-//     return dispatch({
-//       type: types.DROP_FIGURE,
-//       payload: {
-//         board:  `${ui.location}`,
-//         id:     figureArr[0],
-//         x:      figureArr[1],
-//         y:      figureArr[2],
-//       }
-//     })
-//   }
-// };
+export function loadFolio() {
+  return (dispatch) => {
+    dispatch({
+      type: types.LOAD_FOLIO,
+    })
+  }
+};
+
+export function tabMod(payload) {
+  return (dispatch) => {
+    dispatch({
+      type: types.TAB_MODIFY,
+      payload: payload,
+    })
+  }
+};
+
+export function langUpdate(payload) {
+  return (dispatch) => {
+    dispatch({
+      type: types.CHANGE_LANG,
+      payload: payload,
+    })
+  }
+};
