@@ -8,7 +8,8 @@ import { Language } from '../../../utils/language/provider';
 import JsonLd from '../../../utils/microdata';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
 import anime from "animejs";
-import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+import { HashLink } from 'react-router-hash-link';
+import { ContextMenu, MenuItem, SubMenu, ContextMenuTrigger } from "react-contextmenu";
 import '../../../images/print.png';
 import '../../../images/logo.png';
 
@@ -117,6 +118,18 @@ class Home extends Component {
                     <MenuItem onClick={this.info} key="how-to">
                         <Icon type="question-circle" /> How-to
                     </MenuItem>
+                    {/* <MenuItem key="folio/intro">
+                        <HashLink to="folio#intro">Intro</HashLink>
+                    </MenuItem>
+                    <MenuItem key="folio/roadmap">
+                        <HashLink to="folio#roadmap">Roadmap</HashLink>
+                    </MenuItem>
+                    <MenuItem key="folio/works">
+                        <HashLink to="folio#works">Works</HashLink>
+                    </MenuItem>
+                    <MenuItem key="folio/contacts">
+                        <HashLink to="folio#contacts">Contacts</HashLink>
+                    </MenuItem> */}
                 </ContextMenu>
             </div>
         )

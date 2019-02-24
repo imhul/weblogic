@@ -206,6 +206,19 @@ class Intro extends Component {
                                         )
                                     }) }
                                 </ul>
+
+                                <h3>CMS</h3>
+                                <ul>
+                                    { technologies.filter((item) => item.list === 'cms').map((item) => {
+                                        return (
+                                            <li key={item.id}>
+                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
+                                                    {item.id}
+                                                </a>
+                                            </li>
+                                        )
+                                    }) }
+                                </ul>
                                 
                             </Col>
                             
@@ -326,18 +339,6 @@ class Intro extends Component {
                                     }) }
                                 </ul>
 
-                                <h3>CMS</h3>
-                                <ul>
-                                    { technologies.filter((item) => item.list === 'cms').map((item) => {
-                                        return (
-                                            <li key={item.id}>
-                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
-                                                    {item.id}
-                                                </a>
-                                            </li>
-                                        )
-                                    }) }
-                                </ul>
                             </Col>
                             
                         </Row>

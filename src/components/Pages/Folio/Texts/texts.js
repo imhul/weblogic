@@ -8,7 +8,7 @@ import { Icon } from 'antd';
 
 const texts = [
     {
-        id: 'introduction',
+        id: 'intro',
         name: <div><Language dictionary={{
                 english: "Intro",
                 russian: "Вступление"

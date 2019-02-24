@@ -164,7 +164,7 @@ class Contact extends Component {
                             <Language
                                 dictionary={{
                                     english: "Always ready for mutually beneficial cooperation.",
-                                    russian: "Всегда готов к взаимовыгодному сотрудудничеству."
+                                    russian: "Всегда готов к взаимовыгодному сотрудничеству."
                                 }}
                             />
                         </p>

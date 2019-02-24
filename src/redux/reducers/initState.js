@@ -61,6 +61,11 @@ export const initState = {
             link: 'https://gulpjs.com/',
         },
         {
+            id: 'Grunt',
+            list: 'bundler',
+            link: 'https://gruntjs.com/',
+        },
+        {
             id: 'React',
             list: 'library',
             link: 'https://reactjs.org/',
@@ -261,9 +266,14 @@ export const initState = {
             link: 'https://code.visualstudio.com/',
         },
         {
-            id: 'WebStorm, Intellij IDEA',
+            id: 'Intellij IDEA',
             list: 'ide',
-            link: 'https://www.jetbrains.com/',
+            link: '#',
+        },
+        {
+            id: 'WebStorm',
+            list: 'ide',
+            link: '#',
         },
         {
             id: 'Search Console',
@@ -276,9 +286,34 @@ export const initState = {
             link: '#',
         },
         {
+            id: 'microdata',
+            list: 'seo',
+            link: 'https://schema.org/',
+        },
+        {
             id: 'Joomla CMS',
             list: 'cms',
             link: 'https://www.joomla.org/',
+        },
+        {
+            id: 'react-clipboard.js',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'react-contextmenu',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'react-router-hash-link',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'right-now',
+            list: 'other',
+            link: '#',
         },
     ],
 };

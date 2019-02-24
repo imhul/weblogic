@@ -9,6 +9,7 @@ import texts from './Texts';
 import Toolbar from './Toolbar';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+import history from './../../../utils/history/index';
 
 const Panel = Collapse.Panel;
 
@@ -45,7 +46,10 @@ class Folio extends Component {
                             accordion 
                             destroyInactivePanel
                             defaultActiveKey={[active]}
-                            onChange={ uiActions.tabMod } 
+                            onChange={ 
+                                uiActions.tabMod 
+                                // && history.push({ hash: `#${this.props.children.id}` }) 
+                            } 
                             className={ active ? 'active' : null }>
                         
                             <Toolbar key={0} />
