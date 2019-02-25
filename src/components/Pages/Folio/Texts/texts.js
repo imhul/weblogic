@@ -8,14 +8,16 @@ import { Icon } from 'antd';
 
 const texts = [
     {
+        id: 'intro',
         name: <div><Language dictionary={{
-                english: "Introduce",
+                english: "Intro",
                 russian: "Вступление"
         }} /><Icon type="poweroff" /></div>,
         key: 1,
         text: <Intro />
     },
     {
+        id: 'roadmap',
         name: <div><Language dictionary={{
             english: "Roadmap",
             russian: "Roadmap"
@@ -24,6 +26,7 @@ const texts = [
         text: <Roadmap />
     },
     {
+        id: 'works',
         name: <div><Language dictionary={{
             english: "Works",
             russian: "Работы"
@@ -31,7 +34,7 @@ const texts = [
         key: 3,
         text: <Works />
     },
-    {
+    {   id: 'contacts',
         name: <div><Language dictionary={{
             english: "Contacts",
             russian: "Контакты"
@@ -41,4 +44,4 @@ const texts = [
     }
 ];
 
-export default texts
+export default texts;

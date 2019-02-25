@@ -1,69 +1,116 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import Stats from '../../Stats';
+import { Helmet } from "react-helmet";
+import { Icon, message } from 'antd';
+import { Language } from '../../../utils/language/provider';
+import JsonLd from '../../../utils/microdata';
+import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
+import anime from "animejs";
+import { HashLink } from 'react-router-hash-link';
+import { ContextMenu, MenuItem, SubMenu, ContextMenuTrigger } from "react-contextmenu";
+import '../../../images/print.png';
+import '../../../images/logo.png';
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            styles: {},
-            spin: true
-        }
-        this.handleMouseOver = this.handleMouseOver.bind(this);
-        this.handleMouseOut = this.handleMouseOut.bind(this);
-    }
 
     componentDidMount() {
-        setTimeout(() => this.setState({
-            styles: { transform: "scale(1)", opacity: 1 },
-        }), 2000)
-    }
+        this.info();
+        setTimeout(() => {          
+            this.props.uiActions.heroAnimate();
+        }, 500);
+    };
 
-    handleMouseOver(event) {
-        // console.log("over", event);
-        this.setState({ spin: false })
-    }
+    info() {
+        message.info('Keep clicking anywhere on the screen around the header to check how strong your device is', 6)
+    };
 
-    handleMouseOut(event) {
-        // console.log("out", event);
-        this.setState({ spin: true })
-    }
+    changeLocation() {
+        this.props.uiActions.changeLocation(false)
+    };
 
     render() {
-        const hero = ['W', 'e', 'b', 'L', 'o', 'g', 'i', 'c', ' ', 'S', 't', 'u', 'd', 'i', 'o'];
+        const { hero, microdata, heroStyle } = this.props.ui;
+
         return (
-            <div 
-                className="Home" 
-                onMouseOver={() => this.handleMouseOver(this)} 
-                onMouseLeave={() => this.handleMouseOut(this)}>
-                
-                <Link to="/folio">
-                    <h1 className="mobile-fix heading-hero" style={this.state.styles}>
-                        {hero.map((symbol, index) => {
-                            return (
-                                <span
-                                    key={index}
-                                    className={`span-${index}`}
-                                >
-                                    {symbol}
-                                </span>)
-                        })}
-                        <span className="span-15">
-                            <i className="icon-lamp"></i>
-                        </span>
-                    </h1>
-                </Link>
+            <div className="Home">
+                <ContextMenuTrigger id="context-menu">
+
+                    <Helmet>
+                        <title>WebLogic Studio Home</title>
+                        <link rel="canonical" href="http://weblogic.com.ua/" />
+                    </Helmet>
+                    
+                    <Link to="/folio" onClick={ this.changeLocation }>
+                        <h1 className="mobile-fix heading-hero" style={ heroStyle }>
+                            { hero.map(( symbol, index ) => {
+                                return (
+                                    <span
+                                        key={ index }
+                                        className={`span-${ index }`}>
+                                        { symbol }
+                                    </span>)
+                            })}
+                            <span className="span-15">
+                                <i className="icon-lamp" />
+                            </span>
+                        </h1>
+                    </Link>
+                    <JsonLd data={microdata.home} />
+                </ContextMenuTrigger>
+                <ContextMenu id="context-menu">
+                    <MenuItem key="folio">
+                        <Link to="/folio">
+                            <Icon type="experiment" theme="outlined" /> About
+                        </Link>
+                    </MenuItem>
+                    <MenuItem key="linkedin">
+                        <Link to="/linkedin" onClick={(e) => {
+                            e.preventDefault();
+                            window.open("https://www.linkedin.com/in/tkachuk-zakhar-04733892/")
+                        }}>
+                            <Icon type='linkedin' /> Summary</Link>
+                    </MenuItem>
+                    <MenuItem key="github">
+                        <Link to="/github" onClick={(e) => {
+                            e.preventDefault();
+                            window.open("https://github.com/imhul")
+                        }}>
+                            <Icon type="github" /> Github
+                        </Link>
+                    </MenuItem>
+                    <MenuItem onClick={this.info} key="how-to">
+                        <Icon type="question-circle" /> How-to
+                    </MenuItem>
+                    {/* <MenuItem key="folio/intro">
+                        <HashLink to="folio#intro">Intro</HashLink>
+                    </MenuItem>
+                    <MenuItem key="folio/roadmap">
+                        <HashLink to="folio#roadmap">Roadmap</HashLink>
+                    </MenuItem>
+                    <MenuItem key="folio/works">
+                        <HashLink to="folio#works">Works</HashLink>
+                    </MenuItem>
+                    <MenuItem key="folio/contacts">
+                        <HashLink to="folio#contacts">Contacts</HashLink>
+                    </MenuItem> */}
+                </ContextMenu>
             </div>
-        );
+        )
     }
-}
+};
 
-export default Home;
+function mapDispatchToProps(dispatch) {
+  return {
+    uiActions: bindActionCreators(UI_ACTIONS, dispatch),
+  }
+};
 
-// style={ this.state.spin ? { 
-//     transform: 'rotate(360deg)',
-//     transitionDuration: '1s',
-//     transitionDelay: 'now',
-//     animationTimingFunction: 'linear',
-//     animationIterationCount: 'infinite',
-// } : null }
+function mapStateToProps(state) {
+  return {
+    ui: state.ui,
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

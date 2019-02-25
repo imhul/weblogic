@@ -1,51 +1,85 @@
 import React, { Component } from 'react';
-import FPS from './FPS';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import raf from 'raf';
+import now from 'right-now';
+import * as UI_ACTIONS from '../redux/actions/ui_actions';
+import history from './../utils/history/index';
 
 function Parts(props) {
 	return <div className="parts">{props.date}</div>;
-}
+};
 
 class Stats extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			parts: window.bgJSDom[0].bgJS.parts.array ?
-				window.bgJSDom[0].bgJS.parts.array.length : null,
-		}
-	}
+	
+		start() {
+        let count = 0;
+        let lastTime = 0;
+        const values = [];
+        let period = 1000;
+        let max = 90;
+        const self = this;
+        raf(function measure() {
+            count++;
+						let t = now();
+						if (t - lastTime > period) {
+								lastTime = t;
+								values.push(count / (max * period * 0.001));
+								count = 0;
+								self.props.uiActions.getFPS(
+										(
+												values[values.length - 1] * max
+										).toFixed(0)
+								)
+						};
+						raf(measure)
+        })
+    };
+
+		mount() {
+			this.start();
+			this.timerID = setInterval(
+					() => this.props.uiActions.tick(),
+			1000 )
+		};
 
 	componentDidMount() {
-		this.timerID = setInterval(
-			() => this.tick(),
-			1000
-		);
-	}
+			history.location.pathname === '/' ? this.mount() : null;
+	};
 
 	componentWillUnmount() {
 		clearInterval(this.timerID)
-	}
-
-	tick() {
-		this.setState({
-			parts: window.bgJSDom[0].bgJS.parts.array.length
-		});
-	}
+	};
 
 	render() {
+		const { parts, fps } = this.props.ui;
 
-		return (
+		return ( history.location.pathname === '/' ?
 			<div className="Stats">
 				<div className="left">
-					<Parts date={this.state.parts} />
+					<Parts date={parts} />
 					<div className="text">parts</div>
 				</div>
 				<div className="right">
-					<FPS />
+					<div className="FPS">{fps}</div>
 					<div className="text">fps</div>
 				</div>
-			</div>
-		)
+			</div> : null
+		)	
 	}
-}
+};
 
-export default Stats;
+function mapDispatchToProps(dispatch) {
+  return {
+    uiActions: bindActionCreators(UI_ACTIONS, dispatch),
+  }
+};
+
+function mapStateToProps(state) {
+  return {
+    ui: state.ui,
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stats);
+

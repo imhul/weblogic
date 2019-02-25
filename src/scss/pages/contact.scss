@@ -6,11 +6,54 @@
     }
     .ant-row-flex {
         margin-bottom: 20px;
-
     }
     p {
         margin: 20px 0;
         display: inline-block;
         text-align: center;
+    }
+    form {
+        padding: 20px;
+        border-radius: 4px;
+        border: 1px solid #bcc8ce;
+        .mb-2 {
+            margin-bottom: 2px !important;
+        }
+        .white {
+            color: $color-white;
+        }
+        textarea {
+            margin: 20px 0 !important;
+        }
+        .ant-input {
+            background-color: $color-black;
+            border-color: $color-white;
+            font-family: monospace;
+            color: $color-white;
+            &:hover {
+                border-color: $color-link-hover !important;
+            }
+        }
+        .ant-input[type=email] {
+            padding-left: 35px;
+        }
+        .ant-input-prefix {
+            i {
+                color: $color-white;
+            }
+        }
+        .ant-input[type=submit] {
+            font-family: 'Open-Sans', sans-serif;
+            background-color: $color-white;
+            border-color: $color-white;
+            color: $color-black;
+            cursor: pointer;
+            &:hover {
+                text-shadow: $color-link-hover 0 0 20px;
+                border-color: $color-link-hover;
+                color: $color-link-hover;
+                background-color: $transparent;
+            }
+        }
     }
 }

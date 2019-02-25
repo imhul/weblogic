@@ -16,7 +16,9 @@ class Roadmap extends Component {
         const pending = (
             <div>
                 <span>2019: </span>
-                <a href="https://ant.design/docs/react/practical-projects" title="antd DVA docs" target="_blank">DVA</a>, SSR
+                <a href="https://ant.design/docs/react/practical-projects" title="antd DVA docs" target="_blank">
+                    DVA
+                </a>, SSR, Jest, ESLint, Flow, Webpack
             </div>
         );
         return (
@@ -61,8 +63,8 @@ class Roadmap extends Component {
                     <TimelineItem>
                         <span>2016: </span>
                         <Language dictionary={{
-                            english: "There was a little experience with Angular. Learned the basics of Terminal, Yarn, Git, Jira, GitBash, Webpack, Gulp, etc.",
-                            russian: "Был небольшой опыт работы с Angular. Выучил основы рабочего окружения, в т.ч. Terminal, Yarn, Git, Jira, GitBash, Webpack, Gulp"
+                            english: "There was a little experience with Angular. Learned the basics of Terminal, Yarn, Git, Jira, GitBash, Grunt, Gulp, etc.",
+                            russian: "Был небольшой опыт работы с Angular. Выучил основы рабочего окружения, в т.ч. Terminal, Yarn, Git, Jira, GitBash, Grunt, Gulp"
                         }}
                         />
                     </TimelineItem>

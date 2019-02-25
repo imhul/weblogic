@@ -1277,7 +1277,6 @@ var bgJS = function (tag_id, params) {
           if (!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
           else bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
         } else {
-          //console.log('still loading...');
           if (!bgJS.tmp.img_error) bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
         }
 
@@ -1310,7 +1309,6 @@ var bgJS = function (tag_id, params) {
       if (bgJS.tmp.img_type == 'svg' && bgJS.tmp.source_svg == undefined) {
         bgJS.tmp.checkAnimFrame = requestAnimFrame(check);
       } else {
-        //console.log('images loaded! cancel check');
         cancelRequestAnimFrame(bgJS.tmp.checkAnimFrame);
         if (!bgJS.tmp.img_error) {
           bgJS.fn.vendors.init();
@@ -1427,8 +1425,6 @@ function isInArray(value, array) {
 window.bgJSDom = [];
 
 window.backgroundJS = function (tag_id, params) {
-
-  //console.log(params);
 
   /* no string id? so it's object params, and set the id with default id */
   if (typeof (tag_id) != 'string') {

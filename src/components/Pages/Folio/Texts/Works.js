@@ -15,7 +15,6 @@ class Works extends Component {
 
     render() {
         const base = window.location.origin;
-        console.info("base: ", base);
         // TODO: Require to copy Lab folder from the root to dist!!!
         const links = [
             {
@@ -127,13 +126,12 @@ class Works extends Component {
                     bordered
                     dataSource={links}
                     renderItem={item => (
-                        <ListItem>
-                            <a href={item.href}>
+                        <a target="_blank" href={item.href}>
+                            <ListItem>
                                 {item.type}
-                            </a>
-
-                            <ListMeta title={item.name} />
-                        </ListItem>
+                                <ListMeta title={ item.name } />
+                            </ListItem>
+                        </a>
                     )}
                 />
 

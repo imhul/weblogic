@@ -8,24 +8,17 @@ Based on [`create-react-app`](https://github.com/facebook/create-react-app) and 
 
 **What's inside?**
 
-* `parcel-bundler`
+* `parcel`
 * `react`
-* `react-dom`
-* `react-helmet`
-* `react-router`
+* `redux`
+* `helmet`
+* `redux-thunk`
 * `react-router-dom`
-* `react-preloading-component`
-* `node-sass`
-* `hystory`
-* `babel`
 * `antd`
-* `autoprefixer`
-* `immutable`
-* `moment`
-* `lodash`
+* `SCSS`
 
 ### TODO:
 
 1. Implement `SEO requirements`
-2. Implement `Redux`
+2. Implement `Redux-Saga`
 3. Implement `DVA` solution from [`this source`](https://ant.design/docs/react/practical-projects) 

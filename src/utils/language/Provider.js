@@ -1,51 +1,41 @@
 import React, { Component } from 'react';
-import store from '../store/store';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as UI_ACTIONS from '../../redux/actions/ui_actions';
 
 const LanguageContext = React.createContext();
-const LanguageConsumer = LanguageContext.Consumer;
-
-class LanguageProvider extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            language: "english"
-        }
-        this.updateLanguage = this.updateLanguage.bind(this)
-    }
-
-    componentDidMount() {
-        store.setItem('lang', this.state.language)
-    }
-
-    componentDidUpdate(noused, prevState) {
-        if(this.state.language !== prevState.language) {
-            store.setItem('lang', this.state.language)
-            console.log("::::store.lang in provider::::", store.lang)
-        }
-    }
-
-    updateLanguage(e) {
-        this.setState({ language: e ? 'english' : 'russian' })
-    }
-
-    render() {
-        return (
-            <LanguageContext.Provider
-                value={{
-                    language: this.state.language,
-                    updateLanguage: this.updateLanguage
-                }}
-            >
-                {this.props.children}
-            </LanguageContext.Provider>
-        )
-    }
-}
-
-const Language = props => (
+export const LanguageConsumer = LanguageContext.Consumer;
+export const Language = props => (
     <LanguageConsumer>
         {({ language }) => props.dictionary[language]}
     </LanguageConsumer>
 );
 
-export { LanguageProvider, LanguageConsumer, Language }
+class LanguageProvider extends Component {
+    render() {
+        const { lang } = this.props.ui;
+        const { uiActions } = this.props;
+        return (
+            <LanguageContext.Provider value={{
+                language: lang,
+                updateLanguage: uiActions.langUpdate
+            }}>
+                {this.props.children}
+            </LanguageContext.Provider>
+        )
+    }
+};
+
+function mapDispatchToProps(dispatch) {
+  return {
+    uiActions: bindActionCreators(UI_ACTIONS, dispatch),
+  }
+};
+
+function mapStateToProps(state) {
+  return {
+    ui: state.ui,
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LanguageProvider);

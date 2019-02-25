@@ -14,20 +14,25 @@
         }
         .ant-spin-nested-loading {
             margin: 0;
-            .ant-list-item {
-                margin: 0;
+            a {
+                text-decoration: none;
+                color: $color-white;
+                display: block;
+                border-bottom: 1px solid rgb(232, 232, 232);
+                &:last-child {
+                    border-bottom: none;
+                }
                 &:hover {
                     * {
                         color: $color-link-hover !important;
                     }
                 }
-                .ant-list-item-content {
-                    font-size: 18px;
-                    line-height: 0;
-                    margin-top: 0;
-                    a {
-                        text-decoration: none;
-                        color: $color-white;
+                .ant-list-item {
+                    margin: 0;
+                    .ant-list-item-content {
+                        font-size: 18px;
+                        line-height: 0;
+                        margin-top: 0;
                         span {
                             @media all and (max-width: $media-small) {
                                 display: flex;
@@ -42,19 +47,19 @@
                                 }
                             }
                         }
+                        h4 {
+                            font-size: 18px;
+                        }
                     }
-                    h4 {
+                    .ant-list-item-meta {
                         font-size: 18px;
-                    }
-                }
-                .ant-list-item-meta {
-                    font-size: 18px;
-                    text-align: left;
-                    .ant-list-item-meta-title {
-                        color: $color-white;
-                        @media all and (max-width: $media-x-small) {
-                            font-size: 6vw;
-                            line-height: 6vw;
+                        text-align: left;
+                        .ant-list-item-meta-title {
+                            color: $color-white;
+                            @media all and (max-width: $media-x-small) {
+                                font-size: 6vw;
+                                line-height: 1.5;
+                            }
                         }
                     }
                 }
