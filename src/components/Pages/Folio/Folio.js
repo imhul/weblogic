@@ -18,17 +18,6 @@ class Folio extends Component {
         setTimeout(() => this.props.uiActions.loadFolio(), 1000)
     };
 
-    // onCollapse(event) {
-    //     console.log("onCollapse event: ", event);
-    //     if( !event ) {
-    //         this.props.uiAction.tabMod(false)
-    //     } else if ( event && this.props.ui.active ) {
-    //         this.props.uiAction.tabMod(true)
-    //     } else if ( event && !this.props.ui.active ) {
-    //         this.props.uiAction.tabMod(true)
-    //     }
-    // };
-
     render() {
         const { loaded, active } = this.props.ui;
         const { uiActions } = this.props;
@@ -48,7 +37,6 @@ class Folio extends Component {
                             defaultActiveKey={[active]}
                             onChange={ 
                                 uiActions.tabMod 
-                                // && history.push({ hash: `#${this.props.children.id}` }) 
                             } 
                             className={ active ? 'active' : null }>
                         
