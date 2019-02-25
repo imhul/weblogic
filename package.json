@@ -1,8 +1,9 @@
 {
-  "name": "react-start-kit",
+  "name": "weblogic",
   "author": "Tkachuk Zakhar",
   "license": "ISC",
   "homepage": "http://weblogic.com.ua/",
+  "main": "dist/src.a2b27638.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/imhul/weblogic"

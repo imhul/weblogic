@@ -7,7 +7,7 @@ import { Icon, message } from 'antd';
 import { Language } from '../../../utils/language/provider';
 import JsonLd from '../../../utils/microdata';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
-import anime from "animejs";
+// import anime from "animejs";
 import { HashLink } from 'react-router-hash-link';
 import { ContextMenu, MenuItem, SubMenu, ContextMenuTrigger } from "react-contextmenu";
 import '../../../images/print.png';
