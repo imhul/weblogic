@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Timeline } from 'antd';
-import { Language } from '../../../../utils/language/provider';
+import { Language } from '../../provider';
 
 const TimelineItem = Timeline.Item;
 

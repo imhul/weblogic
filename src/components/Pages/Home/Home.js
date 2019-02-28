@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { Icon, message } from 'antd';
-import { Language } from '../../../utils/language/provider';
 import JsonLd from '../../../utils/microdata';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
 // import anime from "animejs";
-import { HashLink } from 'react-router-hash-link';
 import { ContextMenu, MenuItem, SubMenu, ContextMenuTrigger } from "react-contextmenu";
 import '../../../images/print.png';
 import '../../../images/logo.png';
@@ -26,15 +23,12 @@ class Home extends Component {
         message.info('Keep clicking anywhere on the screen around the header to check how strong your device is', 6)
     };
 
-    changeLocation() {
-        this.props.uiActions.changeLocation(false)
-    };
-
     render() {
         const { hero, microdata, heroStyle } = this.props.ui;
+        const { uiActions } = this.props;
 
         return (
-            <div className="Home">
+            <div className="Home" onClick={ uiActions.toFolio }>
                 <ContextMenuTrigger id="context-menu">
 
                     <Helmet>
@@ -42,7 +36,6 @@ class Home extends Component {
                         <link rel="canonical" href="http://weblogic.com.ua/" />
                     </Helmet>
                     
-                    <Link to="/folio" onClick={ this.changeLocation }>
                         <h1 className="mobile-fix heading-hero" style={ heroStyle }>
                             { hero.map(( symbol, index ) => {
                                 return (
@@ -56,45 +49,29 @@ class Home extends Component {
                                 <i className="icon-lamp" />
                             </span>
                         </h1>
-                    </Link>
-                    <JsonLd data={microdata.home} />
+                    <JsonLd data={microdata} />
                 </ContextMenuTrigger>
                 <ContextMenu id="context-menu">
-                    <MenuItem key="folio">
-                        <Link to="/folio">
+                    <MenuItem key="folio" onClick={ uiActions.toFolio }>
+                     
                             <Icon type="experiment" theme="outlined" /> About
-                        </Link>
+                    
                     </MenuItem>
-                    <MenuItem key="linkedin">
-                        <Link to="/linkedin" onClick={(e) => {
+                    <MenuItem key="linkedin" onClick={(e) => {
                             e.preventDefault();
                             window.open("https://www.linkedin.com/in/tkachuk-zakhar-04733892/")
                         }}>
-                            <Icon type='linkedin' /> Summary</Link>
+                            <Icon type='linkedin' /> Summary
                     </MenuItem>
-                    <MenuItem key="github">
-                        <Link to="/github" onClick={(e) => {
+                    <MenuItem key="github" onClick={(e) => {
                             e.preventDefault();
                             window.open("https://github.com/imhul")
                         }}>
                             <Icon type="github" /> Github
-                        </Link>
                     </MenuItem>
                     <MenuItem onClick={this.info} key="how-to">
                         <Icon type="question-circle" /> How-to
                     </MenuItem>
-                    {/* <MenuItem key="folio/intro">
-                        <HashLink to="folio#intro">Intro</HashLink>
-                    </MenuItem>
-                    <MenuItem key="folio/roadmap">
-                        <HashLink to="folio#roadmap">Roadmap</HashLink>
-                    </MenuItem>
-                    <MenuItem key="folio/works">
-                        <HashLink to="folio#works">Works</HashLink>
-                    </MenuItem>
-                    <MenuItem key="folio/contacts">
-                        <HashLink to="folio#contacts">Contacts</HashLink>
-                    </MenuItem> */}
                 </ContextMenu>
             </div>
         )

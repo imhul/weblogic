@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, List, Button, Icon, message } from 'antd';
-import { Language } from '../../../../utils/language/provider';
+import { Language } from '../../provider';
 
 const ListItem = List.Item;
 const ListMeta = ListItem.Meta;

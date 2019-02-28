@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Form, Input, Rate, Button, Icon, message } from 'antd';
-import { Language } from '../../../../utils/language/provider';
+import { Language } from '../../provider';
 import Base64 from '../../../../utils/decode';
 import Clipboard from 'react-clipboard.js';
 
@@ -57,7 +57,8 @@ class Contact extends Component {
                         </Button>
                     </Col>
 
-                    <Col span={24}>
+                    {/* TODO: implement formspree !!! */}
+                    {/* <Col span={24}>
                         <Form 
                             method="POST" 
                             className="mb-20"
@@ -109,7 +110,7 @@ class Contact extends Component {
                                 </Col>
                             </Row>
                         </Form>
-                    </Col>
+                    </Col> */}
 
                     <Col span={24}>
                         <Language

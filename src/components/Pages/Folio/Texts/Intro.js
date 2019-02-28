@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col, Button, Icon, message } from 'antd';
-import { Language } from '../../../../utils/language/provider';
+import { Language } from '../../provider';
 import Gravatar from 'react-gravatar';
 
 import logos from '../../../../images/logos';

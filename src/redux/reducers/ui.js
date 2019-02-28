@@ -40,6 +40,19 @@ export default (state = initState, action) => {
                 lang: action.payload ? 'english' : 'russian',
             };
 
+        case types.GO_TO_FOLIO:
+            return {
+                ...state,
+                isHome: false,
+            };
+
+        case types.GO_TO_HOME:
+            return {
+                ...state,
+                isHome: true,
+            };
+
+
         default:
             return state;
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Icon } from 'antd';
-import { LanguageConsumer } from '../../../utils/language/provider';
+import { LanguageConsumer } from '../provider';
 
 class Toolbar extends Component {
 

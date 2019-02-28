@@ -5,5 +5,7 @@ export const types = {
   TICK: 'TICK',
   GET_FPS: 'GET_FPS',
   LOAD_FOLIO: 'LOAD_FOLIO',
+  GO_TO_FOLIO: 'GO_TO_FOLIO',
+  GO_TO_HOME: 'GO_TO_HOME',
   TAB_MODIFY: 'TAB_MODIFY',
 };

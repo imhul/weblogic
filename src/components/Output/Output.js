@@ -1,49 +1,37 @@
-// Компонент-обёртка для LayoutMain, позволяющая осуществлять роутинг внутри себя
-
 import React, { Component } from 'react';
-import { Provider, connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { store } from '../../index';
-import history from '../../utils/history';
-import { Switch, Route, Router } from "react-router-dom";
+import { connect } from 'react-redux';
 import { Layout } from 'antd';
-import LanguageProvider, { Language } from '../../utils/language/provider';
 
-// components
+import '../../fonts/fonts.css';
+import '../../scss/index.scss';
+import '../../utils/bg';
+
+import Stats from '../Stats';
 import Home from '../Pages/Home';
 import Folio from '../Pages/Folio';
-import Stats from '../Stats';
 
 const { Content } = Layout;
 
 class Output extends Component {
     render() {
-
-        const NotFound = () => {
-            <h1>Sorry! Page Not Found:(</h1>
-        }
-
+        const { isHome } = this.props.ui;
         return (
-            <Provider store={store}>
-                <Router history={history}>
-                    <LanguageProvider>
-                        <Layout className="LayoutMain">
-                            <Stats />
-                            <Layout className="Main">
-                                <Content>
-                                    <Switch>
-                                        <Route exact path="/" component={Home} />
-                                        <Route path="/folio" component={Folio} />
-                                        <Route component={NotFound} />
-                                    </Switch>
-                                </Content>
-                            </Layout>
-                        </Layout>
-                    </LanguageProvider>
-                </Router>
-            </Provider>
-        );
+            <Layout className="LayoutMain">
+                { isHome ? <Stats /> : null }
+                <Layout className="Main">
+                    <Content>
+                        { isHome ? <Home /> : <Folio /> }
+                    </Content>
+                </Layout>
+            </Layout>
+        )
     }
-}
+};
 
-export default Output;
+function mapStateToProps(state) {
+    return {
+        ui: state.ui,
+    }
+};
+
+export default connect(mapStateToProps)(Output);

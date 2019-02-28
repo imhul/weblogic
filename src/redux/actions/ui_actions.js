@@ -50,3 +50,21 @@ export function langUpdate(payload) {
     })
   }
 };
+
+export function toFolio() {
+  return (dispatch) => {
+    dispatch({
+      type: types.GO_TO_FOLIO,
+    })
+  }
+};
+
+export function toHome() {
+  return (dispatch) => {
+    dispatch({
+      type: types.GO_TO_HOME,
+    })
+  }
+};
+
+

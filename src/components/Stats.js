@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import raf from 'raf';
 import now from 'right-now';
 import * as UI_ACTIONS from '../redux/actions/ui_actions';
-import history from './../utils/history/index';
 
 function Parts(props) {
 	return <div className="parts">{props.date}</div>;
@@ -22,6 +23,7 @@ class Stats extends Component {
         raf(function measure() {
             count++;
 						let t = now();
+								
 						if (t - lastTime > period) {
 								lastTime = t;
 								values.push(count / (max * period * 0.001));
@@ -32,7 +34,7 @@ class Stats extends Component {
 										).toFixed(0)
 								)
 						};
-						raf(measure)
+						raf(measure);
         })
     };
 
@@ -40,11 +42,11 @@ class Stats extends Component {
 			this.start();
 			this.timerID = setInterval(
 					() => this.props.uiActions.tick(),
-			1000 )
+			1000 );
 		};
 
 	componentDidMount() {
-			history.location.pathname === '/' ? this.mount() : null;
+			this.mount()
 	};
 
 	componentWillUnmount() {
@@ -52,10 +54,10 @@ class Stats extends Component {
 	};
 
 	render() {
-		const { parts, fps } = this.props.ui;
+		const { isHome, parts, fps } = this.props.ui;
 
-		return ( history.location.pathname === '/' ?
-			<div className="Stats">
+		return ( 
+			<div className="Stats" id="stats">
 				<div className="left">
 					<Parts date={parts} />
 					<div className="text">parts</div>
@@ -64,7 +66,7 @@ class Stats extends Component {
 					<div className="FPS">{fps}</div>
 					<div className="text">fps</div>
 				</div>
-			</div> : null
+			</div>
 		)	
 	}
 };

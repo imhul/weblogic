@@ -1,3 +1,3 @@
 import texts from './texts';
 
-export default texts
+export default texts;

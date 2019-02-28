@@ -3,7 +3,6 @@
   "author": "Tkachuk Zakhar",
   "license": "ISC",
   "homepage": "http://weblogic.com.ua/",
-  "main": "dist/src.a2b27638.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/imhul/weblogic"
@@ -38,17 +37,20 @@
     "react-dom": "^16.7.0",
     "react-gravatar": "^2.6.3",
     "react-helmet": "^5.2.0",
+    "react-hot-loader": "^4.7.1",
     "react-preloading-component": "^0.0.5",
     "react-redux": "^6.0.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.1",
+    "react-router-redux": "^4.0.8",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "right-now": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-plugin-import": "^1.11.0"
+    "babel-plugin-import": "^1.11.0",
+    "babel-preset-react-app": "^7.0.1"
   }
 }

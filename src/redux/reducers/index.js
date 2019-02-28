@@ -3,7 +3,7 @@ import ui from './ui';
 
 // Add your new reducer here
 const reducers = {
-  ui
+  ui,
 };
 
 const rootReducer = combineReducers(reducers);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Language } from '../../../../utils/language/provider';
+import { Language } from '../../provider';
 import Intro from './Intro';
 import Roadmap from './Roadmap';
 import Works from './Works';
