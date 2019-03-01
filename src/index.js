@@ -1,4 +1,5 @@
 import React from 'react';
+import {hot} from 'react-hot-loader';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -11,4 +12,4 @@ function renderApp() {
 
 renderApp();
 
-module.hot.accept(renderApp);
+hot(module)(renderApp);

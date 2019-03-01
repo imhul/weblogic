@@ -8,13 +8,33 @@ import { Collapse, Icon } from 'antd';
 import texts from './Texts';
 import Toolbar from './Toolbar';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
+import now from 'right-now';
+import WheelReact from 'wheel-react';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 
 const Panel = Collapse.Panel;
+let currentMoment = now().toFixed();
 
 class Folio extends Component {
+
     componentDidMount() {
+        this.handleWheel = this.handleWheel.bind(this);
         setTimeout(() => this.props.uiActions.loadFolio(), 1000)
+    };
+
+    handleWheel(e) {
+        
+        let stamp = e.timeStamp.toFixed();
+        let direction = e.deltaY > 0 ? true : false;
+        let calc = stamp - currentMoment;
+        console.log("direction: ", direction);
+        console.log("currentMoment: ", currentMoment);
+        console.log("stamp: ", stamp);
+        console.log("calc: ", calc);
+        
+
+        if ( direction && calc >= 5000 && calc < 5100 ) this.props.uiActions.tabMod("1")
+
     };
 
     render() {
@@ -22,7 +42,7 @@ class Folio extends Component {
         const { uiActions } = this.props;
 
         return (
-            <div className="Folio">
+            <div className="Folio" onWheel={ this.handleWheel }>
                 <LanguageProvider>
                     <Helmet>
                         <title>My Portfolio</title>
@@ -35,6 +55,7 @@ class Folio extends Component {
                                 destroyInactivePanel
                                 defaultActiveKey={[active]}
                                 onChange={ uiActions.tabMod } 
+                                
                                 className={ active ? 'active' : null }>
                             
                                 <Toolbar key={0} />
