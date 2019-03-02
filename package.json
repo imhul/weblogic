@@ -46,7 +46,8 @@
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "right-now": "^1.0.0"
+    "right-now": "^1.0.0",
+    "wheel-react": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

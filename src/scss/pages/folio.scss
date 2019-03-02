@@ -2,6 +2,7 @@
 
 .Folio {
     height: -webkit-fill-available;
+    background-color: $color-content-bg;
     width: 100%;
     max-width: 100%;
     top: 0;
@@ -69,13 +70,17 @@
                 line-height: 16vh;
                 font-size: 18vh;
                 color: $color-white;
-                // transition: all 500ms cubic-bezier(0.130, 0.060, 0.000, 1.650) !important;
+                text-shadow: 2px 2px 4px $color-black;
                 &:hover {
-                    text-shadow: 0 0 20px $color-white;
+                    text-shadow: 0 0 4px $color-white;
+                    & i>svg {
+                        filter: drop-shadow( 0 0 4px $color-white);
+                    }
                 }
-                &:hover i>svg {
-                    filter: drop-shadow( 0 0 20px $color-white);
+                & i > svg {
+                    filter: drop-shadow( 2px 2px 4px $color-black);
                 }
+                
                 i {
                     float: right;
                     margin-right: 60px;
