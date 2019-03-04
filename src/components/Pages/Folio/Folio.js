@@ -8,41 +8,22 @@ import { Collapse, Icon } from 'antd';
 import texts from './Texts';
 import Toolbar from './Toolbar';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
-// import now from 'right-now';
-import WheelReact from 'wheel-react';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 
 const Panel = Collapse.Panel;
-// let currentMoment = now().toFixed();
 
 class Folio extends Component {
 
     componentDidMount() {
-        // this.handleWheel = this.handleWheel.bind(this);
         setTimeout(() => this.props.uiActions.loadFolio(), 1000)
     };
 
     render() {
         const { loaded, active } = this.props.ui;
         const { uiActions } = this.props;
-        let upCount = 0;
-        let downCount = 0;
-        
-        WheelReact.config({
-            up: () => {
-                upCount++;
-                this.props.uiActions.tabMod(`${upCount}`);
-                console.log(':::: DOWN ::::') // , `${upCount}`
-            },
-            down: () => {
-                downCount++;
-                this.props.uiActions.tabMod(`${downCount}`);
-                console.log(':::: UP ::::') // , `${downCount}`
-            }
-        });
 
         return (
-            <div className="Folio" {...WheelReact.events} tabIndex="1">
+            <div className="Folio" tabIndex="1"> 
                 <LanguageProvider>
                     <Helmet>
                         <title>My Portfolio</title>
@@ -59,7 +40,7 @@ class Folio extends Component {
                                 className={ active ? 'active' : null }>
                             
                                 <Toolbar key={0} />
-                                { console.log("state active:", active) }
+   
                                 { texts.map(( load ) => (
                                         <Panel 
                                             id={ load.id }

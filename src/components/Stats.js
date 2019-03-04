@@ -7,13 +7,10 @@ import raf from 'raf';
 import now from 'right-now';
 import * as UI_ACTIONS from '../redux/actions/ui_actions';
 
-function Parts(props) {
-	return <div className="parts">{props.date}</div>;
-};
-
 class Stats extends Component {
 	
 		start() {
+				// TODO: get stop this function in folio
         let count = 0;
         let lastTime = 0;
         const values = [];
@@ -21,6 +18,7 @@ class Stats extends Component {
         let max = 90;
         const self = this;
         raf(function measure() {
+						
             count++;
 						let t = now();
 								
@@ -50,11 +48,15 @@ class Stats extends Component {
 	};
 
 	componentWillUnmount() {
-		clearInterval(this.timerID)
+		clearInterval(this.timerID);
 	};
 
 	render() {
 		const { isHome, parts, fps } = this.props.ui;
+
+		const Parts = (props) => {
+				return <div className="parts">{props.date}</div>
+		};
 
 		return ( 
 			<div className="Stats" id="stats">

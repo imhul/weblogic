@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UI_ACTIONS from '../../redux/actions/ui_actions';
 
+// TODO: remove createContext: not supported anymore. Change it to React Intl! https://github.com/yahoo/react-intl
 const LanguageContext = React.createContext();
 export const LanguageConsumer = LanguageContext.Consumer;
 export const Language = props => (
