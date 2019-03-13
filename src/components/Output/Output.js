@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { history } from '../../redux/store';
+import * as UX_ACTIONS from '../../redux/actions/ux_actions';
 import { Layout } from 'antd';
 
 import '../../fonts/fonts.css';
@@ -13,14 +17,26 @@ import Folio from '../Pages/Folio';
 const { Content } = Layout;
 
 class Output extends Component {
+
+    componentDidMount() {
+        const { uxActions } = this.props;
+        // uxActions.updateHistory(history.location.pathname);
+        history.listen((location, action) => {
+            uxActions.updateHistory(history.location.pathname)
+        })
+    };
+
     render() {
-        const { isHome } = this.props.ui;
+
+        const { isHome } = this.props.ux;
+
         return (
             <Layout className="LayoutMain">
                 { isHome ? <Stats /> : null }
                 <Layout className="Main">
                     <Content>
-                        { isHome ? <Home /> : <Folio /> }
+                        <Route exact path="/" component={ Home } />
+                        <Route exact path="/folio" component={ Folio } />
                     </Content>
                 </Layout>
             </Layout>
@@ -28,10 +44,16 @@ class Output extends Component {
     }
 };
 
-function mapStateToProps(state) {
+function mapDispatchToProps(dispatch) {
     return {
-        ui: state.ui,
+        uxActions: bindActionCreators(UX_ACTIONS, dispatch),
     }
 };
 
-export default connect(mapStateToProps)(Output);
+function mapStateToProps(state) {
+    return {
+        ux: state.ux,
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Output);

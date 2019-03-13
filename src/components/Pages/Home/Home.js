@@ -5,6 +5,9 @@ import { Helmet } from "react-helmet";
 import { Icon, message } from 'antd';
 import JsonLd from '../../../utils/microdata';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
+// import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
+// import { push } from 'connected-react-router';
+import { history } from '../../../redux/store';
 // import anime from "animejs";
 import { ContextMenu, MenuItem, SubMenu, ContextMenuTrigger } from "react-contextmenu";
 import '../../../images/print.png';
@@ -14,6 +17,7 @@ class Home extends Component {
 
     componentDidMount() {
         this.info();
+        console.log("props: ", this.props);
         setTimeout(() => {          
             this.props.uiActions.heroAnimate();
         }, 500);
@@ -23,12 +27,17 @@ class Home extends Component {
         message.info('Keep clicking anywhere on the screen around the header to check how strong your device is', 6)
     };
 
+    // changePage() {
+    //     this.props.uxActions.goFolio()
+    //     history.push('/folio');
+    // };
+
     render() {
         const { hero, microdata, heroStyle } = this.props.ui;
-        const { uiActions } = this.props;
+        // const { uxActions } = this.props;
 
         return (
-            <div className="Home" onClick={ uiActions.toFolio }>
+            <div className="Home" onClick={() => history.push('/folio')}>
                 <ContextMenuTrigger id="context-menu">
 
                     <Helmet>
@@ -52,7 +61,7 @@ class Home extends Component {
                     <JsonLd data={microdata} />
                 </ContextMenuTrigger>
                 <ContextMenu id="context-menu">
-                    <MenuItem key="folio" onClick={ uiActions.toFolio }>
+                    <MenuItem key="folio" onClick={() => history.push('/folio')}>
                      
                             <Icon type="experiment" theme="outlined" /> About
                     
@@ -79,15 +88,16 @@ class Home extends Component {
 };
 
 function mapDispatchToProps(dispatch) {
-  return {
-    uiActions: bindActionCreators(UI_ACTIONS, dispatch),
-  }
+    return {
+        uiActions: bindActionCreators(UI_ACTIONS, dispatch),
+        // uxActions: bindActionCreators(UX_ACTIONS, dispatch),
+    }
 };
 
 function mapStateToProps(state) {
-  return {
-    ui: state.ui,
-  }
+    return {
+        ui: state.ui,
+    }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

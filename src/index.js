@@ -1,13 +1,24 @@
-import React from 'react';
-import {hot} from 'react-hot-loader';
-import ReactDOM from 'react-dom';
+
+import { hot, AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import { ConnectedRouter } from 'connected-react-router';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import store, { history } from './redux/store';
+
 import Output from './components/Output';
 
 function renderApp() {
-  const App = () => <Provider store={ store }><Output /></Provider>;
-  ReactDOM.render(<App />, document.getElementById('root'))
+    const App = () => (
+        <AppContainer>
+            <Provider store={ store }>
+                <ConnectedRouter history={ history }>
+                    <Output />
+                </ConnectedRouter>
+            </Provider>
+        </AppContainer>
+    );
+    ReactDOM.render(<App />, document.getElementById('root'))
 };
 
 renderApp();

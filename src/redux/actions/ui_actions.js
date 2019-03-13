@@ -1,4 +1,20 @@
-import { types } from '../constants/types';
+import { typesUI as types } from '../constants/types';
+
+export function initialize() {
+  return (dispatch) => {
+    dispatch({
+      type: types.INITIALIZE,
+    })
+  }
+};
+
+export function authenticate() {
+  return (dispatch) => {
+    dispatch({
+      type: types.AUTHENTICATE,
+    })
+  }
+};
 
 export function tick() {
   return (dispatch) => {
@@ -32,39 +48,3 @@ export function loadFolio() {
     })
   }
 };
-
-export function tabMod(payload) {
-  return (dispatch) => {
-    dispatch({
-      type: types.TAB_MODIFY,
-      payload: payload,
-    })
-  }
-};
-
-export function langUpdate(payload) {
-  return (dispatch) => {
-    dispatch({
-      type: types.CHANGE_LANG,
-      payload: payload,
-    })
-  }
-};
-
-export function toFolio() {
-  return (dispatch) => {
-    dispatch({
-      type: types.GO_TO_FOLIO,
-    })
-  }
-};
-
-export function toHome() {
-  return (dispatch) => {
-    dispatch({
-      type: types.GO_TO_HOME,
-    })
-  }
-};
-
-

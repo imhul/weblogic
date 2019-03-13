@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Icon } from 'antd';
+import { Switch } from 'antd';
 import { LanguageConsumer } from '../provider';
 
 class Toolbar extends Component {

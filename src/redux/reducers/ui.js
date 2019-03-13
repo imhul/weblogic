@@ -1,8 +1,21 @@
-import { initState } from './initState';
-import { types } from '../constants/types';
+import { initStateUI as initState } from './initStateUI';
+import { typesUI as types } from '../constants/types';
 
 export default (state = initState, action) => {
     switch (action.type) {
+
+        case types.INITIALIZE:
+            return { 
+                ...state,
+                isInit: true,
+            };
+
+        case types.AUTHENTICATE:
+            return { 
+                ...state,
+                isAuth: true,
+                currentUser: action.payload,
+            };
 
         case types.HERO_ANIMATE:
             return { 
@@ -28,30 +41,7 @@ export default (state = initState, action) => {
                 loaded: true,
             };
 
-        case types.TAB_MODIFY:
-            return { 
-                ...state,
-                active: action.payload,
-            };
-
-        case types.CHANGE_LANG:
-            return { 
-                ...state,
-                lang: action.payload ? 'english' : 'russian',
-            };
-
-        case types.GO_TO_FOLIO:
-            return {
-                ...state,
-                isHome: false,
-            };
-
-        case types.GO_TO_HOME:
-            return {
-                ...state,
-                isHome: true,
-            };
-
+        
 
         default:
             return state;

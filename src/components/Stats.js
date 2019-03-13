@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import raf from 'raf';
@@ -52,7 +50,7 @@ class Stats extends Component {
 	};
 
 	render() {
-		const { isHome, parts, fps } = this.props.ui;
+		const { parts, fps } = this.props.ui;
 
 		const Parts = (props) => {
 				return <div className="parts">{props.date}</div>

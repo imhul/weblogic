@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as UI_ACTIONS from '../../redux/actions/ui_actions';
+import * as UX_ACTIONS from '../../redux/actions/ux_actions';
 
 // TODO: remove createContext: not supported anymore. Change it to React Intl! https://github.com/yahoo/react-intl
 const LanguageContext = React.createContext();
@@ -14,12 +14,12 @@ export const Language = props => (
 
 class LanguageProvider extends Component {
     render() {
-        const { lang } = this.props.ui;
-        const { uiActions } = this.props;
+        const { lang } = this.props.ux;
+        const { uxActions } = this.props;
         return (
             <LanguageContext.Provider value={{
                 language: lang,
-                updateLanguage: uiActions.langUpdate
+                updateLanguage: uxActions.langUpdate
             }}>
                 {this.props.children}
             </LanguageContext.Provider>
@@ -29,13 +29,13 @@ class LanguageProvider extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    uiActions: bindActionCreators(UI_ACTIONS, dispatch),
+    uxActions: bindActionCreators(UX_ACTIONS, dispatch),
   }
 };
 
 function mapStateToProps(state) {
   return {
-    ui: state.ui,
+    ux: state.ux,
   }
 };
 

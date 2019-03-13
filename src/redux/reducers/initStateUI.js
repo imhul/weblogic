@@ -1,13 +1,11 @@
-// import React from 'react';
-
-export const initState = {
+export const initStateUI = {
     fps: 60,
     parts: 0,
     loaded: false,
-    isHome: true,
-    active: null,
+    isInit: false,
+    isAuth: false,
     heroStyle: {},
-    lang: 'english',
+    currentUser: {},
     hero: ['W', 'e', 'b', 'L', 'o', 'g', 'i', 'c', ' ', 'S', 't', 'u', 'd', 'i', 'o'],
     microdata: {
         '@context': 'http://www.schema.org',

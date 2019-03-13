@@ -7,8 +7,11 @@ import LanguageProvider from '../provider';
 import { Collapse, Icon } from 'antd';
 import texts from './Texts';
 import Toolbar from './Toolbar';
+// import ClickFX from './ClickFX';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
+import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+import { history } from '../../../redux/store';
 
 const Panel = Collapse.Panel;
 
@@ -19,8 +22,9 @@ class Folio extends Component {
     };
 
     render() {
-        const { loaded, active } = this.props.ui;
-        const { uiActions } = this.props;
+        const { loaded } = this.props.ui;
+        const { active } = this.props.ux;
+        const { uxActions } = this.props;
 
         return (
             <div className="Folio" tabIndex="1"> 
@@ -34,8 +38,8 @@ class Folio extends Component {
                             <Collapse 
                                 accordion 
                                 destroyInactivePanel
-                                defaultActiveKey={active}
-                                onChange={ uiActions.tabMod } 
+                                defaultActiveKey={ active }
+                                onChange={ uxActions.tabMod } 
                                 
                                 className={ active ? 'active' : null }>
                             
@@ -55,7 +59,7 @@ class Folio extends Component {
                     </ContextMenuTrigger>
 
                     <ContextMenu id="context-menu">
-                        <MenuItem onClick={ uiActions.toHome }>
+                        <MenuItem onClick={() => history.push('/')}>
                             <Icon type="home" theme="outlined" /> Home
                         </MenuItem>
                         <MenuItem onClick={(e) => {
@@ -80,12 +84,14 @@ class Folio extends Component {
 function mapDispatchToProps(dispatch) {
   return {
     uiActions: bindActionCreators(UI_ACTIONS, dispatch),
+    uxActions: bindActionCreators(UX_ACTIONS, dispatch),
   }
 };
 
 function mapStateToProps(state) {
   return {
     ui: state.ui,
+    ux: state.ux,
   }
 };
 

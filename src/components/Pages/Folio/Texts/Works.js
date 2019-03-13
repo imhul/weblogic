@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { Row, Col, List, Button, Icon, message } from 'antd';
 import { Language } from '../../provider';
+// import TrelloModal from '../TrelloModal';
+// Trello API
+// import { isTrelloAvailable, authenticateUser, getBoard } from '../../../../utils/api';
 
 const ListItem = List.Item;
 const ListMeta = ListItem.Meta;
 
 class Works extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
+    
+    // componentDidMount() {
+    //     console.log('ok?', isTrelloAvailable());
+    //     setInterval(() => console.log('+1000. ok?', isTrelloAvailable()), 1000);
+    //     setTimeout(() => console.log('+1000. ok?', authenticateUser()), 1000)
+    // };
 
     render() {
         const base = window.location.origin;
-        // TODO: Require to copy Lab folder from the root to dist!!!
         const links = [
             {
                 name: (<Language dictionary={{
@@ -135,6 +137,7 @@ class Works extends Component {
                     )}
                 />
 
+                {/* <TrelloModal /> */}
             </div>
         )
     }
