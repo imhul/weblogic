@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Helmet } from "react-helmet";
 import { Wave } from 'react-preloading-component';
-import LanguageProvider from '../provider';
 import { Collapse, Icon } from 'antd';
 import texts from './Texts';
 import Toolbar from './Toolbar';
@@ -28,54 +27,52 @@ class Folio extends Component {
 
         return (
             <div className="Folio" tabIndex="1"> 
-                <LanguageProvider>
-                    <Helmet>
-                        <title>My Portfolio</title>
-                    </Helmet>
+                <Helmet>
+                    <title>My Portfolio</title>
+                </Helmet>
 
-                    <ContextMenuTrigger id="context-menu">
-                        { !loaded ? <Wave color="#fdd835" /> : 
-                            <Collapse 
-                                accordion 
-                                destroyInactivePanel
-                                defaultActiveKey={ active }
-                                onChange={ uxActions.tabMod } 
-                                
-                                className={ active ? 'active' : null }>
+                <ContextMenuTrigger id="context-menu">
+                    { !loaded ? <Wave color="#fdd835" /> : 
+                        <Collapse 
+                            accordion 
+                            destroyInactivePanel
+                            defaultActiveKey={ active }
+                            onChange={ uxActions.tabMod } 
                             
-                                <Toolbar key={0} />
-   
-                                { texts.map(( load ) => (
-                                        <Panel 
-                                            id={ load.id }
-                                            header={ load.name } 
-                                            key={ load.key } 
-                                            showArrow={ false }>
-                                            { load.text }
-                                        </Panel>
-                                )) } 
-                            </Collapse>
-                        }
-                    </ContextMenuTrigger>
+                            className={ active ? 'active' : null }>
+                        
+                            <Toolbar key={0} />
 
-                    <ContextMenu id="context-menu">
-                        <MenuItem onClick={() => history.push('/')}>
-                            <Icon type="home" theme="outlined" /> Home
-                        </MenuItem>
-                        <MenuItem onClick={(e) => {
-                                e.preventDefault();
-                                window.open("https://www.linkedin.com/in/tkachuk-zakhar-04733892/")
-                        }}>
-                            <Icon type='linkedin' /> Summary
-                        </MenuItem>
-                        <MenuItem onClick={(e) => {
-                                e.preventDefault();
-                                window.open("https://github.com/imhul")
-                        }}>
-                            <Icon type="github" /> Github
-                        </MenuItem>
-                    </ContextMenu>
-                </LanguageProvider>
+                            { texts.map(( load ) => (
+                                    <Panel 
+                                        id={ load.id }
+                                        header={ load.name } 
+                                        key={ load.key } 
+                                        showArrow={ false }>
+                                        { load.text }
+                                    </Panel>
+                            )) } 
+                        </Collapse>
+                    }
+                </ContextMenuTrigger>
+
+                <ContextMenu id="context-menu">
+                    <MenuItem onClick={() => history.push('/')}>
+                        <Icon type="home" theme="outlined" /> Home
+                    </MenuItem>
+                    <MenuItem onClick={(e) => {
+                            e.preventDefault();
+                            window.open("https://www.linkedin.com/in/tkachuk-zakhar-04733892/")
+                    }}>
+                        <Icon type='linkedin' /> Summary
+                    </MenuItem>
+                    <MenuItem onClick={(e) => {
+                            e.preventDefault();
+                            window.open("https://github.com/imhul")
+                    }}>
+                        <Icon type="github" /> Github
+                    </MenuItem>
+                </ContextMenu>
             </div>
         )
     }

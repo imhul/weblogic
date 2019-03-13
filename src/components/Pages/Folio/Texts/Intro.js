@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col, Button, Icon, message } from 'antd';
-import { Language } from '../../provider';
 import Gravatar from 'react-gravatar';
 
 import logos from '../../../../images/logos';

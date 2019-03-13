@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Col, List, Button, Icon, message } from 'antd';
-import { Language } from '../../provider';
 // import TrelloModal from '../TrelloModal';
 // Trello API
 // import { isTrelloAvailable, authenticateUser, getBoard } from '../../../../utils/api';
@@ -22,7 +21,7 @@ class Works extends Component {
             {
                 name: (<Language dictionary={{
                     english: "Puzzle game, JavaScript + Canvas + design",
-                    russian: "Игра 'Пазлы', JavaScript + Canvas + design"
+                    russian: "Игра 'Пазлы', JavaScript + Canvas + дизайн"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{
@@ -35,7 +34,7 @@ class Works extends Component {
             {
                 name: (<Language dictionary={{
                     english: "Corporate project, Joomla + design",
-                    russian: "Корпоративный сайт, Joomla + design"
+                    russian: "Корпоративный сайт, Joomla + дизайн"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{
@@ -48,7 +47,7 @@ class Works extends Component {
             {
                 name: (<Language dictionary={{
                     english: "LED-screen calculator, Angular + Materialize + design",
-                    russian: "Калькулятор LED панелей, Angular + Materialize + design"
+                    russian: "Калькулятор LED панелей, Angular + Materialize + дизайн"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{
@@ -61,7 +60,7 @@ class Works extends Component {
             {
                 name: (<Language dictionary={{
                     english: "Analytical resource, JavaScript + jQuery + Materialize + design",
-                    russian: "Аналитический ресурс, Angular + jQuery + Materialize + design"
+                    russian: "Аналитический ресурс, JavaScript + jQuery + Materialize + дизайн"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{
@@ -87,7 +86,7 @@ class Works extends Component {
             {
                 name: (<Language dictionary={{
                     english: "e-commerce project, React + Redux + masonry + design",
-                    russian: "Интернет-магазин', React + Redux + masonry + design"
+                    russian: "Интернет-магазин, React + Redux + masonry + дизайн"
                 }}
                 />),
                 type: (<span className="mobile-flex"><Language dictionary={{

@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import { Switch } from 'antd';
-import { LanguageConsumer } from '../provider';
 
 class Toolbar extends Component {
-
     render() {
+
+        const { uxActions } = this.props;
+
         return (
             <div className="Toolbar">
-                <LanguageConsumer>
-                    {({ updateLanguage }) => (
-                        <Switch 
-                            defaultChecked={ true }
-                            onChange={ updateLanguage } 
-                            unCheckedChildren="ru" 
-                            checkedChildren="en" 
-                        />
-                    )}
-                </LanguageConsumer>
+                <Switch 
+                    defaultChecked={ true }
+                    onChange={ uxActions.langUpdate } 
+                    unCheckedChildren="ru" 
+                    checkedChildren="en" 
+                />
             </div>
         );
     }
-}
+};
 
-export default Toolbar
+function mapDispatchToProps(dispatch) {
+    return {
+        uxActions: bindActionCreators(UX_ACTIONS, dispatch),
+    }
+};
+
+export default connect(mapDispatchToProps)(Toolbar);

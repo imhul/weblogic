@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Col, Form, Input, Rate, Button, Icon, message } from 'antd';
-import { Language } from '../../provider';
 import Base64 from '../../../../utils/decode';
 import Clipboard from 'react-clipboard.js';
 
