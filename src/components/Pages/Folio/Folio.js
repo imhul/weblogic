@@ -4,26 +4,61 @@ import { connect } from 'react-redux';
 import { Helmet } from "react-helmet";
 import { Wave } from 'react-preloading-component';
 import { Collapse, Icon } from 'antd';
-import texts from './Texts';
 import Toolbar from './Toolbar';
 // import ClickFX from './ClickFX';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
 import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import { history } from '../../../redux/store';
+import translate from '../translations';
+import { Intro, Roadmap, Works, Contact } from './Texts';
 
 const Panel = Collapse.Panel;
 
 class Folio extends Component {
 
     componentDidMount() {
-        setTimeout(() => this.props.uiActions.loadFolio(), 1000)
+        setTimeout(() => this.props.uiActions.loadFolio(), 1500)
     };
 
     render() {
         const { loaded } = this.props.ui;
-        const { active } = this.props.ux;
+        const { active, lang } = this.props.ux;
         const { uxActions } = this.props;
+
+        const texts = [
+            {
+                id: 'intro',
+                name: <div>
+                    { translate( lang, 'intro' )}
+                    <Icon type="poweroff" /></div>,
+                key: 1,
+                text: <Intro />
+            },
+            {
+                id: 'roadmap',
+                name: <div>
+                    { translate( lang, 'roadmap' )}
+                    <Icon type="compass" /></div>,
+                key: 2,
+                text: <Roadmap />
+            },
+            {
+                id: 'works',
+                name: <div>
+                    { translate( lang, 'works' )}
+                    <Icon type="rocket" /></div>,
+                key: 3,
+                text: <Works />
+            },
+            {   id: 'contacts',
+                name: <div>
+                    { translate( lang, 'contacts' )}
+                    <Icon type="message" /></div>,
+                key: 4,
+                text: <Contact />
+            }
+        ];
 
         return (
             <div className="Folio" tabIndex="1"> 

@@ -1,5 +1,6 @@
-export const translations = {
-    'en': {
+import React from 'react';
+const translations = {
+    'english': {
 
         // common EN
         'summary': 'Summary',
@@ -11,6 +12,9 @@ export const translations = {
         'roadmap': 'Roadmap',
         'works': 'Works',
         'contacts': 'Contacts',
+        'nov': 'Nov',
+        'dec': 'Dec',
+        'aug': 'Aug',
 
         // Contacts EN
         'contact_form': 'Contact Form',
@@ -31,7 +35,6 @@ export const translations = {
         'fav_tech': 'Favorite technologies',
 
         // Roadmap EN
-        'nov': 'Nov',
         'step_2009': 'I started learning CSS, HTML, Joomla CMS and the web design basics with Adobe Photoshop. I made the first site on pure html + css and one more on Joomla',
         'step_2011': 'Got carried away by studying SEO',
         'step_2013': 'Put my first record: brought the site from development to Google Search top-3 in three days',
@@ -50,7 +53,7 @@ export const translations = {
 
     },
 
-    'ru': {
+    'russian': {
 
         // common RU
         'summary': 'Резюме',
@@ -62,6 +65,9 @@ export const translations = {
         'roadmap': 'Roadmap',
         'works': 'Работы',
         'contacts': 'Контакты',
+        'nov': 'Ноябрь',
+        'dec': 'Декабрь',
+        'aug': 'Август',
 
 
         // Contacts RU
@@ -83,7 +89,6 @@ export const translations = {
         'fav_tech': 'Любимые технологии',
 
         // Roadmap RU
-        'nov': 'Ноябрь',
         'step_2009': 'Я начал изучать CSS, HTML, Joomla CMS а так же основы веб-дизайна и Adobe Photoshop. Вскоре я сделал свой первый заказ - сайт на чистом html + css. Второй сайт я сделал на Joomla',
         'step_2011': 'Увлёкся изучением SEO',
         'step_2013': 'Поставил свой первый рекорд: сделав сайт с нуля, вывел в топ-3 в поиске Google за три дня',
@@ -103,6 +108,8 @@ export const translations = {
     } 
 };
 
-export const translate = (lang, text) => {
-  return translations[lang][text];
+const translate = (lang, text) => {
+    return translations[lang][text];
 };
+
+export default translate;

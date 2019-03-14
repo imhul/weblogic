@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import translate from '../../translations';
 import { Row, Col, Button, Icon, message } from 'antd';
 import Gravatar from 'react-gravatar';
 
@@ -8,6 +9,7 @@ import logos from '../../../../images/logos';
 class Intro extends Component {
     render() {
         const { technologies } = this.props.ui;
+        const { lang } = this.props.ux;
         
         return (
             <div className="Intro content">
@@ -15,12 +17,7 @@ class Intro extends Component {
 
                     <Col span={24}>
                         <h2>
-                            <Language
-                                dictionary={{
-                                    english: "I believe that design makes the world better",
-                                    russian: "Я верю, что дизайн делает мир лучше"
-                                }}
-                            /> ;)
+                            { translate( lang, 'believe' )} ;)
                         </h2>
                     </Col>
 
@@ -30,20 +27,10 @@ class Intro extends Component {
 
                     <Col span={24} style={{ marginTop: 0}}>
                         <p className="name">
-                            <Language
-                                dictionary={{
-                                    english: "Tkachuk Zakhar",
-                                    russian: "Ткачук Захар"
-                                }}
-                            />
+                            { translate( lang, 'my_name' )}
                         </p>
                         <p className="italic">
-                            <Language
-                                dictionary={{
-                                    english: "front-end developer",
-                                    russian: "фронт-энд разработчик"
-                                }}
-                            />
+                           { translate( lang, 'front_dev' )}
                         </p>
                     </Col>
 
@@ -55,12 +42,7 @@ class Intro extends Component {
                             target='_blank'
                         >
                             <Icon type='linkedin' />
-                            <Language
-                                dictionary={{
-                                    english: "Summary",
-                                    russian: "Резюме"
-                                }}
-                            />
+                            { translate( lang, 'summary' )}
                         </a>
                     </Col>
 
@@ -76,39 +58,19 @@ class Intro extends Component {
                     </Col>
                     
                     <Col span={24}>
-                        <Language
-                            dictionary={{
-                                english: <span>Using new technologies, such as <mark> React </mark> or <mark> Hyperapp </mark> always gives inspiration. I prefer non-standard <mark>UI</mark> and <mark>UX</mark> solutions, taking as a basis the concept of <mark>Material Design</mark></span>,
-                                russian: <span>Использование новых технологий, таких как <mark>React</mark> или <mark>Hyperapp</mark> всегда даёт вдохновение. Я предпочитаю нестандартные <mark>UI</mark> и <mark>UX</mark> решения, беря за основу концепции <mark>Material Design</mark></span>
-                            }}
-                        />
+                        { translate( lang, 'tagline' )}
                     </Col>
 
                     <Col span={24}>
 
                         <h2 className="margin">
-                            <Language
-                                dictionary={{
-                                    english: "What I do?",
-                                    russian: "Что я предлагаю"
-                                }}
-                            />
+                            { translate( lang, 'what_i_do' )}
                         </h2>
 
-                        <Language
-                            dictionary={{
-                                english: <p>I offer turnkey websites development (including but not limited to): UI/UX design and mockup drawing, responsive and adaptive design. I also advise on promotion and search engine optimization of web resourses</p>,
-                                russian: <p>Я предлагаю услуги по разработке сайтов под ключ, такие как: разработка дизайна, включая UI/UX дизайн и отрисовку макета, резиновая или адаптивная вёрстка, разработка и поисковая олптимизация сайта. Так же я предоставляю консультации по продвижению и поисковой оптимизации интернет-ресурсов.</p>
-                            }}
-                        />
+                        { translate( lang, 'my_offer' )}
 
                         <h2 className="margin">
-                            <Language
-                                dictionary={{
-                                    english: "Favorite technologies",
-                                    russian: "Любимые технологии"
-                                }}
-                            />
+                            { translate( lang, 'fav_tech' )}
                         </h2>
 
                         <Row gutter={24} type="flex" justify="center" align="middle">
@@ -350,9 +312,10 @@ class Intro extends Component {
 
 
 function mapStateToProps(state) {
-  return {
-    ui: state.ui,
-  }
+    return {
+        ui: state.ui,
+        ux: state.ux,
+    }
 };
 
 export default connect(mapStateToProps)(Intro);

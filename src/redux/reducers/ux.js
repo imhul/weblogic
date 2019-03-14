@@ -37,8 +37,6 @@ export default (state = initState, action) => {
             };
 
         case types.HISTORY_UPDATE:
-  
-            console.log(":::: HISTORY UPDATE UX ::::");
             return {
                 ...state,
                 currentHistory: action.payload,

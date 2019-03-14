@@ -17,7 +17,7 @@ class Home extends Component {
 
     componentDidMount() {
         this.info();
-        console.log("props: ", this.props);
+        // console.log("props: ", this.props);
         setTimeout(() => {          
             this.props.uiActions.heroAnimate();
         }, 500);

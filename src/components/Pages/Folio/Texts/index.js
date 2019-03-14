@@ -1,3 +1,6 @@
-import texts from './texts';
+import Intro from './Intro';
+import Roadmap from './Roadmap';
+import Works from './Works';
+import Contact from './Contact';
 
-export default texts;
+export { Intro, Roadmap, Works, Contact };

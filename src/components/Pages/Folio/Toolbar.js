@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
 import { Switch } from 'antd';
 
 class Toolbar extends Component {
     render() {
-
         const { uxActions } = this.props;
-
         return (
             <div className="Toolbar">
                 <Switch 
                     defaultChecked={ true }
-                    onChange={ uxActions.langUpdate } 
+                    onChange={ (data) => uxActions.langUpdate(data) } 
                     unCheckedChildren="ru" 
                     checkedChildren="en" 
                 />
@@ -25,4 +26,4 @@ function mapDispatchToProps(dispatch) {
     }
 };
 
-export default connect(mapDispatchToProps)(Toolbar);
+export default connect(null, mapDispatchToProps)(Toolbar);

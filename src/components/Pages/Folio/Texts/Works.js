@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import translate from '../../translations';
 import { Row, Col, List, Button, Icon, message } from 'antd';
 // import TrelloModal from '../TrelloModal';
 // Trello API
@@ -16,111 +18,68 @@ class Works extends Component {
     // };
 
     render() {
+
+        const { lang } = this.props.ux;
         const base = window.location.origin;
         const links = [
             {
-                name: (<Language dictionary={{
-                    english: "Puzzle game, JavaScript + Canvas + design",
-                    russian: "Игра 'Пазлы', JavaScript + Canvas + дизайн"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Demo",
-                    russian: "Демо"
-                }}
-                /><Icon type="experiment" theme="outlined" /> </span>),
+                name: translate( lang, 'work_1' ),
+                type: (<span className="mobile-flex">
+                    { translate( lang, 'demo' )}
+                    <Icon type="experiment" theme="outlined" /> </span>
+                ),
                 href: `${base}/Lab/Game/index.html`,
             },
             {
-                name: (<Language dictionary={{
-                    english: "Corporate project, Joomla + design",
-                    russian: "Корпоративный сайт, Joomla + дизайн"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Released",
-                    russian: "Релиз"
-                }}
-                /><Icon type="link" theme="outlined" /> </span>),
+                name: translate( lang, 'work_2' ),
+                type: (<span className="mobile-flex">
+                    { translate( lang, 'released' )}
+                <Icon type="link" theme="outlined" /> </span>),
                 href: 'http://ekta.ua/'
             },
             {
-                name: (<Language dictionary={{
-                    english: "LED-screen calculator, Angular + Materialize + design",
-                    russian: "Калькулятор LED панелей, Angular + Materialize + дизайн"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Demo",
-                    russian: "Демо"
-                }}
-                /><Icon type="experiment" theme="outlined" /> </span>),
+                name: translate( lang, 'work_3' ),
+                type: (<span className="mobile-flex">
+                    { translate( lang, 'demo' )}
+                <Icon type="experiment" theme="outlined" /> </span>),
                 href: `${base}/Lab/Calc/index.html`,
             },
             {
-                name: (<Language dictionary={{
-                    english: "Analytical resource, JavaScript + jQuery + Materialize + design",
-                    russian: "Аналитический ресурс, JavaScript + jQuery + Materialize + дизайн"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Released",
-                    russian: "Релиз"
-                }}
-                /><Icon type="link" theme="outlined" /> </span>),
+                name: translate( lang, 'work_4' ),
+                type: (<span className="mobile-flex">
+                    { translate( lang, 'released' )}
+                <Icon type="link" theme="outlined" /> </span>),
                 href: 'https://seezislab.com/'
             },
             {
-                name: (<Language dictionary={{
-                    english: "Web presentation, Rreveal.js",
-                    russian: "Веб-презентация, Rreveal.js"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Demo",
-                    russian: "Демо"
-                }}
-                /><Icon type="experiment" theme="outlined" /></span>),
+                name: translate( lang, 'work_5' ),
+                type: (<span className="mobile-flex">
+                    { translate( lang, 'demo' )}
+                <Icon type="experiment" theme="outlined" /></span>),
                 href: `${base}/Lab/Presentation/index.html`,
             },
             {
-                name: (<Language dictionary={{
-                    english: "e-commerce project, React + Redux + masonry + design",
-                    russian: "Интернет-магазин, React + Redux + masonry + дизайн"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Released",
-                    russian: "Релиз"
-                }}
-                /><Icon type="link" theme="outlined" /> </span>),
+                name: translate( lang, 'work_6' ),
+                type: (<span className="mobile-flex">
+                    { translate( lang, 'released' )}
+                <Icon type="link" theme="outlined" /> </span>),
                 href: 'https://silverstemcannabis.com/',
             },
         ];
+
         const header = (
             <Row gutter={24}>
                 <Col span={12} style={{ textAlign: 'left' }}>
-                    <Language
-                        dictionary={{
-                            english: "Project description",
-                            russian: "Описание проекта"
-                        }}
-                    />
+                    { translate( lang, 'project_desc' )}
                 </Col>
                 <Col span={12} style={{ textAlign: 'right' }}>
-                    <Language
-                        dictionary={{
-                            english: "Status",
-                            russian: "Статус"
-                        }}
-                    />
+                    { translate( lang, 'status' )}
                 </Col>
             </Row>
         );
 
         return (
             <div className="Works content">
-
                 <List
                     size="large"
                     header={header}
@@ -140,6 +99,12 @@ class Works extends Component {
             </div>
         )
     }
-}
+};
 
-export default Works;
+function mapStateToProps(state) {
+    return {
+        ux: state.ux,
+    }
+};
+
+export default connect(mapStateToProps)(Works);

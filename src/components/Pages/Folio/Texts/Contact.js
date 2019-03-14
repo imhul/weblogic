@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Row, Col, Form, Input, Rate, Button, Icon, message } from 'antd';
+import translate from '../../translations';
 import Base64 from '../../../../utils/decode';
 import Clipboard from 'react-clipboard.js';
+
 
 const { TextArea } = Input;
 
@@ -9,22 +12,12 @@ const mCode = Base64.decode('Ymxhc2hpcmtAZ21haWwuY29t');
 const fCode = Base64.decode('KzM4IDA2MyA0NDIgMjUgMzc=');
 
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-        this.onSuccess = this.onSuccess.bind(this);
-    }
-
-    onSuccess() {
-        message.success('successfully copied');
-    }
 
     render() {
 
         const emailPrefix = <Icon type="mail" />;
         const commentPrefix = <Icon type="edit" />;
+        const { lang } = this.props.ux;
 
         return (
             <div className="Contact content">
@@ -37,11 +30,7 @@ class Contact extends Component {
                             href='https://www.linkedin.com/in/tkachuk-zakhar-04733892/'
                             target='_blank'>
                             <Icon type='linkedin' />
-                            <Language
-                                dictionary={{
-                                    english: "Summary",
-                                    russian: "Резюме"
-                                }} />
+                                { translate( lang, 'summary' )}
                         </Button>
                     </Col>
   
@@ -112,35 +101,20 @@ class Contact extends Component {
                     </Col> */}
 
                     <Col span={24}>
-                        <Language
-                            dictionary={{
-                                english: "or",
-                                russian: "или"
-                            }}
-                        />
+                        { translate( lang, 'or' )}
                     </Col>
 
                     <Col span={24} className="mb-20">
-                        <Language
-                            dictionary={{
-                                english: "copy contacts",
-                                russian: "скопируйте контакты"
-                            }}
-                        />
+                        { translate( lang, 'copy_contacts' )}
                     </Col>
 
                     <Col span={24} className="mb-20">
                         <Clipboard
                             className="ant-btn ant-btn-background-ghost"
                             option-text={() => mCode}
-                            onSuccess={this.onSuccess}>
+                            onSuccess={message.success('email successfully copied')}>
                             <Icon type="copy" />
-                            <Language
-                                dictionary={{
-                                    english: "Copy email to clipboard",
-                                    russian: "Копировать email"
-                                }}
-                            />
+                            { translate( lang, 'copy_mail' )}
                         </Clipboard>
                     </Col>
 
@@ -148,31 +122,27 @@ class Contact extends Component {
                         <Clipboard
                             className="ant-btn ant-btn-background-ghost"
                             option-text={() => fCode}
-                            onSuccess={this.onSuccess}>
+                            onSuccess={message.success('phone successfully copied')}>
                             <Icon type="copy" />
-                            <Language
-                                dictionary={{
-                                    english: "Copy phone to clipboard",
-                                    russian: "Копировать телефон"
-                                }}
-                            />
+                            { translate( lang, 'copy_phone' )}
                         </Clipboard>
                     </Col>
 
                     <Col span={24}>
                         <p>
-                            <Language
-                                dictionary={{
-                                    english: "Always ready for mutually beneficial cooperation.",
-                                    russian: "Всегда готов к взаимовыгодному сотрудничеству."
-                                }}
-                            />
+                            { translate( lang, 'cooperation_ready' )}
                         </p>
                     </Col>
                 </Row>
             </div>
         )
     }
-}
+};
 
-export default Contact;
+function mapStateToProps(state) {
+  return {
+    ux: state.ux,
+  }
+};
+
+export default connect(mapStateToProps)(Contact);
