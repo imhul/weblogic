@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
+import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
 import { Ripple } from 'react-ripple-effect';
 import { now } from 'right-now';
  
@@ -13,7 +13,7 @@ class ClickFX extends Component {
             left: e.clientX,
             time: now()
         };
-        this.props.uiActions.clickFX(cursorPos)
+        this.props.uxActions.clickFX(cursorPos)
     };
  
     render () {
@@ -32,14 +32,13 @@ class ClickFX extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    uiActions: bindActionCreators(UI_ACTIONS, dispatch),
     uxActions: bindActionCreators(UX_ACTIONS, dispatch),
   }
 };
 
 function mapStateToProps(state) {
   return {
-    ui: state.ui,
+    ux: state.ux,
   }
 };
 

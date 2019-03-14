@@ -1,5 +1,13 @@
 import { typesUX as types } from '../constants/types';
 
+export function isHome() {
+  return (dispatch) => {
+    dispatch({
+      type: types.IS_HOME,
+    })
+  }
+};
+
 export function tabMod(payload) {
   return (dispatch) => {
     dispatch({

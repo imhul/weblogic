@@ -4,12 +4,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { history } from '../../redux/store';
 import * as UX_ACTIONS from '../../redux/actions/ux_actions';
-import { Layout } from 'antd';
-
 import '../../fonts/fonts.css';
 import '../../scss/index.scss';
 import '../../utils/bg';
-
+import { Layout } from 'antd';
 import Stats from '../Stats';
 import Home from '../Pages/Home';
 import Folio from '../Pages/Folio';
@@ -20,7 +18,6 @@ class Output extends Component {
 
     componentDidMount() {
         const { uxActions } = this.props;
-        // uxActions.updateHistory(history.location.pathname);
         history.listen((location, action) => {
             uxActions.updateHistory(history.location.pathname)
         })

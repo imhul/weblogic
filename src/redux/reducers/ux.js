@@ -1,10 +1,14 @@
 import { initStateUX as initState } from './initStateUX';
 import { typesUX as types } from '../constants/types';
-// import { push } from 'connected-react-router';
-// import { history } from '../store';
 
 export default (state = initState, action) => {
     switch (action.type) {
+
+        case types.IS_HOME:
+            return { 
+                ...state,
+                isHome: true,
+            };
 
         case types.TAB_MODIFY:
             return { 
@@ -39,7 +43,7 @@ export default (state = initState, action) => {
         case types.HISTORY_UPDATE:
             return {
                 ...state,
-                currentHistory: action.payload,
+                location: action.payload,
                 isHome: action.payload === '/' ? true : false
             };
 

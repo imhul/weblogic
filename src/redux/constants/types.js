@@ -11,6 +11,7 @@ export const typesUI = {
 
 export const typesUX = {
 
+  IS_HOME:         'IS_HOME',
   CHANGE_LANG:     'CHANGE_LANG',
   TAB_NUM:         'TAB_NUM',
   GO_TO_FOLIO:     'GO_TO_FOLIO',

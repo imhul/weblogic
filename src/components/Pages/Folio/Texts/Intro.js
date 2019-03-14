@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import translate from '../../translations';
 import { Row, Col, Button, Icon, message } from 'antd';
 import Gravatar from 'react-gravatar';
-
 import logos from '../../../../images/logos';
 
 class Intro extends Component {

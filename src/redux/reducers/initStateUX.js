@@ -1,6 +1,6 @@
 export const initStateUX = {
-    isHome: true,
-    currentHistory: {},
+    isHome: false,
+    location: '/',
     active: null,
     cursorPos: {},
     trelloModalVisible: false,
