@@ -34,7 +34,7 @@ class Contact extends Component {
             <div className="Contact content">
             
                 <Row gutter={24} type="flex" justify="center" align="middle">
-                    <Col span={12} className="mb-20 align-right">
+                    <Col span={24} className="mb-20">
                         <Button
                             ghost={ true }
                             title="my linkedin page"
@@ -45,7 +45,7 @@ class Contact extends Component {
                         </Button>
                     </Col>
   
-                    <Col span={12} className="mb-20 align-left">
+                    <Col span={24} className="mb-20">
                         <Button
                             ghost={ true }
                             title="github project"
