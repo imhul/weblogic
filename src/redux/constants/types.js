@@ -21,5 +21,7 @@ export const typesUX = {
   SHOW_MODAL:      'SHOW_MODAL',
   CLOSE_MODAL:     'CLOSE_MODAL',
   HISTORY_UPDATE:  'HISTORY_UPDATE',
+  HIDE_DESC:       'HIDE_DESC',
+  SHOW_DESC:       'SHOW_DESC',
 
 };

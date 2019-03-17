@@ -51,6 +51,22 @@ export function closeModal() {
   }
 };
 
+export function showDesc() {
+  return (dispatch) => {
+    dispatch({
+      type: types.SHOW_DESC,
+    })
+  }
+};
+
+export function hideDesc() {
+  return (dispatch) => {
+    dispatch({
+      type: types.HIDE_DESC,
+    })
+  }
+};
+
 export function updateHistory(payload) {
     return (dispatch) => {
         dispatch({

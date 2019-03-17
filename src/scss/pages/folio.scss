@@ -26,7 +26,7 @@
         border: 0;
         border-radius: 0;
         & * {
-            transition: height 0.2s ease-in-out !important;
+            transition: height 0.2s ease-in-out;
         }
         &.active {
             .ant-collapse-item {
@@ -103,10 +103,11 @@
                 .ant-collapse-content-box {
                     width: 100%;
                     position: relative;
-                    top: 50px;
+                    // top: 50px;
                     height: auto;
                     padding: 0;
-                    margin: 0 auto 50px;
+                    margin: 0 auto;
+                    // margin: 0 auto 50px;
                     display: table;
                     @media (max-width: $media-small) {
                         top: 50px;
@@ -175,7 +176,7 @@
                 a {
                     color: $color-white;
                 }
-                &.react-contextmenu-item--selected {
+                &:hover {
                     background-color: $color-footer;
                     color: $color-link-hover;
                     a {

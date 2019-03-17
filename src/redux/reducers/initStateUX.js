@@ -5,4 +5,5 @@ export const initStateUX = {
     cursorPos: {},
     trelloModalVisible: false,
     lang: 'english',
+    isDescShow: true,
 };

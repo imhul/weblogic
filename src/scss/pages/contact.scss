@@ -1,6 +1,7 @@
 /* Contact */
 
 .Contact {
+    margin: 50px auto 0 auto !important;
     @media all and (max-width: $media-x-small) {
         font-size: 6vw;
     }
@@ -11,6 +12,19 @@
         margin: 20px 0;
         display: inline-block;
         text-align: center;
+    }
+    .ant-btn-background-ghost {
+        padding: 15px;
+        height: auto;
+        span {
+            font-size: 2.5rem;
+        }
+        i {
+            font-size: 40px;
+        }
+    } 
+    h2 {
+        color: $color-white;
     }
     form {
         padding: 20px;

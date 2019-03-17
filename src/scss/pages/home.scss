@@ -109,7 +109,7 @@
                 a {
                     color: $color-white;
                 }
-                &.react-contextmenu-item--selected {
+                &:hover {
                     background-color: $color-footer;
                     color: $color-link-hover;
                     a {

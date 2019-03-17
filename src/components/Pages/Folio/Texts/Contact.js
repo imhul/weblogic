@@ -13,6 +13,17 @@ const fCode = Base64.decode('KzM4IDA2MyA0NDIgMjUgMzc=');
 
 class Contact extends Component {
 
+    onSuccess(e) {
+        switch ( e.text ) {
+            case mCode: 
+                return message.success('Email address successfully copied!');
+            case fCode: 
+                return message.success('Phone number successfully copied!');
+            default:
+                return message.error('Something wrong!');
+        }
+    };
+
     render() {
 
         const emailPrefix = <Icon type="mail" />;
@@ -105,33 +116,33 @@ class Contact extends Component {
                     </Col>
 
                     <Col span={24} className="mb-20">
-                        { translate( lang, 'copy_contacts' )}
+                        <h2>{ translate( lang, 'copy_contacts' )}</h2>
                     </Col>
 
-                    <Col span={24} className="mb-20">
+                    <Col span={12} className="mb-20 align-right">
                         <Clipboard
                             className="ant-btn ant-btn-background-ghost"
                             option-text={() => mCode}
-                            onSuccess={message.success('email successfully copied')}>
+                            onSuccess={ this.onSuccess }>
                             <Icon type="copy" />
-                            { translate( lang, 'copy_mail' )}
+                            <Icon type="mail" />
                         </Clipboard>
                     </Col>
 
-                    <Col span={24}>
+                    <Col span={12} className="mb-20 align-left">
                         <Clipboard
                             className="ant-btn ant-btn-background-ghost"
                             option-text={() => fCode}
-                            onSuccess={message.success('phone successfully copied')}>
+                            onSuccess={ this.onSuccess }>
                             <Icon type="copy" />
-                            { translate( lang, 'copy_phone' )}
+                            <Icon type="phone" />
                         </Clipboard>
                     </Col>
 
                     <Col span={24}>
-                        <p>
+                        <h2>
                             { translate( lang, 'cooperation_ready' )}
-                        </p>
+                        </h2>
                     </Col>
                 </Row>
             </div>

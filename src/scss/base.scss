@@ -26,10 +26,12 @@ body {
         top: unset !important;
         bottom: 25px;
         .ant-message-notice-content {
-            background-color: $transparent;
+            background-color: $color-black;
             color: $color-white;
+            font-size: 24px;
             i {
                 color: $color-white !important;
+                font-size: 24px;
             }
         }
     }
@@ -79,6 +81,18 @@ body {
     70% { transform: rotate(252deg) }
     80% { transform: rotate(288deg) }
     100% { transform: rotate(360deg) }
+}
+
+@keyframes showDescription {
+    0% { bottom: -120px; opacity: 0; }
+    1% { bottom: -120px; opacity: 0; }
+    100% { bottom: 50px; opacity: 1; }
+}
+
+@keyframes hideDescription {
+    0% { bottom: 50px; opacity: 1; }
+    1% { bottom: 50px; opacity: 1; }
+    100% { bottom: -120px; opacity: 0; }
 }
 
 /* App */

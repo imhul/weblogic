@@ -40,6 +40,18 @@ export default (state = initState, action) => {
                 trelloModalVisible: false,
             };
 
+        case types.SHOW_DESC:
+            return {
+                ...state,
+                isDescShow: true,
+            };
+
+        case types.HIDE_DESC:
+            return {
+                ...state,
+                isDescShow: false,
+            };
+
         case types.HISTORY_UPDATE:
             return {
                 ...state,
