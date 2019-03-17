@@ -95,6 +95,7 @@
         }
     }
     .react-contextmenu {
+        box-shadow: 0 0 20px $color-white;
         &.react-contextmenu--visible {
             min-width: 135px;
             top: 14rem !important; 

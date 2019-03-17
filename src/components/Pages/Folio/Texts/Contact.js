@@ -125,6 +125,7 @@ class Contact extends Component {
                             option-text={() => mCode}
                             onSuccess={ this.onSuccess }>
                             <Icon type="copy" />
+                            <Icon type="ellipsis" />
                             <Icon type="mail" />
                         </Clipboard>
                     </Col>
@@ -135,6 +136,7 @@ class Contact extends Component {
                             option-text={() => fCode}
                             onSuccess={ this.onSuccess }>
                             <Icon type="copy" />
+                            <Icon type="ellipsis" />
                             <Icon type="phone" />
                         </Clipboard>
                     </Col>
