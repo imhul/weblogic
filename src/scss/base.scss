@@ -1,3 +1,7 @@
+/* Colors */
+
+$transparent: rgba(0,0,0,0) !default;
+
 /* Reset styles */
 
 html {
@@ -19,24 +23,6 @@ body {
     overflow-x: hidden;
 }
 
-// Messages
-body {
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cmVjdCB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiBmaWxsPSJyZ2JhKDY1LDEwMCwxMTcsMSkiPjwvcmVjdD4KPHBhdGggZD0iTTI4IDY2TDAgNTBMMCAxNkwyOCAwTDU2IDE2TDU2IDUwTDI4IDY2TDI4IDEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDE4OCwgMjAwLCAyMDYsIC4yKSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+CjxwYXRoIGQ9Ik0yOCAwTDI4IDM0TDAgNTBMMCA4NEwyOCAxMDBMNTYgODRMNTYgNTBMMjggMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgxODgsIDIwMCwgMjA2LCAuMSkiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=");
-    .ant-message {
-        top: unset !important;
-        bottom: 25px;
-        .ant-message-notice-content {
-            background-color: $color-black;
-            color: $color-white;
-            font-size: 24px;
-            i {
-                color: $color-white !important;
-                font-size: 24px;
-            }
-        }
-    }
-    
-}
 
 * {
     padding: 0;

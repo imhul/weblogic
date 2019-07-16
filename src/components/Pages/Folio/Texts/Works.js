@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import translate from '../../translations';
-import { Row, Col, Carousel, Button, Icon, message } from 'antd';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
+import translate from '../../translations';
+import { Row, Col, List, Button, Icon, Avatar, message } from 'antd';
 
-// images
 import puzzleImg from '../../../../images/works/puzzle.jpg';
 import ektaImg from '../../../../images/works/ekta.jpg';
 import calcImg from '../../../../images/works/calc.jpg';
@@ -15,19 +14,20 @@ import silverImg from '../../../../images/works/silver.jpg';
 // Trello API
 // import { isTrelloAvailable, authenticateUser, getBoard } from '../../../../utils/api';
 
+const ListItem = List.Item;
+const ListMeta = ListItem.Meta;
 
 class Works extends Component {
     
-    componentDidMount() {
-        setTimeout(() => this.props.uxActions.hideDesc(), 5000)
-        //     console.log('ok?', isTrelloAvailable());
-        //     setInterval(() => console.log('+1000. ok?', isTrelloAvailable()), 1000);
-        //     setTimeout(() => console.log('+1000. ok?', authenticateUser()), 1000)
-    };
+    // componentDidMount() {
+    //     console.log('ok?', isTrelloAvailable());
+    //     setInterval(() => console.log('+1000. ok?', isTrelloAvailable()), 1000);
+    //     setTimeout(() => console.log('+1000. ok?', authenticateUser()), 1000)
+    // };
 
     render() {
 
-        const { lang, isDescShow } = this.props.ux;
+        const { lang } = this.props.ux;
         const base = window.location.origin;
         const links = [
             {
@@ -36,6 +36,7 @@ class Works extends Component {
                 icon: <Icon type="experiment" theme="outlined" />,
                 href: `${base}/Lab/Game/index.html`,
                 back: `${puzzleImg}`,
+                demo: true,
             },
             {
                 name: translate( lang, 'work_2' ),
@@ -43,6 +44,7 @@ class Works extends Component {
                 icon: <Icon type="link" theme="outlined" />,
                 href: 'http://ekta.ua/',
                 back: `${ ektaImg }`,
+                demo: false,
             },
             {
                 name: translate( lang, 'work_3' ),
@@ -50,6 +52,7 @@ class Works extends Component {
                 icon: <Icon type="experiment" theme="outlined" />,
                 href: `${ base }/Lab/Calc/index.html`,
                 back: `${ calcImg }`,
+                demo: true,
             },
             {
                 name: translate( lang, 'work_4' ),
@@ -67,62 +70,51 @@ class Works extends Component {
             },
         ];
 
-        const settings = {
-            dots: true,
-            autoplay: true,
-            infinite: true,
-            speed: 1000,
-            autoplaySpeed: 3000,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-        };
+        const header = (
+            <Row gutter={24}>
+                <Col span={12} style={{ textAlign: 'left' }}>
+                    { translate( lang, 'project_desc' )}
+                </Col>
+                <Col span={12} style={{ textAlign: 'right' }}>
+                    { translate( lang, 'status' )}
+                </Col>
+            </Row>
+        );
 
-        const activeStyle = {
-            bottom: 50,
-            opacity: 1,
-        };
-
-        const hiddenStyle = {
-            bottom: -120,
-            opacity: 0,
-        };
+        const footer = (
+            <div>
+                <div>
+                    { translate( lang, 'demo_status_desc' )}
+                </div>
+                <div>
+                    { translate( lang, 'released_status_desc' )}
+                </div>
+            </div>
+        );
 
         return (
             <div className="Works content">
-                <Carousel {...settings}>
-                    { links.map(( item, index ) => (
-                        <div key={ index }>
-                            <a 
-                                style={{ 
-                                    backgroundImage: `url(${ item.back })`}} 
-                                target="_blank" 
-                                onMouseEnter={ () => {
-                                    if (!isDescShow) {
-                                        this.props.uxActions.showDesc();
-                                        setTimeout(() => this.props.uxActions.hideDesc(), 5000)
-                                    }
-                                }} 
-                                href={ item.href }>
-                                <div className="title" style={ isDescShow ? activeStyle : hiddenStyle }>
-                                    <h2>
-                                        { translate( lang, 'project_desc' )}
-                                        <span>:<br /></span>
-                                        { item.name }
-                                    </h2>
-                                    <h2>
-                                        { translate( lang, 'status' )}
-                                        <span>:<br /></span>
-                                        { item.type }
-                                    </h2>
-                                    <h2>
-                                        { item.icon }
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                    )) }
-                </Carousel>
+                <List
+                    size="large"
+                    header={header}
+                    footer={footer}
+                    bordered
+                    dataSource={links}
+                    renderItem={item => (
+                        <a target="_blank" className="link" href={item.href}>
+                            <ListItem>
+                                <ListMeta 
+                                    
+                                    avatar={ <Avatar src={item.back} /> }
+                                    title={ item.type }
+                                    description={item.name}
+                                />
+                                    {item.icon}
+                            </ListItem>
 
+                        </a>
+                    )}
+                />
 
                 {/* <TrelloModal /> */}
             </div>

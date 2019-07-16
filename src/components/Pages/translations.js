@@ -50,6 +50,8 @@ const translations = {
         'work_4': 'Analytical resource, JavaScript + jQuery + Materialize + design',
         'work_5': 'Web presentation, Rreveal.js',
         'work_6': 'e-commerce project, React + Redux + masonry + design',
+        'demo_status_desc': '* Demo status means that the project is available for viewing on my site.',
+        'released_status_desc': '** The project in the Release status is a finished product and is hosted on the client\'\s production server.',
 
     },
 
@@ -104,6 +106,8 @@ const translations = {
         'work_4': 'Аналитический ресурс, Angular + jQuery + Materialize + дизайн',
         'work_5': 'Веб-презентация, Rreveal.js',
         'work_6': 'Интернет-магазин, React + Redux + masonry + дизайн',
+        'demo_status_desc': '* Статус Демо означает, что проект доступен для просмотра на моём сайте.',
+        'released_status_desc': '** Проект в статусе Релиз является готовым продуктом и размещён на сервере клиента.',
 
     } 
 };

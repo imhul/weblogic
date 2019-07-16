@@ -56,60 +56,75 @@ class Contact extends Component {
                         </Button>
                     </Col>
 
-                    {/* TODO: implement formspree !!! */}
-                    {/* <Col span={24}>
+                    <Col span={24}>
+
+                        {/* <form id="quick-contact-form" name="quick-contact-form" action="include/form.php" method="post" class="quick-contact-form nobottommargin">
+
+							<input type="text" class="required sm-form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
+							<input type="text" class="required sm-form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
+							<textarea class="required sm-form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
+							<input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
+							<input type="hidden" name="prefix" value="quick-contact-form-" />
+							<button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="button" value="submit">Send Email</button>
+						</form> */}
+
                         <Form 
-                            method="POST" 
-                            className="mb-20"
-                            encType="text/plain" 
-                            action="https://formspree.io/blashirk@gmail.com"
-                            >
+                            id="quick-contact-form" 
+                            name="quick-contact-form" 
+                            action="../../../../utils/include/form.php" 
+                            method="post" 
+                            className="quick-contact-form nobottommargin">
+
                             <Row gutter={24} type="flex" justify="center" align="middle">
                                 <Col span={24} className="mb-10">
                                     <h2 className="white">
-                                        <Language
-                                            dictionary={{
-                                                english: "Contact Form",
-                                                russian: "Форма обратной связи"
-                                            }}
-                                        />
+                                        { translate( lang, 'contact_form' )}
                                     </h2>
                                 </Col>
                                 <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                                     <Input 
-                                        name="email" 
+                                        type="text"
                                         tabIndex="1" 
-                                        type="email" 
                                         prefix={ emailPrefix }
-                                        defaultValue="exemple@mail.com" />
+                                        defaultValue="Full Name"
+                                        id="quick-contact-form-name"
+                                        name="quick-contact-form-name"
+                                        className="required sm-form-control input-block-level" />
+                                </Col>
+                                <Col xs={{ span: 24 }} sm={{ span: 12 }}>
+                                    <Input 
+                                        value=""
+                                        type="text" 
+                                        tabIndex="2" 
+                                        prefix={ emailPrefix }
+                                        id="quick-contact-form-email"
+                                        defaultValue="exemple@mail.com"
+                                        name="quick-contact-form-email"
+                                        className="required sm-form-control email input-block-level" />
                                 </Col>
                                 <Col span={24}>
                                     <TextArea 
-                                        name="comment" 
-                                        tabIndex="2" 
-                                        rows={4} />
-                                </Col>
-                                <Col span={24} className="mb-2">
-                                    <span className="white">
-                                        <Language
-                                            dictionary={{
-                                                english: "Rate this page",
-                                                russian: "Оцените этот сайт"
-                                            }}
-                                        /></span>
-                                </Col>
-                                <Col span={24} className="mb-20">
-                                    <Rate character={<Icon type="heart" theme="filled" />} />
+                                        rows={4}
+                                        cols={30}
+                                        tabIndex="3"
+                                        placeholder="Message"
+                                        id="quick-contact-form-message"
+                                        name="quick-contact-form-message"
+                                        className="required sm-form-control input-block-level short-textarea" />
                                 </Col>
                                 <Col span={12}>
+                                    <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
+                                    <input type="hidden" name="prefix" value="quick-contact-form-" />
                                     <Input 
+                                        tabIndex="4"
                                         type="submit" 
-                                        tabIndex="3" 
-                                        value="Send" />
+                                        value="submit"
+                                        id="quick-contact-form-submit"
+                                        name="quick-contact-form-submit" />
                                 </Col>
                             </Row>
                         </Form>
-                    </Col> */}
+                    </Col>
 
                     <Col span={24}>
                         { translate( lang, 'or' )}

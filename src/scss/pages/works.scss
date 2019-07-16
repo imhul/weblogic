@@ -1,74 +1,59 @@
 /* Works */
 
-.Works.content {
-    position: fixed;
-    height: 60vh;
-    width: 100% !important;
-    .ant-carousel {
+.Works {
+    margin: 50px auto !important;
+    .ant-list {
         color: $color-white;
-        .slick-slider {
-            .slick-list {
-                .slick-track {
-                    .slick-slide {
-                        a {
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            background-position: 50% 0%;
-                            background-repeat: no-repeat;
-                            background-size: cover; 
+        .ant-list-header {
+            font-size: 18px;
+            font-weight: 100;
+            .ant-row {
+                &>div {
+                    margin: 0;
+                }
+            }
+        }
+        .ant-spin-nested-loading {
+            margin: 0;
+            .ant-spin-container {
+                .link {
+                    text-decoration: none;
+                    color: $color-white;
+                    .ant-list-item {
+                        margin: 0;
+                        border-bottom: 1px solid $color-white;
+                        &:hover {
+                            * {
+                                color: $color-link-hover !important;
+                            }
+                        }
+                        .ant-list-item-content {
+                            font-size: 18px;
+                            line-height: 0;
+                            margin-top: 0;
+                            align-items: center;
+                            i {
+                                font-size: 24px;
+                                @media all and (max-width: $media-small) {
+                                    margin: 20px 20px 0 20px;
+                                }
+                            }
 
-                            .title {
-                                display: flex;
-                                transition: all .5s ease-in-out !important;
-                                position: absolute;
-                                justify-content: space-between;
-                                align-items: flex-start;
-                                width: 100vw;
-                                padding: 25px;
-                                background-color: $color-content-bg-hover;
-                                text-align: left;
-                                &:hover {
-                                    h2 {
-                                        color: $color-link-hover;
-                                        i {
-                                            border: 2px solid $color-link-hover;
-                                        }
+                            .ant-list-item-meta {
+                                align-items: center;
+                                .ant-list-item-meta-title {
+                                    color: $color-white;
+                                    font-size: 18px;
+                                    @media all and (max-width: $media-x-small) {
+                                        font-size: 6vw;
+                                        line-height: 6vw;
                                     }
                                 }
-                                h2 {
-                                    margin: 0;
+                                .ant-list-item-meta-description {
                                     color: $color-white;
-                                    i {
-                                        border: 2px solid $color-white;
-                                        border-radius: 50%;
-                                        padding: 8px;
-                                        font-size: 40px;
-                                    }
                                 }
                             }
                         }
-                    }
-                }
-            }
-            .slick-dots {
-                background-color: $color-content-bg-hover;
-                bottom: 0;
-                height: 50px;
-                li {
-                    vertical-align: top;
-                    margin: 0 1px;
-                    &.slick-active {
-                        button {
-                            color: $color-black;
-                            font-size: 24px;
-                        }
-                    }
-                    button {
-                        width: calc(20vw - 2px);
-                        height: 50px;
-                        background-color: $color-white;
-                        transition: all 0.5s !important;
                     }
                 }
             }
