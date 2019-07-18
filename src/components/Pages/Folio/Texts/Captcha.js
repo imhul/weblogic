@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import * as UI_ACTIONS from '../../../../redux/actions/ui_actions';
 import { Row, Col, Icon, message } from 'antd';
 import translate from '../../translations';
+import Base64 from '../../../../utils/decode';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
+
+const link = Base64.decode('aHR0cHM6Ly9jb3JzLWFueXdoZXJlLmhlcm9rdWFwcC5jb20vaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9yZWNhcHRjaGEvYXBpL3NpdGV2ZXJpZnk/c2VjcmV0PTZMY0piLU1TQUFBQUFFMXExanJUYXd0b0EwNWdwelNyUHRTY2dIbnomcmVzcG9uc2U9');
 
 class Captcha extends Component {
 
@@ -24,11 +27,8 @@ class Captcha extends Component {
 
     verify(data) {
         const { ui, uiActions } = this.props;
-        const url = 'https://www.google.com/recaptcha/api/siteverify';
-        const cors = 'https://cors-anywhere.herokuapp.com/';
-        const secret = '6LcJb-MSAAAAAE1q1jrTawtoA05gpzSrPtScgHnz';
-        const apiURL = `${cors}${url}?secret=${secret}&response=${data}&remoteip=${ui.currentUser.ip}`;
-        
+        const apiURL = `${link}${data}&remoteip=${ui.currentUser.ip}`;
+        console.log(apiURL)
         axios.post(apiURL)
         .then(response => {
             // console.info("currentUser: ", ui.currentUser);
@@ -45,7 +45,7 @@ class Captcha extends Component {
 
     render() {
         const { lang } = this.props.ux;
-        const key = '6LcJb-MSAAAAABHUi372bdkpugKzG-5hipLXDti2';
+        const key = Base64.decode('NkxjSmItTVNBQUFBQUJIVWkzNzJiZGtwdWdLekctNWhpcExYRHRpMg==');
 
         return (
             <Row gutter={24} type="flex" justify="center" align="middle">

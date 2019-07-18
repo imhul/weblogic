@@ -7,4 +7,5 @@ export const initStateUX = {
     lang: 'english',
     isDescShow: true,
     tgMessage: '',
+    isFilled: false,
 };

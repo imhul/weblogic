@@ -13,6 +13,8 @@ const { TextArea } = Input;
 
 const mCode = Base64.decode('Ymxhc2hpcmtAZ21haWwuY29t');
 const fCode = Base64.decode('KzM4IDA2MyA0NDIgMjUgMzc=');
+const tCode = Base64.decode('aHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDc2NDEwNzQ0NzpBQUZrSU9mRWNpTXlQaHgyaUhsMVhoNVF5RUI5cnByQS1WSS9zZW5kTWVzc2FnZT9jaGF0X2lkPTI2OTY1NjYyMiZ0ZXh0PSc=');
+
 
 class Contact extends Component {
 
@@ -25,6 +27,26 @@ class Contact extends Component {
             default:
                 return message.error('Something wrong!');
         }
+    };
+
+    handleSubmit = event => {
+        const { ux, uxActions } = this.props;
+
+            if (ux.isFilled) {
+                fetch(`${tCode}${ux.tgMessage}'`)
+                .then(response => response.json())
+                .then(result => {
+                    if (result.ok) {
+                        message.success('Сообщение успешно отправлено!');
+                    } else {
+                        message.error('Ошибка при отправке!');
+                    }
+                })
+                .catch(error => message.error(`Ошибка при отправке: ${error}`))
+            } else {
+                message.error('Ошибка при отправке: введите номер телефона!');
+            };
+            event.preventDefault();
     };
 
     render() {
@@ -63,7 +85,7 @@ class Contact extends Component {
 
                         <Col span={24}>
 
-                            <Form>
+                            <Form onSubmit={this.handleSubmit}>
 
                                 <Row gutter={24} type="flex" justify="center" align="middle">
                                     <Col span={12} className="mb-10">
