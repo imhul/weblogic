@@ -31,12 +31,11 @@ class Captcha extends Component {
         console.log(apiURL)
         axios.post(apiURL)
         .then(response => {
-            // console.info("currentUser: ", ui.currentUser);
             if(response.status === 200 && response.data) {
                 uiActions.getRobot(response.data)
             }
         })
-        .catch(error => console.info("verify error: ", error));
+        .catch(error => console.warn("verify error: ", error));
     };
 
     verifyCallback = (response) => {
