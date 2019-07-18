@@ -6,4 +6,5 @@ export const initStateUX = {
     trelloModalVisible: false,
     lang: 'english',
     isDescShow: true,
+    tgMessage: '',
 };

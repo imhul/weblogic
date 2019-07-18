@@ -24,6 +24,7 @@ const translations = {
         'copy_mail': 'Copy email to clipboard',
         'copy_phone': 'Copy phone to clipboard',
         'cooperation_ready': 'Always ready for mutually beneficial cooperation.',
+        'submit': 'Submit',
 
         // Intro EN
         'believe': 'I believe that design makes the world better',
@@ -80,6 +81,7 @@ const translations = {
         'copy_mail': 'Копировать email',
         'copy_phone': 'Копировать телефон',
         'cooperation_ready': 'Всегда готов к взаимовыгодному сотрудничеству.',
+        'submit': 'Отправить',
 
         // Intro RU
         'believe': 'Я верю, что дизайн делает мир лучше',

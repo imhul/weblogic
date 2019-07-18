@@ -7,6 +7,10 @@
     }
     .ant-row-flex {
         margin-bottom: 20px;
+        .g-recaptcha {
+            min-height: 100px;
+            z-index: 11;
+        }
     }
     p {
         margin: 20px 0;
@@ -47,21 +51,20 @@
             &:hover {
                 border-color: $color-link-hover !important;
             }
-        }
-        .ant-input[type=email] {
-            padding-left: 35px;
-        }
-        .ant-input-prefix {
-            i {
-                color: $color-white;
+            &:focus {
+                border-color: $color-link-hover !important;
+                box-shadow: 0 0 20px $color-link-hover;
             }
         }
-        .ant-input[type=submit] {
+
+        button[type=submit] {
             font-family: 'Open-Sans', sans-serif;
             background-color: $color-white;
             border-color: $color-white;
             color: $color-black;
             cursor: pointer;
+            display: block;
+            width: 100%;
             &:hover {
                 text-shadow: $color-link-hover 0 0 20px;
                 border-color: $color-link-hover;

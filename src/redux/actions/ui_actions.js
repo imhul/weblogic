@@ -8,10 +8,20 @@ export function initialize() {
   }
 };
 
-export function authenticate() {
+export function authenticate(ip) {
   return (dispatch) => {
     dispatch({
       type: types.AUTHENTICATE,
+      payload: ip,
+    })
+  }
+};
+
+export function getRobot(payload) {
+  return (dispatch) => {
+    dispatch({
+      type: types.ROBOT_CHECK,
+      payload: payload,
     })
   }
 };

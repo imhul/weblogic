@@ -3,9 +3,13 @@ export const initStateUI = {
     parts: 0,
     loaded: false,
     isInit: false,
-    isAuth: false,
     heroStyle: {},
-    currentUser: {},
+    currentUser: {
+        ip: '',
+        isAuth: false,
+        isRobot: true,
+        date: '',
+    },
     hero: ['W', 'e', 'b', 'L', 'o', 'g', 'i', 'c', ' ', 'S', 't', 'u', 'd', 'i', 'o'],
     microdata: {
         '@context': 'http://www.schema.org',

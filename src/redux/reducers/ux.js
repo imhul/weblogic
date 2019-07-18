@@ -1,7 +1,7 @@
-import { initStateUX as initState } from './initStateUX';
+import { initStateUX } from './initStateUX';
 import { typesUX as types } from '../constants/types';
 
-export default (state = initState, action) => {
+export default (state = initStateUX, action) => {
     switch (action.type) {
 
         case types.IS_HOME:
@@ -50,6 +50,12 @@ export default (state = initState, action) => {
             return {
                 ...state,
                 isDescShow: false,
+            };
+
+        case types.TEXTAREA_UPDATE:
+            return {
+                ...state,
+                tgMessage: action.payload.target.value,
             };
 
         case types.HISTORY_UPDATE:

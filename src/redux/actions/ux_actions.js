@@ -67,6 +67,15 @@ export function hideDesc() {
   }
 };
 
+export function textareaUpdate(text) {
+  return (dispatch) => {
+    dispatch({
+      type: types.TEXTAREA_UPDATE,
+      payload: text,
+    })
+  }
+};
+
 export function updateHistory(payload) {
     return (dispatch) => {
         dispatch({

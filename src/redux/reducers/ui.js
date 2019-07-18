@@ -13,9 +13,24 @@ export default (state = initState, action) => {
         case types.AUTHENTICATE:
             return { 
                 ...state,
-                isAuth: true,
-                currentUser: action.payload,
+                currentUser: {
+                    ip: action.payload,
+                    isAuth: state.currentUser.isAuth,
+                    isRobot: state.currentUser.isRobot,
+                    date: state.currentUser.date,
+                }
             };
+
+        case types.ROBOT_CHECK:
+            return {
+                ...state,
+                currentUser: {
+                    ip: state.currentUser.ip,
+                    isAuth: action.payload.success,
+                    isRobot: !action.payload.success,
+                    date: action.payload.challenge_ts,
+                }
+            }
 
         case types.HERO_ANIMATE:
             return { 
@@ -40,7 +55,6 @@ export default (state = initState, action) => {
                 ...state,
                 loaded: true,
             };
-
         
 
         default:

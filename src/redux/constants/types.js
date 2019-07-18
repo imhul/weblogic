@@ -6,6 +6,7 @@ export const typesUI = {
   TICK:            'TICK',
   GET_FPS:         'GET_FPS',
   LOAD_FOLIO:      'LOAD_FOLIO',
+  ROBOT_CHECK:     'ROBOT_CHECK',
 
 };
 
@@ -23,5 +24,6 @@ export const typesUX = {
   HISTORY_UPDATE:  'HISTORY_UPDATE',
   HIDE_DESC:       'HIDE_DESC',
   SHOW_DESC:       'SHOW_DESC',
+  TEXTAREA_UPDATE: 'TEXTAREA_UPDATE',
 
 };
