@@ -105,6 +105,7 @@ body {
             user-select: none !important;
             outline: none !important;
         }
+        
         .icon-lamp {
             outline: none !important;
         }
@@ -139,6 +140,9 @@ body {
             }
             .mobile-hide {
                 display: none !important;
+            }
+            .mobile-center {
+                text-align: center !important;
             }
         }
     }

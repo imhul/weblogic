@@ -59,9 +59,9 @@ class Contact extends Component {
         return (
             <div className="Contact content">
                 { 
-                    currentUser.isRobot ? <Captcha /> : (
+                    !currentUser.isRobot ? <Captcha /> : (
                     <Row gutter={24} type="flex" justify="center" align="middle">
-                        <Col span={12} className="mb-20 align-left">
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center">
                             <Button
                                 ghost={ true }
                                 title="my linkedin page"
@@ -72,7 +72,7 @@ class Contact extends Component {
                             </Button>
                         </Col>
     
-                        <Col span={12} className="mb-20 align-right">
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
                             <Button
                                 ghost={ true }
                                 title="github project"
@@ -108,7 +108,7 @@ class Contact extends Component {
                                             placeholder="Your Message" 
                                             onChange={uxActions.textareaUpdate} />
                                     </Col>
-                                    <Col span={12}>
+                                    <Col span={16}>
                                         <Button size="large" type="primary" htmlType="submit">
                                             { translate( lang, 'submit' )}
                                         </Button>
@@ -125,7 +125,7 @@ class Contact extends Component {
                             <h2>{ translate( lang, 'copy_contacts' )}</h2>
                         </Col>
 
-                        <Col span={12} className="mb-20 align-right">
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => mCode}
@@ -136,7 +136,7 @@ class Contact extends Component {
                             </Clipboard>
                         </Col>
 
-                        <Col span={12} className="mb-20 align-left">
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center">
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => fCode}

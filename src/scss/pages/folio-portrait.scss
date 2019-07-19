@@ -14,16 +14,10 @@
                     .ant-collapse-header {
                         height: 10vh;
                         font-size: 8vw !important;
-                        line-height: 6vw !important;
                         // iPhones, iPads
-                        @media (max-width: $media-medium-max) {
-                            line-height: 8vw !important;
-                        }
                         i {
-                            line-height: 10vh;
                             font-size: 6vh;
                             margin-top: 1vh;
-                            // iPhones, iPads
                             @media (max-width: $media-medium-max) {
                                 margin-top: 1vh;
                                 font-size: 6vh !important;
@@ -35,19 +29,13 @@
             .ant-collapse-item {
                 border-bottom-color: $color-white;
                 .ant-collapse-header {
-                    font-size: 16vw !important;
-                    line-height: 21vh !important;
+                    font-size: 12vw !important;
                     @media (max-width: $media-small) {
-                        // padding: 12px;
                         text-align: center;
-                        font-size: 20vw !important;
-                        i {
-                            display: none;
-                        }
+                        font-size: 10vw !important;
                     }
                     i {
                         font-size: 10vh !important;
-                        margin-top: 6vh;
                     }
                 }
                 /* Static content styles */
@@ -69,9 +57,7 @@
             .ant-collapse-item-active {
                 .ant-collapse-header {
                     font-size: 8vw !important;
-                    line-height: 6vw !important;
                     i {
-                        line-height: 10vh;
                         font-size: 6vh;
                     }
                 }

@@ -8,8 +8,11 @@
     .ant-row-flex {
         margin-bottom: 20px;
         .g-recaptcha {
-            min-height: 100px;
+            min-height: 40vh;
             z-index: 11;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
     p {
