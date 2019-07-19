@@ -4,47 +4,42 @@ import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
 import { Row, Col, Form, Input, Button, Icon, message } from 'antd';
 import translate from '../../translations';
-import Base64 from '../../../../utils/decode';
+import safe from '../../../../utils/safe';
 import Clipboard from 'react-clipboard.js';
 import Captcha from './Captcha';
 
-
 const { TextArea } = Input;
-
-const mCode = Base64.decode('Ymxhc2hpcmtAZ21haWwuY29t');
-const fCode = Base64.decode('KzM4IDA2MyA0NDIgMjUgMzc=');
-const tCode = Base64.decode('aHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDc2NDEwNzQ0NzpBQUZrSU9mRWNpTXlQaHgyaUhsMVhoNVF5RUI5cnByQS1WSS9zZW5kTWVzc2FnZT9jaGF0X2lkPTI2OTY1NjYyMiZ0ZXh0PSc=');
-const resume = 'https://drive.google.com/file/d/1pUqBe3w7iZ4XvOrPa28g9FRGfCh07_Fq/view?usp=sharing';
 
 class Contact extends Component {
 
     onSuccess(e) {
+        const { lang } = this.props.ux;
         switch ( e.text ) {
-            case mCode: 
-                return message.success('Email address successfully copied!');
-            case fCode: 
-                return message.success('Phone number successfully copied!');
+            case safe.mCode: 
+                return message.success(`${translate( lang, 'message_success_email' )}`);
+            case safe.fCode: 
+                return message.success(`${translate( lang, 'message_success_phone' )}`);
             default:
-                return message.error('Something wrong!');
+                return message.error(`${translate( lang, 'message_error_wrong' )}`);
         }
     };
 
     handleSubmit = event => {
-        const { ux, uxActions } = this.props;
+        const { lang } = this.props.ux;
 
             if (ux.isFilled) {
-                fetch(`${tCode}${ux.tgMessage}'`)
+                fetch(`${safe.tCode}${ux.tgMessage}'`)
                 .then(response => response.json())
                 .then(result => {
                     if (result.ok) {
-                        message.success('Сообщение успешно отправлено!');
+                        message.success(`${translate( lang, 'message_success' )}`);
                     } else {
-                        message.error('Ошибка при отправке!');
+                        message.error(`${translate( lang, 'message_error' )}`);
                     }
                 })
-                .catch(error => message.error(`Ошибка при отправке: ${error}`))
+                .catch(error => message.error(`${translate( lang, 'message_error' )}: ${error}`))
             } else {
-                message.error('Ошибка при отправке: введите номер телефона!');
+                message.error(`${translate( lang, 'message_error_phone' )}`);
             };
             event.preventDefault();
     };
@@ -83,7 +78,7 @@ class Contact extends Component {
                         <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
                             <Button
                                 ghost
-                                href={resume}
+                                href={safe.cv}
                                 title={ `${translate( lang, 'myCV' )}` }
                                 target='_blank'>
                                 <Icon type="cloud" />
@@ -136,7 +131,7 @@ class Contact extends Component {
                         <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center" title={ translate( lang, 'copy_email' )}>
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
-                                option-text={() => mCode}
+                                option-text={() => safe.mCode}
                                 onSuccess={ this.onSuccess }>
                                 <Icon type="mail" />
                                 <Icon type="ellipsis" />
@@ -147,7 +142,7 @@ class Contact extends Component {
                         <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center" title={ translate( lang, 'copy_phone' )}>
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
-                                option-text={() => fCode}
+                                option-text={() => safe.fCode}
                                 onSuccess={ this.onSuccess }>
                                 <Icon type="phone" />
                                 <Icon type="ellipsis" />

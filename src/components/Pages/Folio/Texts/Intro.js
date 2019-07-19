@@ -9,7 +9,6 @@ class Intro extends Component {
     render() {
         const { technologies } = this.props.ui;
         const { lang } = this.props.ux;
-        const resume = 'https://drive.google.com/file/d/1pUqBe3w7iZ4XvOrPa28g9FRGfCh07_Fq/view?usp=sharing';
         
         return (
             <div className="Intro content">

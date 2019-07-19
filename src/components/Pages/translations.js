@@ -29,6 +29,13 @@ const translations = {
         'linkedin': 'My personal LinkedIn Page',
         'github': 'My personal GitHub',
         'myCV': 'My CV',
+        'message_success_phone': 'Phone number successfully copied!',
+        'message_success_email': 'Email address successfully copied!',
+        'message_success': 'Message sent successfully!',
+        'message_error': 'Error while sending!',
+        'message_error_phone': 'Error while sending: Enter the phone number!',
+        'message_error_wrong': 'Something wrong!',
+        
 
         // Intro EN
         'believe': 'I believe that design makes the world better',
@@ -91,6 +98,12 @@ const translations = {
         'linkedin': 'Моя страница на LinkedIn',
         'github': 'Мой GitHub аккаунт',
         'myCV': 'Посмотреть моё резюме',
+        'message_success_phone': 'Номер телефона успешно скопирован!',
+        'message_success_email': 'Эл. адрес успешно скопирован!',
+        'message_success': 'Сообщение успешно отправлено!',
+        'message_error': 'Ошибка при отправке!',
+        'message_error_phone': 'Ошибка при отправке: введите номер телефона!',
+        'message_error_wrong': 'Что-то пошло не так!',
 
         // Intro RU
         'believe': 'Я верю, что дизайн делает мир лучше',

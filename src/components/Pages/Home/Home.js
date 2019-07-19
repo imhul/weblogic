@@ -23,7 +23,7 @@ class Home extends Component {
     };
 
     info() {
-        message.info('Keep clicking anywhere on the screen around the header to check how strong your device is', 6)
+        message.info('Keep clicking anywhere!', 3)
     };
 
 
