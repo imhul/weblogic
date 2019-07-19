@@ -21,10 +21,14 @@ const translations = {
         'rate_us': 'Rate this page',
         'or': 'or',
         'copy_contacts': 'copy contacts',
-        'copy_mail': 'Copy email to clipboard',
+        'copy_email': 'Copy email to clipboard',
         'copy_phone': 'Copy phone to clipboard',
         'cooperation_ready': 'Always ready for mutually beneficial cooperation.',
         'submit': 'Submit',
+        'placeholder': 'Your Message',
+        'linkedin': 'My personal LinkedIn Page',
+        'github': 'My personal GitHub',
+        'myCV': 'My CV',
 
         // Intro EN
         'believe': 'I believe that design makes the world better',
@@ -53,6 +57,7 @@ const translations = {
         'work_6': 'e-commerce project, React + Redux + masonry + design',
         'demo_status_desc': '* Demo status means that the project is available for viewing on my site.',
         'released_status_desc': '** The project in the Release status is a finished product and is hosted on the client\'\s production server.',
+        'current_projects': 'Current Projects',
 
     },
 
@@ -65,7 +70,7 @@ const translations = {
         'status': 'Статус',
         'project_desc': 'Описание',
         'intro': 'Вступление',
-        'roadmap': 'Roadmap',
+        'roadmap': 'Путь',
         'works': 'Работы',
         'contacts': 'Контакты',
         'nov': 'Ноябрь',
@@ -77,11 +82,15 @@ const translations = {
         'contact_form': 'Форма обратной связи',
         'rate_us': 'Оцените этот сайт',
         'or': 'или',
-        'copy_contacts': 'copy contacts',
-        'copy_mail': 'Копировать email',
+        'copy_contacts': 'скопируйте контакты',
+        'copy_email': 'Копировать email',
         'copy_phone': 'Копировать телефон',
         'cooperation_ready': 'Всегда готов к взаимовыгодному сотрудничеству.',
         'submit': 'Отправить',
+        'placeholder': 'Ваше сообщение',
+        'linkedin': 'Моя страница на LinkedIn',
+        'github': 'Мой GitHub аккаунт',
+        'myCV': 'Посмотреть моё резюме',
 
         // Intro RU
         'believe': 'Я верю, что дизайн делает мир лучше',
@@ -105,11 +114,12 @@ const translations = {
         'work_1': 'Игра "Пазлы", JavaScript + Canvas + дизайн',
         'work_2': 'Корпоративный сайт, Joomla + дизайн',
         'work_3': 'Калькулятор LED панелей, Angular + Materialize + дизайн',
-        'work_4': 'Аналитический ресурс, Angular + jQuery + Materialize + дизайн',
+        'work_4': 'Аналитический ресурс, JavaScript + jQuery + Materialize + дизайн',
         'work_5': 'Веб-презентация, Rreveal.js',
         'work_6': 'Интернет-магазин, React + Redux + masonry + дизайн',
         'demo_status_desc': '* Статус Демо означает, что проект доступен для просмотра на моём сайте.',
         'released_status_desc': '** Проект в статусе Релиз является готовым продуктом и размещён на сервере клиента.',
+        'current_projects': 'Текущие проекты',
 
     } 
 };

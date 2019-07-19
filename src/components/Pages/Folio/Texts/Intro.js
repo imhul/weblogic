@@ -9,6 +9,7 @@ class Intro extends Component {
     render() {
         const { technologies } = this.props.ui;
         const { lang } = this.props.ux;
+        const resume = 'https://drive.google.com/file/d/1pUqBe3w7iZ4XvOrPa28g9FRGfCh07_Fq/view?usp=sharing';
         
         return (
             <div className="Intro content">
@@ -32,32 +33,9 @@ class Intro extends Component {
                            { translate( lang, 'front_dev' )}
                         </p>
                     </Col>
-
-                    <Col span={12} className="left-btn">
-                        <a 
-                            title="my linkedin page"
-                            href='https://www.linkedin.com/in/tkachuk-zakhar-04733892/'
-                            className="ant-btn ant-btn-background-ghost"
-                            target='_blank'
-                        >
-                            <Icon type='linkedin' />
-                            { translate( lang, 'summary' )}
-                        </a>
-                    </Col>
-
-                    <Col span={12} className="right-btn">
-                        <a
-                            title="github project"
-                            href="https://github.com/imhul/weblogic"
-                            className="ant-btn ant-btn-background-ghost"
-                            target="_blank"
-                        >
-                            <Icon type="github" />github
-                        </a>
-                    </Col>
                     
                     <Col span={24}>
-                        { translate( lang, 'tagline' )}
+                        <p>{ translate( lang, 'tagline' )}</p>
                     </Col>
 
                     <Col span={24}>
@@ -66,7 +44,7 @@ class Intro extends Component {
                             { translate( lang, 'what_i_do' )}
                         </h2>
 
-                        { translate( lang, 'my_offer' )}
+                        <p>{ translate( lang, 'my_offer' )}</p>
 
                         <h2 className="margin">
                             { translate( lang, 'fav_tech' )}
@@ -128,47 +106,9 @@ class Intro extends Component {
 
                         <Row className="tech" gutter={24} type="flex" justify="center" align="top">
                             <Col lg={{span: 8}} xs={{ span: 24 }} sm={{ span: 24 }} md={{ span: 8 }}>
-                                <h3>Libraries</h3>
+                                <h3>Utils</h3>
                                 <ul>
-                                    { technologies.filter((item) => item.list === 'library').map((item) => {
-                                        return (
-                                            <li key={item.id}>
-                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
-                                                    {item.id}
-                                                </a>
-                                            </li>
-                                        )
-                                    }) }
-                                </ul>
-                                <h3>Design</h3>
-                                <ul>
-                                    { technologies.filter((item) => item.list === 'design').map((item) => {
-                                        return (
-                                            <li key={item.id}>
-                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
-                                                    {item.id}
-                                                </a>
-                                            </li>
-                                        )
-                                    }) }
-                                </ul>
-
-                                <h3>Package Managers</h3>
-                                <ul>
-                                    { technologies.filter((item) => item.list === 'packmen').map((item) => {
-                                        return (
-                                            <li key={item.id}>
-                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
-                                                    {item.id}
-                                                </a>
-                                            </li>
-                                        )
-                                    }) }
-                                </ul>
-
-                                <h3>CMS</h3>
-                                <ul>
-                                    { technologies.filter((item) => item.list === 'cms').map((item) => {
+                                    { technologies.filter((item) => item.list === 'other').map((item) => {
                                         return (
                                             <li key={item.id}>
                                                 <a href={item.link} target="_blank" title={`${item.id} page`}>
@@ -182,6 +122,18 @@ class Intro extends Component {
                             </Col>
                             
                             <Col lg={{span: 8}} xs={{ span: 24 }} sm={{ span: 24 }} md={{ span: 8 }}>
+                                <h3>Libraries</h3>
+                                <ul>
+                                    { technologies.filter((item) => item.list === 'library').map((item) => {
+                                        return (
+                                            <li key={item.id}>
+                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
+                                                    {item.id}
+                                                </a>
+                                            </li>
+                                        )
+                                    }) }
+                                </ul>
                                 <h3>Languages</h3>
                                 <ul>
                                     { technologies.filter((item) => item.list === 'lang').map((item) => {
@@ -219,9 +171,22 @@ class Intro extends Component {
                                     }) }
                                 </ul>
 
-                                <h3>Other</h3>
+                                <h3>Design</h3>
                                 <ul>
-                                    { technologies.filter((item) => item.list === 'other').map((item) => {
+                                    { technologies.filter((item) => item.list === 'design').map((item) => {
+                                        return (
+                                            <li key={item.id}>
+                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
+                                                    {item.id}
+                                                </a>
+                                            </li>
+                                        )
+                                    }) }
+                                </ul>
+
+                                <h3>CMS</h3>
+                                <ul>
+                                    { technologies.filter((item) => item.list === 'cms').map((item) => {
                                         return (
                                             <li key={item.id}>
                                                 <a href={item.link} target="_blank" title={`${item.id} page`}>
@@ -247,7 +212,6 @@ class Intro extends Component {
                                         )
                                     }) }
                                 </ul>
-
                                 <h3>APIs</h3>
                                 <ul>
                                     { technologies.filter((item) => item.list === 'api').map((item) => {
@@ -260,6 +224,7 @@ class Intro extends Component {
                                         )
                                     }) }
                                 </ul>
+
                                 <h3>Tracking</h3>
                                 <ul>
                                     { technologies.filter((item) => item.list === 'track').map((item) => {
@@ -288,6 +253,18 @@ class Intro extends Component {
                                 <h3>IDEs</h3>
                                 <ul>
                                     { technologies.filter((item) => item.list === 'ide').map((item) => {
+                                        return (
+                                            <li key={item.id}>
+                                                <a href={item.link} target="_blank" title={`${item.id} page`}>
+                                                    {item.id}
+                                                </a>
+                                            </li>
+                                        )
+                                    }) }
+                                </ul>
+                                <h3>Package Managers</h3>
+                                <ul>
+                                    { technologies.filter((item) => item.list === 'packmen').map((item) => {
                                         return (
                                             <li key={item.id}>
                                                 <a href={item.link} target="_blank" title={`${item.id} page`}>

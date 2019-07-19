@@ -7,11 +7,12 @@ import { Switch } from 'antd';
 class Toolbar extends Component {
     render() {
         const { uxActions } = this.props;
+        const { lang } = this.props.ux;
         return (
             <div className="Toolbar">
                 <Switch 
-                    defaultChecked={ true }
-                    onChange={ (data) => uxActions.langUpdate(data) } 
+                    defaultChecked={ lang === "english" ? true : false }
+                    onChange={ data => uxActions.langUpdate(data) } 
                     unCheckedChildren="ru" 
                     checkedChildren="en" 
                 />
@@ -26,4 +27,10 @@ function mapDispatchToProps(dispatch) {
     }
 };
 
-export default connect(null, mapDispatchToProps)(Toolbar);
+function mapStateToProps(state) {
+  return {
+    ux: state.ux,
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);

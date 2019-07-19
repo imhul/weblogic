@@ -48,11 +48,12 @@ class Works extends Component {
             },
             {
                 name: translate( lang, 'work_3' ),
-                type: translate( lang, 'demo' ),
-                icon: <Icon type="experiment" theme="outlined" />,
-                href: `${ base }/Lab/Calc/index.html`,
+                type: translate( lang, 'released' ),
+                icon: <Icon type="link" theme="outlined" />,
+                // href: `${ base }/Lab/Calc/index.html`,
+                href: 'http://ekta.ua/projects/calc',
                 back: `${ calcImg }`,
-                demo: true,
+                demo: false,
             },
             {
                 name: translate( lang, 'work_4' ),
@@ -60,6 +61,7 @@ class Works extends Component {
                 icon: <Icon type="link" theme="outlined" />, 
                 href: 'https://seezislab.com/',
                 back: `${ seezisImg }`,
+                demo: false,
             },
             {
                 name: translate( lang, 'work_6' ),
@@ -67,6 +69,7 @@ class Works extends Component {
                 icon: <Icon type="link" theme="outlined" />, 
                 href: 'https://silverstemcannabis.com/',
                 back: `${ silverImg }`,
+                demo: false,
             },
         ];
 
@@ -88,6 +91,19 @@ class Works extends Component {
                 </div>
                 <div>
                     { translate( lang, 'released_status_desc' )}
+                </div>
+                <h2 className="mt-20">{ translate( lang, 'current_projects' )}</h2>
+                <div>
+                    <a href="https://github.com/imhul/med_form" title="Форма карточки пациэнта" target="_blank">
+                    <Icon type="github" /> med_form</a> React + Redux
+                </div>
+                <div>
+                    <a href="https://github.com/imhul/patient-chart" title="Форма карточки пациэнта" target="_blank">
+                    <Icon type="github" /> patient-chart</a> React + Redux
+                </div>
+                <div>
+                    <a href="https://github.com/imhul/doctor_acc" title="Форма карточки пациэнта" target="_blank">
+                    <Icon type="github" /> doctor_acc</a> React + Redux
                 </div>
             </div>
         );
@@ -111,7 +127,6 @@ class Works extends Component {
                                 />
                                     {item.icon}
                             </ListItem>
-
                         </a>
                     )}
                 />

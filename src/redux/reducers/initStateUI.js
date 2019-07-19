@@ -51,21 +51,6 @@ export const initStateUI = {
             link: 'https://parceljs.org/',
         },
         {
-            id: 'Webpack',
-            list: 'bundler',
-            link: 'https://webpack.js.org/',
-        },
-        {
-            id: 'Gulp',
-            list: 'bundler',
-            link: 'https://gulpjs.com/',
-        },
-        {
-            id: 'Grunt',
-            list: 'bundler',
-            link: 'https://gruntjs.com/',
-        },
-        {
             id: 'React',
             list: 'library',
             link: 'https://reactjs.org/',
@@ -76,44 +61,9 @@ export const initStateUI = {
             link: 'https://redux.js.org/',
         },
         {
-            id: 'redux-saga',
+            id: 'jQuery',
             list: 'library',
-            link: 'https://redux-saga.js.org/',
-        },
-                    {
-            id: 'redux-thunk',
-            list: 'library',
-            link: 'https://github.com/reduxjs/redux-thunk',
-        },
-        {
-            id: 'redux-logger',
-            list: 'library',
-            link: 'https://github.com/LogRocket/redux-logger',
-        },
-        {
-            id: 'react-redux-form',
-            list: 'library',
-            link: 'https://github.com/davidkpiano/react-redux-form',
-        },
-        {
-            id: 'history',
-            list: 'library',
-            link: 'https://github.com/ReactTraining/history',
-        },
-        {
-            id: 'react-router',
-            list: 'library',
-            link: '#',
-        },
-        {
-            id: 'helmet',
-            list: 'library',
-            link: '#',
-        },
-        {
-            id: 'react-gravatar',
-            list: 'library',
-            link: '#',
+            link: 'https://jquery.com/',
         },
         {
             id: 'Ant Design',
@@ -129,46 +79,6 @@ export const initStateUI = {
             id: 'yarn',
             list: 'packmen',
             link: '#',
-        },
-        {
-            id: 'Pixi.js',
-            list: 'other',
-            link: 'http://pixijs.com',
-        },
-        {
-            id: 'Anime.js',
-            list: 'other',
-            link: 'https://animejs.com/',
-        },
-        {
-            id: 'Immutable.js',
-            list: 'library',
-            link: 'https://facebook.github.io/immutable-js/',
-        },
-        {
-            id: 'socket.io',
-            list: 'library',
-            link: 'https://socket.io/',
-        },
-        {
-            id: 'lodash',
-            list: 'library',
-            link: 'https://lodash.com/',
-        },
-        {
-            id: 'jQuery, jQuery-UI',
-            list: 'library',
-            link: 'https://jquery.com/',
-        },
-        {
-            id: 'Highcharts.js',
-            list: 'other',
-            link: 'https://www.highcharts.com/',
-        },
-        {
-            id: 'Odometr.js',
-            list: 'other',
-            link: 'https://github.hubspot.com/odometer/docs/welcome/',
         },
         {
             id: 'Materialize',
@@ -224,6 +134,21 @@ export const initStateUI = {
             id: 'Instagram API',
             list: 'api',
             link: 'https://developers.facebook.com/docs/instagram-api/',
+        },
+        {
+            id: 'Telegram API',
+            list: 'api',
+            link: 'https://core.telegram.org/',
+        },
+        {
+            id: 'Viber API',
+            list: 'api',
+            link: 'https://developers.viber.com/docs/api/rest-bot-api/',
+        },
+        {
+            id: 'reCaptcha API',
+            list: 'api',
+            link: 'https://developers.google.com/recaptcha/intro',
         },
         {
             id: 'Photoshop',
@@ -296,12 +221,7 @@ export const initStateUI = {
             link: 'https://www.joomla.org/',
         },
         {
-            id: 'react-clipboard.js',
-            list: 'other',
-            link: '#',
-        },
-        {
-            id: 'react-contextmenu',
+            id: 'react-preloading-component',
             list: 'other',
             link: '#',
         },
@@ -311,9 +231,120 @@ export const initStateUI = {
             link: '#',
         },
         {
+            id: 'react-redux-form',
+            list: 'other',
+            link: 'https://github.com/davidkpiano/react-redux-form',
+        },
+        {
+            id: 'react-clipboard.js',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'react-contextmenu',
+            list: 'other',
+            link: '#',
+        },
+        
+        {
+            id: 'react-hot-loader',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'react-router',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'react-gravatar',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'react-recaptcha',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'react-router-dom',
+            list: 'other',
+            link: '#',
+        },
+        {
             id: 'right-now',
             list: 'other',
             link: '#',
+        },
+        {
+            id: 'redux-saga',
+            list: 'other',
+            link: 'https://redux-saga.js.org/',
+        },
+        {
+            id: 'redux-thunk',
+            list: 'other',
+            link: 'https://github.com/reduxjs/redux-thunk',
+        },
+        {
+            id: 'redux-logger',
+            list: 'other',
+            link: 'https://github.com/LogRocket/redux-logger',
+        },
+        {
+            id: 'history',
+            list: 'other',
+            link: 'https://github.com/ReactTraining/history',
+        },
+        {
+            id: 'helmet',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'axios',
+            list: 'other',
+            link: '#',
+        },
+        {
+            id: 'Pixi.js',
+            list: 'other',
+            link: 'http://pixijs.com',
+        },
+        {
+            id: 'Anime.js',
+            list: 'other',
+            link: 'https://animejs.com/',
+        },
+        {
+            id: 'Immutable.js',
+            list: 'other',
+            link: 'https://facebook.github.io/immutable-js/',
+        },
+        {
+            id: 'socket.io',
+            list: 'other',
+            link: 'https://socket.io/',
+        },
+        {
+            id: 'lodash',
+            list: 'other',
+            link: 'https://lodash.com/',
+        },
+        {
+            id: 'jQuery-UI',
+            list: 'other',
+            link: 'https://jquery.com/',
+        },
+        {
+            id: 'Highcharts.js',
+            list: 'other',
+            link: 'https://www.highcharts.com/',
+        },
+        {
+            id: 'Odometr.js',
+            list: 'other',
+            link: 'https://github.hubspot.com/odometer/docs/welcome/',
         },
     ],
 };

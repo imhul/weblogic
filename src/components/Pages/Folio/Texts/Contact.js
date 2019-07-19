@@ -14,7 +14,7 @@ const { TextArea } = Input;
 const mCode = Base64.decode('Ymxhc2hpcmtAZ21haWwuY29t');
 const fCode = Base64.decode('KzM4IDA2MyA0NDIgMjUgMzc=');
 const tCode = Base64.decode('aHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDc2NDEwNzQ0NzpBQUZrSU9mRWNpTXlQaHgyaUhsMVhoNVF5RUI5cnByQS1WSS9zZW5kTWVzc2FnZT9jaGF0X2lkPTI2OTY1NjYyMiZ0ZXh0PSc=');
-
+const resume = 'https://drive.google.com/file/d/1pUqBe3w7iZ4XvOrPa28g9FRGfCh07_Fq/view?usp=sharing';
 
 class Contact extends Component {
 
@@ -62,24 +62,32 @@ class Contact extends Component {
                     !currentUser.isRobot ? <Captcha /> : (
                     <Row gutter={24} type="flex" justify="center" align="middle">
                         <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center">
-                            <Button
-                                ghost={ true }
-                                title="my linkedin page"
-                                href='https://www.linkedin.com/in/tkachuk-zakhar-04733892/'
-                                target='_blank'>
-                                <Icon type='linkedin' />
-                                    { translate( lang, 'summary' )}
-                            </Button>
+                            <a
+                                className="ant-btn ant-btn-background-ghost first"
+                                href="https://www.linkedin.com/in/tkachuk-zakhar-04733892/"
+                                title={ `${translate( lang, 'linkedin' )}`}
+                                target="_blank">
+                                <Icon type="linkedin" />
+                            </a>
+                            <a
+                                href="https://github.com/imhul"
+                                className="ant-btn ant-btn-background-ghost"
+                                title={ `${translate( lang, 'github' )}` }
+                                target="_blank"
+                            >
+                                <Icon type="github" />
+                            </a>
+                            
                         </Col>
     
                         <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
                             <Button
-                                ghost={ true }
-                                title="github project"
-                                href="https://github.com/imhul"
-                                target="_blank"
-                            >
-                                <Icon type="github" />Github
+                                ghost
+                                href={resume}
+                                title={ `${translate( lang, 'myCV' )}` }
+                                target='_blank'>
+                                <Icon type="cloud" />
+                                    { translate( lang, 'summary' )}
                             </Button>
                         </Col>
 
@@ -105,7 +113,7 @@ class Contact extends Component {
                                             rows={4}
                                             cols={30}
                                             tabIndex="1"
-                                            placeholder="Your Message" 
+                                            placeholder={ `${translate( lang, 'placeholder')}` }
                                             onChange={uxActions.textareaUpdate} />
                                     </Col>
                                     <Col span={16}>
@@ -125,25 +133,25 @@ class Contact extends Component {
                             <h2>{ translate( lang, 'copy_contacts' )}</h2>
                         </Col>
 
-                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center" title={ translate( lang, 'copy_email' )}>
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => mCode}
                                 onSuccess={ this.onSuccess }>
-                                <Icon type="copy" />
-                                <Icon type="ellipsis" />
                                 <Icon type="mail" />
+                                <Icon type="ellipsis" />
+                                <Icon type="copy" />
                             </Clipboard>
                         </Col>
 
-                        <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center">
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center" title={ translate( lang, 'copy_phone' )}>
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => fCode}
                                 onSuccess={ this.onSuccess }>
-                                <Icon type="copy" />
-                                <Icon type="ellipsis" />
                                 <Icon type="phone" />
+                                <Icon type="ellipsis" />
+                                <Icon type="copy" />
                             </Clipboard>
                         </Col>
 

@@ -20,16 +20,6 @@
         display: inline-block;
         text-align: center;
     }
-    .ant-btn-background-ghost {
-        padding: 15px;
-        height: auto;
-        span {
-            font-size: 2.5rem;
-        }
-        i {
-            font-size: 40px;
-        }
-    } 
     h2 {
         color: $color-white;
     }
@@ -47,7 +37,7 @@
             margin: 20px 0 !important;
         }
         .ant-input {
-            background-color: $color-black;
+            background-color: $color-deep-black;
             border-color: $color-white;
             font-family: monospace;
             color: $color-white;

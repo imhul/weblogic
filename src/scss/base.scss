@@ -133,6 +133,20 @@ body {
         .hidden {
             display: none !important;
         }
+        .ant-btn-background-ghost {
+            background-color: $color-deep-black !important;
+            padding: 15px;
+            height: auto;
+            &.first {
+                margin-right: 10px;
+            }
+            span {
+                font-size: 2.5rem;
+            }
+            i {
+                font-size: 40px;
+            }
+        }
         @media only screen and (max-width: $media-small) {
             .mobile-show {
                 display: block !important;
