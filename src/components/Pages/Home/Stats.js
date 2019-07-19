@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import raf from 'raf';
 import now from 'right-now';
-import * as UI_ACTIONS from '../redux/actions/ui_actions';
+import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
 
 class Stats extends Component {
 	

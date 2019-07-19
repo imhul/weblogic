@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
-import { Row, Col, Form, Input, Button, Icon, message } from 'antd';
+import { Row, Col, Form, Input, Button, Icon, Statistic, message } from 'antd';
 import translate from '../../translations';
 import safe from '../../../../utils/safe';
 import Clipboard from 'react-clipboard.js';
@@ -72,7 +72,6 @@ class Contact extends Component {
                             >
                                 <Icon type="github" />
                             </a>
-                            
                         </Col>
     
                         <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
@@ -98,9 +97,10 @@ class Contact extends Component {
                                     </Col>
 
                                     <Col span={12} className="mb-10 align-right">
-                                        <h2 className="white">
-                                            { `${tgMessage.length} / ${maxSize}` }
-                                        </h2>
+                                        <Statistic 
+                                            className="white" 
+                                            suffix={`/ ${maxSize}`}
+                                            value={`${tgMessage.length}`} />
                                     </Col>
                                 
                                     <Col span={24}>

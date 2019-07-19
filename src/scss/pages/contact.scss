@@ -30,16 +30,14 @@
         .mb-2 {
             margin-bottom: 2px !important;
         }
-        .white {
-            color: $color-white;
-        }
         textarea {
             margin: 20px 0 !important;
+            font-family: monospace;
+            font-size: 20px;
         }
         .ant-input {
             background-color: $color-deep-black;
             border-color: $color-white;
-            font-family: monospace;
             color: $color-white;
             &:hover {
                 border-color: $color-link-hover !important;

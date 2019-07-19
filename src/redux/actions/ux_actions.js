@@ -76,6 +76,14 @@ export function textareaUpdate(text) {
   }
 };
 
+export function toggleFutures() {
+  return (dispatch) => {
+    dispatch({
+      type: types.TOGGLE_FUTURES,
+    })
+  }
+};
+
 export function updateHistory(payload) {
     return (dispatch) => {
         dispatch({

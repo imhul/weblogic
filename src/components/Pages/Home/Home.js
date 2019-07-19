@@ -26,14 +26,12 @@ class Home extends Component {
         message.info('Keep clicking anywhere!', 3)
     };
 
-
     render() {
         const { hero, microdata, heroStyle } = this.props.ui;
 
         return (
             <div className="Home" onClick={() => history.push('/folio')}>
                 <ContextMenuTrigger id="context-menu">
-
                     <Helmet>
                         <title>WebLogic Studio Home</title>
                         <link rel="canonical" href="http://weblogic.com.ua/" />
@@ -56,9 +54,7 @@ class Home extends Component {
                 </ContextMenuTrigger>
                 <ContextMenu id="context-menu">
                     <MenuItem key="folio" onClick={() => history.push('/folio')}>
-                     
                             <Icon type="experiment" theme="outlined" /> About
-                    
                     </MenuItem>
                     <MenuItem key="linkedin" onClick={(e) => {
                             e.preventDefault();

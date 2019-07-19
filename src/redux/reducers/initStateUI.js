@@ -346,5 +346,10 @@ export const initStateUI = {
             list: 'other',
             link: 'https://github.hubspot.com/odometer/docs/welcome/',
         },
+        {
+            id: 'raf',
+            list: 'other',
+            link: '#',
+        },
     ],
 };

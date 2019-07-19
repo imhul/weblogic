@@ -25,5 +25,6 @@ export const typesUX = {
   HIDE_DESC:       'HIDE_DESC',
   SHOW_DESC:       'SHOW_DESC',
   TEXTAREA_UPDATE: 'TEXTAREA_UPDATE',
+  TOGGLE_FUTURES:  'TOGGLE_FUTURES',
 
 };

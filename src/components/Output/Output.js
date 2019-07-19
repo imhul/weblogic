@@ -8,9 +8,10 @@ import '../../fonts/fonts.css';
 import '../../scss/index.scss';
 import '../../utils/bg';
 import { Layout } from 'antd';
-import Stats from '../Stats';
+import Stats from '../Pages/Home/Stats';
 import Home from '../Pages/Home';
 import Folio from '../Pages/Folio';
+import Futures from '../Pages/Home/Futures';
 
 const { Content } = Layout;
 
@@ -30,6 +31,7 @@ class Output extends Component {
         return (
             <Layout className="LayoutMain">
                 { isHome ? <Stats /> : null }
+                { isHome ? <Futures /> : null }
                 <Layout className="Main">
                     <Content>
                         <Route exact path="/" component={ Home } />

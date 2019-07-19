@@ -59,6 +59,12 @@ export default (state = initStateUX, action) => {
                 isFilled: (action.payload.target.value.length > 9) ? true : false
             };
 
+        case types.TOGGLE_FUTURES:
+            return {
+                ...state,
+                isFuturesOpen: !state.isFuturesOpen,
+            };
+
         case types.HISTORY_UPDATE:
             return {
                 ...state,
