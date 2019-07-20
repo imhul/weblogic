@@ -25,7 +25,6 @@ class Captcha extends Component {
     verify(data) {
         const { ui, uiActions } = this.props;
         const apiURL = `${safe.link}${data}&remoteip=${ui.currentUser.ip}`;
-        console.log(apiURL)
         axios.post(apiURL)
         .then(response => {
             if(response.status === 200 && response.data) {

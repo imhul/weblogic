@@ -21,7 +21,7 @@ export const trelloConfig = {
 
 export const isTrelloAvailable = () => {
   if (trello) {
-    console.log("trello is OK", trello);
+    console.info("trello is OK", trello);
     return true
   }
   return false
