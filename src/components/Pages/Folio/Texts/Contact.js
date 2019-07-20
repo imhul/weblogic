@@ -25,10 +25,10 @@ class Contact extends Component {
     };
 
     handleSubmit = event => {
-        const { lang } = this.props.ux;
+        const { lang, isFilled, tgMessage } = this.props.ux;
 
-            if (ux.isFilled) {
-                fetch(`${safe.tCode}${ux.tgMessage}'`)
+            if (isFilled) {
+                fetch(`${safe.tCode}${tgMessage}'`)
                 .then(response => response.json())
                 .then(result => {
                     if (result.ok) {
@@ -54,7 +54,7 @@ class Contact extends Component {
         return (
             <div className="Contact content">
                 { 
-                    !currentUser.isRobot ? <Captcha /> : (
+                    currentUser.isRobot ? <Captcha /> : (
                     <Row gutter={24} type="flex" justify="center" align="middle">
                         <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center">
                             <a

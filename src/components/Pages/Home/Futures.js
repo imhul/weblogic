@@ -18,10 +18,9 @@ class Futures extends Component {
                         <div className="tap-target">
                             <div className="tap-target-content white">
                                 <h2 className="white">Hello!</h2>
-                                <h3 className="white">v1.0.4</h3>
-                                <h4 className="white">Futures implemented in the contact section:</h4>
-                                <p>Telegram API</p>
-                                <p>reCaptcha API</p>
+                                <h3 className="white">v1.0.4 changelog:</h3>
+                                <p>Telegram API is implemented</p>
+                                <p>reCaptcha API is implemented</p>
                             </div>
                         </div>
                         <div className="tap-target-wave">
