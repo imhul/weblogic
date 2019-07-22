@@ -20,11 +20,11 @@ class Intro extends Component {
                         </h2>
                     </Col>
 
-                    <Col span={24} style={{ height: '90px'}}>
+                    <Col span={24} style={{ height: '90px'}} className="center">
                         <Gravatar email="blashirk@gmail.com" size={100} />
                     </Col>
 
-                    <Col span={24} style={{ marginTop: 0}}>
+                    <Col span={24} style={{ marginTop: 0}} className="center">
                         <p className="name">
                             { translate( lang, 'my_name' )}
                         </p>
