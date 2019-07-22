@@ -15,7 +15,7 @@ class Roadmap extends Component {
                 <span>2019: </span>
                 <a href="https://ant.design/docs/react/practical-projects" title="antd DVA docs" target="_blank">
                     DVA
-                </a>, SSR, Jest, ESLint, Flow, Webpack
+                </a>, SSR, GraphQL, mongoDb, express.js, socket.io
             </div>
         );
 
