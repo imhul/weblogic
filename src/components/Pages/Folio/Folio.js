@@ -105,7 +105,7 @@ class Folio extends Component {
                         </MenuItem>
                         <MenuItem onClick={(e) => {
                                 e.preventDefault();
-                                window.open("https://github.com/imhul")
+                                window.open("https://github.com/imhul/weblogic")
                         }}>
                             <Icon type="github" /> Github
                         </MenuItem>

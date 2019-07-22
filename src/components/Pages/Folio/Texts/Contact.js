@@ -65,7 +65,7 @@ class Contact extends Component {
                                 <Icon type="linkedin" />
                             </a>
                             <a
-                                href="https://github.com/imhul"
+                                href="https://github.com/imhul/weblogic"
                                 className="ant-btn ant-btn-background-ghost"
                                 title={ `${translate( lang, 'github' )}` }
                                 target="_blank"

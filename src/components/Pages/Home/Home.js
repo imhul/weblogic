@@ -64,7 +64,7 @@ class Home extends Component {
                     </MenuItem>
                     <MenuItem key="github" onClick={(e) => {
                             e.preventDefault();
-                            window.open("https://github.com/imhul")
+                            window.open("https://github.com/imhul/weblogic")
                         }}>
                             <Icon type="github" /> Github
                     </MenuItem>

@@ -48,7 +48,7 @@ const antdLogo = <svg
             </linearGradient>
         </defs>
         <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <g id="logo" transform="translate(-20.000000, -20.000000)">
+            <g id="logo13231231231231234" transform="translate(-20.000000, -20.000000)">
                 <g id="Group-28-Copy-5" transform="translate(20.000000, 20.000000)">
                     <g id="Group-27-Copy-3">
                         <g id="Group-25" fillRule="nonzero">

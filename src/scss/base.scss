@@ -83,81 +83,82 @@ body {
 
 /* App */
 
-#bg-app {
-    width: 100%;
-    height: 100%;
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0) 0%,rgba(69,103,120,1) 100%);
-    background: radial-gradient(ellipse at center, rgba(255,255,255,0) 0%,rgba(69,103,120,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#456778',GradientType=1 );
-    #root { 
-        .ant-layout,
-        .ant-layout-header,
-        .ant-layout-footer {
-            background: $transparent;
-        }
-        .mobile-fix,
-        svg {
-            -webkit-tap-highlight-color: $transparent !important;
-            -webkit-focus-ring-color: $transparent !important;
-            -moz-user-select: none !important;
-            -webkit-user-select: none !important;
-            -ms-user-select: none !important;
-            user-select: none !important;
-            outline: none !important;
-        }
-        
-        .icon-lamp {
-            outline: none !important;
-        }
-        .align-left {
-            text-align: left !important;
-        }
-        .align-right {
-            text-align: right !important;
-        }
-        .center {
-            text-align: center !important;
-        }
-        .mb-0 {
-            margin-bottom: 0 !important;
-        }
-        .mb-10 {
-            margin-bottom: 10px !important;
-        }
-        .mb-20 {
-            margin-bottom: 20px !important;
-        }
-        .mt-20 {
-            margin-top: 20px !important;
-        }
-        .hidden {
-            display: none !important;
-        }
-        .ant-btn-background-ghost {
-            background-color: $color-deep-black !important;
-            padding: 15px;
-            height: auto;
-            &.first {
-                margin-right: 10px;
+body {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cmVjdCB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiBmaWxsPSJyZ2JhKDY1LDEwMCwxMTcsMSkiPjwvcmVjdD4KPHBhdGggZD0iTTI4IDY2TDAgNTBMMCAxNkwyOCAwTDU2IDE2TDU2IDUwTDI4IDY2TDI4IDEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDE4OCwgMjAwLCAyMDYsIC4yKSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+CjxwYXRoIGQ9Ik0yOCAwTDI4IDM0TDAgNTBMMCA4NEwyOCAxMDBMNTYgODRMNTYgNTBMMjggMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgxODgsIDIwMCwgMjA2LCAuMSkiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=");
+    #bg-app {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, rgba(255,255,255,0) 0%,rgba(69,103,120,1) 100%);
+        #root { 
+            .ant-layout,
+            .ant-layout-header,
+            .ant-layout-footer {
+                background: $transparent;
             }
-            span {
-                font-size: 2.5rem;
+            .mobile-fix,
+            svg {
+                -webkit-tap-highlight-color: $transparent !important;
+                -webkit-focus-ring-color: $transparent !important;
+                -moz-user-select: none !important;
+                -webkit-user-select: none !important;
+                -ms-user-select: none !important;
+                user-select: none !important;
+                outline: none !important;
             }
-            i {
-                font-size: 40px;
+            
+            .icon-lamp {
+                outline: none !important;
             }
-        }
-        @media only screen and (max-width: $media-small) {
-            .mobile-show {
-                display: block !important;
-                max-height: unset !important;
+            .align-left {
+                text-align: left !important;
             }
-            .mobile-hide {
-                display: none !important;
+            .align-right {
+                text-align: right !important;
             }
-            .mobile-center {
+            .center {
                 text-align: center !important;
             }
+            .mb-0 {
+                margin-bottom: 0 !important;
+            }
+            .mb-10 {
+                margin-bottom: 10px !important;
+            }
+            .mb-20 {
+                margin-bottom: 20px !important;
+            }
+            .mt-20 {
+                margin-top: 20px !important;
+            }
+            .hidden {
+                display: none !important;
+            }
+            .ant-btn-background-ghost {
+                background-color: $color-deep-black !important;
+                padding: 15px;
+                height: auto;
+                &.first {
+                    margin-right: 10px;
+                }
+                span {
+                    font-size: 2.5rem;
+                }
+                i {
+                    font-size: 40px;
+                }
+            }
+            @media only screen and (max-width: $media-small) {
+                .mobile-show {
+                    display: block !important;
+                    max-height: unset !important;
+                }
+                .mobile-hide {
+                    display: none !important;
+                }
+                .mobile-center {
+                    text-align: center !important;
+                }
+            }
         }
-    }
+    }    
 }
