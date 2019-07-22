@@ -92,7 +92,7 @@ class Contact extends Component {
                                 <Row gutter={24} type="flex" justify="center" align="middle">
                                     <Col span={12} className="mb-10">
                                         <h2 className="white">
-                                            { translate( lang, 'contact_form' )}
+                                            <Icon type="edit" /> { translate( lang, 'contact_form' )}
                                         </h2>
                                     </Col>
 

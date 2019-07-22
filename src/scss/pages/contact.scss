@@ -30,6 +30,14 @@
         .mb-2 {
             margin-bottom: 2px !important;
         }
+        .ant-statistic-content {
+            color: $color-white;
+        }
+        h2 {
+            i {
+                font-size: 26px;
+            }
+        }
         textarea {
             margin: 20px 0 !important;
             font-family: monospace;
