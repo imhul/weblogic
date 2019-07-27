@@ -1,4 +1,4 @@
-import { typeUX as type } from '../constants/types';
+import { typesUX as type } from '../constants/types';
 
 export function isHome() {
   return (dispatch) => {

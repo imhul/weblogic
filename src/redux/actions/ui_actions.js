@@ -1,4 +1,4 @@
-import { typeUI as type } from '../constants/types';
+import { typesUI as type } from '../constants/types';
 
 export function initialize() {
   return (dispatch) => {
