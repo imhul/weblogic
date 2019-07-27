@@ -1,9 +1,47 @@
-export const types = {
-  HERO_ANIMATE: 'HERO_ANIMATE',
-  CHANGE_LANG: 'CHANGE_LANG',
-  TAB_NUM: 'TAB_NUM',
-  TICK: 'TICK',
-  GET_FPS: 'GET_FPS',
-  LOAD_FOLIO: 'LOAD_FOLIO',
-  TAB_MODIFY: 'TAB_MODIFY',
+export const typesUI = {
+
+  INITIALIZE:      'INITIALIZE',
+  AUTHENTICATE:    'AUTHENTICATE',
+  HERO_ANIMATE:    'HERO_ANIMATE',
+  TICK:            'TICK',
+  GET_FPS:         'GET_FPS',
+  LOAD_FOLIO:      'LOAD_FOLIO',
+  ROBOT_CHECK:     'ROBOT_CHECK',
+
 };
+
+export const typesUX = {
+
+  IS_HOME:         'IS_HOME',
+  CHANGE_LANG:     'CHANGE_LANG',
+  TAB_NUM:         'TAB_NUM',
+  GO_TO_FOLIO:     'GO_TO_FOLIO',
+  GO_TO_HOME:      'GO_TO_HOME',
+  TAB_MODIFY:      'TAB_MODIFY',
+  CLICK_FX:        'CLICK_FX',
+  SHOW_MODAL:      'SHOW_MODAL',
+  CLOSE_MODAL:     'CLOSE_MODAL',
+  HISTORY_UPDATE:  'HISTORY_UPDATE',
+  HIDE_DESC:       'HIDE_DESC',
+  SHOW_DESC:       'SHOW_DESC',
+  TEXTAREA_UPDATE: 'TEXTAREA_UPDATE',
+  TOGGLE_FUTURES:  'TOGGLE_FUTURES',
+
+};
+
+export const typesUsers = {
+
+  // frtch
+  FETCH_ITEMS_BEGIN:    'FETCH_ITEMS_BEGIN',
+  FETCH_ITEMS_SUCESS:   'FETCH_ITEMS_SUCESS',
+  FETCH_ITEMS_FAILURE:  'FETCH_ITEMS_FAILURE',
+
+  // users
+  ADD_NEW_USER:     'ADD_NEW_USER',
+  GET_ALL_USERS:    'CHANGE_LANG',
+  UPDATE_USER:      'UPDATE_USER',
+  DELETE_USER:      'DELETE_USER',
+
+};
+
+

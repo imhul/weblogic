@@ -4,6 +4,8 @@
     "react"
   ],
   "plugins": [
+    "react-hot-loader/babel",
+    "transform-class-properties",
     "transform-object-rest-spread",
     [
       "import", {

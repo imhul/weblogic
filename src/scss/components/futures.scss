@@ -1,0 +1,196 @@
+@-webkit-keyframes pulse-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes pulse-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+.Futures {
+    &.ant-back-top {
+        bottom: 45px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        .ant-back-top-inner {
+            .tap-target-wrapper {
+                width: 800px;
+                height: 800px;
+                position: fixed;
+                z-index: 1000;
+                visibility: hidden;
+                transition: visibility 0s .3s;
+    
+                @media only screen and (max-width: 600px) {
+                    width: 600px;
+                    height: 600px;
+                }
+    
+                &.open {
+                    visibility: visible;
+                    transition: visibility 0s;
+    
+                    .tap-target {
+                        transform: scale(1);
+                        opacity: .95;
+                        transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+                        transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+                        transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+                    }
+    
+                    .tap-target-wave {
+                        &::before {
+                            transform: scale(1);
+                        }
+    
+                        &::after {
+                            visibility: visible;
+                            animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+                            transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
+                            transition: opacity .3s, transform .3s, visibility 0s 1s;
+                            transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+                        }
+                    }
+                }
+            }
+    
+            .tap-target {
+                position: absolute;
+                font-size: 1rem;
+                border-radius: 50%;
+                background-color: $color-deep-black;
+                box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
+                width: 100%;
+                height: 100%;
+                bottom: 50%;
+                right: 50%;
+                opacity: 0;
+                transform: scale(0);
+                transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+                transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+                transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    
+                @media only screen and (max-width: 600px) {
+                    width: 600px;
+                    height: 600px;
+                }
+            }
+    
+            .tap-target-content {
+                position: relative;
+                display: table-cell;
+                top: 180px;
+                right: -40%;
+                color: $color-white;
+                a {
+                    color: $color-white;
+                    &:hover {
+                        color: $color-link-hover;
+                    }
+                }
+            }
+    
+            .tap-target-wave {
+                position: absolute;
+                border-radius: 50%;
+                z-index: 10001;
+                visibility: visible !important;
+    
+                &::before,
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background-color: unset;
+                }
+    
+                &::before {
+                    transform: scale(0);
+                    transition: -webkit-transform .3s;
+                    transition: transform .3s;
+                    transition: transform .3s, -webkit-transform .3s;
+                }
+    
+                &::after {
+                    visibility: hidden;
+                    transition: opacity .3s, visibility 0s, -webkit-transform .3s;
+                    transition: opacity .3s, transform .3s, visibility 0s;
+                    transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
+                    z-index: -1;
+                    bottom: 0;
+                    background-color: $color-link-hover;
+                }
+                button {
+                    width: 56px;
+                    height: 56px;
+                    background-color: $color-deep-black;
+                    border-color: $color-deep-black;
+                    i {
+                        font-size: 28px;
+                        color: $color-link-hover;
+                    }
+                }
+            }
+    
+            .tap-target-origin {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 10002;
+                position: absolute !important;
+            }
+    
+            .pulse {
+                overflow: visible;
+                position: relative;
+            }
+    
+            .pulse {
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    background-color: inherit;
+                    border-radius: inherit;
+                    transition: opacity .3s, -webkit-transform .3s;
+                    transition: opacity .3s, transform .3s;
+                    transition: opacity .3s, transform .3s, -webkit-transform .3s;
+                    animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+                    z-index: -1;
+                }
+            }
+        }
+    }
+}

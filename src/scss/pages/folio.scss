@@ -2,6 +2,7 @@
 
 .Folio {
     height: -webkit-fill-available;
+    background-color: $color-content-bg;
     width: 100%;
     max-width: 100%;
     top: 0;
@@ -25,7 +26,7 @@
         border: 0;
         border-radius: 0;
         & * {
-            transition: height 0.2s ease-in-out !important;
+            transition: height 0.2s ease-in-out .5s;
         }
         &.active {
             .ant-collapse-item {
@@ -35,53 +36,45 @@
                 }
                 .ant-collapse-header {
                     height: 10vh;
-                    line-height: 5vh;
                     font-size: 8vh;
                     i {
-                        line-height: 10vh;
                         font-size: 6vh;
-                        margin-top: 0;
-                        @media (max-width: $media-small) {
-                            display: inline-block;
-                            font-size: 8vw !important;
-                            margin: 0 0 0 20px;
-                            float: none;
-                        }
                     }
                 }
             }
         }
-        // @for $i from 1 through 4 {
-        //     $paddings: random(320);
-        //     .ant-collapse-item {
-        //         &.panel-#{$i} {
-        //             .ant-collapse-header {
-        //                 padding-left: #{$paddings}px !important;
-        //             }
-        //         }
-        //     }
-        // }
         .ant-collapse-item {
             border-bottom-color: $color-white;
             height: 25vh;
             .ant-collapse-header {
+                padding: 0;
                 height: 25vh;
-                line-height: 16vh;
                 font-size: 18vh;
                 color: $color-white;
-                // transition: all 500ms cubic-bezier(0.130, 0.060, 0.000, 1.650) !important;
+                text-shadow: 2px 2px 4px $color-black;
+                background-size: cover;
                 &:hover {
-                    text-shadow: 0 0 20px $color-white;
+                    text-shadow: 0 0 4px $color-white;
+                    & i>svg {
+                        filter: drop-shadow( 0 0 4px $color-white);
+                    }
                 }
-                &:hover i>svg {
-                    filter: drop-shadow( 0 0 20px $color-white);
+                & i > svg {
+                    filter: drop-shadow( 2px 2px 4px $color-black);
                 }
-                i {
-                    float: right;
-                    margin-right: 60px;
-                    font-size: 13vh;
-                    display: block;
-                    margin-top: 4.5vh;
+                .bg {
+                    height: 100%;
+                    padding: 0 25px;
+                    background: linear-gradient(45deg, rgba(255,255,255,0) 0%,rgba(65,100,117,1) 100%);
+                    &>div {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        justify-content: space-between;
+                        i {
+                            font-size: 13vh;
+                        }
+                    }
                 }
             }
             /* Static content styles */
@@ -98,22 +91,14 @@
                 .ant-collapse-content-box {
                     width: 100%;
                     position: relative;
-                    top: 50px;
                     height: auto;
                     padding: 0;
-                    margin: 0 auto 50px;
-                    display: table;
-                    @media (max-width: $media-small) {
-                        top: 50px;
-                    }
+                    margin: 0 auto;
                     .content {
                         max-width: 100%;
                         width: 80%;
                         margin: 0 auto;
                         color: $color-white;
-                        &>div {
-                            text-align: center;
-                        }
                     }
                 }
             }
@@ -123,10 +108,8 @@
             height: 10vh;
             .ant-collapse-header {
                 height: 10vh;
-                line-height: 5vh;
                 font-size: 8vh;
                 i {
-                    line-height: 10vh;
                     font-size: 6vh;
                     margin-top: 0;
                 }
@@ -161,6 +144,7 @@
         }
     }
     .react-contextmenu {
+        box-shadow: 0 0 20px $color-white;
         &.react-contextmenu--visible {
             min-width: 135px;
             background-color: $color-black;
@@ -170,7 +154,7 @@
                 a {
                     color: $color-white;
                 }
-                &.react-contextmenu-item--selected {
+                &:hover {
                     background-color: $color-footer;
                     color: $color-link-hover;
                     a {

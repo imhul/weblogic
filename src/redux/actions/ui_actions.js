@@ -1,9 +1,35 @@
-import { types } from '../constants/types';
+import { typesUI as type } from '../constants/types';
+
+export function initialize() {
+  return (dispatch) => {
+    dispatch({
+      type: type.INITIALIZE,
+    })
+  }
+};
+
+export function authenticate(ip) {
+  return (dispatch) => {
+    dispatch({
+      type: type.AUTHENTICATE,
+      payload: ip,
+    })
+  }
+};
+
+export function getRobot(payload) {
+  return (dispatch) => {
+    dispatch({
+      type: type.ROBOT_CHECK,
+      payload: payload,
+    })
+  }
+};
 
 export function tick() {
   return (dispatch) => {
     dispatch({
-      type: types.TICK,
+      type: type.TICK,
     })
   }
 };
@@ -11,7 +37,7 @@ export function tick() {
 export function getFPS(payload) {
   return (dispatch) => {
     dispatch({
-      type: types.GET_FPS,
+      type: type.GET_FPS,
       payload: payload,
     })
   }
@@ -20,7 +46,7 @@ export function getFPS(payload) {
 export function heroAnimate() {
   return (dispatch) => {
     dispatch({
-      type: types.HERO_ANIMATE,
+      type: type.HERO_ANIMATE,
     })
   }
 };
@@ -28,25 +54,7 @@ export function heroAnimate() {
 export function loadFolio() {
   return (dispatch) => {
     dispatch({
-      type: types.LOAD_FOLIO,
-    })
-  }
-};
-
-export function tabMod(payload) {
-  return (dispatch) => {
-    dispatch({
-      type: types.TAB_MODIFY,
-      payload: payload,
-    })
-  }
-};
-
-export function langUpdate(payload) {
-  return (dispatch) => {
-    dispatch({
-      type: types.CHANGE_LANG,
-      payload: payload,
+      type: type.LOAD_FOLIO,
     })
   }
 };

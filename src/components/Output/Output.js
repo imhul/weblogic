@@ -1,49 +1,58 @@
-// Компонент-обёртка для LayoutMain, позволяющая осуществлять роутинг внутри себя
-
 import React, { Component } from 'react';
-import { Provider, connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { store } from '../../index';
-import history from '../../utils/history';
-import { Switch, Route, Router } from "react-router-dom";
+import { connect } from 'react-redux';
+import { history } from '../../redux/store';
+import * as UX_ACTIONS from '../../redux/actions/ux_actions';
+import '../../fonts/fonts.css';
+import '../../scss/index.scss';
+import '../../utils/bg';
 import { Layout } from 'antd';
-import LanguageProvider, { Language } from '../../utils/language/provider';
-
-// components
+import Stats from '../Pages/Home/Stats';
 import Home from '../Pages/Home';
 import Folio from '../Pages/Folio';
-import Stats from '../Stats';
+import Futures from '../Pages/Home/Futures';
 
 const { Content } = Layout;
 
 class Output extends Component {
+
+    componentDidMount() {
+        const { uxActions } = this.props;
+        history.listen((location, action) => {
+            uxActions.updateHistory(history.location.pathname)
+        })
+    };
+
     render() {
 
-        const NotFound = () => {
-            <h1>Sorry! Page Not Found:(</h1>
-        }
+        const { isHome } = this.props.ux;
 
         return (
-            <Provider store={store}>
-                <Router history={history}>
-                    <LanguageProvider>
-                        <Layout className="LayoutMain">
-                            <Stats />
-                            <Layout className="Main">
-                                <Content>
-                                    <Switch>
-                                        <Route exact path="/" component={Home} />
-                                        <Route path="/folio" component={Folio} />
-                                        <Route component={NotFound} />
-                                    </Switch>
-                                </Content>
-                            </Layout>
-                        </Layout>
-                    </LanguageProvider>
-                </Router>
-            </Provider>
-        );
+            <Layout className="LayoutMain">
+                { isHome ? <Stats /> : null }
+                { isHome ? <Futures /> : null }
+                <Layout className="Main">
+                    <Content>
+                        <Route exact path="/" component={ Home } />
+                        <Route exact path="/folio" component={ Folio } />
+                    </Content>
+                </Layout>
+            </Layout>
+        )
     }
-}
+};
 
-export default Output;
+function mapDispatchToProps(dispatch) {
+    return {
+        uxActions: bindActionCreators(UX_ACTIONS, dispatch),
+    }
+};
+
+function mapStateToProps(state) {
+    return {
+        ux: state.ux,
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Output);

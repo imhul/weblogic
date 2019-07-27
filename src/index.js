@@ -1,29 +1,26 @@
+
+import { hot, AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './redux/reducers';
+import store, { history } from './redux/store';
+
 import Output from './components/Output';
 
-import './fonts/fonts.css';
-import './scss/index.scss';
-import './utils/bg';
-
-const devtools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-const composerEnchancer = devtools ? devtools : compose;
-const enhancedStore = composerEnchancer(applyMiddleware( thunk ));
-
-function configureStore(initialState) {
-  return createStore(
-    rootReducer, 
-    initialState, 
-    enhancedStore
-  )
+function renderApp() {
+    const App = () => (
+        <AppContainer>
+            <Provider store={ store }>
+                <ConnectedRouter history={ history }>
+                    <Output />
+                </ConnectedRouter>
+            </Provider>
+        </AppContainer>
+    );
+    ReactDOM.render(<App />, document.getElementById('root'))
 };
 
-export const store = configureStore({});
+renderApp();
 
-const reactRoot = document.getElementById('root');
-const baseComponent = React.createElement(Output, { store });
-
-ReactDOM.render(baseComponent, reactRoot);
+hot(module)(renderApp);

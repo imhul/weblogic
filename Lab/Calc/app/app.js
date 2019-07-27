@@ -3,7 +3,7 @@
     angular
         .module('CalcApp', ['rzModule', 'AngularPrint'])
         .constant('appConfig', {
-            'basePath': '/laboratory/calc'
+            'basePath': 'http://weblogic.com.ua/Lab/Calc'
         })
         .run(function($location) {
             console.log('location: ', $location);

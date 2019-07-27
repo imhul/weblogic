@@ -1,143 +1,152 @@
 import React, { Component } from 'react';
-import { Row, Col, List, Button, Icon, message } from 'antd';
-import { Language } from '../../../../utils/language/provider';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
+import translate from '../../translations';
+import { Row, Col, List, Button, Icon, Avatar, message } from 'antd';
+
+import puzzleImg from '../../../../images/works/puzzle.jpg';
+import ektaImg from '../../../../images/works/ekta.jpg';
+import calcImg from '../../../../images/works/calc.jpg';
+import seezisImg from '../../../../images/works/seezis.jpg';
+import silverImg from '../../../../images/works/silver.jpg';
+// import TrelloModal from '../TrelloModal';
+// Trello API
+// import { isTrelloAvailable, authenticateUser, getBoard } from '../../../../utils/api';
 
 const ListItem = List.Item;
 const ListMeta = ListItem.Meta;
 
 class Works extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
+    
+    // componentDidMount() {
+    //     console.log('ok?', isTrelloAvailable());
+    //     setInterval(() => console.log('+1000. ok?', isTrelloAvailable()), 1000);
+    //     setTimeout(() => console.log('+1000. ok?', authenticateUser()), 1000)
+    // };
 
     render() {
+
+        const { lang } = this.props.ux;
         const base = window.location.origin;
-        // TODO: Require to copy Lab folder from the root to dist!!!
         const links = [
             {
-                name: (<Language dictionary={{
-                    english: "Puzzle game, JavaScript + Canvas + design",
-                    russian: "Игра 'Пазлы', JavaScript + Canvas + design"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Demo",
-                    russian: "Демо"
-                }}
-                /><Icon type="experiment" theme="outlined" /> </span>),
+                name: translate( lang, 'work_1' ),
+                type: translate( lang, 'demo' ),
+                icon: <Icon type="experiment" theme="outlined" />,
                 href: `${base}/Lab/Game/index.html`,
+                back: `${puzzleImg}`,
+                demo: true,
             },
             {
-                name: (<Language dictionary={{
-                    english: "Corporate project, Joomla + design",
-                    russian: "Корпоративный сайт, Joomla + design"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Released",
-                    russian: "Релиз"
-                }}
-                /><Icon type="link" theme="outlined" /> </span>),
-                href: 'http://ekta.ua/'
+                name: translate( lang, 'work_2' ),
+                type: translate( lang, 'released' ),
+                icon: <Icon type="link" theme="outlined" />,
+                href: 'http://ekta.ua/',
+                back: `${ ektaImg }`,
+                demo: false,
             },
             {
-                name: (<Language dictionary={{
-                    english: "LED-screen calculator, Angular + Materialize + design",
-                    russian: "Калькулятор LED панелей, Angular + Materialize + design"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Demo",
-                    russian: "Демо"
-                }}
-                /><Icon type="experiment" theme="outlined" /> </span>),
-                href: `${base}/Lab/Calc/index.html`,
+                name: translate( lang, 'work_3' ),
+                type: translate( lang, 'released' ),
+                icon: <Icon type="link" theme="outlined" />,
+                // href: `${ base }/Lab/Calc/index.html`,
+                href: 'http://ekta.ua/projects/calc',
+                back: `${ calcImg }`,
+                demo: false,
             },
             {
-                name: (<Language dictionary={{
-                    english: "Analytical resource, JavaScript + jQuery + Materialize + design",
-                    russian: "Аналитический ресурс, Angular + jQuery + Materialize + design"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Released",
-                    russian: "Релиз"
-                }}
-                /><Icon type="link" theme="outlined" /> </span>),
-                href: 'https://seezislab.com/'
+                name: translate( lang, 'work_4' ),
+                type: translate( lang, 'released' ),
+                icon: <Icon type="link" theme="outlined" />, 
+                href: 'https://seezislab.com/',
+                back: `${ seezisImg }`,
+                demo: false,
             },
             {
-                name: (<Language dictionary={{
-                    english: "Web presentation, Rreveal.js",
-                    russian: "Веб-презентация, Rreveal.js"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Demo",
-                    russian: "Демо"
-                }}
-                /><Icon type="experiment" theme="outlined" /></span>),
-                href: `${base}/Lab/Presentation/index.html`,
-            },
-            {
-                name: (<Language dictionary={{
-                    english: "e-commerce project, React + Redux + masonry + design",
-                    russian: "Интернет-магазин', React + Redux + masonry + design"
-                }}
-                />),
-                type: (<span className="mobile-flex"><Language dictionary={{
-                    english: "Released",
-                    russian: "Релиз"
-                }}
-                /><Icon type="link" theme="outlined" /> </span>),
+                name: translate( lang, 'work_6' ),
+                type: translate( lang, 'released' ),
+                icon: <Icon type="link" theme="outlined" />, 
                 href: 'https://silverstemcannabis.com/',
+                back: `${ silverImg }`,
+                demo: false,
             },
         ];
+
         const header = (
             <Row gutter={24}>
                 <Col span={12} style={{ textAlign: 'left' }}>
-                    <Language
-                        dictionary={{
-                            english: "Project description",
-                            russian: "Описание проекта"
-                        }}
-                    />
+                    { translate( lang, 'project_desc' )}
                 </Col>
                 <Col span={12} style={{ textAlign: 'right' }}>
-                    <Language
-                        dictionary={{
-                            english: "Status",
-                            russian: "Статус"
-                        }}
-                    />
+                    { translate( lang, 'status' )}
                 </Col>
             </Row>
         );
 
+        const footer = (
+            <div>
+                <div>
+                    { translate( lang, 'demo_status_desc' )}
+                </div>
+                <div>
+                    { translate( lang, 'released_status_desc' )}
+                </div>
+                <h2 className="mt-20">{ translate( lang, 'current_projects' )}</h2>
+                <div>
+                    <a href="https://github.com/imhul/med_form" title="Форма карточки пациэнта" target="_blank">
+                    <Icon type="github" /> med_form</a> React + Redux
+                </div>
+                <div>
+                    <a href="https://github.com/imhul/patient-chart" title="Форма карточки пациэнта" target="_blank">
+                    <Icon type="github" /> patient-chart</a> React + Redux
+                </div>
+                <div>
+                    <a href="https://github.com/imhul/doctor_acc" title="Форма карточки пациэнта" target="_blank">
+                    <Icon type="github" /> doctor_acc</a> React + Redux
+                </div>
+            </div>
+        );
+
         return (
             <div className="Works content">
-
                 <List
                     size="large"
                     header={header}
+                    footer={footer}
                     bordered
                     dataSource={links}
                     renderItem={item => (
-                        <a target="_blank" href={item.href}>
+                        <a target="_blank" className="link" href={item.href}>
                             <ListItem>
-                                {item.type}
-                                <ListMeta title={ item.name } />
+                                <ListMeta 
+                                    
+                                    avatar={ <Avatar src={item.back} /> }
+                                    title={ item.type }
+                                    description={item.name}
+                                />
+                                    {item.icon}
                             </ListItem>
                         </a>
                     )}
                 />
 
+                {/* <TrelloModal /> */}
             </div>
         )
     }
-}
+};
 
-export default Works;
+function mapDispatchToProps(dispatch) {
+    return {
+        uxActions: bindActionCreators(UX_ACTIONS, dispatch),
+    }
+};
+
+function mapStateToProps(state) {
+    return {
+        ux: state.ux,
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Works);

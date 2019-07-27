@@ -1,178 +1,179 @@
 import React, { Component } from 'react';
-import { Row, Col, Form, Input, Rate, Button, Icon, message } from 'antd';
-import { Language } from '../../../../utils/language/provider';
-import Base64 from '../../../../utils/decode';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
+import { Row, Col, Form, Input, Button, Icon, Statistic, message } from 'antd';
+import translate from '../../translations';
+import safe from '../../../../utils/safe';
 import Clipboard from 'react-clipboard.js';
+import Captcha from './Captcha';
 
 const { TextArea } = Input;
 
-const mCode = Base64.decode('Ymxhc2hpcmtAZ21haWwuY29t');
-const fCode = Base64.decode('KzM4IDA2MyA0NDIgMjUgMzc=');
-
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
 
+    onSuccess(e) {
+        const { lang } = this.props.ux;
+        switch ( e.text ) {
+            case safe.mCode: 
+                return message.success(`${translate( lang, 'message_success_email' )}`);
+            case safe.fCode: 
+                return message.success(`${translate( lang, 'message_success_phone' )}`);
+            default:
+                return message.error(`${translate( lang, 'message_error_wrong' )}`);
         }
-        this.onSuccess = this.onSuccess.bind(this);
-    }
+    };
 
-    onSuccess() {
-        message.success('successfully copied');
-    }
+    handleSubmit = event => {
+        const { lang, isFilled, tgMessage } = this.props.ux;
+
+            if (isFilled) {
+                fetch(`${safe.tCode}${tgMessage}'`)
+                .then(response => response.json())
+                .then(result => {
+                    if (result.ok) {
+                        message.success(`${translate( lang, 'message_success' )}`);
+                    } else {
+                        message.error(`${translate( lang, 'message_error' )}`);
+                    }
+                })
+                .catch(error => message.error(`${translate( lang, 'message_error' )}: ${error}`))
+            } else {
+                message.error(`${translate( lang, 'message_error_phone' )}`);
+            };
+            event.preventDefault();
+    };
 
     render() {
 
-        const emailPrefix = <Icon type="mail" />;
-        const commentPrefix = <Icon type="edit" />;
+        const { lang, tgMessage } = this.props.ux;
+        const { currentUser } = this.props.ui;
+        const { uxActions } = this.props;
+        const maxSize = 4096;
 
         return (
             <div className="Contact content">
-            
-                <Row gutter={24} type="flex" justify="center" align="middle">
-                    <Col span={12} className="mb-20 align-right">
-                        <Button
-                            ghost={ true }
-                            title="my linkedin page"
-                            href='https://www.linkedin.com/in/tkachuk-zakhar-04733892/'
-                            target='_blank'>
-                            <Icon type='linkedin' />
-                            <Language
-                                dictionary={{
-                                    english: "Summary",
-                                    russian: "Резюме"
-                                }} />
-                        </Button>
-                    </Col>
-  
-                    <Col span={12} className="mb-20 align-left">
-                        <Button
-                            ghost={ true }
-                            title="github project"
-                            href="https://github.com/imhul"
-                            target="_blank"
-                        >
-                            <Icon type="github" />Github
-                        </Button>
-                    </Col>
-
-                    <Col span={24}>
-                        <Form 
-                            method="POST" 
-                            className="mb-20"
-                            encType="text/plain" 
-                            action="https://formspree.io/blashirk@gmail.com"
+                { 
+                    currentUser.isRobot ? <Captcha /> : (
+                    <Row gutter={24} type="flex" justify="center" align="middle">
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center">
+                            <a
+                                className="ant-btn ant-btn-background-ghost first"
+                                href="https://www.linkedin.com/in/tkachuk-zakhar-04733892/"
+                                title={ `${translate( lang, 'linkedin' )}`}
+                                target="_blank">
+                                <Icon type="linkedin" />
+                            </a>
+                            <a
+                                href="https://github.com/imhul/weblogic"
+                                className="ant-btn ant-btn-background-ghost"
+                                title={ `${translate( lang, 'github' )}` }
+                                target="_blank"
                             >
-                            <Row gutter={24} type="flex" justify="center" align="middle">
-                                <Col span={24} className="mb-10">
-                                    <h2 className="white">
-                                        <Language
-                                            dictionary={{
-                                                english: "Contact Form",
-                                                russian: "Форма обратной связи"
-                                            }}
-                                        />
-                                    </h2>
-                                </Col>
-                                <Col xs={{ span: 24 }} sm={{ span: 12 }}>
-                                    <Input 
-                                        name="email" 
-                                        tabIndex="1" 
-                                        type="email" 
-                                        prefix={ emailPrefix }
-                                        defaultValue="exemple@mail.com" />
-                                </Col>
-                                <Col span={24}>
-                                    <TextArea 
-                                        name="comment" 
-                                        tabIndex="2" 
-                                        rows={4} />
-                                </Col>
-                                <Col span={24} className="mb-2">
-                                    <span className="white">
-                                        <Language
-                                            dictionary={{
-                                                english: "Rate this page",
-                                                russian: "Оцените этот сайт"
-                                            }}
-                                        /></span>
-                                </Col>
-                                <Col span={24} className="mb-20">
-                                    <Rate character={<Icon type="heart" theme="filled" />} />
-                                </Col>
-                                <Col span={12}>
-                                    <Input 
-                                        type="submit" 
-                                        tabIndex="3" 
-                                        value="Send" />
-                                </Col>
-                            </Row>
-                        </Form>
-                    </Col>
+                                <Icon type="github" />
+                            </a>
+                        </Col>
+    
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
+                            <Button
+                                ghost
+                                href={safe.cv}
+                                title={ `${translate( lang, 'myCV' )}` }
+                                target='_blank'>
+                                <Icon type="cloud" />
+                                    { translate( lang, 'summary' )}
+                            </Button>
+                        </Col>
 
-                    <Col span={24}>
-                        <Language
-                            dictionary={{
-                                english: "or",
-                                russian: "или"
-                            }}
-                        />
-                    </Col>
+                        <Col span={24}>
 
-                    <Col span={24} className="mb-20">
-                        <Language
-                            dictionary={{
-                                english: "copy contacts",
-                                russian: "скопируйте контакты"
-                            }}
-                        />
-                    </Col>
+                            <Form onSubmit={this.handleSubmit}>
 
-                    <Col span={24} className="mb-20">
-                        <Clipboard
-                            className="ant-btn ant-btn-background-ghost"
-                            option-text={() => mCode}
-                            onSuccess={this.onSuccess}>
-                            <Icon type="copy" />
-                            <Language
-                                dictionary={{
-                                    english: "Copy email to clipboard",
-                                    russian: "Копировать email"
-                                }}
-                            />
-                        </Clipboard>
-                    </Col>
+                                <Row gutter={24} type="flex" justify="center" align="middle">
+                                    <Col span={12} className="mb-10">
+                                        <h2 className="white">
+                                            <Icon type="edit" /> { translate( lang, 'contact_form' )}
+                                        </h2>
+                                    </Col>
 
-                    <Col span={24}>
-                        <Clipboard
-                            className="ant-btn ant-btn-background-ghost"
-                            option-text={() => fCode}
-                            onSuccess={this.onSuccess}>
-                            <Icon type="copy" />
-                            <Language
-                                dictionary={{
-                                    english: "Copy phone to clipboard",
-                                    russian: "Копировать телефон"
-                                }}
-                            />
-                        </Clipboard>
-                    </Col>
+                                    <Col span={12} className="mb-10 align-right">
+                                        <Statistic 
+                                            className="white" 
+                                            suffix={`/ ${maxSize}`}
+                                            value={`${tgMessage.length}`} />
+                                    </Col>
+                                
+                                    <Col span={24}>
+                                        <TextArea 
+                                            rows={4}
+                                            cols={30}
+                                            tabIndex="1"
+                                            placeholder={ `${translate( lang, 'placeholder')}` }
+                                            onChange={uxActions.textareaUpdate} />
+                                    </Col>
+                                    <Col span={16}>
+                                        <Button size="large" type="primary" htmlType="submit">
+                                            { translate( lang, 'submit' )}
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </Form>
+                        </Col>
 
-                    <Col span={24}>
-                        <p>
-                            <Language
-                                dictionary={{
-                                    english: "Always ready for mutually beneficial cooperation.",
-                                    russian: "Всегда готов к взаимовыгодному сотрудничеству."
-                                }}
-                            />
-                        </p>
-                    </Col>
-                </Row>
+                        <Col span={24} className="mt-20 center">
+                            { translate( lang, 'or' )}
+                        </Col>
+
+                        <Col span={24} className="mb-20 center">
+                            <h2>{ translate( lang, 'copy_contacts' )}</h2>
+                        </Col>
+
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center" title={ translate( lang, 'copy_email' )}>
+                            <Clipboard
+                                className="ant-btn ant-btn-background-ghost"
+                                option-text={() => safe.mCode}
+                                onSuccess={ this.onSuccess }>
+                                <Icon type="mail" />
+                                <Icon type="ellipsis" />
+                                <Icon type="copy" />
+                            </Clipboard>
+                        </Col>
+
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center" title={ translate( lang, 'copy_phone' )}>
+                            <Clipboard
+                                className="ant-btn ant-btn-background-ghost"
+                                option-text={() => safe.fCode}
+                                onSuccess={ this.onSuccess }>
+                                <Icon type="phone" />
+                                <Icon type="ellipsis" />
+                                <Icon type="copy" />
+                            </Clipboard>
+                        </Col>
+
+                        <Col span={24} className="center">
+                            <h2>
+                                { translate( lang, 'cooperation_ready' )}
+                            </h2>
+                        </Col>
+                    </Row>
+                    )
+                }
             </div>
         )
     }
-}
+};
 
-export default Contact;
+function mapDispatchToProps(dispatch) {
+    return {
+        uxActions: bindActionCreators(UX_ACTIONS, dispatch),
+    }
+};
+
+function mapStateToProps(state) {
+  return {
+    ux: state.ux,
+    ui: state.ui,
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contact);

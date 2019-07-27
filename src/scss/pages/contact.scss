@@ -1,16 +1,27 @@
 /* Contact */
 
 .Contact {
+    margin: 50px auto 0 auto !important;
     @media all and (max-width: $media-x-small) {
         font-size: 6vw;
     }
     .ant-row-flex {
         margin-bottom: 20px;
+        .g-recaptcha {
+            min-height: 40vh;
+            z-index: 11;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
     p {
         margin: 20px 0;
         display: inline-block;
         text-align: center;
+    }
+    h2 {
+        color: $color-white;
     }
     form {
         padding: 20px;
@@ -19,35 +30,40 @@
         .mb-2 {
             margin-bottom: 2px !important;
         }
-        .white {
+        .ant-statistic-content {
             color: $color-white;
+        }
+        h2 {
+            i {
+                font-size: 26px;
+            }
         }
         textarea {
             margin: 20px 0 !important;
+            font-family: monospace;
+            font-size: 20px;
         }
         .ant-input {
-            background-color: $color-black;
+            background-color: $color-deep-black;
             border-color: $color-white;
-            font-family: monospace;
             color: $color-white;
             &:hover {
                 border-color: $color-link-hover !important;
             }
-        }
-        .ant-input[type=email] {
-            padding-left: 35px;
-        }
-        .ant-input-prefix {
-            i {
-                color: $color-white;
+            &:focus {
+                border-color: $color-link-hover !important;
+                box-shadow: 0 0 20px $color-link-hover;
             }
         }
-        .ant-input[type=submit] {
+
+        button[type=submit] {
             font-family: 'Open-Sans', sans-serif;
             background-color: $color-white;
             border-color: $color-white;
             color: $color-black;
             cursor: pointer;
+            display: block;
+            width: 100%;
             &:hover {
                 text-shadow: $color-link-hover 0 0 20px;
                 border-color: $color-link-hover;

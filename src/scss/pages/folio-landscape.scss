@@ -9,7 +9,7 @@
             border: 0;
             border-radius: 0;
             & * {
-                transition: height 0.2s ease-in-out !important;
+                transition: height 0.2s ease-in-out;
             }
             &.active {
                 .ant-collapse-item {
@@ -19,29 +19,16 @@
                     }
                     .ant-collapse-header {
                         height: 10vh;
-                        line-height: 5vh;
-                        // iPhones
-                        @media all and (max-width: $media-x-large) and (max-height: 1024px) {
-                            line-height: 7vh;
-                        } 
+                        // iPhones 
                         @media all and (max-width: $media-medium-max) {
                             height: 10vh;
-                            line-height: 8vh;
                             padding: 0 0 0 12px;
                         }
-                        i {
-                            line-height: 10vh;
-                            font-size: 6vh;
-                            // iPhones
-                            @media (max-width: $media-small) {
-                                font-size: 6vh !important;
-                            } 
-                            @media (min-width: $media-medium-min) and (max-width: $media-medium-max) {
-                                margin-top: 2vh;
-                            }
-                            // iPads
-                            @media all and (max-width: $media-x-large) and (min-height: 1024px) {
-                                margin-top: 1vh;
+                        .bg {
+                            &>div {
+                                i {
+                                    font-size: 6vh;
+                                }
                             }
                         }
                     }
@@ -52,15 +39,8 @@
                 height: 25vh;
                 .ant-collapse-header {
                     height: 25vh;
-                    line-height: 18vh;
                     font-size: 18vh;
                     color: $color-white;
-                    i {
-                        line-height: 25vh;
-                        font-size: 13vh;
-                        left: unset;
-                        right: 50px;
-                    }
                 }
                 /* Static content styles */
                 .ant-collapse-content {
@@ -78,11 +58,13 @@
                 height: 10vh;
                 .ant-collapse-header {
                     height: 10vh;
-                    line-height: 5vh;
                     font-size: 8vh;
-                    i {
-                        line-height: 10vh;
-                        font-size: 6vh;
+                    .bg {
+                        &>div {
+                            i {
+                                font-size: 6vh;
+                            }
+                        }
                     }
                 }
                 /* active content */

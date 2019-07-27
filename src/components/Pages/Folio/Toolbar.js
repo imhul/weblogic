@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import { Switch, Icon } from 'antd';
-import { LanguageConsumer } from '../../../utils/language/provider';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
+import { Switch } from 'antd';
 
 class Toolbar extends Component {
-
     render() {
+        const { uxActions } = this.props;
+        const { lang } = this.props.ux;
         return (
             <div className="Toolbar">
-                <LanguageConsumer>
-                    {({ updateLanguage }) => (
-                        <Switch 
-                            defaultChecked={ true }
-                            onChange={ updateLanguage } 
-                            unCheckedChildren="ru" 
-                            checkedChildren="en" 
-                        />
-                    )}
-                </LanguageConsumer>
+                <Switch 
+                    defaultChecked={ lang === "english" ? true : false }
+                    onChange={ data => uxActions.langUpdate(data) } 
+                    unCheckedChildren="ru" 
+                    checkedChildren="en" 
+                />
             </div>
         );
     }
-}
+};
 
-export default Toolbar
+function mapDispatchToProps(dispatch) {
+    return {
+        uxActions: bindActionCreators(UX_ACTIONS, dispatch),
+    }
+};
+
+function mapStateToProps(state) {
+  return {
+    ux: state.ux,
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
