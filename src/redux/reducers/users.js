@@ -1,7 +1,7 @@
 import { initStateUsers as initState } from '../init/initStateUsers';
 import { typesUsers as types } from '../constants/types';
 
-export default function (state = initialState, action) {
+export default function (state = initState, action) {
   switch (action.type) {
 
     case ADD_NEW_USER: return {
