@@ -1,4 +1,4 @@
-import { initStateUX } from './initStateUX';
+import { initStateUX } from '../init/initStateUX';
 import { typesUX as types } from '../constants/types';
 
 export default (state = initStateUX, action) => {

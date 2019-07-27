@@ -28,3 +28,20 @@ export const typesUX = {
   TOGGLE_FUTURES:  'TOGGLE_FUTURES',
 
 };
+
+export const typesUsers = {
+
+  // frtch
+  FETCH_ITEMS_BEGIN:    'FETCH_ITEMS_BEGIN',
+  FETCH_ITEMS_SUCESS:   'FETCH_ITEMS_SUCESS',
+  FETCH_ITEMS_FAILURE:  'FETCH_ITEMS_FAILURE',
+
+  // users
+  ADD_NEW_USER:     'ADD_NEW_USER',
+  GET_ALL_USERS:    'CHANGE_LANG',
+  UPDATE_USER:      'UPDATE_USER',
+  DELETE_USER:      'DELETE_USER',
+
+};
+
+

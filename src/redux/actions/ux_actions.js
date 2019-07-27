@@ -1,9 +1,9 @@
-import { typesUX as types } from '../constants/types';
+import { typeUX as type } from '../constants/types';
 
 export function isHome() {
   return (dispatch) => {
     dispatch({
-      type: types.IS_HOME,
+      type: type.IS_HOME,
     })
   }
 };
@@ -11,7 +11,7 @@ export function isHome() {
 export function tabMod(payload) {
   return (dispatch) => {
     dispatch({
-      type: types.TAB_MODIFY,
+      type: type.TAB_MODIFY,
       payload: payload,
     })
   }
@@ -20,7 +20,7 @@ export function tabMod(payload) {
 export function langUpdate(payload) {
   return (dispatch) => {
     dispatch({
-      type: types.CHANGE_LANG,
+      type: type.CHANGE_LANG,
       payload: payload,
     })
   }
@@ -29,7 +29,7 @@ export function langUpdate(payload) {
 export function clickFX() {
   return (dispatch) => {
     dispatch({
-      type: types.CLICK_FX,
+      type: type.CLICK_FX,
       payload: payload,
     })
   }
@@ -38,7 +38,7 @@ export function clickFX() {
 export function showModal() {
   return (dispatch) => {
     dispatch({
-      type: types.SHOW_MODAL,
+      type: type.SHOW_MODAL,
     })
   }
 };
@@ -46,7 +46,7 @@ export function showModal() {
 export function closeModal() {
   return (dispatch) => {
     dispatch({
-      type: types.CLOSE_MODAL,
+      type: type.CLOSE_MODAL,
     })
   }
 };
@@ -54,7 +54,7 @@ export function closeModal() {
 export function showDesc() {
   return (dispatch) => {
     dispatch({
-      type: types.SHOW_DESC,
+      type: type.SHOW_DESC,
     })
   }
 };
@@ -62,7 +62,7 @@ export function showDesc() {
 export function hideDesc() {
   return (dispatch) => {
     dispatch({
-      type: types.HIDE_DESC,
+      type: type.HIDE_DESC,
     })
   }
 };
@@ -70,7 +70,7 @@ export function hideDesc() {
 export function textareaUpdate(text) {
   return (dispatch) => {
     dispatch({
-      type: types.TEXTAREA_UPDATE,
+      type: type.TEXTAREA_UPDATE,
       payload: text,
     })
   }
@@ -79,7 +79,7 @@ export function textareaUpdate(text) {
 export function toggleFutures() {
   return (dispatch) => {
     dispatch({
-      type: types.TOGGLE_FUTURES,
+      type: type.TOGGLE_FUTURES,
     })
   }
 };
@@ -87,7 +87,7 @@ export function toggleFutures() {
 export function updateHistory(payload) {
     return (dispatch) => {
         dispatch({
-            type: types.HISTORY_UPDATE,
+            type: type.HISTORY_UPDATE,
             payload: payload,
         })
     }

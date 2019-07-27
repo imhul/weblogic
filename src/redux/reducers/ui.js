@@ -1,4 +1,4 @@
-import { initStateUI as initState } from './initStateUI';
+import { initStateUI as initState } from '../init/initStateUI';
 import { typesUI as types } from '../constants/types';
 
 export default (state = initState, action) => {

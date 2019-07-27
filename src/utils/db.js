@@ -35,6 +35,6 @@ const db = mongoose.connection;
 
 console.info("db: ", db);
 // console.info("collection: ", collection);
-console.info("connected: ", connected);
+// console.info("connected: ", connected);
 
 export default mongoose;

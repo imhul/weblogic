@@ -10,7 +10,7 @@ export const initStateUI = {
         isRobot: true,
         date: '',
     },
-    hero: ['W', 'e', 'b', 'L', 'o', 'g', 'i', 'c', ' ', 'S', 't', 'u', 'd', 'i', 'o'],
+    hero: ['T', 'k', 'a', 'c', 'h', 'u', 'k', ' ', ' ', 'Z', 'a', 'k', 'h', 'a', 'r'],
     microdata: {
         '@context': 'http://www.schema.org',
         '@type': ['WebPage'],

@@ -31,7 +31,7 @@ class Futures extends Component {
                                 </p>
                                 <h3 className="white">Roadmap</h3>
 
-                                <p>MongoDb + express.js</p>
+                                <p>MongoDb + Fastify</p>
 
                                 {/* { collection } */}
                             </div>

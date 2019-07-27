@@ -1,9 +1,9 @@
-import { typesUI as types } from '../constants/types';
+import { typeUI as type } from '../constants/types';
 
 export function initialize() {
   return (dispatch) => {
     dispatch({
-      type: types.INITIALIZE,
+      type: type.INITIALIZE,
     })
   }
 };
@@ -11,7 +11,7 @@ export function initialize() {
 export function authenticate(ip) {
   return (dispatch) => {
     dispatch({
-      type: types.AUTHENTICATE,
+      type: type.AUTHENTICATE,
       payload: ip,
     })
   }
@@ -20,7 +20,7 @@ export function authenticate(ip) {
 export function getRobot(payload) {
   return (dispatch) => {
     dispatch({
-      type: types.ROBOT_CHECK,
+      type: type.ROBOT_CHECK,
       payload: payload,
     })
   }
@@ -29,7 +29,7 @@ export function getRobot(payload) {
 export function tick() {
   return (dispatch) => {
     dispatch({
-      type: types.TICK,
+      type: type.TICK,
     })
   }
 };
@@ -37,7 +37,7 @@ export function tick() {
 export function getFPS(payload) {
   return (dispatch) => {
     dispatch({
-      type: types.GET_FPS,
+      type: type.GET_FPS,
       payload: payload,
     })
   }
@@ -46,7 +46,7 @@ export function getFPS(payload) {
 export function heroAnimate() {
   return (dispatch) => {
     dispatch({
-      type: types.HERO_ANIMATE,
+      type: type.HERO_ANIMATE,
     })
   }
 };
@@ -54,7 +54,7 @@ export function heroAnimate() {
 export function loadFolio() {
   return (dispatch) => {
     dispatch({
-      type: types.LOAD_FOLIO,
+      type: type.LOAD_FOLIO,
     })
   }
 };
