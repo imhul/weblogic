@@ -8,17 +8,17 @@
     position: absolute;
     transform: translate(-50%, -50%);
     @media (max-width: $media-small) {
-        max-width: 320px;
+        max-width: 290px;
     }
     @media (max-width: $media-small) and (orientation: landscape) {
-        max-width: 300px;
+        max-width: 270px;
         height: 0;
     }
     @media (min-width: $media-medium-min) {
-        max-width: 450px;
+        max-width: 420px;
     }
     @media (min-width: $media-large-min) {
-        max-width: 580px;
+        max-width: 560px;
     }
     .heading-hero {
         color: $color-white;

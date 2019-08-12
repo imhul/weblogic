@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
+import * as USER_ACTIONS from '../../../redux/actions/api_actions';
 import { Button, Icon } from 'antd';
-// import collection from '../../../../db';
 
 class Futures extends Component {
 
+    componentDidMount() {
+        this.props.userActions.readUsers()
+    }
+
     render() {
-        const { uxActions } = this.props;
+        const { uxActions, userActions } = this.props;
         const { isFuturesOpen } = this.props.ux;
+        const { users } = this.props.users;
+
+        console.info("state.users: ", users);
 
         return (
             <div className="Futures ant-back-top">
@@ -55,12 +62,14 @@ class Futures extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         uxActions: bindActionCreators(UX_ACTIONS, dispatch),
+        userActions: bindActionCreators(USER_ACTIONS, dispatch),
     }
 };
 
 function mapStateToProps(state) {
     return {
         ux: state.ux,
+        users: state.users,
     }
 };
 

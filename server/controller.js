@@ -1,31 +1,36 @@
-const { MenuItem } = require('./models/menuItems');
+const { User } = require('./models/Users');
 
-const fetchItems = async (req, reply) => {
+const fetchUsers = async (req, reply) => {
+    console.log("model User: ", User);
+    console.log("server fetchUsers req: ", req);
+    console.log("server fetchUsers reply: ", reply);
   try {
-    const menuItems = await MenuItem.find();
-    return menuItems
+    const Users = await User.find();
+    console.log("server fetchUsers Users: ", Users);
+    
+    return Users
   }
   catch (err) {
     console.log(err);
   }
 }
 
-const addItem = async (req, reply) => {
+const addUser = async (req, reply) => {
   try {
-    const NewItem = new MenuItem({ ...req.body });
-    return NewItem.save()
+    const NewUser = new User({ ...req.body });
+    return NewUser.save()
   }
   catch (err) {
     console.log(err);
   }
 }
 
-const updateItem = async (req, reply) => {
+const updateUser = async (req, reply) => {
   try {
     const { id } = req.params;
-    const { item } = req.body;
-    const {...updateData} = item;
-    const update = await MenuItem.findOneAndUpdate({id}, updateData, { new: true });
+    const { user } = req.body;
+    const {...updateData} = user;
+    const update = await User.findOneAndUpdate({id}, updateData, { new: true });
     return update;
   }
   catch (err) {
@@ -33,15 +38,15 @@ const updateItem = async (req, reply) => {
   }
 }
 
-const deleteItem = async (req, reply) => {
+const deleteUser = async (req, reply) => {
   try {
     const { id } = req.params;
-    const menuItem = await MenuItem.findOneAndDelete({ id });
-    return menuItem;
+    const User = await User.findOneAndDelete({ id });
+    return User;
   }
   catch (err) {
     console.log(err);
   }
 }
 
-module.exports = { fetchItems, addItem, updateItem, deleteItem };
+module.exports = { fetchUsers, addUser, updateUser, deleteUser };
