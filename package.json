@@ -31,7 +31,7 @@
     "connected-react-router": "^6.3.2",
     "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
-    "fastify": "^2.6.0",
+    "fastify": "^2.15.1",
     "fastify-static": "^2.5.0",
     "history": "^4.7.2",
     "immutable": "^3.8.2",
