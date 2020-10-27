@@ -14,7 +14,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development parcel index.html --no-cache",
     "build": "cross-env NODE_ENV=production parcel build index.html --no-minify --public-url /",
-    "server": "node server/server.js",
+    "server": "node --inspect server/server.js",
     "dev": "concurrently --kill-others \"yarn start\" \"yarn server\""
   },
   "dependencies": {
