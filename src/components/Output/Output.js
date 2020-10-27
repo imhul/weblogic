@@ -31,7 +31,7 @@ class Output extends Component {
         return (
             <Layout className="LayoutMain">
                 { isHome ? <Stats /> : null }
-                { isHome ? <Futures /> : null }
+                {/* isHome ? <Futures /> : null */}
                 <Layout className="Main">
                     <Content>
                         <Route exact path="/" component={ Home } />

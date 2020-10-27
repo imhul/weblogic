@@ -1,20 +1,25 @@
-const { fetchItems, addItem, updateItem, deleteItem } = require('./controller');
+const { fetchUsers, addUser, updateUser, deleteUser } = require('./controller');
 
 const routes = [
   {
     method: 'GET',
-    url: '/api/menuItems',
-    handler: fetchItems
+    url: '/api/users',
+    handler: fetchUsers
   },
   {
     method: 'POST',
-    url: '/api/menuItems',
-    handler: addItem,
+    url: '/api/users',
+    handler: addUser,
   },
   {
     method: 'PUT',
-    url: '/api/menuItems/:id',
-    handler: updateItem
+    url: '/api/user/:id',
+    handler: updateUser
+  },
+  {
+    method: 'DELETE',
+    url: '/api/user/:id',
+    handler: deleteUser
   }
 ]
 

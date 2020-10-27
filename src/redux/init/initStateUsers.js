@@ -1,4 +1,3 @@
 export const initStateUsers = {
-    menuItems: [],
-    Users: [],
+    users: [],
 };
