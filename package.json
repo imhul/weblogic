@@ -22,7 +22,7 @@
     "@hot-loader/react-dom": "^16.8.4",
     "antd": "^3.9.3",
     "autoprefixer": "^7.2.6",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "^1.7.0",
