@@ -129,7 +129,7 @@ class Contact extends Component {
                             <h2>{ translate( lang, 'copy_contacts' )}</h2>
                         </Col>
 
-                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center" title={ translate( lang, 'copy_email' )}>
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-left left mobile-center" title={ translate( lang, 'copy_email' )}>
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => safe.mCode}
@@ -140,7 +140,7 @@ class Contact extends Component {
                             </Clipboard>
                         </Col>
 
-                        <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center" title={ translate( lang, 'copy_phone' )}>
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-right right mobile-center" title={ translate( lang, 'copy_phone' )}>
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => safe.fCode}
@@ -151,7 +151,7 @@ class Contact extends Component {
                             </Clipboard>
                         </Col>
 
-                        <Col span={24} className="center">
+                        <Col span={24} className="center mb-20">
                             <h2>
                                 { translate( lang, 'cooperation_ready' )}
                             </h2>

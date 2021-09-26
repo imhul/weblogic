@@ -9,7 +9,6 @@
     "type": "git",
     "url": "https://github.com/imhul/weblogic"
   },
-  "type": "module",
   "email": "blashirk@gmail.com",
   "version": "1.0.4",
   "scripts": {

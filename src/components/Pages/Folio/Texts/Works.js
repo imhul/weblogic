@@ -15,6 +15,10 @@ import ektaImg from '../../../../images/works/ekta.jpg';
 import calcImg from '../../../../images/works/calc.jpg';
 import seezisImg from '../../../../images/works/seezis.jpg';
 import silverImg from '../../../../images/works/silver.jpg';
+import testomatioImg from '../../../../images/works/testomatio.png';
+import uapayImg from '../../../../images/works/uapay.png';
+import aliceImg from '../../../../images/works/alice.png';
+import mailcheckImg from '../../../../images/works/mailcheck.png';
 // import TrelloModal from '../TrelloModal';
 // Trello API
 // import { isTrelloAvailable, authenticateUser, getBoard } from '../../../../utils/api';
@@ -63,8 +67,16 @@ class Works extends Component {
                 name: translate( lang, 'work_4' ),
                 type: translate( lang, 'released' ),
                 icon: <LinkOutlined />, 
-                href: 'https://seezislab.com/',
-                back: `${ seezisImg }`,
+                href: 'https://marketplace.atlassian.com/apps/1224120/testomatio',
+                back: `${ testomatioImg }`,
+                demo: false,
+            },
+            {
+                name: translate( lang, 'work_5' ),
+                type: translate( lang, 'released' ),
+                icon: <LinkOutlined />, 
+                href: 'https://uapay.ua/',
+                back: `${ uapayImg }`,
                 demo: false,
             },
             {
@@ -73,6 +85,30 @@ class Works extends Component {
                 icon: <LinkOutlined />, 
                 href: 'https://silverstemcannabis.com/',
                 back: `${ silverImg }`,
+                demo: false,
+            },
+            {
+                name: translate( lang, 'work_7' ),
+                type: translate( lang, 'released' ),
+                icon: <LinkOutlined />, 
+                href: 'https://www.youtube.com/watch?v=BVdyHZSsD3Y',
+                back: `${ aliceImg }`,
+                demo: false,
+            },
+            {
+                name: translate( lang, 'work_8' ),
+                type: translate( lang, 'released' ),
+                icon: <LinkOutlined />, 
+                href: 'https://seezislab.com/',
+                back: `${ seezisImg }`,
+                demo: false,
+            },
+            {
+                name: translate( lang, 'work_9' ),
+                type: translate( lang, 'released' ),
+                icon: <LinkOutlined />, 
+                href: 'https://mailcheck.co/',
+                back: `${ mailcheckImg }`,
                 demo: false,
             },
         ];
@@ -95,19 +131,6 @@ class Works extends Component {
                 </div>
                 <div>
                     { translate( lang, 'released_status_desc' )}
-                </div>
-                <h2 className="mt-20">{ translate( lang, 'current_projects' )}</h2>
-                <div>
-                    <a href="https://github.com/imhul/med_form" title="Форма карточки пациэнта" target="_blank">
-                    <GithubOutlined /> med_form</a> React + Redux
-                </div>
-                <div>
-                    <a href="https://github.com/imhul/patient-chart" title="Форма карточки пациэнта" target="_blank">
-                    <GithubOutlined /> patient-chart</a> React + Redux
-                </div>
-                <div>
-                    <a href="https://github.com/imhul/doctor_acc" title="Форма карточки пациэнта" target="_blank">
-                    <GithubOutlined /> doctor_acc</a> React + Redux
                 </div>
             </div>
         );

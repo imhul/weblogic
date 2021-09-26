@@ -12,10 +12,10 @@ class Roadmap extends Component {
         const { lang } = this.props.ux;
         const pending = (
             <div>
-                <span>2019: </span>
+                <span>2022: </span>
                 <a href="https://ant.design/docs/react/practical-projects" title="antd DVA docs" target="_blank">
                     DVA
-                </a>, SSR, GraphQL, mongoDb, express.js, socket.io
+                </a>, GraphQL, mongoDb, Firebase, express.js, socket.io
             </div>
         );
 
@@ -51,6 +51,10 @@ class Roadmap extends Component {
                     <TimelineItem>
                         <span>{ translate( lang, 'aug' )} 2018: </span>
                         { translate( lang, 'step_2018' )}
+                    </TimelineItem>
+                    <TimelineItem>
+                        <span>{ translate( lang, 'aug' )} 2020-2021: </span>
+                        { translate( lang, 'step_2021' )}
                     </TimelineItem>
                 </Timeline>
             </div>

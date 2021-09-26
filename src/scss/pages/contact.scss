@@ -1,7 +1,7 @@
 /* Contact */
 
 .Contact {
-    margin: 50px auto 0 auto !important;
+    margin: 50px auto !important;
     @media all and (max-width: $media-x-small) {
         font-size: 6vw;
     }
@@ -75,6 +75,13 @@
                 color: $color-link-hover;
                 background-color: $transparent;
             }
+        }
+    }
+
+    .left, .right {
+        button {
+            width: 100%;
+            margin: auto;
         }
     }
 }
