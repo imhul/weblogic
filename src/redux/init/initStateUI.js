@@ -46,8 +46,23 @@ export const initStateUI = {
     },
     technologies: [
         {
-            id: 'Svelte',
+            id: 'SvelteKit',
             list: 'fw',
+            link: 'https://kit.svelte.dev/',
+        },
+        {
+            id: 'Sapper',
+            list: 'fw',
+            link: 'https://sapper.svelte.dev/',
+        },
+        {
+            id: 'Getsby',
+            list: 'fw',
+            link: 'https://www.gatsbyjs.com/',
+        },
+        {
+            id: 'Svelte',
+            list: 'library',
             link: 'https://svelte.dev/',
         },
         {
@@ -56,8 +71,18 @@ export const initStateUI = {
             link: 'https://parceljs.org/',
         },
         {
+            id: 'Vite',
+            list: 'bundler',
+            link: 'https://vitejs.dev/',
+        },
+        {
+            id: 'React-Scripts',
+            list: 'bundler',
+            link: 'https://www.npmjs.com/package/react-scripts',
+        },
+        {
             id: 'React',
-            list: 'fw',
+            list: 'library',
             link: 'https://reactjs.org/',
         },
         {
@@ -66,13 +91,8 @@ export const initStateUI = {
             link: 'https://redux.js.org/',
         },
         {
-            id: 'jQuery',
-            list: 'library',
-            link: 'https://jquery.com/',
-        },
-        {
             id: 'Ant Design',
-            list: 'fw',
+            list: 'flibrary',
             link: 'https://ant.design/',
         },
         {
@@ -81,32 +101,67 @@ export const initStateUI = {
             link: 'https://www.npmjs.com/',
         },
         {
+            id: 'npx',
+            list: 'packmen',
+            link: 'https://github.com/npm/npx',
+        },
+        {
             id: 'yarn',
             list: 'packmen',
             link: 'https://yarnpkg.com/',
         },
         {
             id: 'Materialize',
-            list: 'library',
+            list: 'cssfw',
             link: 'https://materializecss.com/',
         },
         {
             id: 'UIKit',
-            list: 'library',
+            list: 'cssfw',
             link: 'https://getuikit.com/',
         },
         {
             id: 'Bootstrap',
-            list: 'library',
+            list: 'cssfw',
             link: 'https://getbootstrap.com/',
         },
         {
-            id: 'JavaScript, ES6',
+            id: 'Tailwind',
+            list: 'cssfw',
+            link: 'https://tailwindcss.com/',
+        },
+        {
+            id: 'JavaScript, ES2021',
             list: 'lang',
             link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
         },
         {
-            id: 'HTML5, JSX',
+            id: 'TypeScript',
+            list: 'lang',
+            link: 'https://www.typescriptlang.org/',
+        },
+        {
+            id: 'CJS',
+            list: 'lang',
+            link: 'https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm',
+        },
+        {
+            id: 'ESM',
+            list: 'lang',
+            link: 'https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm',
+        },
+        {
+            id: 'mJS',
+            list: 'lang',
+            link: 'https://github.com/cesanta/mjs',
+        },
+        {
+            id: 'HTML5',
+            list: 'lang',
+            link: 'https://html.spec.whatwg.org/multipage/',
+        },
+        {
+            id: 'JSX',
             list: 'lang',
             link: 'https://reactjs.org/docs/introducing-jsx.html',
         },
@@ -121,14 +176,34 @@ export const initStateUI = {
             link: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
         },
         {
-            id: 'XML',
+            id: 'PostCSS',
+            list: 'lang',
+            link: 'https://postcss.org/',
+        },
+        {
+            id: 'LESS',
+            list: 'lang',
+            link: 'https://lesscss.org/',
+        },
+        {
+            id: 'XML, YAML',
             list: 'lang',
             link: 'https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction',
         },
         {
-            id: 'JSON',
+            id: 'MJML',
+            list: 'lang',
+            link: 'https://mjml.io/',
+        },
+        {
+            id: 'JSON, JSON-LD',
             list: 'lang',
             link: 'https://www.json.org/',
+        },
+        {
+            id: 'MDX, MD',
+            list: 'lang',
+            link: 'https://mdxjs.com/',
         },
         {
             id: 'RESTful Web API',
@@ -246,14 +321,24 @@ export const initStateUI = {
             link: 'https://schema.org/',
         },
         {
-            id: 'Joomla CMS',
+            id: 'Joomla',
             list: 'cms',
             link: 'https://www.joomla.org/',
         },
         {
+            id: 'Wordpress',
+            list: 'cms',
+            link: 'https://wordpress.com/',
+        },
+        {
+            id: 'Pimcore',
+            list: 'cms',
+            link: 'https://pimcore.com/',
+        },
+        {
             id: 'react-router-hash-link',
             list: 'other',
-            link: '#',
+            link: 'https://github.com/rafgraph/react-router-hash-link',
         },
         {
             id: 'react-redux-form',
@@ -263,32 +348,47 @@ export const initStateUI = {
         {
             id: 'react-hot-loader',
             list: 'other',
-            link: '#',
+            link: 'https://gaearon.github.io/react-hot-loader/getstarted/',
         },
         {
             id: 'react-router',
             list: 'other',
-            link: '#',
+            link: 'https://reactrouter.com/',
         },
         {
             id: 'react-gravatar',
             list: 'other',
-            link: '#',
+            link: 'http://kyleamathews.github.io/react-gravatar/',
         },
         {
             id: 'react-recaptcha',
             list: 'other',
-            link: '#',
+            link: 'https://github.com/appleboy/react-recaptcha',
         },
         {
             id: 'react-router-dom',
             list: 'other',
-            link: '#',
+            link: 'https://reactrouter.com/web/guides/quick-start',
         },
         {
             id: 'right-now',
             list: 'other',
-            link: '#',
+            link: 'https://github.com/hughsk/right-now',
+        },
+        {
+            id: 'reselect',
+            list: 'other',
+            link: 'https://github.com/reduxjs/reselect',
+        },
+        {
+            id: 'mdsvex',
+            list: 'other',
+            link: 'https://mdsvex.pngwn.io/',
+        },
+        {
+            id: 'recharts',
+            list: 'other',
+            link: 'https://recharts.org/',
         },
         {
             id: 'redux-saga',
@@ -313,16 +413,16 @@ export const initStateUI = {
         {
             id: 'helmet',
             list: 'other',
-            link: '#',
+            link: 'https://helmetjs.github.io/',
         },
         {
             id: 'axios',
             list: 'other',
-            link: '#',
+            link: 'https://axios-http.com/docs/intro',
         },
         {
             id: 'Pixi.js',
-            list: 'other',
+            list: 'library',
             link: 'http://pixijs.com',
         },
         {
@@ -336,19 +436,9 @@ export const initStateUI = {
             link: 'https://facebook.github.io/immutable-js/',
         },
         {
-            id: 'socket.io',
-            list: 'other',
-            link: 'https://socket.io/',
-        },
-        {
             id: 'lodash',
             list: 'other',
             link: 'https://lodash.com/',
-        },
-        {
-            id: 'jQuery-UI',
-            list: 'other',
-            link: 'https://jquery.com/',
         },
         {
             id: 'Highcharts.js',
@@ -363,7 +453,7 @@ export const initStateUI = {
         {
             id: 'raf',
             list: 'other',
-            link: '#',
+            link: 'https://github.com/chrisdickinson/raf',
         },
     ],
 };

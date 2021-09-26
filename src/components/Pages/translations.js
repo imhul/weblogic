@@ -41,7 +41,7 @@ const translations = {
         'believe': 'I believe that design makes the world better',
         'my_name': 'Tkachuk Zakhar',
         'front_dev': 'front-end developer',
-        'tagline': <span>Using new technologies, such as <mark> React </mark> or <mark> Hyperapp </mark> always gives inspiration. I prefer non-standard <mark>UI</mark> and <mark>UX</mark> solutions, taking as a basis the concept of <mark>Material Design</mark></span>,
+        'tagline': <span>Using new technologies, such as <mark> React </mark> or <mark> Svelte </mark> always gives inspiration. I prefer non-standard <mark>UI</mark> and <mark>UX</mark> solutions, taking as a basis the concept of <mark>Material Design</mark> and <mark>Neumorphism</mark></span>,
         'what_i_do': 'What I do?',
         'my_offer': 'I offer turnkey websites development (including but not limited to): UI/UX design and mockup drawing, responsive and adaptive design. I also advise on promotion and search engine optimization of web resourses',
         'fav_tech': 'Favorite technologies',

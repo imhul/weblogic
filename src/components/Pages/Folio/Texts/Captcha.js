@@ -28,6 +28,7 @@ class Captcha extends Component {
         axios.post(apiURL)
         .then(response => {
             if(response.status === 200 && response.data) {
+                console.info('response.data: ', response.data)
                 uiActions.getRobot(response.data)
             }
         })
@@ -35,6 +36,7 @@ class Captcha extends Component {
     };
 
     verifyCallback = (response) => {
+        console.info('verifyCallback response: ', response)
         this.verify(response)
     };
 

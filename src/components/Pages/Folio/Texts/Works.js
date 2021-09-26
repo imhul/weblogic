@@ -3,7 +3,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
 import translate from '../../translations';
-import { Row, Col, List, Button, Icon, Avatar, message } from 'antd';
+import { Row, Col, List, Avatar } from 'antd';
+import {
+    LinkOutlined,
+    GithubOutlined,
+    ExperimentOutlined,
+} from '@ant-design/icons';
 
 import puzzleImg from '../../../../images/works/puzzle.jpg';
 import ektaImg from '../../../../images/works/ekta.jpg';
@@ -33,7 +38,7 @@ class Works extends Component {
             {
                 name: translate( lang, 'work_1' ),
                 type: translate( lang, 'demo' ),
-                icon: <Icon type="experiment" theme="outlined" />,
+                icon: <ExperimentOutlined />,
                 href: `${base}/Lab/Game/index.html`,
                 back: `${puzzleImg}`,
                 demo: true,
@@ -41,7 +46,7 @@ class Works extends Component {
             {
                 name: translate( lang, 'work_2' ),
                 type: translate( lang, 'released' ),
-                icon: <Icon type="link" theme="outlined" />,
+                icon: <LinkOutlined />,
                 href: 'http://ekta.ua/',
                 back: `${ ektaImg }`,
                 demo: false,
@@ -49,8 +54,7 @@ class Works extends Component {
             {
                 name: translate( lang, 'work_3' ),
                 type: translate( lang, 'released' ),
-                icon: <Icon type="link" theme="outlined" />,
-                // href: `${ base }/Lab/Calc/index.html`,
+                icon: <LinkOutlined />,
                 href: 'http://ekta.ua/projects/calc',
                 back: `${ calcImg }`,
                 demo: false,
@@ -58,7 +62,7 @@ class Works extends Component {
             {
                 name: translate( lang, 'work_4' ),
                 type: translate( lang, 'released' ),
-                icon: <Icon type="link" theme="outlined" />, 
+                icon: <LinkOutlined />, 
                 href: 'https://seezislab.com/',
                 back: `${ seezisImg }`,
                 demo: false,
@@ -66,14 +70,14 @@ class Works extends Component {
             {
                 name: translate( lang, 'work_6' ),
                 type: translate( lang, 'released' ),
-                icon: <Icon type="link" theme="outlined" />, 
+                icon: <LinkOutlined />, 
                 href: 'https://silverstemcannabis.com/',
                 back: `${ silverImg }`,
                 demo: false,
             },
         ];
 
-        const header = (
+        const Header = () => (
             <Row gutter={24}>
                 <Col span={12} style={{ textAlign: 'left' }}>
                     { translate( lang, 'project_desc' )}
@@ -84,7 +88,7 @@ class Works extends Component {
             </Row>
         );
 
-        const footer = (
+        const Footer = () => (
             <div>
                 <div>
                     { translate( lang, 'demo_status_desc' )}
@@ -95,15 +99,15 @@ class Works extends Component {
                 <h2 className="mt-20">{ translate( lang, 'current_projects' )}</h2>
                 <div>
                     <a href="https://github.com/imhul/med_form" title="Форма карточки пациэнта" target="_blank">
-                    <Icon type="github" /> med_form</a> React + Redux
+                    <GithubOutlined /> med_form</a> React + Redux
                 </div>
                 <div>
                     <a href="https://github.com/imhul/patient-chart" title="Форма карточки пациэнта" target="_blank">
-                    <Icon type="github" /> patient-chart</a> React + Redux
+                    <GithubOutlined /> patient-chart</a> React + Redux
                 </div>
                 <div>
                     <a href="https://github.com/imhul/doctor_acc" title="Форма карточки пациэнта" target="_blank">
-                    <Icon type="github" /> doctor_acc</a> React + Redux
+                    <GithubOutlined /> doctor_acc</a> React + Redux
                 </div>
             </div>
         );
@@ -112,8 +116,8 @@ class Works extends Component {
             <div className="Works content">
                 <List
                     size="large"
-                    header={header}
-                    footer={footer}
+                    header={<Header />}
+                    footer={<Footer />}
                     bordered
                     dataSource={links}
                     renderItem={item => (

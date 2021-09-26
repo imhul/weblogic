@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
-import { Row, Col, Form, Input, Button, Icon, Statistic, message } from 'antd';
+import { Row, Col, Form, Input, Button, Statistic, message } from 'antd';
+import {
+    MailOutlined,
+    CloudOutlined,
+    GithubOutlined,
+    LinkedinOutlined,
+    CopyOutlined,
+    PhoneOutlined,
+    EllipsisOutlined,
+    EditOutlined
+} from '@ant-design/icons';
 import translate from '../../translations';
 import safe from '../../../../utils/safe';
 import Clipboard from 'react-clipboard.js';
@@ -62,7 +72,7 @@ class Contact extends Component {
                                 href="https://www.linkedin.com/in/tkachuk-zakhar-04733892/"
                                 title={ `${translate( lang, 'linkedin' )}`}
                                 target="_blank">
-                                <Icon type="linkedin" />
+                                <LinkedinOutlined />
                             </a>
                             <a
                                 href="https://github.com/imhul/weblogic"
@@ -70,7 +80,7 @@ class Contact extends Component {
                                 title={ `${translate( lang, 'github' )}` }
                                 target="_blank"
                             >
-                                <Icon type="github" />
+                                <GithubOutlined />
                             </a>
                         </Col>
     
@@ -80,7 +90,7 @@ class Contact extends Component {
                                 href={safe.cv}
                                 title={ `${translate( lang, 'myCV' )}` }
                                 target='_blank'>
-                                <Icon type="cloud" />
+                                <CloudOutlined />
                                     { translate( lang, 'summary' )}
                             </Button>
                         </Col>
@@ -92,7 +102,7 @@ class Contact extends Component {
                                 <Row gutter={24} type="flex" justify="center" align="middle">
                                     <Col span={12} className="mb-10">
                                         <h2 className="white">
-                                            <Icon type="edit" /> { translate( lang, 'contact_form' )}
+                                        <EditOutlined /> { translate( lang, 'contact_form' )}
                                         </h2>
                                     </Col>
 
@@ -133,9 +143,9 @@ class Contact extends Component {
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => safe.mCode}
                                 onSuccess={ this.onSuccess }>
-                                <Icon type="mail" />
-                                <Icon type="ellipsis" />
-                                <Icon type="copy" />
+                                <MailOutlined />
+                                <EllipsisOutlined />
+                                <CopyOutlined />
                             </Clipboard>
                         </Col>
 
@@ -144,9 +154,9 @@ class Contact extends Component {
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => safe.fCode}
                                 onSuccess={ this.onSuccess }>
-                                <Icon type="phone" />
-                                <Icon type="ellipsis" />
-                                <Icon type="copy" />
+                                <PhoneOutlined />
+                                <EllipsisOutlined />
+                                <CopyOutlined />
                             </Clipboard>
                         </Col>
 
