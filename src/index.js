@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import store, { history } from './redux/store';
 
 import Output from './components/Output';
+import 'antd/dist/antd.css';
 
 function renderApp() {
     const App = () => (
