@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UI_ACTIONS from '../../../../redux/actions/ui_actions';
-import { Row, Col, } from 'antd';
+import { Row, Col, message } from 'antd';
 import safe from '../../../../utils/safe';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
+import translate from '../../translations';
 
 class Captcha extends Component {
 
@@ -23,20 +24,23 @@ class Captcha extends Component {
     };
 
     verify(data) {
+        const { lang } = this.props.ux;
         const { ui, uiActions } = this.props;
         const apiURL = `${safe.link}${data}&remoteip=${ui.currentUser.ip}`;
         axios.post(apiURL)
         .then(response => {
             if(response.status === 200 && response.data) {
-                console.info('response.data: ', response.data)
                 uiActions.getRobot(response.data)
+                message.success(`${translate( lang, 'message_success_recaptcha' )}`)
             }
         })
-        .catch(error => console.warn("verify error: ", error));
+        .catch(error => {
+            console.warn("verify error: ", error);
+            message.error(`${translate( lang, 'message_error_recaptcha' )}`)
+        });
     };
 
     verifyCallback = (response) => {
-        console.info('verifyCallback response: ', response)
         this.verify(response)
     };
 

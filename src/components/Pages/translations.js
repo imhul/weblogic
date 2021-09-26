@@ -27,14 +27,17 @@ const translations = {
         'submit': 'Submit',
         'placeholder': 'Your Message',
         'linkedin': 'My personal LinkedIn Page',
+        'codecademy': 'My Codecademy Profile',
         'github': 'My personal GitHub',
         'myCV': 'My CV',
         'message_success_phone': 'Phone number successfully copied!',
         'message_success_email': 'Email address successfully copied!',
         'message_success': 'Message sent successfully!',
+        'message_success_recaptcha': 'You have successfully passed the verification!',
         'message_error': 'Error while sending!',
         'message_error_phone': 'Error while sending: Enter the phone number!',
         'message_error_wrong': 'Something wrong!',
+        'message_error_recaptcha': 'Recaptca server is not response!',
         
 
         // Intro EN
@@ -96,14 +99,17 @@ const translations = {
         'submit': 'Отправить',
         'placeholder': 'Ваше сообщение',
         'linkedin': 'Моя страница на LinkedIn',
+        'codecademy': 'Мой профиль на Codecademy',
         'github': 'Мой GitHub аккаунт',
         'myCV': 'Посмотреть моё резюме',
         'message_success_phone': 'Номер телефона успешно скопирован!',
         'message_success_email': 'Эл. адрес успешно скопирован!',
         'message_success': 'Сообщение успешно отправлено!',
+        'message_success_recaptcha': 'Вы успешно прошли проверку!',
         'message_error': 'Ошибка при отправке!',
         'message_error_phone': 'Ошибка при отправке: введите номер телефона!',
         'message_error_wrong': 'Что-то пошло не так!',
+        'message_error_recaptcha': 'Сервер Recaptca не отвечает!',
 
         // Intro RU
         'believe': 'Я верю, что дизайн делает мир лучше',

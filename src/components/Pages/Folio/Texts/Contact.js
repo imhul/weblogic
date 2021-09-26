@@ -5,9 +5,8 @@ import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
 import { Row, Col, Form, Input, Button, Statistic, message } from 'antd';
 import {
     MailOutlined,
-    CloudOutlined,
     GithubOutlined,
-    LinkedinOutlined,
+    BarChartOutlined,
     CopyOutlined,
     PhoneOutlined,
     EllipsisOutlined,
@@ -68,31 +67,23 @@ class Contact extends Component {
                     <Row gutter={24} type="flex" justify="center" align="middle">
                         <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center">
                             <a
-                                className="ant-btn ant-btn-background-ghost first"
-                                href="https://www.linkedin.com/in/tkachuk-zakhar-04733892/"
-                                title={ `${translate( lang, 'linkedin' )}`}
+                                className="link"
+                                href="https://www.codecademy.com/profiles/weblogicfront"
+                                title={ `${translate( lang, 'codecademy' )}`}
                                 target="_blank">
-                                <LinkedinOutlined />
+                                <BarChartOutlined /> codecedemy
                             </a>
+                        </Col>
+
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
                             <a
                                 href="https://github.com/imhul/weblogic"
-                                className="ant-btn ant-btn-background-ghost"
+                                className="link"
                                 title={ `${translate( lang, 'github' )}` }
                                 target="_blank"
                             >
-                                <GithubOutlined />
+                                <GithubOutlined /> github
                             </a>
-                        </Col>
-    
-                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
-                            <Button
-                                ghost
-                                href={safe.cv}
-                                title={ `${translate( lang, 'myCV' )}` }
-                                target='_blank'>
-                                <CloudOutlined />
-                                    { translate( lang, 'summary' )}
-                            </Button>
                         </Col>
 
                         <Col span={24}>
