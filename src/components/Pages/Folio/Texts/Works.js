@@ -3,13 +3,22 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
 import translate from '../../translations';
-import { Row, Col, List, Button, Icon, Avatar, message } from 'antd';
+import { Row, Col, List, Avatar } from 'antd';
+import {
+    LinkOutlined,
+    GithubOutlined,
+    ExperimentOutlined,
+} from '@ant-design/icons';
 
 import puzzleImg from '../../../../images/works/puzzle.jpg';
 import ektaImg from '../../../../images/works/ekta.jpg';
 import calcImg from '../../../../images/works/calc.jpg';
 import seezisImg from '../../../../images/works/seezis.jpg';
 import silverImg from '../../../../images/works/silver.jpg';
+import testomatioImg from '../../../../images/works/testomatio.png';
+import uapayImg from '../../../../images/works/uapay.png';
+import aliceImg from '../../../../images/works/alice.png';
+import mailcheckImg from '../../../../images/works/mailcheck.png';
 // import TrelloModal from '../TrelloModal';
 // Trello API
 // import { isTrelloAvailable, authenticateUser, getBoard } from '../../../../utils/api';
@@ -33,7 +42,7 @@ class Works extends Component {
             {
                 name: translate( lang, 'work_1' ),
                 type: translate( lang, 'demo' ),
-                icon: <Icon type="experiment" theme="outlined" />,
+                icon: <ExperimentOutlined />,
                 href: `${base}/Lab/Game/index.html`,
                 back: `${puzzleImg}`,
                 demo: true,
@@ -41,7 +50,7 @@ class Works extends Component {
             {
                 name: translate( lang, 'work_2' ),
                 type: translate( lang, 'released' ),
-                icon: <Icon type="link" theme="outlined" />,
+                icon: <LinkOutlined />,
                 href: 'http://ekta.ua/',
                 back: `${ ektaImg }`,
                 demo: false,
@@ -49,8 +58,7 @@ class Works extends Component {
             {
                 name: translate( lang, 'work_3' ),
                 type: translate( lang, 'released' ),
-                icon: <Icon type="link" theme="outlined" />,
-                // href: `${ base }/Lab/Calc/index.html`,
+                icon: <LinkOutlined />,
                 href: 'http://ekta.ua/projects/calc',
                 back: `${ calcImg }`,
                 demo: false,
@@ -58,22 +66,54 @@ class Works extends Component {
             {
                 name: translate( lang, 'work_4' ),
                 type: translate( lang, 'released' ),
-                icon: <Icon type="link" theme="outlined" />, 
-                href: 'https://seezislab.com/',
-                back: `${ seezisImg }`,
+                icon: <LinkOutlined />, 
+                href: 'https://marketplace.atlassian.com/apps/1224120/testomatio',
+                back: `${ testomatioImg }`,
+                demo: false,
+            },
+            {
+                name: translate( lang, 'work_5' ),
+                type: translate( lang, 'released' ),
+                icon: <LinkOutlined />, 
+                href: 'https://uapay.ua/',
+                back: `${ uapayImg }`,
                 demo: false,
             },
             {
                 name: translate( lang, 'work_6' ),
                 type: translate( lang, 'released' ),
-                icon: <Icon type="link" theme="outlined" />, 
+                icon: <LinkOutlined />, 
                 href: 'https://silverstemcannabis.com/',
                 back: `${ silverImg }`,
                 demo: false,
             },
+            {
+                name: translate( lang, 'work_7' ),
+                type: translate( lang, 'released' ),
+                icon: <LinkOutlined />, 
+                href: 'https://www.youtube.com/watch?v=BVdyHZSsD3Y',
+                back: `${ aliceImg }`,
+                demo: false,
+            },
+            {
+                name: translate( lang, 'work_8' ),
+                type: translate( lang, 'released' ),
+                icon: <LinkOutlined />, 
+                href: 'https://seezislab.com/',
+                back: `${ seezisImg }`,
+                demo: false,
+            },
+            {
+                name: translate( lang, 'work_9' ),
+                type: translate( lang, 'released' ),
+                icon: <LinkOutlined />, 
+                href: 'https://mailcheck.co/',
+                back: `${ mailcheckImg }`,
+                demo: false,
+            },
         ];
 
-        const header = (
+        const Header = () => (
             <Row gutter={24}>
                 <Col span={12} style={{ textAlign: 'left' }}>
                     { translate( lang, 'project_desc' )}
@@ -84,26 +124,13 @@ class Works extends Component {
             </Row>
         );
 
-        const footer = (
+        const Footer = () => (
             <div>
                 <div>
                     { translate( lang, 'demo_status_desc' )}
                 </div>
                 <div>
                     { translate( lang, 'released_status_desc' )}
-                </div>
-                <h2 className="mt-20">{ translate( lang, 'current_projects' )}</h2>
-                <div>
-                    <a href="https://github.com/imhul/med_form" title="Форма карточки пациэнта" target="_blank">
-                    <Icon type="github" /> med_form</a> React + Redux
-                </div>
-                <div>
-                    <a href="https://github.com/imhul/patient-chart" title="Форма карточки пациэнта" target="_blank">
-                    <Icon type="github" /> patient-chart</a> React + Redux
-                </div>
-                <div>
-                    <a href="https://github.com/imhul/doctor_acc" title="Форма карточки пациэнта" target="_blank">
-                    <Icon type="github" /> doctor_acc</a> React + Redux
                 </div>
             </div>
         );
@@ -112,8 +139,8 @@ class Works extends Component {
             <div className="Works content">
                 <List
                     size="large"
-                    header={header}
-                    footer={footer}
+                    header={<Header />}
+                    footer={<Footer />}
                     bordered
                     dataSource={links}
                     renderItem={item => (

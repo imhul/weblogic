@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Helmet } from "react-helmet";
-import { Icon, message } from 'antd';
+import { message } from 'antd';
+import {
+    GithubOutlined,
+    LinkedinOutlined,
+    ExperimentOutlined,
+    QuestionCircleOutlined
+} from '@ant-design/icons';
 import JsonLd from '../../../utils/microdata';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
 import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
 import { history } from '../../../redux/store';
 // import anime from "animejs";
-import { ContextMenu, MenuItem, SubMenu, ContextMenuTrigger } from "react-contextmenu";
+import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import '../../../images/print.png';
 import '../../../images/logo.png';
 
@@ -17,7 +23,7 @@ class Home extends Component {
     componentDidMount() {
         this.info();
         this.props.uxActions.isHome();
-        setTimeout(() => {          
+        setTimeout(() => {
             this.props.uiActions.heroAnimate();
         }, 500);
     };
@@ -36,40 +42,40 @@ class Home extends Component {
                         <title>WebLogic Studio Home</title>
                         <link rel="canonical" href="http://weblogic.com.ua/" />
                     </Helmet>
-                    
-                        <h1 className="mobile-fix heading-hero" style={ heroStyle }>
-                            { hero.map(( symbol, index ) => {
-                                return (
-                                    <span
-                                        key={ index }
-                                        className={`span-${ index }`}>
-                                        { symbol }
-                                    </span>)
-                            })}
-                            <span className="span-15">
-                                <i className="icon-lamp" />
-                            </span>
-                        </h1>
+
+                    <h1 className="mobile-fix heading-hero" style={heroStyle}>
+                        {hero.map((symbol, index) => {
+                            return (
+                                <span
+                                    key={index}
+                                    className={`span-${index}`}>
+                                    {symbol}
+                                </span>)
+                        })}
+                        <span className="span-15">
+                            <i className="icon-lamp" />
+                        </span>
+                    </h1>
                     <JsonLd data={microdata} />
                 </ContextMenuTrigger>
                 <ContextMenu id="context-menu">
                     <MenuItem key="folio" onClick={() => history.push('/folio')}>
-                            <Icon type="experiment" theme="outlined" /> About
+                        <ExperimentOutlined /> About
                     </MenuItem>
                     <MenuItem key="linkedin" onClick={(e) => {
-                            e.preventDefault();
-                            window.open("https://www.linkedin.com/in/tkachuk-zakhar-04733892/")
-                        }}>
-                            <Icon type='linkedin' /> Summary
+                        e.preventDefault();
+                        window.open("https://www.linkedin.com/in/tkachuk-zakhar-04733892/")
+                    }}>
+                        <LinkedinOutlined /> Summary
                     </MenuItem>
                     <MenuItem key="github" onClick={(e) => {
-                            e.preventDefault();
-                            window.open("https://github.com/imhul/weblogic")
-                        }}>
-                            <Icon type="github" /> Github
+                        e.preventDefault();
+                        window.open("https://github.com/imhul/weblogic")
+                    }}>
+                        <GithubOutlined /> Github
                     </MenuItem>
                     <MenuItem onClick={this.info} key="how-to">
-                        <Icon type="question-circle" /> How-to
+                        <QuestionCircleOutlined /> How-to
                     </MenuItem>
                 </ContextMenu>
             </div>

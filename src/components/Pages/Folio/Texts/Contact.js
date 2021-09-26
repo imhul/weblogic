@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
-import { Row, Col, Form, Input, Button, Icon, Statistic, message } from 'antd';
+import { Row, Col, Form, Input, Button, Statistic, message } from 'antd';
+import {
+    MailOutlined,
+    GithubOutlined,
+    BarChartOutlined,
+    CopyOutlined,
+    PhoneOutlined,
+    EllipsisOutlined,
+    EditOutlined
+} from '@ant-design/icons';
 import translate from '../../translations';
 import safe from '../../../../utils/safe';
 import Clipboard from 'react-clipboard.js';
@@ -58,31 +67,23 @@ class Contact extends Component {
                     <Row gutter={24} type="flex" justify="center" align="middle">
                         <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center">
                             <a
-                                className="ant-btn ant-btn-background-ghost first"
-                                href="https://www.linkedin.com/in/tkachuk-zakhar-04733892/"
-                                title={ `${translate( lang, 'linkedin' )}`}
+                                className="link"
+                                href="https://www.codecademy.com/profiles/weblogicfront"
+                                title={ `${translate( lang, 'codecademy' )}`}
                                 target="_blank">
-                                <Icon type="linkedin" />
+                                <BarChartOutlined /> codecedemy
                             </a>
+                        </Col>
+
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
                             <a
                                 href="https://github.com/imhul/weblogic"
-                                className="ant-btn ant-btn-background-ghost"
+                                className="link"
                                 title={ `${translate( lang, 'github' )}` }
                                 target="_blank"
                             >
-                                <Icon type="github" />
+                                <GithubOutlined /> github
                             </a>
-                        </Col>
-    
-                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
-                            <Button
-                                ghost
-                                href={safe.cv}
-                                title={ `${translate( lang, 'myCV' )}` }
-                                target='_blank'>
-                                <Icon type="cloud" />
-                                    { translate( lang, 'summary' )}
-                            </Button>
                         </Col>
 
                         <Col span={24}>
@@ -92,7 +93,7 @@ class Contact extends Component {
                                 <Row gutter={24} type="flex" justify="center" align="middle">
                                     <Col span={12} className="mb-10">
                                         <h2 className="white">
-                                            <Icon type="edit" /> { translate( lang, 'contact_form' )}
+                                        <EditOutlined /> { translate( lang, 'contact_form' )}
                                         </h2>
                                     </Col>
 
@@ -128,29 +129,29 @@ class Contact extends Component {
                             <h2>{ translate( lang, 'copy_contacts' )}</h2>
                         </Col>
 
-                        <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center" title={ translate( lang, 'copy_email' )}>
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-left left mobile-center" title={ translate( lang, 'copy_email' )}>
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => safe.mCode}
                                 onSuccess={ this.onSuccess }>
-                                <Icon type="mail" />
-                                <Icon type="ellipsis" />
-                                <Icon type="copy" />
+                                <MailOutlined />
+                                <EllipsisOutlined />
+                                <CopyOutlined />
                             </Clipboard>
                         </Col>
 
-                        <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center" title={ translate( lang, 'copy_phone' )}>
+                        <Col md={12} sm={24} xs={24} className="mb-20 align-right right mobile-center" title={ translate( lang, 'copy_phone' )}>
                             <Clipboard
                                 className="ant-btn ant-btn-background-ghost"
                                 option-text={() => safe.fCode}
                                 onSuccess={ this.onSuccess }>
-                                <Icon type="phone" />
-                                <Icon type="ellipsis" />
-                                <Icon type="copy" />
+                                <PhoneOutlined />
+                                <EllipsisOutlined />
+                                <CopyOutlined />
                             </Clipboard>
                         </Col>
 
-                        <Col span={24} className="center">
+                        <Col span={24} className="center mb-20">
                             <h2>
                                 { translate( lang, 'cooperation_ready' )}
                             </h2>

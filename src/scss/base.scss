@@ -27,6 +27,8 @@ body {
 * {
     padding: 0;
     margin: 0;
+    outline: none !important;
+    
     &,
     &::before,
     &::after {
@@ -134,12 +136,12 @@ body {
                 display: none !important;
             }
             .ant-btn-background-ghost {
+                display: block;
                 background-color: $color-deep-black !important;
-                padding: 15px;
-                height: auto;
-                &.first {
-                    margin-right: 10px;
-                }
+                height: 70px;
+                line-height: 64px;
+                padding: 0 15px;
+
                 span {
                     font-size: 2.5rem;
                 }
