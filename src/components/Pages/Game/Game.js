@@ -32,8 +32,9 @@ class Game extends Component {
                     <Toolbar key={0} />
 
                     <h1 className="center">Proto-Mass. The Game</h1>
-                    <div className="center">React-based Sandbox Game with Indirect Control</div>
-
+                    <div className="center">React-based Pixel-Art Sandbox Game with Indirect Control</div>
+                    <div className="center">Far away on a distant planet inhabited by primitive life forms a small colony of robots accidentally trapped must build, develop and fight only to exist... How far can they go?</div>
+                    {/* TODO: add translations */}
                     <div className="links-wrapper center">
                         <div>
                             <a href="https://proto-mass.netlify.app/">
