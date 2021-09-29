@@ -47,6 +47,10 @@ class Game extends Component {
                             <a href="https://www.patreon.com/protomass">
                                 <DollarCircleOutlined /> Patreon Page</a>
                         </div>
+                        <div>
+                            <a href="https://www.youtube.com/watch?v=nETaVY9GOao&list=PLhuamC7vAt9eGXOUIvAKZlDetKB-Uwp0s">
+                                <YoutubeOutlined /> Youtube Video</a>
+                        </div>
                     </div>
 
                     <div className="preview-wrapper center">
