@@ -191,6 +191,11 @@ export const initStateUI = {
             link: 'https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction',
         },
         {
+            id: 'TOML',
+            list: 'lang',
+            link: 'https://github.com/toml-lang/toml',
+        },
+        {
             id: 'MJML',
             list: 'lang',
             link: 'https://mjml.io/',
