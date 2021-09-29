@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import { Helmet } from "react-helmet";
 import { message } from 'antd';
 import {
-    GithubOutlined,
-    LinkedinOutlined,
-    ExperimentOutlined,
     QuestionCircleOutlined
 } from '@ant-design/icons';
 import JsonLd from '../../../utils/microdata';
@@ -15,6 +12,7 @@ import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
 import { history } from '../../../redux/store';
 // import anime from "animejs";
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+import menu from '../../../utils/menu';
 import '../../../images/print.png';
 import '../../../images/logo.png';
 
@@ -59,21 +57,16 @@ class Home extends Component {
                     <JsonLd data={microdata} />
                 </ContextMenuTrigger>
                 <ContextMenu id="context-menu">
-                    <MenuItem key="folio" onClick={() => history.push('/folio')}>
-                        <ExperimentOutlined /> About
-                    </MenuItem>
-                    <MenuItem key="linkedin" onClick={(e) => {
-                        e.preventDefault();
-                        window.open("https://www.linkedin.com/in/tkachuk-zakhar-04733892/")
-                    }}>
-                        <LinkedinOutlined /> Summary
-                    </MenuItem>
-                    <MenuItem key="github" onClick={(e) => {
-                        e.preventDefault();
-                        window.open("https://github.com/imhul/weblogic")
-                    }}>
-                        <GithubOutlined /> Github
-                    </MenuItem>
+                    {
+                        menu.map((item) => {
+                            return (
+                                <MenuItem key={item.id}>
+                                    <a href={item.url} title={item.id}>
+                                        {item.icon} {item.id}</a>
+                                </MenuItem>
+                            )
+                        })
+                    }
                     <MenuItem onClick={this.info} key="how-to">
                         <QuestionCircleOutlined /> How-to
                     </MenuItem>

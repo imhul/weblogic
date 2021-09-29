@@ -1,15 +1,16 @@
 /* Folio page */
 
 .Folio {
-    height: -webkit-fill-available;
-    background-color: $color-content-bg;
-    width: 100%;
-    max-width: 100%;
-    top: 0;
-    left: 0;
-    transform: none;
     display: block;
     position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    background-color: $color-content-bg;
+    
     overflow: hidden;
 
     // Loading
@@ -18,34 +19,41 @@
             text-shadow: 0 0 8px $color-link-hover;
         }
     }
-    
+
     /* Collapse */
     /* not active */
     .ant-collapse {
         background-color: $transparent;
         border: 0;
         border-radius: 0;
+
         & * {
             transition: height 0.2s ease-in-out .5s;
         }
+
         &.active {
             .ant-collapse-item {
                 height: 10vh;
+
                 &.ant-collapse-item-active {
                     height: 70vh;
                 }
+
                 .ant-collapse-header {
                     height: 10vh;
                     font-size: 8vh;
-                    i {
+
+                    .anticon {
                         font-size: 6vh;
                     }
                 }
             }
         }
+
         .ant-collapse-item {
             border-bottom-color: $color-white;
             height: 25vh;
+
             .ant-collapse-header {
                 padding: 0;
                 height: 25vh;
@@ -53,30 +61,37 @@
                 color: $color-white;
                 text-shadow: 2px 2px 4px $color-black;
                 background-size: cover;
+
                 &:hover {
                     text-shadow: 0 0 4px $color-white;
-                    & i>svg {
-                        filter: drop-shadow( 0 0 4px $color-white);
+
+                    & .anticon>svg {
+                        filter: drop-shadow(0 0 4px $color-white);
                     }
                 }
-                & i > svg {
-                    filter: drop-shadow( 2px 2px 4px $color-black);
+
+                & .anticon>svg {
+                    filter: drop-shadow(2px 2px 4px $color-black);
                 }
+
                 .bg {
                     height: 100%;
                     padding: 0 25px;
-                    background: linear-gradient(45deg, rgba(255,255,255,0) 0%,rgba(65,100,117,1) 100%);
+                    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(65, 100, 117, 1) 100%);
+
                     &>div {
                         display: flex;
                         align-items: center;
                         height: 100%;
                         justify-content: space-between;
-                        i {
+
+                        .anticon {
                             font-size: 13vh;
                         }
                     }
                 }
             }
+
             /* Static content styles */
             .ant-collapse-content {
                 background: $color-content-bg;
@@ -85,15 +100,18 @@
                 display: flex;
                 justify-content: center;
                 align-items: normal;
+
                 &:hover {
                     background: $color-content-bg-hover;
                 }
+
                 .ant-collapse-content-box {
                     width: 100%;
                     position: relative;
                     height: auto;
                     padding: 0;
                     margin: 0 auto;
+
                     .content {
                         max-width: 100%;
                         width: 80%;
@@ -103,60 +121,77 @@
                 }
             }
         }
+
         /* active content section */
         .ant-collapse-item-active {
             height: 10vh;
+
             .ant-collapse-header {
                 height: 10vh;
                 font-size: 8vh;
-                i {
+
+                .anticon {
                     font-size: 6vh;
                     margin-top: 0;
                 }
             }
+
             /* active content */
             .ant-collapse-content-active {
                 min-height: 60vh;
                 max-height: 60vh;
                 overflow-y: auto;
+
                 &::-webkit-scrollbar {
                     background-color: $transparent;
                 }
+
                 &::-webkit-scrollbar-button {
                     background-color: $transparent;
                 }
+
                 &::-webkit-scrollbar-track {
                     background-color: $transparent;
                 }
+
                 &::-webkit-scrollbar-track-piece {
                     background-color: $transparent;
                 }
+
                 &::-webkit-scrollbar-thumb {
                     background-color: $color-black;
                 }
+
                 &::-webkit-scrollbar-corner {
                     background-color: $transparent;
                 }
+
                 &::-webkit-resizer {
                     background-color: $transparent;
                 }
             }
         }
     }
+
     .react-contextmenu {
         box-shadow: 0 0 20px $color-white;
+
         &.react-contextmenu--visible {
             min-width: 135px;
             background-color: $color-black;
+
             .react-contextmenu-item {
                 color: $color-white;
                 padding: 10px 20px;
+
                 a {
                     color: $color-white;
                 }
+
                 &:hover {
                     background-color: $color-footer;
                     color: $color-link-hover;
+
                     a {
                         color: $color-link-hover;
                     }

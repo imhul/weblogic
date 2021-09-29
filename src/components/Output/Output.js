@@ -11,7 +11,8 @@ import { Layout } from 'antd';
 import Stats from '../Pages/Home/Stats';
 import Home from '../Pages/Home';
 import Folio from '../Pages/Folio';
-import Futures from '../Pages/Home/Futures';
+import Game from '../Pages/Game';
+// import Futures from '../Pages/Home/Futures';
 
 const { Content } = Layout;
 
@@ -35,6 +36,7 @@ class Output extends Component {
                 <Layout className="Main">
                     <Content>
                         <Route exact path="/" component={ Home } />
+                        <Route exact path="/game" component={ Game } />
                         <Route exact path="/folio" component={ Folio } />
                     </Content>
                 </Layout>

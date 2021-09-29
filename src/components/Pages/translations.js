@@ -57,7 +57,7 @@ const translations = {
         'step_2016': 'There was a little experience with Angular. Learned the basics of Terminal, Yarn, Git, Jira, GitBash, Grunt, Gulp, etc.',
         'step_2017': 'Started learning React',
         'step_2018': 'Learned React-router + hystory. Started Lectrum 2 month Redux Intensive courses and learned next libraries: Redux, Redux-Saga, immutable.js, socket.io. Was very pleasantly surprised by the Parcel!',
-        'step_2021': 'Did a bit of work with Getsby and GraphQL. But later I joined the growing Svelte community as well as SvelteKIt and it"s amazing! This is one of the best technologies I"ve come across. Thanks to this, I have a better understanding of SSR.',
+        'step_2021': 'Did a bit of work with Getsby and GraphQL. But later I joined the growing Svelte community as well as SvelteKIt and it\'\s amazing! This is one of the best technologies I\'ve come across. Thanks to this, I have a better understanding of SSR.',
 
         // Works EN
         'work_1': 'Puzzle game, JavaScript + Canvas + design',

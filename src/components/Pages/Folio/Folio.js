@@ -8,29 +8,27 @@ import {
     MessageOutlined,
     RocketOutlined,
     PoweroffOutlined,
-    GithubOutlined,
-    LinkedinOutlined,
-    CompassOutlined,
-    HomeOutlined
+    CompassOutlined
 } from '@ant-design/icons';
-import Toolbar from './Toolbar';
+import JsonLd from '../../../utils/microdata';
+import Toolbar from '../../Toolbar';
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
 import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
-import { history } from '../../../redux/store';
 import translate from '../translations';
 import { Intro, Roadmap, Works, Contact } from './Texts';
+import menu from '../../../utils/menu';
 
 const Panel = Collapse.Panel;
 
 class Folio extends Component {
 
     componentDidMount() {
-        setTimeout(() => this.props.uiActions.loadFolio(), 1500)
+        setTimeout(() => this.props.uiActions.loadFolio(), 1000)
     };
 
     render() {
-        const { loaded } = this.props.ui;
+        const { loaded, microdata } = this.props.ui;
         const { active, lang } = this.props.ux;
         const { uxActions } = this.props;
 
@@ -74,6 +72,7 @@ class Folio extends Component {
 
                 <Helmet>
                     <title>My Portfolio</title>
+                    <link rel="canonical" href="http://weblogic.com.ua/folio" />
                 </Helmet>
 
                 <ContextMenuTrigger id="context-menu">
@@ -83,13 +82,11 @@ class Folio extends Component {
                             destroyInactivePanel
                             defaultActiveKey={active}
                             onChange={uxActions.tabMod}
-
                             className={active ? 'active' : null}>
 
                             <Toolbar key={0} />
 
                             {texts.map((load) => (
-
                                 <Panel
                                     id={load.id}
                                     header={<div className="bg">{load.name}</div>}
@@ -97,30 +94,23 @@ class Folio extends Component {
                                     showArrow={false}>
                                     {load.text}
                                 </Panel>
-
                             ))}
                         </Collapse>
                     }
+                    <JsonLd data={microdata} />
                 </ContextMenuTrigger>
-
                 <ContextMenu id="context-menu">
-                    <MenuItem onClick={() => history.push('/')}>
-                        <HomeOutlined /> Home
-                    </MenuItem>
-                    <MenuItem onClick={(e) => {
-                        e.preventDefault();
-                        window.open("https://www.linkedin.com/in/tkachuk-zakhar-04733892/")
-                    }}>
-                        <LinkedinOutlined /> Summary
-                    </MenuItem>
-                    <MenuItem onClick={(e) => {
-                        e.preventDefault();
-                        window.open("https://github.com/imhul/weblogic")
-                    }}>
-                        <GithubOutlined /> Github
-                    </MenuItem>
+                    {
+                        menu.map((item) => {
+                            return (
+                                <MenuItem key={item.id}>
+                                    <a href={item.url} title={item.id}>
+                                        {item.icon} {item.id}</a>
+                                </MenuItem>
+                            )
+                        })
+                    }
                 </ContextMenu>
-
             </div>
         )
     }
