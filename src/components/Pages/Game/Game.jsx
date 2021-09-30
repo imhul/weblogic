@@ -17,6 +17,7 @@ import { CrownOutlined, GithubOutlined, DollarCircleOutlined } from '@ant-design
 // images
 // import preview from '../../../images/preview.png';
 
+// TODO: fix horisontal styles
 class Game extends Component {
   render() {
     const { microdata } = this.props.ui;
