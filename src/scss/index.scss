@@ -1,27 +1,29 @@
 /* common */
-@import "normalize";
-@import "colors";
-@import "fonts";
-@import "media";
-@import "base";
-@import "typography";
-@import "fragments";
-@import "others";
+@import 'normalize';
+@import 'colors';
+@import 'fonts';
+@import 'media';
+@import 'base';
+@import 'typography';
+@import 'fragments';
+@import 'others';
 
 /* pages */
-@import "./pages/home";
-@import "./pages/folio";
-@import "./pages/folio-landscape";
-@import "./pages/folio-portrait";
-@import "./pages/game";
+@import './pages/home';
+@import './pages/folio';
+@import './pages/folio-landscape';
+@import './pages/folio-portrait';
+@import './pages/game';
 
 /* tabs */
-@import "./pages/intro";
-@import "./pages/roadmap";
-@import "./pages/works";
-@import "./pages/contact";
+@import './pages/intro';
+@import './pages/roadmap';
+@import './pages/works';
+@import './pages/contact';
 
 /* components */
-@import "./components/stats";
-@import "./components/toolbar";
-@import "./components/futures";
+@import './components/stats';
+@import './components/toolbar';
+@import './components/futures';
+@import './components/howto';
+@import './components/menu';

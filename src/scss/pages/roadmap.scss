@@ -1,42 +1,42 @@
 /* Roadmap */
 .Roadmap {
-    margin: 50px auto !important;
-    & * + * {
-        margin-top: 0;
-    }
-    .ant-timeline-alternate {
-        list-style: none;
-        .ant-timeline-item {
-            list-style: none;
-            a {
-                color: $color-link-hover;
-                text-decoration: none;
-            }
-            span {
-                font-weight: 600;
-                color: $color-white;
-            }
-            .ant-timeline-item-tail {
-                border-left-color: $color-timeline-icon-bg;
-            }
-            .ant-timeline-item-head {
-                background-color: $color-back;
-                border-color: $color-link-hover;
-            }
-            .ant-timeline-item-content {
-                color: $color-white;
-                font-size: 3vw;
-                @media all and (max-width: $media-x-small) {
-                    font-size: 6vw;
-                }
-            }
+  margin: 50px auto !important;
+  & * + * {
+    margin-top: 0;
+  }
+  .ant-timeline-alternate {
+    list-style: none;
+    .ant-timeline-item {
+      list-style: none;
+      a {
+        color: $color-link-hover;
+        text-decoration: none;
+      }
+      span {
+        font-weight: 600;
+        color: $color-white;
+      }
+      .ant-timeline-item-tail {
+        border-left-color: $color-timeline-icon-bg;
+      }
+      .ant-timeline-item-head {
+        background-color: $color-back;
+        border-color: $color-link-hover;
+      }
+      .ant-timeline-item-content {
+        color: $color-white;
+        font-size: 3vw;
+        @media all and (max-width: $media-x-small) {
+          font-size: 6vw;
         }
-        .ant-timeline-item-pending {
-            margin-top: 15px;
-            .ant-timeline-item-head-custom {
-                background-color: $transparent;
-                color: $color-link-hover;
-            }
-        }
+      }
     }
+    .ant-timeline-item-pending {
+      margin-top: 15px;
+      .ant-timeline-item-head-custom {
+        background-color: $transparent;
+        color: $color-link-hover;
+      }
+    }
+  }
 }

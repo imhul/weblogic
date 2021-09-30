@@ -1,96 +1,94 @@
 import { typesUX as type } from '../constants/types';
 
 export function isHome() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.IS_HOME,
-    })
-  }
-};
+      type: type.IS_HOME
+    });
+  };
+}
 
 export function tabMod(payload) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: type.TAB_MODIFY,
-      payload: payload,
-    })
-  }
-};
+      payload: payload
+    });
+  };
+}
 
 export function langUpdate(payload) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: type.CHANGE_LANG,
-      payload: payload,
-    })
-  }
-};
+      payload: payload
+    });
+  };
+}
 
 export function clickFX() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: type.CLICK_FX,
-      payload: payload,
-    })
-  }
-};
+      payload: payload
+    });
+  };
+}
 
 export function showModal() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.SHOW_MODAL,
-    })
-  }
-};
+      type: type.SHOW_MODAL
+    });
+  };
+}
 
 export function closeModal() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.CLOSE_MODAL,
-    })
-  }
-};
+      type: type.CLOSE_MODAL
+    });
+  };
+}
 
 export function showDesc() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.SHOW_DESC,
-    })
-  }
-};
+      type: type.SHOW_DESC
+    });
+  };
+}
 
 export function hideDesc() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.HIDE_DESC,
-    })
-  }
-};
+      type: type.HIDE_DESC
+    });
+  };
+}
 
 export function textareaUpdate(text) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: type.TEXTAREA_UPDATE,
-      payload: text,
-    })
-  }
-};
+      payload: text
+    });
+  };
+}
 
 export function toggleFutures() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.TOGGLE_FUTURES,
-    })
-  }
-};
+      type: type.TOGGLE_FUTURES
+    });
+  };
+}
 
 export function updateHistory(payload) {
-    return (dispatch) => {
-        dispatch({
-            type: type.HISTORY_UPDATE,
-            payload: payload,
-        })
-    }
-};
-
-
+  return dispatch => {
+    dispatch({
+      type: type.HISTORY_UPDATE,
+      payload: payload
+    });
+  };
+}

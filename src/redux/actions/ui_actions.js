@@ -1,60 +1,60 @@
 import { typesUI as type } from '../constants/types';
 
 export function initialize() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.INITIALIZE,
-    })
-  }
-};
+      type: type.INITIALIZE
+    });
+  };
+}
 
 export function authenticate(ip) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: type.AUTHENTICATE,
-      payload: ip,
-    })
-  }
-};
+      payload: ip
+    });
+  };
+}
 
 export function getRobot(payload) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: type.ROBOT_CHECK,
-      payload: payload,
-    })
-  }
-};
+      payload: payload
+    });
+  };
+}
 
 export function tick() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.TICK,
-    })
-  }
-};
+      type: type.TICK
+    });
+  };
+}
 
 export function getFPS(payload) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: type.GET_FPS,
-      payload: payload,
-    })
-  }
-};
+      payload: payload
+    });
+  };
+}
 
 export function heroAnimate() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.HERO_ANIMATE,
-    })
-  }
-};
+      type: type.HERO_ANIMATE
+    });
+  };
+}
 
 export function loadFolio() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
-      type: type.LOAD_FOLIO,
-    })
-  }
-};
+      type: type.LOAD_FOLIO
+    });
+  };
+}

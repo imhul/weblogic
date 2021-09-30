@@ -1,7 +1,7 @@
 const Base64 = {
-  _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-  encode: function(input) {
-    var output = "";
+  _keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
+  encode: function (input) {
+    var output = '';
     var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
     var i = 0;
     input = Base64._utf8_encode(input);
@@ -20,16 +20,21 @@ const Base64 = {
       } else if (isNaN(chr3)) {
         enc4 = 64;
       }
-      output = output + this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) + this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+      output =
+        output +
+        this._keyStr.charAt(enc1) +
+        this._keyStr.charAt(enc2) +
+        this._keyStr.charAt(enc3) +
+        this._keyStr.charAt(enc4);
     }
     return output;
   },
-  decode: function(input) {
-    var output = "";
+  decode: function (input) {
+    var output = '';
     var chr1, chr2, chr3;
     var enc1, enc2, enc3, enc4;
     var i = 0;
-    input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+    input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');
     while (i < input.length) {
       enc1 = this._keyStr.indexOf(input.charAt(i++));
       enc2 = this._keyStr.indexOf(input.charAt(i++));
@@ -51,14 +56,14 @@ const Base64 = {
     output = Base64._utf8_decode(output);
     return output;
   },
-  _utf8_encode: function(string) {
-    string = string.replace(/\r\n/g, "\n");
-    var utftext = "";
+  _utf8_encode: function (string) {
+    string = string.replace(/\r\n/g, '\n');
+    var utftext = '';
     for (var n = 0; n < string.length; n++) {
       var c = string.charCodeAt(n);
       if (c < 128) {
         utftext += String.fromCharCode(c);
-      } else if ((c > 127) && (c < 2048)) {
+      } else if (c > 127 && c < 2048) {
         utftext += String.fromCharCode((c >> 6) | 192);
         utftext += String.fromCharCode((c & 63) | 128);
       } else {
@@ -69,8 +74,8 @@ const Base64 = {
     }
     return utftext;
   },
-  _utf8_decode: function(utftext) {
-    let string = "";
+  _utf8_decode: function (utftext) {
+    let string = '';
     let i = 0;
     let c, c1, c2;
     c = c1 = c2 = 0;
@@ -79,7 +84,7 @@ const Base64 = {
       if (c < 128) {
         string += String.fromCharCode(c);
         i++;
-      } else if ((c > 191) && (c < 224)) {
+      } else if (c > 191 && c < 224) {
         c2 = utftext.charCodeAt(i + 1);
         string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
         i += 2;
@@ -92,7 +97,6 @@ const Base64 = {
     }
     return string;
   }
-}
- 
+};
 
 export default Base64;

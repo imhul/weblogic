@@ -1,0 +1,16 @@
+.HowTo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
+  button {
+    background-color: $color-black;
+    border-color: $color-white;
+
+    &:hover {
+      background-color: $color-black;
+      border-color: $color-black;
+      box-shadow: 0 0 30px $color-white;
+    }
+  }
+}
