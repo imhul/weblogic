@@ -56,7 +56,7 @@ class Home extends Component {
                     </h1>
                     <JsonLd data={microdata} />
                 </ContextMenuTrigger>
-                <ContextMenu id="context-menu">
+                <ContextMenu hideOnLeave id="context-menu">
                     {
                         menu.map((item) => {
                             return (

@@ -18,19 +18,20 @@ import {
     YoutubeOutlined,
     DollarCircleOutlined,
 } from '@ant-design/icons';
-import preview from '../../../images/preview.png'
+// import preview from '../../../images/preview.png';
 
 class Game extends Component {
 
     render() {
         const { microdata } = this.props.ui;
+        const { lang } = this.props.ux;
         const videoId = 'nETaVY9GOao';
 
         return (
             <div className="Game">
                 <ContextMenuTrigger id="context-menu">
                     <Helmet>
-                        <title>The Game</title>
+                        <title>{translate(lang, 'game_title')}</title>
                         <link rel="canonical" href="http://weblogic.com.ua/game" />
                     </Helmet>
 
@@ -38,42 +39,36 @@ class Game extends Component {
 
                     <div className="container">
                         <Row type="flex" justify="center" align="middle">
-                            <Col xs={24} className="">
-                                <h1 className="center">Proto-Mass. The Game</h1>
-                                <h2 className="center">React-based Pixel-Art Sandbox Game with Indirect Control</h2>
+                            <Col span={24}>
+                                <h1 className="center">{translate(lang, 'game_title')}</h1>
+                                <h2 className="center">{translate(lang, 'game_subtitle')}</h2>
                                 <div className="center">
-                                    <span>
-                                        Far away on a distant planet inhabited by primitive life forms a small colony of robots accidentally trapped must build, develop and fight only to exist... How far can they go?
-                                    </span>
+                                    <span>{translate(lang, 'game_description')}</span>
                                 </div>
-                                {/* TODO: add translations */}
-                                <div className="links-wrapper center">
-                                    <div>
+
+                                <Row gutter={24} className="links-wrapper center mb-20 mt-20">
+                                    <Col xs={{ span: 24 }} sm={{ span: 8 }} className="mb-20 mt-20">
                                         <a href="/game-app" target="_blank" rel="external">
-                                            <CrownOutlined /> Netlify App</a>
-                                    </div>
-                                    <div>
+                                            <CrownOutlined /> {translate(lang, 'game_demo')}</a>
+                                    </Col>
+                                    <Col xs={{ span: 24 }} sm={{ span: 8 }} className="mb-20 mt-20">
                                         <a href="/game-github" target="_blank" rel="external">
-                                            <GithubOutlined /> GitHub Page</a>
-                                    </div>
-                                    <div>
+                                            <GithubOutlined /> {translate(lang, 'game_git')}</a>
+                                    </Col>
+                                    <Col xs={{ span: 24 }} sm={{ span: 8 }} className="mb-20 mt-20">
                                         <a href="/patreon" target="_blank" rel="external">
-                                            <DollarCircleOutlined /> Patreon Page</a>
-                                    </div>
-                                    <div>
-                                        <a href="/youtube" target="_blank" rel="external">
-                                            <YoutubeOutlined /> Youtube Video</a>
-                                    </div>
-                                </div>
+                                            <DollarCircleOutlined /> {translate(lang, 'game_donate')}</a>
+                                    </Col>
+                                </Row>
 
                                 <div className="preview-wrapper center">
                                     {/* <img src={preview} alt="game preview" className="preview" /> */}
                                     <iframe 
-                                        loading="lazy"
-                                        width="560" 
-                                        height="315" 
-                                        src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&showinfo=0&autoplay=1`}
-                                        title="Proto-Mass Preview" 
+                                        className="preview"
+                                        width="640" 
+                                        height="360" 
+                                        src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&autoplay=1?fs=1`}
+                                        title={translate(lang, 'game_title')}
                                         frameborder="0" 
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                         allowfullscreen />
@@ -84,7 +79,7 @@ class Game extends Component {
 
                     <JsonLd data={microdata} />
                 </ContextMenuTrigger>
-                <ContextMenu id="context-menu">
+                <ContextMenu hideOnLeave id="context-menu">
                     {
                         menu.map((item) => {
                             return (

@@ -66,13 +66,20 @@ const translations = {
         'work_4': 'Next-gen test management system for automated & manual tests. React + Mobx',
         'work_5': 'National payment service. Angular 8 + Material-UI',
         'work_6': 'e-commerce project, React + Redux + masonry + design',
-        'work_7': <span>The <a href="https://isoftbet.com/" target="_blank" rel="nofollow, noreferrer">iSoftBet</a> European online casino game, which was released in 2017. Then an <a href="https://www.softgamings.com/sg-games/isoftbetgames-any/alice-adventure-2/" target="_blank" rel="nofollow, noreferrer">article</a> was written about her. Animation on Pixi.js + TypeScript</span>,
+        'work_7': <span>The <a href="/isoftbet" target="_blank" rel="external">iSoftBet</a> European online casino game, which was released in 2017. Then an <a href="/isoftbet-article" target="_blank" rel="external">article</a> was written about her. Animation on Pixi.js + TypeScript</span>,
         'work_8': 'Analytical resource, JavaScript + jQuery + Materialize + design',
         'work_9': 'An application to clean your subscription list from bounces, and enrich data with customers. Verify your real customers in one way. SvelteKit + SCSS + RSS Feed',
         'demo_status_desc': '* Demo status means that the project is available for viewing on my site.',
         'released_status_desc': '** The project in the Release status is a finished product and is hosted on the client\'\s production server.',
         'current_projects': 'Current Projects',
 
+        // Game EN
+        'game_title': 'Proto-Mass. The Game',
+        'game_subtitle': 'React-based Pixel-Art Sandbox Game with Indirect Control',
+        'game_description': 'Far away on a distant planet inhabited by primitive life forms a small colony of robots accidentally trapped must build, develop and fight only to exist... How far can they go?',
+        'game_demo': 'Demo App',
+        'game_git': 'GitHub',
+        'game_donate': 'Patreon',
     },
 
     'russian': {
@@ -141,13 +148,20 @@ const translations = {
         'work_4': 'Система управления тестированием нового поколения для автоматизированных и ручных тестов. React + Mobx',
         'work_5': 'Национальный платежный сервис. Angular 8 + Material-UI',
         'work_6': 'Интернет-магазин, React + Redux + masonry + дизайн',
-        'work_7': <span>Игра для европейского онлайн-казино <a href="https://isoftbet.com/" target="_blank" rel="nofollow, noreferrer">iSoftBet</a>, которая вышла в релиз в 2017 году. Тогда же о ней была написана <a href="https://www.softgamings.com/sg-games/isoftbetgames-any/alice-adventure-2/" target="_blank" rel="nofollow, noreferrer">статья</a>. Анимация на Pixi.js + TypeScript</span>,
+        'work_7': <span>Игра для европейского онлайн-казино <a href="/isoftbet" target="_blank" rel="external">iSoftBet</a>, которая вышла в релиз в 2017 году. Тогда же о ней была написана <a href="/isoftbet-article" target="_blank" rel="external">статья</a>. Анимация на Pixi.js + TypeScript</span>,
         'work_8': 'Аналитический ресурс, JavaScript + jQuery + Materialize + дизайн',
         'work_9': 'Приложение для очистки вашего списка подписок от отказов и пополнения данных о клиентах. Проверяйте своих реальных клиентов одним способом. SvelteKit + SCSS + RSS Feed',
         'demo_status_desc': '* Статус Демо означает, что проект доступен для просмотра на моём сайте.',
         'released_status_desc': '** Проект в статусе Релиз является готовым продуктом и размещён на сервере клиента.',
         'current_projects': 'Текущие проекты',
 
+        // Game RU
+        'game_title': 'Proto-Mass. On-line игра',
+        'game_subtitle': 'Пиксель-арт песочницца с непрямым управлением на основе React',
+        'game_description': 'На далекой планете, населенной примитивными формами жизни, небольшая колония случайно попавших в ловушку роботов, должна строить, развиваться и сражаться для того, чтобы выжить ... Как далеко они могут зайти?',
+        'game_demo': 'Демо',
+        'game_git': 'GitHub',
+        'game_donate': 'Patreon',
     } 
 };
 

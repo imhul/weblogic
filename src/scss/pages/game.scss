@@ -11,33 +11,7 @@
     overflow: hidden;
     background-color: $color-content-bg;
 
-    &::-webkit-scrollbar {
-        background-color: $transparent;
-    }
-
-    &::-webkit-scrollbar-button {
-        background-color: $transparent;
-    }
-
-    &::-webkit-scrollbar-track {
-        background-color: $transparent;
-    }
-
-    &::-webkit-scrollbar-track-piece {
-        background-color: $transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: $color-black;
-    }
-
-    &::-webkit-scrollbar-corner {
-        background-color: $transparent;
-    }
-
-    &::-webkit-resizer {
-        background-color: $transparent;
-    }
+    @extend %scrollbar;
 
     .container {
         .ant-row {
@@ -53,6 +27,7 @@
                 }
 
                 a {
+                    font-size: 20px;
                     color: $color-link-hover;
 
                     &:hover {
@@ -64,6 +39,7 @@
                     }
 
                     span {
+                        font-size: 20px;
                         color: $color-link-hover;
                     }
                 }
@@ -71,14 +47,18 @@
                 .preview-wrapper {
                     position: relative;
                     width: 100%;
+                    max-height: 500px;
                     padding-bottom: 56.25%;
                     
                     .preview {
                         width: 100%;
-                        height: auto;
                     }
                 }
             }
         }
+    }
+
+    .react-contextmenu {
+        @extend %context-menu;
     }
 }

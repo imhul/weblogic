@@ -28,6 +28,7 @@ class Output extends Component {
     render() {
 
         const { isHome } = this.props.ux;
+        const { technologies } = this.props.ui;
 
         return (
             <Layout className="LayoutMain">
@@ -66,6 +67,22 @@ class Output extends Component {
                             window.location.href = 'https://github.com/imhul/proto-mass';
                             return null;
                         }} />
+                        <Route path='/isoftbet' component={() => {
+                            window.location.href = 'https://isoftbet.com/';
+                            return null;
+                        }} />
+                        <Route path='/isoftbet-article' component={() => {
+                            window.location.href = 'https://www.softgamings.com/sg-games/isoftbetgames-any/alice-adventure-2/';
+                            return null;
+                        }} />
+                        {technologies.map((item) => {
+                            return (
+                                <Route key={item.id} path={`/${item.id}`} component={() => {
+                                    window.location.href = item.link;
+                                    return null;
+                                }} />
+                            )
+                        })}
                     </Content>
                 </Layout>
             </Layout>
@@ -81,6 +98,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
+        ui: state.ui,
         ux: state.ux,
     }
 };

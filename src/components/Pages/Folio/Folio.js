@@ -24,8 +24,8 @@ const Panel = Collapse.Panel;
 class Folio extends Component {
 
     componentDidMount() {
-        setTimeout(() => this.props.uiActions.loadFolio(), 1000)
-    };
+        setTimeout(() => this.props.uiActions.loadFolio(), 1000);
+    }
 
     render() {
         const { loaded, microdata } = this.props.ui;
@@ -99,7 +99,7 @@ class Folio extends Component {
                     }
                     <JsonLd data={microdata} />
                 </ContextMenuTrigger>
-                <ContextMenu id="context-menu">
+                <ContextMenu hideOnLeave id="context-menu">
                     {
                         menu.map((item) => {
                             return (
