@@ -39,10 +39,46 @@
         background-color: $transparent;
     }
 
-    .preview-wrapper {
-        .preview {
-            max-width: 80%;
-            height: auto;
+    .container {
+        .ant-row {
+            .ant-col {
+
+                p,
+                span,
+                h1,
+                h2,
+                a {
+                    font-family: monospace;
+                    color: $color-white;
+                }
+
+                a {
+                    color: $color-link-hover;
+
+                    &:hover {
+                        color: $color-white;
+
+                        span {
+                            color: $color-white;
+                        }
+                    }
+
+                    span {
+                        color: $color-link-hover;
+                    }
+                }
+
+                .preview-wrapper {
+                    position: relative;
+                    width: 100%;
+                    padding-bottom: 56.25%;
+                    
+                    .preview {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
         }
     }
 }

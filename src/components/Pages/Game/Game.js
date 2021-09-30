@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Helmet } from "react-helmet";
 import { bindActionCreators } from 'redux';
-import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
 import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
+// utils
 import menu from '../../../utils/menu';
 import translate from '../translations';
 import JsonLd from '../../../utils/microdata';
+// components
+import { Helmet } from "react-helmet";
+import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import Toolbar from '../../Toolbar';
+import { Row, Col } from 'antd';
 import {
     CrownOutlined,
     GithubOutlined,
+    YoutubeOutlined,
     DollarCircleOutlined,
 } from '@ant-design/icons';
 import preview from '../../../images/preview.png'
@@ -20,6 +24,7 @@ class Game extends Component {
 
     render() {
         const { microdata } = this.props.ui;
+        const videoId = 'nETaVY9GOao';
 
         return (
             <div className="Game">
@@ -31,31 +36,50 @@ class Game extends Component {
 
                     <Toolbar key={0} />
 
-                    <h1 className="center">Proto-Mass. The Game</h1>
-                    <div className="center">React-based Pixel-Art Sandbox Game with Indirect Control</div>
-                    <div className="center">Far away on a distant planet inhabited by primitive life forms a small colony of robots accidentally trapped must build, develop and fight only to exist... How far can they go?</div>
-                    {/* TODO: add translations */}
-                    <div className="links-wrapper center">
-                        <div>
-                            <a href="https://proto-mass.netlify.app/">
-                                <CrownOutlined /> Netlify App</a>
-                        </div>
-                        <div>
-                            <a href="https://github.com/imhul/proto-mass">
-                                <GithubOutlined /> GitHub Page</a>
-                        </div>
-                        <div>
-                            <a href="https://www.patreon.com/protomass">
-                                <DollarCircleOutlined /> Patreon Page</a>
-                        </div>
-                        <div>
-                            <a href="https://www.youtube.com/watch?v=nETaVY9GOao&list=PLhuamC7vAt9eGXOUIvAKZlDetKB-Uwp0s">
-                                <YoutubeOutlined /> Youtube Video</a>
-                        </div>
-                    </div>
+                    <div className="container">
+                        <Row type="flex" justify="center" align="middle">
+                            <Col xs={24} className="">
+                                <h1 className="center">Proto-Mass. The Game</h1>
+                                <h2 className="center">React-based Pixel-Art Sandbox Game with Indirect Control</h2>
+                                <div className="center">
+                                    <span>
+                                        Far away on a distant planet inhabited by primitive life forms a small colony of robots accidentally trapped must build, develop and fight only to exist... How far can they go?
+                                    </span>
+                                </div>
+                                {/* TODO: add translations */}
+                                <div className="links-wrapper center">
+                                    <div>
+                                        <a href="/game-app" target="_blank" rel="external">
+                                            <CrownOutlined /> Netlify App</a>
+                                    </div>
+                                    <div>
+                                        <a href="/game-github" target="_blank" rel="external">
+                                            <GithubOutlined /> GitHub Page</a>
+                                    </div>
+                                    <div>
+                                        <a href="/patreon" target="_blank" rel="external">
+                                            <DollarCircleOutlined /> Patreon Page</a>
+                                    </div>
+                                    <div>
+                                        <a href="/youtube" target="_blank" rel="external">
+                                            <YoutubeOutlined /> Youtube Video</a>
+                                    </div>
+                                </div>
 
-                    <div className="preview-wrapper center">
-                        <img src={preview} alt="game preview" className="preview" />
+                                <div className="preview-wrapper center">
+                                    {/* <img src={preview} alt="game preview" className="preview" /> */}
+                                    <iframe 
+                                        loading="lazy"
+                                        width="560" 
+                                        height="315" 
+                                        src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&showinfo=0&autoplay=1`}
+                                        title="Proto-Mass Preview" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen />
+                                </div>
+                            </Col>
+                        </Row>
                     </div>
 
                     <JsonLd data={microdata} />

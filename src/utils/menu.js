@@ -14,36 +14,43 @@ const menu = [
         id: 'Home',
         url: '/',
         icon: <HomeOutlined />,
+        blank: false,
     },
     {
         id: 'Game',
         url: '/game',
         icon: <CrownOutlined />,
+        blank: false,
     },
     {
         id: 'Portfolio',
         url: '/folio',
         icon: <ExperimentOutlined />,
+        blank: false,
     },
     {
         id: 'Github',
-        url: 'https://github.com/imhul/weblogic',
+        url: '/github',
         icon: <GithubOutlined />,
+        blank: true,
     },
     {
         id: 'Patreon',
-        url: 'https://www.patreon.com/protomass',
+        url: '/patreon',
         icon: <DollarCircleOutlined />,
+        blank: true,
     },
     {
         id: 'Codecedemy',
-        url: 'https://www.codecademy.com/profiles/weblogicfront',
+        url: '/codecademy',
         icon: <BarChartOutlined />,
+        blank: true,
     },
     {
         id: 'Linkedin',
-        url: 'https://www.linkedin.com/in/tkachuk-zakhar-04733892/',
+        url: '/linkedin',
         icon: <LinkedinOutlined />,
+        blank: true,
     }
 ];
 

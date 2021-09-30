@@ -31,13 +31,41 @@ class Output extends Component {
 
         return (
             <Layout className="LayoutMain">
-                { isHome ? <Stats /> : null }
+                {isHome ? <Stats /> : null}
                 {/* isHome ? <Futures /> : null */}
                 <Layout className="Main">
                     <Content>
-                        <Route exact path="/" component={ Home } />
-                        <Route exact path="/game" component={ Game } />
-                        <Route exact path="/folio" component={ Folio } />
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/game" component={Game} />
+                        <Route exact path="/folio" component={Folio} />
+                        <Route path='/patreon' component={() => {
+                            window.location.href = 'https://www.patreon.com/protomass';
+                            return null;
+                        }} />
+                        <Route path='/game-app' component={() => {
+                            window.location.href = 'https://proto-mass.netlify.app/';
+                            return null;
+                        }} />
+                        <Route path='/github' component={() => {
+                            window.location.href = 'https://github.com/imhul/weblogic';
+                            return null;
+                        }} />
+                        <Route path='/codecademy' component={() => {
+                            window.location.href = 'https://www.codecademy.com/profiles/weblogicfront';
+                            return null;
+                        }} />
+                        <Route path='/linkedin' component={() => {
+                            window.location.href = 'https://www.linkedin.com/in/tkachuk-zakhar-04733892/';
+                            return null;
+                        }} />
+                        <Route path='/youtube' component={() => {
+                            window.location.href = 'https://www.youtube.com/watch?v=nETaVY9GOao&list=PLhuamC7vAt9eGXOUIvAKZlDetKB-Uwp0s';
+                            return null;
+                        }} />
+                        <Route path='/game-github' component={() => {
+                            window.location.href = 'https://github.com/imhul/proto-mass';
+                            return null;
+                        }} />
                     </Content>
                 </Layout>
             </Layout>

@@ -104,7 +104,7 @@ class Folio extends Component {
                         menu.map((item) => {
                             return (
                                 <MenuItem key={item.id}>
-                                    <a href={item.url} title={item.id}>
+                                    <a href={item.url} title={item.id} target={item.blank ? '_blank' : '_self'} rel={item.blank ? 'external' : 'next'}>
                                         {item.icon} {item.id}</a>
                                 </MenuItem>
                             )
