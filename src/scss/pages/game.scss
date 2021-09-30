@@ -1,0 +1,64 @@
+.Game {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background-color: $color-content-bg;
+
+    @extend %scrollbar;
+
+    .container {
+        .ant-row {
+            .ant-col {
+
+                p,
+                span,
+                h1,
+                h2,
+                a {
+                    font-family: monospace;
+                    color: $color-white;
+                }
+
+                a {
+                    font-size: 20px;
+                    color: $color-link-hover;
+
+                    &:hover {
+                        color: $color-white;
+
+                        span {
+                            color: $color-white;
+                        }
+                    }
+
+                    span {
+                        font-size: 20px;
+                        color: $color-link-hover;
+                    }
+                }
+
+                .preview-wrapper {
+                    position: relative;
+                    width: 100%;
+                    max-height: 500px;
+                    padding-bottom: 56.25%;
+                    
+                    .preview {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .react-contextmenu {
+        @extend %context-menu;
+    }
+}

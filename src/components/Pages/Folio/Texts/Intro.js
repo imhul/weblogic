@@ -62,17 +62,17 @@ class Intro extends Component {
                         {/* LOGOS */}
                         <Row gutter={24} type="flex" justify="center" align="middle" className="logos">
                             <Col span={8}>
-                                <a href="https://reactjs.org/" title="React page" target="_blank" rel="nofollow, noreferrer">
+                                <a href="https://reactjs.org/" title="React page" target="_blank" rel="external">
                                     <ReactLogo />
                                 </a>
                             </Col>
                             <Col span={8}>
-                                <a href="https://redux.js.org/" title="Redux page" target="_blank" rel="nofollow, noreferrer">
+                                <a href="https://redux.js.org/" title="Redux page" target="_blank" rel="external">
                                     <ReduxLogo />
                                 </a>
                             </Col>
                             <Col span={8}>
-                                <a href="https://mobx.js.org/" title="Mobx page" target="_blank" rel="nofollow, noreferrer">
+                                <a href="https://mobx.js.org/" title="Mobx page" target="_blank" rel="external">
                                     <MobxLogo />
                                 </a>
                             </Col>
@@ -80,17 +80,17 @@ class Intro extends Component {
 
                         <Row gutter={24} type="flex" justify="center" align="middle" className="logos">
                             <Col span={8}>
-                                <a href="https://ant.design/" title="Ant Design page" target="_blank" rel="nofollow, noreferrer">
+                                <a href="https://ant.design/" title="Ant Design page" target="_blank" rel="external">
                                     <AntdLogo />
                                 </a>
                             </Col>
                             <Col span={8}>
-                                <a href="https://materializecss.com/" title="Materialize page" target="_blank" rel="nofollow, noreferrer">
+                                <a href="https://materializecss.com/" title="Materialize page" target="_blank" rel="external">
                                     <MaterializeLogo />
                                 </a>
                             </Col>
                             <Col span={8}>
-                                <a href="https://getuikit.com/" title="UIKit page" target="_blank" rel="nofollow, noreferrer">
+                                <a href="https://getuikit.com/" title="UIKit page" target="_blank" rel="external">
                                     <UikitLogo />
                                 </a>
                             </Col>
@@ -98,17 +98,17 @@ class Intro extends Component {
 
                         <Row gutter={24} type="flex" justify="center" align="middle" className="logos">
                             <Col span={8}>
-                                <a href="https://svelte.dev/" title="Svelte page" target="_blank" rel="nofollow, noreferrer">
+                                <a href="https://svelte.dev/" title="Svelte page" target="_blank" rel="external">
                                     <SvelteLogo />
                                 </a>
                             </Col>
                             <Col span={8}>
-                                <a href="https://parceljs.org/" title="Parcel page" target="_blank" rel="nofollow, noreferrer">
+                                <a href="https://parceljs.org/" title="Parcel page" target="_blank" rel="external">
                                     <ParcelLogo />
                                 </a>
                             </Col>
                             <Col span={8}>
-                                <a href="https://sass-lang.com/" title="SASS page" target="_blank" rel="nofollow, noreferrer">
+                                <a href="https://sass-lang.com/" title="SASS page" target="_blank" rel="external">
                                     <SassLogo />
                                 </a>
                             </Col>
@@ -124,7 +124,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'library').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -137,7 +137,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'fw').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -150,7 +150,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'cssfw').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -163,7 +163,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'bundler').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -176,7 +176,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'git').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -191,7 +191,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'lang').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -205,7 +205,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'design').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -219,7 +219,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'cms').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -235,7 +235,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'api').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -248,7 +248,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'track').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -260,7 +260,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'seo').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -273,7 +273,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'ide').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -285,7 +285,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'packmen').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>
@@ -302,7 +302,7 @@ class Intro extends Component {
                                     {technologies.filter((item) => item.list === 'other').map((item) => {
                                         return (
                                             <li key={item.id}>
-                                                <a href={item.link} target="_blank" rel="nofollow, noreferrer" title={`${item.id} page`}>
+                                                <a href={`/${item.id}`} target="_blank" rel="external" title={`${item.id} page`}>
                                                     {item.id}
                                                 </a>
                                             </li>

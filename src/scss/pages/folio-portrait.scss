@@ -2,22 +2,27 @@
 
 @media screen and (orientation: portrait) {
     .Folio {
+
         /* Collapse */
         /* not active */
         .ant-collapse {
             &.active {
                 .ant-collapse-item {
                     height: 10vh;
+
                     &.ant-collapse-item-active {
                         height: 70vh;
                     }
+
                     .ant-collapse-header {
                         height: 10vh;
                         font-size: 8vw !important;
+
                         // iPhones, iPads
-                        i {
+                        .anticon {
                             font-size: 6vh;
                             margin-top: 1vh;
+
                             @media (max-width: $media-medium-max) {
                                 margin-top: 1vh;
                                 font-size: 6vh !important;
@@ -26,26 +31,34 @@
                     }
                 }
             }
+
             .ant-collapse-item {
                 border-bottom-color: $color-white;
+
                 .ant-collapse-header {
                     font-size: 12vw !important;
+
                     @media (max-width: $media-small) {
                         text-align: center;
                         font-size: 10vw !important;
                     }
-                    i {
+
+                    .anticon {
                         font-size: 10vh !important;
                     }
                 }
+
                 /* Static content styles */
                 .ant-collapse-content {
                     font-size: 18px;
+
                     .ant-collapse-content-box {
                         width: 100%;
+
                         .content {
                             margin: 0 auto;
                             color: $color-white;
+
                             .react-gravatar {
                                 border-radius: 50%;
                             }
@@ -53,11 +66,13 @@
                     }
                 }
             }
+
             /* active content section */
             .ant-collapse-item-active {
                 .ant-collapse-header {
                     font-size: 8vw !important;
-                    i {
+
+                    .anticon {
                         font-size: 6vh;
                     }
                 }

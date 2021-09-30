@@ -5,6 +5,7 @@
 @import "media";
 @import "base";
 @import "typography";
+@import "fragments";
 @import "others";
 
 /* pages */
@@ -12,6 +13,7 @@
 @import "./pages/folio";
 @import "./pages/folio-landscape";
 @import "./pages/folio-portrait";
+@import "./pages/game";
 
 /* tabs */
 @import "./pages/intro";

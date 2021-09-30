@@ -11,7 +11,8 @@ import { Layout } from 'antd';
 import Stats from '../Pages/Home/Stats';
 import Home from '../Pages/Home';
 import Folio from '../Pages/Folio';
-import Futures from '../Pages/Home/Futures';
+import Game from '../Pages/Game';
+// import Futures from '../Pages/Home/Futures';
 
 const { Content } = Layout;
 
@@ -27,15 +28,61 @@ class Output extends Component {
     render() {
 
         const { isHome } = this.props.ux;
+        const { technologies } = this.props.ui;
 
         return (
             <Layout className="LayoutMain">
-                { isHome ? <Stats /> : null }
+                {isHome ? <Stats /> : null}
                 {/* isHome ? <Futures /> : null */}
                 <Layout className="Main">
                     <Content>
-                        <Route exact path="/" component={ Home } />
-                        <Route exact path="/folio" component={ Folio } />
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/game" component={Game} />
+                        <Route exact path="/folio" component={Folio} />
+                        <Route path='/patreon' component={() => {
+                            window.location.href = 'https://www.patreon.com/protomass';
+                            return null;
+                        }} />
+                        <Route path='/game-app' component={() => {
+                            window.location.href = 'https://proto-mass.netlify.app/';
+                            return null;
+                        }} />
+                        <Route path='/github' component={() => {
+                            window.location.href = 'https://github.com/imhul/weblogic';
+                            return null;
+                        }} />
+                        <Route path='/codecademy' component={() => {
+                            window.location.href = 'https://www.codecademy.com/profiles/weblogicfront';
+                            return null;
+                        }} />
+                        <Route path='/linkedin' component={() => {
+                            window.location.href = 'https://www.linkedin.com/in/tkachuk-zakhar-04733892/';
+                            return null;
+                        }} />
+                        <Route path='/youtube' component={() => {
+                            window.location.href = 'https://www.youtube.com/watch?v=nETaVY9GOao&list=PLhuamC7vAt9eGXOUIvAKZlDetKB-Uwp0s';
+                            return null;
+                        }} />
+                        <Route path='/game-github' component={() => {
+                            window.location.href = 'https://github.com/imhul/proto-mass';
+                            return null;
+                        }} />
+                        <Route path='/isoftbet' component={() => {
+                            window.location.href = 'https://isoftbet.com/';
+                            return null;
+                        }} />
+                        <Route path='/isoftbet-article' component={() => {
+                            window.location.href = 'https://www.softgamings.com/sg-games/isoftbetgames-any/alice-adventure-2/';
+                            return null;
+                        }} />
+                        {technologies.map((item) => {
+                            return (
+                                <Route key={item.id} path={`/${item.id}`} component={() => {
+                                    window.location.href = item.link;
+                                    return null;
+                                }} />
+                            )
+                        })}
                     </Content>
                 </Layout>
             </Layout>
@@ -51,6 +98,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
+        ui: state.ui,
         ux: state.ux,
     }
 };

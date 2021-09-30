@@ -1,0 +1,56 @@
+%scrollbar {
+    &::-webkit-scrollbar {
+        background-color: $transparent;
+    }
+
+    &::-webkit-scrollbar-button {
+        background-color: $transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $transparent;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background-color: $transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $color-black;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: $transparent;
+    }
+
+    &::-webkit-resizer {
+        background-color: $transparent;
+    }
+}
+
+%context-menu {
+    box-shadow: 0 0 20px $color-white;
+
+    &.react-contextmenu--visible {
+        min-width: 135px;
+        background-color: $color-black;
+
+        .react-contextmenu-item {
+            color: $color-white;
+            padding: 10px 20px;
+
+            a {
+                color: $color-white;
+            }
+
+            &:hover {
+                background-color: $color-footer;
+                color: $color-link-hover;
+
+                a {
+                    color: $color-link-hover;
+                }
+            }
+        }
+    }
+}
