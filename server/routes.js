@@ -9,7 +9,7 @@ const routes = [
   {
     method: 'POST',
     url: '/api/users',
-    handler: addUser,
+    handler: addUser
   },
   {
     method: 'PUT',
@@ -21,6 +21,6 @@ const routes = [
     url: '/api/user/:id',
     handler: deleteUser
   }
-]
+];
 
-module.exports = routes
+module.exports = routes;

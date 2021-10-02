@@ -1,34 +1,35 @@
 body {
-	color: $color-text;
-	font: $font-text;
-	//letter-spacing: 0.85px;
+  color: $color-text;
+  font: $font-text;
+  //letter-spacing: 0.85px;
 }
 
 a {
-	color: $color-link;
-	// todo: use function color
+  color: $color-link;
+  // todo: use function color
 
-	&:hover {
-		text-decoration: none;
-	}
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .content {
-	color: $color-text;
-    font: $font-text;
-    .ant-btn-background-ghost {
-        color: $color-white;
-        border-color: $color-white;
-        text-decoration: none;
-        &:hover {
-            text-shadow: 0 0 20px $color-link-hover;
-            border-color: $color-link-hover;
-            color: $color-link-hover;            }
-        i {
-            margin-right: 10px;
-        }
-        span {
-            margin: 0;
-        }
+  color: $color-text;
+  font: $font-text;
+  .ant-btn-background-ghost {
+    color: $color-white;
+    border-color: $color-white;
+    text-decoration: none;
+    &:hover {
+      text-shadow: 0 0 20px $color-link-hover;
+      border-color: $color-link-hover;
+      color: $color-link-hover;
     }
+    i {
+      margin-right: 10px;
+    }
+    span {
+      margin: 0;
+    }
+  }
 }

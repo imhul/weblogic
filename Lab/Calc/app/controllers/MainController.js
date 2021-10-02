@@ -13,14 +13,6 @@
 
         vm.calc_data = Calculator.data;
 
-        // vm.moduleSide = 0.387;
-        // vm.moduleSquare = 0.15;
-        // vm.humanHeight = Calculator.humanHeight;
-        // vm.moduleAmt = vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical;
-        // vm.surface = vm.moduleAmt * vm.moduleSquare;
-
-        // TODO Применить imperialFactorFt и imperialFactorLb к результатам
-
         // Функция пересчета результата в империческую систему (футы)
         vm.imperialFactorFt = function(resultFt) {
             if (vm.calc_data.is_imperial) {

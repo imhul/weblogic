@@ -19,30 +19,31 @@ export const fetchUsersFailure = errors => ({
 
 // users
 
-export const createUser = (user) => ({
+export const createUser = user => ({
   type: type.ADD_NEW_USER,
   payload: { user }
 });
 
 export function readUsers() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(fetchUsersBegin());
 
-    return axios.get('/api/users')
+    return axios
+      .get('/api/users')
       .then(data => {
-        console.log("readUsers action success with data: ", data);
+        console.log('readUsers action success with data: ', data);
         dispatch(fetchUsersSuccess(data));
       })
-      .catch(error => dispatch(fetchUsersFailure(error)))
-  }
-};
+      .catch(error => dispatch(fetchUsersFailure(error)));
+  };
+}
 
-export const updateUser = (user) => ({
+export const updateUser = user => ({
   type: type.UPDATE_USER,
   payload: { user }
 });
 
-export const deleteUser = (id) => ({
+export const deleteUser = id => ({
   type: type.DELETE_USER,
   payload: { id }
 });

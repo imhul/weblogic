@@ -1,9 +1,9 @@
-$color-back: #607d8b !default;
-$transparent: rgba(0,0,0,0) !default;
+$color-back: #456778 !default;
+$transparent: rgba(0, 0, 0, 0) !default;
 
-$color-deepper-black: #2A414C !default;
+$color-deepper-black: #2a414c !default;
 $color-deep-black: #395766 !default;
-$color-black: rgba(65,100,117,1) !default; // #416475
+$color-black: rgba(65, 100, 117, 1) !default; // #416475
 $color-white: #bcc8ce !default;
 
 $color-title: #555 !default;
@@ -12,7 +12,7 @@ $color-text: #555 !default;
 $color-text-light: #555 !default;
 $color-text-dark: #555 !default;
 
-$color-text-shadow: rgba(0,0,0,0.2);
+$color-text-shadow: rgba(0, 0, 0, 0.2);
 
 $color-link: #2f4cb4 !default;
 $color-link-hover: #fdd835 !default;
@@ -20,13 +20,13 @@ $color-link-hover: #fdd835 !default;
 $color-content-table-bd: #2c2c2c !default;
 $color-content-table-bg: #2c2c2c !default;
 
-$color-content-bg: rgba(65,100,117,0.4) !default;
-$color-content-bg-hover: rgba(65,100,117,0.8) !default;
+$color-content-bg: rgba(65, 100, 117, 0.4) !default;
+$color-content-bg-hover: rgba(65, 100, 117, 0.8) !default;
 
 $color-timeline-icon-bg: rgba(207, 216, 220, 0.4);
 
 $color-footer: rgba(0, 0, 0, 0.65) !default;
 
 .white {
-    color: $color-white !important;
+  color: $color-white !important;
 }

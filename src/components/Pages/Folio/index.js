@@ -1,3 +1,3 @@
 import Folio from './Folio';
 
-export default Folio
+export default Folio;

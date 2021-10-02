@@ -1,3 +1,3 @@
 import Toolbar from './Toolbar';
 
-export default Toolbar
+export default Toolbar;
