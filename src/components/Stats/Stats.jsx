@@ -9,12 +9,11 @@ class Stats extends Component {
     this.state = {
       fps: 0,
       parts: 0,
-      active: true,
+      period: 1000,
     };
   }
 
   setFPS(values, max) {
-    if (!this.state.active) return;
     this.setState({ fps: (values[values.length - 1] * max).toFixed(0) });
   }
 
@@ -23,14 +22,13 @@ class Stats extends Component {
     let count = 0;
     let lastTime = 0;
     const values = [];
-    let period = 1000;
     let max = 90;
     raf(function measure() {
       count++;
       let t = now();
-      if (t - lastTime > period) {
+      if (t - lastTime > self.period) {
         lastTime = t;
-        values.push(count / (max * period * 0.001));
+        values.push(count / (max * self.period * 0.001));
         count = 0;
         self.setFPS(values, max);
       }
@@ -46,9 +44,8 @@ class Stats extends Component {
   }
 
   componentWillUnmount() {
-    // TODO: stop RAF
     clearInterval(this.timerID);
-    this.setState({ fps: 0, parts: 0, active: false });
+    this.setState({ fps: 0, parts: 0, period: 0 });
   }
 
   render() {
