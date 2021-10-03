@@ -1,94 +1,94 @@
 /* Works */
 
 .Works {
-  margin: 50px auto !important;
+    margin: 50px auto !important;
 
-  h1 {
-    color: $color-white;
-    margin: 0.5em auto 0.5em 0;
-  }
-
-  .ant-list {
-    color: $color-white;
-    margin-bottom: 50px;
-
-    .ant-list-header {
-      background-color: $color-deep-black;
-      border-top-right-radius: 4px;
-      border-top-left-radius: 4px;
-      font-weight: 100;
-      font-size: 18px;
-      .ant-row {
-        & > div {
-          margin: 0;
-        }
-      }
-    }
-    .ant-list-footer {
-      background-color: $color-deep-black;
-      border-bottom-right-radius: 4px;
-      border-bottom-left-radius: 4px;
-      font-weight: 100;
-      h2 {
+    h1 {
         color: $color-white;
-        font-weight: 100;
-      }
-      a {
-        color: $color-link-hover;
-        &:hover {
-          text-shadow: 0 0 2px $color-link-hover;
-        }
-      }
+        margin: 0.5em auto 0.5em 0;
     }
-    .ant-spin-nested-loading {
-      margin: 0;
-      .ant-spin-container {
-        .link {
-          text-decoration: none;
-          color: $color-white;
-          .ant-list-item {
+
+    .ant-list {
+        color: $color-white;
+        margin-bottom: 50px;
+
+        .ant-list-header {
+            background-color: $color-deep-black;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+            font-weight: 100;
+            font-size: 18px;
+            .ant-row {
+                & > div {
+                    margin: 0;
+                }
+            }
+        }
+        .ant-list-footer {
+            background-color: $color-deep-black;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            font-weight: 100;
+            h2 {
+                color: $color-white;
+                font-weight: 100;
+            }
+            a {
+                color: $color-link-hover;
+                &:hover {
+                    text-shadow: 0 0 2px $color-link-hover;
+                }
+            }
+        }
+        .ant-spin-nested-loading {
             margin: 0;
-            border-bottom: 1px solid $color-white;
-            &:hover {
-              * {
-                color: $color-link-hover !important;
-              }
+            .ant-spin-container {
+                .link {
+                    text-decoration: none;
+                    color: $color-white;
+                    .ant-list-item {
+                        margin: 0;
+                        border-bottom: 1px solid $color-white;
+                        &:hover {
+                            * {
+                                color: $color-link-hover !important;
+                            }
+                        }
+                        .ant-list-item-content {
+                            font-size: 18px;
+                            line-height: 0;
+                            margin-top: 0;
+                            align-items: center;
+                            i {
+                                font-size: 24px;
+                                @media all and (max-width: $media-small) {
+                                    margin: 20px 20px 0 20px;
+                                }
+                            }
+                            .ant-list-item-meta {
+                                align-items: center;
+                                .ant-list-item-meta-title {
+                                    color: $color-white;
+                                    font-size: 18px;
+                                    @media all and (max-width: $media-x-small) {
+                                        font-size: 6vw;
+                                        line-height: 6vw;
+                                    }
+                                }
+                                .ant-list-item-meta-description {
+                                    color: $color-white;
+                                }
+                                .ant-list-item-meta-avatar {
+                                    .ant-avatar {
+                                        width: 50px;
+                                        height: 50px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
-            .ant-list-item-content {
-              font-size: 18px;
-              line-height: 0;
-              margin-top: 0;
-              align-items: center;
-              i {
-                font-size: 24px;
-                @media all and (max-width: $media-small) {
-                  margin: 20px 20px 0 20px;
-                }
-              }
-              .ant-list-item-meta {
-                align-items: center;
-                .ant-list-item-meta-title {
-                  color: $color-white;
-                  font-size: 18px;
-                  @media all and (max-width: $media-x-small) {
-                    font-size: 6vw;
-                    line-height: 6vw;
-                  }
-                }
-                .ant-list-item-meta-description {
-                  color: $color-white;
-                }
-                .ant-list-item-meta-avatar {
-                  .ant-avatar {
-                    width: 50px;
-                    height: 50px;
-                  }
-                }
-              }
-            }
-          }
         }
-      }
     }
-  }
 }

@@ -9,80 +9,80 @@ import axios from 'axios';
 import translate from '../../../../utils/translations';
 
 class Captcha extends Component {
-  componentDidMount() {
-    const ipify = {
-      URL: 'https://api.ipify.org/',
-      FORMAT: '?format=json'
-    };
-    axios.get(ipify.URL + ipify.FORMAT).then(response => {
-      if (response.data.ip !== '') {
-        this.props.uiActions.authenticate(response.data.ip);
-      }
-    });
-  }
-
-  verify(data) {
-    const { lang } = this.props.ux;
-    const { ui, uiActions } = this.props;
-    const apiURL = `${safe.link}${data}&remoteip=${ui.currentUser.ip}`;
-    axios
-      .post(apiURL)
-      .then(response => {
-        if (response.status === 200 && response.data) {
-          uiActions.getRobot(response.data);
-          message.success({
-            content: `${translate(lang, 'message_success_recaptcha')}`,
-            duration: 3,
-            style: {
-              marginTop: '40px'
+    componentDidMount() {
+        const ipify = {
+            URL: 'https://api.ipify.org/',
+            FORMAT: '?format=json'
+        };
+        axios.get(ipify.URL + ipify.FORMAT).then(response => {
+            if (response.data.ip !== '') {
+                this.props.uiActions.authenticate(response.data.ip);
             }
-          });
-        }
-      })
-      .catch(error => {
-        message.error({
-          content: `${translate(lang, 'message_error_recaptcha')}`,
-          duration: 3,
-          style: {
-            marginTop: '40px'
-          }
         });
-      });
-  }
+    }
 
-  verifyCallback = response => {
-    this.verify(response);
-  };
+    verify(data) {
+        const { lang } = this.props.ux;
+        const { ui, uiActions } = this.props;
+        const apiURL = `${safe.link}${data}&remoteip=${ui.currentUser.ip}`;
+        axios
+            .post(apiURL)
+            .then(response => {
+                if (response.status === 200 && response.data) {
+                    uiActions.getRobot(response.data);
+                    message.success({
+                        content: `${translate(lang, 'message_success_recaptcha')}`,
+                        duration: 3,
+                        style: {
+                            marginTop: '40px'
+                        }
+                    });
+                }
+            })
+            .catch(error => {
+                message.error({
+                    content: `${translate(lang, 'message_error_recaptcha')}`,
+                    duration: 3,
+                    style: {
+                        marginTop: '40px'
+                    }
+                });
+            });
+    }
 
-  render() {
-    const { lang } = this.props.ux;
+    verifyCallback = response => {
+        this.verify(response);
+    };
 
-    return (
-      <Row gutter={24} type="flex" justify="center" align="middle">
-        <Col span={12} className="center">
-          <Recaptcha
-            sitekey={safe.key}
-            theme="dark"
-            verifyCallback={response => this.verifyCallback(response)}
-            hl={lang === 'russian' ? 'uk' : 'en'}
-          />
-        </Col>
-      </Row>
-    );
-  }
+    render() {
+        const { lang } = this.props.ux;
+
+        return (
+            <Row gutter={24} type="flex" justify="center" align="middle">
+                <Col span={12} className="center">
+                    <Recaptcha
+                        sitekey={safe.key}
+                        theme="dark"
+                        verifyCallback={response => this.verifyCallback(response)}
+                        hl={lang === 'russian' ? 'uk' : 'en'}
+                    />
+                </Col>
+            </Row>
+        );
+    }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    uiActions: bindActionCreators(UI_ACTIONS, dispatch)
-  };
+    return {
+        uiActions: bindActionCreators(UI_ACTIONS, dispatch)
+    };
 }
 
 function mapStateToProps(state) {
-  return {
-    ui: state.ui,
-    ux: state.ux
-  };
+    return {
+        ui: state.ui,
+        ux: state.ux
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Captcha);

@@ -1,80 +1,80 @@
 .Game {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: $color-content-bg;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-content-bg;
 
-  @extend %scrollbar;
+    @extend %scrollbar;
 
-  @media (max-width: $media-small) {
-    align-items: flex-start;
-    height: max-content;
-    min-height: 200%;
-    margin-top: 60px;
-  }
-
-  .container {
-    .ant-row {
-      .ant-col {
-        p,
-        span,
-        h1,
-        h2,
-        a {
-          font-family: monospace;
-          color: $color-white;
-        }
-
-        a {
-          font-size: 20px;
-          color: $color-link-hover;
-
-          &:hover {
-            color: $color-white;
-
-            span {
-              color: $color-white;
-            }
-          }
-
-          span {
-            font-size: 20px;
-            color: $color-link-hover;
-          }
-        }
-
-        .mobile-reverse {
-          display: flex;
-          flex-direction: column;
-
-          @media (max-width: $media-small) {
-            flex-direction: column-reverse;
-          }
-        }
-
-        .preview-wrapper {
-          height: 0;
-          width: 100%;
-          padding-bottom: 56.25%;
-          overflow: hidden;
-
-          @media (max-width: $media-small) {
-            height: 380px;
-            margin-top: 40px;
-          }
-
-          .preview {
-            width: 100%;
-          }
-        }
-      }
+    @media (max-width: $media-small) {
+        align-items: flex-start;
+        height: max-content;
+        min-height: 200%;
+        margin-top: 60px;
     }
-  }
+
+    .container {
+        .ant-row {
+            .ant-col {
+                p,
+                span,
+                h1,
+                h2,
+                a {
+                    font-family: monospace;
+                    color: $color-white;
+                }
+
+                a {
+                    font-size: 20px;
+                    color: $color-link-hover;
+
+                    &:hover {
+                        color: $color-white;
+
+                        span {
+                            color: $color-white;
+                        }
+                    }
+
+                    span {
+                        font-size: 20px;
+                        color: $color-link-hover;
+                    }
+                }
+
+                .mobile-reverse {
+                    display: flex;
+                    flex-direction: column;
+
+                    @media (max-width: $media-small) {
+                        flex-direction: column-reverse;
+                    }
+                }
+
+                .preview-wrapper {
+                    height: 0;
+                    width: 100%;
+                    padding-bottom: 56.25%;
+                    overflow: hidden;
+
+                    @media (max-width: $media-small) {
+                        height: 380px;
+                        margin-top: 40px;
+                    }
+
+                    .preview {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }

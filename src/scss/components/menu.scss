@@ -1,65 +1,65 @@
 .Menu {
-  min-width: 330px;
+    min-width: 330px;
 
-  .ant-menu-item {
-    &:hover {
-      &::after {
-        border-bottom-color: $color-link-hover !important;
-      }
+    .ant-menu-item {
+        &:hover {
+            &::after {
+                border-bottom-color: $color-link-hover !important;
+            }
 
-      span {
-        color: $color-link-hover;
-      }
-    }
-  }
-
-  .ant-menu-item-selected {
-    &::after {
-      border-bottom-color: $color-link-hover !important;
-    }
-
-    span {
-      color: $color-link-hover;
-    }
-
-    &:hover {
-      &::after {
-        border-bottom-color: $color-white !important;
-      }
-
-      span {
-        color: $color-link-hover;
-      }
-    }
-  }
-
-  @media (max-width: $media-small) {
-    min-width: 50px;
-    min-height: 30px;
-
-    .ant-menu-overflow-item-rest {
-      padding: 10px 20px !important;
-      color: $color-link-hover !important;
-
-      &.ant-menu-submenu-open {
-        span {
-          color: $color-link-hover !important;
+            span {
+                color: $color-link-hover;
+            }
         }
-      }
-
-      &::after {
-        border-bottom-color: $color-link-hover !important;
-      }
-
-      &.ant-menu-submenu-active {
-        color: $color-link-hover !important;
-      }
-
-      .ant-menu-submenu-title {
-        span {
-          font-size: 20px;
-        }
-      }
     }
-  }
+
+    .ant-menu-item-selected {
+        &::after {
+            border-bottom-color: $color-link-hover !important;
+        }
+
+        span {
+            color: $color-link-hover;
+        }
+
+        &:hover {
+            &::after {
+                border-bottom-color: $color-white !important;
+            }
+
+            span {
+                color: $color-link-hover;
+            }
+        }
+    }
+
+    @media (max-width: $media-small) {
+        min-width: 50px;
+        min-height: 30px;
+
+        .ant-menu-overflow-item-rest {
+            padding: 10px 20px !important;
+            color: $color-link-hover !important;
+
+            &.ant-menu-submenu-open {
+                span {
+                    color: $color-link-hover !important;
+                }
+            }
+
+            &::after {
+                border-bottom-color: $color-link-hover !important;
+            }
+
+            &.ant-menu-submenu-active {
+                color: $color-link-hover !important;
+            }
+
+            .ant-menu-submenu-title {
+                span {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
 }

@@ -1,75 +1,75 @@
 /* Toolbar */
 .Toolbar {
-  transition: all 0.3s ease-in-out !important;
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 120px;
-  height: 120px;
-  padding-top: 76px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-top: 0;
-  border-radius: 50%;
-  z-index: 10;
+    transition: all 0.3s ease-in-out !important;
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 120px;
+    height: 120px;
+    padding-top: 76px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 0;
+    border-radius: 50%;
+    z-index: 10;
 
-  &:hover {
-    width: 140px;
-    height: 140px;
-    box-shadow: 0 0 30px $color-white;
-    background-color: $color-deep-black;
+    &:hover {
+        width: 140px;
+        height: 140px;
+        box-shadow: 0 0 30px $color-white;
+        background-color: $color-deep-black;
+
+        .ant-switch {
+            margin-left: 22px;
+
+            .ant-switch-handle {
+                &::before {
+                    background-color: $color-white;
+                    @extend %no-border;
+                }
+            }
+        }
+    }
+
+    %no-border {
+        box-shadow: none !important;
+        border: none !important;
+        user-select: none !important;
+    }
 
     .ant-switch {
-      margin-left: 22px;
-
-      .ant-switch-handle {
-        &::before {
-          background-color: $color-white;
-          @extend %no-border;
-        }
-      }
-    }
-  }
-
-  %no-border {
-    box-shadow: none !important;
-    border: none !important;
-    user-select: none !important;
-  }
-
-  .ant-switch {
-    line-height: 1;
-    background-color: $transparent;
-    margin-left: 5px;
-    @extend %no-border;
-
-    &:focus {
-      @extend %no-border;
-    }
-
-    .ant-click-animating-node {
-      @extend %no-border;
-    }
-
-    .ant-switch-inner {
-      font-size: 16px;
-    }
-
-    .ant-switch-handle {
-      @extend %no-border;
-
-      &::before {
-        @extend %no-border;
+        line-height: 1;
         background-color: $transparent;
-      }
-    }
-  }
+        margin-left: 5px;
+        @extend %no-border;
 
-  .ant-switch-checked {
-    margin-left: 20px;
-    @extend %no-border;
+        &:focus {
+            @extend %no-border;
+        }
 
-    &:focus {
-      @extend %no-border;
+        .ant-click-animating-node {
+            @extend %no-border;
+        }
+
+        .ant-switch-inner {
+            font-size: 16px;
+        }
+
+        .ant-switch-handle {
+            @extend %no-border;
+
+            &::before {
+                @extend %no-border;
+                background-color: $transparent;
+            }
+        }
     }
-  }
+
+    .ant-switch-checked {
+        margin-left: 20px;
+        @extend %no-border;
+
+        &:focus {
+            @extend %no-border;
+        }
+    }
 }

@@ -7,17 +7,15 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 const PDFViewer = ({ pdfs }) => {
     return (
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.9.359/build/pdf.worker.min.js">
-            {
-                pdfs.map((pdf) => {
-                    return (
-                        <div className="pdf-container">
-                            <Viewer fileUrl={pdf.url} />
-                        </div>
-                    )
-                })
-            }
+            {pdfs.map(pdf => {
+                return (
+                    <div className="pdf-container">
+                        <Viewer fileUrl={pdf.url} />
+                    </div>
+                );
+            })}
         </Worker>
-    )
-}
+    );
+};
 
-export default PDFViewer
+export default PDFViewer;

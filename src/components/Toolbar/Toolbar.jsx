@@ -5,32 +5,32 @@ import * as UX_ACTIONS from '../../redux/actions/ux_actions';
 import { Switch } from 'antd';
 
 class Toolbar extends Component {
-  render() {
-    const { uxActions } = this.props;
-    const { lang } = this.props.ux;
-    return (
-      <div className="Toolbar">
-        <Switch
-          defaultChecked={lang === 'english' ? true : false}
-          onChange={data => uxActions.langUpdate(data)}
-          unCheckedChildren="ru"
-          checkedChildren="en"
-        />
-      </div>
-    );
-  }
+    render() {
+        const { uxActions } = this.props;
+        const { lang } = this.props.ux;
+        return (
+            <div className="Toolbar">
+                <Switch
+                    defaultChecked={lang === 'english' ? true : false}
+                    onChange={data => uxActions.langUpdate(data)}
+                    unCheckedChildren="ru"
+                    checkedChildren="en"
+                />
+            </div>
+        );
+    }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    uxActions: bindActionCreators(UX_ACTIONS, dispatch)
-  };
+    return {
+        uxActions: bindActionCreators(UX_ACTIONS, dispatch)
+    };
 }
 
 function mapStateToProps(state) {
-  return {
-    ux: state.ux
-  };
+    return {
+        ux: state.ux
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
