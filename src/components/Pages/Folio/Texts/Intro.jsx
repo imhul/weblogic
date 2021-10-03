@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import translate from '../../translations';
+// utils
+import translate from '../../../../utils/translations';
+import { technologies } from '../../../../utils/technologies';
+// components
 import { Row, Col } from 'antd';
 import Gravatar from 'react-gravatar';
+// images
 import {
   SassLogo,
   ParcelLogo,
@@ -17,7 +21,6 @@ import {
 
 class Intro extends Component {
   render() {
-    const { technologies } = this.props.ui;
     const { lang } = this.props.ux;
 
     return (
@@ -50,65 +53,37 @@ class Intro extends Component {
             {/* LOGOS */}
             <Row gutter={24} type="flex" justify="center" align="middle" className="logos">
               <Col span={8}>
-                <a href="https://reactjs.org/" title="React page" target="_blank" rel="external">
-                  <ReactLogo />
-                </a>
+                <ReactLogo />
               </Col>
               <Col span={8}>
-                <a href="https://redux.js.org/" title="Redux page" target="_blank" rel="external">
-                  <ReduxLogo />
-                </a>
+                <ReduxLogo />
               </Col>
               <Col span={8}>
-                <a href="https://mobx.js.org/" title="Mobx page" target="_blank" rel="external">
-                  <MobxLogo />
-                </a>
+                <MobxLogo />
               </Col>
             </Row>
 
             <Row gutter={24} type="flex" justify="center" align="middle" className="logos">
               <Col span={8}>
-                <a
-                  href="https://ant.design/"
-                  title="Ant Design page"
-                  target="_blank"
-                  rel="external"
-                >
-                  <AntdLogo />
-                </a>
+                <AntdLogo />
               </Col>
               <Col span={8}>
-                <a
-                  href="https://materializecss.com/"
-                  title="Materialize page"
-                  target="_blank"
-                  rel="external"
-                >
-                  <MaterializeLogo />
-                </a>
+                <MaterializeLogo />
               </Col>
               <Col span={8}>
-                <a href="https://getuikit.com/" title="UIKit page" target="_blank" rel="external">
-                  <UikitLogo />
-                </a>
+                <UikitLogo />
               </Col>
             </Row>
 
             <Row gutter={24} type="flex" justify="center" align="middle" className="logos">
               <Col span={8}>
-                <a href="https://svelte.dev/" title="Svelte page" target="_blank" rel="external">
-                  <SvelteLogo />
-                </a>
+                <SvelteLogo />
               </Col>
               <Col span={8}>
-                <a href="https://parceljs.org/" title="Parcel page" target="_blank" rel="external">
-                  <ParcelLogo />
-                </a>
+                <ParcelLogo />
               </Col>
               <Col span={8}>
-                <a href="https://sass-lang.com/" title="SASS page" target="_blank" rel="external">
-                  <SassLogo />
-                </a>
+                <SassLogo />
               </Col>
             </Row>
 
@@ -123,14 +98,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -143,14 +111,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -163,14 +124,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -183,14 +137,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -203,14 +150,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -225,14 +165,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -246,14 +179,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -267,14 +193,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -289,14 +208,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -309,14 +221,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -328,14 +233,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -348,14 +246,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -367,14 +258,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}
@@ -390,14 +274,7 @@ class Intro extends Component {
                     .map(item => {
                       return (
                         <li key={item.id}>
-                          <a
-                            href={`/${item.id}`}
-                            target="_blank"
-                            rel="external"
-                            title={`${item.id} page`}
-                          >
-                            {item.id}
-                          </a>
+                          {item.id}
                         </li>
                       );
                     })}

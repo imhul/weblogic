@@ -12,7 +12,7 @@ import {
   EllipsisOutlined,
   EditOutlined
 } from '@ant-design/icons';
-import translate from '../../translations';
+import translate from '../../../../utils/translations';
 import safe from '../../../../utils/safe';
 import Clipboard from 'react-clipboard.js';
 import Captcha from './Captcha';
@@ -121,7 +121,7 @@ class Contact extends Component {
 
             <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
               <a
-                href="https://github.com/imhul/weblogic"
+                href="https://github.com/imhul"
                 className="link"
                 title={`${translate(lang, 'github')}`}
                 target="_blank"

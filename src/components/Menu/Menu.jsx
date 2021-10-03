@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { history } from '../../redux/store';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+// actions
+import * as UX_ACTIONS from '../../redux/actions/ux_actions';
 // utils
 import menu from '../../utils/menu';
 // components
@@ -17,7 +20,8 @@ class MainMenu extends Component {
 
   onClick = e => {
     this.setState({ current: e.key });
-    history.push(e.key);
+    const { uxActions } = this.props;
+    uxActions.updateLocation(e.key);
   };
 
   render() {
@@ -46,7 +50,7 @@ class MainMenu extends Component {
         {menu.map(item => {
           return (
             !item.blank && (
-              <MenuItem key={item.url} icon={item.icon}>
+              <MenuItem key={item.id} icon={item.icon}>
                 {item.id}
               </MenuItem>
             )
@@ -57,4 +61,17 @@ class MainMenu extends Component {
   }
 }
 
-export default MainMenu;
+function mapDispatchToProps(dispatch) {
+  return {
+    uxActions: bindActionCreators(UX_ACTIONS, dispatch)
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+    ui: state.ui,
+    ux: state.ux
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainMenu)

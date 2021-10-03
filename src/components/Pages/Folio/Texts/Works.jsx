@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
-import translate from '../../translations';
+import translate from '../../../../utils/translations';
 import { Row, Col, List, Avatar } from 'antd';
 import { LinkOutlined, GithubOutlined, ExperimentOutlined } from '@ant-design/icons';
 

@@ -1,13 +1,5 @@
 import { typesUX as type } from '../constants/types';
 
-export function isHome() {
-  return dispatch => {
-    dispatch({
-      type: type.IS_HOME
-    });
-  };
-}
-
 export function tabMod(payload) {
   return dispatch => {
     dispatch({
@@ -84,10 +76,10 @@ export function toggleFutures() {
   };
 }
 
-export function updateHistory(payload) {
+export function updateLocation(payload) {
   return dispatch => {
     dispatch({
-      type: type.HISTORY_UPDATE,
+      type: type.LOCATION_UPDATE,
       payload: payload
     });
   };
