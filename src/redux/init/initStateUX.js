@@ -1,6 +1,5 @@
 export const initStateUX = {
-  isHome: false,
-  location: '/',
+  location: 'Home', // Game, Folio
   active: null,
   cursorPos: {},
   trelloModalVisible: false,

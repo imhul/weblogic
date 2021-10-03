@@ -23,32 +23,32 @@ const menu = [
     blank: false
   },
   {
-    id: 'Portfolio',
+    id: 'Folio',
     url: '/folio',
     icon: <ExperimentOutlined />,
     blank: false
   },
   {
     id: 'Github',
-    url: '/github',
+    url: 'https://github.com/imhul/',
     icon: <GithubOutlined />,
     blank: true
   },
   {
     id: 'Patreon',
-    url: '/patreon',
+    url: 'https://www.patreon.com/protomass',
     icon: <DollarCircleOutlined />,
     blank: true
   },
   {
     id: 'Codecedemy',
-    url: '/codecademy',
+    url: 'https://www.codecademy.com/profiles/weblogicfront',
     icon: <BarChartOutlined />,
     blank: true
   },
   {
     id: 'Linkedin',
-    url: '/linkedin',
+    url: 'https://www.linkedin.com/in/tkachuk-zakhar-04733892/',
     icon: <LinkedinOutlined />,
     blank: true
   }

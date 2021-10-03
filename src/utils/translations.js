@@ -1,5 +1,7 @@
 import React from 'react';
+
 const translations = {
+
   english: {
     // common EN
     summary: 'Summary',
@@ -79,15 +81,7 @@ const translations = {
     work_6: 'e-commerce project, React + Redux + masonry + design',
     work_7: (
       <span>
-        The{' '}
-        <a href="/isoftbet" target="_blank" rel="external">
-          iSoftBet
-        </a>{' '}
-        European online casino game, which was released in 2017. Then an{' '}
-        <a href="/isoftbet-article" target="_blank" rel="external">
-          article
-        </a>{' '}
-        was written about her. Animation on Pixi.js + TypeScript
+        The iSoftBet European online casino game, which was released in 2017. Then an article on the www.softgamings.com was written about her. Animation on Pixi.js + TypeScript
       </span>
     ),
     work_8: 'Analytical resource, JavaScript + jQuery + Materialize + design',
@@ -188,15 +182,7 @@ const translations = {
     work_6: 'Интернет-магазин, React + Redux + masonry + дизайн',
     work_7: (
       <span>
-        Игра для европейского онлайн-казино{' '}
-        <a href="/isoftbet" target="_blank" rel="external">
-          iSoftBet
-        </a>
-        , которая вышла в релиз в 2017 году. Тогда же о ней была написана{' '}
-        <a href="/isoftbet-article" target="_blank" rel="external">
-          статья
-        </a>
-        . Анимация на Pixi.js + TypeScript
+        Игра для европейского онлайн-казино iSoftBet, которая вышла в релиз в 2017 году. Тогда же о ней была написана статья на сайте www.softgamings.com. Анимация на Pixi.js + TypeScript
       </span>
     ),
     work_8: 'Аналитический ресурс, JavaScript + jQuery + Materialize + дизайн',

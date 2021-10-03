@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import translate from '../../translations';
+import translate from '../../../../utils/translations';
 import { Timeline } from 'antd';
 
 const TimelineItem = Timeline.Item;

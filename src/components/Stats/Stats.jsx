@@ -1,63 +1,62 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-// actions
-import * as UI_ACTIONS from '../../redux/actions/ui_actions';
 // utils
 import raf from 'raf';
 import now from 'right-now';
 
 class Stats extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fps: 0,
+      parts: 0,
+      period: 1000,
+    };
+  }
+
+  setFPS(values, max) {
+    this.setState({ fps: (values[values.length - 1] * max).toFixed(0) });
+  }
+
   start() {
-    // TODO: get stop this function in folio
+    const self = this;
     let count = 0;
     let lastTime = 0;
     const values = [];
-    let period = 1000;
     let max = 90;
-    const self = this;
     raf(function measure() {
       count++;
       let t = now();
-
-      if (t - lastTime > period) {
+      if (t - lastTime > self.period) {
         lastTime = t;
-        values.push(count / (max * period * 0.001));
+        values.push(count / (max * self.period * 0.001));
         count = 0;
-        self.props.uiActions.getFPS((values[values.length - 1] * max).toFixed(0));
+        self.setFPS(values, max);
       }
       raf(measure);
     });
   }
 
-  mount() {
-    this.start();
-    this.timerID = setInterval(() => this.props.uiActions.tick(), 1000);
-  }
-
   componentDidMount() {
-    this.mount();
+    this.start();
+    this.timerID = setInterval(() => {
+      this.setState({ parts: window.bgJSDom[0].bgJS.parts.array.length });
+    }, 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timerID);
+    this.setState({ fps: 0, parts: 0, period: 0 });
   }
 
   render() {
-    const { parts, fps } = this.props.ui;
-
-    const Parts = props => {
-      return <div className="parts">{props.date}</div>;
-    };
-
     return (
       <div className="Stats" id="stats">
         <div className="left">
-          <Parts date={parts} />
+          <div className="parts">{this.state.parts}</div>
           <div className="text">parts</div>
         </div>
         <div className="right">
-          <div className="FPS">{fps}</div>
+          <div className="FPS">{this.state.fps}</div>
           <div className="text">fps</div>
         </div>
       </div>
@@ -65,16 +64,4 @@ class Stats extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    uiActions: bindActionCreators(UI_ACTIONS, dispatch)
-  };
-}
-
-function mapStateToProps(state) {
-  return {
-    ui: state.ui
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Stats);
+export default Stats

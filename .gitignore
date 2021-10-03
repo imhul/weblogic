@@ -1,6 +1,7 @@
 /node_modules
 /.git
 /.cache
+/.parcel-cache
 /dist
 /back
 /src/utils/include
@@ -9,3 +10,6 @@ sitemap.xml
 robots.txt
 yarn.lock
 .env
+dev
+build
+parcel-bundle-reports

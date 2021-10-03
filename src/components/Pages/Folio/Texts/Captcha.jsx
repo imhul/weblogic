@@ -6,7 +6,7 @@ import { Row, Col, message } from 'antd';
 import safe from '../../../../utils/safe';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
-import translate from '../../translations';
+import translate from '../../../../utils/translations';
 
 class Captcha extends Component {
   componentDidMount() {

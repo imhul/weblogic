@@ -1,8 +1,0 @@
-{
-  "modules": false,
-  "plugins": {
-    "postcss-import": {},
-    "postcss-parcel-import": {},
-    "autoprefixer": {}
-  }
-}

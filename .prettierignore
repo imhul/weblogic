@@ -3,5 +3,7 @@
 static/**
 dist/**
 Lab/**
+development
+coverage
 node_modules/**
 src/fonts/iconfont.js

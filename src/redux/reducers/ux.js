@@ -3,12 +3,6 @@ import { typesUX as types } from '../constants/types';
 
 export default (state = initStateUX, action) => {
   switch (action.type) {
-    case types.IS_HOME:
-      return {
-        ...state,
-        isHome: true
-      };
-
     case types.TAB_MODIFY:
       return {
         ...state,
@@ -64,11 +58,10 @@ export default (state = initStateUX, action) => {
         isFuturesOpen: !state.isFuturesOpen
       };
 
-    case types.HISTORY_UPDATE:
+    case types.LOCATION_UPDATE:
       return {
         ...state,
         location: action.payload,
-        isHome: action.payload === '/' ? true : false
       };
 
     default:
