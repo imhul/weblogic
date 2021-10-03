@@ -163,6 +163,11 @@ body {
         @extend %context-menu;
       }
 
+      .pdf-container {
+        max-height: 35rem;
+        margin-bottom: 5rem;
+      }
+
       .icon-lamp {
         outline: none !important;
       }

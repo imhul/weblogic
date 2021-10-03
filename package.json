@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@react-pdf-viewer/core": "2.9.1",
     "antd": "^4.16.3",
     "autoprefixer": "^10.2.5",
     "axios": "^0.21.2",
@@ -37,6 +38,7 @@
     "lib": "^4.0.0",
     "mongoose": "^5.6.5",
     "parcel-bundler": "^1.12.5",
+    "pdfjs-dist": "^2.9.359",
     "prettier": "^2.4.1",
     "prop-types": "^15.7.2",
     "raf": "^3.4.1",

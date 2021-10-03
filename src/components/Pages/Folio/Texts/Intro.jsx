@@ -6,6 +6,7 @@ import { technologies } from '../../../../utils/technologies';
 // components
 import { Row, Col } from 'antd';
 import Gravatar from 'react-gravatar';
+import PDFViewer from '../../../PDFViewer';
 // images
 import {
   SassLogo,
@@ -18,6 +19,15 @@ import {
   ReduxLogo,
   ReactLogo
 } from '../../../../images/logos';
+// PDF
+import pdfAngular from './pdf/angular.pdf';
+
+const pdfs = [
+  {
+    id: 'angular',
+    url: pdfAngular,
+  },
+];
 
 class Intro extends Component {
   render() {
@@ -281,6 +291,10 @@ class Intro extends Component {
                 </ul>
               </Col>
             </Row>
+          </Col>
+
+          <Col span={24}>
+            <PDFViewer pdfs={pdfs} />
           </Col>
         </Row>
       </div>
