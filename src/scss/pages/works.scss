@@ -2,8 +2,16 @@
 
 .Works {
   margin: 50px auto !important;
+
+  h1 {
+    color: $color-white;
+    margin: 0.5em auto 0.5em 0;
+  }
+
   .ant-list {
     color: $color-white;
+    margin-bottom: 50px;
+
     .ant-list-header {
       background-color: $color-deep-black;
       border-top-right-radius: 4px;

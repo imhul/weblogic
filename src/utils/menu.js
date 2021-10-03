@@ -35,6 +35,18 @@ const menu = [
     blank: true
   },
   {
+    id: 'Neumorphine.css',
+    url: 'https://imhul.github.io/neumorphine.css/',
+    icon: <GithubOutlined />,
+    blank: true
+  },
+  {
+    id: 'Puzzle',
+    url: 'https://imhul.github.io/puzzle/',
+    icon: <GithubOutlined />,
+    blank: true
+  },
+  {
     id: 'Patreon',
     url: 'https://www.patreon.com/protomass',
     icon: <DollarCircleOutlined />,

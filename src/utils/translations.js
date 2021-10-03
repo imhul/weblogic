@@ -88,6 +88,7 @@ const translations = {
     work_8: 'Analytical resource, JavaScript + jQuery + Materialize + design',
     work_9:
       'An application to clean your subscription list from bounces, and enrich data with customers. Verify your real customers in one way. SvelteKit + SCSS + RSS Feed',
+    work_10: 'React-based Pixel-Art Sandbox Game with Indirect Control',
     demo_status_desc: '* Demo status means that the project is available for viewing on my site.',
     released_status_desc:
       "** The project in the Release status is a finished product and is hosted on the client's production server.",
@@ -190,7 +191,8 @@ const translations = {
     work_8: 'Аналитический ресурс, JavaScript + jQuery + Materialize + дизайн',
     work_9:
       'Приложение для очистки вашего списка подписок от отказов и пополнения данных о клиентах. Проверяйте своих реальных клиентов одним способом. SvelteKit + SCSS + RSS Feed',
-    demo_status_desc: '* Статус Демо означает, что проект доступен для просмотра на моём сайте.',
+    work_10: 'Пиксель-арт песочницца с непрямым управлением на основе React',
+      demo_status_desc: '* Статус Демо означает, что проект доступен для просмотра на моём сайте.',
     released_status_desc:
       '** Проект в статусе Релиз является готовым продуктом и размещён на сервере клиента.',
     current_projects: 'Текущие проекты',

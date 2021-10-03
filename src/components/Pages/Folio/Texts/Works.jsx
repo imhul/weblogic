@@ -34,12 +34,22 @@ class Works extends Component {
     const { lang } = this.props.ux;
     const links = [
       {
+        name: translate(lang, 'work_10'),
+        type: translate(lang, 'demo'),
+        icon: <ExperimentOutlined />,
+        href: `https://proto-mass.netlify.app/`,
+        back: `${nmImg}`,
+        demo: true,
+        personal: true,
+      },
+      {
         name: translate(lang, 'work_0'),
         type: translate(lang, 'demo'),
         icon: <ExperimentOutlined />,
         href: `https://imhul.github.io/neumorphine.css/`,
         back: `${nmImg}`,
-        demo: true
+        demo: true,
+        personal: true,
       },
       {
         name: translate(lang, 'work_1'),
@@ -47,7 +57,8 @@ class Works extends Component {
         icon: <ExperimentOutlined />,
         href: `https://imhul.github.io/puzzle/`,
         back: `${puzzleImg}`,
-        demo: true
+        demo: true,
+        personal: true,
       },
       {
         name: translate(lang, 'work_2'),
@@ -55,7 +66,8 @@ class Works extends Component {
         icon: <LinkOutlined />,
         href: 'http://ekta.ua/',
         back: `${ektaImg}`,
-        demo: false
+        demo: false,
+        personal: false,
       },
       {
         name: translate(lang, 'work_3'),
@@ -63,7 +75,8 @@ class Works extends Component {
         icon: <LinkOutlined />,
         href: 'http://ekta.ua/projects/calc',
         back: `${calcImg}`,
-        demo: false
+        demo: false,
+        personal: false,
       },
       {
         name: translate(lang, 'work_4'),
@@ -71,7 +84,8 @@ class Works extends Component {
         icon: <LinkOutlined />,
         href: 'https://marketplace.atlassian.com/apps/1224120/testomatio',
         back: `${testomatioImg}`,
-        demo: false
+        demo: false,
+        personal: false,
       },
       {
         name: translate(lang, 'work_5'),
@@ -79,7 +93,8 @@ class Works extends Component {
         icon: <LinkOutlined />,
         href: 'https://uapay.ua/',
         back: `${uapayImg}`,
-        demo: false
+        demo: false,
+        personal: false,
       },
       {
         name: translate(lang, 'work_6'),
@@ -87,7 +102,8 @@ class Works extends Component {
         icon: <LinkOutlined />,
         href: 'https://silverstemcannabis.com/',
         back: `${silverImg}`,
-        demo: false
+        demo: false,
+        personal: false,
       },
       {
         name: translate(lang, 'work_7'),
@@ -95,7 +111,8 @@ class Works extends Component {
         icon: <LinkOutlined />,
         href: 'https://www.youtube.com/watch?v=BVdyHZSsD3Y',
         back: `${aliceImg}`,
-        demo: false
+        demo: false,
+        personal: false,
       },
       {
         name: translate(lang, 'work_8'),
@@ -103,7 +120,8 @@ class Works extends Component {
         icon: <LinkOutlined />,
         href: 'https://seezislab.com/',
         back: `${seezisImg}`,
-        demo: false
+        demo: false,
+        personal: false,
       },
       {
         name: translate(lang, 'work_9'),
@@ -111,9 +129,13 @@ class Works extends Component {
         icon: <LinkOutlined />,
         href: 'https://mailcheck.co/',
         back: `${mailcheckImg}`,
-        demo: false
+        demo: false,
+        personal: false,
       }
     ];
+
+    const personal = links.filter((link) => link.personal);
+    const works = links.filter((link) => !link.personal);
 
     const Header = () => (
       <Row gutter={24}>
@@ -135,12 +157,33 @@ class Works extends Component {
 
     return (
       <div className="Works content">
+        <h1>Personal Projects</h1>
         <List
           size="large"
           header={<Header />}
           footer={<Footer />}
           bordered
-          dataSource={links}
+          dataSource={personal}
+          renderItem={item => (
+            <a target="_blank" className="link" href={item.href}>
+              <ListItem>
+                <ListMeta
+                  avatar={<Avatar src={item.back} />}
+                  title={item.type}
+                  description={item.name}
+                />
+                {item.icon}
+              </ListItem>
+            </a>
+          )}
+        />
+        <h1>Work Projects</h1>
+        <List
+          size="large"
+          header={<Header />}
+          footer={<Footer />}
+          bordered
+          dataSource={works}
           renderItem={item => (
             <a target="_blank" className="link" href={item.href}>
               <ListItem>
