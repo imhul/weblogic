@@ -15,6 +15,7 @@ import testomatioImg from '../../../../images/works/testomatio.png';
 import uapayImg from '../../../../images/works/uapay.png';
 import aliceImg from '../../../../images/works/alice.png';
 import mailcheckImg from '../../../../images/works/mailcheck.png';
+import nmImg from '../../../../images/works/nm.png';
 // import TrelloModal from '../TrelloModal';
 // Trello API
 // import { isTrelloAvailable, authenticateUser, getBoard } from '../../../../utils/api';
@@ -31,13 +32,20 @@ class Works extends Component {
 
   render() {
     const { lang } = this.props.ux;
-    const base = window.location.origin;
     const links = [
+      {
+        name: translate(lang, 'work_0'),
+        type: translate(lang, 'demo'),
+        icon: <ExperimentOutlined />,
+        href: `https://imhul.github.io/neumorphine.css/`,
+        back: `${nmImg}`,
+        demo: true
+      },
       {
         name: translate(lang, 'work_1'),
         type: translate(lang, 'demo'),
         icon: <ExperimentOutlined />,
-        href: `${base}/Lab/Game/index.html`,
+        href: `https://imhul.github.io/puzzle/`,
         back: `${puzzleImg}`,
         demo: true
       },

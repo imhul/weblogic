@@ -73,6 +73,7 @@ const translations = {
       "Did a bit of work with Getsby and GraphQL. But later I joined the growing Svelte community as well as SvelteKIt and it's amazing! This is one of the best technologies I've come across. Thanks to this, I have a better understanding of SSR.",
 
     // Works EN
+    work_0: 'neumorphine.css - concept css UI library',
     work_1: 'Puzzle game, JavaScript + Canvas + design',
     work_2: 'Corporate project, Joomla + design',
     work_3: 'LED-screen calculator, Angular.js + Materialize + design',
@@ -173,6 +174,7 @@ const translations = {
       'Немного поработал с Getsby и GraphQL. Но позже присоединился к развивающемуся сообществу Svelte и это потрясающе! Это одна из лучших технологий, с которой мне приходилось сталкиваться. Благодаря этому стал лучше понимать SSR.',
 
     // Works RU
+    work_0: 'neumorphine.css - Концептуальная css UI библиотека',
     work_1: 'Игра "Пазлы", JavaScript + Canvas + дизайн',
     work_2: 'Корпоративный сайт, Joomla + дизайн',
     work_3: 'Калькулятор LED панелей, Angular.js + Materialize + дизайн',
