@@ -12,7 +12,7 @@
   "scripts": {
     "format": "prettier --write --plugin-search-dir=. .",
     "start": "yarn clean && cross-env NODE_ENV=development parcel public/index.html --no-cache --out-dir dev",
-    "build": "cross-env NODE_ENV=production parcel build public/index.html --no-minify --public-url /",
+    "build": "rimraf ./dist && cross-env NODE_ENV=production parcel build public/index.html --public-url /",
     "server": "node --inspect server/server.js",
     "dev": "concurrently --kill-others \"yarn start\" \"yarn server\"",
     "clean": "rimraf ./dev && rimraf ./.cache"
