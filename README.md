@@ -16,6 +16,8 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 - `antd`
 - `SCSS`
 
+Try the [demo](https://weblogic.netlify.app/)
+
 ### TODO:
 
 1. Implement `SEO requirements`
