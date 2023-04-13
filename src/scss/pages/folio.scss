@@ -1,152 +1,156 @@
 /* Folio page */
 
 .Folio {
-  display: block;
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transform: none;
-  background-color: $color-content-bg;
-  overflow: hidden;
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    background-color: $color-content-bg;
+    overflow: hidden;
 
-  // Loading
-  .PreLoading-Wave {
-    & > * {
-      text-shadow: 0 0 8px $color-link-hover;
-    }
-  }
-
-  /* Collapse */
-  /* not active */
-  .ant-collapse {
-    background-color: $transparent;
-    border: 0;
-    border-radius: 0;
-
-    & * {
-      transition: height 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
+    // Loading
+    .PreLoading-Wave {
+        & > * {
+            text-shadow: 0 0 8px $color-link-hover;
+        }
     }
 
-    &.active {
-      .ant-collapse-item {
-        height: 10vh;
-        overflow: hidden;
+    /* Collapse */
+    /* not active */
+    .ant-collapse {
+        background-color: $transparent;
+        border: 0;
+        border-radius: 0;
 
-        &.ant-collapse-item-active {
-          height: 70vh;
+        & * {
+            transition: height 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
         }
 
-        .ant-collapse-header {
-          height: 10vh;
-          font-size: 8vh;
-          overflow: hidden;
+        &.active {
+            .ant-collapse-item {
+                height: 10vh;
+                overflow: hidden;
 
-          .anticon {
-            font-size: 6vh;
-          }
-        }
-      }
-    }
+                &.ant-collapse-item-active {
+                    height: 70vh;
+                }
 
-    .ant-collapse-item {
-      border-bottom-color: $color-white;
-      height: 25vh;
+                .ant-collapse-header {
+                    height: 10vh;
+                    font-size: 8vh;
+                    overflow: hidden;
 
-      .ant-collapse-header {
-        padding: 0;
-        height: 25vh;
-        font-size: 18vh;
-        color: $color-white;
-        text-shadow: 2px 2px 4px $color-black;
-        background-size: cover;
-
-        &:hover {
-          text-shadow: 0 0 4px $color-white;
-
-          & .anticon > svg {
-            filter: drop-shadow(0 0 4px $color-white);
-          }
-        }
-
-        & .anticon > svg {
-          filter: drop-shadow(2px 2px 4px $color-black);
-        }
-
-        .bg {
-          height: 100%;
-          padding: 0 25px;
-          background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(65, 100, 117, 1) 100%);
-
-          & > div {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            justify-content: space-between;
-
-            .anticon {
-              font-size: 13vh;
+                    .anticon {
+                        font-size: 6vh;
+                    }
+                }
             }
-          }
-        }
-      }
-
-      /* Static content styles */
-      .ant-collapse-content {
-        background: $color-content-bg;
-        font-size: 18px;
-        color: $color-white;
-        display: flex;
-        justify-content: center;
-        align-items: normal;
-
-        &:hover {
-          background: $color-content-bg-hover;
         }
 
-        .ant-collapse-content-box {
-          width: 100%;
-          position: relative;
-          height: auto;
-          padding: 0;
-          margin: 0 auto;
+        .ant-collapse-item {
+            border-bottom-color: $color-white;
+            height: 25vh;
 
-          .content {
-            max-width: 100%;
-            width: 80%;
-            margin: 0 auto;
-            color: $color-white;
-          }
+            .ant-collapse-header {
+                padding: 0;
+                height: 25vh;
+                font-size: 18vh;
+                color: $color-white;
+                text-shadow: 2px 2px 4px $color-black;
+                background-size: cover;
+
+                &:hover {
+                    text-shadow: 0 0 4px $color-white;
+
+                    & .anticon > svg {
+                        filter: drop-shadow(0 0 4px $color-white);
+                    }
+                }
+
+                & .anticon > svg {
+                    filter: drop-shadow(2px 2px 4px $color-black);
+                }
+
+                .bg {
+                    height: 100%;
+                    padding: 0 25px;
+                    background: linear-gradient(
+                        45deg,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(65, 100, 117, 1) 100%
+                    );
+
+                    & > div {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        justify-content: space-between;
+
+                        .anticon {
+                            font-size: 13vh;
+                        }
+                    }
+                }
+            }
+
+            /* Static content styles */
+            .ant-collapse-content {
+                background: $color-content-bg;
+                font-size: 18px;
+                color: $color-white;
+                display: flex;
+                justify-content: center;
+                align-items: normal;
+
+                &:hover {
+                    background: $color-content-bg-hover;
+                }
+
+                .ant-collapse-content-box {
+                    width: 100%;
+                    position: relative;
+                    height: auto;
+                    padding: 0;
+                    margin: 0 auto;
+
+                    .content {
+                        max-width: 100%;
+                        width: 80%;
+                        margin: 0 auto;
+                        color: $color-white;
+                    }
+                }
+            }
         }
-      }
+
+        /* active content section */
+        .ant-collapse-item-active {
+            height: 10vh;
+            overflow: hidden;
+
+            .ant-collapse-header {
+                height: 10vh;
+                font-size: 8vh;
+                overflow: hidden;
+
+                .anticon {
+                    font-size: 6vh;
+                    margin-top: 0;
+                }
+            }
+
+            /* active content */
+            .ant-collapse-content-active {
+                min-height: 60vh;
+                max-height: 60vh;
+                overflow-y: auto;
+
+                @extend %scrollbar;
+            }
+        }
     }
-
-    /* active content section */
-    .ant-collapse-item-active {
-      height: 10vh;
-      overflow: hidden;
-
-      .ant-collapse-header {
-        height: 10vh;
-        font-size: 8vh;
-        overflow: hidden;
-
-        .anticon {
-          font-size: 6vh;
-          margin-top: 0;
-        }
-      }
-
-      /* active content */
-      .ant-collapse-content-active {
-        min-height: 60vh;
-        max-height: 60vh;
-        overflow-y: auto;
-
-        @extend %scrollbar;
-      }
-    }
-  }
 }

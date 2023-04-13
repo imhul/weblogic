@@ -9,6 +9,8 @@ sitemap.xml
 robots.txt
 yarn.lock
 .env
+.parcel-cache
+.cache
 dev
 build
 parcel-bundle-reports

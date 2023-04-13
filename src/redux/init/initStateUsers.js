@@ -1,3 +1,3 @@
 export const initStateUsers = {
-  users: []
+    users: []
 };

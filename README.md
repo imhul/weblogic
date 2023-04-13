@@ -8,13 +8,13 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 
 **What's inside?**
 
-- `parcel`
-- `react 17.0.2`
-- `redux`
-- `helmet`
-- `redux-thunk`
-- `antd`
-- `SCSS`
+-   `parcel`
+-   `react 17.0.2`
+-   `redux`
+-   `helmet`
+-   `redux-thunk`
+-   `antd`
+-   `SCSS`
 
 Try the [demo](https://weblogic.netlify.app/)
 

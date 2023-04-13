@@ -1,125 +1,125 @@
 /* Intro */
 .Intro {
-  margin: 50px auto !important;
+    margin: 50px auto !important;
 
-  .react-gravatar {
-    border-radius: 50%;
-    height: 100%;
-    width: auto;
-  }
-
-  h2 {
-    color: $color-white;
-    font-size: 4vw;
-    text-align: center;
-
-    @media (max-width: $media-small) {
-      font-size: 7vw;
+    .react-gravatar {
+        border-radius: 50%;
+        height: 100%;
+        width: auto;
     }
-  }
 
-  h3 {
-    color: $color-link-hover;
-  }
+    h2 {
+        color: $color-white;
+        font-size: 4vw;
+        text-align: center;
 
-  h2.margin {
-    margin: 40px auto;
-  }
-
-  p {
-    font-weight: 100;
-  }
-
-  p,
-  span {
-    font-size: 3vw;
-    line-height: 4vw;
-
-    @media (max-width: $media-small) {
-      font-size: 5vw;
-      line-height: 8vw;
-    }
-  }
-
-  .name {
-    margin: 10px 0 0;
-  }
-
-  .italic {
-    font-size: 2vw;
-    font-weight: 100;
-    font-style: italic;
-    margin-top: 0;
-
-    @media (max-width: $media-small) {
-      font-size: 4vw;
-    }
-  }
-
-  mark {
-    background-color: $transparent;
-    color: $color-link-hover;
-  }
-
-  .left-btn {
-    text-align: right;
-  }
-
-  .right-btn {
-    text-align: left;
-  }
-
-  .right-btn,
-  .left-btn {
-    margin: 0 0 20px 0;
-  }
-
-  .logos {
-    .ant-col {
-      a {
-        .stack-logo {
-          width: 100%;
-          max-width: 250px;
-
-          @media (max-width: $media-small) {
-            height: 20vh;
-          }
-
-          @media (max-width: $media-x-small) {
-            height: 16vh;
-          }
+        @media (max-width: $media-small) {
+            font-size: 7vw;
         }
-      }
     }
-  }
-
-  .tech {
-    margin-top: 60px;
 
     h3 {
-      @media (max-width: $media-small) {
-        font-size: 12vw;
-      }
+        color: $color-link-hover;
     }
 
-    ul {
-      list-style: none;
-      line-height: 2;
+    h2.margin {
+        margin: 40px auto;
+    }
 
-      li {
-        a {
-          color: $color-white;
+    p {
+        font-weight: 100;
+    }
 
-          &:hover {
-            color: $color-link-hover;
-          }
+    p,
+    span {
+        font-size: 3vw;
+        line-height: 4vw;
 
-          @media (max-width: $media-small) {
-            font-size: 8vw;
-            line-height: 1.5;
-          }
+        @media (max-width: $media-small) {
+            font-size: 5vw;
+            line-height: 8vw;
         }
-      }
     }
-  }
+
+    .name {
+        margin: 10px 0 0;
+    }
+
+    .italic {
+        font-size: 2vw;
+        font-weight: 100;
+        font-style: italic;
+        margin-top: 0;
+
+        @media (max-width: $media-small) {
+            font-size: 4vw;
+        }
+    }
+
+    mark {
+        background-color: $transparent;
+        color: $color-link-hover;
+    }
+
+    .left-btn {
+        text-align: right;
+    }
+
+    .right-btn {
+        text-align: left;
+    }
+
+    .right-btn,
+    .left-btn {
+        margin: 0 0 20px 0;
+    }
+
+    .logos {
+        .ant-col {
+            a {
+                .stack-logo {
+                    width: 100%;
+                    max-width: 250px;
+
+                    @media (max-width: $media-small) {
+                        height: 20vh;
+                    }
+
+                    @media (max-width: $media-x-small) {
+                        height: 16vh;
+                    }
+                }
+            }
+        }
+    }
+
+    .tech {
+        margin-top: 60px;
+
+        h3 {
+            @media (max-width: $media-small) {
+                font-size: 12vw;
+            }
+        }
+
+        ul {
+            list-style: none;
+            line-height: 2;
+
+            li {
+                a {
+                    color: $color-white;
+
+                    &:hover {
+                        color: $color-link-hover;
+                    }
+
+                    @media (max-width: $media-small) {
+                        font-size: 8vw;
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+    }
 }
