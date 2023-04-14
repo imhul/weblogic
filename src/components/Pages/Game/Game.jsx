@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import translate from '../../../utils/translations';
 // components
 import { Helmet } from 'react-helmet';
-import { Row, Col } from 'antd';
+import { Row, Col } from 'antd/lib';
 import { CrownOutlined, GithubOutlined, DollarCircleOutlined } from '@ant-design/icons';
 // images
 // import preview from '../../../images/preview.png';
@@ -19,7 +19,7 @@ class Game extends Component {
             <div className="Game">
                 <Helmet>
                     <title>{translate(lang, 'game_title')}</title>
-                    <link rel="canonical" href="http://weblogic.com.ua/" />
+                    <link rel="canonical" href="https://weblogic.netlify.app/" />
                 </Helmet>
 
                 <div className="container">

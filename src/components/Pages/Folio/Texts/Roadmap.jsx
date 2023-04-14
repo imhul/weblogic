@@ -1,13 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import translate from '../../../../utils/translations';
-import { Timeline } from 'antd';
+import { Timeline } from 'antd/lib';
 
 const TimelineItem = Timeline.Item;
 
 class Roadmap extends Component {
     render() {
         const { lang } = this.props.ux;
+        const items = [
+            <span>
+                <span>{translate(lang, 'nov')} 2009:</span>{translate(lang, 'step_2009')}
+            </span>,
+            <span>
+                <span>2011: </span>{translate(lang, 'step_2011')}
+            </span>,
+            <span>
+                <span>2013: </span>{translate(lang, 'step_2013')}
+            </span>,
+            <span>
+                <span>2015: </span>{translate(lang, 'step_2015')}
+            </span>,
+            <span>
+                <span>2016: </span>{translate(lang, 'step_2016')}
+            </span>,
+            <span>
+                <span>{translate(lang, 'dec')} 2017: </span>{translate(lang, 'step_2017')}
+            </span>,
+            <span>
+                <span>{translate(lang, 'aug')} 2018: </span>{translate(lang, 'step_2018')}
+            </span>,
+            <span>
+                <span>{translate(lang, 'aug')} 2020-2021: </span>{translate(lang, 'step_2021')}
+            </span>
+        ];
+        
         const pending = (
             <div>
                 <span>2022: </span>
@@ -24,40 +51,7 @@ class Roadmap extends Component {
 
         return (
             <div className="Roadmap content">
-                <Timeline pending={pending} mode="alternate">
-                    <TimelineItem>
-                        <span>{translate(lang, 'nov')} 2009:</span>
-                        {translate(lang, 'step_2009')}
-                    </TimelineItem>
-                    <TimelineItem>
-                        <span>2011: </span>
-                        {translate(lang, 'step_2011')}
-                    </TimelineItem>
-                    <TimelineItem>
-                        <span>2013: </span>
-                        {translate(lang, 'step_2013')}
-                    </TimelineItem>
-                    <TimelineItem>
-                        <span>2015: </span>
-                        {translate(lang, 'step_2015')}
-                    </TimelineItem>
-                    <TimelineItem>
-                        <span>2016: </span>
-                        {translate(lang, 'step_2016')}
-                    </TimelineItem>
-                    <TimelineItem>
-                        <span>{translate(lang, 'dec')} 2017: </span>
-                        {translate(lang, 'step_2017')}
-                    </TimelineItem>
-                    <TimelineItem>
-                        <span>{translate(lang, 'aug')} 2018: </span>
-                        {translate(lang, 'step_2018')}
-                    </TimelineItem>
-                    <TimelineItem>
-                        <span>{translate(lang, 'aug')} 2020-2021: </span>
-                        {translate(lang, 'step_2021')}
-                    </TimelineItem>
-                </Timeline>
+                <Timeline pending={pending} mode="alternate" items={items} />
             </div>
         );
     }

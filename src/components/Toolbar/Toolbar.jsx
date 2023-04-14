@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../redux/actions/ux_actions';
-import { Switch } from 'antd';
+import { Switch } from 'antd/lib';
 
 class Toolbar extends Component {
     render() {

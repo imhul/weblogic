@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, message } from 'antd';
+import { Button, message } from 'antd/lib';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 class HowTo extends Component {

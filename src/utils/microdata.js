@@ -4,9 +4,9 @@ export const microdata = {
     '@context': 'http://www.schema.org',
     '@type': ['WebPage'],
     name: 'WebLogic Studio',
-    url: 'http://weblogic.com.ua/',
+    url: 'https://weblogic.netlify.app/',
     inLanguage: 'en-US',
-    mainEntityOfPage: 'http://weblogic.com.ua/',
+    mainEntityOfPage: 'https://weblogic.netlify.app/',
     logo: '/app/logo.png',
     image: '/app/print.png',
     description:

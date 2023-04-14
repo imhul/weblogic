@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
 import translate from '../../../../utils/translations';
-import { Row, Col, List, Avatar } from 'antd';
+import { Row, Col, List, Avatar } from 'antd/lib';
 import { LinkOutlined, GithubOutlined, ExperimentOutlined } from '@ant-design/icons';
 
 import puzzleImg from '../../../../images/works/puzzle.jpg';

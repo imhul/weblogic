@@ -6,7 +6,7 @@ import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
 import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
 // components
 import { Helmet } from 'react-helmet';
-import { message } from 'antd';
+import { message } from 'antd/lib';
 // images
 import '../../../images/print.png';
 import '../../../images/logo.png';
@@ -34,7 +34,7 @@ class Home extends Component {
             <div className="Home" onClick={() => uxActions.updateLocation('Folio')}>
                 <Helmet>
                     <title>WebLogic Studio Home</title>
-                    <link rel="canonical" href="http://weblogic.com.ua/" />
+                    <link rel="canonical" href="https://weblogic.netlify.app/" />
                 </Helmet>
 
                 <h1 className="mobile-fix heading-hero" style={heroStyle}>

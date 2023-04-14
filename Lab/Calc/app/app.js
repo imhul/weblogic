@@ -3,7 +3,7 @@
     angular
         .module('CalcApp', ['rzModule', 'AngularPrint'])
         .constant('appConfig', {
-            'basePath': 'http://weblogic.com.ua/Lab/Calc'
+            'basePath': 'https://weblogic.netlify.app/Lab/Calc'
         })
         .run(function($location) {
             console.log('location: ', $location);

@@ -2,7 +2,7 @@
     "name": "weblogic",
     "author": "Tkachuk Zakhar",
     "license": "ISC",
-    "homepage": "http://weblogic.com.ua/",
+    "homepage": "https://weblogic.netlify.app/",
     "repository": {
         "type": "git",
         "url": "https://github.com/imhul/weblogic"
@@ -11,7 +11,7 @@
     "version": "1.0.5",
     "scripts": {
         "format": "prettier --write --plugin-search-dir=. .",
-        "start": "yarn clean && cross-env NODE_ENV=development parcel public/index.html --no-cache --dist-dir dev",
+        "go": "yarn clean && cross-env NODE_ENV=development parcel public/index.html --no-cache --dist-dir dev",
         "build": "rimraf ./dist && cross-env NODE_ENV=production parcel build public/index.html --public-url /",
         "server": "node --inspect server/server.js",
         "dev": "concurrently --kill-others \"yarn start\" \"yarn server\"",
@@ -21,7 +21,7 @@
         "@ant-design/icons": "^4.7.0",
         "@fontsource/open-sans": "^4.5.14",
         "@parcel/babel-preset-env": "^2.8.3",
-        "antd": "^4.16.3",
+        "antd": "^5.4.2",
         "autoprefixer": "^10.4.14",
         "axios": "^1.3.5",
         "babel-plugin-import": "^1.13.6",

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../redux/actions/ux_actions';
 import * as USER_ACTIONS from '../../redux/actions/api_actions';
-import { Button } from 'antd';
+import { Button } from 'antd/lib';
 import { ApiOutlined } from '@ant-design/icons';
 
 class Futures extends Component {

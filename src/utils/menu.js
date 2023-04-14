@@ -3,55 +3,55 @@ import {
     HomeOutlined,
     CrownOutlined,
     GithubOutlined,
-    LinkedinOutlined,
-    BarChartOutlined,
+    // LinkedinOutlined,
+    // BarChartOutlined,
     ExperimentOutlined,
-    DollarCircleOutlined
+    // DollarCircleOutlined
 } from '@ant-design/icons';
 
 const menu = [
     {
-        id: 'Home',
+        key: 'Home',
         url: '/',
         icon: <HomeOutlined />,
-        blank: false
+        isBlank: false
     },
     {
-        id: 'Game',
+        key: 'Game',
         url: '/game',
         icon: <CrownOutlined />,
-        blank: false
+        isBlank: false
     },
     {
-        id: 'Folio',
+        key: 'Folio',
         url: '/folio',
         icon: <ExperimentOutlined />,
-        blank: false
+        isBlank: false
     },
     {
-        id: 'Github',
+        key: 'Github',
         url: 'https://github.com/imhul/',
         icon: <GithubOutlined />,
-        blank: true
-    },
-    {
-        id: 'Patreon',
-        url: 'https://www.patreon.com/protomass',
-        icon: <DollarCircleOutlined />,
-        blank: true
-    },
-    {
-        id: 'Codecedemy',
-        url: 'https://www.codecademy.com/profiles/weblogicfront',
-        icon: <BarChartOutlined />,
-        blank: true
-    },
-    {
-        id: 'Linkedin',
-        url: 'https://www.linkedin.com/in/tkachuk-zakhar-04733892/',
-        icon: <LinkedinOutlined />,
-        blank: true
+        isBlank: true
     }
+    // {
+    //     key: 'Patreon',
+    //     url: 'https://www.patreon.com/protomass',
+    //     icon: <DollarCircleOutlined />,
+    //     isBlank: true
+    // },
+    // {
+    //     key: 'Codecedemy',
+    //     url: 'https://www.codecademy.com/profiles/weblogicfront',
+    //     icon: <BarChartOutlined />,
+    //     isBlank: true
+    // },
+    // {
+    //     key: 'Linkedin',
+    //     url: 'https://www.linkedin.com/in/tkachuk-zakhar-04733892/',
+    //     icon: <LinkedinOutlined />,
+    //     isBlank: true
+    // }
 ];
 
 export default menu;

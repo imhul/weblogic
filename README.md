@@ -2,7 +2,7 @@
 
 ### by Tkachuk Zakhar
 
-### [`*** Run in ***`](http://weblogic.com.ua/)
+### [`*** Run in ***`](https://weblogic.netlify.app/)
 
 Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-redux) and [`Parcel Bundler`](https://parceljs.org)
 

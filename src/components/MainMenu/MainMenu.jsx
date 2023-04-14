@@ -6,9 +6,7 @@ import * as UX_ACTIONS from '../../redux/actions/ux_actions';
 // utils
 import menu from '../../utils/menu';
 // components
-import { Menu } from 'antd';
-
-const MenuItem = Menu.Item;
+import { Menu } from 'antd/lib';
 
 class MainMenu extends Component {
     constructor(props) {
@@ -26,6 +24,12 @@ class MainMenu extends Component {
 
     render() {
         const { current } = this.state;
+        const { uxActions } = this.props;
+        const menuItems = menu.filter(item => !item.isBlank).map(item => ({
+            key: item.key,
+            icon: item.icon,
+            label: <span onClick={() => uxActions.updateLocation(item.key)}>{item.key}</span>
+        }));
 
         return (
             <Menu
@@ -33,6 +37,7 @@ class MainMenu extends Component {
                 selectedKeys={[current]}
                 className="Menu"
                 mode="horizontal"
+                items={menuItems}
                 style={{
                     background: 'rgba(42, 65, 76, 0.6)',
                     borderColor: 'rgba(0, 0, 0, 0)',
@@ -46,17 +51,7 @@ class MainMenu extends Component {
                     borderBottomLeftRadius: 4,
                     borderBottomRightRadius: 4
                 }}
-            >
-                {menu.map(item => {
-                    return (
-                        !item.blank && (
-                            <MenuItem key={item.id} icon={item.icon}>
-                                {item.id}
-                            </MenuItem>
-                        )
-                    );
-                })}
-            </Menu>
+            />
         );
     }
 }

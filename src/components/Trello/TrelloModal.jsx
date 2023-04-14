@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UI_ACTIONS from '../../redux/actions/ui_actions';
-import { Modal, Button } from 'antd';
+import { Modal, Button } from 'antd/lib';
 
 // Trello API
 // import { isTrelloAvailable, authenticateUser, getBoard } from '../../../utils/api';

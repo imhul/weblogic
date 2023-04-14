@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import translate from '../../../../utils/translations';
 import { technologies } from '../../../../utils/technologies';
 // components
-import { Row, Col } from 'antd';
+import { Row, Col } from 'antd/lib';
 import Gravatar from 'react-gravatar';
 // images
 import {

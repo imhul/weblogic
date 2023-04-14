@@ -68,7 +68,7 @@ const translations = {
             'There was a little experience with Angular. Learned the basics of Terminal, Yarn, Git, Jira, GitBash, Grunt, Gulp, etc.',
         step_2017: 'Started learning React',
         step_2018:
-            'Learned React-router + hystory. Started Lectrum 2 month Redux Intensive courses and learned next libraries: Redux, Redux-Saga, immutable.js, socket.io. Was very pleasantly surprised by the Parcel!',
+            'Learned React-router + history. Started Lectrum 2 month Redux Intensive courses and learned next libraries: Redux, Redux-Saga, immutable.js, socket.io. Was very pleasantly surprised by the Parcel!',
         step_2021:
             "Did a bit of work with Getsby and GraphQL. But later I joined the growing Svelte community as well as SvelteKIt and it's amazing! This is one of the best technologies I've come across. Thanks to this, I have a better understanding of SSR.",
 
@@ -171,7 +171,7 @@ const translations = {
             'Был небольшой опыт работы с Angular. Выучил основы рабочего окружения, в т.ч. Terminal, Yarn, Git, Jira, GitBash, Grunt, Gulp',
         step_2017: 'Начал изучать React',
         step_2018:
-            'Изучил React-router + hystory. Прошел двухмесячный курс Lectrum Redux Intensive, где изучил такие библиотеки: Redux, Redux-Saga, immutable.js, socket.io. Был приятно удивлён появлением Parcel!',
+            'Изучил React-router + history. Прошел двухмесячный курс Lectrum Redux Intensive, где изучил такие библиотеки: Redux, Redux-Saga, immutable.js, socket.io. Был приятно удивлён появлением Parcel!',
         step_2021:
             'Немного поработал с Getsby и GraphQL. Но позже присоединился к развивающемуся сообществу Svelte и это потрясающе! Это одна из лучших технологий, с которой мне приходилось сталкиваться. Благодаря этому стал лучше понимать SSR.',
 

@@ -56,6 +56,7 @@ class Captcha extends Component {
 
     render() {
         const { lang } = this.props.ux;
+        if (!safe?.key) return null;
 
         return (
             <Row gutter={24} type="flex" justify="center" align="middle">
