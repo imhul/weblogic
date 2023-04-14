@@ -5,7 +5,7 @@ import {
     GithubOutlined,
     // LinkedinOutlined,
     // BarChartOutlined,
-    ExperimentOutlined,
+    ExperimentOutlined
     // DollarCircleOutlined
 } from '@ant-design/icons';
 

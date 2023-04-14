@@ -25,11 +25,13 @@ class MainMenu extends Component {
     render() {
         const { current } = this.state;
         const { uxActions } = this.props;
-        const menuItems = menu.filter(item => !item.isBlank).map(item => ({
-            key: item.key,
-            icon: item.icon,
-            label: <span onClick={() => uxActions.updateLocation(item.key)}>{item.key}</span>
-        }));
+        const menuItems = menu
+            .filter(item => !item.isBlank)
+            .map(item => ({
+                key: item.key,
+                icon: item.icon,
+                label: <span onClick={() => uxActions.updateLocation(item.key)}>{item.key}</span>
+            }));
 
         return (
             <Menu
