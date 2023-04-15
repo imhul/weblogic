@@ -54,7 +54,7 @@ class Contact extends Component {
         event.preventDefault();
         const { lang, isFilled, tgMessage } = this.props.ux;
 
-        if (isFilled) {
+        if (safe && isFilled && tgMessage) {
             fetch(`${safe.tCode}${tgMessage}'`)
                 .then(response => response.json())
                 .then(result => {
@@ -173,11 +173,7 @@ class Contact extends Component {
                             <h2>{translate(lang, 'copy_contacts')}</h2>
                         </Col>
 
-                        <Col
-                            md={12}
-                            sm={24}
-                            xs={24}
-                            className="mb-20 align-left left mobile-center"
+                        <Col span={24} className="mb-20 center"
                             title={translate(lang, 'copy_email')}
                         >
                             <Clipboard
@@ -186,24 +182,6 @@ class Contact extends Component {
                                 onSuccess={this.onSuccess}
                             >
                                 <MailOutlined />
-                                <EllipsisOutlined />
-                                <CopyOutlined />
-                            </Clipboard>
-                        </Col>
-
-                        <Col
-                            md={12}
-                            sm={24}
-                            xs={24}
-                            className="mb-20 align-right right mobile-center"
-                            title={translate(lang, 'copy_phone')}
-                        >
-                            <Clipboard
-                                className="ant-btn ant-btn-background-ghost"
-                                option-text={() => safe.fCode}
-                                onSuccess={this.onSuccess}
-                            >
-                                <PhoneOutlined />
                                 <EllipsisOutlined />
                                 <CopyOutlined />
                             </Clipboard>
