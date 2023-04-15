@@ -28,6 +28,14 @@
             @extend %no-border;
         }
 
+        &.ant-switch-checked {
+            background: $transparent;
+
+            &:hover {
+                background: $color-footer;
+            }
+        }
+
         .ant-click-animating-node {
             @extend %no-border;
         }
@@ -56,6 +64,7 @@
 
     .ant-switch-checked {
         margin-left: 20px;
+        background: $transparent;
         @extend %no-border;
 
         &:focus {
@@ -67,7 +76,7 @@
         width: 140px;
         height: 140px;
         box-shadow: 0 0 30px $color-white;
-        background: $color-deep-black;
+        background: $transparent;
 
         .ant-switch {
             margin-left: 22px;
