@@ -29,6 +29,13 @@ class Home extends Component {
     render() {
         const { hero, heroStyle } = this.props.ui;
         const { uxActions } = this.props;
+        const renderHero = hero.map((symbol, index) => {
+            return (
+                <span key={index} className={`span-${index}`}>
+                    {symbol}
+                </span>
+            );
+        });
 
         return (
             <div className="Home" onClick={() => uxActions.updateLocation('Folio')}>
@@ -38,13 +45,7 @@ class Home extends Component {
                 </Helmet>
 
                 <h1 className="mobile-fix heading-hero" style={heroStyle}>
-                    {hero.map((symbol, index) => {
-                        return (
-                            <span key={index} className={`span-${index}`}>
-                                {symbol}
-                            </span>
-                        );
-                    })}
+                    {renderHero}
                     <span className="span-15">
                         <i className="icon-lamp" />
                     </span>

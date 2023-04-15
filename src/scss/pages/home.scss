@@ -35,6 +35,7 @@
         transition-delay: 0ms !important;
         transition: all ease-in 0.5s;
         cursor: pointer;
+        white-space: break-spaces;
 
         @media (max-width: $media-small) {
             margin-left: 20px;

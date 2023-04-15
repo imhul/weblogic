@@ -56,7 +56,7 @@ class Contact extends Component {
         console.info('tgMessage: ', tgMessage);
         // TODO: tg message sending
 
-        if (safe && isFilled && tgMessage) { 
+        if (safe && isFilled && tgMessage) {
             fetch(`${safe.tCode}${tgMessage}'`)
                 .then(response => response.json())
                 .then(result => {
