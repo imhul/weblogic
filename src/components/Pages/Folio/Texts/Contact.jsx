@@ -173,11 +173,13 @@ class Contact extends Component {
                             <h2>{translate(lang, 'copy_contacts')}</h2>
                         </Col>
 
-                        <Col span={24} className="mb-20 center"
+                        <Col
+                            span={24}
+                            className="mb-20 center"
                             title={translate(lang, 'copy_email')}
                         >
                             <Clipboard
-                                className="ant-btn ant-btn-background-ghost"
+                                className="ant-btn center ant-btn-background-ghost"
                                 option-text={() => safe.mCode}
                                 onSuccess={this.onSuccess}
                             >

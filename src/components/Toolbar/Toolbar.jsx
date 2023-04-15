@@ -13,8 +13,8 @@ class Toolbar extends Component {
                 <Switch
                     defaultChecked={lang === 'english' ? true : false}
                     onChange={data => uxActions.langUpdate(data)}
-                    unCheckedChildren="ua"
-                    checkedChildren="en"
+                    unCheckedChildren="en"
+                    checkedChildren="ua"
                 />
             </div>
         );

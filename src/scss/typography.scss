@@ -18,8 +18,10 @@ a {
     font: $font-text;
     .ant-btn-background-ghost {
         color: $color-white;
-        border-color: $color-white;
+        border: 1px solid $color-white;
         text-decoration: none;
+        margin: 0 auto;
+
         &:hover {
             text-shadow: 0 0 20px $color-link-hover;
             border-color: $color-link-hover;
