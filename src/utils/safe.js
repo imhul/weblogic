@@ -1,7 +1,5 @@
 import Base64 from './decode';
 
-const user = '';
-
 const safe = {
     link: Base64.decode(process.env.REACT_APP_LINK),
     key: Base64.decode(process.env.REACT_APP_KEY),

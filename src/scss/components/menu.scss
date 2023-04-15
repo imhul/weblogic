@@ -1,4 +1,4 @@
-.MainMenu {
+.Menu {
     min-width: 330px;
 
     .ant-menu-item {
@@ -18,7 +18,9 @@
             border-bottom-color: $color-link-hover !important;
         }
 
-        span {
+        span,
+        svg,
+        .ant-menu-item-icon {
             color: $color-link-hover;
         }
 
@@ -27,8 +29,10 @@
                 border-bottom-color: $color-white !important;
             }
 
-            span {
-                color: $color-link-hover;
+            span,
+            svg,
+            .ant-menu-item-icon {
+                color: $color-white;
             }
         }
     }
