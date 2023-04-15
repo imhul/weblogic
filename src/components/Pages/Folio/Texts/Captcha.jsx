@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UI_ACTIONS from '../../../../redux/actions/ui_actions';
-import { Row, Col, message } from 'antd';
+import { Row, Col, message } from 'antd/lib';
 import safe from '../../../../utils/safe';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
@@ -24,7 +24,8 @@ class Captcha extends Component {
     verify(data) {
         const { lang } = this.props.ux;
         const { ui, uiActions } = this.props;
-        const apiURL = `${safe.link}${data}&remoteip=${ui.currentUser.ip}`;
+        const { link } = safe;
+        const apiURL = `${link}${data}&remoteip=${ui.currentUser.ip}`;
         axios
             .post(apiURL)
             .then(response => {
@@ -39,7 +40,7 @@ class Captcha extends Component {
                     });
                 }
             })
-            .catch(error => {
+            .catch(() => {
                 message.error({
                     content: `${translate(lang, 'message_error_recaptcha')}`,
                     duration: 3,
@@ -56,13 +57,13 @@ class Captcha extends Component {
 
     render() {
         const { lang } = this.props.ux;
-        if (!safe?.key) return null;
+        const { key } = safe;
 
         return (
             <Row gutter={24} type="flex" justify="center" align="middle">
                 <Col span={12} className="center">
                     <Recaptcha
-                        sitekey={safe.key}
+                        sitekey={key}
                         theme="dark"
                         verifyCallback={response => this.verifyCallback(response)}
                         hl={lang === 'russian' ? 'uk' : 'en'}

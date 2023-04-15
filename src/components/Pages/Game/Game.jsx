@@ -14,18 +14,19 @@ class Game extends Component {
     render() {
         const { lang } = this.props.ux;
         const videoId = 'nETaVY9GOao';
+        const title = translate(lang, 'game_title');
 
         return (
             <div className="Game">
                 <Helmet>
-                    <title>{translate(lang, 'game_title')}</title>
+                    <title>{title}</title>
                     <link rel="canonical" href="https://weblogic.netlify.app/" />
                 </Helmet>
 
                 <div className="container">
                     <Row type="flex" justify="center" align="middle">
                         <Col span={24}>
-                            <h1 className="center">{translate(lang, 'game_title')}</h1>
+                            <h1 className="center">{title}</h1>
                             <h2 className="center">{translate(lang, 'game_subtitle')}</h2>
                             <div className="center">
                                 <span>{translate(lang, 'game_description')}</span>
@@ -72,8 +73,7 @@ class Game extends Component {
                                         width="640"
                                         height="360"
                                         src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&autoplay=1?fs=1`}
-                                        title={translate(lang, 'game_title')}
-                                        frameBorder="0"
+                                        title={title}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
                                     />

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UX_ACTIONS from '../../../../redux/actions/ux_actions';
-import { Row, Col, Form, Input, Button, Statistic, message } from 'antd';
+import { Row, Col, Form, Input, Button, Statistic, message } from 'antd/lib';
 import {
     MailOutlined,
     GithubOutlined,
