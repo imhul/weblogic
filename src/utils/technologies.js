@@ -30,6 +30,11 @@ export const technologies = [
         link: 'https://vitejs.dev/'
     },
     {
+        id: 'Sapper',
+        list: 'bundler',
+        link: 'https://sapper.svelte.dev/'
+    },
+    {
         id: 'React-Scripts',
         list: 'bundler',
         link: 'https://www.npmjs.com/package/react-scripts'
@@ -53,6 +58,11 @@ export const technologies = [
         id: 'npm',
         list: 'packmen',
         link: 'https://www.npmjs.com/'
+    },
+    {
+        id: 'pnpm',
+        list: 'packmen',
+        link: 'https://pnpm.io/'
     },
     {
         id: 'npx',
@@ -220,6 +230,11 @@ export const technologies = [
         link: 'https://figma.com/'
     },
     {
+        id: 'Sketch',
+        list: 'design',
+        link: 'https://www.sketch.com/'
+    },
+    {
         id: 'Atlassian JIRA',
         list: 'track',
         link: 'https://jira.atlassian.com/'
@@ -278,6 +293,11 @@ export const technologies = [
         id: 'microdata',
         list: 'seo',
         link: 'https://schema.org/'
+    },
+    {
+        id: 'metadata',
+        list: 'seo',
+        link: 'https://gist.github.com/whitingx/3840905'
     },
     {
         id: 'Joomla',
@@ -355,6 +375,11 @@ export const technologies = [
         link: 'https://github.com/reduxjs/reselect'
     },
     {
+        id: 're-reselect',
+        list: 'other',
+        link: 'https://github.com/toomuchdesign/re-reselect'
+    },
+    {
         id: 'mdsvex',
         list: 'other',
         link: 'https://mdsvex.pngwn.io/'
@@ -427,6 +452,11 @@ export const technologies = [
     {
         id: 'raf',
         list: 'other',
+        link: 'https://github.com/chrisdickinson/raf'
+    },
+    {
+        id: 'Bitrix',
+        list: 'crm',
         link: 'https://github.com/chrisdickinson/raf'
     }
 ];

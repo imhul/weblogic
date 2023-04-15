@@ -12,7 +12,7 @@ export default (state = initStateUX, action) => {
         case types.CHANGE_LANG:
             return {
                 ...state,
-                lang: action.payload ? 'english' : 'russian'
+                lang: action.payload ? 'english' : 'ukrainian'
             };
 
         case types.CLICK_FX:

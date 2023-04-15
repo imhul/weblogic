@@ -15,6 +15,7 @@ const translations = {
         nov: 'Nov',
         dec: 'Dec',
         aug: 'Aug',
+        apr: 'Apr',
 
         // Contacts EN
         contact_form: 'Contact Form',
@@ -57,7 +58,7 @@ const translations = {
         fav_tech: 'Favorite technologies',
 
         // Roadmap EN
-        step_2009:
+        step_2008:
             'I started learning CSS, HTML, Joomla CMS and the web design basics with Adobe Photoshop. I made the first site on pure html + css and one more on Joomla',
         step_2011: 'Got carried away by studying SEO',
         step_2013:
@@ -69,8 +70,24 @@ const translations = {
         step_2017: 'Started learning React',
         step_2018:
             'Learned React-router + history. Started Lectrum 2 month Redux Intensive courses and learned next libraries: Redux, Redux-Saga, immutable.js, socket.io. Was very pleasantly surprised by the Parcel!',
+        step_2020: 'I had to work with Angular 8 for six months',
         step_2021:
             "Did a bit of work with Getsby and GraphQL. But later I joined the growing Svelte community as well as SvelteKIt and it's amazing! This is one of the best technologies I've come across. Thanks to this, I have a better understanding of SSR.",
+        step_2023: (
+            <span>
+                Still working with{' '}
+                <a
+                    href="https://svelte.dev/"
+                    title="Svelte"
+                    rel="noreferer noopener"
+                    target="_blank"
+                >
+                    Svelte
+                </a>{' '}
+                and it's great. After an in-depth study, I can say with confidence that this is a
+                top!
+            </span>
+        ),
 
         // Works EN
         work_1: 'Puzzle game, JavaScript + Canvas + design',
@@ -104,104 +121,120 @@ const translations = {
         game_donate: 'Patreon'
     },
 
-    russian: {
-        // common RU
+    ukrainian: {
+        // common UA
         summary: 'Резюме',
         demo: 'Демо',
-        released: 'Релиз',
+        released: 'Реліз',
         status: 'Статус',
-        project_desc: 'Описание',
-        intro: 'Вступление',
-        roadmap: 'Путь',
-        works: 'Работы',
-        contacts: 'Контакты',
-        nov: 'Ноябрь',
-        dec: 'Декабрь',
-        aug: 'Август',
+        project_desc: 'Опис',
+        intro: 'Вступ',
+        roadmap: 'Шлях',
+        works: 'Роботи',
+        contacts: 'Контакти',
+        nov: 'Листопад',
+        dec: 'Грудень',
+        aug: 'Серпень',
+        apr: 'Квітень',
 
-        // Contacts RU
-        contact_form: 'Форма обратной связи',
-        rate_us: 'Оцените этот сайт',
-        or: 'или',
-        copy_contacts: 'скопируйте контакты',
-        copy_email: 'Копировать email',
-        copy_phone: 'Копировать телефон',
-        cooperation_ready: 'Всегда готов к взаимовыгодному сотрудничеству.',
-        submit: 'Отправить',
-        placeholder: 'Ваше сообщение',
-        linkedin: 'Моя страница на LinkedIn',
-        codecademy: 'Мой профиль на Codecademy',
-        github: 'Мой GitHub аккаунт',
-        myCV: 'Посмотреть моё резюме',
-        message_success_phone: 'Номер телефона успешно скопирован!',
-        message_success_email: 'Эл. адрес успешно скопирован!',
-        message_success: 'Сообщение успешно отправлено!',
-        message_success_recaptcha: 'Вы успешно прошли проверку!',
-        message_error: 'Ошибка при отправке!',
-        message_error_phone: 'Ошибка при отправке: введите номер телефона!',
-        message_error_wrong: 'Что-то пошло не так!',
-        message_error_recaptcha: 'Сервер Recaptca не отвечает!',
+        // Contacts UA
+        contact_form: "Форма зворотнього зв'язку",
+        rate_us: 'Оцініть цей сайт',
+        or: 'або',
+        copy_contacts: 'скопіюйте контакти',
+        copy_email: 'Скопіювати email',
+        copy_phone: 'Скопіювати телефон',
+        cooperation_ready: 'Завжди готовий до взаємовигідного співробітництва.',
+        submit: 'Відправити',
+        placeholder: 'Ваше повідомлення',
+        linkedin: 'Моя сторінка на LinkedIn',
+        codecademy: 'Мій профіль на Codecademy',
+        github: 'Мій GitHub акаунт',
+        myCV: 'Подивитися моє резюме',
+        message_success_phone: 'Номер телефону успішно скопійовано!',
+        message_success_email: 'Эл. адресу успішно скопійовано!',
+        message_success: 'Повідомлення успішно скопійовано!',
+        message_success_recaptcha: 'Вы успішно пройшли перевірку!',
+        message_error: 'Помилка при відправці!',
+        message_error_phone: 'Помилка при відправці: введіть номер телефону!',
+        message_error_wrong: 'Щось пішло не так!',
+        message_error_recaptcha: 'Сервер Recaptca не відповідає!',
 
-        // Intro RU
-        believe: 'Я верю, что дизайн делает мир лучше',
+        // Intro UA
+        believe: 'Вірю, що дизайн робить світ кращим',
         my_name: 'Ткачук Захар',
-        front_dev: 'фронт-энд разработчик',
+        front_dev: 'фронтенд разробник',
         tagline: (
             <span>
-                Использование новых технологий, таких как <mark>React</mark> или{' '}
-                <mark>Hyperapp</mark> всегда даёт вдохновение. Я предпочитаю нестандартные{' '}
-                <mark>UI</mark> и <mark>UX</mark> решения, беря за основу концепции{' '}
-                <mark>Material Design</mark>
+                Використання новых технологій, таких як <mark>React</mark> або <mark>Svelte</mark>{' '}
+                завжди надихає. Я надаю перевагу нестандартним <mark>UI</mark> та <mark>UX</mark>{' '}
+                рішенням, беручи за основу концепції <mark>неоморфізму та Material Design</mark>
             </span>
         ),
-        what_i_do: 'Что я предлагаю',
+        what_i_do: 'Що я пропоную',
         my_offer:
-            'Я предлагаю услуги по разработке сайтов под ключ, такие как: разработка дизайна, включая UI/UX дизайн и отрисовку макета, резиновая или адаптивная вёрстка, разработка и поисковая олптимизация сайта. Так же я предоставляю консультации по продвижению и поисковой оптимизации интернет-ресурсов.',
-        fav_tech: 'Любимые технологии',
+            'Я пропоную послуги з розробки веб-додатків та користувацьких інтерфейсів (UI/UX) з резиновою версткою. Також я пропоную послуги з пошукової оптимізації та просування інтернет-ресурсів, в тому числі консультативні.',
+        fav_tech: 'Улюблені технології',
 
-        // Roadmap RU
-        step_2009:
-            'Я начал изучать CSS, HTML, Joomla CMS а так же основы веб-дизайна и Adobe Photoshop. Вскоре я сделал свой первый заказ - сайт на чистом html + css. Второй сайт я сделал на Joomla',
-        step_2011: 'Увлёкся изучением SEO',
+        // Roadmap UA
+        step_2008:
+            'Почав вивчати CSS, HTML, Joomla CMS а також основи веб-дизайну та Adobe Photoshop. Незабаром я зробив своє перше замовлення - сайт на чистому html+css. Друге замовлення я зробив на Joomla',
+        step_2011: 'Серйозно захопився вивченням SEO. Тоді ж зацікавився UI/UX дизайном',
         step_2013:
-            'Поставил свой первый рекорд: сделав сайт с нуля, вывел в топ-3 в поиске Google за три дня',
+            'Поставив свій перший рекорд: зробивши сайт з нуля, вивів у топ-3 у пошуку Google за три дні',
         step_2015:
-            'К этому времени на моём счету было около 50 выполненых заказов по разработке сайтов на Joomla CMS. Это подтолкнуло меня пойти на курсы по JavaScript',
+            'На цей час на моєму рахунку було близько 50 виконаних замовлень щодо розробки сайтів на Joomla CMS. Це підштовхнуло мене піти на курси JavaScript',
         step_2016:
-            'Был небольшой опыт работы с Angular. Выучил основы рабочего окружения, в т.ч. Terminal, Yarn, Git, Jira, GitBash, Grunt, Gulp',
-        step_2017: 'Начал изучать React',
+            'Був невеликий досвід роботи з Angular 2. Вивчив основи робочого оточення, у т.ч. Terminal, Yarn, Git, Jira, GitBash, Grunt, Gulp',
+        step_2017: 'Почав вивчати React',
         step_2018:
-            'Изучил React-router + history. Прошел двухмесячный курс Lectrum Redux Intensive, где изучил такие библиотеки: Redux, Redux-Saga, immutable.js, socket.io. Был приятно удивлён появлением Parcel!',
+            'Вивчив React-router + history. Пройшов двомісячний курс Lectrum Redux Intensive, де вивчив такі бібліотеки як Redux, Redux-Saga, immutable.js, socket.io. Був приємно вражений знайомством із Parcel і це теж дуже крута річ!',
+        step_2020: 'Довелося півроку попрацювати з Angular 8',
         step_2021:
-            'Немного поработал с Getsby и GraphQL. Но позже присоединился к развивающемуся сообществу Svelte и это потрясающе! Это одна из лучших технологий, с которой мне приходилось сталкиваться. Благодаря этому стал лучше понимать SSR.',
+            'Трохи попрацював із Getsby та GraphQL. Але пізніше приєднався до спільноти Svelte, що розвивається, і це приголомшливо! Це одна з найкращих технологій, з якою мені доводилося стикатися. Завдяки цьому став краще розуміти SSR.',
+        step_2023: (
+            <span>
+                Все ще працюю зі{' '}
+                <a
+                    href="https://svelte.dev/"
+                    title="Svelte"
+                    rel="noreferer noopener"
+                    target="_blank"
+                >
+                    Svelte
+                </a>{' '}
+                і це прекрасно. Після поглибленого вивчення можу сказати впевнено, що це топ!
+            </span>
+        ),
 
-        // Works RU
-        work_1: 'Игра "Пазлы", JavaScript + Canvas + дизайн',
-        work_2: 'Корпоративный сайт, Joomla + дизайн',
+        // Works UA
+        work_1: 'Гра "Пазли", JavaScript + Canvas + дизайн',
+        work_2: 'Корпоративний сайт, Joomla + дизайн',
         work_3: 'Калькулятор LED панелей, Angular.js + Materialize + дизайн',
-        work_4: 'Система управления тестированием нового поколения для автоматизированных и ручных тестов. React + Mobx',
-        work_5: 'Национальный платежный сервис. Angular 8 + Material-UI',
-        work_6: 'Интернет-магазин, React + Redux + masonry + дизайн',
+        work_4: 'Система управління тестуванням нового покоління для автоматизованих та ручних тестів. React + Mobx',
+        work_5: 'Національный платіжный сервіс. Angular 8 + Material-UI',
+        work_6: 'Інтернет-магазин, React + Redux + masonry + дизайн',
         work_7: (
             <span>
-                Игра для европейского онлайн-казино iSoftBet, которая вышла в релиз в 2017 году.
-                Тогда же о ней была написана статья на сайте www.softgamings.com. Анимация на
-                Pixi.js + TypeScript
+                Гра для європейского онлайн-казино iSoftBet, котра вийшла в реліз у 2017 році. Тоді
+                ж про неї була опублікована стаття на сайті www.softgamings.com. Анімація на Pixi.js
+                + TypeScript
             </span>
         ),
-        work_8: 'Аналитический ресурс, JavaScript + jQuery + Materialize + дизайн',
-        work_9: 'Приложение для очистки вашего списка подписок от отказов и пополнения данных о клиентах. Проверяйте своих реальных клиентов одним способом. SvelteKit + SCSS + RSS Feed',
+        work_8: 'Аналітичний ресурс, JavaScript + jQuery + Materialize + дизайн',
+        work_9: 'Додаток для очищення вашого списку підписок від відмов та поповнення даних про клієнтів. Перевіряйте своїх реальних клієнтів одним способом. SvelteKit + SCSS + RSS Feed',
         demo_status_desc:
-            '* Статус Демо означает, что проект доступен для просмотра на моём сайте.',
+            '* Статус Демо означає, що проект можливо переглянути на моєму сайті, натиснувши на нього.',
         released_status_desc:
-            '** Проект в статусе Релиз является готовым продуктом и размещён на сервере клиента.',
-        current_projects: 'Текущие проекты',
+            '** Проект в статусі Реліз є готовым продуктом і разміщений на хостингу клиента.',
+        current_projects: 'Поточні проекти',
 
-        // Game RU
-        game_title: 'Proto-Mass. On-line игра',
-        game_subtitle: 'Пиксель-арт песочницца с непрямым управлением на основе React',
+        // Game UA
+        game_title: 'Proto-Mass. On-line гра',
+        game_subtitle:
+            'Піксель-арт пісочниця с непрямим управлінням на основі React. На даний час ведеться паралельна розробка на Svelte.',
         game_description:
-            'На далекой планете, населенной примитивными формами жизни, небольшая колония случайно попавших в ловушку роботов, должна строить, развиваться и сражаться для того, чтобы выжить ... Как далеко они могут зайти?',
+            'На далекій планеті, населеній примітивними формами життя, невелика колонія роботів, що випадково потрапили в пастку, повинна будувати, розвиватися і боротися, щоб вижити... Як далеко це може зайти?',
         game_demo: 'Демо',
         game_git: 'GitHub',
         game_donate: 'Patreon'

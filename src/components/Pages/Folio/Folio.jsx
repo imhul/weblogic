@@ -16,7 +16,7 @@ import {
     CompassOutlined
 } from '@ant-design/icons';
 
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
 
 class Folio extends Component {
     render() {
@@ -25,50 +25,41 @@ class Folio extends Component {
 
         const texts = [
             {
-                id: 'intro',
-                name: (
-                    <div>
-                        {translate(lang, 'intro')}
-                        <PoweroffOutlined />
-                    </div>
-                ),
-                key: 1,
+                icon: <PoweroffOutlined />,
+                key: 'intro',
                 text: <Intro />
             },
             {
-                id: 'roadmap',
-                name: (
-                    <div>
-                        {translate(lang, 'roadmap')}
-                        <CompassOutlined />
-                    </div>
-                ),
-                key: 2,
+                icon: <CompassOutlined />,
+                key: 'roadmap',
                 text: <Roadmap />
             },
             {
-                id: 'works',
-                name: (
-                    <div>
-                        {translate(lang, 'works')}
-                        <RocketOutlined />
-                    </div>
-                ),
-                key: 3,
+                icon: <RocketOutlined />,
+                key: 'works',
                 text: <Works />
             },
             {
-                id: 'contacts',
-                name: (
-                    <div>
-                        {translate(lang, 'contacts')}
-                        <MessageOutlined />
-                    </div>
-                ),
-                key: 4,
+                icon: <MessageOutlined />,
+                key: 'contacts',
                 text: <Contact />
             }
-        ];
+        ].map(load => (
+            <Panel
+                header={
+                    <div className="bg">
+                        <div>
+                            {translate(lang, load.name)}
+                            {load.icon}
+                        </div>
+                    </div>
+                }
+                key={load.key}
+                showArrow={false}
+            >
+                {load.text}
+            </Panel>
+        ));
 
         return (
             <div className="Folio" tabIndex="1">
@@ -83,16 +74,7 @@ class Folio extends Component {
                     onChange={uxActions.tabMod}
                     className={active ? 'active' : null}
                 >
-                    {texts.map(load => (
-                        <Panel
-                            id={load.id}
-                            header={<div className="bg">{load.name}</div>}
-                            key={load.key}
-                            showArrow={false}
-                        >
-                            {load.text}
-                        </Panel>
-                    ))}
+                    {texts}
                 </Collapse>
             </div>
         );

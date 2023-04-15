@@ -158,6 +158,15 @@ class Intro extends Component {
                                             return <li key={item.id}>{item.id}</li>;
                                         })}
                                 </ul>
+                                {/* CRM */}
+                                <h3>CRM</h3>
+                                <ul>
+                                    {technologies
+                                        .filter(item => item.list === 'crm')
+                                        .map(item => {
+                                            return <li key={item.id}>{item.id}</li>;
+                                        })}
+                                </ul>
                             </Col>
 
                             <Col
