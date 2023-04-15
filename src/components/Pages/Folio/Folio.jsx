@@ -49,7 +49,7 @@ class Folio extends Component {
                 header={
                     <div className="bg">
                         <div>
-                            {translate(lang, load.name)}
+                            {translate(lang, load.key)}
                             {load.icon}
                         </div>
                     </div>
