@@ -1,3 +1,5 @@
+"use strict";
+
 var bgJS = function (tag_id, params) {
     var canvas_el = document.querySelector('#' + tag_id + ' > .bg-app-canvas-el');
 
