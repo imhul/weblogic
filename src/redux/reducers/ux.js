@@ -4,10 +4,11 @@ import { typesUX as types } from '../constants/types';
 export default (state = initStateUX, action) => {
     switch (action.type) {
         case types.TAB_MODIFY:
-            return {
-                ...state,
-                active: action.payload
-            };
+            const active =
+                typeof action.payload === 'string' || typeof action.payload === 'null'
+                    ? action.payload
+                    : action.payload[0];
+            return { ...state, active };
 
         case types.CHANGE_LANG:
             return {
