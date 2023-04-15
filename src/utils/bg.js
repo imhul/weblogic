@@ -1311,21 +1311,41 @@ class bgJS {
 
 /* ---------- global functions - vendors ------------ */
 
-Object.deepExtend = function (destination, source) {
-    for (var property in source) {
+// Object.deepExtend = function (destination, source) {
+//     for (var property in source) {
+//         if (
+//             source[property] &&
+//             source[property].constructor &&
+//             source[property].constructor === Object
+//         ) {
+//             destination[property] = destination[property] || {};
+//             arguments.callee(destination[property], source[property]);
+//         } else {
+//             destination[property] = source[property];
+//         }
+//     }
+//     return destination;
+// };
+
+Object.deepExtend = function(destination, source) {
+    function extendObj(dest, src) {
+      for (var property in src) {
         if (
-            source[property] &&
-            source[property].constructor &&
-            source[property].constructor === Object
+          src[property] &&
+          src[property].constructor &&
+          src[property].constructor === Object
         ) {
-            destination[property] = destination[property] || {};
-            arguments.callee(destination[property], source[property]);
+          dest[property] = dest[property] || {};
+          extendObj(dest[property], src[property]);
         } else {
-            destination[property] = source[property];
+          dest[property] = src[property];
         }
+      }
     }
+  
+    extendObj(destination, source);
     return destination;
-};
+  };
 
 window.requestAnimFrame = (function () {
     return (
