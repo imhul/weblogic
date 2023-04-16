@@ -16,7 +16,7 @@ class Futures extends Component {
         const { isFuturesOpen } = this.props.ux;
         const { users } = this.props.users;
 
-        console.info('state.users: ', users);
+        // console.info('state.users: ', users);
 
         return (
             <div className="Futures ant-back-top">

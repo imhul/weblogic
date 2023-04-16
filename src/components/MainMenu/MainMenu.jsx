@@ -18,7 +18,6 @@ class MainMenu extends Component {
 
     navigate = url => {
         const { uxActions } = this.props;
-        // TODO: history.push(url);
         uxActions.updateLocation(url);
     };
 
