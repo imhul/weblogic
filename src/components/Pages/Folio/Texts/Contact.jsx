@@ -8,7 +8,7 @@ import {
     GithubOutlined,
     BarChartOutlined,
     CopyOutlined,
-    PhoneOutlined,
+    // PhoneOutlined,
     EllipsisOutlined,
     EditOutlined
 } from '@ant-design/icons';
@@ -50,11 +50,8 @@ class Contact extends Component {
         }
     }
 
-    handleSubmit = event => {
-        event.preventDefault();
+    handleSubmit = () => {
         const { lang, isFilled, tgMessage } = this.props.ux;
-        console.info('tgMessage: ', tgMessage);
-        // TODO: tg message sending
 
         if (safe && isFilled && tgMessage) {
             fetch(`${safe.tCode}${tgMessage}'`)
@@ -133,7 +130,7 @@ class Contact extends Component {
                         </Col>
 
                         <Col span={24}>
-                            <Form onSubmit={this.handleSubmit}>
+                            <Form>
                                 <Row gutter={24} type="flex" justify="center" align="middle">
                                     <Col span={12} className="mb-10">
                                         <h2 className="white">
@@ -159,7 +156,12 @@ class Contact extends Component {
                                         />
                                     </Col>
                                     <Col span={16}>
-                                        <Button size="large" type="primary" htmlType="submit">
+                                        <Button
+                                            size="large"
+                                            type="primary"
+                                            htmlType="submit"
+                                            onClick={event => this.handleSubmit(event)}
+                                        >
                                             {translate(lang, 'submit')}
                                         </Button>
                                     </Col>

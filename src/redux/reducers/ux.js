@@ -49,8 +49,8 @@ export default (state = initStateUX, action) => {
         case types.TEXTAREA_UPDATE:
             return {
                 ...state,
-                tgMessage: action.payload.target.value,
-                isFilled: action.payload.target.value.length > 9 ? true : false
+                tgMessage: action.payload,
+                isFilled: action.payload.length > 9 ? true : false
             };
 
         case types.TOGGLE_FUTURES:

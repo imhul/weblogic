@@ -59,11 +59,11 @@ export function hideDesc() {
     };
 }
 
-export function textareaUpdate(text) {
+export function textareaUpdate(event) {
     return dispatch => {
         dispatch({
             type: type.TEXTAREA_UPDATE,
-            payload: text
+            payload: event.target.value
         });
     };
 }

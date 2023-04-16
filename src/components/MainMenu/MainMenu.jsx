@@ -16,21 +16,26 @@ class MainMenu extends Component {
         };
     }
 
+    navigate = url => {
+        const { uxActions } = this.props;
+        // TODO: history.push(url);
+        uxActions.updateLocation(url);
+    };
+
     onClick = e => {
         this.setState({ current: e.key });
-        const { uxActions } = this.props;
-        uxActions.updateLocation(e.key);
+        this.navigate(e.key);
     };
 
     render() {
         const { current } = this.state;
-        const { uxActions } = this.props;
+
         const menuItems = menu
             .filter(item => !item.isBlank)
             .map(item => ({
                 key: item.key,
                 icon: item.icon,
-                label: <span onClick={() => uxActions.updateLocation(item.key)}>{item.key}</span>
+                label: <span onClick={() => this.navigate(item.key)}>{item.key}</span>
             }));
 
         return (

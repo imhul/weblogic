@@ -45,9 +45,14 @@ class Output extends Component {
         }
     }
 
+    navigate = url => {
+        const { uxActions } = this.props;
+        // TODO: history.push(url);
+        uxActions.updateLocation(url);
+    };
+
     render() {
         const { location } = this.props.ux;
-        const { uxActions } = this.props;
 
         return (
             <Layout className="LayoutMain">
@@ -67,28 +72,16 @@ class Output extends Component {
                 </ContextMenuTrigger>
                 {menu?.length && (
                     <ContextMenu hideOnLeave id="context-menu">
-                        <MenuItem
-                            key={menu[0].key}
-                            onClick={() => uxActions.updateLocation(menu[0].url)}
-                        >
+                        <MenuItem key={menu[0].key} onClick={() => this.navigate(menu[0].url)}>
                             {menu[0].icon} {menu[0].key}
                         </MenuItem>
-                        <MenuItem
-                            key={menu[1].key}
-                            onClick={() => uxActions.updateLocation(menu[1].url)}
-                        >
+                        <MenuItem key={menu[1].key} onClick={() => this.navigate(menu[1].url)}>
                             {menu[1].icon} {menu[1].key}
                         </MenuItem>
-                        <MenuItem
-                            key={menu[2].key}
-                            onClick={() => uxActions.updateLocation(menu[2].url)}
-                        >
+                        <MenuItem key={menu[2].key} onClick={() => this.navigate(menu[2].url)}>
                             {menu[2].icon} {menu[2].key}
                         </MenuItem>
-                        <MenuItem
-                            key={menu[3].key}
-                            onClick={() => uxActions.updateLocation(menu[3].url)}
-                        >
+                        <MenuItem key={menu[3].key} onClick={() => this.navigate(menu[3].url)}>
                             {menu[3].icon} {menu[3].key}
                         </MenuItem>
                     </ContextMenu>
