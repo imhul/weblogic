@@ -60,7 +60,7 @@
         "sass": "^1.62.0"
     },
     "parcel-transformer-url-loader": {
-        "limit": 8000
+        "limit": 99999
     },
     "browserslist": "> 0.5%, last 2 versions, not dead",
     "devDependencies": {
