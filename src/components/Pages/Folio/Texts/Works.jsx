@@ -31,13 +31,12 @@ class Works extends Component {
 
     render() {
         const { lang } = this.props.ux;
-        const base = window.location.origin;
         const links = [
             {
                 name: translate(lang, 'work_1'),
                 type: translate(lang, 'demo'),
                 icon: <ExperimentOutlined />,
-                href: `${base}/Lab/Game/index.html`,
+                href: 'https://puzzle-demo-game.netlify.app/',
                 back: `${puzzleImg}`,
                 demo: true
             },
@@ -87,14 +86,6 @@ class Works extends Component {
                 icon: <LinkOutlined />,
                 href: 'https://www.youtube.com/watch?v=BVdyHZSsD3Y',
                 back: `${aliceImg}`,
-                demo: false
-            },
-            {
-                name: translate(lang, 'work_8'),
-                type: translate(lang, 'released'),
-                icon: <LinkOutlined />,
-                href: 'https://seezislab.com/',
-                back: `${seezisImg}`,
                 demo: false
             },
             {
