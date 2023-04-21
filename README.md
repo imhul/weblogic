@@ -18,4 +18,4 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 -   `reCapcha` v3
 -   `Telegram bot`
 
-Try the [demo](https://weblogic.netlify.app/)
+Try the [published app](https://weblogic.netlify.app/)
