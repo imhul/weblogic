@@ -1,58 +1,40 @@
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"
+        />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="address=no" />
+        <meta http-equiv="cleartype" content="on" />
+        <meta
+            name="description"
+            content="WebLogic Studio - Website development and creation, as well as SEO optimization and website promotion in Kiev"
+        />
+        <meta name="author" content="Tkachuk Zakhar" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="theme-color" content="#607D8B" />
+        <link rel="shortcut icon" href="favicon.ico" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="format-detection" content="address=no" />
-    <meta http-equiv="cleartype" content="on" />
-    <meta name="description"
-        content="WebLogic Studio - Website development and creation, as well as SEO optimization and website promotion in Kiev" />
-    <meta name="author" content="Tkachuk Zakhar" />
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="MobileOptimized" content="320" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#607D8B" />
-    <link rel="shortcut icon" href="favicon.ico" />
-</head>
+    <body>
+        <noscript> You need to enable JavaScript to run this app. </noscript>
 
-<body>
-    <noscript> You need to enable JavaScript to run this app. </noscript>
+        <div id="bg-app">
+            <div id="portal"></div>
+            <div id="root"></div>
+        </div>
+        <script src="../src/index.js" type="module"></script>
+        <!-- <script src="./src/utils/jquery.min.js"></script> -->
+        <!-- <script src="https://api.trello.com/1/client.js?key=593b9067b2f5e38b3040aa57efd55e1d"></script> -->
 
-    <div id="bg-app">
-        <div id="portal"></div>
-        <div id="root"></div>
-    </div>
-    <script src="../src/index.js" type="module"></script>
-    <!-- <script src="./src/utils/jquery.min.js"></script> -->
-    <!-- <script src="https://api.trello.com/1/client.js?key=593b9067b2f5e38b3040aa57efd55e1d"></script> -->
-    <script>
-        // TODO: if this function is not working on production, then need to fetch next url: 
-        // https://cors-anywhere.herokuapp.com/corsdemo?accessRequest=ab883d13fad6967e2d126e5e7565362a0cc871ad18a21bd639a20c9bb9478f56
-        // its a link from https://cors-anywhere.herokuapp.com/corsdemo
-        (function () {
-            var cors_api_host = 'cors-anywhere.herokuapp.com';
-            var cors_api_url = 'https://' + cors_api_host + '/';
-            var slice = [].slice;
-            var origin = window.location.protocol + '//' + window.location.host;
-            var open = XMLHttpRequest.prototype.open;
-            XMLHttpRequest.prototype.open = function () {
-                var args = slice.call(arguments);
-                var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
-                if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
-                    targetOrigin[1] !== cors_api_host) {
-                    args[1] = cors_api_url + args[1];
-                }
-                return open.apply(this, args);
-            };
-        })();
-    </script>
-    <!-- Google ReCaptcha -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</body>
-
+        <!-- Google ReCaptcha -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </body>
 </html>

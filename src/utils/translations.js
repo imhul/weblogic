@@ -39,6 +39,7 @@ const translations = {
         message_error_phone: 'Error while sending: Enter the phone number!',
         message_error_wrong: 'Something wrong!',
         message_error_recaptcha: 'Recaptca server is not response!',
+        message_retry_recaptcha: 'Recaptcha needs to be checked again...',
 
         // Intro EN
         believe: 'I believe that design makes the world better',
@@ -159,6 +160,7 @@ const translations = {
         message_error_phone: 'Помилка при відправці: введіть номер телефону!',
         message_error_wrong: 'Щось пішло не так!',
         message_error_recaptcha: 'Сервер Recaptca не відповідає!',
+        message_retry_recaptcha: 'Потрібно повторити перевірку Recaptca...',
 
         // Intro UA
         believe: 'Вірю, що дизайн робить світ кращим',

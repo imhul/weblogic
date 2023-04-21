@@ -2,6 +2,8 @@
 
 .Contact {
     margin: 50px auto !important;
+    height: 100%;
+
     @media all and (max-width: $media-x-small) {
         font-size: 6vw;
     }
