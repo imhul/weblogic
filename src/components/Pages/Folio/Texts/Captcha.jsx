@@ -11,7 +11,9 @@ import Recaptcha from 'react-recaptcha';
 import safe from '../../../../utils/safe';
 import axios from 'axios';
 import translate from '../../../../utils/translations';
-import { getRecaptcha } from '../../../../utils/api';
+// import { getRecaptcha } from '../../../../utils/api';
+
+const { getRecaptcha } = require('../../../../utils/api');
 
 class Captcha extends Component {
     // constructor(props) {
