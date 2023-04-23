@@ -1,6 +1,6 @@
 // const axios = require('axios');
 // const safe = require('./utils/safe');
-import axios from 'axios';
+// import axios from 'axios';
 import safe from './utils/safe';
 
 const headers = {
@@ -13,7 +13,7 @@ exports.handler = async data => {
     let apiURL = '';
 
     try {
-        axios.get(safe.ipify).then(response => {
+        fetch(safe.ipify).then(response => {
             apiURL = `${safe.link}${data}${
                 response.data.ip !== '' ? `&remoteip=${response.data.ip}` : ''
             }`;
@@ -35,7 +35,7 @@ exports.handler = async data => {
     }
 
     try {
-        const response = await axios.post(apiURL);
+        const response = await fetch(apiURL,{ method: 'POST', mode: "no-cors", headers: { 'Content-Type': 'application/json' }});
 
         return (
             response.status === 200 &&
