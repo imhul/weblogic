@@ -14,9 +14,8 @@ exports.handler = async data => {
     let apiURL = '';
 
     await fetch(safe.ipify).then(response => {
-        apiURL = `${safe.link}${data}${
-            response.data.ip !== '' ? `&remoteip=${response.data.ip}` : ''
-        }`;
+        apiURL = `${safe.link}${data}${response.data.ip !== '' ? `&remoteip=${response.data.ip}` : ''
+            }`;
     });
 
     if (apiURL === '') {
@@ -27,7 +26,7 @@ exports.handler = async data => {
     }
 
     try {
-        const response = await fetch(apiURL,{ method: 'POST', mode: "no-cors", headers: { 'Content-Type': 'application/json' }});
+        const response = await fetch(apiURL, { method: 'POST', mode: "no-cors", headers: { 'Content-Type': 'application/json' } });
 
         return (
             response.status === 200 &&

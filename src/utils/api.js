@@ -10,10 +10,11 @@ export const getRecaptcha = async data => {
         method: 'POST',
         mode: "no-cors", // no-cors, *cors, same-origin
         headers: { 'Content-Type': 'application/json' },
-        body: data
+        body: JSON.stringify({ data })
     };
 
     const request = await fetch(netlifyURL, config);
+    console.info('::: getRecaptcha request: ', request);
     const result = await request.json();
 
     if (result.ok) {
