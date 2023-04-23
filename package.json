@@ -36,6 +36,7 @@
         "concurrently": "^8.0.1",
         "cross-env": "^7.0.3",
         "dotenv": "^16.0.3",
+        "node-fetch": "^3.3.1",
         "parcel": "^2.8.3",
         "parcel-transformer-url-loader": "^2.0.0",
         "postcss": "^8.4.21",

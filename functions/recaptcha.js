@@ -1,6 +1,7 @@
 // const axios = require('axios');
 // const safe = require('./utils/safe');
 // import axios from 'axios';
+import fetch from "node-fetch";
 import safe from './utils/safe';
 
 const headers = {
