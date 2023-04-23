@@ -13,16 +13,16 @@ export const getRecaptcha = async data => {
         body: data
     };
 
-    const result = await fetch(netlifyURL, config)
-        .then(response => {
-            console.log('::: getRecaptcha response: ', response.data);
+    const request = await fetch(netlifyURL, config);
+    const result = await request.json();
 
-            return response.data;
-        })
-        .catch(error => {
-            console.warn('::: getRecaptcha error: ', error);
-            return error;
-        });
+    if (result.ok) {
+        console.log('::: getRecaptcha response: ', response.data);
+
+        return response.data;
+    } else {
+        console.warn('::: getRecaptcha error: ', result);
+    }
 
     return result;
 };
