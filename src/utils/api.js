@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 // netlify functions URLs
 const netlifyURL = 'https://weblogic.netlify.app/.netlify/functions/recaptcha';
 
@@ -7,13 +5,14 @@ export const getRecaptcha = async data => {
     console.info('::: getRecaptcha :::');
 
     const config = {
-        method: 'post',
-        data: 'data=' + data,
-        url: netlifyURL
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            data: data
+          })
     };
 
-    const result = await axios
-        .post(netlifyURL, { data: data })
+    const result = await fetch(netlifyURL, config)
         .then(response => {
             console.log('::: getRecaptcha response: ', response.data);
 

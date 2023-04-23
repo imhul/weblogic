@@ -11,7 +11,7 @@ import Recaptcha from 'react-recaptcha';
 import safe from '../../../../utils/safe';
 // import axios from 'axios';
 // import translate from '../../../../utils/translations';
-// import { getRecaptcha } from '../../../../utils/api';
+import { getRecaptcha } from '../../../../utils/api';
 
 class Captcha extends Component {
     // constructor(props) {
@@ -77,7 +77,7 @@ class Captcha extends Component {
     render() {
         const { lang } = this.props.ux;
         const { key } = safe;
-        const getRecaptcha = import('../../../../utils/api.js');
+        // const getRecaptcha = import('../../../../utils/api.js');
 
         return (
             <Row gutter={24} type="flex" justify="center" align="middle">
