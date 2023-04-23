@@ -16,6 +16,6 @@ export const getRecaptcha = async data => {
             console.log(response.data);
         })
         .catch(error => {
-            console.error(error);
+            console.warn('::: getRecaptcha error: ', error);
         });
 };
