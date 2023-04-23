@@ -13,8 +13,6 @@ import safe from '../../../../utils/safe';
 // import translate from '../../../../utils/translations';
 // import { getRecaptcha } from '../../../../utils/api';
 
-
-
 class Captcha extends Component {
     // constructor(props) {
     //     super(props);

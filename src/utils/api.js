@@ -12,7 +12,8 @@ export const getRecaptcha = async data => {
         url: netlifyURL
     };
 
-    const result = await axios.post(netlifyURL, { data: data })
+    const result = await axios
+        .post(netlifyURL, { data: data })
         .then(response => {
             console.log('::: getRecaptcha response: ', response.data);
 
