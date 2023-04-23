@@ -12,20 +12,11 @@ exports.handler = async data => {
     console.info('::: handler with data: ', data, ' :::');
     let apiURL = '';
 
-    try {
-        fetch(safe.ipify).then(response => {
-            apiURL = `${safe.link}${data}${
-                response.data.ip !== '' ? `&remoteip=${response.data.ip}` : ''
-            }`;
-        });
-    } catch (error) {
-        return {
-            statusCode: 500,
-            body: JSON.stringify({
-                error: `::: ipify is not responding with error: ${error.message} :::`
-            })
-        };
-    }
+    await fetch(safe.ipify).then(response => {
+        apiURL = `${safe.link}${data}${
+            response.data.ip !== '' ? `&remoteip=${response.data.ip}` : ''
+        }`;
+    });
 
     if (apiURL === '') {
         return {
