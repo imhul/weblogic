@@ -1,12 +1,17 @@
+// core
 import React, { Component } from 'react';
+// store
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UI_ACTIONS from '../../../../redux/actions/ui_actions';
+// components
 import { Row, Col, message } from 'antd/lib';
-import safe from '../../../../utils/safe';
 import Recaptcha from 'react-recaptcha';
+// utils
+import safe from '../../../../utils/safe';
 import axios from 'axios';
 import translate from '../../../../utils/translations';
+import { getRecaptcha } from '../../../../utils/api';
 
 class Captcha extends Component {
     constructor(props) {
@@ -30,44 +35,44 @@ class Captcha extends Component {
             }));
     }
 
-    verify(data) {
-        const { lang } = this.props.ux;
-        const { ui, uiActions } = this.props;
-        const { link } = safe;
-        if (!this.state.refreshed || !this.state.ipified || !ui.currentUser.ip.length) {
-            return message.error({
-                content: `${translate(lang, 'message_error_recaptcha')}`,
-                duration: 3,
-                style: {
-                    marginTop: '40px'
-                }
-            });
-        }
-        const apiURL = `${link}${data}&remoteip=${ui.currentUser.ip}`;
-        axios
-            .post(apiURL)
-            .then(response => {
-                if (response.status === 200 && response.data) {
-                    uiActions.getRobot(response.data);
-                    message.success({
-                        content: `${translate(lang, 'message_success_recaptcha')}`,
-                        duration: 3,
-                        style: {
-                            marginTop: '40px'
-                        }
-                    });
-                }
-            })
-            .catch(() => {
-                message.error({
-                    content: `${translate(lang, 'message_error_recaptcha')}`,
-                    duration: 3,
-                    style: {
-                        marginTop: '40px'
-                    }
-                })
-            });
-    }
+    // verify(data) {
+    //     const { lang } = this.props.ux;
+    //     const { ui, uiActions } = this.props;
+    //     const { link } = safe;
+    //     if (!this.state.refreshed || !this.state.ipified || !ui.currentUser.ip.length) {
+    //         return message.error({
+    //             content: `${translate(lang, 'message_error_recaptcha')}`,
+    //             duration: 3,
+    //             style: {
+    //                 marginTop: '40px'
+    //             }
+    //         });
+    //     }
+    //     const apiURL = `${link}${data}&remoteip=${ui.currentUser.ip}`;
+    //     axios
+    //         .post(apiURL)
+    //         .then(response => {
+    //             if (response.status === 200 && response.data) {
+    //                 uiActions.getRobot(response.data);
+    //                 message.success({
+    //                     content: `${translate(lang, 'message_success_recaptcha')}`,
+    //                     duration: 3,
+    //                     style: {
+    //                         marginTop: '40px'
+    //                     }
+    //                 });
+    //             }
+    //         })
+    //         .catch(() => {
+    //             message.error({
+    //                 content: `${translate(lang, 'message_error_recaptcha')}`,
+    //                 duration: 3,
+    //                 style: {
+    //                     marginTop: '40px'
+    //                 }
+    //             })
+    //         });
+    // }
 
     render() {
         const { lang } = this.props.ux;
@@ -78,7 +83,7 @@ class Captcha extends Component {
                 <Recaptcha
                     sitekey={key}
                     theme="dark"
-                    verifyCallback={response => this.verify(response)}
+                    verifyCallback={response => getRecaptcha(response)}
                     hl={lang === 'ukrainian' ? 'ua' : 'en'}
                 />
             </Col>
