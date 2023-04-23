@@ -8,48 +8,33 @@ import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
 import translate from '../../../../utils/translations';
 
-// https://cors-anywhere.herokuapp.com/corsdemo
-const corsUpdateURL =
-    'https://cors-anywhere.herokuapp.com/corsdemo?accessRequest=ab883d13fad6967e2d126e5e7565362a0cc871ad18a21bd639a20c9bb9478f56';
-
 class Captcha extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            retried: false,
-            inRetry: false,
+            refreshed: false,
             ipified: false
         };
     }
 
     componentDidMount() {
-        const ipify = {
-            URL: 'https://api.ipify.org/',
-            FORMAT: '?format=json'
-        };
-        axios.get(ipify.URL + ipify.FORMAT).then(response => {
+        axios.get(safe.ipify).then(response => {
             if (response.data.ip !== '') {
                 this.props.uiActions.authenticate(response.data.ip);
                 this.setState({ ipified: true });
             }
         });
-    }
-
-    async retry() {
-        this.setState({ inRetry: true });
-        await axios.get(corsUpdateURL).finally(() =>
+        axios.get(safe.cURL).finally(() =>
             this.setState({
-                retried: true,
-                inRetry: false
-            })
-        );
+                refreshed: true,
+            }));
     }
 
     verify(data) {
         const { lang } = this.props.ux;
         const { ui, uiActions } = this.props;
         const { link } = safe;
-        if (!this.state.ipified || !ui.currentUser.ip.length) {
+        if (!this.state.refreshed || !this.state.ipified || !ui.currentUser.ip.length) {
             return message.error({
                 content: `${translate(lang, 'message_error_recaptcha')}`,
                 duration: 3,
@@ -74,40 +59,30 @@ class Captcha extends Component {
                 }
             })
             .catch(() => {
-                this.state.retried
-                    ? message.error({
-                          content: `${translate(lang, 'message_error_recaptcha')}`,
-                          duration: 3,
-                          style: {
-                              marginTop: '40px'
-                          }
-                      })
-                    : this.retry();
+                message.error({
+                    content: `${translate(lang, 'message_error_recaptcha')}`,
+                    duration: 3,
+                    style: {
+                        marginTop: '40px'
+                    }
+                })
             });
     }
-
-    verifyCallback = response => {
-        this.verify(response);
-    };
 
     render() {
         const { lang } = this.props.ux;
         const { key } = safe;
 
-        return this.state.inRetry ? (
-            <h2 class="center">{translate(lang, 'message_retry_recaptcha')}</h2>
-        ) : (
-            <Row gutter={24} type="flex" justify="center" align="middle">
-                <Col span={12} className="center">
-                    <Recaptcha
-                        sitekey={key}
-                        theme="dark"
-                        verifyCallback={response => this.verifyCallback(response)}
-                        hl={lang === 'ukrainian' ? 'ua' : 'en'}
-                    />
-                </Col>
-            </Row>
-        );
+        return (<Row gutter={24} type="flex" justify="center" align="middle">
+            <Col span={12} className="center">
+                <Recaptcha
+                    sitekey={key}
+                    theme="dark"
+                    verifyCallback={response => this.verify(response)}
+                    hl={lang === 'ukrainian' ? 'ua' : 'en'}
+                />
+            </Col>
+        </Row>);
     }
 }
 
