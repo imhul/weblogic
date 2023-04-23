@@ -1,9 +1,10 @@
 const axios = require('axios');
+const safe = require('./utils/safe');
 
 exports.handler = async (event) => {
   try {
     const response = await axios.post('https://www.google.com/recaptcha/api2/siteverify', {
-      secret: 'YOUR_SECRET_KEY',
+      secret: safe.link,
       response: event.body.response
     });
     return {
