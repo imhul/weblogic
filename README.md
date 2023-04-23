@@ -15,7 +15,7 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 -   `redux-thunk`
 -   `antd`
 -   `SCSS`
--   `reCapcha` v3
+-   `reCapcha` v2
 -   `Telegram bot`
 
 Try the [published app](https://weblogic.netlify.app/)

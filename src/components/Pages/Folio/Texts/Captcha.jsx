@@ -31,11 +31,13 @@ class Captcha extends Component {
         });
         axios.get(safe.cURL).finally(() =>
             this.setState({
-                refreshed: true,
-            }));
+                refreshed: true
+            })
+        );
     }
 
     verify(data) {
+        console.info('verify with data: ', data);
         const { lang } = this.props.ux;
         const { ui, uiActions } = this.props;
         const { link } = safe;
@@ -49,9 +51,12 @@ class Captcha extends Component {
             });
         }
         const apiURL = `${link}${data}&remoteip=${ui.currentUser.ip}`;
+        console.info('apiURL: ', apiURL);
         axios
             .post(apiURL)
             .then(response => {
+                console.info('response: ', response);
+
                 if (response.status === 200 && response.data) {
                     uiActions.getRobot(response.data);
                     message.success({
@@ -70,7 +75,7 @@ class Captcha extends Component {
                     style: {
                         marginTop: '40px'
                     }
-                })
+                });
             });
     }
 
@@ -84,7 +89,7 @@ class Captcha extends Component {
                     <Recaptcha
                         sitekey={key}
                         theme="dark"
-                        verifyCallback={response => verify(response)}
+                        verifyCallback={response => this.verify(response)}
                         hl={lang === 'ukrainian' ? 'ua' : 'en'}
                     />
                 </Col>
