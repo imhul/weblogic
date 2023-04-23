@@ -1,5 +1,5 @@
-const axios = require('axios');
-const safe = require('./utils/safe');
+import axios from 'axios';
+import safe from './utils/safe';
 
 const headers = {
     'Access-Control-Allow-Origin': '*',
