@@ -13,7 +13,7 @@ export const getRecaptcha = async data => {
 
     await axios(config)
         .then(response => {
-            console.log(response.data);
+            console.log('::: getRecaptcha response: ', response.data);
         })
         .catch(error => {
             console.warn('::: getRecaptcha error: ', error);
