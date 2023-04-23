@@ -1,5 +1,3 @@
-// import fetch from "node-fetch";
-
 // netlify functions URLs
 const netlifyURL = 'https://weblogic.netlify.app/.netlify/functions/recaptcha';
 
@@ -8,14 +6,13 @@ export const getRecaptcha = async data => {
 
     const config = {
         method: 'POST',
-        mode: "no-cors", // no-cors, *cors, same-origin
+        mode: "no-cors", // cors, *cors, same-origin
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ data })
     };
 
-    const request = await fetch(netlifyURL, config);
-    console.info('::: getRecaptcha request: ', request);
-    const result = await request.json();
+    const result = await fetch(netlifyURL, config);
+    console.info('::: getRecaptcha result: ', result);
 
     if (result.ok) {
         console.log('::: getRecaptcha response: ', response.data);

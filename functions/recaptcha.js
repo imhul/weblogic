@@ -9,7 +9,7 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
-exports.handler = async data => {
+const handler = async data => {
     console.info('::: handler with data: ', data, ' :::');
     let apiURL = '';
 
@@ -45,3 +45,5 @@ exports.handler = async data => {
         };
     }
 };
+
+export default handler;
