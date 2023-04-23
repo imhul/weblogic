@@ -14,26 +14,26 @@ import translate from '../../../../utils/translations';
 import { getRecaptcha } from '../../../../utils/api';
 
 class Captcha extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            refreshed: false,
-            ipified: false
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         refreshed: false,
+    //         ipified: false
+    //     };
+    // }
 
-    componentDidMount() {
-        axios.get(safe.ipify).then(response => {
-            if (response.data.ip !== '') {
-                this.props.uiActions.authenticate(response.data.ip);
-                this.setState({ ipified: true });
-            }
-        });
-        axios.get(safe.cURL).finally(() =>
-            this.setState({
-                refreshed: true,
-            }));
-    }
+    // componentDidMount() {
+    //     axios.get(safe.ipify).then(response => {
+    //         if (response.data.ip !== '') {
+    //             this.props.uiActions.authenticate(response.data.ip);
+    //             this.setState({ ipified: true });
+    //         }
+    //     });
+    //     axios.get(safe.cURL).finally(() =>
+    //         this.setState({
+    //             refreshed: true,
+    //         }));
+    // }
 
     // verify(data) {
     //     const { lang } = this.props.ux;
@@ -78,16 +78,18 @@ class Captcha extends Component {
         const { lang } = this.props.ux;
         const { key } = safe;
 
-        return (<Row gutter={24} type="flex" justify="center" align="middle">
-            <Col span={12} className="center">
-                <Recaptcha
-                    sitekey={key}
-                    theme="dark"
-                    verifyCallback={response => getRecaptcha(response)}
-                    hl={lang === 'ukrainian' ? 'ua' : 'en'}
-                />
-            </Col>
-        </Row>);
+        return (
+            <Row gutter={24} type="flex" justify="center" align="middle">
+                <Col span={12} className="center">
+                    <Recaptcha
+                        sitekey={key}
+                        theme="dark"
+                        verifyCallback={response => getRecaptcha(response)}
+                        hl={lang === 'ukrainian' ? 'ua' : 'en'}
+                    />
+                </Col>
+            </Row>
+        );
     }
 }
 

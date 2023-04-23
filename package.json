@@ -13,7 +13,7 @@
         "format": "prettier --write --plugin-search-dir=. .",
         "go": "yarn clean && cross-env NODE_ENV=development parcel public/index.html --no-cache --dist-dir dev",
         "build": "rimraf ./dist && cross-env NODE_ENV=production parcel build public/index.html --public-url /",
-        "server": "node --inspect server/server.js",
+        "server": "netlify dev",
         "dev": "concurrently --kill-others \"yarn go\" \"yarn server\"",
         "clean": "rimraf ./dev && rimraf ./.cache"
     },
@@ -59,6 +59,9 @@
     },
     "parcel-transformer-url-loader": {
         "limit": 99999
+    },
+    "engines": {
+        "parcel": "2.x"
     },
     "browserslist": "> 0.5%, last 2 versions, not dead",
     "devDependencies": {
