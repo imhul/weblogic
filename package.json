@@ -58,7 +58,11 @@
         "sass": "^1.62.0"
     },
     "parcel-transformer-url-loader": {
-        "limit": 99999
+        "limit": 99999,
+        "name": "parcel-transformer-url-loader",
+        "engines": {
+            "parcel": "2.8.3"
+        }
     },
     "engines": {
         "parcel": "2.x"
@@ -66,5 +70,6 @@
     "browserslist": "> 0.5%, last 2 versions, not dead",
     "devDependencies": {
         "process": "^0.11.10"
-    }
+    },
+    "type": "module"
 }

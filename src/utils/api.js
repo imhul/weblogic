@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 // netlify functions URLs
 const netlifyURL = 'https://weblogic.netlify.app/.netlify/functions/recaptcha';
