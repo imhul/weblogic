@@ -60,8 +60,5 @@
     "parcel-transformer-url-loader": {
         "limit": 99999
     },
-    "browserslist": "> 0.5%, last 2 versions, not dead",
-    "engines": {
-        "node": ">=12.18.0"
-    }
+    "browserslist": "> 0.5%, last 2 versions, not dead"
 }

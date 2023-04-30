@@ -39,10 +39,11 @@ const Output = () => {
     const dispatch = useDispatch();
     useLocation();
 
-    const navigate = url => {
+    const navigate = key => {
+        console.info('navigate with key: ', key);
         dispatch({
             type: 'LOCATION_UPDATE',
-            payload: url
+            payload: key
         });
     };
 
