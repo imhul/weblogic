@@ -1,5 +1,6 @@
 .Menu {
-    min-width: 330px;
+    min-width: rem(280);
+    justify-content: space-evenly;
 
     .ant-menu-item {
         &:hover {

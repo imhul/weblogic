@@ -40,7 +40,7 @@ export default function (state = initState, action) {
             return {
                 ...state,
                 loading: false,
-                users: action.payload.users
+                users: action.payload
             };
 
         //indicates when there is a failure in fetching users
@@ -48,7 +48,7 @@ export default function (state = initState, action) {
             return {
                 ...state,
                 loading: false,
-                errors: action.payload.errors,
+                errors: action.payload,
                 users: []
             };
 

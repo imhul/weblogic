@@ -16,8 +16,12 @@
     @media (max-width: $media-small) {
         align-items: flex-start;
         height: max-content;
-        min-height: 200%;
-        margin-top: 60px;
+        min-height: 150%;
+        margin-top: rem(60);
+    }
+
+    @media screen and (orientation: landscape) and (max-width: $media-small) {
+        min-height: calc(100vh + 100%);
     }
 
     .container {
@@ -72,6 +76,7 @@
 
                     .preview {
                         width: 100%;
+                        border: none;
                     }
                 }
             }

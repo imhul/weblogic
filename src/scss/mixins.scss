@@ -1,0 +1,53 @@
+@use 'sass:math';
+
+// media mobile-first
+$min-width-xx-small: 375px;
+$min-width-x-small: 415px;
+$min-width-small: 600px;
+$min-width-medium: 768px;
+$min-width-tablet: 992px;
+$min-width-large: 1200px;
+$min-width-x-large: 1600px;
+
+@function rem($px) {
+    @return math.div($px * 1px, 16px) * 1rem;
+}
+
+@mixin font($size, $weight, $lineh, $color) {
+    color: $color;
+    line-height: $lineh;
+    font-weight: $weight;
+    font-size: $size;
+    font-style: normal;
+    letter-spacing: normal;
+}
+
+@mixin responsive-font($min-size, $index, $max-size) {
+    font-size: clamp($min-size, calc((1vw + 1vh) * $index), $max-size);
+}
+
+@mixin truncate($lines) {
+    /* stylelint-disable */
+    display: -webkit-box;
+    /* stylelint-enable */
+    overflow: hidden;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+}
+
+// for &::-webkit-slider-thumb
+@function makelongshadow($color, $size) {
+    $val: 0 0 0 $size $color;
+
+    @for $i from 6 through 600 {
+        $val: #{$val}, #{$i}px 0 0 $size #{$color};
+    }
+
+    @return $val;
+}
+
+@mixin for($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}

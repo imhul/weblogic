@@ -1,25 +1,18 @@
-import React, { Component } from 'react';
+import React, { memo, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 const portal = document.getElementById('portal');
 
-class Portal extends Component {
-    constructor(props) {
-        super(props);
-        this.el = document.createElement('div');
-    }
+const Portal = memo(({ children }) => {
+    const element = document.createElement('div');
 
-    componentDidMount() {
-        portal.appendChild(this.el);
-    }
+    useEffect(() => {
+        portal.appendChild(element);
 
-    componentWillUnmount() {
-        portal.removeChild(this.el);
-    }
+        return () => portal.removeChild(element);
+    });
 
-    render() {
-        return createPortal(this.props.children, this.el);
-    }
-}
+    return createPortal(children, element, 'portal');
+});
 
 export default Portal;

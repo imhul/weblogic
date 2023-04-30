@@ -6,7 +6,7 @@ export default (state = initState, action) => {
         case types.INITIALIZE:
             return {
                 ...state,
-                isInit: true
+                initialized: true
             };
 
         case types.AUTHENTICATE:

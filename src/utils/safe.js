@@ -8,7 +8,9 @@ const safe = {
     tCode: Base64.decode(process.env.REACT_APP_T_CODE),
     cURL: Base64.decode(process.env.REACT_APP_C_CODE),
     cv: Base64.decode(process.env.REACT_APP_CV),
-    ipify: 'https://api.ipify.org/?format=json'
+    ipify: 'https://api.ipify.org/?format=json',
+    base: 'https://weblogic.netlify.app',
+    vid: 'nETaVY9GOao'
 };
 
 export default safe;
