@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 // utils
 import translate from '../../../utils/translations';
@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 import { Row, Col } from 'antd/lib';
 import { CrownOutlined, GithubOutlined, DollarCircleOutlined } from '@ant-design/icons';
 
-const Game = () => {
+const Game = memo(() => {
     const { lang } = useSelector(state => state.ux);
     const { vid, base } = safe;
     const title = translate(lang, 'game_title');
@@ -80,6 +80,6 @@ const Game = () => {
             </div>
         </div>
     );
-};
+});
 
 export default Game;

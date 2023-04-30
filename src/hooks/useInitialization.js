@@ -8,14 +8,9 @@ const useInitialization = () => {
 
     useEffect(() => {
         if (initialized) return;
-        const pathname = window.location.pathname;
-
-        function initialize() {
-            dispatch({ type: 'INITIALIZE' });
-        }
 
         function initHomePage() {
-            initialize();
+            dispatch({ type: 'INITIALIZE' });
             message.info({
                 content: 'Keep clicking anywhere!',
                 duration: 4,
@@ -29,16 +24,7 @@ const useInitialization = () => {
             }, 500);
         }
 
-        function updateOtherPage() {
-            if (!initialized) initialize();
-            const oldPath = pathname.slice(1, 2).toUpperCase() + pathname.slice(2);
-            dispatch({
-                type: 'LOCATION_UPDATE',
-                payload: oldPath
-            });
-        }
-
-        pathname === '/' ? initHomePage() : updateOtherPage();
+        initHomePage();
     });
 };
 

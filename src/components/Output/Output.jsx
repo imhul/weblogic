@@ -17,7 +17,7 @@ import Home from '../Pages/Home';
 import Folio from '../Pages/Folio';
 import Game from '../Pages/Game';
 // hooks
-import useLocation from '../../hooks/useLocation';
+import useInitialization from '../../hooks/useInitialization';
 
 const { Content } = Layout;
 
@@ -37,7 +37,7 @@ const Page = ({ location }) => {
 const Output = () => {
     const { location } = useSelector(state => state.ux);
     const dispatch = useDispatch();
-    useLocation();
+    useInitialization();
 
     const navigate = key => {
         dispatch({
@@ -73,8 +73,15 @@ const Output = () => {
                     <MenuItem key={menu[2].key} onClick={() => navigate(menu[2].key)}>
                         {menu[2].icon} {menu[2].key}
                     </MenuItem>
-                    <MenuItem key={menu[3].key} onClick={() => navigate(menu[3].key)}>
-                        {menu[3].icon} {menu[3].key}
+                    <MenuItem key={menu[3].key}>
+                        <a
+                            href={menu[3].url}
+                            target="_blank"
+                            title={menu[3].key}
+                            rel="noopener noreferrer"
+                        >
+                            {menu[3].icon} {menu[3].key}
+                        </a>
                     </MenuItem>
                 </ContextMenu>
             )}

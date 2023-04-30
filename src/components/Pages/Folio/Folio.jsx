@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import translate from '../../../utils/translations';
@@ -16,7 +16,7 @@ import {
 
 const { Panel } = Collapse;
 
-const Folio = () => {
+const Folio = memo(() => {
     const { active, lang } = useSelector(state => state.ux);
     const dispatch = useDispatch();
     const { base } = safe;
@@ -80,6 +80,6 @@ const Folio = () => {
             </Collapse>
         </div>
     );
-};
+});
 
 export default Folio;

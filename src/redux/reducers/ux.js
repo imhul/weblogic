@@ -60,6 +60,9 @@ export default (state = initStateUX, action) => {
             };
 
         case types.LOCATION_UPDATE:
+            if (action.payload !== 'Home') {
+                window.bgJSDom[0].bgJS.fn.particlesRefresh();
+            }
             return {
                 ...state,
                 location: action.payload

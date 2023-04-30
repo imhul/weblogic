@@ -1,22 +1,18 @@
 // core
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Helmet } from 'react-helmet';
-// hooks
-import useInitialization from '../../../hooks/useInitialization';
 // utils
 import safe from '../../../utils/safe';
 // assets
 import '../../../images/print.png';
 import '../../../images/logo.png';
 
-const Home = () => {
+const Home = memo(() => {
     const { hero, heroStyle } = useSelector(state => state.ui);
     const dispatch = useDispatch();
     const { base } = safe;
-
-    useInitialization();
 
     const goFolio = () => {
         dispatch({
@@ -48,6 +44,6 @@ const Home = () => {
             </h1>
         </div>
     );
-};
+});
 
 export default Home;
