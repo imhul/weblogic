@@ -1,7 +1,13 @@
 .HowTo {
+    @extend %flex-center;
+    flex-direction: column;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 0;
+    right: rem(20);
+
+    & > * {
+        margin-bottom: rem(20);
+    }
 
     button {
         background-color: $color-black;
@@ -10,7 +16,7 @@
         &:hover {
             background-color: $color-black;
             border-color: $color-black;
-            box-shadow: 0 0 30px $color-white;
+            box-shadow: 0 0 rem(30) $color-white;
         }
     }
 }

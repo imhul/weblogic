@@ -1,9 +1,6 @@
 // core
-import React, { Component } from 'react';
-// store
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as UI_ACTIONS from '../../../../redux/actions/ui_actions';
+import React, { memo, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Row, Col, message } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
@@ -11,37 +8,23 @@ import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
 import safe from '../../../../utils/safe';
 import translate from '../../../../utils/translations';
+// hooks
+import useIpify from '../../../../hooks/useIpify';
+import useRefresh from '../../../../hooks/useRefresh';
 // import { getRecaptcha } from '../../../../utils/api';
 
-class Captcha extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            refreshed: false,
-            ipified: false
-        };
-    }
+const Captcha = memo(() => {
+    const ipified = useIpify();
+    const refreshed = useRefresh();
+    const { currentUser } = useSelector(state => state.ui);
+    const { lang } = useSelector(state => state.ux);
+    const { key } = safe;
+    const dispatch = useDispatch();
 
-    componentDidMount() {
-        axios.get(safe.ipify).then(response => {
-            if (response.data.ip !== '') {
-                this.props.uiActions.authenticate(response.data.ip);
-                this.setState({ ipified: true });
-            }
-        });
-        axios.get(safe.cURL).finally(() =>
-            this.setState({
-                refreshed: true
-            })
-        );
-    }
-
-    verify(data) {
+    const verify = useCallback(async data => {
         console.info('verify with data: ', data);
-        const { lang } = this.props.ux;
-        const { ui, uiActions } = this.props;
-        const { link } = safe;
-        if (!this.state.refreshed || !this.state.ipified || !ui.currentUser.ip.length) {
+
+        if (!refreshed || !ipified || !currentUser.ip.length) {
             return message.error({
                 content: `${translate(lang, 'message_error_recaptcha')}`,
                 duration: 3,
@@ -50,15 +33,18 @@ class Captcha extends Component {
                 }
             });
         }
-        const apiURL = `${link}${data}&remoteip=${ui.currentUser.ip}`;
+        const apiURL = `${link}${data}&remoteip=${currentUser.ip}`;
         console.info('apiURL: ', apiURL);
-        axios
+        await axios
             .post(apiURL)
             .then(response => {
                 console.info('response: ', response);
 
                 if (response.status === 200 && response.data) {
-                    uiActions.getRobot(response.data);
+                    dispatch({
+                        type: 'ROBOT_CHECK',
+                        payload: response.data
+                    });
                     message.success({
                         content: `${translate(lang, 'message_success_recaptcha')}`,
                         duration: 3,
@@ -77,38 +63,20 @@ class Captcha extends Component {
                     }
                 });
             });
-    }
+    });
 
-    render() {
-        const { lang } = this.props.ux;
-        const { key } = safe;
+    return (
+        <Row gutter={24} type="flex" justify="center" align="middle">
+            <Col span={12} className="center">
+                <Recaptcha
+                    sitekey={key}
+                    theme="dark"
+                    verifyCallback={response => verify(response)}
+                    hl={lang === 'ukrainian' ? 'ua' : 'en'}
+                />
+            </Col>
+        </Row>
+    );
+});
 
-        return (
-            <Row gutter={24} type="flex" justify="center" align="middle">
-                <Col span={12} className="center">
-                    <Recaptcha
-                        sitekey={key}
-                        theme="dark"
-                        verifyCallback={response => this.verify(response)}
-                        hl={lang === 'ukrainian' ? 'ua' : 'en'}
-                    />
-                </Col>
-            </Row>
-        );
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        uiActions: bindActionCreators(UI_ACTIONS, dispatch)
-    };
-}
-
-function mapStateToProps(state) {
-    return {
-        ui: state.ui,
-        ux: state.ux
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Captcha);
+export default Captcha;

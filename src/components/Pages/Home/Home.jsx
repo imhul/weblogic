@@ -1,71 +1,53 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-// actions
-import * as UI_ACTIONS from '../../../redux/actions/ui_actions';
-import * as UX_ACTIONS from '../../../redux/actions/ux_actions';
+// core
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Helmet } from 'react-helmet';
-import { message } from 'antd/lib';
-// images
+// hooks
+import useInitialization from '../../../hooks/useInitialization';
+// utils
+import safe from '../../../utils/safe';
+// assets
 import '../../../images/print.png';
 import '../../../images/logo.png';
 
-class Home extends Component {
-    componentDidMount() {
-        message.info({
-            content: 'Keep clicking anywhere!',
-            duration: 3,
-            style: {
-                marginTop: '40px'
-            }
-        });
-        const timeout = setTimeout(() => {
-            this.props.uiActions.heroAnimate();
-            clearTimeout(timeout);
-        }, 500);
-    }
+const Home = () => {
+    const { hero, heroStyle } = useSelector(state => state.ui);
+    const dispatch = useDispatch();
+    const { base } = safe;
 
-    render() {
-        const { hero, heroStyle } = this.props.ui;
-        const { uxActions } = this.props;
-        const renderHero = hero.map((symbol, index) => {
-            return (
-                <span key={index} className={`span-${index}`}>
-                    {symbol}
-                </span>
-            );
-        });
+    useInitialization();
 
+    const goFolio = () => {
+        dispatch({
+            type: 'LOCATION_UPDATE',
+            payload: 'Folio'
+        });
+    };
+
+    const renderHero = hero.map((symbol, index) => {
         return (
-            <div className="Home" onClick={() => uxActions.updateLocation('Folio')}>
-                <Helmet>
-                    <title>WebLogic Studio Home</title>
-                    <link rel="canonical" href="https://weblogic.netlify.app/" />
-                </Helmet>
-
-                <h1 className="mobile-fix heading-hero" style={heroStyle}>
-                    {renderHero}
-                    <span className="span-15">
-                        <i className="icon-lamp" />
-                    </span>
-                </h1>
-            </div>
+            <span key={index} className={`span-${index}`}>
+                {symbol}
+            </span>
         );
-    }
-}
+    });
 
-function mapDispatchToProps(dispatch) {
-    return {
-        uiActions: bindActionCreators(UI_ACTIONS, dispatch),
-        uxActions: bindActionCreators(UX_ACTIONS, dispatch)
-    };
-}
+    return (
+        <div className="Home" onClick={goFolio}>
+            <Helmet>
+                <title>WebLogic Studio Home</title>
+                <link rel="canonical" href={base} />
+            </Helmet>
 
-function mapStateToProps(state) {
-    return {
-        ui: state.ui
-    };
-}
+            <h1 className="mobile-fix heading-hero" style={heroStyle}>
+                {renderHero}
+                <span className="span-15">
+                    <i className="icon-lamp" />
+                </span>
+            </h1>
+        </div>
+    );
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

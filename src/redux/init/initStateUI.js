@@ -1,6 +1,6 @@
 export const initStateUI = {
     loaded: false,
-    isInit: false,
+    initialized: false,
     heroStyle: {},
     currentUser: {
         ip: '',

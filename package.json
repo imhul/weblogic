@@ -8,7 +8,7 @@
         "url": "https://github.com/imhul/weblogic"
     },
     "email": "blashirk@gmail.com",
-    "version": "1.0.7",
+    "version": "0.0.8",
     "scripts": {
         "format": "prettier --write --plugin-search-dir=. .",
         "go": "yarn clean && cross-env NODE_ENV=development parcel public/index.html --no-cache --dist-dir dev",
@@ -42,7 +42,6 @@
         "postcss": "^8.4.21",
         "prettier": "^2.8.7",
         "prop-types": "^15.8.1",
-        "raf": "^3.4.1",
         "react": "^18.2.0",
         "react-clipboard.js": "^2.0.16",
         "react-contextmenu": "^2.14.0",
@@ -54,19 +53,14 @@
         "react-redux": "^8.0.5",
         "redux": "^4.2.1",
         "redux-thunk": "^2.4.2",
-        "right-now": "^1.0.0",
         "rimraf": "^5.0.0",
         "sass": "^1.62.0"
     },
     "parcel-transformer-url-loader": {
-        "limit": 99999,
-        "name": "parcel-transformer-url-loader",
-        "engines": {
-            "parcel": "2.8.3"
-        }
+        "limit": 99999
     },
     "browserslist": "> 0.5%, last 2 versions, not dead",
-    "devDependencies": {
-        "process": "^0.11.10"
+    "engines": {
+        "node": ">=12.18.0"
     }
 }

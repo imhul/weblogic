@@ -24,20 +24,6 @@ export const createUser = user => ({
     payload: { user }
 });
 
-export function readUsers() {
-    return dispatch => {
-        dispatch(fetchUsersBegin());
-
-        return axios
-            .get('/api/users')
-            .then(data => {
-                console.log('readUsers action success with data: ', data);
-                dispatch(fetchUsersSuccess(data));
-            })
-            .catch(error => dispatch(fetchUsersFailure(error)));
-    };
-}
-
 export const updateUser = user => ({
     type: type.UPDATE_USER,
     payload: { user }

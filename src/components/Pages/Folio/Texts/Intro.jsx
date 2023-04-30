@@ -1,3 +1,4 @@
+// core
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // utils
@@ -6,7 +7,7 @@ import { technologies } from '../../../../utils/technologies';
 // components
 import { Row, Col } from 'antd/lib';
 import Gravatar from 'react-gravatar';
-// images
+// assets
 import {
     SassLogo,
     ParcelLogo,

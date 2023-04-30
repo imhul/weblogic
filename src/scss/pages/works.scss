@@ -2,6 +2,14 @@
 
 .Works {
     margin: 50px auto !important;
+    .helper {
+        height: rem(50);
+    }
+
+    .ant-list-bordered {
+        border: none;
+    }
+
     .ant-list {
         color: $color-white;
         .ant-list-header {
