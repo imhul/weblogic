@@ -15,7 +15,6 @@ const useInitialization = () => {
         }
 
         function initHomePage() {
-            console.info('INIT HOME PAGE');
             initialize();
             message.info({
                 content: 'Keep clicking anywhere!',
@@ -32,7 +31,6 @@ const useInitialization = () => {
 
         function updateOtherPage() {
             if (!initialized) initialize();
-            console.info('INIT OTHER PAGE');
             const oldPath = pathname.slice(1, 2).toUpperCase() + pathname.slice(2);
             dispatch({
                 type: 'LOCATION_UPDATE',
