@@ -1,7 +1,5 @@
 import React, { memo, useState, useEffect } from 'react';
-// utils
-// import raf from 'raf';
-// import now from 'right-now';
+// components
 import FPS from './FPS';
 
 const Stats = memo(() => {
