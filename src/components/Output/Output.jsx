@@ -39,7 +39,7 @@ const Output = () => {
     const dispatch = useDispatch();
     useLocation();
 
-    navigate = url => {
+    const navigate = url => {
         dispatch({
             type: 'LOCATION_UPDATE',
             payload: url
