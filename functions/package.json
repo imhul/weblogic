@@ -10,6 +10,8 @@
     "email": "blashirk@gmail.com",
     "version": "0.0.1",
     "dependencies": {
+        "@netlify/functions": "^1.4.0",
+        "@netlify/functions-utils": "^5.2.3",
         "node-fetch": "^3.3.1"
     }
 }

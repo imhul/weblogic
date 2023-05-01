@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const { builder } = require('@netlify/functions');
 import safe from './utils/safe';
 
 const headers = {
@@ -6,7 +7,7 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
-const handler = async data => {
+const buildHandler = async data => {
     console.info('::: handler with data: ', data, ' :::');
     let apiURL = '';
 
@@ -47,5 +48,7 @@ const handler = async data => {
         };
     }
 };
+
+const handler = builder(buildHandler);
 
 export default handler;

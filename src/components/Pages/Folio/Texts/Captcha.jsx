@@ -67,7 +67,7 @@ const Captcha = memo(() => {
 
     const verify = useCallback(
         response => {
-            console.info('::: verify ipified: ', ipified, 'response: ', response);
+            console.info('::: verify ipified: ', ipified);
             if (!ipified) return;
             const captcha = getRecaptcha(response);
             console.info('::: verify captcha: ', captcha);
