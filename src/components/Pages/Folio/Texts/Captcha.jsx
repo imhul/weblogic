@@ -20,7 +20,7 @@ const Captcha = memo(() => {
     const { lang } = useSelector(state => state.ux);
     const { currentUser } = useSelector(state => state.ui);
     const { key } = safe;
-    const ip = useState(useSelector(state => state.ui.currentUser.ip))[0];
+    const [ip, setIp] = useState('');
     // const dispatch = useDispatch();
 
     // useEffect(() => console.info('ipified: ', ipified, 'refreshed: ', refreshed, 'id: ', currentUser.ip));
@@ -69,8 +69,9 @@ const Captcha = memo(() => {
 
     const verify = useCallback(response => {
         console.info('::: verify ip: ', ip);
-        if (!ip.length) return;
+        if (!ip.length) setIp(currentUser.ip);
         const captcha = getRecaptcha(response);
+        console.info('::: verify ip: ', ip);
         console.info('::: verify captcha: ', captcha);
     }, []);
 

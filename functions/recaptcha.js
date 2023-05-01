@@ -11,11 +11,19 @@ const buildHandler = async data => {
     console.info('::: handler with data: ', data, ' :::');
     let apiURL = '';
 
-    await fetch(safe.ipify).then(response => {
+    try {
+        const response = await fetch(safe.ipify);
         apiURL = `${safe.link}${data}${
             response.data.ip !== '' ? `&remoteip=${response.data.ip}` : ''
         }`;
-    });
+    } catch (error) {
+        return {
+            statusCode: 666,
+            body: JSON.stringify({
+                error: `::: ipify is not responding with error: ${error.message} :::`
+            })
+        };
+    }
 
     if (apiURL === '') {
         return {
