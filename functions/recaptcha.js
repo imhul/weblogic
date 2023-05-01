@@ -1,6 +1,6 @@
-const axios = require('axios');
+import axios from 'axios';
 // const { builder } = require('@netlify/functions');
-const safe = require('./utils/safe');
+import safe from './utils/safe';
 
 const headers = {
     'Access-Control-Allow-Origin': '*',
