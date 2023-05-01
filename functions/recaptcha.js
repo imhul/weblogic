@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { builder } = require('@netlify/functions');
+// const { builder } = require('@netlify/functions');
 const safe = require('./utils/safe');
 
 const headers = {
@@ -7,7 +7,7 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
-const buildHandler = async data => {
+const handler = async data => {
     console.info('::: handler with data: ', data, ' :::');
     let apiURL = '';
 
@@ -57,4 +57,4 @@ const buildHandler = async data => {
     }
 };
 
-exports.handler = builder(buildHandler);
+export default handler;
