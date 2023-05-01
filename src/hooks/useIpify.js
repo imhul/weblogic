@@ -12,13 +12,13 @@ const useIpify = () => {
 
     useEffect(() => {
         async function fetching() {
-            if (!ipified) axios.get(ipify).then(response => {
+            if (!ipified || !ignore) axios.get(ipify).then(response => {
                 if (response.data.ip !== '') {
+                    setIpified(true);
                     dispatch({
                         type: 'AUTHENTICATE',
                         payload: response.data.ip
                     });
-                    setIpified(true);
                 }
             });
         }
