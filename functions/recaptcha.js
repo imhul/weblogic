@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
+const axios = require('axios');
 const { builder } = require('@netlify/functions');
-import safe from './utils/safe';
+const safe = require('./utils/safe');
 
 const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -12,7 +12,7 @@ const buildHandler = async data => {
     let apiURL = '';
 
     try {
-        const response = await fetch(safe.ipify);
+        const response = await axios.post(safe.ipify);
         apiURL = `${safe.link}${data}${
             response.data.ip !== '' ? `&remoteip=${response.data.ip}` : ''
         }`;
@@ -33,7 +33,7 @@ const buildHandler = async data => {
     }
 
     try {
-        const response = await fetch(apiURL, {
+        const response = await axios(apiURL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' }
@@ -57,6 +57,4 @@ const buildHandler = async data => {
     }
 };
 
-const handler = builder(buildHandler);
-
-export default handler;
+exports.handler = builder(buildHandler);
