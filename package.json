@@ -21,6 +21,8 @@
         "@ant-design/icons": "^4.7.0",
         "@babel/preset-react": "^7.18.6",
         "@fontsource/open-sans": "^4.5.14",
+        "@netlify/functions": "^1.4.0",
+        "@netlify/functions-utils": "^5.2.3",
         "@parcel/babel-preset-env": "^2.8.3",
         "@parcel/transformer-image": "^2.8.3",
         "@parcel/transformer-sass": "2.8.3",
