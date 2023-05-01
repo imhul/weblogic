@@ -1,16 +1,16 @@
 // core
-import React, { memo, useCallback, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 // components
-import { Row, Col, message } from 'antd/lib';
+import { Row, Col } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
 // utils
-import axios from 'axios';
+// import axios from 'axios';
 import safe from '../../../../utils/safe';
 import translate from '../../../../utils/translations';
 // hooks
 import useIpify from '../../../../hooks/useIpify';
-import useRefresh from '../../../../hooks/useRefresh';
+// import useRefresh from '../../../../hooks/useRefresh';
 import { getRecaptcha } from '../../../../utils/api';
 
 const Captcha = memo(() => {
@@ -66,8 +66,11 @@ const Captcha = memo(() => {
     // });
 
     const verify = useCallback(
-        async response => {
-            ipified && getRecaptcha(response);
+        response => {
+            console.info('::: verify :::');
+            if (!ipified) return;
+            const captcha = getRecaptcha(response);
+            console.info('::: verify captcha: ', captcha);
         },
         [ipified]
     );
