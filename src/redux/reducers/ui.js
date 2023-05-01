@@ -13,10 +13,8 @@ export default (state = initState, action) => {
             return {
                 ...state,
                 currentUser: {
-                    ip: action.payload,
-                    isAuth: state.currentUser.isAuth,
-                    isRobot: state.currentUser.isRobot,
-                    date: state.currentUser.date
+                    ...state.currentUser,
+                    ip: action.payload
                 }
             };
 
@@ -24,7 +22,7 @@ export default (state = initState, action) => {
             return {
                 ...state,
                 currentUser: {
-                    ip: state.currentUser.ip,
+                    ...state.currentUser,
                     isAuth: action.payload.success,
                     isRobot: !action.payload.success,
                     date: action.payload.challenge_ts

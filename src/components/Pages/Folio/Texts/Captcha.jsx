@@ -1,5 +1,5 @@
 // core
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 // components
 import { Row, Col } from 'antd/lib';
@@ -14,11 +14,13 @@ import useIpify from '../../../../hooks/useIpify';
 import { getRecaptcha } from '../../../../utils/api';
 
 const Captcha = memo(() => {
-    const ipified = useIpify();
+    useIpify();
     // const refreshed = useRefresh();
     // const { currentUser } = useSelector(state => state.ui);
     const { lang } = useSelector(state => state.ux);
+    const { currentUser } = useSelector(state => state.ui);
     const { key } = safe;
+    const ip = useState(useSelector(state => state.ui.currentUser.ip))[0];
     // const dispatch = useDispatch();
 
     // useEffect(() => console.info('ipified: ', ipified, 'refreshed: ', refreshed, 'id: ', currentUser.ip));
@@ -65,15 +67,12 @@ const Captcha = memo(() => {
     //         });
     // });
 
-    const verify = useCallback(
-        response => {
-            console.info('::: verify ipified: ', ipified);
-            if (!ipified) return;
-            const captcha = getRecaptcha(response);
-            console.info('::: verify captcha: ', captcha);
-        },
-        [ipified]
-    );
+    const verify = useCallback(response => {
+        console.info('::: verify ip: ', ip);
+        if (!ip.length) return;
+        const captcha = getRecaptcha(response);
+        console.info('::: verify captcha: ', captcha);
+    }, []);
 
     return (
         <Row gutter={24} type="flex" justify="center" align="middle">
