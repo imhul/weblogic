@@ -7,7 +7,7 @@ import Recaptcha from 'react-recaptcha';
 // utils
 // import axios from 'axios';
 import safe from '../../../../utils/safe';
-import translate from '../../../../utils/translations';
+// import translate from '../../../../utils/translations';
 // hooks
 import useIpify from '../../../../hooks/useIpify';
 // import useRefresh from '../../../../hooks/useRefresh';
@@ -67,7 +67,7 @@ const Captcha = memo(() => {
 
     const verify = useCallback(
         response => {
-            console.info('::: verify :::');
+            console.info('::: verify ipified: ', ipified, 'response: ', response);
             if (!ipified) return;
             const captcha = getRecaptcha(response);
             console.info('::: verify captcha: ', captcha);
