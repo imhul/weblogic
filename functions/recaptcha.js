@@ -1,6 +1,7 @@
-import axios from 'axios';
+// import axios from 'axios';
 // const axios = require('axios')
-// const { builder } = require('@netlify/functions');
+import { builder } from '@netlify/functions';
+import { request } from 'undici';
 import safe from './utils/safe';
 
 const headers = {
@@ -8,16 +9,17 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
-const handler = async data => {
+const build = async data => {
     console.info('::: handler with data: ', data, ' :::');
 
     try {
         let apiURL = '';
 
-        const ipified = await axios.post(safe.ipify, { headers });
+        const ipified = await request(safe.ipify, { headers });
 
-        apiURL = `${safe.link}${data}${response.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
-            }`;
+        apiURL = `${safe.link}${data}${
+            response.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
+        }`;
 
         if (!apiURL.length) {
             return {
@@ -26,7 +28,7 @@ const handler = async data => {
             };
         }
 
-        const response = await axios(apiURL, {
+        const response = await request(apiURL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' }
@@ -50,4 +52,6 @@ const handler = async data => {
     }
 };
 
-export default handler;
+const handler = builder(build);
+
+export { handler };

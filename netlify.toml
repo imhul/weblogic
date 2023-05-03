@@ -1,2 +1,6 @@
 [context.production]
     environment = { NODE_VERSION = "16.20.0" }
+[build]
+  command = "yarn build"
+  functions = "functions"
+  publish = "public"
