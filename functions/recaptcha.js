@@ -1,4 +1,5 @@
 import axios from 'axios';
+// const axios = require('axios')
 // const { builder } = require('@netlify/functions');
 import safe from './utils/safe';
 
@@ -9,30 +10,22 @@ const headers = {
 
 const handler = async data => {
     console.info('::: handler with data: ', data, ' :::');
-    let apiURL = '';
 
     try {
-        const response = await axios.post(safe.ipify);
-        apiURL = `${safe.link}${data}${
-            response.data.ip !== '' ? `&remoteip=${response.data.ip}` : ''
-        }`;
-    } catch (error) {
-        return {
-            statusCode: 666,
-            body: JSON.stringify({
-                error: `::: ipify is not responding with error: ${error.message} :::`
-            })
-        };
-    }
+        let apiURL = '';
 
-    if (apiURL === '') {
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: '::: Netlify functions: Something went wrong! :::' })
-        };
-    }
+        const ipified = await axios.post(safe.ipify, { headers });
 
-    try {
+        apiURL = `${safe.link}${data}${response.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
+            }`;
+
+        if (!apiURL.length) {
+            return {
+                statusCode: 500,
+                body: JSON.stringify({ error: '::: Netlify functions: Something went wrong! :::' })
+            };
+        }
+
         const response = await axios(apiURL, {
             method: 'POST',
             mode: 'no-cors',
