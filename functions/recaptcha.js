@@ -3,7 +3,7 @@ import { request } from 'undici';
 import { safe } from './utils/safe';
 
 const headers = {
-    'Allow': 'POST',
+    // 'Allow': 'POST',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type'
 };
