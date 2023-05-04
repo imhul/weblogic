@@ -16,8 +16,8 @@ const build = async (data, context) => {
     try {
         let apiURL = '';
 
-        const ipified = await request(safe.ipify, { headers });
-        ipifiedData = JSON.parse(ipified);
+        const ipifiedData = await request(safe.ipify, { headers });
+        // ipifiedData = JSON.parse(ipified);
 
         if (!ipifiedData?.data?.ip?.length) {
             return {
