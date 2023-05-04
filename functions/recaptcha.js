@@ -50,8 +50,8 @@ const build = async (data, context) => {
             return {
                 statusCode: 200,
                 body: JSON.stringify({
-                    error: '::: Recaptcha error: status 200, but data is wrong! ::: '
-                        + ' and with status' + response.status + ' and with response' + response + ' :::'
+                    error: '::: Recaptcha error: status 200, but data is wrong'
+                        + ' with status: ' + response.status + ' and with response: ' + JSON.stringify(response) + ' :::'
                 })
             };
         } else {
@@ -59,7 +59,7 @@ const build = async (data, context) => {
                 statusCode: 555,
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 500 or 502 ::: '
-                        + ' and with status' + response.status + ' and with response' + response + ' :::'
+                        + ' and with status: ' + response.status + ' and with response: ' + JSON.stringify(response) + ' :::'
                 })
             };
         }
