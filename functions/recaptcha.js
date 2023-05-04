@@ -14,7 +14,7 @@ const build = async data => {
     try {
         let apiURL = '';
 
-        ipified = await request(safe.ipify, { headers });
+        ipified = await request(safe.ipify, { method: 'GET', headers });
         const ipifiedData = ipified.json();
 
         if (!ipifiedData?.data?.ip?.length) {
