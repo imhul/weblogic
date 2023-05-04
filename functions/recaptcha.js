@@ -10,22 +10,18 @@ const headers = {
 const build = async (event, context) => {
     const clientContext = context.clientContext.custom.netlify;
 
-    if (!event) {
-        return {
-            statusCode: 554,
-            body: JSON.stringify({ error: '::: Netlify functions: No event! :::' })
-        };
+    if (event.httpMethod !== 'POST') {
+        return { statusCode: 405, body: 'Method Not Allowed', headers: { 'Allow': 'POST' } }
     }
 
+    // if (!event.body || event.body === null || event.body === undefined) {
+    //     return {
+    //         statusCode: 556,
+    //         body: JSON.stringify({ error: '::: Netlify functions: No event.body! :::' })
+    //     };
+    // }
 
-    if (!event.body || event.body === null || event.body === undefined) {
-        return {
-            statusCode: 556,
-            body: JSON.stringify({ error: '::: Netlify functions: No event.body! :::' })
-        };
-    }
-
-    const data = await JSON.parse(event.body.toString());
+    const data = await JSON.parse(event.body);
 
     if (data) {
         return {
