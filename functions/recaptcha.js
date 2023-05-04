@@ -18,6 +18,13 @@ const build = async data => {
 
         ipified = await request(safe.ipify, { headers });
 
+        if (!ipified.data) {
+            return {
+                statusCode: 500,
+                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + ipified})
+            };
+        }
+
         apiURL = `${safe.link}${fakeData}${ipified.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
             }`;
 
