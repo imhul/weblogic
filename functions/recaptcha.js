@@ -10,6 +10,7 @@ const headers = {
 
 const build = async (event, context) => {
     const clientContext = context.clientContext.custom.netlify;
+    console.info(event);
 
     if (event.httpMethod !== 'GET') {
         return { statusCode: 405, body: `Method ${event.httpMethod} Not Allowed, and rawUrl is: ${event.rawUrl}`, headers: { 'Allow': 'GET, POST, OPTIONS, HEAD' } }
