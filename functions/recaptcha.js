@@ -12,8 +12,15 @@ const headers = {
 const build = async (event, context) => {
     const clientContext = context.clientContext.custom.netlify;
 
+    if (!event) {
+        return {
+            statusCode: 556,
+            body: JSON.stringify({ error: '::: Netlify functions: No event! :::' })
+        };
+    }
 
-    if (!event.body) {
+
+    if (!event.body || event.body === null || event.body === undefined) {
         return {
             statusCode: 556,
             body: JSON.stringify({ error: '::: Netlify functions: No event.body! :::' })
