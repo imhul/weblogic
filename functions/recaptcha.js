@@ -35,17 +35,18 @@ const build = async (data, context) => {
         const recaptchaResponse = await request(apiURL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' }
+            headers: [{ 'Content-Type': 'application/json' }]
         });
 
-        const response = await recaptchaResponse.body.json();
+        let response = await recaptchaResponse.body.json();
+        response = response || recaptchaResponse;
 
         if (response.statusCode === 200 && response.data) {
             return (
                 response.statusCode === 200 && {
                     headers,
                     statusCode: 200,
-                    body: JSON.stringify({ ok: true })
+                    body: JSON.stringify({ ok: true, data: response.data, status: response.statusCode })
                 }
             );
         } else if (response.statusCode === 200 && !response.data) {
