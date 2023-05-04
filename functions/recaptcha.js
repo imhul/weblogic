@@ -15,11 +15,12 @@ const build = async data => {
         let apiURL = '';
 
         ipified = await request(safe.ipify, { headers });
+        const ipifiedData = ipified.json();
 
-        if (!ipified.data) {
+        if (!ipifiedData.data) {
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipified)})
+                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipified) })
             };
         }
 
@@ -56,7 +57,7 @@ const build = async data => {
                     + ' and with ip: '
                     + ipified.data.ip
                     + ' and with data: '
-                    + JSON.stringify({ ...data })
+                    + { ...data }
                     + ' :::'
             })
         };
