@@ -23,7 +23,7 @@ const build = async (event, context) => {
     //     };
     // }
 
-    const data = event.queryStringParameters?.data ?? event.body?.data ?? null;
+    const data = await event.queryStringParameters?.data ?? event.body?.data ?? null;
 
     if (data) {
         return {
@@ -33,7 +33,7 @@ const build = async (event, context) => {
     } else {
         return {
             statusCode: 557,
-            body: JSON.stringify({ error: '::: Netlify functions: No data! event: ' + event + ':::' })
+            body: JSON.stringify({ error: '::: Netlify functions: No data! event: ' + JSON.stringify(event) + ':::' })
         };
     }
 
