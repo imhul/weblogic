@@ -22,7 +22,7 @@ const build = async (data, context) => {
         if (true) {
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipifiedData ?? ipify) })
+                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + ipifiedData.ip ?? JSON.stringify(ipify) })
             };
         }
 
