@@ -7,14 +7,12 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
-// just for testing
-
 const build = async (event, context) => {
     const clientContext = context.clientContext.custom.netlify;
 
     if (!event) {
         return {
-            statusCode: 556,
+            statusCode: 554,
             body: JSON.stringify({ error: '::: Netlify functions: No event! :::' })
         };
     }
