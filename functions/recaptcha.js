@@ -38,14 +38,26 @@ const build = async (data, context) => {
             headers: { 'Content-Type': 'application/json' }
         });
 
-        return (
-            response.status === 200 &&
-            response.data && {
-                headers,
-                statusCode: 200,
-                body: JSON.stringify({ ok: true })
-            }
-        );
+        if (response.status === 200 && response.data) {
+            return (
+                response.status === 200 && {
+                    headers,
+                    statusCode: 200,
+                    body: JSON.stringify({ ok: true })
+                }
+            );
+        } else {
+            return {
+                statusCode: 500,
+                body: JSON.stringify({
+                    error: '::: Recaptcha error: status 200, but data is wrong! ::: '
+                        + response.status
+                        + ' and with data: '
+                        + JSON.stringify(data)
+                        + ' :::'
+                })
+            };
+        }
     } catch (error) {
         return {
             statusCode: 500,
@@ -53,7 +65,7 @@ const build = async (data, context) => {
                 error: '::: Recaptcha is not responding with error: '
                     + error.message
                     + ' and with data: '
-                    + JSON.parse({ ...data })
+                    + JSON.stringify(data)
                     + ' :::'
             })
         };
