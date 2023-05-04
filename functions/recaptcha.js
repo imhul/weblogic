@@ -9,8 +9,16 @@ const headers = {
 
 // just for testing
 
-const build = async (_, context) => {
+const build = async (event, context) => {
     const clientContext = context.clientContext.custom.netlify;
+    const data = JSON.parse(event.body);
+
+    if (true) {
+        return {
+            statusCode: 200,
+            body: JSON.stringify({ error: '::: Netlify functions data: ::: ' + JSON.stringify(data) })
+        };
+    }
 
     try {
         let ipifiedData;
@@ -47,14 +55,14 @@ const build = async (_, context) => {
             ],
         });
 
-        const data = await body.text();
+        const resData = await body.text();
 
         if (statusCode === 200 && body) {
             return (
                 statusCode === 200 && {
                     headers,
                     statusCode: 200,
-                    body: JSON.stringify({ ok: true, data: data, status: statusCode })
+                    body: JSON.stringify({ ok: true, data: resData, status: statusCode })
                 }
             );
         } else if (statusCode === 200 && !body) {
@@ -71,7 +79,7 @@ const build = async (_, context) => {
                 statusCode: 303,
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 303 and with response: '
-                        + data + ' :::'
+                        + resData + ' :::'
                 })
             };
         } else {
@@ -80,7 +88,7 @@ const build = async (_, context) => {
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 500 or 502 ::: '
                         + ' and with status: ' + statusCode
-                        + ' and with response: ' + data
+                        + ' and with response: ' + resData
                         + ' :::'
                 })
             };
