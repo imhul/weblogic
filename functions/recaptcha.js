@@ -3,7 +3,7 @@ import { request } from 'undici';
 import { safe } from './utils/safe';
 
 const headers = {
-    // 'Allow': 'POST',
+    // 'Allow': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type'
 };
@@ -12,7 +12,7 @@ const build = async (event, context) => {
     const clientContext = context.clientContext.custom.netlify;
 
     if (event.httpMethod !== 'POST') {
-        return { statusCode: 405, body: `Method ${event.httpMethod} Not Allowed`, headers: { 'Allow': 'POST' } }
+        return { statusCode: 405, body: `Method ${event.httpMethod} Not Allowed`, headers: { 'Allow': 'GET, POST, OPTIONS' } }
     }
 
     // if (!event.body || event.body === null || event.body === undefined) {
