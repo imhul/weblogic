@@ -35,7 +35,7 @@ const build = async data => {
         }
 
         const response = await request(apiURL, {
-            method: 'POST',
+            method: 'GET',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' }
         });
