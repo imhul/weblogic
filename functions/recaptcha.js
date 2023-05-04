@@ -57,7 +57,7 @@ const build = async (data, context) => {
                 error: '::: Recaptcha is not responding with error: '
                     + error.message
                     + ' and with ip: '
-                    + (ipifiedData?.data?.ip ?? 'NO IP!')
+                    + (ipifiedData?.data?.ip ?? 'NO IP! ' + JSON.stringify(ipifiedData))
                     + ' and with clientContext: '
                     + clientContext
                     + ' and with data: '
