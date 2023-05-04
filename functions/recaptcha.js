@@ -46,15 +46,20 @@ const build = async (data, context) => {
                     body: JSON.stringify({ ok: true })
                 }
             );
-        } else {
+        } else if (response.status === 200 && !response.data) {
             return {
-                statusCode: 500,
+                statusCode: 200,
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 200, but data is wrong! ::: '
-                        + response.status
-                        + ' and with data: '
-                        + JSON.stringify(data)
-                        + ' :::'
+                        + ' and with status' + response.status + ' and with response' + response + ' :::'
+                })
+            };
+        } else {
+            return {
+                statusCode: 555,
+                body: JSON.stringify({
+                    error: '::: Recaptcha error: status 500 or 502 ::: '
+                        + ' and with status' + response.status + ' and with response' + response + ' :::'
                 })
             };
         }
@@ -63,10 +68,7 @@ const build = async (data, context) => {
             statusCode: 500,
             body: JSON.stringify({
                 error: '::: Recaptcha is not responding with error: '
-                    + error.message
-                    + ' and with data: '
-                    + JSON.stringify(data)
-                    + ' :::'
+                    + error.message + ' :::'
             })
         };
     }
