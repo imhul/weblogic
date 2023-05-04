@@ -7,7 +7,9 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
-const build = async data => {
+const build = async (data, context) => {
+    // const { identity, user } = context.clientContext;
+    const clientContext = context.clientContext;
     let ipified = {};
     const fakeData = '';
 
@@ -35,7 +37,7 @@ const build = async data => {
         }
 
         const response = await request(apiURL, {
-            method: 'GET',
+            method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' }
         });
@@ -55,7 +57,9 @@ const build = async data => {
                 error: '::: Recaptcha is not responding with error: '
                     + error.message
                     + ' and with ip: '
-                    + ipified.data.ip
+                    + (ipified?.data?.ip ?? 'NO IP!')
+                    + ' and with clientContext: '
+                    + JSON.stringify(clientContext)
                     + ' and with data: '
                     + { ...data }
                     + ' :::'
