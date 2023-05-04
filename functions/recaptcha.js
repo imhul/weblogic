@@ -9,24 +9,24 @@ const headers = {
 
 const build = async (data, context) => {
     // const { identity, user } = context.clientContext;
-    const clientContext = context.clientContext;
+    const clientContext = context.clientContext.custom.netlify;
     let ipifiedData;
-    const fakeData = '';
+    // const fakeData = '';
 
     try {
         let apiURL = '';
 
         const ipified = await request(safe.ipify, { headers });
-        ipifiedData = ipified.json();
+        ipifiedData = JSON.parse(ipified);
 
         if (!ipifiedData?.data?.ip?.length) {
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipified) })
+                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipifiedData) })
             };
         }
 
-        apiURL = `${safe.link}${fakeData}${ipified.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
+        apiURL = `${safe.link}${clientContext}${ipifiedData.data.ip !== '' ? `&remoteip=${ipifiedData.data.ip}` : ''
             }`;
 
         if (!apiURL.length) {
@@ -59,7 +59,7 @@ const build = async (data, context) => {
                     + ' and with ip: '
                     + (ipifiedData?.data?.ip ?? 'NO IP!')
                     + ' and with clientContext: '
-                    + JSON.stringify({ ...clientContext })
+                    + clientContext
                     + ' and with data: '
                     + JSON.stringify({ ...data })
                     + ' :::'
