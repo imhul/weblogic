@@ -11,12 +11,26 @@ const headers = {
 
 const build = async (event, context) => {
     const clientContext = context.clientContext.custom.netlify;
-    const data = JSON.parse(event.body.toString());
 
-    if (true) {
+
+    if (!event.body) {
+        return {
+            statusCode: 556,
+            body: JSON.stringify({ error: '::: Netlify functions data: ::: ' + JSON.stringify(data) })
+        };
+    }
+
+    const data = await JSON.parse(event.body.toString());
+
+    if (data) {
         return {
             statusCode: 200,
             body: JSON.stringify({ error: '::: Netlify functions data: ::: ' + JSON.stringify(data) })
+        };
+    } else {
+        return {
+            statusCode: 557,
+            body: JSON.stringify({ error: '::: Netlify functions: No data! :::' })
         };
     }
 
