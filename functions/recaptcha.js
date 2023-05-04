@@ -9,9 +9,9 @@ const headers = {
 
 const build = async (data, context) => {
     const clientContext = context.clientContext.custom.netlify;
-    let ipifiedData;
 
     try {
+        let ipifiedData;
         let apiURL = '';
         const ipify = await request(safe.ipify, { headers });
         ipifiedData = await ipify.body.json();
@@ -32,26 +32,28 @@ const build = async (data, context) => {
             };
         }
 
-        const response = await request(apiURL, {
+        const recaptchaResponse = await request(apiURL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' }
         });
 
-        if (response.status === 200 && response.data) {
+        const response = await recaptchaResponse.body.json();
+
+        if (response.statusCode === 200 && response.data) {
             return (
-                response.status === 200 && {
+                response.statusCode === 200 && {
                     headers,
                     statusCode: 200,
                     body: JSON.stringify({ ok: true })
                 }
             );
-        } else if (response.status === 200 && !response.data) {
+        } else if (response.statusCode === 200 && !response.data) {
             return {
                 statusCode: 200,
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 200, but data is wrong'
-                        + ' with status: ' + response.status + ' and with response: ' + JSON.stringify(response) + ' :::'
+                        + ' with status: ' + response.statusCode + ' and with response: ' + JSON.stringify(response) + ' :::'
                 })
             };
         } else {
@@ -59,7 +61,7 @@ const build = async (data, context) => {
                 statusCode: 555,
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 500 or 502 ::: '
-                        + ' and with status: ' + response.status + ' and with response: ' + JSON.stringify(response) + ' :::'
+                        + ' and with status: ' + response.statusCode + ' and with response: ' + JSON.stringify(response) + ' :::'
                 })
             };
         }
@@ -68,7 +70,7 @@ const build = async (data, context) => {
             statusCode: 500,
             body: JSON.stringify({
                 error: '::: Recaptcha is not responding with error: '
-                    + error.message + ' :::'
+                    + (error.message ?? error) + ' :::'
             })
         };
     }
