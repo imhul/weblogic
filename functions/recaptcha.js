@@ -17,9 +17,8 @@ const build = async data => {
 
         const ipified = await request(safe.ipify, { headers });
 
-        apiURL = `${safe.link}${data}${
-            response.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
-        }`;
+        apiURL = `${safe.link}${data}${response.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
+            }`;
 
         if (!apiURL.length) {
             return {
@@ -46,7 +45,15 @@ const build = async data => {
         return {
             statusCode: 500,
             body: JSON.stringify({
-                error: `::: Recaptcha is not responding with error: ${error.message} :::`
+                error: '::: Recaptcha is not responding with error: '
+                    + error.message
+                    + 'and with safe.ipify: '
+                    + safe.ipify
+                    + 'and with data: '
+                    + data
+                    + 'and with safe.link'
+                    + safe.link
+                    + ' :::'
             })
         };
     }

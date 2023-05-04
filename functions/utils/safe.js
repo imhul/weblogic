@@ -2,7 +2,10 @@
 
 const decode = (data) => {
     let buff = Buffer.from(data, 'base64');
-    return buff.toString('ascii');
+    // let asci = buff.toString('ascii');
+    let utf = buff.toString('utf8');
+
+    return utf;
 }
 
 const safe = {
