@@ -40,8 +40,14 @@ const build = async (data, context) => {
             headers: ['Content-Type', 'application/json']
         });
 
-        let response = await recaptchaResponse.body.json();
-        response = response || recaptchaResponse;
+        let response;
+        // let response = await recaptchaResponse.body.json();
+        // response = response || recaptchaResponse;
+
+        for await (const data of body) {
+            console.log('data', data);
+            response = data;
+        }
 
         if (response.statusCode === 200 && response.data) {
             return (
