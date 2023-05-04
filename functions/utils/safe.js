@@ -8,7 +8,7 @@ const decode = (data) => {
     return utf;
 }
 
-const safe = {
+export const safe = {
     link: decode(process.env.REACT_APP_LINK),
     key: decode(process.env.REACT_APP_KEY),
     mCode: decode(process.env.REACT_APP_M_CODE),
@@ -20,5 +20,3 @@ const safe = {
     base: 'https://weblogic.netlify.app',
     vid: 'nETaVY9GOao'
 };
-
-export default safe;

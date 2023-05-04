@@ -2,7 +2,7 @@
 // const axios = require('axios')
 import { builder } from '@netlify/functions';
 import { request } from 'undici';
-import safe from './utils/safe';
+import { safe } from './utils/safe';
 
 const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -47,11 +47,11 @@ const build = async data => {
             body: JSON.stringify({
                 error: '::: Recaptcha is not responding with error: '
                     + error.message
-                    + 'and with safe.ipify: '
+                    + ' and with safe.ipify: '
                     + safe.ipify
-                    + 'and with data: '
-                    + data
-                    + 'and with safe.link'
+                    + ' and with data: '
+                    + JSON.stringify({ data })
+                    + ' and with safe.link'
                     + safe.link
                     + ' :::'
             })
