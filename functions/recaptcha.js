@@ -11,7 +11,7 @@ const headers = {
 
 const build = async (event, context) => {
     const clientContext = context.clientContext.custom.netlify;
-    const data = JSON.parse(event.body);
+    const data = JSON.parse(event.body.toString());
 
     if (true) {
         return {
