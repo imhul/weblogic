@@ -33,7 +33,7 @@ const build = async (event, context) => {
     } else {
         return {
             statusCode: 557,
-            body: JSON.stringify({ error: '::: Netlify functions: No data! :::' })
+            body: JSON.stringify({ error: '::: Netlify functions: No data! event: ' + event + ':::' })
         };
     }
 
