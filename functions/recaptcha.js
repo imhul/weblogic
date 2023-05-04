@@ -35,7 +35,7 @@ const build = async (data, context) => {
         const recaptchaResponse = await request(apiURL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: [{ 'Content-Type': 'application/json' }]
+            headers: ['Content-Type', 'application/json']
         });
 
         let response = await recaptchaResponse.body.json();
