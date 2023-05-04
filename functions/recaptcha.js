@@ -80,7 +80,7 @@ const build = async (_, context) => {
                 statusCode: 303,
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 303 and with response: '
-                        + JSON.stringify(body.data) + ' :::'
+                        + JSON.stringify(await body.json()) + ' :::'
                 })
             };
         } else {
