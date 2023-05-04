@@ -10,14 +10,12 @@ const headers = {
 };
 
 const build = async data => {
-    console.info('::: handler with data: ', data, ' :::');
-
     try {
         let apiURL = '';
 
         const ipified = await request(safe.ipify, { headers });
 
-        apiURL = `${safe.link}${data}${response.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
+        apiURL = `${safe.link}${data}${ipified.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
             }`;
 
         if (!apiURL.length) {
@@ -47,12 +45,10 @@ const build = async data => {
             body: JSON.stringify({
                 error: '::: Recaptcha is not responding with error: '
                     + error.message
-                    + ' and with safe.ipify: '
-                    + safe.ipify
+                    + ' and with ip: '
+                    + ipified.data.ip
                     + ' and with data: '
-                    + JSON.stringify({ data })
-                    + ' and with safe.link'
-                    + safe.link
+                    + JSON.stringify({ ...data })
                     + ' :::'
             })
         };

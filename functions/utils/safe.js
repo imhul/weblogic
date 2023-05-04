@@ -1,11 +1,6 @@
-// import Base64 from './decode';
-
 const decode = (data) => {
     let buff = Buffer.from(data, 'base64');
-    // let asci = buff.toString('ascii');
-    let utf = buff.toString('utf8');
-
-    return utf;
+    return buff.toString('utf8');
 }
 
 export const safe = {
