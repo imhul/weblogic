@@ -19,10 +19,10 @@ const build = async (data, context) => {
         const ipifiedData = await request(safe.ipify, { headers });
         // ipifiedData = JSON.parse(ipified);
 
-        if (!ipifiedData?.data?.ip?.length) {
+        if (!ipifiedData.body) {
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipifiedData) })
+                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipifiedData.body ?? ipifiedData) })
             };
         }
 
