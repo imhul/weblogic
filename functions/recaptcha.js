@@ -37,7 +37,14 @@ const build = async (data, context) => {
         const response = await request(apiURL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: ['Content-Type', 'application/json']
+            headers: [
+                'Content-Type',
+                'application/json',
+                'Access-Control-Allow-Origin',
+                '*',
+                'Access-Control-Allow-Headers',
+                'Content-Type'
+            ],
         });
 
         // let response;
@@ -70,7 +77,7 @@ const build = async (data, context) => {
             return {
                 statusCode: 303,
                 body: JSON.stringify({
-                    error: '::: Recaptcha error: status 303 and with response: ' 
+                    error: '::: Recaptcha error: status 303 and with response: '
                         + JSON.stringify(response.body) + ' :::'
                 })
             };
@@ -79,10 +86,10 @@ const build = async (data, context) => {
                 statusCode: 555,
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 500 or 502 ::: '
-                        + ' and with status: ' + response.statusCode 
+                        + ' and with status: ' + response.statusCode
                         + ' and with response: ' + response
                         + ' and with response: ' + await response.body.json()
-                        + ' and with JSON.stringify({response}): ' + JSON.stringify({response})
+                        + ' and with JSON.stringify({response}): ' + JSON.stringify({ response })
                         + ' and with JSON.stringify(response): ' + JSON.stringify(response)
                         + ' :::'
                 })
