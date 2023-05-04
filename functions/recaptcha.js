@@ -10,14 +10,14 @@ const headers = {
 const build = async (data, context) => {
     // const { identity, user } = context.clientContext;
     const clientContext = context.clientContext;
-    let ipified = {};
+    let ipifiedData;
     const fakeData = '';
 
     try {
         let apiURL = '';
 
-        ipified = await request(safe.ipify, { headers });
-        const ipifiedData = ipified.json();
+        const ipified = await request(safe.ipify, { headers });
+        ipifiedData = ipified.json();
 
         if (!ipifiedData?.data?.ip?.length) {
             return {
