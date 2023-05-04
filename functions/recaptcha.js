@@ -47,7 +47,7 @@ const build = async (_, context) => {
             ],
         });
 
-        const data = await body.json();
+        // const data = await body.json();
 
         // let response;
         // let response = await recaptchaResponse.body.json();
@@ -63,7 +63,7 @@ const build = async (_, context) => {
                 statusCode === 200 && {
                     headers,
                     statusCode: 200,
-                    body: JSON.stringify({ ok: true, data, body, status: statusCode })
+                    body: JSON.stringify({ ok: true, /* body, */ status: statusCode })
                 }
             );
         } else if (statusCode === 200 && !body) {
@@ -71,7 +71,7 @@ const build = async (_, context) => {
                 statusCode: 200,
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 200, but data is wrong'
-                        + ' with status: ' + statusCode + ' and with response: ' + JSON.stringify(data) + ' :::'
+                        + ' with status: ' + statusCode + ' :::'
                 })
             };
 
@@ -80,7 +80,7 @@ const build = async (_, context) => {
                 statusCode: 303,
                 body: JSON.stringify({
                     error: '::: Recaptcha error: status 303 and with response: '
-                        + JSON.stringify(data) + ' :::'
+                        + JSON.stringify(body) + ' :::'
                 })
             };
         } else {
