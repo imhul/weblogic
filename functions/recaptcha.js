@@ -44,7 +44,7 @@ const build = async (data, context) => {
         // let response = await recaptchaResponse.body.json();
         // response = response || recaptchaResponse;
 
-        for await (const data of body) {
+        for await (const data of recaptchaResponse) {
             console.log('data', data);
             response = data;
         }
