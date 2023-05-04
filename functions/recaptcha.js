@@ -7,6 +7,8 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
+// just for testing
+
 const build = async (data, context) => {
     const clientContext = context.clientContext.custom.netlify;
 
