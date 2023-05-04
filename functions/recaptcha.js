@@ -32,11 +32,6 @@ const build = async (_, context) => {
                 statusCode: 500,
                 body: JSON.stringify({ error: '::: Netlify functions: Captcha URL is wrong! :::' })
             };
-        } else {
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ url: apiURL })
-            };
         }
 
         const { body, statusCode } = await request(apiURL, {
@@ -45,10 +40,10 @@ const build = async (_, context) => {
             headers: [
                 'Content-Type',
                 'application/json',
-                // 'Access-Control-Allow-Origin',
-                // '*',
-                // 'Access-Control-Allow-Headers',
-                // 'Content-Type'
+                'Access-Control-Allow-Origin',
+                '*',
+                'Access-Control-Allow-Headers',
+                'Content-Type'
             ],
         });
 
