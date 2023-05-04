@@ -8,31 +8,27 @@ const headers = {
 };
 
 const build = async (data, context) => {
-    // const { identity, user } = context.clientContext;
     const clientContext = context.clientContext.custom.netlify;
     let ipifiedData;
-    // const fakeData = '';
 
     try {
         let apiURL = '';
-
         const ipify = await request(safe.ipify, { headers });
         ipifiedData = await ipify.body.json();
 
-        if (true) {
+        if (!ipifiedData.ip) {
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + ipifiedData.ip ?? JSON.stringify(ipify) })
+                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipifiedData ?? ipify) })
             };
         }
 
-        apiURL = `${safe.link}${clientContext}${ipifiedData.data.ip !== '' ? `&remoteip=${ipifiedData.data.ip}` : ''
-            }`;
+        apiURL = `${safe.link}${clientContext}&remoteip=${ipifiedData.ip}`;
 
         if (!apiURL.length) {
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: '::: Netlify functions: Something went wrong! :::' })
+                body: JSON.stringify({ error: '::: Netlify functions: Captcha URL is wrong! :::' })
             };
         }
 
@@ -56,12 +52,8 @@ const build = async (data, context) => {
             body: JSON.stringify({
                 error: '::: Recaptcha is not responding with error: '
                     + error.message
-                    + ' and with ip: '
-                    + (ipifiedData?.data?.ip ?? 'NO IP! ' + JSON.stringify(ipifiedData))
-                    + ' and with clientContext: '
-                    + clientContext
                     + ' and with data: '
-                    + JSON.stringify({ ...data })
+                    + JSON.parse({ ...data })
                     + ' :::'
             })
         };
