@@ -12,7 +12,6 @@
     "dependencies": {
         "@netlify/functions": "^1.4.0",
         "@netlify/functions-utils": "^5.2.3",
-        "axios": "^1.3.5",
         "undici": "^5.22.0"
     },
     "type": "module"

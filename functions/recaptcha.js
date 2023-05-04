@@ -1,5 +1,3 @@
-// import axios from 'axios';
-// const axios = require('axios')
 import { builder } from '@netlify/functions';
 import { request } from 'undici';
 import { safe } from './utils/safe';
@@ -21,7 +19,7 @@ const build = async data => {
         if (!ipified.data) {
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + ipified})
+                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipified)})
             };
         }
 
