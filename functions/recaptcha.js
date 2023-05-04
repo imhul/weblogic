@@ -49,15 +49,15 @@ const build = async (data, context) => {
         //     response = data;
         // }
 
-        if (response.statusCode === 200 && response.data) {
+        if (response.statusCode === 200 && response.body) {
             return (
                 response.statusCode === 200 && {
                     headers,
                     statusCode: 200,
-                    body: JSON.stringify({ ok: true, data: response.data, status: response.statusCode })
+                    body: JSON.stringify({ ok: true, data: response.body, status: response.statusCode })
                 }
             );
-        } else if (response.statusCode === 200 && !response.data) {
+        } else if (response.statusCode === 200 && !response.body) {
             return {
                 statusCode: 200,
                 body: JSON.stringify({
