@@ -34,20 +34,20 @@ const build = async (data, context) => {
             };
         }
 
-        const recaptchaResponse = await request(apiURL, {
+        const response = await request(apiURL, {
             method: 'POST',
             mode: 'no-cors',
             headers: ['Content-Type', 'application/json']
         });
 
-        let response;
+        // let response;
         // let response = await recaptchaResponse.body.json();
         // response = response || recaptchaResponse;
 
-        for await (const data of recaptchaResponse) {
-            console.log('data', data);
-            response = data;
-        }
+        // for await (const data of recaptchaResponse) {
+        //     console.log('data', data);
+        //     response = data;
+        // }
 
         if (response.statusCode === 200 && response.data) {
             return (
