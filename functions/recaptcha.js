@@ -16,7 +16,7 @@ const build = async (event, context) => {
     if (!event.body) {
         return {
             statusCode: 556,
-            body: JSON.stringify({ error: '::: Netlify functions data: ::: ' + JSON.stringify(data) })
+            body: JSON.stringify({ error: '::: Netlify functions: No event.body! :::' })
         };
     }
 
