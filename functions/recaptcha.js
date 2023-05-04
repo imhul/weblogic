@@ -10,12 +10,15 @@ const headers = {
 };
 
 const build = async data => {
+    let ipified = {};
+    const fakeData = '';
+
     try {
         let apiURL = '';
 
-        const ipified = await request(safe.ipify, { headers });
+        ipified = await request(safe.ipify, { headers });
 
-        apiURL = `${safe.link}${data}${ipified.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
+        apiURL = `${safe.link}${fakeData}${ipified.data.ip !== '' ? `&remoteip=${ipified.data.ip}` : ''
             }`;
 
         if (!apiURL.length) {
