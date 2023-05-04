@@ -11,7 +11,7 @@ const headers = {
 const build = async (event, context) => {
     const clientContext = context.clientContext.custom.netlify;
 
-    if (event.httpMethod !== 'POST') {
+    if (event.httpMethod !== 'GET') {
         return { statusCode: 405, body: `Method ${event.httpMethod} Not Allowed`, headers: { 'Allow': 'GET, POST, OPTIONS, HEAD' } }
     }
 
@@ -22,7 +22,7 @@ const build = async (event, context) => {
     //     };
     // }
 
-    const data = await JSON.parse(event.body);
+    const data = event.queryStringParameters?.data ?? event.body?.data ?? null;
 
     if (data) {
         return {
