@@ -71,7 +71,7 @@ const Captcha = memo(() => {
         if (!ip.length) setIp(currentUser.ip);
         const captcha = await getRecaptcha(response);
         console.info('::: verify ip: ', currentUser);
-        console.info('::: verify captcha.json(): ', captcha.json());
+        // console.info('::: verify captcha.json(): ', captcha.json());
         console.info('::: verify captcha: ', captcha);
     }, []);
 
