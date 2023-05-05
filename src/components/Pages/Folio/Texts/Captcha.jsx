@@ -67,12 +67,12 @@ const Captcha = memo(() => {
     //         });
     // });
 
-    const verify = useCallback(response => {
-        // console.info('::: verify ip: ', ip);
+    const verify = useCallback(async response => {
         if (!ip.length) setIp(currentUser.ip);
-        const captcha = getRecaptcha(response);
-        // console.info('::: verify ip: ', ip);
-        console.info('::: verify captcha: ', captcha.json());
+        const captcha = await getRecaptcha(response);
+        console.info('::: verify ip: ', currentUser.ip);
+        console.info('::: verify captcha.json(): ', captcha.json());
+        console.info('::: verify captcha: ', captcha);
     }, []);
 
     return (
