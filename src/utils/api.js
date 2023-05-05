@@ -1,8 +1,8 @@
-// netlify functions URLs
-const netlifyURL = 'https://weblogic.netlify.app/.netlify/functions/recaptcha?data=';
+import safe from './safe';
 
 export const getRecaptcha = async data => {
     console.info('::: getRecaptcha :::');
+    const { getNF } = safe;
 
     const config = {
         method: 'GET',
@@ -11,7 +11,7 @@ export const getRecaptcha = async data => {
         // body: JSON.stringify({ data })
     };
 
-    const response = await fetch(netlifyURL + '' + data, config);
+    const response = await fetch(getNF + '' + data, config);
     const resultJson = await response.json();
     const result = await JSON.parse(resultJson.data);
 

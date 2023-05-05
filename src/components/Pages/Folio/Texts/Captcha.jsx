@@ -56,16 +56,16 @@ const Captcha = memo(() => {
     return (
         <Row gutter={24} type="flex" justify="center" align="middle">
             <Col span={12} className="center">
-                {
-                    !currentUser.ip
-                        ? <LoadingOutlined />
-                        : <Recaptcha
-                            sitekey={key}
-                            theme="dark"
-                            verifyCallback={response => verify(response)}
-                            hl={lang === 'ukrainian' ? 'ua' : 'en'}
-                        />
-                }
+                {!currentUser.ip ? (
+                    <LoadingOutlined />
+                ) : (
+                    <Recaptcha
+                        sitekey={key}
+                        theme="dark"
+                        verifyCallback={response => verify(response)}
+                        hl={lang === 'ukrainian' ? 'ua' : 'en'}
+                    />
+                )}
             </Col>
         </Row>
     );
