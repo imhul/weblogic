@@ -15,9 +15,9 @@ export const getRecaptcha = async data => {
     console.info('::: getRecaptcha result: ', result);
 
     if (result.ok) {
-        console.log('::: getRecaptcha result.OK & result: ', result);
+        console.log('::: getRecaptcha result.OK & result: ', result.body);
 
-        return result.data;
+        return true;
     } else {
         console.warn('::: getRecaptcha error: ', result);
     }
