@@ -1,4 +1,4 @@
-# Portfolio React App v0.0.8
+# Portfolio React App v1.0.0
 
 ### by Tkachuk Zakhar
 
@@ -8,14 +8,19 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 
 **What's inside?**
 
--   `parcel`
--   `react` v18.2.0
--   `redux`
--   `helmet`
--   `redux-thunk`
--   `antd`
--   `SCSS`
--   `reCapcha` v2
--   `Telegram bot`
+-   **Frontend:**
+    -   `parcel`
+    -   `react` v18.2.0
+    -   `redux`
+    -   `helmet`
+    -   `redux-thunk`
+    -   `antd`
+    -   `SCSS`
+    -   `reCapcha` v2
+    -   `telegram bot`
+-   **Backend:**
+    -   `undici`
+    -   `netlify`
+    -   `@netlify/functions`
 
 Try the [published app](https://weblogic.netlify.app/)

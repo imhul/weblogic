@@ -8,7 +8,7 @@
         "url": "https://github.com/imhul/weblogic"
     },
     "email": "blashirk@gmail.com",
-    "version": "0.0.8",
+    "version": "1.0.0",
     "scripts": {
         "format": "prettier --write --plugin-search-dir=. .",
         "go": "yarn clean && cross-env NODE_ENV=development parcel public/index.html --no-cache --dist-dir dev",
