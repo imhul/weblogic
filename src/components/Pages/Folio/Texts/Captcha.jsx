@@ -31,7 +31,7 @@ const Captcha = memo(() => {
         if (captcha) {
             dispatch({
                 type: 'ROBOT_CHECK',
-                payload: !captcha
+                payload: captcha
             });
             message.success({
                 content: `${translate(lang, 'message_success_recaptcha')}`,

@@ -23,8 +23,8 @@ export default (state = initState, action) => {
                 ...state,
                 currentUser: {
                     ...state.currentUser,
-                    isAuth: action.payload.success,
-                    isRobot: !action.payload.success,
+                    isAuth: action.payload,
+                    isRobot: !action.payload,
                     date: action.payload.challenge_ts
                 }
             };
