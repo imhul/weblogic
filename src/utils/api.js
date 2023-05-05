@@ -14,7 +14,7 @@ export const getRecaptcha = async data => {
     const response = await fetch(netlifyURL + '' + data, config);
     console.info('::: getRecaptcha response: ', response);
     const resultJson = await response.json();
-    const result = JSON.parse(resultJson.data);
+    const result = await JSON.parse(resultJson.data);
     console.info('::: getRecaptcha result.success: ', result.success);
     console.info('::: getRecaptcha result: ', result);
 
