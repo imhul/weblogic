@@ -15,10 +15,5 @@ export const getRecaptcha = async data => {
     const resultJson = await response.json();
     const result = await JSON.parse(resultJson.data);
 
-    console.info('::: getRecaptcha response' + response + ':::');
-    console.info('::: getRecaptcha resultJson' + resultJson + ':::');
-    console.info('::: getRecaptcha result' + result + ':::');
-    console.info('::: getRecaptcha result' +  + ':::');
-
     return result.success;
 };
