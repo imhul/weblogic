@@ -8,7 +8,7 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
-const build = async (event, context) => {
+const build = async (event) => {
     console.info(event);
 
     if (event.httpMethod !== 'GET') {
