@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Row, Col } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
+import { LoadingOutlined } from '@ant-design/icons';
 // utils
 import safe from '../../../../utils/safe';
 import translate from '../../../../utils/translations';
