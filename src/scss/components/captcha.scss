@@ -1,0 +1,6 @@
+.Captcha {
+    .min-h {
+        @extend %flex-center;
+        min-height: 40vh;
+    }
+}

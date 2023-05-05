@@ -1,7 +1,6 @@
 import safe from './safe';
 
 export const getRecaptcha = async data => {
-    console.info('::: getRecaptcha :::');
     const { getNF } = safe;
 
     const config = {

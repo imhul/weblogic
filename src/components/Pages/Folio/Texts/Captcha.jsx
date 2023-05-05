@@ -2,7 +2,7 @@
 import React, { memo, useCallback, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
-import { Row, Col } from 'antd/lib';
+import { Row, Col, message } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
 import { LoadingOutlined } from '@ant-design/icons';
 // utils
@@ -21,10 +21,8 @@ const Captcha = memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (ip.length) console.info('::: FX ip: ', ip);
         if (!currentUser.ip.length) return;
         if (!ip.length && currentUser.ip.length) setIp(currentUser.ip);
-        console.info('::: FX currentUser: ', currentUser);
     }, [currentUser.ip, ip]);
 
     const verify = useCallback(async response => {
@@ -33,7 +31,7 @@ const Captcha = memo(() => {
         if (captcha) {
             dispatch({
                 type: 'ROBOT_CHECK',
-                payload: captcha
+                payload: !captcha
             });
             message.success({
                 content: `${translate(lang, 'message_success_recaptcha')}`,
@@ -54,10 +52,10 @@ const Captcha = memo(() => {
     }, []);
 
     return (
-        <Row gutter={24} type="flex" justify="center" align="middle">
-            <Col span={12} className="center">
+        <Row gutter={24} type="flex" justify="center" className="Captcha" align="middle">
+            <Col span={12} className="center min-h">
                 {!currentUser.ip ? (
-                    <LoadingOutlined />
+                    <LoadingOutlined style={{fontSize: '4rem', color: '#bcc8ce'}} />
                 ) : (
                     <Recaptcha
                         sitekey={key}
