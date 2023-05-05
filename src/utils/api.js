@@ -11,17 +11,15 @@ export const getRecaptcha = async data => {
         // body: JSON.stringify({ data })
     };
 
-    const result = await fetch(netlifyURL + '' + data, config);
+    const response = await fetch(netlifyURL + '' + data, config);
+    console.info('::: getRecaptcha response: ', response);
+    const result = await response.json();
     console.info('::: getRecaptcha result: ', result);
 
-    if (result.ok) {
-        const body = JSON.stringify(result.body);
-        console.log('::: getRecaptcha result.OK & body: ', body);
-
-        return true;
-    } else {
-        console.warn('::: getRecaptcha error: ', result);
+    if (!result.ok) {
+        console.warn('::: getRecaptcha error: ', response);
+        return false;
     }
 
-    return result;
+    return true;
 };
