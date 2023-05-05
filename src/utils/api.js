@@ -6,8 +6,8 @@ export const getRecaptcha = async data => {
 
     const config = {
         method: 'GET',
-        mode: 'no-cors', // no-cors, *cors, same-origin
-        headers: { 'Content-Type': 'application/json', 'Allow': 'GET, POST, OPTIONS, HEAD' },
+        mode: 'no-cors', // no-cors, cors, *cors, same-origin
+        headers: { 'Content-Type': 'application/json', Allow: 'GET, POST, OPTIONS, HEAD' }
         // body: JSON.stringify({ data })
     };
 

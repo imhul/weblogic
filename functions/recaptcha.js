@@ -8,31 +8,21 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
-const build = async (event) => {
-    console.info(event);
+const build = async event => {
+    const apiBase = 'https://weblogic.netlify.app/.netlify/functions/recaptcha?data=';
+    const data =
+        (await event.queryStringParameters?.data) ??
+        event.body?.data ??
+        event.rawUrl.replace(apiBase, '') ??
+        null;
 
-    if (event.httpMethod !== 'GET') {
-        return { statusCode: 405, body: `Method ${event.httpMethod} Not Allowed, and rawUrl is: ${event.rawUrl}`, headers: { 'Allow': 'GET, POST, OPTIONS, HEAD' } }
-    }
-
-    // if (!event.body || event.body === null || event.body === undefined) {
-    //     return {
-    //         statusCode: 556,
-    //         body: JSON.stringify({ error: '::: Netlify functions: No event.body! :::' })
-    //     };
-    // }
-
-    const data = await event.queryStringParameters?.data ?? event.rawUrl.replace('https://weblogic.netlify.app/.netlify/functions/recaptcha?data=', '') ?? event.body?.data ?? null;
-
-    if (data) {
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ error: '::: Netlify functions data: ::: ' + JSON.stringify(data) })
-        };
-    } else {
+    if (!data) {
         return {
             statusCode: 557,
-            body: JSON.stringify({ error: '::: Netlify functions: No data! event: ' + JSON.stringify(event) + ':::' })
+            body: JSON.stringify({
+                error:
+                    '::: Netlify functions: No data! with event: ' + JSON.stringify(event) + ':::'
+            })
         };
     }
 
@@ -45,7 +35,11 @@ const build = async (event) => {
         if (!ipifiedData.ip) {
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: '::: Netlify functions: ipify error! ::: ' + JSON.stringify(ipifiedData ?? ipify) })
+                body: JSON.stringify({
+                    error:
+                        '::: Netlify functions: ipify error! ::: ' +
+                        JSON.stringify(ipifiedData ?? ipify)
+                })
             };
         }
 
@@ -68,7 +62,7 @@ const build = async (event) => {
                 '*',
                 'Access-Control-Allow-Headers',
                 'Content-Type'
-            ],
+            ]
         });
 
         const resData = await body.text();
@@ -85,27 +79,31 @@ const build = async (event) => {
             return {
                 statusCode: 200,
                 body: JSON.stringify({
-                    error: '::: Recaptcha error: status 200, but data is wrong'
-                        + ' with status: ' + statusCode + ' :::'
+                    error:
+                        '::: Recaptcha error: status 200, but data is wrong' +
+                        ' with status: ' +
+                        statusCode +
+                        ' :::'
                 })
             };
-
         } else if (statusCode === 303) {
             return {
                 statusCode: 303,
                 body: JSON.stringify({
-                    error: '::: Recaptcha error: status 303 and with response: '
-                        + resData + ' :::'
+                    error: '::: Recaptcha error: status 303 and with response: ' + resData + ' :::'
                 })
             };
         } else {
             return {
                 statusCode: 555,
                 body: JSON.stringify({
-                    error: '::: Recaptcha error: status 500 or 502 ::: '
-                        + ' and with status: ' + statusCode
-                        + ' and with response: ' + resData
-                        + ' :::'
+                    error:
+                        '::: Recaptcha error: status 500 or 502 ::: ' +
+                        ' and with status: ' +
+                        statusCode +
+                        ' and with response: ' +
+                        resData +
+                        ' :::'
                 })
             };
         }
@@ -113,8 +111,10 @@ const build = async (event) => {
         return {
             statusCode: 500,
             body: JSON.stringify({
-                error: '::: Recaptcha is not responding with error: '
-                    + (error.message ?? error) + ' :::'
+                error:
+                    '::: Recaptcha is not responding with error: ' +
+                    (error.message ?? error) +
+                    ' :::'
             })
         };
     }
