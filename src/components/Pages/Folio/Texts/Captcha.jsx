@@ -1,5 +1,5 @@
 // core
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Row, Col } from 'antd/lib';
@@ -24,7 +24,7 @@ const Captcha = memo(() => {
         if (!currentUser.ip.length) return;
         if (!ip.length && currentUser.ip.length) setIp(currentUser.ip);
         console.info('::: FX currentUser: ', currentUser);
-    }, [currentUser, ip]);
+    }, [currentUser.ip, ip]);
 
     const verify = useCallback(async response => {
         const captcha = await getRecaptcha(response);
