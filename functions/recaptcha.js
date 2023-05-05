@@ -9,7 +9,6 @@ const headers = {
 };
 
 const build = async (event, context) => {
-    const clientContext = context.clientContext.custom.netlify;
     console.info(event);
 
     if (event.httpMethod !== 'GET') {
@@ -23,7 +22,7 @@ const build = async (event, context) => {
     //     };
     // }
 
-    const data = await event.queryStringParameters?.data ?? event.body?.data ?? null;
+    const data = await event.queryStringParameters?.data ?? event.rawUrl.replace('https://weblogic.netlify.app/.netlify/functions/recaptcha?data=', '') ?? event.body?.data ?? null;
 
     if (data) {
         return {
@@ -50,7 +49,7 @@ const build = async (event, context) => {
             };
         }
 
-        apiURL = `${safe.link}${clientContext}&remoteip=${ipifiedData.ip}`;
+        apiURL = `${safe.link}${data}&remoteip=${ipifiedData.ip}`;
 
         if (!apiURL.length) {
             return {
