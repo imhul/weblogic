@@ -26,6 +26,7 @@ const request = async (url, config) => {
     if (response.ok !== undefined) return response;
     const resultJson = await response.json();
     const result = await JSON.parse(resultJson.data);
+    console.info('request result: ', result);
     return result;
 };
 
