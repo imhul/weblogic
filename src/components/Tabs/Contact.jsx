@@ -84,7 +84,7 @@ const Contact = memo(() => {
 
     return (
         <div className="Contact content">
-            {!currentUser.isRobot ? (
+            {currentUser.isRobot ? (
                 <Captcha />
             ) : (
                 <Row gutter={24} type="flex" justify="center" align="middle">
