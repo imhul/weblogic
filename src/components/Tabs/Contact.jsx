@@ -134,7 +134,7 @@ const Contact = memo(() => {
                                         placeholder={`${translate(lang, 'placeholder')}`}
                                         onChange={event =>
                                             dispatch({
-                                                type: '',
+                                                type: 'TEXTAREA_UPDATE',
                                                 payload: event.target.value
                                             })
                                         }
