@@ -12,7 +12,7 @@ export const safe = {
 };
 
 export const headers = {
-    Allow: 'GET, POST, OPTIONS, HEAD',
+    // Allow: 'GET, POST, OPTIONS, HEAD',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type'
 };
