@@ -3,6 +3,7 @@ import { request } from 'undici';
 import { safe } from './utils/safe';
 
 const headers = {
+    Allow: 'GET, POST, OPTIONS, HEAD',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type'
 };

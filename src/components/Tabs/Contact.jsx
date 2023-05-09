@@ -1,5 +1,5 @@
 // core
-import React, { memo, useCallback } from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Row, Col, Form, Input, Button, Statistic, message } from 'antd/lib';
@@ -24,11 +24,12 @@ const { TextArea } = Input;
 const Contact = memo(() => {
     const { lang, tgMessage, isFilled } = useSelector(state => state.ux);
     const { currentUser } = useSelector(state => state.ui);
+    // const [submitting, setSubmitting] = useState(false);
     const dispatch = useDispatch();
     const { mCode } = safe;
     const maxSize = 4096;
 
-    const success = useCallback(e => {
+    const copySuccess = useCallback(e => {
         if (e.text === mCode) {
             message.success({
                 content: `${translate(lang, 'message_success_email')}`,
@@ -59,6 +60,10 @@ const Contact = memo(() => {
                     style: {
                         marginTop: '40px'
                     }
+                });
+                dispatch({
+                    type: 'TEXTAREA_UPDATE',
+                    payload: ''
                 });
             } else {
                 message.error({
@@ -167,7 +172,7 @@ const Contact = memo(() => {
                         <Clipboard
                             className="ant-btn center ant-btn-background-ghost"
                             option-text={() => mCode}
-                            onSuccess={success}
+                            onSuccess={copySuccess}
                         >
                             <MailOutlined />
                             <EllipsisOutlined />
