@@ -31,10 +31,12 @@ const request = async (url, config) => {
 
 export const getRecaptcha = async data => {
     const result = await request(getNF + '' + data, GET_CONFIG);
+    console.info('result: ', result);
     return result.success;
 };
 
 export const getTelegram = async data => {
     const result = await request(getTG + '' + data, GET_CONFIG);
+    console.info('result: ', result);
     return result;
 };
