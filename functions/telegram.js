@@ -18,8 +18,7 @@ const build = async event => {
         return {
             statusCode: 514,
             body: JSON.stringify({
-                error:
-                    '::: Telegram: No data! with event: ' + JSON.stringify(event) + ':::'
+                error: '::: Telegram: No data! with event: ' + JSON.stringify(event) + ':::'
             })
         };
     }
@@ -33,20 +32,18 @@ const build = async event => {
             return {
                 statusCode: 517,
                 body: JSON.stringify({
-                    error:
-                        '::: Telegram: server is not responding! :::'
+                    error: '::: Telegram: server is not responding! :::'
                 })
-            }
+            };
         }
 
         if (!result.ok) {
             return {
                 statusCode: 516,
                 body: JSON.stringify({
-                    error:
-                        '::: Telegram: No data! with event: ' + JSON.stringify(result) + ':::'
+                    error: '::: Telegram: No data! with event: ' + JSON.stringify(result) + ':::'
                 })
-            }
+            };
         }
 
         return {
@@ -64,7 +61,7 @@ const build = async event => {
             })
         };
     }
-}
+};
 
 const handler = builder(build);
 

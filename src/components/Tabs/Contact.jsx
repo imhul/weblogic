@@ -61,7 +61,9 @@ const Contact = memo(() => {
                 });
             } else {
                 message.error({
-                    content: `${translate(lang, 'message_error')}: ${result.message ?? result.error ?? result ?? '::: unknown :::'}`,
+                    content: `${translate(lang, 'message_error')}: ${
+                        result.message ?? result.error ?? result ?? '::: unknown :::'
+                    }`,
                     duration: 3,
                     style: {
                         marginTop: '40px'

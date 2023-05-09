@@ -4,7 +4,7 @@ const config = {
     method: 'GET',
     mode: 'no-cors', // no-cors, cors, *cors, same-origin
     headers: { 'Content-Type': 'text/strings', Allow: 'GET, POST, OPTIONS, HEAD' }
-    // TODO: POST request with body: JSON.stringify({ data }) instead current GET 
+    // TODO: POST request with body: JSON.stringify({ data }) instead current GET
 };
 
 export const getRecaptcha = async data => {

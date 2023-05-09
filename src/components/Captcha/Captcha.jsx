@@ -25,37 +25,40 @@ const Captcha = memo(() => {
         if (!ip.length && currentUser.ip.length) setIp(currentUser.ip);
     }, [currentUser.ip, ip]);
 
-    const verify = useCallback(async response => {
-        const captcha = await getRecaptcha(response);
+    const verify = useCallback(
+        async response => {
+            const captcha = await getRecaptcha(response);
 
-        if (captcha) {
-            dispatch({
-                type: 'ROBOT_CHECK',
-                payload: captcha
-            });
-            message.success({
-                content: `${translate(lang, 'message_success_recaptcha')}`,
-                duration: 3,
-                style: {
-                    marginTop: '40px'
-                }
-            });
-        } else {
-            message.error({
-                content: `${translate(lang, 'message_error_recaptcha')}`,
-                duration: 3,
-                style: {
-                    marginTop: '40px'
-                }
-            });
-        }
-    }, [lang]);
+            if (captcha) {
+                dispatch({
+                    type: 'ROBOT_CHECK',
+                    payload: captcha
+                });
+                message.success({
+                    content: `${translate(lang, 'message_success_recaptcha')}`,
+                    duration: 3,
+                    style: {
+                        marginTop: '40px'
+                    }
+                });
+            } else {
+                message.error({
+                    content: `${translate(lang, 'message_error_recaptcha')}`,
+                    duration: 3,
+                    style: {
+                        marginTop: '40px'
+                    }
+                });
+            }
+        },
+        [lang]
+    );
 
     return (
         <Row gutter={24} type="flex" justify="center" className="Captcha" align="middle">
             <Col span={12} className="center min-h">
                 {!currentUser.ip ? (
-                    <LoadingOutlined style={{fontSize: '4rem', color: '#bcc8ce'}} />
+                    <LoadingOutlined style={{ fontSize: '4rem', color: '#bcc8ce' }} />
                 ) : (
                     <Recaptcha
                         sitekey={key}

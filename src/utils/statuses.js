@@ -14,5 +14,5 @@ export const statuses = {
     515: 'Netlify functions: Telegram: server is not responding but with error message!',
     516: 'Netlify functions: Telegram: bad server response. Message is not sent!',
     517: 'Netlify functions: Telegram: server is not responding with no error message!',
-    518: '',
-}
+    518: ''
+};
