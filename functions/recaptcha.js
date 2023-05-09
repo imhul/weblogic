@@ -1,11 +1,6 @@
 import { builder } from '@netlify/functions';
 import { request } from 'undici';
-import { safe } from './utils/safe';
-
-const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type'
-};
+import { safe, headers } from './utils/safe';
 
 const build = async event => {
     const data =

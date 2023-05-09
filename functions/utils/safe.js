@@ -10,3 +10,9 @@ export const safe = {
     getTG: decode(process.env.REACT_APP_GET_TG),
     ipify: 'https://api.ipify.org/?format=json'
 };
+
+export const headers = {
+    Allow: 'GET, POST, OPTIONS, HEAD',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type'
+};
