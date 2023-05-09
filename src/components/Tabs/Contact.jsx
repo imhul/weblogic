@@ -18,6 +18,7 @@ import Captcha from '../Captcha';
 import translate from '../../utils/translations';
 import safe from '../../utils/safe';
 import { getTelegram } from '../../utils/api';
+import { messageOptions } from '../../utils/options';
 
 const { TextArea } = Input;
 
@@ -68,21 +69,19 @@ const Contact = memo(() => {
             } else {
                 message.error({
                     ...messageOptions,
-                    content: `${translate(lang, 'message_error')}: ${
-                        result.message ??
+                    content: `${translate(lang, 'message_error')}: ${result.message ??
                         result.error ??
                         result ??
                         '::: unknown :::'
-                    }`
+                        }`
                 });
                 setSubmitting(false);
             }
         } catch (error) {
             message.error({
                 ...messageOptions,
-                content: `${translate(lang, 'message_error')}: ${
-                    error.message ?? error ?? '::: unknown :::'
-                }`
+                content: `${translate(lang, 'message_error')}: ${error.message ?? error ?? '::: unknown :::'
+                    }`
             });
         }
     }, [safe, isFilled, tgMessage, lang]);
