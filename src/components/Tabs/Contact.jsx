@@ -50,9 +50,9 @@ const Contact = memo(() => {
     });
 
     const submit = useCallback(async () => {
+        if (submitting) return;
         setSubmitting(true);
         const result = await getTelegram(tgMessage);
-        console.info('tgMessage: ', tgMessage);
         if (result.ok !== undefined) {
             message.success({
                 content: `${translate(lang, 'message_success')}`,
@@ -65,6 +65,7 @@ const Contact = memo(() => {
                 type: 'TEXTAREA_UPDATE',
                 payload: ''
             });
+            setSubmitting(false);
         } else {
             message.error({
                 content: `${translate(lang, 'message_error')}: ${
@@ -75,8 +76,8 @@ const Contact = memo(() => {
                     marginTop: '40px'
                 }
             });
+            setSubmitting(false);
         }
-        setSubmitting(false);
     }, [safe, isFilled, tgMessage, lang]);
 
     return (
