@@ -7,5 +7,6 @@ export const safe = {
     link: decode(process.env.REACT_APP_LINK),
     tCode: decode(process.env.REACT_APP_T_CODE),
     getNF: decode(process.env.REACT_APP_GET_NF),
+    getTG: decode(process.env.REACT_APP_GET_TG),
     ipify: 'https://api.ipify.org/?format=json'
 };

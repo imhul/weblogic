@@ -24,7 +24,7 @@ const { TextArea } = Input;
 const Contact = memo(() => {
     const { lang, tgMessage, isFilled } = useSelector(state => state.ux);
     const { currentUser } = useSelector(state => state.ui);
-    // const [submitting, setSubmitting] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
     const dispatch = useDispatch();
     const { mCode } = safe;
     const maxSize = 4096;
@@ -50,41 +50,33 @@ const Contact = memo(() => {
     });
 
     const submit = useCallback(async () => {
-        if (safe && isFilled && tgMessage) {
-            const result = await getTelegram(tgMessage);
-
-            if (result.ok) {
-                message.success({
-                    content: `${translate(lang, 'message_success')}`,
-                    duration: 3,
-                    style: {
-                        marginTop: '40px'
-                    }
-                });
-                dispatch({
-                    type: 'TEXTAREA_UPDATE',
-                    payload: ''
-                });
-            } else {
-                message.error({
-                    content: `${translate(lang, 'message_error')}: ${
-                        result.message ?? result.error ?? result ?? '::: unknown :::'
-                    }`,
-                    duration: 3,
-                    style: {
-                        marginTop: '40px'
-                    }
-                });
-            }
+        setSubmitting(true);
+        const result = await getTelegram(tgMessage);
+        console.info('tgMessage: ', tgMessage);
+        if (result.ok !== undefined) {
+            message.success({
+                content: `${translate(lang, 'message_success')}`,
+                duration: 3,
+                style: {
+                    marginTop: '40px'
+                }
+            });
+            dispatch({
+                type: 'TEXTAREA_UPDATE',
+                payload: ''
+            });
         } else {
             message.error({
-                content: `${translate(lang, 'message_error_phone')}`,
+                content: `${translate(lang, 'message_error')}: ${
+                    result.message ?? result.error ?? result ?? '::: unknown :::'
+                }`,
                 duration: 3,
                 style: {
                     marginTop: '40px'
                 }
             });
         }
+        setSubmitting(false);
     }, [safe, isFilled, tgMessage, lang]);
 
     return (
@@ -153,6 +145,7 @@ const Contact = memo(() => {
                                         size="large"
                                         type="primary"
                                         htmlType="submit"
+                                        disabled={submitting}
                                         onClick={event => submit(event)}
                                     >
                                         {translate(lang, 'submit')}

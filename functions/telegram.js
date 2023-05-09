@@ -9,11 +9,11 @@ const headers = {
 };
 
 const build = async event => {
-    const { tCode, getNF } = safe;
+    const { tCode, getTG } = safe;
     const data =
         (await event.queryStringParameters?.data) ??
         event.body?.data ??
-        event.rawUrl.replace(getNF, '') ??
+        event.rawUrl.replace(getTG, '') ??
         null;
 
     if (!data) {
