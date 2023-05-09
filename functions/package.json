@@ -8,7 +8,7 @@
         "url": "https://github.com/imhul/weblogic"
     },
     "email": "blashirk@gmail.com",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "dependencies": {
         "@firebase/firestore": "^3.11.0",
         "@netlify/functions": "^1.4.0",

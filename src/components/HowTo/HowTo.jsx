@@ -2,6 +2,8 @@ import React, { memo, useState, useEffect, useRef } from 'react';
 // components
 import { Button, Tooltip, message } from 'antd/lib';
 import { QuestionCircleOutlined, RedoOutlined } from '@ant-design/icons';
+// utils
+import { messageOptions } from '../../utils/options';
 
 const HowTo = memo(() => {
     const [open, setOpen] = useState(false);

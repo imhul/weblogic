@@ -1,4 +1,4 @@
-# Portfolio React App v1.0.0
+# Portfolio React App v1.0.1
 
 ### by Tkachuk Zakhar
 

@@ -7,6 +7,7 @@ import Recaptcha from 'react-recaptcha';
 import { LoadingOutlined } from '@ant-design/icons';
 // utils
 import safe from '../../utils/safe';
+import { messageOptions } from '../../utils/options';
 import translate from '../../utils/translations';
 // hooks
 import useIpify from '../../hooks/useIpify';
