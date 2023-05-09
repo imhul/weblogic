@@ -30,12 +30,21 @@ const build = async event => {
         const ipify = await request(safe.ipify, { headers });
         ipifiedData = await ipify.body.json();
 
+        if (!ipify) {
+            return {
+                statusCode: 518,
+                body: JSON.stringify({
+                    error: '::: Netlify functions: ipify server is not responding! :::'
+                })
+            };
+        }
+
         if (!ipifiedData.ip) {
             return {
                 statusCode: 511,
                 body: JSON.stringify({
                     error:
-                        '::: Netlify functions: ipify error! ::: ' +
+                        '::: Netlify functions: ipify server bad response! ::: ' +
                         JSON.stringify(ipifiedData ?? ipify)
                 })
             };
