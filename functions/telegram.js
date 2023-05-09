@@ -8,10 +8,11 @@ const headers = {
 };
 
 const build = async event => {
+    const { tCode, getNF } = safe;
     const data =
         (await event.queryStringParameters?.data) ??
         event.body?.data ??
-        event.rawUrl.replace(safe.getNF, '') ??
+        event.rawUrl.replace(getNF, '') ??
         null;
 
     if (!data) {
