@@ -6,7 +6,7 @@ import { Row, Col, message } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
 import { LoadingOutlined } from '@ant-design/icons';
 // utils
-import safe from '../../utils';
+import safe from '../../utils/safe';
 import translate from '../../utils/translations';
 // hooks
 import useIpify from '../../hooks/useIpify';
