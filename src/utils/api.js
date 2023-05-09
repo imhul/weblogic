@@ -33,7 +33,7 @@ const request = async (url, config) => {
 export const getRecaptcha = async data => {
     const result = await request(getNF + '' + data, GET_CONFIG);
     console.info('result: ', result);
-    return result.success;
+    return result.ok;
 };
 
 export const getTelegram = async data => {
