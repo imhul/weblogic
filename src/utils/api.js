@@ -23,6 +23,7 @@ const { getNF, getTG } = safe;
 
 const request = async (url, config) => {
     const response = await fetch(url, config);
+    if (response.ok !== undefined) return response;
     const resultJson = await response.json();
     const result = await JSON.parse(resultJson.data);
     return result;

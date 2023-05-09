@@ -134,6 +134,8 @@ const Contact = memo(() => {
 
                                 <Col span={24}>
                                     <TextArea
+                                        maxLength={maxSize}
+                                        value={tgMessage}
                                         rows={4}
                                         cols={30}
                                         tabIndex="1"
