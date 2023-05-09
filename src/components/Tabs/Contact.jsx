@@ -1,6 +1,6 @@
 // core
 import React, { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Row, Col, Form, Input, Button, Statistic, message } from 'antd/lib';
 import {
@@ -24,6 +24,7 @@ const { TextArea } = Input;
 const Contact = memo(() => {
     const { lang, tgMessage, isFilled } = useSelector(state => state.ux);
     const { currentUser } = useSelector(state => state.ui);
+    const dispatch = useDispatch();
     const { mCode } = safe;
     const maxSize = 4096;
 
@@ -83,7 +84,7 @@ const Contact = memo(() => {
 
     return (
         <div className="Contact content">
-            {currentUser.isRobot ? (
+            {!currentUser.isRobot ? (
                 <Captcha />
             ) : (
                 <Row gutter={24} type="flex" justify="center" align="middle">
