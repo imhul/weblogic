@@ -8,10 +8,18 @@
         "url": "https://github.com/imhul/weblogic"
     },
     "email": "blashirk@gmail.com",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "dependencies": {
+        "@firebase/firestore": "^3.11.0",
         "@netlify/functions": "^1.4.0",
         "@netlify/functions-utils": "^5.2.3",
+        "firebase": "^9.21.0",
+        "firebase-admin": "^11.8.0",
+        "firebase-tools": "^11.30.0",
+        "@firebase/util": "^1.9.3",
+        "mongodb": "^5.4.0",
+        "node-fetch": "^3.3.1",
+        "twilio": "^4.11.0",
         "undici": "^5.22.0"
     },
     "type": "module"

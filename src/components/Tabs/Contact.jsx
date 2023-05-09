@@ -13,80 +13,61 @@ import {
     EditOutlined
 } from '@ant-design/icons';
 import Clipboard from 'react-clipboard.js';
-import Captcha from './Captcha';
+import Captcha from '../Captcha';
 // utils
-import translate from '../../../../utils/translations';
-import safe from '../../../../utils/safe';
+import translate from '../../utils/translations';
+import safe from '../../utils/safe';
+import { getTelegram } from '../../utils/api';
 
 const { TextArea } = Input;
 
 const Contact = memo(() => {
     const { lang, tgMessage, isFilled } = useSelector(state => state.ux);
     const { currentUser } = useSelector(state => state.ui);
-    const { mCode, tCode, fCode } = safe;
+    const { mCode } = safe;
     const maxSize = 4096;
 
     const success = useCallback(e => {
-        switch (e.text) {
-            case mCode:
-                return message.success({
-                    content: `${translate(lang, 'message_success_email')}`,
-                    duration: 3,
-                    style: {
-                        marginTop: '40px'
-                    }
-                });
-            case fCode:
-                return message.success({
-                    content: `${translate(lang, 'message_success_phone')}`,
-                    duration: 3,
-                    style: {
-                        marginTop: '40px'
-                    }
-                });
-            default:
-                return message.error({
-                    content: `${translate(lang, 'message_error_wrong')}`,
-                    duration: 3,
-                    style: {
-                        marginTop: '40px'
-                    }
-                });
+        if (e.text === mCode) {
+            message.success({
+                content: `${translate(lang, 'message_success_email')}`,
+                duration: 3,
+                style: {
+                    marginTop: '40px'
+                }
+            });
+        } else {
+            message.error({
+                content: `${translate(lang, 'message_error_wrong')}`,
+                duration: 3,
+                style: {
+                    marginTop: '40px'
+                }
+            });
         }
     });
 
-    const submit = useCallback(() => {
+    const submit = useCallback(async () => {
         if (safe && isFilled && tgMessage) {
-            fetch(`${tCode}${tgMessage}'`)
-                .then(response => response.json())
-                .then(result => {
-                    if (result.ok) {
-                        message.success({
-                            content: `${translate(lang, 'message_success')}`,
-                            duration: 3,
-                            style: {
-                                marginTop: '40px'
-                            }
-                        });
-                    } else {
-                        message.error({
-                            content: `${translate(lang, 'message_error')}`,
-                            duration: 3,
-                            style: {
-                                marginTop: '40px'
-                            }
-                        });
+            const result = await getTelegram(tgMessage);
+
+            if (result.ok) {
+                message.success({
+                    content: `${translate(lang, 'message_success')}`,
+                    duration: 3,
+                    style: {
+                        marginTop: '40px'
                     }
-                })
-                .catch(error =>
-                    message.error({
-                        content: `${translate(lang, 'message_error')}: ${error}`,
-                        duration: 3,
-                        style: {
-                            marginTop: '40px'
-                        }
-                    })
-                );
+                });
+            } else {
+                message.error({
+                    content: `${translate(lang, 'message_error')}: ${result.message ?? result.error ?? result ?? '::: unknown :::'}`,
+                    duration: 3,
+                    style: {
+                        marginTop: '40px'
+                    }
+                });
+            }
         } else {
             message.error({
                 content: `${translate(lang, 'message_error_phone')}`,
@@ -96,7 +77,7 @@ const Contact = memo(() => {
                 }
             });
         }
-    });
+    }, [safe, isFilled, tgMessage, lang]);
 
     return (
         <div className="Contact content">

@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // utils
-import translate from '../../../../utils/translations';
-import { technologies } from '../../../../utils/technologies';
+import translate from '../../utils/translations';
+import { technologies } from '../../utils/technologies';
 // components
 import { Row, Col } from 'antd/lib';
 import Gravatar from 'react-gravatar';
@@ -18,7 +18,7 @@ import {
     MobxLogo,
     ReduxLogo,
     ReactLogo
-} from '../../../../images/logos';
+} from '../../images/logos';
 
 class Intro extends Component {
     render() {

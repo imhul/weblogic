@@ -6,11 +6,11 @@ import { Row, Col, message } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
 import { LoadingOutlined } from '@ant-design/icons';
 // utils
-import safe from '../../../../utils/safe';
-import translate from '../../../../utils/translations';
+import safe from '../../utils';
+import translate from '../../utils/translations';
 // hooks
-import useIpify from '../../../../hooks/useIpify';
-import { getRecaptcha } from '../../../../utils/api';
+import useIpify from '../../hooks/useIpify';
+import { getRecaptcha } from '../../utils/api';
 
 const Captcha = memo(() => {
     useIpify();
@@ -49,7 +49,7 @@ const Captcha = memo(() => {
                 }
             });
         }
-    }, []);
+    }, [lang]);
 
     return (
         <Row gutter={24} type="flex" justify="center" className="Captcha" align="middle">

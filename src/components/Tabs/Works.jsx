@@ -9,18 +9,18 @@ import {
 } from '@ant-design/icons';
 // import TrelloModal from '../TrelloModal';
 // utils
-import translate from '../../../../utils/translations';
+import translate from '../../utils/translations';
 // Trello API
 // import { isTrelloAvailable, authenticateUser, getBoard } from '../../../../utils/api';
 // assets
-import puzzleImg from '../../../../images/works/puzzle.jpg';
-import ektaImg from '../../../../images/works/ekta.jpg';
-import calcImg from '../../../../images/works/calc.jpg';
-import silverImg from '../../../../images/works/silver.jpg';
-import testomatioImg from '../../../../images/works/testomatio.png';
-import uapayImg from '../../../../images/works/uapay.png';
-import aliceImg from '../../../../images/works/alice.png';
-import mailcheckImg from '../../../../images/works/mailcheck.png';
+import puzzleImg from '../../images/works/puzzle.jpg';
+import ektaImg from '../../images/works/ekta.jpg';
+import calcImg from '../../images/works/calc.jpg';
+import silverImg from '../../images/works/silver.jpg';
+import testomatioImg from '../../images/works/testomatio.png';
+import uapayImg from '../../images/works/uapay.png';
+import aliceImg from '../../images/works/alice.png';
+import mailcheckImg from '../../images/works/mailcheck.png';
 
 const ListItem = List.Item;
 const ListMeta = ListItem.Meta;

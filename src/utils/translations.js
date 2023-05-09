@@ -243,8 +243,6 @@ const translations = {
     }
 };
 
-const translate = (lang, text) => {
-    return translations[lang][text];
-};
+const translate = (lang, text) => translations[lang][text];
 
 export default translate;

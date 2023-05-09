@@ -5,5 +5,7 @@ const decode = data => {
 
 export const safe = {
     link: decode(process.env.REACT_APP_LINK),
+    tCode: Base64.decode(process.env.REACT_APP_T_CODE),
+    getNF: Base64.decode(process.env.REACT_APP_GET_NF),
     ipify: 'https://api.ipify.org/?format=json'
 };

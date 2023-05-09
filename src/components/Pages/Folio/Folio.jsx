@@ -6,7 +6,7 @@ import safe from '../../../utils/safe';
 // components
 import { Helmet } from 'react-helmet';
 import { Collapse } from 'antd/lib';
-import { Intro, Roadmap, Works, Contact } from './Texts';
+import { Intro, Roadmap, Works, Contact } from '../../Tabs';
 import {
     MessageOutlined,
     RocketOutlined,

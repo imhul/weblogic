@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 // components
 import { Timeline } from 'antd/lib';
 // utils
-import translate from '../../../../utils/translations';
+import translate from '../../utils/translations';
 
 const Roadmap = memo(() => {
     const { lang } = useSelector(state => state.ux);

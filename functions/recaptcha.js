@@ -3,22 +3,20 @@ import { request } from 'undici';
 import { safe } from './utils/safe';
 
 const headers = {
-    // 'Allow': 'GET, POST, OPTIONS, HEAD',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type'
 };
 
 const build = async event => {
-    const apiBase = 'https://weblogic.netlify.app/.netlify/functions/recaptcha?data=';
     const data =
         (await event.queryStringParameters?.data) ??
         event.body?.data ??
-        event.rawUrl.replace(apiBase, '') ??
+        event.rawUrl.replace(safe.getNF, '') ??
         null;
 
     if (!data) {
         return {
-            statusCode: 557,
+            statusCode: 510,
             body: JSON.stringify({
                 error:
                     '::: Netlify functions: No data! with event: ' + JSON.stringify(event) + ':::'
@@ -34,7 +32,7 @@ const build = async event => {
 
         if (!ipifiedData.ip) {
             return {
-                statusCode: 500,
+                statusCode: 511,
                 body: JSON.stringify({
                     error:
                         '::: Netlify functions: ipify error! ::: ' +
@@ -47,7 +45,7 @@ const build = async event => {
 
         if (!apiURL.length) {
             return {
-                statusCode: 500,
+                statusCode: 512,
                 body: JSON.stringify({ error: '::: Netlify functions: Captcha URL is wrong! :::' })
             };
         }
@@ -109,7 +107,7 @@ const build = async event => {
         }
     } catch (error) {
         return {
-            statusCode: 500,
+            statusCode: 513,
             body: JSON.stringify({
                 error:
                     '::: Recaptcha is not responding with error: ' +
