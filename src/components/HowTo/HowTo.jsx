@@ -38,10 +38,7 @@ const HowTo = memo(() => {
                 onClick={() =>
                     message.info({
                         content: 'Keep clicking anywhere!',
-                        duration: 3,
-                        style: {
-                            marginTop: '40px'
-                        }
+                        ...messageOptions
                     })
                 }
                 shape="circle"

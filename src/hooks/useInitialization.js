@@ -1,6 +1,9 @@
+// core
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// utils
 import { message } from 'antd/lib';
+import { messageOptions } from '../utils/options';
 
 const useInitialization = () => {
     const { initialized } = useSelector(state => state.ui);
@@ -13,10 +16,7 @@ const useInitialization = () => {
             dispatch({ type: 'INITIALIZE' });
             message.info({
                 content: 'Keep clicking anywhere!',
-                duration: 4,
-                style: {
-                    marginTop: '40px'
-                }
+                ...messageOptions
             });
             const timeout = setTimeout(() => {
                 dispatch({ type: 'HERO_ANIMATE' });

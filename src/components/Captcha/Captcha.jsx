@@ -36,18 +36,12 @@ const Captcha = memo(() => {
                 });
                 message.success({
                     content: `${translate(lang, 'message_success_recaptcha')}`,
-                    duration: 3,
-                    style: {
-                        marginTop: '40px'
-                    }
+                    ...messageOptions
                 });
             } else {
                 message.error({
                     content: `${translate(lang, 'message_error_recaptcha')}`,
-                    duration: 3,
-                    style: {
-                        marginTop: '40px'
-                    }
+                    ...messageOptions
                 });
             }
         },

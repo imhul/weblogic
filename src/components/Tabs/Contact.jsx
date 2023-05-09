@@ -34,18 +34,12 @@ const Contact = memo(() => {
         if (e.text === mCode) {
             message.success({
                 content: `${translate(lang, 'message_success_email')}`,
-                duration: 3,
-                style: {
-                    marginTop: '40px'
-                }
+                ...messageOptions
             });
         } else {
             message.error({
                 content: `${translate(lang, 'message_error_wrong')}`,
-                duration: 3,
-                style: {
-                    marginTop: '40px'
-                }
+                ...messageOptions
             });
         }
     });
@@ -69,19 +63,21 @@ const Contact = memo(() => {
             } else {
                 message.error({
                     ...messageOptions,
-                    content: `${translate(lang, 'message_error')}: ${result.message ??
+                    content: `${translate(lang, 'message_error')}: ${
+                        result.message ??
                         result.error ??
                         result ??
                         '::: unknown :::'
-                        }`
+                    }`
                 });
                 setSubmitting(false);
             }
         } catch (error) {
             message.error({
                 ...messageOptions,
-                content: `${translate(lang, 'message_error')}: ${error.message ?? error ?? '::: unknown :::'
-                    }`
+                content: `${translate(lang, 'message_error')}: ${
+                    error.message ?? error ?? '::: unknown :::'
+                }`
             });
         }
     }, [safe, isFilled, tgMessage, lang]);
