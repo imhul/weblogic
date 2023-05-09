@@ -60,9 +60,11 @@
                         opacity: 0.95;
                         transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),
                             -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
-                        transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+                        transition: transform 0.3s
+                                cubic-bezier(0.42, 0, 0.58, 1),
                             opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1);
-                        transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+                        transition: transform 0.3s
+                                cubic-bezier(0.42, 0, 0.58, 1),
                             opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),
                             -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
                     }
@@ -74,11 +76,14 @@
 
                         &::after {
                             visibility: visible;
-                            animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-                            transition: opacity 0.3s, visibility 0s 1s, -webkit-transform 0.3s;
-                            transition: opacity 0.3s, transform 0.3s, visibility 0s 1s;
-                            transition: opacity 0.3s, transform 0.3s, visibility 0s 1s,
+                            animation: pulse-animation 1s
+                                cubic-bezier(0.24, 0, 0.38, 1) infinite;
+                            transition: opacity 0.3s, visibility 0s 1s,
                                 -webkit-transform 0.3s;
+                            transition: opacity 0.3s, transform 0.3s,
+                                visibility 0s 1s;
+                            transition: opacity 0.3s, transform 0.3s,
+                                visibility 0s 1s, -webkit-transform 0.3s;
                         }
                     }
                 }
@@ -89,7 +94,8 @@
                 font-size: 1rem;
                 border-radius: 50%;
                 background-color: $color-deep-black;
-                box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12),
+                box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14),
+                    0 10px 50px 0 rgba(0, 0, 0, 0.12),
                     0 30px 10px -20px rgba(0, 0, 0, 0.2);
                 width: 100%;
                 height: 100%;
@@ -151,9 +157,11 @@
 
                 &::after {
                     visibility: hidden;
-                    transition: opacity 0.3s, visibility 0s, -webkit-transform 0.3s;
+                    transition: opacity 0.3s, visibility 0s,
+                        -webkit-transform 0.3s;
                     transition: opacity 0.3s, transform 0.3s, visibility 0s;
-                    transition: opacity 0.3s, transform 0.3s, visibility 0s, -webkit-transform 0.3s;
+                    transition: opacity 0.3s, transform 0.3s, visibility 0s,
+                        -webkit-transform 0.3s;
                     z-index: -1;
                     bottom: 0;
                     background-color: $color-link-hover;
@@ -196,8 +204,10 @@
                     border-radius: inherit;
                     transition: opacity 0.3s, -webkit-transform 0.3s;
                     transition: opacity 0.3s, transform 0.3s;
-                    transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
-                    animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+                    transition: opacity 0.3s, transform 0.3s,
+                        -webkit-transform 0.3s;
+                    animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1)
+                        infinite;
                     z-index: -1;
                 }
             }

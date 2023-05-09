@@ -55,10 +55,18 @@ const Captcha = memo(() => {
     );
 
     return (
-        <Row gutter={24} type="flex" justify="center" className="Captcha" align="middle">
+        <Row
+            gutter={24}
+            type="flex"
+            justify="center"
+            className="Captcha"
+            align="middle"
+        >
             <Col span={12} className="center min-h">
                 {!currentUser.ip ? (
-                    <LoadingOutlined style={{ fontSize: '4rem', color: '#bcc8ce' }} />
+                    <LoadingOutlined
+                        style={{ fontSize: '4rem', color: '#bcc8ce' }}
+                    />
                 ) : (
                     <Recaptcha
                         sitekey={key}

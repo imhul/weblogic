@@ -13,7 +13,10 @@ const TrelloModal = memo(() => {
 
     return (
         <div>
-            <Button type="primary" onClick={() => dispatch({ type: 'SHOW_MODAL' })}>
+            <Button
+                type="primary"
+                onClick={() => dispatch({ type: 'SHOW_MODAL' })}
+            >
                 Trello API
             </Button>
             <Modal

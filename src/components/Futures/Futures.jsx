@@ -32,13 +32,20 @@ const Futures = memo(() => {
     return (
         <div className="Futures ant-back-top">
             <div className="ant-back-top-inner">
-                <div className={`tap-target-wrapper ${isFuturesOpen ? 'open' : 'close'}`}>
+                <div
+                    className={`tap-target-wrapper ${
+                        isFuturesOpen ? 'open' : 'close'
+                    }`}
+                >
                     <div className="tap-target">
                         <div className="tap-target-content white">
                             <h2 className="white">Hello!</h2>
                             <h3 className="white">v0.0.8 Changelog:</h3>
                             <p>
-                                <a href="https://core.telegram.org/bots/api" target="_blank">
+                                <a
+                                    href="https://core.telegram.org/bots/api"
+                                    target="_blank"
+                                >
                                     <ApiOutlined /> Telegram API
                                 </a>{' '}
                                 is implemented

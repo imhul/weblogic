@@ -39,7 +39,8 @@
 
     /* Indeterminate */
     .progress:indeterminate {
-        animation: pure-material-progress-circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
+        animation: pure-material-progress-circular 6s infinite
+            cubic-bezier(0.3, 0.6, 1, 1);
         mask-image: linear-gradient(var(--transparent) 50%, black 50%),
             linear-gradient(to right, var(--transparent) 50%, black 50%);
     }
@@ -54,7 +55,8 @@
         border-radius: 50%;
         border-top-color: var(--color-progress);
         margin-bottom: 0.25em;
-        animation: pure-material-progress-circular-pseudo 0.75s infinite linear alternate;
+        animation: pure-material-progress-circular-pseudo 0.75s infinite linear
+            alternate;
         background-color: var(--transparent);
         content: '';
     }
@@ -66,7 +68,8 @@
         border: solid 0.25em var(--transparent);
         border-radius: 50%;
         border-top-color: var(--color-progress);
-        animation: pure-material-progress-circular-pseudo 0.75s infinite linear alternate;
+        animation: pure-material-progress-circular-pseudo 0.75s infinite linear
+            alternate;
         background-color: var(--transparent);
     }
 

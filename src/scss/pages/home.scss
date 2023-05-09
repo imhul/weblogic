@@ -76,7 +76,8 @@
                 text-shadow: 0 0 #{$shadow}px #{$color-white};
                 color: rgba(188, 200, 206, 1);
                 display: inline-block;
-                animation: rotate #{$rondomTranslate}s ease-in 2, stop #{$rondomTranslate}s ease-out;
+                animation: rotate #{$rondomTranslate}s ease-in 2,
+                    stop #{$rondomTranslate}s ease-out;
                 transition: transform #{$rondomTranslate}s;
 
                 @media (max-width: $media-small) {

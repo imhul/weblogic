@@ -19,7 +19,9 @@ const build = async event => {
             statusCode: 510,
             body: JSON.stringify({
                 error:
-                    '::: Netlify functions: No data! with event: ' + JSON.stringify(event) + ':::'
+                    '::: Netlify functions: No data! with event: ' +
+                    JSON.stringify(event) +
+                    ':::'
             })
         };
     }
@@ -55,7 +57,9 @@ const build = async event => {
         if (!apiURL.length) {
             return {
                 statusCode: 512,
-                body: JSON.stringify({ error: '::: Netlify functions: Captcha URL is wrong! :::' })
+                body: JSON.stringify({
+                    error: '::: Netlify functions: Captcha URL is wrong! :::'
+                })
             };
         }
 
@@ -79,7 +83,11 @@ const build = async event => {
                 statusCode === 200 && {
                     headers,
                     statusCode: 200,
-                    body: JSON.stringify({ ok: true, data: resData, status: statusCode })
+                    body: JSON.stringify({
+                        ok: true,
+                        data: resData,
+                        status: statusCode
+                    })
                 }
             );
         } else if (statusCode === 200 && !body) {
@@ -97,7 +105,10 @@ const build = async event => {
             return {
                 statusCode: 303,
                 body: JSON.stringify({
-                    error: '::: Recaptcha error: status 303 and with response: ' + resData + ' :::'
+                    error:
+                        '::: Recaptcha error: status 303 and with response: ' +
+                        resData +
+                        ' :::'
                 })
             };
         } else {

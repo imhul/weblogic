@@ -64,13 +64,22 @@ const Output = () => {
             </ContextMenuTrigger>
             {menu?.length && (
                 <ContextMenu hideOnLeave id="context-menu">
-                    <MenuItem key={menu[0].key} onClick={() => navigate(menu[0].key)}>
+                    <MenuItem
+                        key={menu[0].key}
+                        onClick={() => navigate(menu[0].key)}
+                    >
                         {menu[0].icon} {menu[0].key}
                     </MenuItem>
-                    <MenuItem key={menu[1].key} onClick={() => navigate(menu[1].key)}>
+                    <MenuItem
+                        key={menu[1].key}
+                        onClick={() => navigate(menu[1].key)}
+                    >
                         {menu[1].icon} {menu[1].key}
                     </MenuItem>
-                    <MenuItem key={menu[2].key} onClick={() => navigate(menu[2].key)}>
+                    <MenuItem
+                        key={menu[2].key}
+                        onClick={() => navigate(menu[2].key)}
+                    >
                         {menu[2].icon} {menu[2].key}
                     </MenuItem>
                     <MenuItem key={menu[3].key}>

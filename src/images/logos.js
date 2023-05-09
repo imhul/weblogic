@@ -24,7 +24,11 @@ const ReduxSagaLogo = () => (
 );
 
 const ReduxLogo = () => (
-    <svg className="stack-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <svg
+        className="stack-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+    >
         <g fill="#764abc">
             <path d="M65.6 65.4c2.9-.3 5.1-2.8 5-5.8-.1-3-2.6-5.4-5.6-5.4h-.2c-3.1.1-5.5 2.7-5.4 5.8.1 1.5.7 2.8 1.6 3.7-3.4 6.7-8.6 11.6-16.4 15.7-5.3 2.8-10.8 3.8-16.3 3.1-4.5-.6-8-2.6-10.2-5.9-3.2-4.9-3.5-10.2-.8-15.5 1.9-3.8 4.9-6.6 6.8-8-.4-1.3-1-3.5-1.3-5.1-14.5 10.5-13 24.7-8.6 31.4 3.3 5 10 8.1 17.4 8.1 2 0 4-.2 6-.7 12.8-2.5 22.5-10.1 28-21.4z" />
             <path d="M83.2 53c-7.6-8.9-18.8-13.8-31.6-13.8H50c-.9-1.8-2.8-3-4.9-3h-.2c-3.1.1-5.5 2.7-5.4 5.8.1 3 2.6 5.4 5.6 5.4h.2c2.2-.1 4.1-1.5 4.9-3.4H52c7.6 0 14.8 2.2 21.3 6.5 5 3.3 8.6 7.6 10.6 12.8 1.7 4.2 1.6 8.3-.2 11.8-2.8 5.3-7.5 8.2-13.7 8.2-4 0-7.8-1.2-9.8-2.1-1.1 1-3.1 2.6-4.5 3.6 4.3 2 8.7 3.1 12.9 3.1 9.6 0 16.7-5.3 19.4-10.6 2.9-5.8 2.7-15.8-4.8-24.3z" />
@@ -34,7 +38,12 @@ const ReduxLogo = () => (
 );
 
 const AntdLogo = () => (
-    <svg width="200px" height="200px" viewBox="0 0 200 200" className="stack-logo">
+    <svg
+        width="200px"
+        height="200px"
+        viewBox="0 0 200 200"
+        className="stack-logo"
+    >
         <defs>
             <linearGradient
                 x1="62.1023273%"
@@ -80,9 +89,21 @@ const AntdLogo = () => (
                 <stop stopColor="#F51D2C" offset="100%"></stop>
             </linearGradient>
         </defs>
-        <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <g id="logo13231231231231234" transform="translate(-20.000000, -20.000000)">
-                <g id="Group-28-Copy-5" transform="translate(20.000000, 20.000000)">
+        <g
+            id="Page-1"
+            stroke="none"
+            strokeWidth="1"
+            fill="none"
+            fillRule="evenodd"
+        >
+            <g
+                id="logo13231231231231234"
+                transform="translate(-20.000000, -20.000000)"
+            >
+                <g
+                    id="Group-28-Copy-5"
+                    transform="translate(20.000000, 20.000000)"
+                >
                     <g id="Group-27-Copy-3">
                         <g id="Group-25" fillRule="nonzero">
                             <g id="2">
@@ -385,7 +406,11 @@ const MaterializeLogo = () => (
 );
 
 const UikitLogo = () => (
-    <svg className="stack-logo" viewBox="0 0 168 155" xmlns="http://www.w3.org/2000/svg">
+    <svg
+        className="stack-logo"
+        viewBox="0 0 168 155"
+        xmlns="http://www.w3.org/2000/svg"
+    >
         <path
             fill="#33A9D9"
             d="M117.4 33.3L93.3 47.9l27.8 15.8v41.5L83.8 126l-36.7-20.8V73L23 60.7v58.9l59.9 35.2 62.1-35.2V49.2l-27.6-15.9zM106.2 27.5L82.9 14 58.6 29.1l23.6 13z"
@@ -476,7 +501,11 @@ const BootstrapLogo = () => (
                 y="-4.3%"
                 filterUnits="objectBoundingBox"
             >
-                <feOffset dy="10" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                <feOffset
+                    dy="10"
+                    in="SourceAlpha"
+                    result="shadowOffsetOuter1"
+                ></feOffset>
                 <feGaussianBlur
                     in="shadowOffsetOuter1"
                     result="shadowBlurOuter1"
@@ -503,7 +532,11 @@ const BootstrapLogo = () => (
                 y="-4.3%"
                 filterUnits="objectBoundingBox"
             >
-                <feOffset dy="10" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                <feOffset
+                    dy="10"
+                    in="SourceAlpha"
+                    result="shadowOffsetOuter1"
+                ></feOffset>
                 <feGaussianBlur
                     in="shadowOffsetOuter1"
                     result="shadowBlurOuter1"
@@ -530,7 +563,11 @@ const BootstrapLogo = () => (
                 y="-4.3%"
                 filterUnits="objectBoundingBox"
             >
-                <feOffset dy="10" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                <feOffset
+                    dy="10"
+                    in="SourceAlpha"
+                    result="shadowOffsetOuter1"
+                ></feOffset>
                 <feGaussianBlur
                     in="shadowOffsetOuter1"
                     result="shadowBlurOuter1"

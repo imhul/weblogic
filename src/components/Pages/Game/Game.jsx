@@ -6,7 +6,11 @@ import safe from '../../../utils/safe';
 // components
 import { Helmet } from 'react-helmet';
 import { Row, Col } from 'antd/lib';
-import { CrownOutlined, GithubOutlined, DollarCircleOutlined } from '@ant-design/icons';
+import {
+    CrownOutlined,
+    GithubOutlined,
+    DollarCircleOutlined
+} from '@ant-design/icons';
 
 const Game = memo(() => {
     const { lang } = useSelector(state => state.ux);
@@ -24,41 +28,61 @@ const Game = memo(() => {
                 <Row type="flex" justify="center" align="middle">
                     <Col span={24}>
                         <h1 className="center">{title}</h1>
-                        <h2 className="center">{translate(lang, 'game_subtitle')}</h2>
+                        <h2 className="center">
+                            {translate(lang, 'game_subtitle')}
+                        </h2>
                         <div className="center">
                             <span>{translate(lang, 'game_description')}</span>
                         </div>
 
                         <div className="mobile-reverse">
-                            <Row gutter={24} className="links-wrapper center mb-20 mt-20">
-                                <Col xs={{ span: 24 }} sm={{ span: 8 }} className="mb-20 mt-20">
+                            <Row
+                                gutter={24}
+                                className="links-wrapper center mb-20 mt-20"
+                            >
+                                <Col
+                                    xs={{ span: 24 }}
+                                    sm={{ span: 8 }}
+                                    className="mb-20 mt-20"
+                                >
                                     <a
                                         title="game netlify app"
                                         href="https://proto-mass.netlify.app/"
                                         target="_blank"
                                         rel="external"
                                     >
-                                        <CrownOutlined /> {translate(lang, 'game_demo')}
+                                        <CrownOutlined />{' '}
+                                        {translate(lang, 'game_demo')}
                                     </a>
                                 </Col>
-                                <Col xs={{ span: 24 }} sm={{ span: 8 }} className="mb-20 mt-20">
+                                <Col
+                                    xs={{ span: 24 }}
+                                    sm={{ span: 8 }}
+                                    className="mb-20 mt-20"
+                                >
                                     <a
                                         title="game github page"
                                         href="https://github.com/imhul/proto-mass"
                                         target="_blank"
                                         rel="external"
                                     >
-                                        <GithubOutlined /> {translate(lang, 'game_git')}
+                                        <GithubOutlined />{' '}
+                                        {translate(lang, 'game_git')}
                                     </a>
                                 </Col>
-                                <Col xs={{ span: 24 }} sm={{ span: 8 }} className="mb-20 mt-20">
+                                <Col
+                                    xs={{ span: 24 }}
+                                    sm={{ span: 8 }}
+                                    className="mb-20 mt-20"
+                                >
                                     <a
                                         title="game patreon page"
                                         href="https://www.patreon.com/protomass"
                                         target="_blank"
                                         rel="external"
                                     >
-                                        <DollarCircleOutlined /> {translate(lang, 'game_donate')}
+                                        <DollarCircleOutlined />{' '}
+                                        {translate(lang, 'game_donate')}
                                     </a>
                                 </Col>
                             </Row>

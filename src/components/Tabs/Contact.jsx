@@ -52,31 +52,38 @@ const Contact = memo(() => {
     const submit = useCallback(async () => {
         if (submitting) return;
         setSubmitting(true);
-        const result = await getTelegram(tgMessage);
-        if (result.ok !== undefined) {
-            message.success({
-                content: `${translate(lang, 'message_success')}`,
-                duration: 3,
-                style: {
-                    marginTop: '40px'
-                }
-            });
-            dispatch({
-                type: 'TEXTAREA_UPDATE',
-                payload: ''
-            });
-            setSubmitting(false);
-        } else {
+
+        try {
+            const result = await getTelegram(tgMessage);
+            if (result.ok !== undefined) {
+                message.success({
+                    ...messageOptions,
+                    content: `${translate(lang, 'message_success')}`
+                });
+                dispatch({
+                    type: 'TEXTAREA_UPDATE',
+                    payload: ''
+                });
+                setSubmitting(false);
+            } else {
+                message.error({
+                    ...messageOptions,
+                    content: `${translate(lang, 'message_error')}: ${
+                        result.message ??
+                        result.error ??
+                        result ??
+                        '::: unknown :::'
+                    }`
+                });
+                setSubmitting(false);
+            }
+        } catch (error) {
             message.error({
+                ...messageOptions,
                 content: `${translate(lang, 'message_error')}: ${
-                    result.message ?? result.error ?? result ?? '::: unknown :::'
-                }`,
-                duration: 3,
-                style: {
-                    marginTop: '40px'
-                }
+                    error.message ?? error ?? '::: unknown :::'
+                }`
             });
-            setSubmitting(false);
         }
     }, [safe, isFilled, tgMessage, lang]);
 
@@ -86,7 +93,12 @@ const Contact = memo(() => {
                 <Captcha />
             ) : (
                 <Row gutter={24} type="flex" justify="center" align="middle">
-                    <Col md={12} sm={24} xs={24} className="mb-20 align-left mobile-center">
+                    <Col
+                        md={12}
+                        sm={24}
+                        xs={24}
+                        className="mb-20 align-left mobile-center"
+                    >
                         <a
                             className="link"
                             href="https://www.codecademy.com/profiles/weblogicfront"
@@ -97,7 +109,12 @@ const Contact = memo(() => {
                         </a>
                     </Col>
 
-                    <Col md={12} sm={24} xs={24} className="mb-20 align-right mobile-center">
+                    <Col
+                        md={12}
+                        sm={24}
+                        xs={24}
+                        className="mb-20 align-right mobile-center"
+                    >
                         <a
                             href="https://github.com/imhul"
                             className="link"
@@ -110,10 +127,16 @@ const Contact = memo(() => {
 
                     <Col span={24}>
                         <Form>
-                            <Row gutter={24} type="flex" justify="center" align="middle">
+                            <Row
+                                gutter={24}
+                                type="flex"
+                                justify="center"
+                                align="middle"
+                            >
                                 <Col span={12} className="mb-10">
                                     <h2 className="white">
-                                        <EditOutlined /> {translate(lang, 'contact_form')}
+                                        <EditOutlined />{' '}
+                                        {translate(lang, 'contact_form')}
                                     </h2>
                                 </Col>
 
@@ -132,7 +155,10 @@ const Contact = memo(() => {
                                         rows={4}
                                         cols={30}
                                         tabIndex="1"
-                                        placeholder={`${translate(lang, 'placeholder')}`}
+                                        placeholder={`${translate(
+                                            lang,
+                                            'placeholder'
+                                        )}`}
                                         onChange={event =>
                                             dispatch({
                                                 type: 'TEXTAREA_UPDATE',
@@ -164,7 +190,11 @@ const Contact = memo(() => {
                         <h2>{translate(lang, 'copy_contacts')}</h2>
                     </Col>
 
-                    <Col span={24} className="mb-20 center" title={translate(lang, 'copy_email')}>
+                    <Col
+                        span={24}
+                        className="mb-20 center"
+                        title={translate(lang, 'copy_email')}
+                    >
                         <Clipboard
                             className="ant-btn center ant-btn-background-ghost"
                             option-text={() => mCode}

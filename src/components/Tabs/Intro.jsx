@@ -31,7 +31,11 @@ class Intro extends Component {
                         <h2>{translate(lang, 'believe')} ;)</h2>
                     </Col>
 
-                    <Col span={24} style={{ height: '90px' }} className="center">
+                    <Col
+                        span={24}
+                        style={{ height: '90px' }}
+                        className="center"
+                    >
                         <Gravatar email="blashirk@gmail.com" size={100} />
                     </Col>
 
@@ -45,11 +49,15 @@ class Intro extends Component {
                     </Col>
 
                     <Col span={24}>
-                        <h2 className="margin">{translate(lang, 'what_i_do')}</h2>
+                        <h2 className="margin">
+                            {translate(lang, 'what_i_do')}
+                        </h2>
 
                         <p>{translate(lang, 'my_offer')}</p>
 
-                        <h2 className="margin">{translate(lang, 'fav_tech')}</h2>
+                        <h2 className="margin">
+                            {translate(lang, 'fav_tech')}
+                        </h2>
 
                         {/* LOGOS */}
                         <Row
@@ -107,7 +115,13 @@ class Intro extends Component {
                         </Row>
 
                         {/* TECHS */}
-                        <Row className="tech" gutter={24} type="flex" justify="center" align="top">
+                        <Row
+                            className="tech"
+                            gutter={24}
+                            type="flex"
+                            justify="center"
+                            align="top"
+                        >
                             <Col
                                 lg={{ span: 6 }}
                                 xs={{ span: 24 }}
@@ -120,7 +134,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'library')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                                 {/* CSS FRAMEWORKS */}
@@ -129,7 +145,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'fw')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                                 {/* CSS FRAMEWORKS */}
@@ -138,7 +156,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'cssfw')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                                 {/* BUNDLERS */}
@@ -147,7 +167,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'bundler')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                                 {/* GIT */}
@@ -156,7 +178,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'git')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                                 {/* CRM */}
@@ -165,7 +189,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'crm')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                             </Col>
@@ -181,7 +207,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'lang')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
 
@@ -191,7 +219,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'design')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
 
@@ -201,7 +231,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'cms')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                             </Col>
@@ -217,7 +249,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'api')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
 
@@ -226,7 +260,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'track')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                                 <h3>SEO</h3>
@@ -234,7 +270,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'seo')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
 
@@ -243,7 +281,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'ide')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                                 <h3>Package Managers</h3>
@@ -251,7 +291,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'packmen')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                             </Col>
@@ -268,7 +310,9 @@ class Intro extends Component {
                                     {technologies
                                         .filter(item => item.list === 'other')
                                         .map(item => {
-                                            return <li key={item.id}>{item.id}</li>;
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
                                         })}
                                 </ul>
                             </Col>

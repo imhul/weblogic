@@ -5,7 +5,8 @@ export default (state = initStateUX, action) => {
     switch (action.type) {
         case types.TAB_MODIFY:
             const active =
-                typeof action.payload === 'string' || typeof action.payload === 'null'
+                typeof action.payload === 'string' ||
+                typeof action.payload === 'null'
                     ? action.payload
                     : action.payload[0];
             return { ...state, active };

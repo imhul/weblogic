@@ -20,7 +20,10 @@ const build = async event => {
         return {
             statusCode: 514,
             body: JSON.stringify({
-                error: '::: Telegram: No data! with event: ' + JSON.stringify(event) + ':::'
+                error:
+                    '::: Telegram: No data! with event: ' +
+                    JSON.stringify(event) +
+                    ':::'
             })
         };
     }
@@ -43,7 +46,10 @@ const build = async event => {
             return {
                 statusCode: 516,
                 body: JSON.stringify({
-                    error: '::: Telegram: No data! with event: ' + JSON.stringify(result) + ':::'
+                    error:
+                        '::: Telegram: No data! with event: ' +
+                        JSON.stringify(result) +
+                        ':::'
                 })
             };
         }

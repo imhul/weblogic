@@ -93,7 +93,8 @@ const Roadmap = memo(() => {
 
     const pending = (
         <div>
-            <span>2024: </span>I believe in the victory of Ukraine! I believe in the Armed Forces!
+            <span>2024: </span>I believe in the victory of Ukraine! I believe in
+            the Armed Forces!
         </div>
     );
 

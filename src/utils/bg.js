@@ -1,6 +1,8 @@
 class bgJS {
     constructor(tag_id, params) {
-        var canvas_el = document.querySelector('#' + tag_id + ' > .bg-app-canvas-el');
+        var canvas_el = document.querySelector(
+            '#' + tag_id + ' > .bg-app-canvas-el'
+        );
 
         this.bgJS = {
             canvas: {
@@ -155,16 +157,20 @@ class bgJS {
             bgJS.canvas.w = bgJS.canvas.el.offsetWidth * bgJS.canvas.pxratio;
             bgJS.canvas.h = bgJS.canvas.el.offsetHeight * bgJS.canvas.pxratio;
 
-            bgJS.parts.size.value = bgJS.tmp.obj.size_value * bgJS.canvas.pxratio;
-            bgJS.parts.size.anim.speed = bgJS.tmp.obj.size_anim_speed * bgJS.canvas.pxratio;
-            bgJS.parts.move.speed = bgJS.tmp.obj.move_speed * bgJS.canvas.pxratio;
+            bgJS.parts.size.value =
+                bgJS.tmp.obj.size_value * bgJS.canvas.pxratio;
+            bgJS.parts.size.anim.speed =
+                bgJS.tmp.obj.size_anim_speed * bgJS.canvas.pxratio;
+            bgJS.parts.move.speed =
+                bgJS.tmp.obj.move_speed * bgJS.canvas.pxratio;
             bgJS.parts.line_linked.distance =
                 bgJS.tmp.obj.line_linked_distance * bgJS.canvas.pxratio;
             bgJS.interactivity.modes.grab.distance =
                 bgJS.tmp.obj.mode_grab_distance * bgJS.canvas.pxratio;
             bgJS.interactivity.modes.bubble.distance =
                 bgJS.tmp.obj.mode_bubble_distance * bgJS.canvas.pxratio;
-            bgJS.parts.line_linked.width = bgJS.tmp.obj.line_linked_width * bgJS.canvas.pxratio;
+            bgJS.parts.line_linked.width =
+                bgJS.tmp.obj.line_linked_width * bgJS.canvas.pxratio;
             bgJS.interactivity.modes.bubble.size =
                 bgJS.tmp.obj.mode_bubble_size * bgJS.canvas.pxratio;
             bgJS.interactivity.modes.repulse.distance =
@@ -219,7 +225,9 @@ class bgJS {
         /* --------- bgJS functions - parts ----------- */
         bgJS.fn.particle = function (color, opacity, position) {
             /* size */
-            this.radius = (bgJS.parts.size.random ? Math.random() : 1) * bgJS.parts.size.value;
+            this.radius =
+                (bgJS.parts.size.random ? Math.random() : 1) *
+                bgJS.parts.size.value;
             if (bgJS.parts.size.anim.enable) {
                 this.size_status = false;
                 this.vs = bgJS.parts.size.anim.speed / 100;
@@ -233,9 +241,11 @@ class bgJS {
             this.y = position ? position.y : Math.random() * bgJS.canvas.h;
 
             /* check position  - into the canvas */
-            if (this.x > bgJS.canvas.w - this.radius * 2) this.x = this.x - this.radius;
+            if (this.x > bgJS.canvas.w - this.radius * 2)
+                this.x = this.x - this.radius;
             else if (this.x < this.radius * 2) this.x = this.x + this.radius;
-            if (this.y > bgJS.canvas.h - this.radius * 2) this.y = this.y - this.radius;
+            if (this.y > bgJS.canvas.h - this.radius * 2)
+                this.y = this.y - this.radius;
             else if (this.y < this.radius * 2) this.y = this.y + this.radius;
 
             /* check position - avoid overlap */
@@ -248,7 +258,11 @@ class bgJS {
             if (typeof color.value == 'object') {
                 if (color.value instanceof Array) {
                     var color_selected =
-                        color.value[Math.floor(Math.random() * bgJS.parts.color.value.length)];
+                        color.value[
+                            Math.floor(
+                                Math.random() * bgJS.parts.color.value.length
+                            )
+                        ];
                     this.color.rgb = hexToRgb(color_selected);
                 } else {
                     if (
@@ -287,7 +301,8 @@ class bgJS {
 
             /* opacity */
             this.opacity =
-                (bgJS.parts.opacity.random ? Math.random() : 1) * bgJS.parts.opacity.value;
+                (bgJS.parts.opacity.random ? Math.random() : 1) *
+                bgJS.parts.opacity.value;
             if (bgJS.parts.opacity.anim.enable) {
                 this.opacity_status = false;
                 this.vo = bgJS.parts.opacity.anim.speed / 100;
@@ -346,7 +361,10 @@ class bgJS {
             var shape_type = bgJS.parts.shape.type;
             if (typeof shape_type == 'object') {
                 if (shape_type instanceof Array) {
-                    var shape_selected = shape_type[Math.floor(Math.random() * shape_type.length)];
+                    var shape_selected =
+                        shape_type[
+                            Math.floor(Math.random() * shape_type.length)
+                        ];
                     this.shape = shape_selected;
                 }
             } else {
@@ -360,7 +378,10 @@ class bgJS {
                     ratio: sh.image.width / sh.image.height
                 };
                 if (!this.img.ratio) this.img.ratio = 1;
-                if (bgJS.tmp.img_type == 'svg' && bgJS.tmp.source_svg != undefined) {
+                if (
+                    bgJS.tmp.img_type == 'svg' &&
+                    bgJS.tmp.source_svg != undefined
+                ) {
                     bgJS.fn.vendors.createSvgImg(this);
                     if (bgJS.tmp.pushing) {
                         this.img.loaded = false;
@@ -413,11 +434,23 @@ class bgJS {
 
             switch (p.shape) {
                 case 'circle':
-                    bgJS.canvas.ctx.arc(p.x, p.y, radius, 0, Math.PI * 2, false);
+                    bgJS.canvas.ctx.arc(
+                        p.x,
+                        p.y,
+                        radius,
+                        0,
+                        Math.PI * 2,
+                        false
+                    );
                     break;
 
                 case 'edge':
-                    bgJS.canvas.ctx.rect(p.x - radius, p.y - radius, radius * 2, radius * 2);
+                    bgJS.canvas.ctx.rect(
+                        p.x - radius,
+                        p.y - radius,
+                        radius * 2,
+                        radius * 2
+                    );
                     break;
 
                 case 'triangle':
@@ -434,9 +467,11 @@ class bgJS {
                 case 'polygon':
                     bgJS.fn.vendors.drawShape(
                         bgJS.canvas.ctx,
-                        p.x - radius / (bgJS.parts.shape.polygon.nb_sides / 3.5),
+                        p.x -
+                            radius / (bgJS.parts.shape.polygon.nb_sides / 3.5),
                         p.y - radius / (2.66 / 3.5),
-                        (radius * 2.66) / (bgJS.parts.shape.polygon.nb_sides / 3),
+                        (radius * 2.66) /
+                            (bgJS.parts.shape.polygon.nb_sides / 3),
                         bgJS.parts.shape.polygon.nb_sides,
                         1 // sideCountDenominator
                     );
@@ -445,9 +480,12 @@ class bgJS {
                 case 'star':
                     bgJS.fn.vendors.drawShape(
                         bgJS.canvas.ctx,
-                        p.x - (radius * 2) / (bgJS.parts.shape.polygon.nb_sides / 4),
+                        p.x -
+                            (radius * 2) /
+                                (bgJS.parts.shape.polygon.nb_sides / 4),
                         p.y - radius / ((2 * 2.66) / 3.5),
-                        (radius * 2 * 2.66) / (bgJS.parts.shape.polygon.nb_sides / 3),
+                        (radius * 2 * 2.66) /
+                            (bgJS.parts.shape.polygon.nb_sides / 3),
                         bgJS.parts.shape.polygon.nb_sides,
                         2 // sideCountDenominator
                     );
@@ -491,7 +529,10 @@ class bgJS {
         bgJS.fn.particlesCreate = function () {
             for (var i = 0; i < bgJS.parts.number.value; i++) {
                 bgJS.parts.array.push(
-                    new bgJS.fn.particle(bgJS.parts.color, bgJS.parts.opacity.value)
+                    new bgJS.fn.particle(
+                        bgJS.parts.color,
+                        bgJS.parts.opacity.value
+                    )
                 );
             }
         };
@@ -511,7 +552,8 @@ class bgJS {
                 /* change opacity status */
                 if (bgJS.parts.opacity.anim.enable) {
                     if (p.opacity_status == true) {
-                        if (p.opacity >= bgJS.parts.opacity.value) p.opacity_status = false;
+                        if (p.opacity >= bgJS.parts.opacity.value)
+                            p.opacity_status = false;
                         p.opacity += p.vo;
                     } else {
                         if (p.opacity <= bgJS.parts.opacity.anim.opacity_min)
@@ -524,10 +566,12 @@ class bgJS {
                 /* change size */
                 if (bgJS.parts.size.anim.enable) {
                     if (p.size_status == true) {
-                        if (p.radius >= bgJS.parts.size.value) p.size_status = false;
+                        if (p.radius >= bgJS.parts.size.value)
+                            p.size_status = false;
                         p.radius += p.vs;
                     } else {
-                        if (p.radius <= bgJS.parts.size.anim.size_min) p.size_status = true;
+                        if (p.radius <= bgJS.parts.size.anim.size_min)
+                            p.size_status = true;
                         p.radius -= p.vs;
                     }
                     if (p.radius < 0) p.radius = 0;
@@ -581,21 +625,30 @@ class bgJS {
                 }
 
                 if (
-                    isInArray('bubble', bgJS.interactivity.events.onhover.mode) ||
+                    isInArray(
+                        'bubble',
+                        bgJS.interactivity.events.onhover.mode
+                    ) ||
                     isInArray('bubble', bgJS.interactivity.events.onclick.mode)
                 ) {
                     bgJS.fn.modes.bubbleParticle(p);
                 }
 
                 if (
-                    isInArray('repulse', bgJS.interactivity.events.onhover.mode) ||
+                    isInArray(
+                        'repulse',
+                        bgJS.interactivity.events.onhover.mode
+                    ) ||
                     isInArray('repulse', bgJS.interactivity.events.onclick.mode)
                 ) {
                     bgJS.fn.modes.repulseParticle(p);
                 }
 
                 /* interaction auto between parts */
-                if (bgJS.parts.line_linked.enable || bgJS.parts.move.attract.enable) {
+                if (
+                    bgJS.parts.line_linked.enable ||
+                    bgJS.parts.move.attract.enable
+                ) {
                     for (var j = i + 1; j < bgJS.parts.array.length; j++) {
                         var p2 = bgJS.parts.array[j];
 
@@ -660,7 +713,9 @@ class bgJS {
             if (dist <= bgJS.parts.line_linked.distance) {
                 var opacity_line =
                     bgJS.parts.line_linked.opacity -
-                    dist / (1 / bgJS.parts.line_linked.opacity) / bgJS.parts.line_linked.distance;
+                    dist /
+                        (1 / bgJS.parts.line_linked.opacity) /
+                        bgJS.parts.line_linked.distance;
 
                 if (opacity_line > 0) {
                     /* style */
@@ -726,10 +781,14 @@ class bgJS {
 
             for (var i = 0; i < nb; i++) {
                 bgJS.parts.array.push(
-                    new bgJS.fn.particle(bgJS.parts.color, bgJS.parts.opacity.value, {
-                        x: pos ? pos.pos_x : Math.random() * bgJS.canvas.w,
-                        y: pos ? pos.pos_y : Math.random() * bgJS.canvas.h
-                    })
+                    new bgJS.fn.particle(
+                        bgJS.parts.color,
+                        bgJS.parts.opacity.value,
+                        {
+                            x: pos ? pos.pos_x : Math.random() * bgJS.canvas.w,
+                            y: pos ? pos.pos_y : Math.random() * bgJS.canvas.h
+                        }
+                    )
                 );
                 if (i == nb - 1) {
                     if (!bgJS.parts.move.enable) {
@@ -755,8 +814,12 @@ class bgJS {
             ) {
                 var dx_mouse = p.x - bgJS.interactivity.mouse.pos_x,
                     dy_mouse = p.y - bgJS.interactivity.mouse.pos_y,
-                    dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse),
-                    ratio = 1 - dist_mouse / bgJS.interactivity.modes.bubble.distance;
+                    dist_mouse = Math.sqrt(
+                        dx_mouse * dx_mouse + dy_mouse * dy_mouse
+                    ),
+                    ratio =
+                        1 -
+                        dist_mouse / bgJS.interactivity.modes.bubble.distance;
 
                 function init() {
                     p.opacity_bubble = p.opacity;
@@ -765,16 +828,30 @@ class bgJS {
 
                 /* mousemove - check ratio */
                 if (dist_mouse <= bgJS.interactivity.modes.bubble.distance) {
-                    if (ratio >= 0 && bgJS.interactivity.status == 'mousemove') {
+                    if (
+                        ratio >= 0 &&
+                        bgJS.interactivity.status == 'mousemove'
+                    ) {
                         /* size */
-                        if (bgJS.interactivity.modes.bubble.size != bgJS.parts.size.value) {
-                            if (bgJS.interactivity.modes.bubble.size > bgJS.parts.size.value) {
-                                var size = p.radius + bgJS.interactivity.modes.bubble.size * ratio;
+                        if (
+                            bgJS.interactivity.modes.bubble.size !=
+                            bgJS.parts.size.value
+                        ) {
+                            if (
+                                bgJS.interactivity.modes.bubble.size >
+                                bgJS.parts.size.value
+                            ) {
+                                var size =
+                                    p.radius +
+                                    bgJS.interactivity.modes.bubble.size *
+                                        ratio;
                                 if (size >= 0) {
                                     p.radius_bubble = size;
                                 }
                             } else {
-                                var dif = p.radius - bgJS.interactivity.modes.bubble.size,
+                                var dif =
+                                        p.radius -
+                                        bgJS.interactivity.modes.bubble.size,
                                     size = p.radius - dif * ratio;
                                 if (size > 0) {
                                     p.radius_bubble = size;
@@ -785,14 +862,21 @@ class bgJS {
                         }
 
                         /* opacity */
-                        if (bgJS.interactivity.modes.bubble.opacity != bgJS.parts.opacity.value) {
+                        if (
+                            bgJS.interactivity.modes.bubble.opacity !=
+                            bgJS.parts.opacity.value
+                        ) {
                             if (
-                                bgJS.interactivity.modes.bubble.opacity > bgJS.parts.opacity.value
+                                bgJS.interactivity.modes.bubble.opacity >
+                                bgJS.parts.opacity.value
                             ) {
-                                var opacity = bgJS.interactivity.modes.bubble.opacity * ratio;
+                                var opacity =
+                                    bgJS.interactivity.modes.bubble.opacity *
+                                    ratio;
                                 if (
                                     opacity > p.opacity &&
-                                    opacity <= bgJS.interactivity.modes.bubble.opacity
+                                    opacity <=
+                                        bgJS.interactivity.modes.bubble.opacity
                                 ) {
                                     p.opacity_bubble = opacity;
                                 }
@@ -800,11 +884,13 @@ class bgJS {
                                 var opacity =
                                     p.opacity -
                                     (bgJS.parts.opacity.value -
-                                        bgJS.interactivity.modes.bubble.opacity) *
+                                        bgJS.interactivity.modes.bubble
+                                            .opacity) *
                                         ratio;
                                 if (
                                     opacity < p.opacity &&
-                                    opacity >= bgJS.interactivity.modes.bubble.opacity
+                                    opacity >=
+                                        bgJS.interactivity.modes.bubble.opacity
                                 ) {
                                     p.opacity_bubble = opacity;
                                 }
@@ -827,44 +913,65 @@ class bgJS {
                 if (bgJS.tmp.bubble_clicking) {
                     var dx_mouse = p.x - bgJS.interactivity.mouse.click_pos_x,
                         dy_mouse = p.y - bgJS.interactivity.mouse.click_pos_y,
-                        dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse),
+                        dist_mouse = Math.sqrt(
+                            dx_mouse * dx_mouse + dy_mouse * dy_mouse
+                        ),
                         time_spent =
-                            (new Date().getTime() - bgJS.interactivity.mouse.click_time) / 1000;
+                            (new Date().getTime() -
+                                bgJS.interactivity.mouse.click_time) /
+                            1000;
 
                     if (time_spent > bgJS.interactivity.modes.bubble.duration) {
                         bgJS.tmp.bubble_duration_end = true;
                     }
 
-                    if (time_spent > bgJS.interactivity.modes.bubble.duration * 2) {
+                    if (
+                        time_spent >
+                        bgJS.interactivity.modes.bubble.duration * 2
+                    ) {
                         bgJS.tmp.bubble_clicking = false;
                         bgJS.tmp.bubble_duration_end = false;
                     }
                 }
 
-                function process(bubble_param, particles_param, p_obj_bubble, p_obj, id) {
+                function process(
+                    bubble_param,
+                    particles_param,
+                    p_obj_bubble,
+                    p_obj,
+                    id
+                ) {
                     if (bubble_param != particles_param) {
                         if (!bgJS.tmp.bubble_duration_end) {
-                            if (dist_mouse <= bgJS.interactivity.modes.bubble.distance) {
-                                if (p_obj_bubble != undefined) var obj = p_obj_bubble;
+                            if (
+                                dist_mouse <=
+                                bgJS.interactivity.modes.bubble.distance
+                            ) {
+                                if (p_obj_bubble != undefined)
+                                    var obj = p_obj_bubble;
                                 else var obj = p_obj;
                                 if (obj != bubble_param) {
                                     var value =
                                         p_obj -
                                         (time_spent * (p_obj - bubble_param)) /
-                                            bgJS.interactivity.modes.bubble.duration;
+                                            bgJS.interactivity.modes.bubble
+                                                .duration;
                                     if (id == 'size') p.radius_bubble = value;
-                                    if (id == 'opacity') p.opacity_bubble = value;
+                                    if (id == 'opacity')
+                                        p.opacity_bubble = value;
                                 }
                             } else {
                                 if (id == 'size') p.radius_bubble = undefined;
-                                if (id == 'opacity') p.opacity_bubble = undefined;
+                                if (id == 'opacity')
+                                    p.opacity_bubble = undefined;
                             }
                         } else {
                             if (p_obj_bubble != undefined) {
                                 var value_tmp =
                                         p_obj -
                                         (time_spent * (p_obj - bubble_param)) /
-                                            bgJS.interactivity.modes.bubble.duration,
+                                            bgJS.interactivity.modes.bubble
+                                                .duration,
                                     dif = bubble_param - value_tmp;
                                 value = bubble_param + dif;
                                 if (id == 'size') p.radius_bubble = value;
@@ -903,9 +1010,14 @@ class bgJS {
             ) {
                 var dx_mouse = p.x - bgJS.interactivity.mouse.pos_x,
                     dy_mouse = p.y - bgJS.interactivity.mouse.pos_y,
-                    dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
+                    dist_mouse = Math.sqrt(
+                        dx_mouse * dx_mouse + dy_mouse * dy_mouse
+                    );
 
-                var normVec = { x: dx_mouse / dist_mouse, y: dy_mouse / dist_mouse },
+                var normVec = {
+                        x: dx_mouse / dist_mouse,
+                        y: dy_mouse / dist_mouse
+                    },
                     repulseRadius = bgJS.interactivity.modes.repulse.distance,
                     velocity = 100,
                     repulseFactor = clamp(
@@ -923,8 +1035,16 @@ class bgJS {
                 };
 
                 if (bgJS.parts.move.out_mode == 'bounce') {
-                    if (pos.x - p.radius > 0 && pos.x + p.radius < bgJS.canvas.w) p.x = pos.x;
-                    if (pos.y - p.radius > 0 && pos.y + p.radius < bgJS.canvas.h) p.y = pos.y;
+                    if (
+                        pos.x - p.radius > 0 &&
+                        pos.x + p.radius < bgJS.canvas.w
+                    )
+                        p.x = pos.x;
+                    if (
+                        pos.y - p.radius > 0 &&
+                        pos.y + p.radius < bgJS.canvas.h
+                    )
+                        p.y = pos.y;
                 } else {
                     p.x = pos.x;
                     p.y = pos.y;
@@ -941,7 +1061,10 @@ class bgJS {
                 }
 
                 if (bgJS.tmp.repulse_clicking) {
-                    var repulseRadius = Math.pow(bgJS.interactivity.modes.repulse.distance / 6, 3);
+                    var repulseRadius = Math.pow(
+                        bgJS.interactivity.modes.repulse.distance / 6,
+                        3
+                    );
 
                     var dx = bgJS.interactivity.mouse.click_pos_x - p.x,
                         dy = bgJS.interactivity.mouse.click_pos_y - p.y,
@@ -986,14 +1109,18 @@ class bgJS {
             ) {
                 var dx_mouse = p.x - bgJS.interactivity.mouse.pos_x,
                     dy_mouse = p.y - bgJS.interactivity.mouse.pos_y,
-                    dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
+                    dist_mouse = Math.sqrt(
+                        dx_mouse * dx_mouse + dy_mouse * dy_mouse
+                    );
 
                 /* draw a line between the cursor and the particle if the distance between them is under the config distance */
                 if (dist_mouse <= bgJS.interactivity.modes.grab.distance) {
                     var opacity_line =
                         bgJS.interactivity.modes.grab.line_linked.opacity -
                         dist_mouse /
-                            (1 / bgJS.interactivity.modes.grab.line_linked.opacity) /
+                            (1 /
+                                bgJS.interactivity.modes.grab.line_linked
+                                    .opacity) /
                             bgJS.interactivity.modes.grab.distance;
 
                     if (opacity_line > 0) {
@@ -1009,7 +1136,8 @@ class bgJS {
                             ',' +
                             opacity_line +
                             ')';
-                        bgJS.canvas.ctx.lineWidth = bgJS.parts.line_linked.width;
+                        bgJS.canvas.ctx.lineWidth =
+                            bgJS.parts.line_linked.width;
                         //bgJS.canvas.ctx.lineCap = 'round'; /* performance issue */
                         /* path */
                         bgJS.canvas.ctx.beginPath();
@@ -1040,39 +1168,49 @@ class bgJS {
                 bgJS.interactivity.events.onclick.enable
             ) {
                 /* el on mousemove */
-                bgJS.interactivity.el.addEventListener('mousemove', function (e) {
-                    if (bgJS.interactivity.el == window) {
-                        var pos_x = e.clientX,
-                            pos_y = e.clientY;
-                    } else {
-                        var pos_x = e.offsetX || e.clientX,
-                            pos_y = e.offsetY || e.clientY;
+                bgJS.interactivity.el.addEventListener(
+                    'mousemove',
+                    function (e) {
+                        if (bgJS.interactivity.el == window) {
+                            var pos_x = e.clientX,
+                                pos_y = e.clientY;
+                        } else {
+                            var pos_x = e.offsetX || e.clientX,
+                                pos_y = e.offsetY || e.clientY;
+                        }
+
+                        bgJS.interactivity.mouse.pos_x = pos_x;
+                        bgJS.interactivity.mouse.pos_y = pos_y;
+
+                        if (bgJS.tmp.retina) {
+                            bgJS.interactivity.mouse.pos_x *=
+                                bgJS.canvas.pxratio;
+                            bgJS.interactivity.mouse.pos_y *=
+                                bgJS.canvas.pxratio;
+                        }
+
+                        bgJS.interactivity.status = 'mousemove';
                     }
-
-                    bgJS.interactivity.mouse.pos_x = pos_x;
-                    bgJS.interactivity.mouse.pos_y = pos_y;
-
-                    if (bgJS.tmp.retina) {
-                        bgJS.interactivity.mouse.pos_x *= bgJS.canvas.pxratio;
-                        bgJS.interactivity.mouse.pos_y *= bgJS.canvas.pxratio;
-                    }
-
-                    bgJS.interactivity.status = 'mousemove';
-                });
+                );
 
                 /* el on onmouseleave */
-                bgJS.interactivity.el.addEventListener('mouseleave', function (e) {
-                    bgJS.interactivity.mouse.pos_x = null;
-                    bgJS.interactivity.mouse.pos_y = null;
-                    bgJS.interactivity.status = 'mouseleave';
-                });
+                bgJS.interactivity.el.addEventListener(
+                    'mouseleave',
+                    function (e) {
+                        bgJS.interactivity.mouse.pos_x = null;
+                        bgJS.interactivity.mouse.pos_y = null;
+                        bgJS.interactivity.status = 'mouseleave';
+                    }
+                );
             }
 
             /* on click event */
             if (bgJS.interactivity.events.onclick.enable) {
                 bgJS.interactivity.el.addEventListener('click', function () {
-                    bgJS.interactivity.mouse.click_pos_x = bgJS.interactivity.mouse.pos_x;
-                    bgJS.interactivity.mouse.click_pos_y = bgJS.interactivity.mouse.pos_y;
+                    bgJS.interactivity.mouse.click_pos_x =
+                        bgJS.interactivity.mouse.pos_x;
+                    bgJS.interactivity.mouse.click_pos_y =
+                        bgJS.interactivity.mouse.pos_y;
                     bgJS.interactivity.mouse.click_time = new Date().getTime();
 
                     if (bgJS.interactivity.events.onclick.enable) {
@@ -1080,18 +1218,27 @@ class bgJS {
                             case 'push':
                                 if (bgJS.parts.move.enable) {
                                     bgJS.fn.modes.pushParticles(
-                                        bgJS.interactivity.modes.push.particles_nb,
+                                        bgJS.interactivity.modes.push
+                                            .particles_nb,
                                         bgJS.interactivity.mouse
                                     );
                                 } else {
-                                    if (bgJS.interactivity.modes.push.particles_nb == 1) {
+                                    if (
+                                        bgJS.interactivity.modes.push
+                                            .particles_nb == 1
+                                    ) {
                                         bgJS.fn.modes.pushParticles(
-                                            bgJS.interactivity.modes.push.particles_nb,
+                                            bgJS.interactivity.modes.push
+                                                .particles_nb,
                                             bgJS.interactivity.mouse
                                         );
-                                    } else if (bgJS.interactivity.modes.push.particles_nb > 1) {
+                                    } else if (
+                                        bgJS.interactivity.modes.push
+                                            .particles_nb > 1
+                                    ) {
                                         bgJS.fn.modes.pushParticles(
-                                            bgJS.interactivity.modes.push.particles_nb
+                                            bgJS.interactivity.modes.push
+                                                .particles_nb
                                         );
                                     }
                                 }
@@ -1113,7 +1260,8 @@ class bgJS {
                                 bgJS.tmp.repulse_finish = false;
                                 setTimeout(function () {
                                     bgJS.tmp.repulse_clicking = false;
-                                }, bgJS.interactivity.modes.repulse.duration * 1000);
+                                }, bgJS.interactivity.modes.repulse.duration *
+                                    1000);
                                 break;
                         }
                     }
@@ -1124,18 +1272,21 @@ class bgJS {
         bgJS.fn.vendors.densityAutoParticles = function () {
             if (bgJS.parts.number.density.enable) {
                 /* calc area */
-                var area = (bgJS.canvas.el.width * bgJS.canvas.el.height) / 1000;
+                var area =
+                    (bgJS.canvas.el.width * bgJS.canvas.el.height) / 1000;
                 if (bgJS.tmp.retina) {
                     area = area / (bgJS.canvas.pxratio * 2);
                 }
 
                 /* calc number of parts based on density area */
                 var nb_particles =
-                    (area * bgJS.parts.number.value) / bgJS.parts.number.density.value_area;
+                    (area * bgJS.parts.number.value) /
+                    bgJS.parts.number.density.value_area;
 
                 /* add or remove X parts */
                 var missing_particles = bgJS.parts.array.length - nb_particles;
-                if (missing_particles < 0) bgJS.fn.modes.pushParticles(Math.abs(missing_particles));
+                if (missing_particles < 0)
+                    bgJS.fn.modes.pushParticles(Math.abs(missing_particles));
                 else bgJS.fn.modes.removeParticles(missing_particles);
             }
         };
@@ -1149,8 +1300,12 @@ class bgJS {
                     dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist <= p1.radius + p2.radius) {
-                    p1.x = position ? position.x : Math.random() * bgJS.canvas.w;
-                    p1.y = position ? position.y : Math.random() * bgJS.canvas.h;
+                    p1.x = position
+                        ? position.x
+                        : Math.random() * bgJS.canvas.w;
+                    p1.y = position
+                        ? position.y
+                        : Math.random() * bgJS.canvas.h;
                     bgJS.fn.vendors.checkOverlap(p1);
                 }
             }
@@ -1188,7 +1343,9 @@ class bgJS {
                 });
 
             /* prepare to create img with colored svg */
-            var svg = new Blob([coloredSvgXml], { type: 'image/svg+xml;charset=utf-8' }),
+            var svg = new Blob([coloredSvgXml], {
+                    type: 'image/svg+xml;charset=utf-8'
+                }),
                 DOMURL = window.URL || window.webkitURL || window,
                 url = DOMURL.createObjectURL(svg);
 
@@ -1220,8 +1377,10 @@ class bgJS {
             // By Programming Thomas - https://programmingthomas.wordpress.com/2013/04/03/n-sided-shapes/
             var sideCount = sideCountNumerator * sideCountDenominator;
             var decimalSides = sideCountNumerator / sideCountDenominator;
-            var interiorAngleDegrees = (180 * (decimalSides - 2)) / decimalSides;
-            var interiorAngle = Math.PI - (Math.PI * interiorAngleDegrees) / 180; // convert to radians
+            var interiorAngleDegrees =
+                (180 * (decimalSides - 2)) / decimalSides;
+            var interiorAngle =
+                Math.PI - (Math.PI * interiorAngleDegrees) / 180; // convert to radians
             c.save();
             c.beginPath();
             c.translate(startX, startY);
@@ -1250,7 +1409,8 @@ class bgJS {
                     xhr.onreadystatechange = function (data) {
                         if (xhr.readyState == 4) {
                             if (xhr.status == 200) {
-                                bgJS.tmp.source_svg = data.currentTarget.response;
+                                bgJS.tmp.source_svg =
+                                    data.currentTarget.response;
                                 bgJS.fn.vendors.checkBeforeDraw();
                             } else {
                                 console.log('Error bgJS - Image not found');
@@ -1278,33 +1438,52 @@ class bgJS {
                 if (bgJS.tmp.img_type == 'svg') {
                     if (bgJS.tmp.count_svg >= bgJS.parts.number.value) {
                         bgJS.fn.particlesDraw();
-                        if (!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
-                        else bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
+                        if (!bgJS.parts.move.enable)
+                            cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
+                        else
+                            bgJS.fn.drawAnimFrame = requestAnimFrame(
+                                bgJS.fn.vendors.draw
+                            );
                     } else {
                         if (!bgJS.tmp.img_error)
-                            bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
+                            bgJS.fn.drawAnimFrame = requestAnimFrame(
+                                bgJS.fn.vendors.draw
+                            );
                     }
                 } else {
                     if (bgJS.tmp.img_obj != undefined) {
                         bgJS.fn.particlesDraw();
-                        if (!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
-                        else bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
+                        if (!bgJS.parts.move.enable)
+                            cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
+                        else
+                            bgJS.fn.drawAnimFrame = requestAnimFrame(
+                                bgJS.fn.vendors.draw
+                            );
                     } else {
                         if (!bgJS.tmp.img_error)
-                            bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
+                            bgJS.fn.drawAnimFrame = requestAnimFrame(
+                                bgJS.fn.vendors.draw
+                            );
                     }
                 }
             } else {
                 bgJS.fn.particlesDraw();
-                if (!bgJS.parts.move.enable) cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
-                else bgJS.fn.drawAnimFrame = requestAnimFrame(bgJS.fn.vendors.draw);
+                if (!bgJS.parts.move.enable)
+                    cancelRequestAnimFrame(bgJS.fn.drawAnimFrame);
+                else
+                    bgJS.fn.drawAnimFrame = requestAnimFrame(
+                        bgJS.fn.vendors.draw
+                    );
             }
         };
 
         bgJS.fn.vendors.checkBeforeDraw = function () {
             // if shape is image
             if (bgJS.parts.shape.type == 'image') {
-                if (bgJS.tmp.img_type == 'svg' && bgJS.tmp.source_svg == undefined) {
+                if (
+                    bgJS.tmp.img_type == 'svg' &&
+                    bgJS.tmp.source_svg == undefined
+                ) {
                     bgJS.tmp.checkAnimFrame = requestAnimFrame(check);
                 } else {
                     cancelRequestAnimFrame(bgJS.tmp.checkAnimFrame);
@@ -1329,7 +1508,9 @@ class bgJS {
             bgJS.fn.vendors.densityAutoParticles();
 
             /* parts.line_linked - convert hex colors to rgb */
-            bgJS.parts.line_linked.color_rgb_line = hexToRgb(bgJS.parts.line_linked.color);
+            bgJS.parts.line_linked.color_rgb_line = hexToRgb(
+                bgJS.parts.line_linked.color
+            );
         };
 
         bgJS.fn.vendors.start = function () {
@@ -1477,7 +1658,9 @@ window.backgroundJS = class {
                     window.backgroundJS(tag_id, params);
                     if (callback) callback();
                 } else {
-                    console.log('Error bgJS - XMLHttpRequest status: ' + xhr.status);
+                    console.log(
+                        'Error bgJS - XMLHttpRequest status: ' + xhr.status
+                    );
                     console.log('Error bgJS - File config not found');
                 }
             }

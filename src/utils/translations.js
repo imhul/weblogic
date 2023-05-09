@@ -34,7 +34,8 @@ const translations = {
         message_success_phone: 'Phone number successfully copied!',
         message_success_email: 'Email address successfully copied!',
         message_success: 'Message sent successfully!',
-        message_success_recaptcha: 'You have successfully passed the verification!',
+        message_success_recaptcha:
+            'You have successfully passed the verification!',
         message_error: 'Error while sending!',
         message_error_phone: 'Error while sending: Enter the phone number!',
         message_error_wrong: 'Something wrong!',
@@ -47,10 +48,11 @@ const translations = {
         front_dev: 'front-end developer',
         tagline: (
             <span>
-                Using new technologies, such as <mark> React </mark> or <mark> Svelte </mark> always
-                gives inspiration. I prefer non-standard <mark>UI</mark> and <mark>UX</mark>{' '}
-                solutions, taking as a basis the concept of <mark>Material Design</mark> and{' '}
-                <mark>Neumorphism</mark>
+                Using new technologies, such as <mark> React </mark> or{' '}
+                <mark> Svelte </mark> always gives inspiration. I prefer
+                non-standard <mark>UI</mark> and <mark>UX</mark> solutions,
+                taking as a basis the concept of <mark>Material Design</mark>{' '}
+                and <mark>Neumorphism</mark>
             </span>
         ),
         what_i_do: 'What I do?',
@@ -85,8 +87,8 @@ const translations = {
                 >
                     Svelte
                 </a>{' '}
-                and it's great. After an in-depth study, I can say with confidence that this is a
-                top!
+                and it's great. After an in-depth study, I can say with
+                confidence that this is a top!
             </span>
         ),
 
@@ -99,9 +101,9 @@ const translations = {
         work_6: 'e-commerce project, React + Redux + masonry + design',
         work_7: (
             <span>
-                The iSoftBet European online casino game, which was released in 2017. Then an
-                article on the www.softgamings.com was written about her. Animation on Pixi.js +
-                TypeScript
+                The iSoftBet European online casino game, which was released in
+                2017. Then an article on the www.softgamings.com was written
+                about her. Animation on Pixi.js + TypeScript
             </span>
         ),
         work_8: 'Analytical resource, JavaScript + jQuery + Materialize + design',
@@ -114,7 +116,8 @@ const translations = {
 
         // Game EN
         game_title: 'Proto-Mass. The Game',
-        game_subtitle: 'React-based Pixel-Art Sandbox Game with Indirect Control',
+        game_subtitle:
+            'React-based Pixel-Art Sandbox Game with Indirect Control',
         game_description:
             'Far away on a distant planet inhabited by primitive life forms a small colony of robots accidentally trapped must build, develop and fight only to exist... How far can they go?',
         game_demo: 'Demo App',
@@ -168,9 +171,11 @@ const translations = {
         front_dev: 'фронтенд разробник',
         tagline: (
             <span>
-                Використання новых технологій, таких як <mark>React</mark> або <mark>Svelte</mark>{' '}
-                завжди надихає. Я надаю перевагу нестандартним <mark>UI</mark> та <mark>UX</mark>{' '}
-                рішенням, беручи за основу концепції <mark>неоморфізму та Material Design</mark>
+                Використання новых технологій, таких як <mark>React</mark> або{' '}
+                <mark>Svelte</mark> завжди надихає. Я надаю перевагу
+                нестандартним <mark>UI</mark> та <mark>UX</mark> рішенням,
+                беручи за основу концепції{' '}
+                <mark>неоморфізму та Material Design</mark>
             </span>
         ),
         what_i_do: 'Що я пропоную',
@@ -181,7 +186,8 @@ const translations = {
         // Roadmap UA
         step_2008:
             'Почав вивчати CSS, HTML, Joomla CMS а також основи веб-дизайну та Adobe Photoshop. Незабаром я зробив своє перше замовлення - сайт на чистому html+css. Друге замовлення я зробив на Joomla',
-        step_2011: 'Серйозно захопився вивченням SEO. Тоді ж зацікавився UI/UX дизайном',
+        step_2011:
+            'Серйозно захопився вивченням SEO. Тоді ж зацікавився UI/UX дизайном',
         step_2013:
             'Поставив свій перший рекорд: зробивши сайт з нуля, вивів у топ-3 у пошуку Google за три дні',
         step_2015:
@@ -205,7 +211,8 @@ const translations = {
                 >
                     Svelte
                 </a>{' '}
-                і це прекрасно. Після поглибленого вивчення можу сказати впевнено, що це топ!
+                і це прекрасно. Після поглибленого вивчення можу сказати
+                впевнено, що це топ!
             </span>
         ),
 
@@ -218,9 +225,9 @@ const translations = {
         work_6: 'Інтернет-магазин, React + Redux + masonry + дизайн',
         work_7: (
             <span>
-                Гра для європейского онлайн-казино iSoftBet, котра вийшла в реліз у 2017 році. Тоді
-                ж про неї була опублікована стаття на сайті www.softgamings.com. Анімація на Pixi.js
-                + TypeScript
+                Гра для європейского онлайн-казино iSoftBet, котра вийшла в
+                реліз у 2017 році. Тоді ж про неї була опублікована стаття на
+                сайті www.softgamings.com. Анімація на Pixi.js + TypeScript
             </span>
         ),
         work_8: 'Аналітичний ресурс, JavaScript + jQuery + Materialize + дизайн',
