@@ -30,56 +30,6 @@
         color: $color-link-hover;
     }
 
-    form {
-        padding: 20px;
-        border-radius: 4px;
-        border: 1px solid #bcc8ce;
-        .mb-2 {
-            margin-bottom: 2px !important;
-        }
-        .ant-statistic-content {
-            color: $color-white;
-        }
-        h2 {
-            i {
-                font-size: 26px;
-            }
-        }
-        textarea {
-            margin: 20px 0 !important;
-            font-family: monospace;
-            font-size: 20px;
-        }
-        .ant-input {
-            background-color: $color-deep-black;
-            border-color: $color-white;
-            color: $color-white;
-            &:hover {
-                border-color: $color-link-hover !important;
-            }
-            &:focus {
-                border-color: $color-link-hover !important;
-                box-shadow: 0 0 20px $color-link-hover;
-            }
-        }
-
-        button[type='submit'] {
-            font-family: 'Open-Sans', sans-serif;
-            background-color: $color-white;
-            border-color: $color-white;
-            color: $color-black;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            &:hover {
-                text-shadow: $color-link-hover 0 0 20px;
-                border-color: $color-link-hover;
-                color: $color-link-hover;
-                background-color: $transparent;
-            }
-        }
-    }
-
     .left,
     .right {
         button {

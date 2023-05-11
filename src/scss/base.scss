@@ -1,7 +1,3 @@
-/* Colors */
-
-$transparent: rgba(0, 0, 0, 0) !default;
-
 /* Reset styles */
 
 html {
@@ -53,69 +49,15 @@ body {
     }
 }
 
-/* Animations */
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(180deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes stop {
-    0% {
-        transform: rotate(0deg);
-    }
-    70% {
-        transform: rotate(252deg);
-    }
-    80% {
-        transform: rotate(288deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes showDescription {
-    0% {
-        bottom: -120px;
-        opacity: 0;
-    }
-    1% {
-        bottom: -120px;
-        opacity: 0;
-    }
-    100% {
-        bottom: 50px;
-        opacity: 1;
-    }
-}
-
-@keyframes hideDescription {
-    0% {
-        bottom: 50px;
-        opacity: 1;
-    }
-    1% {
-        bottom: 50px;
-        opacity: 1;
-    }
-    100% {
-        bottom: -120px;
-        opacity: 0;
-    }
+[disabled] {
+    cursor: not-allowed !important;
 }
 
 /* App */
 
 body {
     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cmVjdCB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiBmaWxsPSJyZ2JhKDY1LDEwMCwxMTcsMSkiPjwvcmVjdD4KPHBhdGggZD0iTTI4IDY2TDAgNTBMMCAxNkwyOCAwTDU2IDE2TDU2IDUwTDI4IDY2TDI4IDEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDE4OCwgMjAwLCAyMDYsIC4yKSIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+CjxwYXRoIGQ9Ik0yOCAwTDI4IDM0TDAgNTBMMCA4NEwyOCAxMDBMNTYgODRMNTYgNTBMMjggMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgxODgsIDIwMCwgMjA2LCAuMSkiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
+
     #bg-app {
         width: 100%;
         height: 100%;
@@ -151,14 +93,55 @@ body {
                 }
             }
 
-            a,
-            .btn,
+            img,
+            svg,
+            path,
             button {
-                transition: all 0.3s;
+                user-select: none;
+            }
+
+            a,
+            svg,
+            path,
+            input,
+            button,
+            .url,
+            .btn,
+            .link,
+            .button,
+            .basic-transition {
+                transition: color 0.35s, background-color 0.35s,
+                    border-color 0.35s, filter 0.35s, fill 0.35s,
+                    text-shadow 0.35s, box-shadow 0.35s;
+            }
+
+            input,
+            textarea,
+            select {
+                &::placeholder {
+                    opacity: 0.5;
+                    color: $color-white;
+                }
+
+                &:autofill {
+                    background-color: $transparent !important;
+
+                    &:hover,
+                    &:focus {
+                        background-color: $transparent !important;
+                    }
+
+                    -webkit-text-fill-color: $color-white;
+                    box-shadow: 0 0 0px 1000px $color-deep-black inset;
+                    transition: background-color 5000s ease-in-out 0s;
+                }
             }
 
             .react-contextmenu {
                 @extend %context-menu;
+            }
+            .half-opacity {
+                opacity: 0.5;
             }
 
             .icon-lamp {
@@ -175,6 +158,14 @@ body {
             }
             .block {
                 display: block !important;
+            }
+            .flex {
+                display: flex !important;
+
+                &.center {
+                    align-items: center;
+                    justify-content: center;
+                }
             }
             .mb-0 {
                 margin-bottom: 0 !important;

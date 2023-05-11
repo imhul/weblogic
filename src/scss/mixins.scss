@@ -51,3 +51,55 @@ $min-width-x-large: 1600px;
         @content;
     }
 }
+
+// EXAMPLE USAGE:
+
+// input[type='range'] {
+//     z-index: 1;
+//     position: absolute;
+//     left: 0;
+//     top: -0.125rem;
+//     width: 100%;
+//     margin: var(--size-4) 0;
+//     content: '';
+//     background-color: var(--transparent);
+//     pointer-events: none;
+//     appearance: none;
+
+//     &:focus {
+//         outline: none;
+//     }
+
+//     &::-webkit-slider-runnable-track {
+//         background: var(--color-pink);
+//         border: none;
+//         border-radius: var(--size-2);
+//         width: 100%;
+//         height: var(--size-2);
+//     }
+
+//     &::-webkit-slider-thumb {
+//         width: var(--size-0-5);
+//         height: var(--size-2);
+//         background: var(--color-pink);
+//         border: none;
+//         box-shadow: makelongshadow(var(--range-bg), 0);
+//         appearance: none;
+//     }
+
+//     &::-moz-range-track {
+//         background: var(--color-pink);
+//         border: none;
+//         border-radius: var(--size-2);
+//         width: 100%;
+//         height: var(--size-2);
+//     }
+
+//     &::-moz-range-thumb {
+//         width: var(--size-0-5);
+//         height: var(--size-2);
+//         background: var(--color-pink);
+//         border: none;
+//         box-shadow: makelongshadow(var(--range-bg), 0);
+//     }
+// }

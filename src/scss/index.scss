@@ -7,6 +7,7 @@
 @import 'typography';
 @import 'mixins';
 @import 'fragments';
+@import 'keyframes';
 @import 'others';
 
 /* pages */
@@ -23,9 +24,11 @@
 @import './pages/contact';
 
 /* components */
+@import './components/progress';
 @import './components/stats';
 @import './components/toolbar';
 @import './components/futures';
 @import './components/howto';
 @import './components/menu';
 @import './components/captcha';
+@import './components/form';

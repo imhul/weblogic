@@ -7,5 +7,7 @@ export const initStateUX = {
     isDescShow: true,
     tgMessage: '',
     isFilled: false,
-    isFuturesOpen: false
+    isFuturesOpen: false,
+    emailForm: {},
+    smsForm: {}
 };

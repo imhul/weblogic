@@ -26,6 +26,7 @@
         "@netlify/functions": "^1.4.0",
         "@netlify/functions-utils": "^5.2.3",
         "@parcel/babel-preset-env": "^2.8.3",
+        "@parcel/optimizer-cssnano": "^2.8.3",
         "@parcel/transformer-image": "^2.8.3",
         "@parcel/transformer-sass": "2.8.3",
         "@parcel/transformer-svg-react": "^2.8.3",

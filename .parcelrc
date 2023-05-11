@@ -3,5 +3,8 @@
   "transformers": {
     "*.svg": ["@parcel/transformer-svg-react"],
     "*.{png,jpg,jpeg}": ["parcel-transformer-url-loader"]
+  },
+  "optimizers": {
+    "*.css": ["@parcel/optimizer-cssnano"]
   }
 }

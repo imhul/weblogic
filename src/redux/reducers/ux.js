@@ -54,6 +54,13 @@ export default (state = initStateUX, action) => {
                 isFilled: action.payload.length > 9 ? true : false
             };
 
+        case types.FORM_UPDATE:
+            return {
+                ...state,
+                emailForm: action.payload.form,
+                isFilled: action.payload.filled
+            };
+
         case types.TOGGLE_FUTURES:
             return {
                 ...state,

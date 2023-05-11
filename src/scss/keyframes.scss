@@ -1,0 +1,145 @@
+/* Animations */
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes stop {
+    0% {
+        transform: rotate(0deg);
+    }
+    70% {
+        transform: rotate(252deg);
+    }
+    80% {
+        transform: rotate(288deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes showDescription {
+    0% {
+        bottom: -120px;
+        opacity: 0;
+    }
+    1% {
+        bottom: -120px;
+        opacity: 0;
+    }
+    100% {
+        bottom: 50px;
+        opacity: 1;
+    }
+}
+
+@keyframes hideDescription {
+    0% {
+        bottom: 50px;
+        opacity: 1;
+    }
+    1% {
+        bottom: 50px;
+        opacity: 1;
+    }
+    100% {
+        bottom: -120px;
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes pure-material-progress-circular {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    12.5% {
+        animation-timing-function: linear;
+        transform: rotate(180deg);
+    }
+
+    25% {
+        transform: rotate(630deg);
+    }
+
+    37.5% {
+        animation-timing-function: linear;
+        transform: rotate(810deg);
+    }
+
+    50% {
+        transform: rotate(1260deg);
+    }
+
+    62.5% {
+        animation-timing-function: linear;
+        transform: rotate(1440deg);
+    }
+
+    75% {
+        transform: rotate(1890deg);
+    }
+
+    87.5% {
+        animation-timing-function: linear;
+        transform: rotate(2070deg);
+    }
+
+    100% {
+        transform: rotate(2520deg);
+    }
+}
+
+@keyframes pure-material-progress-circular-pseudo {
+    0% {
+        transform: rotate(-30deg);
+    }
+
+    29.4% {
+        border-left-color: var(--transparent);
+    }
+
+    29.41% {
+        border-left-color: var(--color-progress);
+    }
+
+    64.7% {
+        border-bottom-color: var(--transparent);
+    }
+
+    64.71% {
+        border-bottom-color: var(--color-progress);
+    }
+
+    100% {
+        border-bottom-color: var(--color-progress);
+        border-left-color: var(--color-progress);
+        transform: rotate(225deg);
+    }
+}
