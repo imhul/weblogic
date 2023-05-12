@@ -60,7 +60,7 @@ const ContactForm = memo(() => {
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const maxSize = 4096;
-    const inDevelopment = true;
+    const inDevelopment = false;
 
     const submit = useCallback(async () => {
         if (submitting) return;
