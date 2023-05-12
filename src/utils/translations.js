@@ -87,7 +87,7 @@ const translations = {
         step_2021:
             "Did a bit of work with Getsby and GraphQL. But later I joined the growing Svelte community as well as SvelteKIt and it's amazing! This is one of the best technologies I've come across. Thanks to this, I have a better understanding of SSR.",
         step_2023: (
-            <span>
+            <>
                 Still working with{' '}
                 <a
                     href="https://svelte.dev/"
@@ -99,7 +99,7 @@ const translations = {
                 </a>{' '}
                 and it's great. After an in-depth study, I can say with
                 confidence that this is a top!
-            </span>
+            </>
         ),
 
         // Works EN
@@ -219,7 +219,7 @@ const translations = {
         step_2021:
             'Трохи попрацював із Getsby та GraphQL. Але пізніше приєднався до спільноти Svelte, що розвивається, і це приголомшливо! Це одна з найкращих технологій, з якою мені доводилося стикатися. Завдяки цьому став краще розуміти SSR.',
         step_2023: (
-            <span>
+            <>
                 Все ще працюю зі{' '}
                 <a
                     href="https://svelte.dev/"
@@ -231,7 +231,7 @@ const translations = {
                 </a>{' '}
                 і це прекрасно. Після поглибленого вивчення можу сказати
                 впевнено, що це топ!
-            </span>
+            </>
         ),
 
         // Works UA

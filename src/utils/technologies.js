@@ -458,5 +458,65 @@ export const technologies = [
         id: 'Bitrix',
         list: 'crm',
         link: 'https://github.com/chrisdickinson/raf'
+    },
+    {
+        id: 'Netlify',
+        list: 'host',
+        link: 'https://www.netlify.com/'
+    },
+    {
+        id: 'netlify-functions',
+        list: 'back',
+        link: 'https://www.netlify.com/'
+    },
+    {
+        id: 'Godaddy',
+        list: 'host',
+        link: 'https://www.godaddy.com/'
+    },
+    {
+        id: 'Heroku',
+        list: 'host',
+        link: 'https://heroku.com/'
+    },
+    {
+        id: 'undici',
+        list: 'back',
+        link: 'https://github.com/nodejs/undici'
+    },
+    {
+        id: 'node-fetch',
+        list: 'back',
+        link: ''
+    },
+    {
+        id: 'firebase',
+        list: 'host',
+        link: 'https://firebase.google.com/docs/hosting'
+    },
+    {
+        id: 'firebase-functions',
+        list: 'back',
+        link: 'https://firebase.google.com/docs/functions'
+    },
+    {
+        id: 'Cloudflare',
+        list: 'host',
+        link: 'https://www.cloudflare.com/'
+    },
+    {
+        id: 'Feathers',
+        list: 'back',
+        link: 'https://feathersjs.com/'
+    },
+    {
+        id: 'MongoDB',
+        list: 'db',
+        link: 'https://www.mongodb.com/'
+    },
+    {
+        id: 'Firestore',
+        list: 'db',
+        link: 'https://firebase.google.com/docs/firestore'
     }
 ];

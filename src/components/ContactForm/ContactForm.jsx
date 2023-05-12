@@ -59,8 +59,8 @@ const ContactForm = memo(() => {
     const [formtype, setFormtype] = useState('tg'); // tg, email, sms
     const dispatch = useDispatch();
     const [form] = Form.useForm();
+    const inDevelopment = true;
     const maxSize = 4096;
-    const inDevelopment = false;
 
     const submit = useCallback(async () => {
         if (submitting) return;
@@ -101,7 +101,7 @@ const ContactForm = memo(() => {
             }
         }
 
-        async function getEmailAPI() {
+        function getEmailAPI() {
             setSubmitting(true);
             const values = form.getFieldsValue();
             const filled = Object.keys(values).every(key => values[key] !== '');
@@ -140,7 +140,7 @@ const ContactForm = memo(() => {
                 getSmsAPI();
                 break;
         }
-    }, [safe, formtype, tgMessage, lang]);
+    }, [safe, formtype, isFilled, tgMessage, lang]);
 
     const renderOptions = subjects.map(option => (
         <Option key={option.id} value={option.title}>
@@ -250,8 +250,8 @@ const ContactForm = memo(() => {
                         )}
                         menuItemSelectedIcon={<CheckOutlined />}
                         dropdownStyle={{
-                            backgroundColor: '#395766',
-                            color: '#bcc8ce'
+                            backgroundColor: '#bcc8ce'
+                            // color: '#bcc8ce'
                         }}
                     >
                         {renderOptions}
@@ -309,7 +309,12 @@ const ContactForm = memo(() => {
 
     return (
         <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 14 }}>
-            <Form form={form} className="contact-form" name="email-form" netlify>
+            <Form
+                form={form}
+                className="contact-form"
+                name="email-form"
+                netlify={true}
+            >
                 <Row gutter={24} type="flex" justify="center" align="middle">
                     <Col span={12} className="mb-10">
                         <Group

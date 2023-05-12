@@ -2,8 +2,6 @@ import React from 'react';
 
 const ReduxSagaLogo = () => (
     <svg
-        width="256px"
-        height="157px"
         viewBox="0 0 256 157"
         version="1.1"
         className="stack-logo"
@@ -38,12 +36,7 @@ const ReduxLogo = () => (
 );
 
 const AntdLogo = () => (
-    <svg
-        width="200px"
-        height="200px"
-        viewBox="0 0 200 200"
-        className="stack-logo"
-    >
+    <svg viewBox="0 0 200 200" className="stack-logo">
         <defs>
             <linearGradient
                 x1="62.1023273%"
@@ -143,8 +136,6 @@ const MaterializeLogo = () => (
     <svg
         x="0px"
         y="0px"
-        width="204px"
-        height="100px"
         viewBox="0 0 114 56.7"
         className="stack-logo"
         enableBackground="new 0 0 114 56.7"
@@ -430,8 +421,6 @@ const SassLogo = () => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         className="stack-logo"
-        width="200"
-        height="150"
         viewBox="0 0 512 384"
     >
         <path
@@ -479,7 +468,6 @@ const BootstrapLogo = () => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         className="stack-logo"
-        height="250"
         viewBox="0 0 1024 860"
         focusable="false"
         role="img"
@@ -604,8 +592,6 @@ const SvelteLogo = () => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
-        width="200"
-        height="200"
         className="stack-logo"
         viewBox="0 0 98.1 118"
     >
@@ -623,8 +609,6 @@ const SvelteLogo = () => (
 const MobxLogo = () => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="200"
-        height="200"
         viewBox="0 0 256 256"
         preserveAspectRatio="xMidYMid"
         className="stack-logo"

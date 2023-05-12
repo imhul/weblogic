@@ -31,7 +31,7 @@ const Works = memo(() => {
         {
             name: translate(lang, 'work_1'),
             type: translate(lang, 'demo'),
-            icon: <ExperimentOutlined />,
+            icon: <ExperimentOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://puzzle-demo-game.netlify.app/',
             back: `${puzzleImg}`,
             demo: true
@@ -39,7 +39,7 @@ const Works = memo(() => {
         {
             name: translate(lang, 'work_2'),
             type: translate(lang, 'released'),
-            icon: <LinkOutlined />,
+            icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'http://ekta.ua/',
             back: `${ektaImg}`,
             demo: false
@@ -47,7 +47,7 @@ const Works = memo(() => {
         {
             name: translate(lang, 'work_3'),
             type: translate(lang, 'released'),
-            icon: <LinkOutlined />,
+            icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'http://ekta.ua/projects/calc',
             back: `${calcImg}`,
             demo: false
@@ -55,7 +55,7 @@ const Works = memo(() => {
         {
             name: translate(lang, 'work_4'),
             type: translate(lang, 'released'),
-            icon: <LinkOutlined />,
+            icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://marketplace.atlassian.com/apps/1224120/testomatio',
             back: `${testomatioImg}`,
             demo: false
@@ -63,7 +63,7 @@ const Works = memo(() => {
         {
             name: translate(lang, 'work_5'),
             type: translate(lang, 'released'),
-            icon: <LinkOutlined />,
+            icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://uapay.ua/',
             back: `${uapayImg}`,
             demo: false
@@ -71,7 +71,7 @@ const Works = memo(() => {
         {
             name: translate(lang, 'work_6'),
             type: translate(lang, 'released'),
-            icon: <LinkOutlined />,
+            icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://silverstemcannabis.com/',
             back: `${silverImg}`,
             demo: false
@@ -79,7 +79,7 @@ const Works = memo(() => {
         {
             name: translate(lang, 'work_7'),
             type: translate(lang, 'released'),
-            icon: <LinkOutlined />,
+            icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://www.youtube.com/watch?v=BVdyHZSsD3Y',
             back: `${aliceImg}`,
             demo: false
@@ -87,7 +87,7 @@ const Works = memo(() => {
         {
             name: translate(lang, 'work_9'),
             type: translate(lang, 'released'),
-            icon: <LinkOutlined />,
+            icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://mailcheck.co/',
             back: `${mailcheckImg}`,
             demo: false

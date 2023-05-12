@@ -67,13 +67,13 @@ class Intro extends Component {
                             align="middle"
                             className="logos"
                         >
-                            <Col span={8}>
+                            <Col span={8} className="mb-20">
                                 <ReactLogo />
                             </Col>
-                            <Col span={8}>
+                            <Col span={8} className="mb-20">
                                 <ReduxLogo />
                             </Col>
-                            <Col span={8}>
+                            <Col span={8} className="mb-20">
                                 <MobxLogo />
                             </Col>
                         </Row>
@@ -85,13 +85,13 @@ class Intro extends Component {
                             align="middle"
                             className="logos"
                         >
-                            <Col span={8}>
+                            <Col span={8} className="mb-20">
                                 <AntdLogo />
                             </Col>
-                            <Col span={8}>
+                            <Col span={8} className="mb-20">
                                 <MaterializeLogo />
                             </Col>
-                            <Col span={8}>
+                            <Col span={8} className="mb-20">
                                 <UikitLogo />
                             </Col>
                         </Row>
@@ -103,13 +103,13 @@ class Intro extends Component {
                             align="middle"
                             className="logos"
                         >
-                            <Col span={8}>
+                            <Col span={8} className="mb-20">
                                 <SvelteLogo />
                             </Col>
-                            <Col span={8}>
+                            <Col span={8} className="mb-20">
                                 <ParcelLogo />
                             </Col>
-                            <Col span={8}>
+                            <Col span={8} className="mb-20">
                                 <SassLogo />
                             </Col>
                         </Row>
@@ -161,33 +161,33 @@ class Intro extends Component {
                                             );
                                         })}
                                 </ul>
-                                {/* BUNDLERS */}
-                                <h3>Bundlers</h3>
+                                {/* BACKEND */}
+                                <h3>Backend</h3>
                                 <ul>
                                     {technologies
-                                        .filter(item => item.list === 'bundler')
+                                        .filter(item => item.list === 'back')
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>{item.id}</li>
                                             );
                                         })}
                                 </ul>
-                                {/* GIT */}
-                                <h3>Version Control</h3>
+                                {/* HOSTING */}
+                                <h3>Hosting</h3>
                                 <ul>
                                     {technologies
-                                        .filter(item => item.list === 'git')
+                                        .filter(item => item.list === 'host')
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>{item.id}</li>
                                             );
                                         })}
                                 </ul>
-                                {/* CRM */}
-                                <h3>CRM</h3>
+                                {/* Data Bases */}
+                                <h3>Data Bases</h3>
                                 <ul>
                                     {technologies
-                                        .filter(item => item.list === 'crm')
+                                        .filter(item => item.list === 'db')
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>{item.id}</li>
@@ -224,12 +224,22 @@ class Intro extends Component {
                                             );
                                         })}
                                 </ul>
-
-                                {/* CMS */}
-                                <h3>CMS</h3>
+                                {/* BUNDLERS */}
+                                <h3>Bundlers</h3>
                                 <ul>
                                     {technologies
-                                        .filter(item => item.list === 'cms')
+                                        .filter(item => item.list === 'bundler')
+                                        .map(item => {
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
+                                        })}
+                                </ul>
+                                {/* CRM */}
+                                <h3>CRM</h3>
+                                <ul>
+                                    {technologies
+                                        .filter(item => item.list === 'crm')
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>{item.id}</li>
@@ -296,6 +306,17 @@ class Intro extends Component {
                                             );
                                         })}
                                 </ul>
+                                {/* GIT */}
+                                <h3>Version Control</h3>
+                                <ul>
+                                    {technologies
+                                        .filter(item => item.list === 'git')
+                                        .map(item => {
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
+                                        })}
+                                </ul>
                             </Col>
 
                             <Col
@@ -309,6 +330,17 @@ class Intro extends Component {
                                 <ul>
                                     {technologies
                                         .filter(item => item.list === 'other')
+                                        .map(item => {
+                                            return (
+                                                <li key={item.id}>{item.id}</li>
+                                            );
+                                        })}
+                                </ul>
+                                {/* CMS */}
+                                <h3>CMS</h3>
+                                <ul>
+                                    {technologies
+                                        .filter(item => item.list === 'cms')
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>{item.id}</li>

@@ -76,18 +76,15 @@
 
     .logos {
         .ant-col {
-            a {
-                .stack-logo {
-                    width: 100%;
-                    max-width: 250px;
+            text-align: center;
+            height: auto;
 
-                    @media (max-width: $media-small) {
-                        height: 20vh;
-                    }
+            .stack-logo {
+                width: 100%;
+                max-width: rem(140);
 
-                    @media (max-width: $media-x-small) {
-                        height: 16vh;
-                    }
+                @media (min-width: $media-large-min) {
+                    max-width: rem(250);
                 }
             }
         }
