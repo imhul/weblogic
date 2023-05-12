@@ -60,7 +60,7 @@ const ContactForm = memo(() => {
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const maxSize = 4096;
-    const inDevelopment = true;
+    const inDevelopment = false;
 
     const submit = useCallback(async () => {
         if (submitting) return;
@@ -309,7 +309,7 @@ const ContactForm = memo(() => {
 
     return (
         <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 14 }}>
-            <Form form={form} className="contact-form">
+            <Form form={form} className="contact-form" name="email-form" netlify>
                 <Row gutter={24} type="flex" justify="center" align="middle">
                     <Col span={12} className="mb-10">
                         <Group
