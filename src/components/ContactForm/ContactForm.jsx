@@ -59,7 +59,7 @@ const ContactForm = memo(() => {
     const [formtype, setFormtype] = useState('tg'); // tg, email, sms
     const dispatch = useDispatch();
     const [form] = Form.useForm();
-    const inDevelopment = true;
+    const inDevelopment = false;
     const maxSize = 4096;
 
     const submit = useCallback(async () => {
@@ -318,7 +318,7 @@ const ContactForm = memo(() => {
                 <Item name="hidden">
                     <input type="hidden" name="form-name" value="email-form" />
                 </Item>
-                
+
                 <Row gutter={24} type="flex" justify="center" align="middle">
                     <Col span={12} className="mb-10">
                         <Group
