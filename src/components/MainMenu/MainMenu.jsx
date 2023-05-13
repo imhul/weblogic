@@ -1,6 +1,6 @@
 // core
-import React, { memo, useState, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { memo, useState, useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 // utils
 import menu from '../../utils/menu';
 // components
@@ -8,6 +8,7 @@ import { Menu } from 'antd/lib';
 
 const MainMenu = memo(() => {
     const [currentPage, setCurrentPage] = useState('Home');
+    const { location } = useSelector(state => state.ux);
     const dispatch = useDispatch();
 
     const navigate = useCallback(e => {
@@ -18,6 +19,10 @@ const MainMenu = memo(() => {
             payload: key
         });
     });
+
+    useEffect(() => {
+        if (location !== currentPage) setCurrentPage(location);
+    }, [location]);
 
     const menuItems = menu
         .filter(item => !item.isBlank)
