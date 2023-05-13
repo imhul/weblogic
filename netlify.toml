@@ -1,2 +1,4 @@
 [context.production]
     environment = { NODE_VERSION = "16.20.0" }
+[build]
+    functions = "functions"
