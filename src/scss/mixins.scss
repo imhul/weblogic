@@ -52,6 +52,14 @@ $min-width-x-large: 1600px;
     }
 }
 
+@mixin transition($duration: 0.35s, $ease: ease-in-out) {
+    transition-delay: 0s;
+    transition-duration: $duration;
+    transition-timing-function: $ease;
+    transition-property: color, background-color, border-color, fill, filter,
+        stroke, text-shadow, box-shadow;
+}
+
 // EXAMPLE USAGE:
 
 // input[type='range'] {

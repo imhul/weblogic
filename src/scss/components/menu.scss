@@ -1,8 +1,11 @@
-.Menu {
+.Menu.ant-menu {
+    height: rem(46);
     min-width: rem(280);
     justify-content: space-evenly;
 
     .ant-menu-item {
+        @extend %flex-center;
+
         &:hover {
             &::after {
                 border-bottom-color: $color-link-hover !important;
@@ -10,6 +13,14 @@
 
             span {
                 color: $color-link-hover;
+            }
+        }
+
+        .ant-menu-title-content {
+            margin-inline-start: 0;
+
+            .mobile-hide {
+                margin-inline-start: rem(10);
             }
         }
     }

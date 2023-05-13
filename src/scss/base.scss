@@ -109,10 +109,10 @@ body {
             .btn,
             .link,
             .button,
+            .ant-btn,
+            .anticon,
             .basic-transition {
-                transition: color 0.35s, background-color 0.35s,
-                    border-color 0.35s, filter 0.35s, fill 0.35s,
-                    text-shadow 0.35s, box-shadow 0.35s;
+                @include transition();
             }
 
             input,

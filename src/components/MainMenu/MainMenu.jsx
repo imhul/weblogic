@@ -24,7 +24,7 @@ const MainMenu = memo(() => {
         .map(item => ({
             key: item.key,
             icon: item.icon,
-            label: <span>{item.key}</span>
+            label: <span className="mobile-hide">{item.key}</span>
         }));
 
     return (

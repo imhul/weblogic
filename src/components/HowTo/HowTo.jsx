@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useRef } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 // components
 import { Button, Tooltip, message } from 'antd/lib';
 import { QuestionCircleOutlined, RedoOutlined } from '@ant-design/icons';
@@ -8,15 +8,11 @@ import { messageOptions } from '../../utils/options';
 const HowTo = memo(() => {
     const [open, setOpen] = useState(false);
     const [repeats, setRepeats] = useState(0);
-    const ref = useRef(null);
 
     useEffect(() => {
-        if (repeats > 3) return;
-        if (open) {
-            ref.current.click();
-        }
+        if (repeats > 10) return;
         const timeout = setTimeout(() => {
-            setOpen(open => !open);
+            setOpen(open => (repeats < 7 ? false : !open));
             setRepeats(prev => prev + 1);
         }, 500);
 
@@ -27,7 +23,6 @@ const HowTo = memo(() => {
         <div className="HowTo">
             <Tooltip placement="left" title="Reset" open={open}>
                 <Button
-                    ref={ref}
                     type="primary"
                     onClick={() => window.bgJSDom[0].bgJS.fn.particlesRefresh()}
                     shape="circle"
