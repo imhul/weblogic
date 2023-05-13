@@ -73,7 +73,8 @@ export default (state = initStateUX, action) => {
             }
             return {
                 ...state,
-                location: action.payload
+                location: action.payload,
+                active: null
             };
 
         default:
