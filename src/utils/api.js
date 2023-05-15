@@ -19,7 +19,7 @@ const POST_CONFIG = {
     }
 };
 
-const { getNF, getTG } = safe;
+const { getNF, getTG, getEmail } = safe;
 
 const request = async (url, config) => {
     const response = await fetch(url, config);
@@ -38,3 +38,8 @@ export const getTelegram = async data => {
     const result = await request(getTG + '' + data, GET_CONFIG);
     return result;
 };
+
+export const sendEmail = async data => {
+    const result = await request(getEmail + '' + data, GET_CONFIG);
+    return result;
+}

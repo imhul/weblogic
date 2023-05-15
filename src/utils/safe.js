@@ -9,6 +9,7 @@ const safe = {
     cv: Base64.decode(process.env.REACT_APP_CV),
     getNF: Base64.decode(process.env.REACT_APP_GET_NF),
     getTG: Base64.decode(process.env.REACT_APP_GET_TG),
+    getEmail: Base64.decode(process.env.REACT_APP_GET_EMAIL),
     ipify: 'https://api.ipify.org/?format=json',
     base: 'https://weblogic.netlify.app',
     vid: 'nETaVY9GOao'
