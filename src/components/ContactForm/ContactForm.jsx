@@ -26,7 +26,7 @@ import {
 // utils
 import translate from '../../utils/translations';
 import safe from '../../utils/safe';
-import { getTelegram } from '../../utils/api';
+import { getTelegram, sendEmail } from '../../utils/api';
 import { messageOptions } from '../../utils/options';
 
 const Fragment = React.Fragment;
@@ -120,6 +120,7 @@ const ContactForm = memo(() => {
 
             if (isFilled) {
                 console.info('fetch email api with form data: ', values);
+                sendEmail(values);
             }
 
             setSubmitting(false);
