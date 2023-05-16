@@ -10,16 +10,14 @@ const build = async (event, context) => {
   if (true) {
     return {
       statusCode: 200,
-      body: JSON.stringify({ 
-        event: event, 
-        context: context, 
-        queryStringParameters: event.queryStringParameters, 
+      body: JSON.stringify({
+        event: event,
+        context: context,
+        queryStringParameters: event.queryStringParameters,
         rawUrl: event.rawUrl.replace(mCode, '')
       })
     }
   }
-
-
 
   try {
     const { name, email, message } = JSON.parse(event.body);
