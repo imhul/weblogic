@@ -3,19 +3,27 @@ import { useEffect, useState } from 'react';
 
 const useSafe = () => {
     const [safe, setSafe] = useState(null);
+    const [check, setCheck] = useState(false);
 
-    const check = () => {
-        return process.env && !safe;
-    };
+    useEffect(() => {
+        const checkProcessEnv = async () => {
+            while (!process.env) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            setCheck(true);
+        };
+
+        checkProcessEnv();
+    }, []);
 
     function decode(data) {
-        if (!data) return check();
+        if (!data) return;
         let buff = Buffer.from(data, 'base64');
         return buff.toString('utf8');
     }
 
     useEffect(() => {
-        if (!check) check();
+        if (!check) return;
 
         setSafe({
             link: decode(process.env.REACT_APP_LINK),
