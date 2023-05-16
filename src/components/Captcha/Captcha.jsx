@@ -22,9 +22,10 @@ const Captcha = memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        if (!key) return;
         if (!currentUser.ip.length) return;
         if (!ip.length && currentUser.ip.length) setIp(currentUser.ip);
-    }, [currentUser.ip, ip]);
+    }, [currentUser.ip, ip, key]);
 
     const verify = useCallback(
         async response => {
