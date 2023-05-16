@@ -16,10 +16,8 @@ import { messageOptions } from '../../utils/options';
 
 const CopyButton = () => {
     const { lang } = useSelector(state => state.ux);
-    const { mCode } = safe;
     const copySuccess = useCallback(e => {
-        if (e.text === mCode) {
-            console.log('e.text: ', e.text);
+        if (e.text.length) {
             message.success({
                 content: `${translate(lang, 'message_success_email_copy')}`,
                 ...messageOptions
@@ -35,7 +33,7 @@ const CopyButton = () => {
     return (
         <Clipboard
             className="ant-btn center ant-btn-background-ghost"
-            option-text={() => mCode}
+            option-text={() => safe.mCode}
             onSuccess={copySuccess}
         >
             <MailOutlined />
