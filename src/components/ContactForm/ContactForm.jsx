@@ -122,7 +122,7 @@ const ContactForm = memo(() => {
                 
             console.info('fetch email api with form data: ', values);
             const result = await sendEmail(encodeURIComponent(JSON.stringify(values)));
-            console.info('fetch email api with result: ', await result.body.json());
+            console.info('fetch email api with result: ', JSON.parse(result.body));
 
             setSubmitting(false);
         }
