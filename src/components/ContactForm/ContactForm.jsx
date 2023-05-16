@@ -187,7 +187,7 @@ const ContactForm = memo(() => {
     const tgForm = () => (
         <Fragment key="tgForm">
             <Col xs={{ span: 24 }} md={{ span: 20 }}>
-                <TextInput />
+                {TextInput()}
             </Col>
             <Col xs={{ span: 24 }} md={{ span: 20 }}>
                 <SubmitButton />

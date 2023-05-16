@@ -40,6 +40,9 @@ export const getTelegram = async data => {
 };
 
 export const sendEmail = async data => {
-    const result = await request(getEmail, {...POST_CONFIG, body: JSON.stringify(data)});
+    const result = await request(getEmail, {
+        ...POST_CONFIG,
+        body: JSON.stringify(data)
+    });
     return result;
-}
+};
