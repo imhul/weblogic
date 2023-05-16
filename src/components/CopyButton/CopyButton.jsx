@@ -11,6 +11,7 @@ import {
 // utils
 import { message } from 'antd/lib';
 import safe from '../../utils/safe';
+import translate from '../../utils/translations';
 import { messageOptions } from '../../utils/options';
 
 const CopyButton = () => {
@@ -18,6 +19,7 @@ const CopyButton = () => {
     const { mCode } = safe;
     const copySuccess = useCallback(e => {
         if (e.text === mCode) {
+            console.log('e.text: ', e.text);
             message.success({
                 content: `${translate(lang, 'message_success_email_copy')}`,
                 ...messageOptions
