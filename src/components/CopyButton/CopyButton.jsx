@@ -10,12 +10,15 @@ import {
 } from '@ant-design/icons';
 // utils
 import { message } from 'antd/lib';
-import safe from '../../utils/safe';
 import translate from '../../utils/translations';
 import { messageOptions } from '../../utils/options';
+// hooks
+import useSafe from '../../hooks/useSafe';
 
 const CopyButton = () => {
     const { lang } = useSelector(state => state.ux);
+    const safe = useSafe();
+
     const copySuccess = useCallback(e => {
         if (e.text.length) {
             message.success({

@@ -3,12 +3,10 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // utils
 import axios from 'axios';
-import safe from '../utils/safe';
 
-const useIpify = () => {
+const useIpify = ({ ipify }) => {
     const [ipified, setIpified] = useState(false);
     const dispatch = useDispatch();
-    const { ipify } = safe;
 
     useEffect(() => {
         async function fetching() {

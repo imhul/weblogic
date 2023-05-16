@@ -6,30 +6,29 @@ import { Row, Col, message } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
 import { LoadingOutlined } from '@ant-design/icons';
 // utils
-import safe from '../../utils/safe';
 import { messageOptions } from '../../utils/options';
 import translate from '../../utils/translations';
 // hooks
+import useSafe from '../../hooks/useSafe';
 import useIpify from '../../hooks/useIpify';
 import { getRecaptcha } from '../../utils/api';
 
 const Captcha = memo(() => {
-    useIpify();
+    const safe = useSafe();
     const { lang } = useSelector(state => state.ux);
     const { currentUser } = useSelector(state => state.ui);
-    const { key } = safe;
     const [ip, setIp] = useState('');
     const dispatch = useDispatch();
+    useIpify(safe);
 
     useEffect(() => {
-        if (!key) return;
-        if (!currentUser.ip.length) return;
+        if (!currentUser.ip.length && !safe.key) return;
         if (!ip.length && currentUser.ip.length) setIp(currentUser.ip);
-    }, [currentUser.ip, ip, key]);
+    }, [currentUser.ip, ip, safe.key]);
 
     const verify = useCallback(
         async response => {
-            const captcha = await getRecaptcha(response);
+            const captcha = await getRecaptcha(safe.getNF + '' + response);
 
             if (captcha) {
                 dispatch({
@@ -65,7 +64,7 @@ const Captcha = memo(() => {
                     />
                 ) : (
                     <Recaptcha
-                        sitekey={key}
+                        sitekey={safe.key}
                         theme="dark"
                         verifyCallback={response => verify(response)}
                         hl={lang === 'ukrainian' ? 'ua' : 'en'}

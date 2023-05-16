@@ -3,8 +3,8 @@ import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Helmet } from 'react-helmet';
-// utils
-import safe from '../../../utils/safe';
+// hooks
+import useSafe from '../../../hooks/useSafe';
 // assets
 import '../../../images/print.png';
 import '../../../images/logo.png';
@@ -12,7 +12,7 @@ import '../../../images/logo.png';
 const Home = memo(() => {
     const { hero, heroStyle } = useSelector(state => state.ui);
     const dispatch = useDispatch();
-    const { base } = safe;
+    const safe = useSafe();
 
     const goFolio = () => {
         dispatch({
@@ -33,7 +33,7 @@ const Home = memo(() => {
         <div className="Home" onClick={goFolio}>
             <Helmet>
                 <title>WebLogic Studio Home</title>
-                <link rel="canonical" href={base} />
+                <link rel="canonical" href={safe.base} />
             </Helmet>
 
             <h1 className="mobile-fix heading-hero" style={heroStyle}>

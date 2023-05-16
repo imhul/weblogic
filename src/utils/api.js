@@ -1,5 +1,3 @@
-import safe from './safe';
-
 const GET_CONFIG = {
     method: 'GET',
     mode: 'no-cors', // no-cors, cors, *cors, same-origin
@@ -19,7 +17,7 @@ const POST_CONFIG = {
     }
 };
 
-const { getNF, getTG, getEmail } = safe;
+// getNF, getTG, getEmail
 
 const request = async (url, config) => {
     const response = await fetch(url, config);
@@ -29,20 +27,17 @@ const request = async (url, config) => {
     return result;
 };
 
-export const getRecaptcha = async data => {
-    const result = await request(getNF + '' + data, GET_CONFIG);
+export const getRecaptcha = async url => {
+    const result = await request(url, GET_CONFIG);
     return result.ok;
 };
 
-export const getTelegram = async data => {
-    const result = await request(getTG + '' + data, GET_CONFIG);
+export const getTelegram = async url => {
+    const result = await request(url, GET_CONFIG);
     return result;
 };
 
-export const sendEmail = async data => {
-    const result = await request(
-        getEmail + '/?=' + data,
-        GET_CONFIG
-    );
+export const sendEmail = async url => {
+    const result = await request(url, GET_CONFIG);
     return result;
 };

@@ -24,10 +24,11 @@ import {
     MessageOutlined
 } from '@ant-design/icons';
 // utils
-import safe from '../../utils/safe';
 import translate from '../../utils/translations';
 import { getTelegram, sendEmail } from '../../utils/api';
 import { messageOptions } from '../../utils/options';
+// hooks
+import useSafe from '../../hooks/useSafe';
 
 const Fragment = React.Fragment;
 const { TextArea } = Input;
@@ -54,6 +55,7 @@ const subjects = [
 ];
 
 const ContactForm = memo(() => {
+    const safe = useSafe();
     const { lang, tgMessage, isFilled } = useSelector(state => state.ux);
     const [submitting, setSubmitting] = useState(false);
     const [formtype, setFormtype] = useState('tg'); // tg, email, sms
@@ -68,7 +70,7 @@ const ContactForm = memo(() => {
         async function getTelegramAPI() {
             setSubmitting(true);
             try {
-                const result = await getTelegram(tgMessage);
+                const result = await getTelegram(safe.getTG + '' + tgMessage);
                 if (result.ok !== undefined) {
                     message.success({
                         ...messageOptions,
@@ -119,10 +121,15 @@ const ContactForm = memo(() => {
             }
 
             if (!isFilled) return;
-                
+
             console.info('fetch email api with form data: ', values);
-            const result = await sendEmail(encodeURIComponent(JSON.stringify(values))).then(res => res.json());
-            console.info('fetch email api with result: ', JSON.parse(result.body));
+            const result = await sendEmail(
+                getEmail + '/?=' + encodeURIComponent(JSON.stringify(values))
+            ).then(res => res.json());
+            console.info(
+                'fetch email api with result: ',
+                JSON.parse(result.body)
+            );
 
             setSubmitting(false);
         }
@@ -142,7 +149,7 @@ const ContactForm = memo(() => {
                 getSmsAPI();
                 break;
         }
-    }, [safe, formtype, isFilled, tgMessage, lang]);
+    }, [formtype, isFilled, tgMessage, lang]);
 
     const renderOptions = subjects.map(option => (
         <Option key={option.id} value={option.title}>

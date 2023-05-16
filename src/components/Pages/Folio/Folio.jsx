@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import translate from '../../../utils/translations';
-import safe from '../../../utils/safe';
 // components
 import { Helmet } from 'react-helmet';
 import { Collapse } from 'antd/lib';
@@ -13,13 +12,15 @@ import {
     PoweroffOutlined,
     CompassOutlined
 } from '@ant-design/icons';
+// hooks
+import useSafe from '../../../hooks/useSafe';
 
 const { Panel } = Collapse;
 
 const Folio = memo(() => {
     const { active, lang } = useSelector(state => state.ux);
     const dispatch = useDispatch();
-    const { base } = safe;
+    const safe = useSafe();
     const renderTexts = [
         {
             icon: <PoweroffOutlined />,
@@ -62,7 +63,7 @@ const Folio = memo(() => {
         <div className="Folio" tabIndex="1">
             <Helmet>
                 <title>My Portfolio</title>
-                <link rel="canonical" href={base} />
+                <link rel="canonical" href={safe.base} />
             </Helmet>
             <Collapse
                 accordion

@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 // utils
 import translate from '../../../utils/translations';
-import safe from '../../../utils/safe';
 // components
 import { Helmet } from 'react-helmet';
 import { Row, Col } from 'antd/lib';
@@ -11,10 +10,12 @@ import {
     GithubOutlined,
     DollarCircleOutlined
 } from '@ant-design/icons';
+// hooks
+import useSafe from '../../../hooks/useSafe';
 
 const Game = memo(() => {
     const { lang } = useSelector(state => state.ux);
-    const { vid, base } = safe;
+    const { vid, base } = useSafe();
     const title = translate(lang, 'game_title');
 
     return (
