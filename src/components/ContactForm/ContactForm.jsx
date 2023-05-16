@@ -101,7 +101,7 @@ const ContactForm = memo(() => {
             }
         }
 
-        function getEmailAPI() {
+        async function getEmailAPI() {
             setSubmitting(true);
             const values = form.getFieldsValue();
             const filled = Object.keys(values).every(key => values[key] !== '');
@@ -121,7 +121,7 @@ const ContactForm = memo(() => {
             if (!isFilled) return;
                 
             console.info('fetch email api with form data: ', values);
-            const result = sendEmail(JSON.stringify(values));
+            const result = await sendEmail(encodeURIComponent(JSON.stringify(values)));
             console.info('fetch email api with result: ', result);
 
             setSubmitting(false);
