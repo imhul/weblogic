@@ -17,7 +17,10 @@ const useSafe = () => {
     }, []);
 
     function decode(data) {
-        if (!data) return;
+        if (!data) {
+            console.warn('::: No data :::');
+            return;
+        };
         let buff = Buffer.from(data, 'base64');
         return buff.toString('utf8');
     }
