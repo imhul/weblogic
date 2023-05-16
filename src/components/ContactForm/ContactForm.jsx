@@ -124,7 +124,7 @@ const ContactForm = memo(() => {
 
             console.info('fetch email api with form data: ', values);
             const result = await sendEmail(
-                getEmail + '/?=' + encodeURIComponent(JSON.stringify(values))
+                safe.getEmail + '/?=' + encodeURIComponent(JSON.stringify(values))
             ).then(res => res.json());
             console.info(
                 'fetch email api with result: ',
@@ -185,7 +185,7 @@ const ContactForm = memo(() => {
             disabled={submitting}
             onClick={event => submit(event)}
         >
-            {submitting && !safe.getTG ? (
+            {submitting && !safe.getTG && !safe.getEmail ? (
                 <LoadingOutlined style={{ color: '#bcc8ce' }} />
             ) : (
                 translate(lang, 'submit')
