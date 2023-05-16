@@ -121,7 +121,7 @@ const ContactForm = memo(() => {
             if (!isFilled) return;
                 
             console.info('fetch email api with form data: ', values);
-            const result = await sendEmail(encodeURIComponent(JSON.stringify(values)));
+            const result = await sendEmail(encodeURIComponent(JSON.stringify(values))).then(res => res.json());
             console.info('fetch email api with result: ', JSON.parse(result.body));
 
             setSubmitting(false);
