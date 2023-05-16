@@ -124,7 +124,9 @@ const ContactForm = memo(() => {
 
             console.info('fetch email api with form data: ', values);
             const result = await sendEmail(
-                safe.getEmail + '/?=' + encodeURIComponent(JSON.stringify(values))
+                safe.getEmail +
+                    '/?=' +
+                    encodeURIComponent(JSON.stringify(values))
             ).then(res => res.json());
             console.info(
                 'fetch email api with result: ',

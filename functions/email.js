@@ -14,6 +14,7 @@ const build = async (event, context) => {
                 event: event,
                 context: context,
                 body: event.body,
+                getEmail: getEmail,
                 queryStringParameters: event.queryStringParameters,
                 rawUrl: event.rawUrl.replace(getEmail + '/?=', '')
             })

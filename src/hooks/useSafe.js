@@ -26,8 +26,10 @@ const useSafe = () => {
                 await new Promise(resolve => setTimeout(resolve, 100));
             }
 
+            console.info('::: process.env.REACT_APP_LINK 1 ::: ', safe);
+
             setSafe({
-                ...safe,
+                ...initial,
                 link: decode(process.env.REACT_APP_LINK),
                 key: decode(process.env.REACT_APP_KEY),
                 mCode: decode(process.env.REACT_APP_M_CODE),
@@ -38,6 +40,8 @@ const useSafe = () => {
                 getTG: decode(process.env.REACT_APP_GET_TG),
                 getEmail: decode(process.env.REACT_APP_GET_EMAIL)
             });
+
+            console.info('::: process.env.REACT_APP_LINK 2 ::: ', safe);
         };
 
         checkProcessEnv();
