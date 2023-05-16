@@ -10,7 +10,12 @@ const build = async (event, context) => {
   if (true) {
     return {
       statusCode: 200,
-      body: JSON.stringify({ event: event, context: context, queryStringParameters: event.queryStringParameters, data: event.rawUrl.replace(mCode, '') })
+      body: JSON.stringify({ 
+        event: event, 
+        context: context, 
+        queryStringParameters: event.queryStringParameters, 
+        rawUrl: event.rawUrl.replace(mCode, '')
+      })
     }
   }
 

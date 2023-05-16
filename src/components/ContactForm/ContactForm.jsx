@@ -24,8 +24,8 @@ import {
     MessageOutlined
 } from '@ant-design/icons';
 // utils
-import translate from '../../utils/translations';
 import safe from '../../utils/safe';
+import translate from '../../utils/translations';
 import { getTelegram, sendEmail } from '../../utils/api';
 import { messageOptions } from '../../utils/options';
 
