@@ -128,7 +128,8 @@ const ContactForm = memo(() => {
             ).then(res => res.json());
             console.info(
                 'fetch email api with result: ',
-                JSON.parse(result.body), result.body
+                JSON.parse(result.body),
+                result.body
             );
 
             setSubmitting(false);
@@ -184,7 +185,7 @@ const ContactForm = memo(() => {
             disabled={submitting}
             onClick={event => submit(event)}
         >
-            {submitting && !safe ? (
+            {submitting && !safe.getTG ? (
                 <LoadingOutlined style={{ color: '#bcc8ce' }} />
             ) : (
                 translate(lang, 'submit')

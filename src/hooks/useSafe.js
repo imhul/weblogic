@@ -5,7 +5,7 @@ const initial = {
     ipify: 'https://api.ipify.org/?format=json',
     base: 'https://weblogic.netlify.app',
     vid: 'nETaVY9GOao'
-}
+};
 
 const useSafe = () => {
     const [safe, setSafe] = useState(initial);
@@ -14,7 +14,7 @@ const useSafe = () => {
         if (!data) {
             console.warn('::: No data :::');
             return;
-        };
+        }
         let buff = Buffer.from(data, 'base64');
         return buff.toString('utf8');
     }
