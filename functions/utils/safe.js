@@ -9,6 +9,7 @@ export const safe = {
     getNF: decode(process.env.REACT_APP_GET_NF),
     getTG: decode(process.env.REACT_APP_GET_TG),
     smail: decode(process.env.REACT_APP_S_MAIL),
+    getEmail: decode(process.env.REACT_APP_GET_EMAIL),
     ipify: 'https://api.ipify.org/?format=json'
 };
 

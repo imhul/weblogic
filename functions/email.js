@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import { safe } from './utils/safe';
 
 const build = async (event, context) => {
-  const { mCode, smail } = safe;
+  const { mCode, smail, getEmail } = safe;
   const subject = 'Default subject';
   const copy = false;
 
@@ -13,8 +13,9 @@ const build = async (event, context) => {
       body: JSON.stringify({
         event: event,
         context: context,
+        body: event.body,
         queryStringParameters: event.queryStringParameters,
-        rawUrl: event.rawUrl.replace(mCode, '')
+        rawUrl: event.rawUrl.replace(getEmail + '/?=', '')
       })
     }
   }
