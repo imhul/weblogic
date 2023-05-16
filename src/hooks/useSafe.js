@@ -20,8 +20,9 @@ const useSafe = () => {
     }
 
     useEffect(() => {
+        if (process.env.REACT_APP_LINK && safe.link) return;
         const checkProcessEnv = async () => {
-            while (!process.env) {
+            while (!process.env.REACT_APP_LINK) {
                 await new Promise(resolve => setTimeout(resolve, 100));
             }
 
