@@ -1,8 +1,14 @@
 // core
 import { useEffect, useState } from 'react';
 
+const initial = {
+    ipify: 'https://api.ipify.org/?format=json',
+    base: 'https://weblogic.netlify.app',
+    vid: 'nETaVY9GOao'
+}
+
 const useSafe = () => {
-    const [safe, setSafe] = useState(null);
+    const [safe, setSafe] = useState(initial);
     const [check, setCheck] = useState(false);
 
     useEffect(() => {
@@ -29,6 +35,7 @@ const useSafe = () => {
         if (!check) return;
 
         setSafe({
+            ...safe,
             link: decode(process.env.REACT_APP_LINK),
             key: decode(process.env.REACT_APP_KEY),
             mCode: decode(process.env.REACT_APP_M_CODE),
@@ -37,10 +44,7 @@ const useSafe = () => {
             cv: decode(process.env.REACT_APP_CV),
             getNF: decode(process.env.REACT_APP_GET_NF),
             getTG: decode(process.env.REACT_APP_GET_TG),
-            getEmail: decode(process.env.REACT_APP_GET_EMAIL),
-            ipify: 'https://api.ipify.org/?format=json',
-            base: 'https://weblogic.netlify.app',
-            vid: 'nETaVY9GOao'
+            getEmail: decode(process.env.REACT_APP_GET_EMAIL)
         });
     }, [check]);
 
