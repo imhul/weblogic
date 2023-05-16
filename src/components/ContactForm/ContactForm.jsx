@@ -118,10 +118,11 @@ const ContactForm = memo(() => {
                 form.resetFields();
             }
 
-            if (isFilled) {
-                console.info('fetch email api with form data: ', values);
-                sendEmail(values);
-            }
+            if (!isFilled) return;
+                
+            console.info('fetch email api with form data: ', values);
+            const result = sendEmail(JSON.stringify(values));
+            console.info('fetch email api with result: ', result);
 
             setSubmitting(false);
         }
