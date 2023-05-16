@@ -316,10 +316,6 @@ const ContactForm = memo(() => {
                 name="email-form"
                 data-netlify="true"
             >
-                <Item name="hidden">
-                    <input type="hidden" name="form-name" value="email-form" />
-                </Item>
-
                 <Row gutter={24} type="flex" justify="center" align="middle">
                     <Col span={12} className="mb-10">
                         <Group
