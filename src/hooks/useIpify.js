@@ -12,7 +12,7 @@ const useIpify = () => {
 
     useEffect(() => {
         async function fetching() {
-            if (!ipified && !ignore) {
+            if (!ipified && !ignore && process.env && ipify.length) {
                 try {
                     const response = await axios.get(ipify);
                     if (response.status === 200 && response.data.ip !== '') {
@@ -34,7 +34,7 @@ const useIpify = () => {
         return () => {
             ignore = true;
         };
-    }, []);
+    }, [ipified, process.env, ipify]);
 };
 
 export default useIpify;
