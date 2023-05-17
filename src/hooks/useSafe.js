@@ -21,6 +21,7 @@ const useSafe = () => {
 
     function setEnv() {
         if (!process.env.REACT_APP_LINK) return;
+        console.info('::: Setting env :::');
 
         setSafe({
             ...initial,
