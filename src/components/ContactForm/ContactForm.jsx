@@ -57,6 +57,7 @@ const ContactForm = memo(() => {
     const [submitting, setSubmitting] = useState(false);
     const { safe } = useSelector(state => state.ui);
     const [formtype, setFormtype] = useState('tg'); // tg, email, sms
+    const [copy, setCopy] = useState(false);
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const inDevelopment = false;
@@ -109,7 +110,7 @@ const ContactForm = memo(() => {
                 dispatch({
                     type: 'FORM_UPDATE',
                     payload: {
-                        form: values,
+                        form: { ...values, copy },
                         filled: filled
                     }
                 });
@@ -121,7 +122,7 @@ const ContactForm = memo(() => {
             const result = await sendEmail(
                 safe.getEmail +
                     '/?=' +
-                    encodeURIComponent(JSON.stringify(values))
+                    encodeURIComponent(JSON.stringify({ ...values, copy }))
             ).then(res => res.json());
             console.info('fetch email api with result: ', result);
 

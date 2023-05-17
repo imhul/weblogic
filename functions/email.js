@@ -5,16 +5,15 @@ import { safe } from './utils/safe';
 const build = async event => {
     const { mCode, smail, getEmail } = safe;
     const subject = 'Default subject';
-    const decodedData = decodeURIComponent(event.rawUrl.replace(getEmail + '/?=', ''));
-    const data = JSON.parse(decodedData);
+    const data = JSON.parse(
+        decodeURIComponent(event.rawUrl.replace(getEmail + '/?=', ''))
+    );
     const copy = false;
 
     if (true) {
         return {
             statusCode: 200,
-            body: JSON.stringify({
-                data: data,
-            })
+            body: JSON.stringify(data)
         };
     }
 
