@@ -37,30 +37,19 @@ const useSafe = () => {
     }
 
     useEffect(() => {
-        console.info('::: process.env.REACT_APP_LINK ::: ', process.env.REACT_APP_LINK);
-
+        if (safe.link) return;
         setEnv();
-
-        if (safe.link) {
-            console.info('::: SAFE on start useEffect ::: ', safe);
-            return;
-        }
 
         const checkProcessEnv = async () => {
             while (!process.env.REACT_APP_LINK) {
                 await new Promise(resolve => setTimeout(resolve, 100));
             }
-
             setEnv();
-
-            console.info('::: SAFE ::: ', safe);
         };
 
         checkProcessEnv();
-    }, [process.env, safe]);
+    }, []);
 
-    console.info('::: return SAFE ::: ', safe);
-            
     return safe;
 };
 
