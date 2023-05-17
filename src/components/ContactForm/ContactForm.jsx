@@ -145,7 +145,7 @@ const ContactForm = memo(() => {
                 getSmsAPI();
                 break;
         }
-    }, [formtype, isFilled, tgMessage, lang, safe.getTG, safe.getEmail]);
+    }, [formtype, isFilled, tgMessage, lang, safe]);
 
     const renderOptions = subjects.map(option => (
         <Option key={option.id} value={option.title}>
