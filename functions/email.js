@@ -5,7 +5,7 @@ import { safe } from './utils/safe';
 const build = async event => {
     const { mCode, smail, getEmail } = safe;
     const subject = 'Default subject';
-    const data = JSON.parse(event.rawUrl.replace(getEmail + '/?=', ''));
+    const data = await JSON.parse(event.rawUrl.replace(getEmail + '/?=', ''));
     const copy = false;
 
     if (true) {
