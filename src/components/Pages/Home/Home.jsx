@@ -10,9 +10,9 @@ import '../../../images/print.png';
 import '../../../images/logo.png';
 
 const Home = memo(() => {
-    const { hero, heroStyle } = useSelector(state => state.ui);
+    useSafe();
+    const { safe, hero, heroStyle } = useSelector(state => state.ui);
     const dispatch = useDispatch();
-    const safe = useSafe();
 
     const goFolio = () => {
         dispatch({
@@ -33,7 +33,7 @@ const Home = memo(() => {
         <div className="Home" onClick={goFolio}>
             <Helmet>
                 <title>WebLogic Studio Home</title>
-                <link rel="canonical" href={safe.base} />
+                {safe && <link rel="canonical" href={safe.base} />}
             </Helmet>
 
             <h1 className="mobile-fix heading-hero" style={heroStyle}>

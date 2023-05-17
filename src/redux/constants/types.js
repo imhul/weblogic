@@ -5,7 +5,8 @@ export const typesUI = {
     TICK: 'TICK',
     GET_FPS: 'GET_FPS',
     LOAD_FOLIO: 'LOAD_FOLIO',
-    ROBOT_CHECK: 'ROBOT_CHECK'
+    ROBOT_CHECK: 'ROBOT_CHECK',
+    SET_ENV: 'SET_ENV'
 };
 
 export const typesUX = {

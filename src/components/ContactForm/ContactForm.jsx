@@ -27,8 +27,6 @@ import {
 import translate from '../../utils/translations';
 import { getTelegram, sendEmail } from '../../utils/api';
 import { messageOptions } from '../../utils/options';
-// hooks
-import useSafe from '../../hooks/useSafe';
 
 const Fragment = React.Fragment;
 const { TextArea } = Input;
@@ -55,9 +53,9 @@ const subjects = [
 ];
 
 const ContactForm = memo(() => {
-    const safe = useSafe();
     const { lang, tgMessage, isFilled } = useSelector(state => state.ux);
     const [submitting, setSubmitting] = useState(false);
+    const { safe } = useSelector(state => state.ui);
     const [formtype, setFormtype] = useState('tg'); // tg, email, sms
     const dispatch = useDispatch();
     const [form] = Form.useForm();
@@ -124,7 +122,7 @@ const ContactForm = memo(() => {
 
             console.info('fetch email api with form data: ', values);
             const result = await sendEmail(
-                safe.getEmail + // TODO: safe.getEmail is undefined!
+                safe.getEmail +
                     '/?=' +
                     encodeURIComponent(JSON.stringify(values))
             ).then(res => res.json());

@@ -35,6 +35,12 @@ export default (state = initState, action) => {
                 heroStyle: { transform: 'scale(1)', opacity: 1 }
             };
 
+        case types.SET_ENV:
+            return {
+                ...state,
+                safe: action.payload
+            };
+
         default:
             return state;
     }

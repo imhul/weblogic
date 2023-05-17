@@ -10,19 +10,17 @@ import {
     GithubOutlined,
     DollarCircleOutlined
 } from '@ant-design/icons';
-// hooks
-import useSafe from '../../../hooks/useSafe';
 
 const Game = memo(() => {
     const { lang } = useSelector(state => state.ux);
-    const { vid, base } = useSafe();
+    const { safe } = useSelector(state => state.ui);
     const title = translate(lang, 'game_title');
 
     return (
         <div className="Game">
             <Helmet>
                 <title>{title}</title>
-                <link rel="canonical" href={base} />
+                <link rel="canonical" href={safe.base} />
             </Helmet>
 
             <div className="container">
@@ -93,7 +91,7 @@ const Game = memo(() => {
                                     className="preview"
                                     width="640"
                                     height="360"
-                                    src={`https://www.youtube-nocookie.com/embed/${vid}?controls=0&autoplay=1?fs=1`}
+                                    src={`https://www.youtube-nocookie.com/embed/${safe.vid}?controls=0&autoplay=1?fs=1`}
                                     title={title}
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen

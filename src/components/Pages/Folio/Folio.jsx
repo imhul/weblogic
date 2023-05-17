@@ -12,15 +12,13 @@ import {
     PoweroffOutlined,
     CompassOutlined
 } from '@ant-design/icons';
-// hooks
-import useSafe from '../../../hooks/useSafe';
 
 const { Panel } = Collapse;
 
 const Folio = memo(() => {
     const { active, lang } = useSelector(state => state.ux);
+    const { safe } = useSelector(state => state.ui);
     const dispatch = useDispatch();
-    const safe = useSafe();
     const renderTexts = [
         {
             icon: <PoweroffOutlined />,

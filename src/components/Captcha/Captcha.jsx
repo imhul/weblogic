@@ -9,25 +9,24 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { messageOptions } from '../../utils/options';
 import translate from '../../utils/translations';
 // hooks
-import useSafe from '../../hooks/useSafe';
 import useIpify from '../../hooks/useIpify';
 import { getRecaptcha } from '../../utils/api';
 
 const Captcha = memo(() => {
-    const safe = useSafe();
     const { lang } = useSelector(state => state.ux);
-    const { currentUser } = useSelector(state => state.ui);
+    const { safe, currentUser } = useSelector(state => state.ui);
     const [ip, setIp] = useState('');
     const dispatch = useDispatch();
     useIpify(safe);
 
     useEffect(() => {
-        if (!currentUser.ip.length && !safe.key) return;
+        if (!currentUser.ip.length && !safe) return;
         if (!ip.length && currentUser.ip.length) setIp(currentUser.ip);
-    }, [currentUser.ip, ip, safe.key]);
+    }, [currentUser.ip, ip, safe]);
 
     const verify = useCallback(
         async response => {
+            if (!safe.getNF) return;
             const captcha = await getRecaptcha(safe.getNF + '' + response);
 
             if (captcha) {
@@ -46,7 +45,7 @@ const Captcha = memo(() => {
                 });
             }
         },
-        [lang]
+        [lang, safe.getNF]
     );
 
     return (
