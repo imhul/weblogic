@@ -82,19 +82,21 @@ const ContactForm = memo(() => {
                 } else {
                     message.error({
                         ...messageOptions,
-                        content: `${translate(lang, 'message_error')}: ${result.message ??
+                        content: `${translate(lang, 'message_error')}: ${
+                            result.message ??
                             result.error ??
                             result ??
                             '::: unknown :::'
-                            }`
+                        }`
                     });
                     setSubmitting(false);
                 }
             } catch (error) {
                 message.error({
                     ...messageOptions,
-                    content: `${translate(lang, 'message_error')}: ${error.message ?? error ?? '::: unknown :::'
-                        }`
+                    content: `${translate(lang, 'message_error')}: ${
+                        error.message ?? error ?? '::: unknown :::'
+                    }`
                 });
                 setSubmitting(false);
             }
@@ -113,19 +115,15 @@ const ContactForm = memo(() => {
                 });
 
                 form.resetFields();
-                console.info('fetch email api values: ', values);
             } else return;
 
             setSubmitting(true);
             const result = await sendEmail(
                 safe.getEmail +
-                '/?=' +
-                encodeURIComponent(JSON.stringify(values))
+                    '/?=' +
+                    encodeURIComponent(JSON.stringify(values))
             ).then(res => res.json());
-            console.info(
-                'fetch email api with result: ',
-                result
-            );
+            console.info('fetch email api with result: ', result);
 
             setSubmitting(false);
         }

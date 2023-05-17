@@ -23,7 +23,6 @@ const useSafe = () => {
 
     function setEnv() {
         if (!process.env.REACT_APP_LINK && loaded) return;
-        console.info('::: SET ENV :::');
         dispatch({
             type: 'SET_ENV',
             payload: {
@@ -45,14 +44,12 @@ const useSafe = () => {
     useEffect(() => {
         if (loaded) return;
         setEnv();
-
         const checkProcessEnv = async () => {
             while (!process.env.REACT_APP_LINK) {
                 await new Promise(resolve => setTimeout(resolve, 100));
             }
             setEnv();
         };
-
         checkProcessEnv();
     }, [loaded]);
 };
