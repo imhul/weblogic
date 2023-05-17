@@ -178,7 +178,7 @@ const ContactForm = memo(() => {
             disabled={submitting}
             onClick={event => submit(event)}
         >
-            {submitting && !safe.getTG && !safe.getEmail ? (
+            {submitting && !safe ? (
                 <LoadingOutlined style={{ color: '#bcc8ce' }} />
             ) : (
                 translate(lang, 'submit')
