@@ -2,7 +2,7 @@ import { builder } from '@netlify/functions';
 import nodemailer from 'nodemailer';
 import { safe } from './utils/safe';
 
-const build = async (event, context) => {
+const build = async event => {
     const { mCode, smail, getEmail } = safe;
     const subject = 'Default subject';
     const data = JSON.parse(event.rawUrl.replace(getEmail + '/?=', ''));
@@ -11,10 +11,7 @@ const build = async (event, context) => {
     if (true) {
         return {
             statusCode: 200,
-            body: JSON.stringify({
-                event: event,
-                context: context,
-            })
+            body: JSON.stringify({ data })
         };
     }
 
