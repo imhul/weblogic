@@ -65,7 +65,7 @@ const ContactForm = memo(() => {
     const maxSize = 4096;
 
     const submit = useCallback(async () => {
-        if (submitting) return;
+        if (submitting && !safe.getTG && !safe.getEmail) return;
 
         async function getTelegramAPI() {
             setSubmitting(true);
@@ -124,7 +124,7 @@ const ContactForm = memo(() => {
 
             console.info('fetch email api with form data: ', values);
             const result = await sendEmail(
-                safe.getEmail +
+                safe.getEmail + // TODO: safe.getEmail is undefined!
                     '/?=' +
                     encodeURIComponent(JSON.stringify(values))
             ).then(res => res.json());
@@ -152,7 +152,7 @@ const ContactForm = memo(() => {
                 getSmsAPI();
                 break;
         }
-    }, [formtype, isFilled, tgMessage, lang]);
+    }, [formtype, isFilled, tgMessage, lang, safe.getTG, safe.getEmail]);
 
     const renderOptions = subjects.map(option => (
         <Option key={option.id} value={option.title}>
