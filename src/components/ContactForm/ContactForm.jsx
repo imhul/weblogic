@@ -1,5 +1,5 @@
 // core
-import React, { memo, useState, useEffect, useCallback } from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import {
@@ -63,6 +63,7 @@ const ContactForm = memo(() => {
     const maxSize = 4096;
 
     const submit = useCallback(async () => {
+        console.info('submit safe: ', safe);
         if (submitting && !safe.getTG && !safe.getEmail) return;
 
         async function getTelegramAPI() {
