@@ -64,7 +64,7 @@ const ContactForm = memo(() => {
 
     const submit = useCallback(async () => {
         console.info('submit safe: ', safe);
-        if (submitting && !safe.getTG && !safe.getEmail) return;
+        if (submitting && !safe) return;
 
         async function getTelegramAPI() {
             try {
@@ -102,7 +102,6 @@ const ContactForm = memo(() => {
         }
 
         async function getEmailAPI() {
-
             const values = form.getFieldsValue();
             const filled = Object.keys(values).every(key => values[key] !== '');
 
@@ -118,7 +117,10 @@ const ContactForm = memo(() => {
                 form.resetFields();
             }
 
-            if (!isFilled) return;
+            console.info('fetch email api isFilled: ', isFilled);
+            console.info('fetch email api safe.getEmail: ', safe.getEmail);
+
+            if (!isFilled && safe.getEmail) return;
             setSubmitting(true);
             console.info('fetch email api with form data: ', values);
             const result = await sendEmail(
