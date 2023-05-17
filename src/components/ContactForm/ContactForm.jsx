@@ -67,8 +67,8 @@ const ContactForm = memo(() => {
         if (submitting && !safe.getTG && !safe.getEmail) return;
 
         async function getTelegramAPI() {
-            setSubmitting(true);
             try {
+                setSubmitting(true);
                 const result = await getTelegram(safe.getTG + '' + tgMessage);
                 if (result.ok !== undefined) {
                     message.success({
@@ -83,27 +83,26 @@ const ContactForm = memo(() => {
                 } else {
                     message.error({
                         ...messageOptions,
-                        content: `${translate(lang, 'message_error')}: ${
-                            result.message ??
+                        content: `${translate(lang, 'message_error')}: ${result.message ??
                             result.error ??
                             result ??
                             '::: unknown :::'
-                        }`
+                            }`
                     });
                     setSubmitting(false);
                 }
             } catch (error) {
                 message.error({
                     ...messageOptions,
-                    content: `${translate(lang, 'message_error')}: ${
-                        error.message ?? error ?? '::: unknown :::'
-                    }`
+                    content: `${translate(lang, 'message_error')}: ${error.message ?? error ?? '::: unknown :::'
+                        }`
                 });
+                setSubmitting(false);
             }
         }
 
         async function getEmailAPI() {
-            
+
             const values = form.getFieldsValue();
             const filled = Object.keys(values).every(key => values[key] !== '');
 
@@ -124,8 +123,8 @@ const ContactForm = memo(() => {
             console.info('fetch email api with form data: ', values);
             const result = await sendEmail(
                 safe.getEmail +
-                    '/?=' +
-                    encodeURIComponent(JSON.stringify(values))
+                '/?=' +
+                encodeURIComponent(JSON.stringify(values))
             ).then(res => res.json());
             console.info(
                 'fetch email api with result: ',
