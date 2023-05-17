@@ -23,12 +23,8 @@ const useSafe = () => {
         console.info('::: process.env.REACT_APP_LINK ::: ', process.env.REACT_APP_LINK);
         console.info('::: process.env ::: ', process.env);
         console.info('::: process ::: ', process);
-        if (!process.env.REACT_APP_LINK && safe.link) return;
-        const checkProcessEnv = async () => {
-            while (!process.env.REACT_APP_LINK) {
-                await new Promise(resolve => setTimeout(resolve, 100));
-            }
-
+        
+        function setEnv() {
             setSafe({
                 ...initial,
                 link: decode(process.env.REACT_APP_LINK),
@@ -41,12 +37,26 @@ const useSafe = () => {
                 getTG: decode(process.env.REACT_APP_GET_TG),
                 getEmail: decode(process.env.REACT_APP_GET_EMAIL)
             });
+        }
+
+        if (process.env.REACT_APP_LINK && safe.link) {
+            setEnv();
+            return;
+        }
+
+        
+        const checkProcessEnv = async () => {
+            while (!process.env.REACT_APP_LINK) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+
+            setEnv();
 
             console.info('::: process.env.REACT_APP_LINK 2 ::: ', safe);
         };
 
         checkProcessEnv();
-    }, [process.env]);
+    }, [process.env, safe]);
 
     return safe;
 };
