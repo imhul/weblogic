@@ -11,7 +11,7 @@ const build = async event => {
     if (true) {
         return {
             statusCode: 200,
-            body: JSON.stringify({ data })
+            body: JSON.stringify(data)
         };
     }
 
