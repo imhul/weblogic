@@ -103,7 +103,6 @@ const ContactForm = memo(() => {
         async function getEmailAPI() {
             const values = form.getFieldsValue();
             const filled = Object.keys(values).every(key => values[key] !== '');
-
             if (values) {
                 dispatch({
                     type: 'FORM_UPDATE',
@@ -114,14 +113,10 @@ const ContactForm = memo(() => {
                 });
 
                 form.resetFields();
-            }
+                console.info('fetch email api values: ', values);
+            } else return;
 
-            console.info('fetch email api isFilled: ', isFilled);
-            console.info('fetch email api values: ', values);
-
-            if (!isFilled || !values) return;
             setSubmitting(true);
-            console.info('fetch email api with form data: ', values);
             const result = await sendEmail(
                 safe.getEmail +
                 '/?=' +
