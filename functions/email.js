@@ -39,10 +39,9 @@ const build = async event => {
             body: JSON.stringify({ message: 'Email sent successfully' })
         };
     } catch (error) {
-        console.warn('Error sending email:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ message: 'Error sending email' })
+            body: JSON.stringify({ message: 'Error sending email: ' + error })
         };
     }
 };
