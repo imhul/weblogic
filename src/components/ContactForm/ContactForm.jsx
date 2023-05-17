@@ -123,8 +123,8 @@ const ContactForm = memo(() => {
                 encodeURIComponent(JSON.stringify(values))
             ).then(res => res.json());
             console.info(
-                'fetch email api with result.body: ',
-                result.body
+                'fetch email api with result: ',
+                result
             );
 
             setSubmitting(false);
