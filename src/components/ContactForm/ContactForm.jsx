@@ -126,10 +126,6 @@ const ContactForm = memo(() => {
                 'fetch email api with result.body: ',
                 result.body
             );
-            console.info(
-                'fetch email api with JSON.parse(result.body): ',
-                JSON.parse(result.body)
-            );
 
             setSubmitting(false);
         }
