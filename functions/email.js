@@ -4,21 +4,12 @@ import { safe } from './utils/safe';
 
 const build = async event => {
     const { mCode, smail, getEmail } = safe;
-    const subject = 'Default subject';
     const data = JSON.parse(
         decodeURIComponent(event.rawUrl.replace(getEmail + '/?=', ''))
     );
-    const copy = false;
-
-    if (true) {
-        return {
-            statusCode: 200,
-            body: JSON.stringify(data)
-        };
-    }
 
     try {
-        const { name, email, message } = JSON.parse(event.body);
+        const { name, email, subject, message, copy } = data;
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
