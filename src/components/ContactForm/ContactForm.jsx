@@ -63,7 +63,6 @@ const ContactForm = memo(() => {
     const maxSize = 4096;
 
     const submit = useCallback(async () => {
-        console.info('submit safe: ', safe);
         if (submitting && !safe) return;
 
         async function getTelegramAPI() {
@@ -118,9 +117,9 @@ const ContactForm = memo(() => {
             }
 
             console.info('fetch email api isFilled: ', isFilled);
-            console.info('fetch email api safe.getEmail: ', safe.getEmail);
+            console.info('fetch email api values: ', values);
 
-            if (!isFilled && safe.getEmail) return;
+            if (!isFilled || !values) return;
             setSubmitting(true);
             console.info('fetch email api with form data: ', values);
             const result = await sendEmail(
