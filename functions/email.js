@@ -5,7 +5,7 @@ import xoauth2 from 'xoauth2';
 import { safe } from './utils/safe';
 
 const build = async event => {
-    const { mCode, smail, getEmail } = safe;
+    const { mCode, getEmail } = safe;
     const data = JSON.parse(
         decodeURIComponent(event.rawUrl.replace(getEmail + '/?=', ''))
     );
