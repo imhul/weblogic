@@ -5,7 +5,7 @@ import xoauth2 from 'xoauth2';
 import { safe } from './utils/safe';
 
 const build = async event => {
-    const { mCode, getEmail } = safe;
+    const { mCode, getEmail, client, secret, refresh } = safe;
     const data = JSON.parse(
         decodeURIComponent(event.rawUrl.replace(getEmail + '/?=', ''))
     );
@@ -18,27 +18,11 @@ const build = async event => {
             auth: {
                 xoauth2: xoauth2.createXOAuth2Generator({
                     user: mCode,
-                    clientId: '',
-                    clientSecret: '',
-                    refreshToken: '',
+                    clientId: client,
+                    clientSecret: secret,
+                    refreshToken: refresh,
                 })
             }
-            // secure: true,
-            // auth: {
-            //     user: mCode,
-            //     pass: ****
-            // }
-            // host: 'smtp.gmail.com',
-            // port: 465,
-            // secure: true,
-            // auth: {
-            //     type: 'OAuth2',
-            //     user: mCode,
-            //     clientId: '000000000000-xxx0.apps.googleusercontent.com',
-            //     clientSecret: 'XxxxxXXxX0xxxxxxxx0XXxX0',
-            //     refreshToken: '1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx',
-            //     accessToken: 'ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x'
-            // }
         });
 
         const mailOptions = {
