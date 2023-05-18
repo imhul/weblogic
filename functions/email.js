@@ -11,6 +11,20 @@ const build = async event => {
     );
 
     try {
+        if (!safe) {
+            return {
+                statusCode: 520,
+                body: JSON.stringify({ code: 519, message: 'No environment provided!' })
+            };
+        }
+
+        if (!data) {
+            return {
+                statusCode: 519,
+                body: JSON.stringify({ code: 519, message: 'No data provided!' })
+            };
+        }
+
         const { name, email, subject, message, copy } = data;
 
         const transporter = nodemailer.createTransport({
@@ -29,13 +43,15 @@ const build = async event => {
             from: `Weblogic <${mCode}>`,
             to: copy ? [mCode, email] : mCode,
             subject,
-            text: `
-            Name: ${name}
-            Email: ${email}
-            Subject: ${subject}
-            Message: ${message}
-          `
+            text: `Name: ${name} Email: ${email} Subject: ${subject} Message: ${message}`
         };
+
+        if (!mailOptions) {
+            return {
+                statusCode: 519,
+                body: JSON.stringify({ code: 521, message: 'No mailOptions provided!' })
+            };
+        }
 
         transporter.sendMail(mailOptions, (error, response) => {
             if (error) {
