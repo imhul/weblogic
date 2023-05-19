@@ -139,7 +139,7 @@ const ContactForm = memo(() => {
                                 'message_error'
                             )} Status: ${
                                 res.status ?? '::: unknown status :::'
-                            }, Error:  ${
+                            }, Email Error:  ${
                                 res.statusText ?? '::: unknown error :::'
                             }`
                         });
