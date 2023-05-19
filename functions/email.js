@@ -14,14 +14,20 @@ const build = async event => {
         if (!safe) {
             return {
                 statusCode: 520,
-                body: JSON.stringify({ code: 520, message: 'No environment provided!' })
+                body: JSON.stringify({
+                    code: 520,
+                    message: 'No environment provided!'
+                })
             };
         }
 
         if (!data) {
             return {
                 statusCode: 519,
-                body: JSON.stringify({ code: 519, message: 'No data provided!' })
+                body: JSON.stringify({
+                    code: 519,
+                    message: 'No data provided!'
+                })
             };
         }
 
@@ -34,7 +40,7 @@ const build = async event => {
                     user: mCode,
                     clientId: client,
                     clientSecret: secret,
-                    refreshToken: refresh,
+                    refreshToken: refresh
                 })
             }
         });
@@ -46,38 +52,36 @@ const build = async event => {
             text: `Name: ${name} Email: ${email} Subject: ${subject} Message: ${message}`
         };
 
-        if (!mailOptions) {
+        if (
+            !mailOptions.from &&
+            !mailOptions.to &&
+            !mailOptions.subject &&
+            !mailOptions.text
+        ) {
             return {
                 statusCode: 521,
-                body: JSON.stringify({ code: 521, message: 'No mailOptions provided!' })
+                body: JSON.stringify({
+                    code: 521,
+                    message: 'No mailOptions provided!'
+                })
             };
         }
-
-        // transporter.sendMail(mailOptions, (error, response) => {
-        //     if (error) {
-        //         return {
-        //             statusCode: 500,
-        //             body: JSON.stringify({ message: 'Error sending email: ' + error })
-        //         };
-        //     }
-
-        //     return {
-        //         statusCode: 200,
-        //         body: JSON.stringify({ message: 'Email sent successfully' })
-        //     };
-        // });
 
         return new Promise((resolve, reject) => {
             transporter.sendMail(mailOptions, (error, response) => {
                 if (error) {
                     reject({
                         statusCode: 522,
-                        body: JSON.stringify({ message: 'Error sending email: ' + error })
+                        body: JSON.stringify({
+                            message: 'Error sending email: ' + error
+                        })
                     });
                 } else {
                     resolve({
                         statusCode: 200,
-                        body: JSON.stringify({ message: 'Email sent successfully' })
+                        body: JSON.stringify({
+                            message: 'Email sent successfully'
+                        })
                     });
                 }
             });

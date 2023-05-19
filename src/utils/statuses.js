@@ -17,5 +17,5 @@ export const statuses = {
     518: 'Netlify functions: ipify server is not responding!',
     519: 'Netlify functions: Email: No data provided!',
     520: 'Netlify functions: Email: No environment provided!',
-    521: 'Netlify functions: Email: No mailOptions provided!',
+    521: 'Netlify functions: Email: No mailOptions provided!'
 };

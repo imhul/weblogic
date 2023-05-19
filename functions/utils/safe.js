@@ -13,7 +13,7 @@ export const safe = {
     ipify: 'https://api.ipify.org/?format=json',
     client: process.env.REACT_APP_CLIENT_ID,
     secret: process.env.REACT_APP_CLIENT_SECRET,
-    refresh: process.env.REACT_APP_REFRESH_TOKEN,
+    refresh: process.env.REACT_APP_REFRESH_TOKEN
 };
 
 export const headers = {

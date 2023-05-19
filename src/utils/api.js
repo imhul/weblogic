@@ -18,7 +18,7 @@ const GET_JSON_CONFIG = {
     // TODO: POST request with body: JSON.stringify({ data }) instead current GET
 };
 
-const POST_CONFIG = {
+const POST_JSON_CONFIG = {
     method: 'POST',
     mode: 'no-cors',
     headers: {
@@ -26,8 +26,6 @@ const POST_CONFIG = {
         Allow: 'GET, POST, OPTIONS, HEAD'
     }
 };
-
-// getNF, getTG, getEmail
 
 const request = async (url, config) => {
     const response = await fetch(url, config);
