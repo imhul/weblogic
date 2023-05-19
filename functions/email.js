@@ -53,18 +53,34 @@ const build = async event => {
             };
         }
 
-        transporter.sendMail(mailOptions, (error, response) => {
-            if (error) {
-                return {
-                    statusCode: 500,
-                    body: JSON.stringify({ message: 'Error sending email: ' + error })
-                };
-            }
+        // transporter.sendMail(mailOptions, (error, response) => {
+        //     if (error) {
+        //         return {
+        //             statusCode: 500,
+        //             body: JSON.stringify({ message: 'Error sending email: ' + error })
+        //         };
+        //     }
 
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ message: 'Email sent successfully' })
-            };
+        //     return {
+        //         statusCode: 200,
+        //         body: JSON.stringify({ message: 'Email sent successfully' })
+        //     };
+        // });
+
+        return new Promise((resolve, reject) => {
+            transporter.sendMail(mailOptions, (error, response) => {
+                if (error) {
+                    reject({
+                        statusCode: 500,
+                        body: JSON.stringify({ message: 'Error sending email: ' + error })
+                    });
+                } else {
+                    resolve({
+                        statusCode: 200,
+                        body: JSON.stringify({ message: 'Email sent successfully' })
+                    });
+                }
+            });
         });
     } catch (error) {
         return {

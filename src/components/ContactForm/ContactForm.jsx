@@ -123,10 +123,18 @@ const ContactForm = memo(() => {
                 safe.getEmail +
                     '/?=' +
                     encodeURIComponent(JSON.stringify({ ...values, copy }))
-            ).then(res => res.json());
+            ).then(res => {
+                // if res is not json
+                if (res.ok !== undefined) {
+                    message.success({
+                        ...messageOptions,
+                        content: `${translate(lang, 'message_success')}`
+                    });
+                    setSubmitting(false);
+                }
+                return res.json()
+            }).finally(() => setSubmitting(false)); // TODO: no res.json() in prod
             console.info('fetch email api with result: ', result);
-
-            setSubmitting(false);
         }
 
         async function getSmsAPI() {
