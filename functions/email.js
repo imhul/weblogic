@@ -94,7 +94,7 @@ const build = async event => {
     } catch (error) {
         return {
             statusCode: 523,
-            body: JSON.stringify({ message: 'Error sending email: ' + error, code: 523 })
+            body: JSON.stringify({ message: 'Error sending email: ' + (error.message ?? error), code: 523 })
         };
     }
 };
