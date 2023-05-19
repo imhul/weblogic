@@ -83,21 +83,19 @@ const ContactForm = memo(() => {
                 } else {
                     message.error({
                         ...messageOptions,
-                        content: `${translate(lang, 'message_error')}: ${
-                            result.message ??
+                        content: `${translate(lang, 'message_error')}: ${result.message ??
                             result.error ??
                             result ??
                             '::: unknown :::'
-                        }`
+                            }`
                     });
                     setSubmitting(false);
                 }
             } catch (error) {
                 message.error({
                     ...messageOptions,
-                    content: `${translate(lang, 'message_error')}: ${
-                        error.message ?? error ?? '::: unknown :::'
-                    }`
+                    content: `${translate(lang, 'message_error')}: ${error.message ?? error ?? '::: unknown :::'
+                        }`
                 });
                 setSubmitting(false);
             }
@@ -121,8 +119,8 @@ const ContactForm = memo(() => {
             setSubmitting(true);
             const result = await sendEmail(
                 safe.getEmail +
-                    '/?=' +
-                    encodeURIComponent(JSON.stringify({ ...values, copy }))
+                '/?=' +
+                encodeURIComponent({ ...values, copy })
             ).then(res => {
                 if (res.ok) {
                     message.success({
@@ -133,9 +131,8 @@ const ContactForm = memo(() => {
                 } else {
                     message.error({
                         ...messageOptions,
-                        content: `${translate(lang, 'message_error')}: status: ${
-                            res.status ?? '::: unknown status :::'
-                        }, error:  ${res.statusText ?? '::: unknown error :::'}`
+                        content: `${translate(lang, 'message_error')}: status: ${res.status ?? '::: unknown status :::'
+                            }, error:  ${res.statusText ?? '::: unknown error :::'}`
                     });
                     setSubmitting(false);
                 }

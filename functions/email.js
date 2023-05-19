@@ -14,7 +14,7 @@ const build = async event => {
         if (!safe) {
             return {
                 statusCode: 520,
-                body: JSON.stringify({ code: 519, message: 'No environment provided!' })
+                body: JSON.stringify({ code: 520, message: 'No environment provided!' })
             };
         }
 
@@ -48,7 +48,7 @@ const build = async event => {
 
         if (!mailOptions) {
             return {
-                statusCode: 519,
+                statusCode: 521,
                 body: JSON.stringify({ code: 521, message: 'No mailOptions provided!' })
             };
         }
@@ -71,7 +71,7 @@ const build = async event => {
             transporter.sendMail(mailOptions, (error, response) => {
                 if (error) {
                     reject({
-                        statusCode: 500,
+                        statusCode: 522,
                         body: JSON.stringify({ message: 'Error sending email: ' + error })
                     });
                 } else {
@@ -84,7 +84,7 @@ const build = async event => {
         });
     } catch (error) {
         return {
-            statusCode: 500,
+            statusCode: 523,
             body: JSON.stringify({ message: 'Error sending email: ' + error })
         };
     }
