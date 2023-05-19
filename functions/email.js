@@ -66,6 +66,14 @@ const build = async event => {
                     message: 'No mailOptions provided!'
                 })
             };
+        } else return {
+            statusCode: 200,
+            body: JSON.stringify({
+                mailOptions,
+                data,
+                mail: mCode(), 
+                link: getEmail()
+            })
         }
 
         console.log('mailOptions', mailOptions);
