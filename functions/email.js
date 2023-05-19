@@ -11,7 +11,7 @@ const build = async event => {
     );
 
     try {
-        if (!safe) {
+        if (!safe && !mCode && !client && !secret && !refresh) {
             return {
                 statusCode: 520,
                 body: JSON.stringify({
