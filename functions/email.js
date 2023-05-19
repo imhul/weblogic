@@ -66,17 +66,16 @@ const build = async event => {
                     message: 'No mailOptions provided!'
                 })
             };
-        } else return {
-            statusCode: 200,
-            body: JSON.stringify({
-                mailOptions,
-                data,
-                mail: mCode, 
-                link: getEmail
-            })
-        }
-
-        console.log('mailOptions', mailOptions);
+        } 
+        // else return {
+        //     statusCode: 200,
+        //     body: JSON.stringify({
+        //         mailOptions,
+        //         data,
+        //         mail: mCode, 
+        //         link: getEmail
+        //     })
+        // }
 
         return new Promise((resolve, reject) => {
             transporter.sendMail(mailOptions, (error, response) => {
