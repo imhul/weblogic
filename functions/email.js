@@ -77,8 +77,7 @@ const build = async event => {
                             code: 522,
                             message:
                                 'Error sending email: ' +
-                                (error.message ?? error.errorMessage ?? JSON.stringify(error)),
-                            response: response ? JSON.stringify(response) : null
+                                (error.message ?? error.errorMessage ?? '::: unknown error :::')
                         })
                     });
                 } else {
@@ -95,7 +94,7 @@ const build = async event => {
         return {
             statusCode: 523,
             body: JSON.stringify({
-                message: 'Error sending email: ' + (error.message ?? JSON.stringify(error)),
+                message: 'Error sending email: ' + (error.message ?? '::: unknown error :::'),
                 code: 523
             })
         };
