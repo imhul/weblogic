@@ -67,6 +67,8 @@ const build = async event => {
             };
         }
 
+        console.log('mailOptions', mailOptions);
+
         return new Promise((resolve, reject) => {
             transporter.sendMail(mailOptions, (error, response) => {
                 if (error) {
