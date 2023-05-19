@@ -37,7 +37,7 @@ const build = async event => {
             service: 'gmail',
             auth: {
                 xoauth2: xoauth2.createXOAuth2Generator({
-                    user: mCode,
+                    user: mCode(),
                     clientId: client,
                     clientSecret: secret,
                     refreshToken: refresh
@@ -46,8 +46,8 @@ const build = async event => {
         });
 
         const mailOptions = {
-            from: `Weblogic <${mCode}>`,
-            to: copy ? [mCode, email] : mCode,
+            from: `Weblogic <${mCode()}>`,
+            to: copy ? [mCode(), email] : mCode(),
             subject,
             text: `Name: ${name} Email: ${email} Subject: ${subject} Message: ${message}`
         };
