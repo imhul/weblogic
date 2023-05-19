@@ -11,7 +11,7 @@ const build = async event => {
     );
 
     try {
-        if (!safe && !mCode && !client && !secret && !refresh && !getEmail) {
+        if (!mCode && !client && !secret && !refresh && !getEmail) {
             return {
                 statusCode: 520,
                 body: JSON.stringify({
@@ -53,7 +53,6 @@ const build = async event => {
         };
 
         if (
-            !mailOptions &&
             !mailOptions.from &&
             !mailOptions.to &&
             !mailOptions.subject &&
