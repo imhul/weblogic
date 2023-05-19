@@ -74,7 +74,8 @@ const build = async event => {
                         statusCode: 522,
                         body: JSON.stringify({
                             code: 522,
-                            message: 'Error sending email: ' + error, response
+                            message: 'Error sending email: ' + error,
+                            response
                         })
                     });
                 } else {

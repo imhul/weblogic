@@ -1,19 +1,21 @@
+import { config } from './config';
+
 export const decode = data => {
     let buff = Buffer.from(data, 'base64');
     return buff.toString('utf8');
 };
 
 export const safe = {
-    link: decode(process.env.REACT_APP_LINK),
-    tCode: decode(process.env.REACT_APP_T_CODE),
-    getNF: decode(process.env.REACT_APP_GET_NF),
-    getTG: decode(process.env.REACT_APP_GET_TG),
-    smail: decode(process.env.REACT_APP_S_MAIL),
-    getEmail: decode(process.env.REACT_APP_GET_EMAIL),
-    ipify: 'https://api.ipify.org/?format=json',
-    client: process.env.REACT_APP_CLIENT_ID,
-    secret: process.env.REACT_APP_CLIENT_SECRET,
-    refresh: process.env.REACT_APP_REFRESH_TOKEN
+    link: decode(config.link),
+    tCode: decode(config.tCode),
+    getNF: decode(config.getNF),
+    getTG: decode(config.getTG),
+    smail: decode(config.smail),
+    getEmail: decode(config.getEmail),
+    ipify: config.ipify,
+    client: config.client,
+    secret: config.secret,
+    refresh: config.refresh
 };
 
 export const headers = {
