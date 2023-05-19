@@ -8,11 +8,21 @@ const GET_CONFIG = {
     // TODO: POST request with body: JSON.stringify({ data }) instead current GET
 };
 
+const GET_JSON_CONFIG = {
+    method: 'GET',
+    mode: 'no-cors', // no-cors, cors, *cors, same-origin
+    headers: {
+        'Content-Type': 'application/json',
+        Allow: 'GET, POST, OPTIONS, HEAD'
+    }
+    // TODO: POST request with body: JSON.stringify({ data }) instead current GET
+};
+
 const POST_CONFIG = {
     method: 'POST',
     mode: 'no-cors',
     headers: {
-        'Content-Type': 'text/strings',
+        'Content-Type': 'application/json',
         Allow: 'GET, POST, OPTIONS, HEAD'
     }
 };
@@ -38,6 +48,6 @@ export const getTelegram = async url => {
 };
 
 export const sendEmail = async url => {
-    const result = await request(url, GET_CONFIG);
+    const result = await request(url, GET_JSON_CONFIG);
     return result;
 };
