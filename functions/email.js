@@ -7,11 +7,11 @@ import { safe } from './utils/safe';
 const build = async event => {
     const { mCode, getEmail, client, secret, refresh } = safe;
     const data = JSON.parse(
-        decodeURIComponent(event.rawUrl.replace(getEmail + '/?=', ''))
+        decodeURIComponent(event.rawUrl.replace(getEmail() + '/?=', ''))
     );
 
     try {
-        if (!safe && !mCode && !client && !secret && !refresh) {
+        if (!safe() && !mCode() && !client() && !secret() && !refresh()) {
             return {
                 statusCode: 520,
                 body: JSON.stringify({
