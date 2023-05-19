@@ -6,14 +6,12 @@ import { safe } from './utils/safe';
 
 const build = async event => {
     const { mCode, getEmail, client, secret, refresh } = safe;
-    const adress = mCode();
-    const getMailURL = getEmail();
     const data = JSON.parse(
-        decodeURIComponent(event.rawUrl.replace(getMailURL + '/?=', ''))
+        decodeURIComponent(event.rawUrl.replace(getEmail + '/?=', ''))
     );
 
     try {
-        if (!safe && !adress && !client && !secret && !refresh && !getMailURL) {
+        if (!safe && !mCode && !client && !secret && !refresh && !getEmail) {
             return {
                 statusCode: 520,
                 body: JSON.stringify({
@@ -39,7 +37,7 @@ const build = async event => {
             service: 'gmail',
             auth: {
                 xoauth2: xoauth2.createXOAuth2Generator({
-                    user: adress,
+                    user: mCode,
                     clientId: client,
                     clientSecret: secret,
                     refreshToken: refresh
@@ -48,8 +46,8 @@ const build = async event => {
         });
 
         const mailOptions = {
-            from: `Weblogic <${adress}>`,
-            to: copy ? [adress, email] : adress,
+            from: `Weblogic <${mCode}>`,
+            to: copy ? [mCode, email] : mCode,
             subject,
             text: `Name: ${name} Email: ${email} Subject: ${subject} Message: ${message}`
         };
@@ -73,8 +71,8 @@ const build = async event => {
             body: JSON.stringify({
                 mailOptions,
                 data,
-                mail: adress, 
-                link: getMailURL
+                mail: mCode, 
+                link: getEmail
             })
         }
 
