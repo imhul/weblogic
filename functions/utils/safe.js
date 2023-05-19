@@ -6,12 +6,21 @@ export const decode = data => {
 };
 
 export const safe = {
-    link: decode(config.link),
-    tCode: decode(config.tCode),
-    getNF: decode(config.getNF),
-    getTG: decode(config.getTG),
-    smail: decode(config.smail),
-    getEmail: decode(config.getEmail),
+    get link() {
+        return decode(process.env.REACT_APP_LINK);
+    },
+    get tCode() {
+        return decode(process.env.REACT_APP_T_CODE);
+    },
+    get getNF() {
+        return decode(process.env.REACT_APP_GET_NF);
+    },
+    get getTG() {
+        return decode(process.env.REACT_APP_GET_TG);
+    },
+    get getEmail() {
+        return decode(process.env.REACT_APP_GET_EMAIL);
+    },
     ipify: config.ipify,
     client: config.client,
     secret: config.secret,
