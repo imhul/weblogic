@@ -53,6 +53,7 @@ const build = async event => {
         };
 
         if (
+            !mailOptions &&
             !mailOptions.from &&
             !mailOptions.to &&
             !mailOptions.subject &&
@@ -93,7 +94,7 @@ const build = async event => {
     } catch (error) {
         return {
             statusCode: 523,
-            body: JSON.stringify({ message: 'Error sending email: ' + error })
+            body: JSON.stringify({ message: 'Error sending email: ' + error, code: 523 })
         };
     }
 };

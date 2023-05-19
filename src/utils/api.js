@@ -29,6 +29,7 @@ const POST_JSON_CONFIG = {
 
 const request = async (url, config) => {
     const response = await fetch(url, config);
+    console.info('response: ', response);
     if (response.ok !== undefined) return response;
     const resultJson = await response.json();
     const result = await JSON.parse(resultJson.data);
