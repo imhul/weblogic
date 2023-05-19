@@ -120,7 +120,7 @@ const ContactForm = memo(() => {
             const result = await sendEmail(
                 safe.getEmail +
                 '/?=' +
-                encodeURIComponent({ ...values, copy })
+                encodeURIComponent(JSON.stringify({ ...values, copy }))
             ).then(res => {
                 if (res.ok) {
                     message.success({
