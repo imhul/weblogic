@@ -124,11 +124,18 @@ const ContactForm = memo(() => {
                     '/?=' +
                     encodeURIComponent(JSON.stringify({ ...values, copy }))
             ).then(res => {
-                // if res is not json
-                if (res.ok !== undefined) {
+                if (res.ok) {
                     message.success({
                         ...messageOptions,
                         content: `${translate(lang, 'message_success')}`
+                    });
+                    setSubmitting(false);
+                } else {
+                    message.error({
+                        ...messageOptions,
+                        content: `${translate(lang, 'message_error')}: status: ${
+                            res.status ?? '::: unknown status :::'
+                        }, error:  ${res.statusText ?? '::: unknown error :::'}`
                     });
                     setSubmitting(false);
                 }
