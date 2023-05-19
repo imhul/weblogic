@@ -132,7 +132,7 @@ const ContactForm = memo(() => {
                     });
                     setSubmitting(false);
                 }
-                return res.json() ?? res;
+                return res;
             }).finally(() => setSubmitting(false));
             console.info('fetch email api with result: ', result);
         }
