@@ -73,7 +73,8 @@ const build = async event => {
                     reject({
                         statusCode: 522,
                         body: JSON.stringify({
-                            message: 'Error sending email: ' + error
+                            code: 522,
+                            message: 'Error sending email: ' + error, response
                         })
                     });
                 } else {
