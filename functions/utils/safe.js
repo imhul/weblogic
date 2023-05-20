@@ -24,7 +24,8 @@ export const safe = {
     ipify: config.ipify,
     client: config.client,
     secret: config.secret,
-    refresh: config.refresh
+    refresh: config.refresh,
+    token: config.token
 };
 
 export const headers = {

@@ -83,19 +83,21 @@ const ContactForm = memo(() => {
                 } else {
                     message.error({
                         ...messageOptions,
-                        content: `${translate(lang, 'message_error')}: ${result.message ??
+                        content: `${translate(lang, 'message_error')}: ${
+                            result.message ??
                             result.error ??
                             result ??
                             '::: unknown :::'
-                            }`
+                        }`
                     });
                     setSubmitting(false);
                 }
             } catch (error) {
                 message.error({
                     ...messageOptions,
-                    content: `${translate(lang, 'message_error')}: ${error.message ?? error ?? '::: unknown :::'
-                        }`
+                    content: `${translate(lang, 'message_error')}: ${
+                        error.message ?? error ?? '::: unknown :::'
+                    }`
                 });
                 setSubmitting(false);
             }
@@ -118,7 +120,10 @@ const ContactForm = memo(() => {
 
             setSubmitting(true);
 
-            const emailURL = safe.getEmail + '/?=' + encodeURIComponent(JSON.stringify({ ...values, copy }));
+            const emailURL =
+                safe.getEmail +
+                '/?=' +
+                encodeURIComponent(JSON.stringify({ ...values, copy }));
             const result = await sendEmail(emailURL)
                 .then(res => {
                     if (res.ok) {
@@ -132,9 +137,15 @@ const ContactForm = memo(() => {
                             content: `${translate(
                                 lang,
                                 'message_error'
-                            )} Status: ${res.status ?? '::: unknown status :::'
-                                }, Email Error:  ${res.statusText ? res.statusText : res.errorMessage ? res.errorMessage : '::: unknown error :::'
-                                }`
+                            )} Status: ${
+                                res.status ?? '::: unknown status :::'
+                            }, Email Error:  ${
+                                res.statusText
+                                    ? res.statusText
+                                    : res.errorMessage
+                                    ? res.errorMessage
+                                    : '::: unknown error :::'
+                            }`
                         });
                     }
                     return res;
