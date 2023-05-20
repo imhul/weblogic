@@ -57,10 +57,22 @@ const ContactForm = memo(() => {
     const [submitting, setSubmitting] = useState(false);
     const { safe } = useSelector(state => state.ui);
     const [formtype, setFormtype] = useState('tg'); // tg, email, sms
+    const [emailMessage, setEmailMessage] = useState('');
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const inDevelopment = false;
     const maxSize = 4096;
+
+    const setForm = value => {
+        setFormtype(value);
+        if (tgMessage.length) {
+            return dispatch({
+                type: 'TEXTAREA_UPDATE',
+                payload: ''
+            });
+        }
+        form.resetFields();
+    };
 
     const submit = useCallback(async () => {
         if (submitting && !safe) return;
@@ -144,24 +156,6 @@ const ContactForm = memo(() => {
         </Option>
     ));
 
-    const TextInput = () => (
-        <TextArea
-            maxLength={maxSize}
-            value={tgMessage}
-            rows={4}
-            cols={30}
-            tabIndex="1"
-            key="TextInput"
-            placeholder={`${translate(lang, 'placeholder')}`}
-            onChange={event =>
-                dispatch({
-                    type: 'TEXTAREA_UPDATE',
-                    payload: event.target.value
-                })
-            }
-        />
-    );
-
     const SubmitButton = () => (
         <Button
             size="large"
@@ -182,7 +176,21 @@ const ContactForm = memo(() => {
     const tgForm = () => (
         <Fragment key="tgForm">
             <Col xs={{ span: 24 }} md={{ span: 20 }}>
-                {TextInput()}
+                <TextArea
+                    maxLength={maxSize}
+                    value={tgMessage}
+                    rows={4}
+                    cols={30}
+                    tabIndex="1"
+                    key="TextInput"
+                    placeholder={`${translate(lang, 'placeholder')}`}
+                    onChange={event =>
+                        dispatch({
+                            type: 'TEXTAREA_UPDATE',
+                            payload: event.target.value
+                        })
+                    }
+                />
             </Col>
             <Col xs={{ span: 24 }} md={{ span: 20 }}>
                 <SubmitButton />
@@ -270,6 +278,7 @@ const ContactForm = memo(() => {
                         cols={30}
                         tabIndex="1"
                         placeholder={translate(lang, 'placeholder')}
+                        onChange={event => setEmailMessage(event.target.value)}
                     />
                 </Item>
             </Col>
@@ -314,7 +323,7 @@ const ContactForm = memo(() => {
                 <Row gutter={24} type="flex" justify="center" align="middle">
                     <Col span={12} className="mb-10">
                         <Group
-                            onChange={e => setFormtype(e.target.value)}
+                            onChange={e => setForm(e.target.value)}
                             value={formtype}
                             buttonStyle="solid"
                             optionType="button"
@@ -339,7 +348,11 @@ const ContactForm = memo(() => {
                         <Statistic
                             className="white"
                             suffix={`/ ${maxSize}`}
-                            value={`${tgMessage.length}`}
+                            value={`${
+                                tgMessage.length
+                                    ? tgMessage.length
+                                    : emailMessage.length
+                            }`}
                         />
                     </Col>
                     <Divider>
