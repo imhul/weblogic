@@ -126,7 +126,9 @@ const ContactForm = memo(() => {
             await sendEmail(emailURL)
                 .then(res => {
                     console.info('res: ', res);
-                    if (res.status === 200 || res.ok) {
+                    // TODO: resolve status 0
+                    if (res.status === 0 || res.status === 200 || res.ok) {
+                        // temporary solution is: res.status === 0
                         message.success({
                             ...messageOptions,
                             content: `${translate(lang, 'message_success')}`
