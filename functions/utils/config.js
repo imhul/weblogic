@@ -10,5 +10,5 @@ export const config = {
     secret: process.env.REACT_APP_CLIENT_SECRET,
     refresh: process.env.REACT_APP_REFRESH_TOKEN,
     token: process.env.REACT_APP_ACCESS_TOKEN,
-    mPW: process.env.REACT_APP_MAIL_APP_PW,
+    mPW: process.env.REACT_APP_MAIL_APP_PW
 };

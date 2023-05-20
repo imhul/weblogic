@@ -124,7 +124,7 @@ const ContactForm = memo(() => {
                 safe.getEmail +
                 '/?=' +
                 encodeURIComponent(JSON.stringify({ ...values, copy }));
-            const result = await sendEmail(emailURL)
+            await sendEmail(emailURL)
                 .then(res => {
                     if (res.ok) {
                         message.success({
@@ -151,7 +151,6 @@ const ContactForm = memo(() => {
                     return res;
                 })
                 .finally(() => setSubmitting(false));
-            console.info('fetch email api with result: ', result);
         }
 
         async function getSmsAPI() {
