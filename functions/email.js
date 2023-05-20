@@ -12,7 +12,14 @@ const build = async event => {
     );
 
     try {
-        if (!mCode && !client && !secret && !refresh && !getEmail && !token) {
+        if (
+            !mCode.length &&
+            !client.length &&
+            !secret.length &&
+            !refresh.length &&
+            !getEmail.length &&
+            !token.length
+        ) {
             return {
                 statusCode: 520,
                 body: JSON.stringify({
@@ -51,7 +58,7 @@ const build = async event => {
                 //     refreshToken: refresh
                 // })
                 type: 'OAuth2',
-                user: mCode,
+                user: mCode || safe.mCode,
                 clientId: client,
                 clientSecret: secret,
                 refreshToken: refresh,
@@ -110,7 +117,9 @@ const build = async event => {
         return {
             statusCode: 523,
             body: JSON.stringify({
-                message: 'Error sending email: ' + (error.error ?? '::: unknown error :::'),
+                message:
+                    'Error sending email: ' +
+                    (error.error ?? '::: unknown error :::'),
                 code: 523
             })
         };

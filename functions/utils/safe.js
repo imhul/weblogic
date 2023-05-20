@@ -12,6 +12,9 @@ export const safe = {
     get tCode() {
         return decode(process.env.REACT_APP_T_CODE);
     },
+    get mCode() {
+        return decode(process.env.REACT_APP_M_CODE);
+    },
     get getNF() {
         return decode(process.env.REACT_APP_GET_NF);
     },
