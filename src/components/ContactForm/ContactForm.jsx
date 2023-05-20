@@ -125,7 +125,7 @@ const ContactForm = memo(() => {
                 encodeURIComponent(JSON.stringify(values));
             await sendEmail(emailURL)
                 .then(res => {
-                    if (res.ok) {
+                    if (res.status === 200) {
                         message.success({
                             ...messageOptions,
                             content: `${translate(lang, 'message_success')}`
