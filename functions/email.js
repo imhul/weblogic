@@ -32,7 +32,7 @@ const build = async event => {
         };
     }
 
-    const { name, email, subject, message, copy } = data;
+    const { name, email, subject, message } = data;
 
     try {
         const transporter = nodemailer.createTransport({
@@ -44,10 +44,10 @@ const build = async event => {
         });
 
         const mailOptions = {
-            from: `Weblogic <${mCode}>`,
-            to: copy ? [mCode, email] : mCode,
+            from: `Weblogic Contact Form <${mCode}>`,
+            to: mCode,
             subject,
-            text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`
+            text: `Sended by: ${name}\n${name}'s email: ${email}\n${name}'s subject: ${subject}\n${name}'s message: ${message}`
         };
 
         if (
