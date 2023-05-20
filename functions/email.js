@@ -119,7 +119,7 @@ const build = async event => {
             body: JSON.stringify({
                 message:
                     'Error sending email: ' +
-                    (error.error ?? '::: unknown error :::'),
+                    (error.error ?? error.errorMessage ?? error ?? '::: unknown error :::'),
                 code: 523
             })
         };
