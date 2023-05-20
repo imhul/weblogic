@@ -1,7 +1,7 @@
 import { builder } from '@netlify/functions';
 import nodemailer from 'nodemailer';
-// import { google } from 'googleapis';
-// import xoauth2 from 'xoauth2';
+import { google } from 'googleapis';
+import xoauth2 from 'xoauth2';
 // utils
 import { safe } from './utils/safe';
 
@@ -51,18 +51,18 @@ const build = async event => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                // xoauth2: xoauth2.createXOAuth2Generator({
-                //     user: mCode,
-                //     clientId: client,
-                //     clientSecret: secret,
-                //     refreshToken: refresh
-                // })
-                type: 'OAuth2',
-                user: mCode || safe.mCode,
-                clientId: client,
-                clientSecret: secret,
-                refreshToken: refresh,
-                accessToken: token
+                xoauth2: xoauth2.createXOAuth2Generator({
+                    user: mCode,
+                    clientId: client,
+                    clientSecret: secret,
+                    refreshToken: refresh
+                })
+                // type: 'OAuth2',
+                // user: mCode || safe.mCode,
+                // clientId: client,
+                // clientSecret: secret,
+                // refreshToken: refresh,
+                // accessToken: token
             }
         });
 
