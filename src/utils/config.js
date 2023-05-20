@@ -1,5 +1,5 @@
 export const messageOptions = {
-    duration: 3,
+    duration: 4,
     style: {
         marginTop: '2.5rem'
     }

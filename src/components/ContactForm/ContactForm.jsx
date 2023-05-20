@@ -67,7 +67,7 @@ const ContactForm = memo(() => {
 
         async function getTelegramAPI() {
             setSubmitting(true);
-            await getTelegram(safe.getTG + '' + tgMessage)
+            await getTelegram(safe.getTG + '' + tgMessage, lang)
                 .then(response => {
                     if (response.ok !== undefined) {
                         // TODO: response.ok !== undefined. Must be response.ok
@@ -105,7 +105,7 @@ const ContactForm = memo(() => {
                 '/?=' +
                 encodeURIComponent(JSON.stringify(values));
 
-            await sendEmail(emailURL)
+            await sendEmail(emailURL, lang)
                 .then(res => {
                     console.info('res: ', res);
                     // TODO: resolve status 0

@@ -1,27 +1,27 @@
 // utils
 import { message } from 'antd/lib';
-import { lang } from '../utils/translations';
 import translate from '../utils/translations';
 import { messageOptions, GET_CONFIG, GET_JSON_CONFIG } from '../utils/config';
+import { getErrorByCode } from '../utils/statuses';
 
-const getContent = response => {
-    const status = response.status ?? response.code ?? '::: unknown status :::';
-    return `${translate(lang, 'message_error')} Status: ${status}, Error:  ${
+const getContent = (response, lang) => {
+    const status = response.status ?? response.code ?? '::: no status :::';
+    return `${translate(lang, 'message_error')} \nStatus: ${status} \nError: ${
         response.statusText ??
         response.errorMessage ??
         response.message ??
         response.error ??
         '::: unknown error :::'
-    }`;
+    } \nDescription: ${getErrorByCode(status) ?? '::: no description :::'}`;
 };
 
-const request = async (url, config) => {
+const request = async (url, config, lang) => {
     const response = await fetch(url, config);
     if (response.ok !== undefined) {
         if (response.status !== 200 && response.code !== 200) {
             message.error({
                 ...messageOptions,
-                content: getContent(response)
+                content: getContent(response, lang)
             });
         }
         return response;
@@ -36,23 +36,23 @@ const request = async (url, config) => {
     ) {
         message.error({
             ...messageOptions,
-            content: getContent(result)
+            content: getContent(result, lang)
         });
     }
     return result;
 };
 
-export const getRecaptcha = async url => {
-    const result = await request(url, GET_CONFIG);
+export const getRecaptcha = async (url, lang) => {
+    const result = await request(url, GET_CONFIG, lang);
     return result.ok;
 };
 
-export const getTelegram = async url => {
-    const result = await request(url, GET_CONFIG);
+export const getTelegram = async (url, lang) => {
+    const result = await request(url, GET_CONFIG, lang);
     return result;
 };
 
-export const sendEmail = async url => {
-    const result = await request(url, GET_JSON_CONFIG);
+export const sendEmail = async (url, lang) => {
+    const result = await request(url, GET_JSON_CONFIG, lang);
     return result;
 };

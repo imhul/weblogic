@@ -21,3 +21,5 @@ export const statuses = {
     522: 'Netlify functions: Email: Error sending email: transporter.sendMail error :::',
     523: 'Netlify functions: Email: Error sending email: last catch error'
 };
+
+export const getErrorByCode = code => statuses[code];

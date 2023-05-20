@@ -27,7 +27,10 @@ const Captcha = memo(() => {
     const verify = useCallback(
         async response => {
             if (!safe.getNF) return;
-            const captcha = await getRecaptcha(safe.getNF + '' + response);
+            const captcha = await getRecaptcha(
+                safe.getNF + '' + response,
+                lang
+            );
 
             if (captcha) {
                 dispatch({
