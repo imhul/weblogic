@@ -1,37 +1,44 @@
-const GET_CONFIG = {
-    method: 'GET',
-    mode: 'no-cors', // no-cors, cors, *cors, same-origin
-    headers: {
-        'Content-Type': 'text/strings',
-        Allow: 'GET, POST, OPTIONS, HEAD'
-    }
-    // TODO: POST request with body: JSON.stringify({ data }) instead current GET
-};
+// utils
+import { message } from 'antd/lib';
+import { lang } from '../utils/translations';
+import translate from '../utils/translations';
+import { messageOptions, GET_CONFIG, GET_JSON_CONFIG } from '../utils/config';
 
-const GET_JSON_CONFIG = {
-    method: 'GET',
-    mode: 'no-cors', // no-cors, cors, *cors, same-origin
-    headers: {
-        'Content-Type': 'application/json',
-        Allow: 'GET, POST, OPTIONS, HEAD'
-    }
-    // TODO: POST request with body: JSON.stringify({ data }) instead current GET
-};
-
-const POST_JSON_CONFIG = {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: {
-        'Content-Type': 'application/json',
-        Allow: 'GET, POST, OPTIONS, HEAD'
-    }
+const getContent = response => {
+    const status = response.status ?? response.code ?? '::: unknown status :::';
+    return `${translate(lang, 'message_error')} Status: ${status}, Error:  ${
+        response.statusText ??
+        response.errorMessage ??
+        response.message ??
+        response.error ??
+        '::: unknown error :::'
+    }`;
 };
 
 const request = async (url, config) => {
     const response = await fetch(url, config);
-    if (response.ok !== undefined) return response;
+    if (response.ok !== undefined) {
+        if (response.status !== 200 && response.code !== 200) {
+            message.error({
+                ...messageOptions,
+                content: getContent(response)
+            });
+        }
+        return response;
+    }
     const resultJson = await response.json();
     const result = await JSON.parse(resultJson.data);
+
+    if (
+        result.ok !== undefined &&
+        response.status !== 200 &&
+        response.code !== 200
+    ) {
+        message.error({
+            ...messageOptions,
+            content: getContent(result)
+        });
+    }
     return result;
 };
 

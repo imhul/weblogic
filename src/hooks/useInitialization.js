@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import { message } from 'antd/lib';
-import { messageOptions } from '../utils/options';
+import { messageOptions } from '../utils/config';
 
 const useInitialization = () => {
     const { initialized } = useSelector(state => state.ui);

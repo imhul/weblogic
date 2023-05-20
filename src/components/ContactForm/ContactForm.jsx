@@ -26,7 +26,7 @@ import {
 // utils
 import translate from '../../utils/translations';
 import { getTelegram, sendEmail } from '../../utils/api';
-import { messageOptions } from '../../utils/options';
+import { messageOptions } from '../../utils/config';
 
 const Fragment = React.Fragment;
 const { TextArea } = Input;
@@ -66,40 +66,22 @@ const ContactForm = memo(() => {
         if (submitting && !safe) return;
 
         async function getTelegramAPI() {
-            try {
-                setSubmitting(true);
-                const result = await getTelegram(safe.getTG + '' + tgMessage);
-                if (result.ok !== undefined) {
-                    message.success({
-                        ...messageOptions,
-                        content: `${translate(lang, 'message_success')}`
-                    });
-                    dispatch({
-                        type: 'TEXTAREA_UPDATE',
-                        payload: ''
-                    });
-                    setSubmitting(false);
-                } else {
-                    message.error({
-                        ...messageOptions,
-                        content: `${translate(lang, 'message_error')}: ${
-                            result.message ??
-                            result.error ??
-                            result ??
-                            '::: unknown :::'
-                        }`
-                    });
-                    setSubmitting(false);
-                }
-            } catch (error) {
-                message.error({
-                    ...messageOptions,
-                    content: `${translate(lang, 'message_error')}: ${
-                        error.message ?? error ?? '::: unknown :::'
-                    }`
-                });
-                setSubmitting(false);
-            }
+            setSubmitting(true);
+            await getTelegram(safe.getTG + '' + tgMessage)
+                .then(response => {
+                    if (response.ok !== undefined) {
+                        // TODO: response.ok !== undefined. Must be response.ok
+                        message.success({
+                            ...messageOptions,
+                            content: `${translate(lang, 'message_success')}`
+                        });
+                        dispatch({
+                            type: 'TEXTAREA_UPDATE',
+                            payload: ''
+                        });
+                    }
+                })
+                .finally(() => setSubmitting(false));
         }
 
         async function getEmailAPI() {
@@ -118,11 +100,11 @@ const ContactForm = memo(() => {
             } else return;
 
             setSubmitting(true);
-
             const emailURL =
                 safe.getEmail +
                 '/?=' +
                 encodeURIComponent(JSON.stringify(values));
+
             await sendEmail(emailURL)
                 .then(res => {
                     console.info('res: ', res);
@@ -132,22 +114,6 @@ const ContactForm = memo(() => {
                         message.success({
                             ...messageOptions,
                             content: `${translate(lang, 'message_success')}`
-                        });
-                    } else {
-                        message.error({
-                            ...messageOptions,
-                            content: `${translate(
-                                lang,
-                                'message_error'
-                            )} Status: ${
-                                res.status ?? '::: unknown status :::'
-                            }, Email Error:  ${
-                                res.statusText
-                                    ? res.statusText
-                                    : res.errorMessage
-                                    ? res.errorMessage
-                                    : '::: unknown error :::'
-                            }`
                         });
                     }
                     return res;

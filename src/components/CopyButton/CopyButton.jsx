@@ -11,7 +11,7 @@ import {
 // utils
 import { message } from 'antd/lib';
 import translate from '../../utils/translations';
-import { messageOptions } from '../../utils/options';
+import { messageOptions } from '../../utils/config';
 
 const CopyButton = () => {
     const { lang } = useSelector(state => state.ux);
