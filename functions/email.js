@@ -81,6 +81,9 @@ const build = async event => {
             };
         }
 
+        console.info('mCode: ', mCode);
+        console.info('mailOptions: ', mailOptions);
+
         return new Promise((resolve, reject) => {
             transporter.sendMail(mailOptions, (error, response) => {
                 console.error('Error sending email: ', error);
@@ -107,7 +110,7 @@ const build = async event => {
         return {
             statusCode: 523,
             body: JSON.stringify({
-                message: 'Error sending email: ' + (error ?? '::: unknown error :::'),
+                message: 'Error sending email: ' + (error.error ?? '::: unknown error :::'),
                 code: 523
             })
         };
