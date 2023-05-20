@@ -57,7 +57,7 @@ const ContactForm = memo(() => {
     const [submitting, setSubmitting] = useState(false);
     const { safe } = useSelector(state => state.ui);
     const [formtype, setFormtype] = useState('tg'); // tg, email, sms
-    const [copy, setCopy] = useState(false);
+    const [copy, setCopy] = useState(true);
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const inDevelopment = false;

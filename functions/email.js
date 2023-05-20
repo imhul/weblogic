@@ -47,7 +47,7 @@ const build = async event => {
             from: `Weblogic <${mCode}>`,
             to: copy ? [mCode, email] : mCode,
             subject,
-            text: `Name: ${name} Email: ${email} Subject: ${subject} Message: ${message}`
+            text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`
         };
 
         if (

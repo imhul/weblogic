@@ -25,10 +25,6 @@ export const safe = {
         return decode(process.env.REACT_APP_GET_EMAIL);
     },
     ipify: config.ipify,
-    client: config.client,
-    secret: config.secret,
-    refresh: config.refresh,
-    token: config.token,
     mPW: config.mPW
 };
 
