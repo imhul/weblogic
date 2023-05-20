@@ -6,7 +6,7 @@ import xoauth2 from 'xoauth2';
 import { safe } from './utils/safe';
 
 const build = async event => {
-    const { mCode, getEmail, client, secret, refresh } = safe;
+    const { mCode, getEmail, client, secret, refresh, mPW } = safe;
     const data = JSON.parse(
         decodeURIComponent(event.rawUrl.replace(getEmail + '/?=', ''))
     );
@@ -41,12 +41,12 @@ const build = async event => {
 
         const { name, email, subject, message, copy } = data;
 
-        const oAuth2Client = new google.auth.OAuth2(client, secret);
-        oAuth2Client.setCredentials({
-            refresh_token: refresh
-        });
+        // const oAuth2Client = new google.auth.OAuth2(client, secret);
+        // oAuth2Client.setCredentials({
+        //     refresh_token: refresh
+        // });
 
-        const token = await oAuth2Client.getAccessToken();
+        // const token = await oAuth2Client.getAccessToken();
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -57,12 +57,16 @@ const build = async event => {
                 //     clientSecret: secret,
                 //     refreshToken: refresh
                 // })
-                type: 'OAuth2',
+
+                // type: 'OAuth2',
+                // user: mCode || safe.mCode,
+                // clientId: client,
+                // clientSecret: secret,
+                // refreshToken: refresh,
+                // accessToken: token
+                
                 user: mCode || safe.mCode,
-                clientId: client,
-                clientSecret: secret,
-                refreshToken: refresh,
-                accessToken: token
+                pass: mPW || safe.mPW
             }
         });
 

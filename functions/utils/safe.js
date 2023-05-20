@@ -28,7 +28,8 @@ export const safe = {
     client: config.client,
     secret: config.secret,
     refresh: config.refresh,
-    token: config.token
+    token: config.token,
+    mPW: config.mPW
 };
 
 export const headers = {
