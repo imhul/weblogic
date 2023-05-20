@@ -83,21 +83,19 @@ const ContactForm = memo(() => {
                 } else {
                     message.error({
                         ...messageOptions,
-                        content: `${translate(lang, 'message_error')}: ${
-                            result.message ??
+                        content: `${translate(lang, 'message_error')}: ${result.message ??
                             result.error ??
                             result ??
                             '::: unknown :::'
-                        }`
+                            }`
                     });
                     setSubmitting(false);
                 }
             } catch (error) {
                 message.error({
                     ...messageOptions,
-                    content: `${translate(lang, 'message_error')}: ${
-                        error.message ?? error ?? '::: unknown :::'
-                    }`
+                    content: `${translate(lang, 'message_error')}: ${error.message ?? error ?? '::: unknown :::'
+                        }`
                 });
                 setSubmitting(false);
             }
@@ -119,31 +117,25 @@ const ContactForm = memo(() => {
             } else return;
 
             setSubmitting(true);
-            const result = await sendEmail(
-                safe.getEmail +
-                    '/?=' +
-                    encodeURIComponent(JSON.stringify({ ...values, copy }))
-            )
+
+            const emailURL = safe.getEmail + '/?=' + encodeURIComponent(JSON.stringify({ ...values, copy }));
+            const result = await sendEmail(emailURL)
                 .then(res => {
                     if (res.ok) {
                         message.success({
                             ...messageOptions,
                             content: `${translate(lang, 'message_success')}`
                         });
-                        setSubmitting(false);
                     } else {
                         message.error({
                             ...messageOptions,
                             content: `${translate(
                                 lang,
                                 'message_error'
-                            )} Status: ${
-                                res.status ?? '::: unknown status :::'
-                            }, Email Error:  ${
-                                res.statusText ?? '::: unknown error :::'
-                            }`
+                            )} Status: ${res.status ?? '::: unknown status :::'
+                                }, Email Error:  ${res.statusText ? res.statusText : res.errorMessage ? res.errorMessage : '::: unknown error :::'
+                                }`
                         });
-                        setSubmitting(false);
                     }
                     return res;
                 })

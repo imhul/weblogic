@@ -69,6 +69,7 @@ const build = async event => {
 
         return new Promise((resolve, reject) => {
             transporter.sendMail(mailOptions, (error, response) => {
+                console.error('Error sending email: ', error);
                 if (error) {
                     reject({
                         statusCode: 522,
