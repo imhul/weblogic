@@ -1,4 +1,4 @@
-# Portfolio React App v1.0.1
+# Portfolio React App v1.1.0
 
 ### by Tkachuk Zakhar
 
@@ -22,8 +22,9 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
     -   `netlify`
     -   `@netlify/functions`
     -   `undici`
-    -   `reCapcha` v2
+    -   `reCapcha` proxy server
     -   `telegram bot`
+    -   `email sending` with `nodemailer` + `gmail`
 
 **Roadmap**
 
@@ -35,7 +36,6 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
     -   node-fetch
     -   cookies
     -   twillo
-    -   email sending
     -   sms sending
 
 Try the [published app](https://weblogic.netlify.app/)
