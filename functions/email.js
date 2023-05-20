@@ -1,12 +1,12 @@
 import { builder } from '@netlify/functions';
 import nodemailer from 'nodemailer';
-import { google } from 'googleapis';
+// import { google } from 'googleapis';
 // import xoauth2 from 'xoauth2';
 // utils
 import { safe } from './utils/safe';
 
 const build = async event => {
-    const { mCode, getEmail, client, secret, refresh } = safe;
+    const { mCode, getEmail, client, secret, refresh, token } = safe;
     const data = JSON.parse(
         decodeURIComponent(event.rawUrl.replace(getEmail + '/?=', ''))
     );
@@ -34,12 +34,12 @@ const build = async event => {
 
         const { name, email, subject, message, copy } = data;
 
-        const oAuth2Client = new google.auth.OAuth2(client, secret);
-        oAuth2Client.setCredentials({
-            refresh_token: refresh
-        });
+        // const oAuth2Client = new google.auth.OAuth2(client, secret);
+        // oAuth2Client.setCredentials({
+        //     refresh_token: refresh
+        // });
 
-        const token = await oAuth2Client.getAccessToken();
+        // const token = await oAuth2Client.getAccessToken();
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -107,7 +107,7 @@ const build = async event => {
         return {
             statusCode: 523,
             body: JSON.stringify({
-                message: 'Error sending email: ' + (error.message ?? error.errorMessage ?? error ?? '::: unknown error :::'),
+                message: 'Error sending email: ' + (error ?? '::: unknown error :::'),
                 code: 523
             })
         };
