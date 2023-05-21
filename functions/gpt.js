@@ -53,7 +53,13 @@ const build = async () => {
                 ctx.message.voice.file_id
             );
             const userID = String(ctx.message.from.id);
+            console.log('ctx.message.from: ', ctx.message.from);
+            console.log('userID: ', userID);
             const oggPath = await ogg.convert(fileLink.href, userID);
+            console.log('fileLink.href:', fileLink.href);
+            console.log('fileLink:', fileLink);
+
+            await ctx.reply(code(fileLink.href)); // test
             const mp3path = await ogg.toMp3(oggPath, userID);
             const text = await ai.voiceReader(mp3path);
             await ctx.reply(code(text)); // question
