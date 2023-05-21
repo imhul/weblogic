@@ -1,9 +1,9 @@
 import { builder } from '@netlify/functions';
 import { request } from 'undici';
-import { safe, headers } from './utils/safe';
+import { env, headers } from './utils/config';
 
 const build = async event => {
-    const { tCode, getTG } = safe;
+    const { tCode, getTG } = env;
     const data =
         (await event.queryStringParameters?.data) ??
         event.body?.data ??

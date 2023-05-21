@@ -1,35 +1,12 @@
-import { config } from './config';
-
-export const decode = data => {
-    let buff = Buffer.from(data, 'base64');
-    return buff.toString('utf8');
-};
-
-export const safe = {
-    get link() {
-        return decode(process.env.REACT_APP_LINK);
-    },
-    get tCode() {
-        return decode(process.env.REACT_APP_T_CODE);
-    },
-    get mCode() {
-        return decode(process.env.REACT_APP_M_CODE);
-    },
-    get getNF() {
-        return decode(process.env.REACT_APP_GET_NF);
-    },
-    get getTG() {
-        return decode(process.env.REACT_APP_GET_TG);
-    },
-    get getEmail() {
-        return decode(process.env.REACT_APP_GET_EMAIL);
-    },
-    ipify: config.ipify,
-    mPW: config.mPW
-};
-
-export const headers = {
-    // Allow: 'GET, POST, OPTIONS, HEAD',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type'
+export const config = {
+    link: process.env.REACT_APP_LINK,
+    tCode: process.env.REACT_APP_T_CODE,
+    mCode: process.env.REACT_APP_M_CODE,
+    getNF: process.env.REACT_APP_GET_NF,
+    getTG: process.env.REACT_APP_GET_TG,
+    getEmail: process.env.REACT_APP_GET_EMAIL,
+    ipify: 'https://api.ipify.org/?format=json',
+    mPW: process.env.REACT_APP_MAIL_APP_PW,
+    gptBotToken: process.env.NETLIFY_GPT_BOT_TOKEN,
+    gptKey: process.env.NETLIFY_GPT_BOT_KEY
 };

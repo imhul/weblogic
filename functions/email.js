@@ -1,10 +1,10 @@
 import { builder } from '@netlify/functions';
 import nodemailer from 'nodemailer';
 // utils
-import { safe } from './utils/safe';
+import { env } from './utils/config';
 
 const build = async event => {
-    const { mCode, getEmail, mPW } = safe;
+    const { mCode, getEmail, mPW } = env;
 
     if (!mCode.length && !getEmail.length && !mPW.length) {
         return {
@@ -18,7 +18,7 @@ const build = async event => {
 
     const data = JSON.parse(
         decodeURIComponent(
-            event.rawUrl.replace((getEmail || safe.getEmail) + '/?=', '')
+            event.rawUrl.replace((getEmail || env.getEmail) + '/?=', '')
         )
     );
 
@@ -38,8 +38,8 @@ const build = async event => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: mCode || safe.mCode,
-                pass: mPW || safe.mPW
+                user: mCode || env.mCode,
+                pass: mPW || env.mPW
             }
         });
 

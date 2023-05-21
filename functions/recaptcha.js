@@ -1,12 +1,12 @@
 import { builder } from '@netlify/functions';
 import { request } from 'undici';
-import { safe, headers } from './utils/safe';
+import { env, headers } from './utils/config';
 
 const build = async event => {
     const data =
         (await event.queryStringParameters?.data) ??
         event.body?.data ??
-        event.rawUrl.replace(safe.getNF, '') ??
+        event.rawUrl.replace(env.getNF, '') ??
         null;
 
     if (!data) {
@@ -24,7 +24,7 @@ const build = async event => {
     try {
         let ipifiedData;
         let apiURL = '';
-        const ipify = await request(safe.ipify, { headers });
+        const ipify = await request(env.ipify, { headers });
         ipifiedData = await ipify.body.json();
 
         if (!ipify) {
@@ -47,7 +47,7 @@ const build = async event => {
             };
         }
 
-        apiURL = `${safe.link}${data}&remoteip=${ipifiedData.ip}`;
+        apiURL = `${env.link}${data}&remoteip=${ipifiedData.ip}`;
 
         if (!apiURL.length) {
             return {
