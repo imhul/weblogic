@@ -1,4 +1,4 @@
-export const config = {
+export const safe = {
     link: process.env.REACT_APP_LINK,
     tCode: process.env.REACT_APP_T_CODE,
     mCode: process.env.REACT_APP_M_CODE,
