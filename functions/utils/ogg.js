@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { request } from 'undici';
 import { createWriteStream } from 'fs';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -36,9 +37,19 @@ class OggConverter {
     async convert(url, filename) {
         try {
             const oggPath = resolve(DIRECT, '../ogg', `${filename}.ogg`);
-            const response = await axios({
-                url,
-                method: 'get',
+            // const response = await axios({
+            //     url,
+            //     method: 'get',
+            //     responseType: 'stream'
+            // });
+
+            const response = await request(url, {
+                method: 'GET',
+                body: undefined,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json'
+                },
                 responseType: 'stream'
             });
 

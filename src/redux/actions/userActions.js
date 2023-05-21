@@ -1,7 +1,4 @@
 import { typesUsers as type } from '../constants/types';
-import axios from 'axios';
-
-// fetch
 
 export const fetchUsersBegin = () => ({
     type: type.FETCH_USERS_BEGIN
