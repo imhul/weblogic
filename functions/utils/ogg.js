@@ -1,4 +1,4 @@
-import { axios } from 'axios';
+import axios from 'axios';
 import { createWriteStream } from 'fs';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
