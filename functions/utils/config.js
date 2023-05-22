@@ -25,9 +25,7 @@ export const env = {
         return decode(safe.getEmail);
     },
     ipify: safe.ipify,
-    mPW: safe.mPW,
-    gptBotToken: safe.gptBotToken,
-    gptKey: safe.gptKey
+    mPW: safe.mPW
 };
 
 export const headers = {
