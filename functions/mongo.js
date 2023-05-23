@@ -1,5 +1,5 @@
 // EXAMPLE
-// https://github.com/DavidWells/netlify-functions-workshop
+// https://github.com/imhul/netlify-functions-workshop/blob/master/lessons/core-concepts/6-using-a-database/functions/mongo/mongo.js
 
 // const { MongoClient } = require('mongodb')
 // const { MONGODB_URI } = process.env
