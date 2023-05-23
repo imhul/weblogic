@@ -1,4 +1,4 @@
-# Portfolio React App v1.1.0
+# Portfolio React App v1.3.0
 
 ### by Tkachuk Zakhar
 
@@ -28,12 +28,14 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 
 **Roadmap**
 
+-   **Frontend:**
+    `login/logout/register/forgot password/change password` forms
 -   **Backend:**
     -   OAuth
-    -   feathersjs
     -   trello API
     -   firebase API
     -   mongoDB API
-    -   cookies
+    -   cookies and sessions
+    -   feathersjs
 
-Try the [published app](https://weblogic.netlify.app/)
+Try the published app [here](https://weblogic.netlify.app/) or [here](https://weblogic-ukraine.pp.ua/)
