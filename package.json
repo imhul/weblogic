@@ -41,7 +41,6 @@
         "concurrently": "^8.0.1",
         "cross-env": "^7.0.3",
         "dotenv": "^16.0.3",
-        "node-fetch": "^3.3.1",
         "nodemailer": "^6.9.2",
         "openai": "^3.2.1",
         "parcel": "^2.8.3",

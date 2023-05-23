@@ -32,11 +32,8 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
     -   OAuth
     -   feathersjs
     -   trello API
-    -   firebase
-    -   mongoDB
-    -   node-fetch
+    -   firebase API
+    -   mongoDB API
     -   cookies
-    -   twillo
-    -   sms sending
 
 Try the [published app](https://weblogic.netlify.app/)
