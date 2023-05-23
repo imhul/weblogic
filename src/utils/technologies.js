@@ -175,6 +175,21 @@ export const technologies = [
         link: 'https://mdxjs.com/'
     },
     {
+        id: 'OpenAI API',
+        list: 'api',
+        link: 'https://platform.openai.com/'
+    },
+    {
+        id: 'Node API',
+        list: 'api',
+        link: 'https://nodejs.org/docs/latest/api/'
+    },
+    {
+        id: 'Web API',
+        list: 'api',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/API'
+    },
+    {
         id: 'RESTful Web API',
         list: 'api',
         link: 'https://restfulapi.net/'
