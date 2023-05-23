@@ -485,9 +485,19 @@ export const technologies = [
         link: 'https://www.netlify.com/'
     },
     {
+        id: 'Heroku',
+        list: 'back',
+        link: 'https://dashboard.heroku.com/apps/'
+    },
+    {
         id: 'Godaddy',
         list: 'host',
         link: 'https://www.godaddy.com/'
+    },
+    {
+        id: 'Heroku',
+        list: 'host',
+        link: 'https://dashboard.heroku.com/apps/'
     },
     {
         id: 'Heroku',
