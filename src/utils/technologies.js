@@ -497,11 +497,6 @@ export const technologies = [
     {
         id: 'Heroku',
         list: 'host',
-        link: 'https://dashboard.heroku.com/apps/'
-    },
-    {
-        id: 'Heroku',
-        list: 'host',
         link: 'https://heroku.com/'
     },
     {
