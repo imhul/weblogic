@@ -3,6 +3,8 @@
 /.parcel-cache
 /back
 /src/utils/info.html
+/playgrounds
+*.mongodb.js
 .env
 .env.dev
 .env.prod
