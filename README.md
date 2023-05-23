@@ -29,6 +29,7 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 **Roadmap**
 
 -   **Backend:**
+    -   OAuth
     -   feathersjs
     -   trello API
     -   firebase
