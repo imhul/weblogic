@@ -235,11 +235,11 @@ class Intro extends Component {
                                             );
                                         })}
                                 </ul>
-                                {/* CRM */}
-                                <h3>CRM</h3>
+                                {/* CMS */}
+                                <h3>CMS</h3>
                                 <ul>
                                     {technologies
-                                        .filter(item => item.list === 'crm')
+                                        .filter(item => item.list === 'cms')
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>{item.id}</li>
@@ -306,11 +306,11 @@ class Intro extends Component {
                                             );
                                         })}
                                 </ul>
-                                {/* GIT */}
-                                <h3>Version Control</h3>
+                                {/* CRM */}
+                                <h3>CRM</h3>
                                 <ul>
                                     {technologies
-                                        .filter(item => item.list === 'git')
+                                        .filter(item => item.list === 'crm')
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>{item.id}</li>
@@ -336,11 +336,11 @@ class Intro extends Component {
                                             );
                                         })}
                                 </ul>
-                                {/* CMS */}
-                                <h3>CMS</h3>
+                                {/* GIT */}
+                                <h3>Version Control</h3>
                                 <ul>
                                     {technologies
-                                        .filter(item => item.list === 'cms')
+                                        .filter(item => item.list === 'git')
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>{item.id}</li>

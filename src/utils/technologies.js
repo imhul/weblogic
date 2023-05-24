@@ -505,6 +505,11 @@ export const technologies = [
         link: 'https://github.com/nodejs/undici'
     },
     {
+        id: 'postman',
+        list: 'back',
+        link: 'https://web.postman.co/'
+    },
+    {
         id: 'node-fetch',
         list: 'back',
         link: ''
