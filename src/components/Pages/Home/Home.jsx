@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet';
 // hooks
 import useSafe from '../../../hooks/useSafe';
+// api
+import { isMongoConnected } from '../../../utils/api';
 // assets
 import '../../../images/print.png';
 import '../../../images/logo.png';
@@ -16,7 +18,7 @@ const Home = memo(() => {
     const dispatch = useDispatch();
 
     useEffect(async () => {
-        if (!safe.getMongoConnected) {
+        if (!safe?.getMongoConnected) {
             console.warn('::: no safe! :::', safe);
             return;
         }

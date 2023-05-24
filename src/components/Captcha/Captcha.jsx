@@ -10,6 +10,7 @@ import { messageOptions } from '../../utils/config';
 import translate from '../../utils/translations';
 // hooks
 import useIpify from '../../hooks/useIpify';
+// api
 import { getRecaptcha } from '../../utils/api';
 
 const Captcha = memo(() => {
