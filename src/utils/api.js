@@ -56,3 +56,8 @@ export const sendEmail = async (url, lang) => {
     const result = await request(url, GET_JSON_CONFIG, lang);
     return result;
 };
+
+export const isMongoConnected = async (url, lang) => {
+    const result = await request(url, GET_CONFIG, lang);
+    return result;
+};

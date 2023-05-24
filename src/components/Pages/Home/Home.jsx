@@ -1,5 +1,5 @@
 // core
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Helmet } from 'react-helmet';
@@ -12,7 +12,13 @@ import '../../../images/logo.png';
 const Home = memo(() => {
     useSafe();
     const { safe, hero, heroStyle } = useSelector(state => state.ui);
+    const { lang } = useSelector(state => state.ux);
     const dispatch = useDispatch();
+
+    useEffect(async () => {
+        const connected = await isMongoConnected(safe.getMongoConnected, lang);
+        console.info('connected: ', connected);
+    }, []);    
 
     const goFolio = () => {
         dispatch({
