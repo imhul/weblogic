@@ -18,13 +18,13 @@ const Home = memo(() => {
     const dispatch = useDispatch();
 
     useEffect(async () => {
-        if (!safe?.getMongoConnected) {
+        if (!safe && !safe.getMongoConnected) {
             console.warn('::: no safe! :::', safe);
             return;
         }
         const connected = await isMongoConnected(safe.getMongoConnected, lang);
         console.info('::: connected: ', connected);
-    }, []);    
+    }, [safe]);    
 
     const goFolio = () => {
         dispatch({
