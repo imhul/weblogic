@@ -19,7 +19,7 @@ const Home = memo(() => {
 
     useEffect(async () => {
         if (!safe && !safe.getMongoConnected) {
-            console.warn('::: no safe! :::');
+            console.warn('::: no safe! :::', safe);
             return;
         }
         const connected = await isMongoConnected(safe.getMongoConnected, lang);
