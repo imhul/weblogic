@@ -6,5 +6,7 @@ export const safe = {
     getTG: process.env.REACT_APP_GET_TG,
     getEmail: process.env.REACT_APP_GET_EMAIL,
     ipify: 'https://api.ipify.org/?format=json',
-    mPW: process.env.REACT_APP_MAIL_APP_PW
+    mPW: process.env.REACT_APP_MAIL_APP_PW,
+    atlasConnect: process.env.MONGO_ATLAS_CONNECT,
+    atlasPass: process.env.MONGO_ATLAS_PW
 };

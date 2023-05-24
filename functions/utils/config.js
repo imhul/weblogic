@@ -25,7 +25,9 @@ export const env = {
         return decode(safe.getEmail);
     },
     ipify: safe.ipify,
-    mPW: safe.mPW
+    mPW: safe.mPW,
+    atlasConnect: safe.atlasConnect,
+    atlasPass: safe.atlasPass
 };
 
 export const headers = {
