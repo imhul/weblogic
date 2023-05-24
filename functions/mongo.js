@@ -40,7 +40,10 @@ const build = async () => {
         console.warn('Common mongodb error! ', error);
         return {
             statusCode: 525,
-            body: JSON.stringify({ error: 'Common mongodb error!' })
+            body: JSON.stringify({
+                error: 'Common mongodb error!',
+                code: 524
+            })
         };
     }
 };
