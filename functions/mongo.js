@@ -6,10 +6,10 @@ import { builder } from '@netlify/functions';
 import { env } from './utils/config';
 
 const build = async () => {
-    const { atlasBase, authdb } = env;
+    const { atlasConnect, atlasBase, authdb } = env;
 
     try {
-        const client = new MongoClient(atlasBase, {
+        const client = new MongoClient(atlasConnect, {
             serverApi: {
                 version: ServerApiVersion.v1,
                 strict: true,
@@ -44,7 +44,7 @@ const build = async () => {
             statusCode: 525,
             body: JSON.stringify({
                 error: 'Common mongodb error!',
-                code: 524
+                code: 525
             })
         };
     }
