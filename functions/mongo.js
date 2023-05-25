@@ -39,7 +39,7 @@ const build = async event => {
                 })
             };
         } else {
-            console.warn('Failed  mongodb connection! ', error);
+            console.warn('Failed  mongodb connection!');
             return {
                 statusCode: 524,
                 body: JSON.stringify({
@@ -53,7 +53,7 @@ const build = async event => {
         return {
             statusCode: 525,
             body: JSON.stringify({
-                error: 'Common mongodb error!',
+                error: 'Common mongodb error! ' + error,
                 code: 525
             })
         };
