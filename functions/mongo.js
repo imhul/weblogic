@@ -11,10 +11,7 @@ const build = async () => {
 
     try {
         console.warn('connection...');
-        console.warn('client: ', client);
-        // await client.connect();
         const db = client.db(authdb); // .command({ ping: 1 });
-        console.warn('db: ', db);
         const collection = db.collection(authCollection);
         console.warn('collection: ', collection);
         if (collection) {
