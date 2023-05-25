@@ -26,7 +26,7 @@ const build = async event => {
     const uri = `mongodb+srv://${username}:${password}${atlasConnect}`;
     const client = new MongoClient(uri, {
         serverApi: {
-            // version: ServerApiVersion.v1,
+            version: ServerApiVersion.v1,
             strict: true,
             deprecationErrors: true,
             family: 4,
