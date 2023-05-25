@@ -32,7 +32,7 @@ const build = async event => {
 
     try {
         console.info('data: ', data);
-        await client.connect();
+        client.connect();
         console.info('connected!');
         const db = client.db(data.db); // .command({ ping: 1 });
         const collection = db.collection(data.collection);
