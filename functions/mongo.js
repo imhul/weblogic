@@ -39,9 +39,7 @@ const build = async event => {
         console.info('connected 2!');
         const collection = db.collection(data.collection);
         console.info('connected 3!');
-        const result = collection.find(data.query);
-        console.info('connected 4!');
-        const users = await result.toArray();
+        const users = await collection.find(data.query).toArray();
         console.info('users: ', users);
         if (users.length) {
             return {
