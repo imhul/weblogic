@@ -28,7 +28,7 @@ const Home = memo(() => {
                 `${safe.getMongo}/?=${encodeURIComponent(
                     JSON.stringify({
                         action: MONGO_ACTIONS.FIND,
-                        db: safe.authDB,
+                        db: safe.authdb,
                         collection: safe.authCollection,
                         query: {}
                     })
