@@ -7,19 +7,23 @@ import { env } from './utils/config';
 
 const build = async () => {
     const { atlasConnect, authCollection, authdb } = env;
-    const client = new MongoClient(atlasConnect);
+    const client = new MongoClient(atlasConnect, {
+        serverApi: {
+            version: ServerApiVersion.v1,
+            strict: true,
+            deprecationErrors: true
+        }
+    });
 
     try {
         console.warn('connection...');
         const db = client.db(authdb); // .command({ ping: 1 });
         const collection = db.collection(authCollection);
-        console.warn('collection: ', collection);
-        if (collection) {
+        const users = await collection.find({}).toArray();
+        if (users.length) {
+            const body = JSON.stringify({ ok: true, code: 200, users });
             await client.close();
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ ok: true, code: 200 })
-            };
+            return { statusCode: 200, body };
         } else {
             console.warn('Failed  mongodb connection! ', error);
             await client.close();
