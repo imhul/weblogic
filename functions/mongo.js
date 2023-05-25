@@ -25,17 +25,19 @@ const build = async event => {
         serverApi: {
             version: ServerApiVersion.v1,
             strict: true,
-            deprecationErrors: true
+            deprecationErrors: true,
+            connectTimeoutMS: 5000
         }
     });
 
     try {
         console.info('data: ', data);
         await client.connect();
+        console.info('connected!');
         const db = client.db(data.db); // .command({ ping: 1 });
         const collection = db.collection(data.collection);
         
-        const result = collection.find({});
+        const result = collection.find(data.query);
         const users = await result.toArray();
         console.info('users: ', users);
         if (users.length) {
