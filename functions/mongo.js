@@ -32,12 +32,14 @@ const build = async event => {
 
     try {
         console.info('data: ', data);
-        client.connect();
-        console.info('connected!');
+        // await client.connect();
+        // console.info('connected 1!');
         const db = client.db(data.db); // .command({ ping: 1 });
+        console.info('connected 2!');
         const collection = db.collection(data.collection);
-        
+        console.info('connected 3!');
         const result = collection.find(data.query);
+        console.info('connected 4!');
         const users = await result.toArray();
         console.info('users: ', users);
         if (users.length) {
