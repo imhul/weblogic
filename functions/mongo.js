@@ -24,9 +24,10 @@ const build = async event => {
     const client = new MongoClient(atlasConnect, {
         serverApi: {
             version: ServerApiVersion.v1,
-            strict: true,
-            deprecationErrors: true,
-            connectTimeoutMS: 5000
+            family: 4,
+            // strict: true,
+            // deprecationErrors: true,
+            // connectTimeoutMS: 5000
         }
     });
 
