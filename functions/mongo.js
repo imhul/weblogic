@@ -27,14 +27,14 @@ const build = async event => {
         const db = client.db(data.db); // .command({ ping: 1 });
         const collection = db.collection(data.collection);
         console.info('data.query: ', data.query);
-        const result = await collection.find(data.query).toArray();
-        console.info('result: ', result);
-        if (result.length) {
+        const result = collection.find(data.query);
+        console.info('result: ', await result.toArray());
+        if (result.toArray().length) {
             return {
                 statusCode: 200, body: JSON.stringify({
                     ok: true,
                     code: 200,
-                    data: result
+                    data: await result.toArray()
                 })
             };
         } else {
