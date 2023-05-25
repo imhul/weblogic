@@ -35,30 +35,33 @@ const build = async event => {
         console.info('data: ', data);
         // await client.connect();
         // console.info('connected 1!');
-        const db = client.db(data.db); // .command({ ping: 1 });
-        console.info('connected 2!');
-        const collection = db.collection(data.collection);
-        console.info('connected 3!');
-        const users = await collection.find(data.query).toArray();
-        console.info('users: ', users);
-        if (users.length) {
-            return {
-                statusCode: 200, body: JSON.stringify({
-                    ok: true,
-                    code: 200,
-                    data: users
-                })
-            };
-        } else {
-            console.warn('Failed  mongodb connection!');
-            return {
-                statusCode: 524,
-                body: JSON.stringify({
-                    error: 'Failed  mongodb connection!',
-                    code: 524
-                })
-            };
+        async function start() {
+            const db = client.db(data.db); // .command({ ping: 1 });
+            console.info('connected 2!');
+            const collection = db.collection(data.collection);
+            console.info('connected 3!');
+            const users = await collection.find(data.query).toArray();
+            console.info('users: ', users);
+            if (users.length) {
+                return {
+                    statusCode: 200, body: JSON.stringify({
+                        ok: true,
+                        code: 200,
+                        data: users
+                    })
+                };
+            } else {
+                console.warn('Failed  mongodb connection!');
+                return {
+                    statusCode: 524,
+                    body: JSON.stringify({
+                        error: 'Failed  mongodb connection!',
+                        code: 524
+                    })
+                };
+            }
         }
+        await start();
     } catch (error) {
         console.warn('Common mongodb error! ', error);
         return {
