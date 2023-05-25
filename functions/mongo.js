@@ -5,7 +5,6 @@ import { env } from './utils/config';
 
 const build = async event => {
     const { atlasConnect, getMongo } = env;
-
     const data = JSON.parse(
         decodeURIComponent(
             event.rawUrl.replace((getMongo || env.getMongo) + '/?=', '')
@@ -22,8 +21,6 @@ const build = async event => {
         };
     }
 
-    console.info('data: ', data);
-
     const client = new MongoClient(atlasConnect, {
         serverApi: {
             version: ServerApiVersion.v1,
@@ -36,13 +33,15 @@ const build = async event => {
         const db = client.db(data.db); // .command({ ping: 1 });
         const collection = db.collection(data.collection);
         const result = await collection.find(data.query).toArray();
+        console.info('result: ', result);
         if (result.length) {
-            const body = JSON.stringify({ ok: true, code: 200, data: result });
-            await client.close();
-            return { statusCode: 200, body: body };
+            return { statusCode: 200, body: JSON.stringify({ 
+                ok: true, 
+                code: 200, 
+                data: result 
+            }) };
         } else {
             console.warn('Failed  mongodb connection! ', error);
-            await client.close();
             return {
                 statusCode: 524,
                 body: JSON.stringify({
@@ -60,6 +59,8 @@ const build = async event => {
                 code: 525
             })
         };
+    } finally {
+        await client.close();
     }
 };
 
