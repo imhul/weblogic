@@ -36,7 +36,7 @@ const build = async event => {
 
     try {
         console.info('data: ', data);
-        await client.connect();
+        // await client.connect();
         console.info('connected 1!');
         const db = client.db(data.db);
         console.info('connected 2!');
