@@ -12,14 +12,14 @@
     "dependencies": {
         "@firebase/firestore": "^3.11.0",
         "@firebase/util": "^1.9.3",
-        "@netlify/functions": "^1.4.0",
-        "@netlify/functions-utils": "^5.2.3",
+        "@netlify/functions": "^1.6.0",
+        "@netlify/functions-utils": "^5.2.8",
         "firebase": "^9.21.0",
         "firebase-admin": "^11.8.0",
         "firebase-tools": "^11.30.0",
         "mongodb": "^5.5.0",
         "nodemailer": "^6.9.2",
-        "undici": "^5.22.0"
+        "undici": "^5.22.1"
     },
     "type": "module"
 }

@@ -25,8 +25,8 @@
         "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
         "@babel/preset-react": "^7.18.6",
         "@fontsource/open-sans": "^4.5.14",
-        "@netlify/functions": "^1.4.0",
-        "@netlify/functions-utils": "^5.2.3",
+        "@netlify/functions": "^1.6.0",
+        "@netlify/functions-utils": "^5.2.8",
         "@parcel/babel-preset-env": "^2.8.3",
         "@parcel/optimizer-cssnano": "^2.8.3",
         "@parcel/transformer-image": "^2.8.3",
@@ -63,7 +63,7 @@
         "redux-thunk": "^2.4.2",
         "rimraf": "^5.0.0",
         "sass": "^1.62.0",
-        "undici": "^5.22.0",
+        "undici": "^5.22.1",
         "uuid": "^9.0.0"
     },
     "parcel-transformer-url-loader": {

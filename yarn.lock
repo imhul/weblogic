@@ -1351,7 +1351,7 @@
     "@netlify/esbuild-windows-64" "0.14.39"
     "@netlify/esbuild-windows-arm64" "0.14.39"
 
-"@netlify/functions-utils@^5.2.3":
+"@netlify/functions-utils@^5.2.8":
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/@netlify/functions-utils/-/functions-utils-5.2.8.tgz#2913266273cbb776f55bdf200c030902703cb56f"
   integrity sha512-8HgJ3L7PfKyZ3YvGSBtnF4zXzwKCKm8rpHqZOPcmUMKPVc5KrZUIQGpencJOmEfK53cCqM/b7YYg5m4sySheZw==
@@ -1360,7 +1360,7 @@
     cpy "^9.0.0"
     path-exists "^5.0.0"
 
-"@netlify/functions@^1.4.0":
+"@netlify/functions@^1.6.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@netlify/functions/-/functions-1.6.0.tgz#c373423e6fef0e6f7422ac0345e8bbf2cb692366"
   integrity sha512-6G92AlcpFrQG72XU8YH8pg94eDnq7+Q0YJhb8x4qNpdGsvuzvrfHWBmqFGp/Yshmv4wex9lpsTRZOocdrA2erQ==
@@ -6018,7 +6018,7 @@ typescript@^5.0.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.4.tgz#b217fd20119bd61a94d4011274e0ab369058da3b"
   integrity sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==
 
-undici@^5.22.0:
+undici@^5.22.1:
   version "5.22.1"
   resolved "https://registry.yarnpkg.com/undici/-/undici-5.22.1.tgz#877d512effef2ac8be65e695f3586922e1a57d7b"
   integrity sha512-Ji2IJhFXZY0x/0tVBXeQwgPlLWw13GVzpsWPQ3rV50IFMMof2I55PZZxtm4P6iNq+L5znYN9nSTAq0ZyE6lSJw==
