@@ -6,21 +6,15 @@ import { builder } from '@netlify/functions';
 import { env } from './utils/config';
 
 const build = async () => {
-    const { atlasConnect, atlasBase, authdb } = env;
+    const { atlasConnect, authdb } = env;
+    const client = new MongoClient(atlasConnect);
 
     try {
-        const client = new MongoClient(atlasConnect, {
-            serverApi: {
-                version: ServerApiVersion.v1,
-                strict: true,
-                deprecationErrors: true
-            }
-        });
-
         console.warn('connection...');
-        await client.connect();
-        const connect = await client.db(authdb).command({ ping: 1 });
-        console.warn('connect! ', connect);
+        console.warn('client: ', client);
+        // await client.connect();
+        const db = await client.db(authdb).command({ ping: 1 });
+        console.warn('db: ', db);
         if (connect) {
             await client.close();
             return {
