@@ -22,6 +22,8 @@ const build = async event => {
         };
     }
 
+    console.info('data: ', data);
+
     const client = new MongoClient(atlasConnect, {
         serverApi: {
             version: ServerApiVersion.v1,
@@ -34,7 +36,7 @@ const build = async event => {
         const db = client.db(data.db); // .command({ ping: 1 });
         const collection = db.collection(data.collection);
         const result = await collection.find(data.query).toArray();
-        if (users.length) {
+        if (result.length) {
             const body = JSON.stringify({ ok: true, code: 200, data: result });
             await client.close();
             return { statusCode: 200, body: body };
