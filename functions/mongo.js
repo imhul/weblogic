@@ -1,12 +1,27 @@
-// EXAMPLE: https://github.com/imhul/netlify-functions-workshop/blob/master/lessons/core-concepts/6-using-a-database/functions/mongo/mongo.js
 import { MongoClient, ServerApiVersion } from 'mongodb';
 // utils
 import { builder } from '@netlify/functions';
-// import { request } from 'undici';
 import { env } from './utils/config';
 
-const build = async () => {
-    const { atlasConnect, authCollection, authdb } = env;
+const build = async event => {
+    const { atlasConnect, getMongo } = env;
+
+    const data = JSON.parse(
+        decodeURIComponent(
+            event.rawUrl.replace((getMongo || env.getMongo) + '/?=', '')
+        )
+    );
+
+    if (!data) {
+        return {
+            statusCode: 526,
+            body: JSON.stringify({
+                code: 526,
+                message: 'No data provided!'
+            })
+        };
+    }
+
     const client = new MongoClient(atlasConnect, {
         serverApi: {
             version: ServerApiVersion.v1,
@@ -16,14 +31,13 @@ const build = async () => {
     });
 
     try {
-        console.warn('connection...');
-        const db = client.db(authdb); // .command({ ping: 1 });
-        const collection = db.collection(authCollection);
-        const users = await collection.find({}).toArray();
+        const db = client.db(data.db); // .command({ ping: 1 });
+        const collection = db.collection(data.collection);
+        const result = await collection.find(data.query).toArray();
         if (users.length) {
-            const body = JSON.stringify({ ok: true, code: 200, users });
+            const body = JSON.stringify({ ok: true, code: 200, data: result });
             await client.close();
-            return { statusCode: 200, body };
+            return { statusCode: 200, body: body };
         } else {
             console.warn('Failed  mongodb connection! ', error);
             await client.close();

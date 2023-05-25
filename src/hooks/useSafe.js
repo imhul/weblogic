@@ -36,7 +36,9 @@ const useSafe = () => {
                 getNF: decode(process.env.REACT_APP_GET_NF),
                 getTG: decode(process.env.REACT_APP_GET_TG),
                 getEmail: decode(process.env.REACT_APP_GET_EMAIL),
-                getMongoConnected: process.env.REACT_APP_GET_MONGO_CONNECTED
+                getMongo: process.env.REACT_APP_GET_MONGO,
+                authdb: process.env.MONGO_ATLAS_AUTH_DB,
+                authCollection: process.env.MONGO_ATLAS_AUTH_COLLECTION
             }
         });
         setLoaded(true);

@@ -33,3 +33,15 @@ export const POST_JSON_CONFIG = {
         Allow: 'GET, POST, OPTIONS, HEAD'
     }
 };
+
+export const MONGO_ACTIONS = {
+    ADD: '/action/insertOne',
+    FIND: '/action/findOne',
+    UPDATE: '/action/updateOne',
+    DELETE: '/action/deleteOne',
+    ADD_MANY: '/action/insertMany',
+    FIND_MANY: '/action/find',
+    UPDATE_MANY: '/action/updateMany',
+    DELETE_MANY: '/action/deleteMany',
+    RUN: '/action/aggregate'
+};

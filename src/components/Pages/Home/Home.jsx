@@ -5,8 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet';
 // hooks
 import useSafe from '../../../hooks/useSafe';
-// api
-import { isMongoConnected } from '../../../utils/api';
+// utils
+import { getMongoDB } from '../../../utils/api';
+import { MONGO_ACTIONS } from '../../../utils/config';
 // assets
 import '../../../images/print.png';
 import '../../../images/logo.png';
@@ -23,10 +24,20 @@ const Home = memo(() => {
             return;
         } else mongoCheck();
         async function mongoCheck() {
-            const connected = await isMongoConnected(safe.getMongoConnected, lang);
+            const connected = await getMongoDB(
+                `${safe.getMongo}/?=${encodeURIComponent(
+                    JSON.stringify({
+                        action: MONGO_ACTIONS.FIND,
+                        db: safe.authDB,
+                        collection: safe.authCollection,
+                        query: {}
+                    })
+                )}`,
+                lang
+            );
             console.info('::: connected: ', connected);
         }
-    }, [safe, lang]);    
+    }, [safe, lang]);
 
     const goFolio = () => {
         dispatch({

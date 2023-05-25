@@ -17,7 +17,6 @@ import {
 import {
     MailOutlined,
     SendOutlined,
-    EditOutlined,
     UserOutlined,
     CheckOutlined,
     LoadingOutlined,

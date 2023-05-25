@@ -30,7 +30,8 @@ export const env = {
     atlasPass: safe.atlasPass,
     authdb: safe.authdb,
     atlasBase: safe.atlasBase,
-    authCollection: safe.authCollection
+    authCollection: safe.authCollection,
+    getMongo: safe.getMongo
 };
 
 export const headers = {
