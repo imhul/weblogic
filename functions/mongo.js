@@ -29,20 +29,21 @@ const build = async event => {
             version: ServerApiVersion.v1,
             strict: true,
             deprecationErrors: true,
-            family: 4,
-            // connectTimeoutMS: 5000
+            family: 4
         },
-        connectTimeoutMS: 10000
+        connectTimeoutMS: 3000
     });
 
     try {
         console.info('data: ', data);
-        // await client.connect();
-        // console.info('connected 1!');
-        const db = client.db(data.db); // .command({ ping: 1 });
+        await client.connect();
+        console.info('connected 1!');
+        const db = client.db(data.db);
         console.info('connected 2!');
         const collection = db.collection(data.collection);
         console.info('connected 3!');
+        const connect = await client.db(data.db).command({ ping: 1 });
+        console.info('connected 4: ', connect);
         const users = await collection.find(data.query).toArray();
         console.info('users: ', users);
         if (users.length) {
