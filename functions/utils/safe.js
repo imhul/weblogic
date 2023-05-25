@@ -9,5 +9,6 @@ export const safe = {
     mPW: process.env.REACT_APP_MAIL_APP_PW,
     atlasConnect: process.env.MONGO_ATLAS_CONNECT,
     atlasPass: process.env.MONGO_ATLAS_PW,
+    atlasBase: process.env.MONGO_ATLAS_URL,
     authdb: process.env.MONGO_ATLAS_AUTH_DB,
 };

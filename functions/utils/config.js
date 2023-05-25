@@ -28,7 +28,8 @@ export const env = {
     mPW: safe.mPW,
     atlasConnect: safe.atlasConnect,
     atlasPass: safe.atlasPass,
-    authdb: safe.authdb
+    authdb: safe.authdb,
+    atlasBase: safe.atlasBase
 };
 
 export const headers = {

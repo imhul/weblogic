@@ -6,10 +6,10 @@ import { builder } from '@netlify/functions';
 import { env } from './utils/config';
 
 const build = async () => {
-    const { atlasConnect, authdb } = env;
+    const { atlasBase, authdb } = env;
 
     try {
-        const client = new MongoClient(atlasConnect, {
+        const client = new MongoClient(atlasBase, {
             serverApi: {
                 version: ServerApiVersion.v1,
                 strict: true,
