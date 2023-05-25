@@ -17,13 +17,15 @@ const Home = memo(() => {
     const { lang } = useSelector(state => state.ux);
     const dispatch = useDispatch();
 
-    useEffect(async () => {
-        if (!safe && !safe.getMongoConnected) {
+    useEffect(() => {
+        if (!safe) {
             console.warn('::: no safe! :::');
             return;
+        } else mongoCheck();
+        async function mongoCheck() {
+            const connected = await isMongoConnected(safe.getMongoConnected, lang);
+            console.info('::: connected: ', connected);
         }
-        const connected = await isMongoConnected(safe.getMongoConnected, lang);
-        console.info('::: connected: ', connected);
     }, [safe, lang]);    
 
     const goFolio = () => {
