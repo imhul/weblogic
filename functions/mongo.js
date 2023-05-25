@@ -32,7 +32,7 @@ const build = async event => {
             family: 4,
             // connectTimeoutMS: 5000
         },
-        connectTimeoutMS: 5000
+        connectTimeoutMS: 10000
     });
 
     try {
