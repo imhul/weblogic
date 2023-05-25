@@ -21,7 +21,13 @@ const build = async event => {
         };
     }
 
-    const client = new MongoClient(atlasConnect);
+    const client = new MongoClient(atlasConnect, {
+        serverApi: {
+            version: ServerApiVersion.v1,
+            strict: true,
+            deprecationErrors: true
+        }
+    });
 
     try {
         const db = client.db(data.db); // .command({ ping: 1 });
