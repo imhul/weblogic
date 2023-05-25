@@ -11,4 +11,5 @@ export const safe = {
     atlasPass: process.env.MONGO_ATLAS_PW,
     atlasBase: process.env.MONGO_ATLAS_URL,
     authdb: process.env.MONGO_ATLAS_AUTH_DB,
+    authCollection: process.env.MONGO_ATLAS_AUTH_COLLECTION,
 };

@@ -6,7 +6,7 @@ import { builder } from '@netlify/functions';
 import { env } from './utils/config';
 
 const build = async () => {
-    const { atlasConnect, authdb } = env;
+    const { atlasConnect, authCollection, authdb } = env;
     const client = new MongoClient(atlasConnect);
 
     try {
@@ -15,7 +15,9 @@ const build = async () => {
         // await client.connect();
         const db = await client.db(authdb).command({ ping: 1 });
         console.warn('db: ', db);
-        if (connect) {
+        const collection = db.collection(authCollection);
+        console.warn('collection: ', collection);
+        if (collection) {
             await client.close();
             return {
                 statusCode: 200,
