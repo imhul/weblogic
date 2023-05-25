@@ -17,6 +17,7 @@ const build = async () => {
             }
         });
 
+        console.warn('connection...');
         await client.connect();
         const connect = await client.db(authdb).command({ ping: 1 });
         console.warn('connect! ', connect);
