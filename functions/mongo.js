@@ -30,9 +30,10 @@ const build = async event => {
     });
 
     try {
+        await client.connect();
         const db = client.db(data.db); // .command({ ping: 1 });
         const collection = db.collection(data.collection);
-        console.info('data.query: ', data.query);
+        console.info('data: ', data);
         const result = collection.find({});
         console.info('result: ', result);
         const users = await result.toArray();
