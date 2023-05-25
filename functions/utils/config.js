@@ -27,7 +27,8 @@ export const env = {
     ipify: safe.ipify,
     mPW: safe.mPW,
     atlasConnect: safe.atlasConnect,
-    atlasPass: safe.atlasPass
+    atlasPass: safe.atlasPass,
+    authdb: safe.authdb
 };
 
 export const headers = {

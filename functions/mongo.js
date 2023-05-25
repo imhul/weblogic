@@ -17,9 +17,9 @@ const build = async () => {
             }
         });
 
-        await client.connect();
-
-        if (client.isConnected()) {
+        const connect = await client.connect();
+        console.warn('connect! ', connect);
+        if (connect) {
             await client.close();
             return {
                 statusCode: 200,
