@@ -27,7 +27,7 @@ const build = async event => {
     const client = new MongoClient(uri, {
         serverApi: {
             version: ServerApiVersion.v1,
-            strict: true,
+            strict: false,
             deprecationErrors: true,
             family: 4
         },
