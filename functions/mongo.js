@@ -4,7 +4,7 @@ import { builder } from '@netlify/functions';
 import { env } from './utils/config';
 
 const build = async event => {
-    const { atlasConnect, getMongo } = env;
+    const { atlasConnect, atlasName, atlasPass, getMongo } = env;
     const data = JSON.parse(
         decodeURIComponent(
             event.rawUrl.replace((getMongo || env.getMongo) + '/?=', '')
@@ -21,12 +21,15 @@ const build = async event => {
         };
     }
 
-    const client = new MongoClient(atlasConnect, {
+    const username = encodeURIComponent(atlasName);
+    const password = encodeURIComponent(atlasPass);
+    const uri = `mongodb+srv://${username}:${password}${atlasConnect}`;
+    const client = new MongoClient(uri, {
         serverApi: {
             version: ServerApiVersion.v1,
-            family: 4,
-            // strict: true,
-            // deprecationErrors: true,
+            strict: true,
+            deprecationErrors: true
+            // family: 4,
             // connectTimeoutMS: 5000
         }
     });
@@ -43,7 +46,8 @@ const build = async event => {
         console.info('users: ', users);
         if (users.length) {
             return {
-                statusCode: 200, body: JSON.stringify({
+                statusCode: 200,
+                body: JSON.stringify({
                     ok: true,
                     code: 200,
                     data: users

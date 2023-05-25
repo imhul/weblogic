@@ -28,6 +28,7 @@ export const env = {
     mPW: safe.mPW,
     atlasConnect: safe.atlasConnect,
     atlasPass: safe.atlasPass,
+    atlasName: safe.atlasName,
     authdb: safe.authdb,
     atlasBase: safe.atlasBase,
     authCollection: safe.authCollection,
