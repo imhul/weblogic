@@ -25,7 +25,9 @@ const build = async event => {
 
     try {
         const db = client.db(data.db); // .command({ ping: 1 });
+        console.info('db: ', db);
         const collection = db.collection(data.collection);
+        console.info('collection: ', collection);
         const result = await collection.find(data.query).toArray();
         console.info('result: ', result);
         if (result.length) {
