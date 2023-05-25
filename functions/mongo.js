@@ -13,7 +13,7 @@ const build = async () => {
         console.warn('connection...');
         console.warn('client: ', client);
         // await client.connect();
-        const db = await client.db(authdb).command({ ping: 1 });
+        const db = client.db(authdb); // .command({ ping: 1 });
         console.warn('db: ', db);
         const collection = db.collection(authCollection);
         console.warn('collection: ', collection);
