@@ -21,13 +21,7 @@ const build = async event => {
         };
     }
 
-    const client = new MongoClient(atlasConnect, {
-        serverApi: {
-            version: ServerApiVersion.v1,
-            strict: true,
-            deprecationErrors: true
-        }
-    });
+    const client = new MongoClient(atlasConnect);
 
     try {
         const db = client.db(data.db); // .command({ ping: 1 });
@@ -35,11 +29,13 @@ const build = async event => {
         const result = await collection.find(data.query).toArray();
         console.info('result: ', result);
         if (result.length) {
-            return { statusCode: 200, body: JSON.stringify({ 
-                ok: true, 
-                code: 200, 
-                data: result 
-            }) };
+            return {
+                statusCode: 200, body: JSON.stringify({
+                    ok: true,
+                    code: 200,
+                    data: result
+                })
+            };
         } else {
             console.warn('Failed  mongodb connection! ', error);
             return {
