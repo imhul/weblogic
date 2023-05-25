@@ -25,7 +25,7 @@ const Home = memo(() => {
         }
         const connected = await isMongoConnected(safe.getMongoConnected, lang);
         console.info('::: connected: ', connected);
-    }, [safe.getMongoConnected, lang]);    
+    }, [safe, lang]);    
 
     const goFolio = () => {
         dispatch({
