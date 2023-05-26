@@ -45,7 +45,7 @@ const build = async event => {
         const connect = await client.db(data.db).command({ ping: 1 });
         console.info('connected 4: ', connect);
         const users = await collection.find(data.query).toArray();
-        console.info('users: ', users);
+        // console.info('users: ', users);
         if (users.length) {
             return {
                 statusCode: 200,

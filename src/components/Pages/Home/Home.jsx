@@ -19,10 +19,9 @@ const Home = memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!safe) {
-            console.warn('::: no safe! :::');
-            return;
-        } else mongoCheck();
+        if (safe) {
+            mongoCheck();
+        } else return;
         async function mongoCheck() {
             const connected = await getMongoDB(
                 `${safe.getMongo}/?=${encodeURIComponent(
@@ -34,7 +33,9 @@ const Home = memo(() => {
                     })
                 )}`,
                 lang
-            );
+            ).then(res => {
+                res.body;
+            });
             console.info('::: connected: ', connected);
      
             console.info('::: connected3: ', await JSON.parse(connected.body));
