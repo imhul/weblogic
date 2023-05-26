@@ -51,7 +51,7 @@ const Home = memo(() => {
                 lang
             );
             console.info('::: connected: ', connected);
-            const result = await parseResponseBody(connected.body);
+            const result = await parseResponseBody(connected);
             console.info('::: result: ', result);
         }
     }, [safe, lang]);
