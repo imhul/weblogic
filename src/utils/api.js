@@ -24,7 +24,7 @@ const request = async (url, config, lang) => {
                 content: getContent(response, lang)
             });
         }
-        console.info('response 1: ', response);
+        // console.info('response 1: ', response);
         return response;
     }
     const resultJson = await response.json();
@@ -40,7 +40,7 @@ const request = async (url, config, lang) => {
             content: getContent(result, lang)
         });
     }
-    console.info('response 2: ', result);
+    // console.info('response 2: ', result);
     return result;
 };
 
