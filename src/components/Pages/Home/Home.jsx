@@ -22,6 +22,22 @@ const Home = memo(() => {
         if (safe) {
             mongoCheck();
         } else return;
+        async function parseResponseBody(response) {
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder('utf-8');
+            let result = '';
+          
+            while (true) {
+              const { done, value } = await reader.read();
+          
+              if (done) break;
+          
+              const chunk = decoder.decode(value);
+              result += chunk;
+            }
+          
+            return JSON.parse(result);
+          }
         async function mongoCheck() {
             const connected = await getMongoDB(
                 `${safe.getMongo}/?=${encodeURIComponent(
@@ -35,7 +51,8 @@ const Home = memo(() => {
                 lang
             );
             console.info('::: connected: ', connected);
-            console.info('::: connected: ', connected.body);
+            const result = await parseResponseBody(connected.body);
+            console.info('::: result: ', result);
         }
     }, [safe, lang]);
 
