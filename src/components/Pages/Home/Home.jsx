@@ -36,6 +36,7 @@ const Home = memo(() => {
                 lang
             );
             console.info('::: connected: ', connected);
+            console.info('::: connected: ', await connected.body.json());
         }
     }, [safe, lang]);
 
