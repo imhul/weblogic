@@ -1,5 +1,5 @@
 // core
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import '../../utils/bg';
@@ -9,7 +9,6 @@ import menu from '../../utils/menu';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from 'react-contextmenu';
 import { Layout } from 'antd/lib';
 import Portal from '../Portal';
-import MainMenu from '../MainMenu';
 import Toolbar from '../Toolbar';
 import HowTo from '../HowTo';
 import Stats from '../Stats';
@@ -18,6 +17,9 @@ import Folio from '../Pages/Folio';
 import Game from '../Pages/Game';
 // hooks
 import useInitialization from '../../hooks/useInitialization';
+import useSafe from '../../hooks/useSafe';
+import useIpify from '../../hooks/useIpify';
+import useTip from '../../hooks/useTip';
 
 const { Content } = Layout;
 
@@ -35,9 +37,23 @@ const Page = ({ location }) => {
 };
 
 const Output = () => {
-    const { location } = useSelector(state => state.ux);
-    const dispatch = useDispatch();
     useInitialization();
+    useSafe();
+    const { safe, location, lang } = useSelector(state => state.ui);
+    const { currentUser } = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+    // useIpify(safe);
+
+    // useEffect(() => {
+    //     if (currentUser && currentUser.lang.length && currentUser.lang !== lang) {
+    //         dispatch({
+    //             type: 'CHANGE_LANG',
+    //             payload: currentUser.lang
+    //         });
+    //     }
+    // }, [currentUser, lang]);
+
+    // useTip();
 
     const navigate = key => {
         dispatch({
@@ -51,11 +67,11 @@ const Output = () => {
             {location === 'Home' ? (
                 <Portal>
                     <Stats />
+                    <HowTo />
                 </Portal>
             ) : null}
-            {location === 'Home' ? <HowTo /> : <Toolbar key={0} />}
+            <Toolbar key={0} />
             <ContextMenuTrigger id="context-menu">
-                <MainMenu />
                 <Layout className="Main">
                     <Content>
                         <Page location={location} />

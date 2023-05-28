@@ -1,7 +1,7 @@
 /* Home page */
 
 .Home {
-    height: 280px;
+    height: rem(280);
     top: 50%;
     left: 50%;
     display: table;
@@ -9,24 +9,24 @@
     transform: translate(-50%, -50%);
 
     @media (max-width: $media-small) {
-        max-width: 290px;
+        max-width: rem(290);
     }
 
     @media (max-width: $media-small) and (orientation: landscape) {
-        max-width: 270px;
+        max-width: rem(270);
         height: 0;
     }
 
     @media (min-width: $media-medium-min) {
-        max-width: 420px;
+        max-width: rem(420);
     }
 
     @media (min-width: $media-large-min) {
-        max-width: 560px;
+        max-width: rem(560);
     }
 
     .heading-hero {
-        color: $color-white;
+        color: var(--color-white);
         font-size: 3.8rem;
         line-height: 1.1;
         opacity: 0;
@@ -38,16 +38,16 @@
         white-space: break-spaces;
 
         @media (max-width: $media-small) {
-            margin-left: 20px;
+            margin-left: rem(20);
         }
 
         @media (min-width: $media-medium-min) {
-            font-size: 6rem;
+            font-size: rem(96);
             line-height: 1;
         }
 
         @media (min-width: $media-large-min) {
-            font-size: 8rem;
+            font-size: rem(128);
             line-height: 1;
         }
 
@@ -59,8 +59,8 @@
             text-shadow: 0;
 
             .icon-lamp {
-                color: $color-link-hover;
-                text-shadow: 0 0 20px $color-link-hover;
+                color: var(--color-secondary);
+                text-shadow: 0 0 rem(20) var(--color-secondary);
             }
         }
 
@@ -73,8 +73,8 @@
 
             .span-#{$i} {
                 opacity: #{'0.' + $opacity};
-                text-shadow: 0 0 #{$shadow}px #{$color-white};
-                color: rgba(188, 200, 206, 1);
+                text-shadow: 0 0 #{$shadow}px var(--color-white);
+                color: rgb(188 200 206 / 100%);
                 display: inline-block;
                 animation: rotate #{$rondomTranslate}s ease-in 2,
                     stop #{$rondomTranslate}s ease-out;
@@ -86,7 +86,7 @@
                 }
 
                 .icon-lamp {
-                    font-family: 'lamp' !important;
+                    font-family: lamp !important;
                     speak: none;
                     font-style: normal;
                     font-weight: normal;
@@ -94,15 +94,15 @@
                     text-transform: none;
                     line-height: 1;
                     position: relative;
-                    top: 8px;
+                    top: rem(8);
                     transition: all 1.6s ease;
 
                     @media (max-width: $media-small) {
-                        color: $color-link-hover;
-                        text-shadow: 0 0 20px $color-link-hover;
+                        color: var(--color-secondary);
+                        text-shadow: 0 0 rem(20) var(--color-secondary);
                     }
 
-                    &:before {
+                    &::before {
                         content: '\e900';
                     }
                 }

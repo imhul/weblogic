@@ -3,9 +3,10 @@
 @media all and (orientation: landscape) {
     .Folio {
         /* Collapse */
+
         /* not active */
         .ant-collapse {
-            background-color: $transparent;
+            background-color: var(--transparent);
             border: 0;
             border-radius: 0;
 
@@ -28,7 +29,7 @@
                         // iPhones
                         @media all and (max-width: $media-medium-max) {
                             height: 10vh;
-                            padding: 0 0 0 12px;
+                            padding: 0 0 0 rem(12);
                         }
 
                         .bg {
@@ -43,24 +44,24 @@
             }
 
             .ant-collapse-item {
-                border-bottom-color: $color-white;
+                border-bottom-color: var(--color-white);
                 height: 25vh;
 
                 .ant-collapse-header {
                     height: 25vh;
                     font-size: 18vh;
-                    color: $color-white;
+                    color: var(--color-white);
                 }
 
                 /* Static content styles */
                 .ant-collapse-content {
-                    font-size: 18px;
+                    font-size: rem(18);
 
                     .content {
-                        max-width: 600px;
+                        max-width: rem(600);
                         width: 80%;
                         margin: 0 auto;
-                        color: $color-white;
+                        color: var(--color-white);
                     }
                 }
             }

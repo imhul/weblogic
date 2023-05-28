@@ -22,7 +22,7 @@ import {
 
 class Intro extends Component {
     render() {
-        const { lang } = this.props.ux;
+        const { lang } = this.props.ui;
 
         return (
             <div className="Intro content">
@@ -358,8 +358,7 @@ class Intro extends Component {
 
 function mapStateToProps(state) {
     return {
-        ui: state.ui,
-        ux: state.ux
+        ui: state.ui
     };
 }
 

@@ -1,14 +1,10 @@
 /* common */
+@import 'root';
 @import 'normalize';
-@import 'colors';
-@import 'fonts';
-@import 'media';
 @import 'mixins';
 @import 'base';
-@import 'typography';
 @import 'fragments';
 @import 'keyframes';
-@import 'others';
 
 /* pages */
 @import './pages/home';
@@ -31,4 +27,3 @@
 @import './components/howto';
 @import './components/menu';
 @import './components/captcha';
-@import './components/form';

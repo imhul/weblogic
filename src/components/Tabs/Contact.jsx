@@ -4,19 +4,19 @@ import { useSelector } from 'react-redux';
 // components
 import { Row, Col } from 'antd/lib';
 import { GithubOutlined, BarChartOutlined } from '@ant-design/icons';
-import ContactForm from '../ContactForm';
+import ContactForm from '../Forms/ContactForm';
 import CopyButton from '../CopyButton';
 import Captcha from '../Captcha';
 // utils
 import translate from '../../utils/translations';
 
 const Contact = memo(() => {
-    const { lang } = useSelector(state => state.ux);
-    const { currentUser } = useSelector(state => state.ui);
+    const { lang } = useSelector(state => state.ui);
+    const { currentUser } = useSelector(state => state.auth);
 
     return (
         <div className="Contact content">
-            {currentUser.isRobot ? (
+            {!currentUser.isRobot ? (
                 <Captcha />
             ) : (
                 <Row gutter={24} type="flex" justify="center" align="middle">

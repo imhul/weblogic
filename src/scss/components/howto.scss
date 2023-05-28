@@ -1,5 +1,6 @@
 .HowTo {
     @extend %flex-center;
+
     flex-direction: column;
     position: absolute;
     bottom: 0;
@@ -10,28 +11,8 @@
     }
 
     button.ant-btn.ant-btn-circle {
-        background-color: $color-black;
-        border-color: $color-white;
-
-        span.anticon {
-            svg {
-                transition: color 0s !important;
-
-                path {
-                    transition: color 0s !important;
-                }
-            }
-        }
-
         &:not(:disabled):hover {
-            box-shadow: 0 0 rem(30) $color-white;
-            color: $color-black;
-            background-color: $color-link-hover;
-            border-color: $color-link-hover;
-
-            span.anticon {
-                color: $color-black;
-            }
+            box-shadow: 0 0 rem(30) var(--color-white);
         }
     }
 }

@@ -5,13 +5,8 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: $color-content-bg;
-
-    @extend %scrollbar;
+    inset: 0;
+    background-color: var(--color-content-bg);
 
     @media (max-width: $media-small) {
         align-items: flex-start;
@@ -33,24 +28,24 @@
                 h2,
                 a {
                     font-family: monospace;
-                    color: $color-white;
+                    color: var(--color-white);
                 }
 
                 a {
-                    font-size: 20px;
-                    color: $color-link-hover;
+                    font-size: rem(20);
+                    color: var(--color-secondary);
 
                     &:hover {
-                        color: $color-white;
+                        color: var(--color-white);
 
                         span {
-                            color: $color-white;
+                            color: var(--color-white);
                         }
                     }
 
                     span {
-                        font-size: 20px;
-                        color: $color-link-hover;
+                        font-size: rem(20);
+                        color: var(--color-secondary);
                     }
                 }
 
@@ -70,8 +65,8 @@
                     overflow: hidden;
 
                     @media (max-width: $media-small) {
-                        height: 380px;
-                        margin-top: 40px;
+                        height: rem(380);
+                        margin-top: rem(40);
                     }
 
                     .preview {

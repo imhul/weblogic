@@ -1,54 +1,54 @@
 %scrollbar {
     &::-webkit-scrollbar {
-        background-color: $transparent;
+        background-color: var(--transparent);
     }
 
     &::-webkit-scrollbar-button {
-        background-color: $transparent;
+        background-color: var(--transparent);
     }
 
     &::-webkit-scrollbar-track {
-        background-color: $transparent;
+        background-color: var(--transparent);
     }
 
     &::-webkit-scrollbar-track-piece {
-        background-color: $transparent;
+        background-color: var(--transparent);
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: $color-black;
+        background-color: var(--color-primary);
     }
 
     &::-webkit-scrollbar-corner {
-        background-color: $transparent;
+        background-color: var(--transparent);
     }
 
     &::-webkit-resizer {
-        background-color: $transparent;
+        background-color: var(--transparent);
     }
 }
 
 %context-menu {
-    box-shadow: 0 0 20px $color-white;
+    box-shadow: 0 0 rem(20) var(--color-white);
 
     &.react-contextmenu--visible {
-        min-width: 135px;
-        background-color: $color-black;
+        min-width: rem(135);
+        background-color: var(--color-primary);
 
         .react-contextmenu-item {
-            color: $color-white;
-            padding: 10px 20px;
+            color: var(--color-white);
+            padding: rem(10) rem(20);
 
             a {
-                color: $color-white;
+                color: var(--color-white);
             }
 
             &:hover {
-                background-color: $color-footer;
-                color: $color-link-hover;
+                background-color: var(--color-footer);
+                color: var(--color-secondary);
 
                 a {
-                    color: $color-link-hover;
+                    color: var(--color-secondary);
                 }
             }
         }

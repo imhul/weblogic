@@ -8,17 +8,14 @@ import { LoadingOutlined } from '@ant-design/icons';
 // utils
 import { messageOptions } from '../../utils/config';
 import translate from '../../utils/translations';
-// hooks
-import useIpify from '../../hooks/useIpify';
 // api
 import { getRecaptcha } from '../../utils/api';
 
 const Captcha = memo(() => {
-    const { lang } = useSelector(state => state.ux);
-    const { safe, currentUser } = useSelector(state => state.ui);
+    const { safe, lang } = useSelector(state => state.ui);
+    const { currentUser } = useSelector(state => state.auth);
     const [ip, setIp] = useState('');
     const dispatch = useDispatch();
-    useIpify(safe);
 
     useEffect(() => {
         if (!currentUser.ip.length && !safe) return;

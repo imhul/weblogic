@@ -1,5 +1,4 @@
 import ui from './ui';
-import ux from './ux';
-import users from './users';
+import auth from './auth';
 
-export default { ui, ux, users };
+export default { ui, auth };

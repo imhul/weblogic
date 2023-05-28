@@ -8,11 +8,11 @@
 
         &:hover {
             &::after {
-                border-bottom-color: $color-link-hover !important;
+                border-bottom-color: var(--color-secondary) !important;
             }
 
             span {
-                color: $color-link-hover;
+                color: var(--color-secondary);
             }
         }
 
@@ -27,53 +27,53 @@
 
     .ant-menu-item-selected {
         &::after {
-            border-bottom-color: $color-link-hover !important;
+            border-bottom-color: var(--color-secondary) !important;
         }
 
         span,
         svg,
         .ant-menu-item-icon {
-            color: $color-link-hover;
+            color: var(--color-secondary);
         }
 
         &:hover {
             &::after {
-                border-bottom-color: $color-white !important;
+                border-bottom-color: var(--color-white) !important;
             }
 
             span,
             svg,
             .ant-menu-item-icon {
-                color: $color-white;
+                color: var(--color-white);
             }
         }
     }
 
     @media (max-width: $media-small) {
-        min-width: 50px;
-        min-height: 30px;
+        min-width: rem(50);
+        min-height: rem(30);
 
         .ant-menu-overflow-item-rest {
-            padding: 10px 20px !important;
-            color: $color-link-hover !important;
+            padding: rem(10) rem(20) !important;
+            color: var(--color-secondary) !important;
 
             &.ant-menu-submenu-open {
                 span {
-                    color: $color-link-hover !important;
+                    color: var(--color-secondary) !important;
                 }
             }
 
             &::after {
-                border-bottom-color: $color-link-hover !important;
+                border-bottom-color: var(--color-secondary) !important;
             }
 
             &.ant-menu-submenu-active {
-                color: $color-link-hover !important;
+                color: var(--color-secondary) !important;
             }
 
             .ant-menu-submenu-title {
                 span {
-                    font-size: 20px;
+                    font-size: rem(20);
                 }
             }
         }

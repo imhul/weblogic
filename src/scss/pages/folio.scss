@@ -4,30 +4,28 @@
     display: block;
     position: absolute;
     width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     transform: none;
-    background-color: $color-content-bg;
+    background-color: var(--color-content-bg);
     overflow: hidden;
 
     // Loading
     .PreLoading-Wave {
         & > * {
-            text-shadow: 0 0 8px $color-link-hover;
+            text-shadow: 0 0 rem(8) var(--color-secondary);
         }
     }
 
     /* Collapse */
+
     /* not active */
     .ant-collapse {
-        background-color: $transparent;
+        background-color: var(--transparent);
         border: 0;
         border-radius: 0;
 
         & * {
-            transition: height 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
+            transition: height 0.35s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
         }
 
         &.active {
@@ -52,36 +50,38 @@
         }
 
         .ant-collapse-item {
-            border-bottom-color: $color-white;
+            border-bottom-color: var(--color-white);
             height: 25vh;
 
             .ant-collapse-header {
                 padding: 0;
                 height: 25vh;
                 font-size: 18vh;
-                color: $color-white;
-                text-shadow: 2px 2px 4px $color-black;
+                color: var(--color-white);
+                text-shadow: rem(2) rem(2) rem(4) var(--color-primary);
                 background-size: cover;
 
                 &:hover {
-                    text-shadow: 0 0 4px $color-white;
+                    text-shadow: 0 0 rem(4) var(--color-white);
 
                     & .anticon > svg {
-                        filter: drop-shadow(0 0 4px $color-white);
+                        filter: drop-shadow(0 0 rem(4) var(--color-white));
                     }
                 }
 
                 & .anticon > svg {
-                    filter: drop-shadow(2px 2px 4px $color-black);
+                    filter: drop-shadow(
+                        rem(2) rem(2) rem(4) var(--color-primary)
+                    );
                 }
 
                 .bg {
                     height: 100%;
-                    padding: 0 25px;
+                    padding: 0 rem(25);
                     background: linear-gradient(
                         45deg,
-                        rgba(255, 255, 255, 0) 0%,
-                        rgba(65, 100, 117, 1) 100%
+                        rgb(255 255 255 / 0%) 0%,
+                        rgb(65 100 117 / 100%) 100%
                     );
 
                     & > div {
@@ -99,15 +99,15 @@
 
             /* Static content styles */
             .ant-collapse-content {
-                background: $color-content-bg;
-                font-size: 18px;
-                color: $color-white;
+                background: var(--color-content-bg);
+                font-size: rem(18);
+                color: var(--color-white);
                 display: flex;
                 justify-content: center;
                 align-items: normal;
 
                 &:hover {
-                    background: $color-content-bg-hover;
+                    background: var(--color-content-bg-hover);
                 }
 
                 .ant-collapse-content-box {
@@ -121,7 +121,7 @@
                         max-width: 100%;
                         width: 80%;
                         margin: 0 auto;
-                        color: $color-white;
+                        color: var(--color-white);
                     }
                 }
             }
@@ -148,8 +148,6 @@
                 min-height: 60vh;
                 max-height: 60vh;
                 overflow-y: auto;
-
-                @extend %scrollbar;
             }
         }
     }

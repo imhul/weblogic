@@ -14,8 +14,7 @@ import translate from '../../utils/translations';
 import { messageOptions } from '../../utils/config';
 
 const CopyButton = () => {
-    const { lang } = useSelector(state => state.ux);
-    const { safe } = useSelector(state => state.ui);
+    const { safe, lang } = useSelector(state => state.ui);
 
     const copySuccess = useCallback(e => {
         if (e.text.length) {

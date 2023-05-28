@@ -18,6 +18,28 @@ const translations = {
         apr: 'Apr',
 
         // form EN
+        user_name_title: 'You entered as',
+        login_form: 'Login Form',
+        reg_form: 'Registration',
+        forgot_form: 'Forgot Password?',
+        change_pass_form: 'Change Password',
+        remember_me: 'Remember me',
+        pass_required_message: 'Please enter password!',
+        email_required_message: 'Please enter email!',
+        login_submit: 'Login',
+        pass: 'Password',
+        lang_title: 'Language selection',
+        toolbar_heading: 'Profile',
+        loading: 'Loading...',
+        like_btn: 'Tnx!',
+        logout: 'Logout',
+        menu_heading: 'Menu',
+        contact_method: 'Contact Method',
+        tip_heading: 'ChatGPT Tip of the Day',
+        tip_like: 'Liked it?',
+        tip_await: 'Wait please',
+        tip_request:
+            'Hello. Please give the advice of the day, as if you were a Buddhist guru, only without the preface that you are an ordinary artificial intelligence and without a religious context.',
 
         // Contacts EN
         contact_form: 'Contact Form',
@@ -150,6 +172,30 @@ const translations = {
         dec: 'Грудень',
         aug: 'Серпень',
         apr: 'Квітень',
+
+        // form UA
+        user_name_title: 'Ви війшли як',
+        login_form: 'Вхід',
+        reg_form: 'Реєстрація',
+        forgot_form: 'Забули пароль?',
+        change_pass_form: 'Зміна паролю',
+        remember_me: 'Запам`ятати мене',
+        pass_required_message: 'Будь ласка, введіть пароль!',
+        email_required_message: 'Будь ласка, введіть email!',
+        login_submit: 'Логін',
+        pass: 'Пароль',
+        lang_title: 'Вибір мови',
+        toolbar_heading: 'Профіль',
+        loading: "Йде з'єднання...",
+        like_btn: 'Дякую!',
+        logout: 'Вихід',
+        menu_heading: 'Меню',
+        contact_method: 'Спосіб зв`язку',
+        tip_heading: 'Порада дня від ChatGPT',
+        tip_like: 'Cподобалось?',
+        tip_await: 'Зачекайте, будь ласка',
+        tip_request:
+            'Привіт. Надай, будь ласка, пораду дня, так, наче ти буддійський гуру, тільки без передслівья про те, що ти звичайний штучний інтелект і без релігійного контексту.',
 
         // Contacts UA
         contact_form: "Форма зворотнього зв'язку",

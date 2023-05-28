@@ -1,6 +1,6 @@
 /* Intro */
 .Intro {
-    margin: 50px auto !important;
+    margin: rem(50) auto !important;
 
     .react-gravatar {
         border-radius: 50%;
@@ -9,7 +9,7 @@
     }
 
     h2 {
-        color: $color-white;
+        color: var(--color-white);
         font-size: 4vw;
         text-align: center;
 
@@ -19,11 +19,11 @@
     }
 
     h3 {
-        color: $color-link-hover;
+        color: var(--color-secondary);
     }
 
     h2.margin {
-        margin: 40px auto;
+        margin: rem(40) auto;
     }
 
     p {
@@ -42,7 +42,7 @@
     }
 
     .name {
-        margin: 10px 0 0;
+        margin: rem(10) 0 0;
     }
 
     .italic {
@@ -57,8 +57,8 @@
     }
 
     mark {
-        background-color: $transparent;
-        color: $color-link-hover;
+        background-color: var(--transparent);
+        color: var(--color-secondary);
     }
 
     .left-btn {
@@ -71,7 +71,7 @@
 
     .right-btn,
     .left-btn {
-        margin: 0 0 20px 0;
+        margin: 0 0 rem(20) 0;
     }
 
     .logos {
@@ -91,7 +91,7 @@
     }
 
     .tech {
-        margin-top: 60px;
+        margin-top: rem(60);
 
         h3 {
             @media (max-width: $media-small) {
@@ -105,10 +105,10 @@
 
             li {
                 a {
-                    color: $color-white;
+                    color: var(--color-white);
 
                     &:hover {
-                        color: $color-link-hover;
+                        color: var(--color-secondary);
                     }
 
                     @media (max-width: $media-small) {

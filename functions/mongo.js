@@ -28,7 +28,7 @@ const build = async event => {
         serverApi: {
             version: ServerApiVersion.v1,
             strict: false,
-            deprecationErrors: true,
+            deprecationErrors: true
             // family: 4
         }
         // connectTimeoutMS: 3000

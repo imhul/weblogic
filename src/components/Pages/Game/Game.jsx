@@ -12,8 +12,7 @@ import {
 } from '@ant-design/icons';
 
 const Game = memo(() => {
-    const { lang } = useSelector(state => state.ux);
-    const { safe } = useSelector(state => state.ui);
+    const { safe, lang } = useSelector(state => state.ui);
     const title = translate(lang, 'game_title');
 
     return (

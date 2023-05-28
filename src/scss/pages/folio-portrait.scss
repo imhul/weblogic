@@ -3,6 +3,7 @@
 @media screen and (orientation: portrait) {
     .Folio {
         /* Collapse */
+
         /* not active */
         .ant-collapse {
             &.active {
@@ -32,7 +33,7 @@
             }
 
             .ant-collapse-item {
-                border-bottom-color: $color-white;
+                border-bottom-color: var(--color-white);
 
                 .ant-collapse-header {
                     font-size: 12vw !important;
@@ -49,14 +50,14 @@
 
                 /* Static content styles */
                 .ant-collapse-content {
-                    font-size: 18px;
+                    font-size: rem(18);
 
                     .ant-collapse-content-box {
                         width: 100%;
 
                         .content {
                             margin: 0 auto;
-                            color: $color-white;
+                            color: var(--color-white);
 
                             .react-gravatar {
                                 border-radius: 50%;

@@ -1,21 +1,22 @@
 .Futures {
     &.ant-back-top {
-        bottom: 45px;
-        right: 24px;
-        width: 56px;
-        height: 56px;
+        bottom: rem(45);
+        right: rem(24);
+        width: rem(56);
+        height: rem(56);
+
         .ant-back-top-inner {
             .tap-target-wrapper {
-                width: 800px;
-                height: 800px;
+                width: rem(800);
+                height: rem(800);
                 position: fixed;
                 z-index: 1000;
                 visibility: hidden;
                 transition: visibility 0s 0.3s;
 
-                @media only screen and (max-width: 600px) {
-                    width: 600px;
-                    height: 600px;
+                @media only screen and (max-width: $media-x-small) {
+                    width: rem(600);
+                    height: rem(600);
                 }
 
                 &.open {
@@ -58,12 +59,12 @@
 
             .tap-target {
                 position: absolute;
-                font-size: 1rem;
+                font-size: rem(16);
                 border-radius: 50%;
-                background-color: $color-deep-black;
-                box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14),
-                    0 10px 50px 0 rgba(0, 0, 0, 0.12),
-                    0 30px 10px -20px rgba(0, 0, 0, 0.2);
+                background-color: var(--color-black);
+                box-shadow: 0 rem(20) rem(20) 0 rgb(0 0 0 / 14%),
+                    0 rem(10) rem(50) 0 rgb(0 0 0 / 12%),
+                    0 rem(30) rem(10) rem(-20) rgb(0 0 0 / 20%);
                 width: 100%;
                 height: 100%;
                 bottom: 50%;
@@ -78,22 +79,24 @@
                     opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),
                     -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
 
-                @media only screen and (max-width: 600px) {
-                    width: 600px;
-                    height: 600px;
+                @media only screen and (max-width: $media-x-small) {
+                    width: rem(600);
+                    height: rem(600);
                 }
             }
 
             .tap-target-content {
                 position: relative;
                 display: table-cell;
-                top: 180px;
+                top: rem(180);
                 right: -40%;
-                color: $color-white;
+                color: var(--color-white);
+
                 a {
-                    color: $color-white;
+                    color: var(--color-white);
+
                     &:hover {
-                        color: $color-link-hover;
+                        color: var(--color-secondary);
                     }
                 }
             }
@@ -131,16 +134,18 @@
                         -webkit-transform 0.3s;
                     z-index: -1;
                     bottom: 0;
-                    background-color: $color-link-hover;
+                    background-color: var(--color-secondary);
                 }
+
                 button {
-                    width: 56px;
-                    height: 56px;
-                    background-color: $color-deep-black;
-                    border-color: $color-deep-black;
+                    width: rem(56);
+                    height: rem(56);
+                    background-color: var(--color-black);
+                    border-color: var(--color-black);
+
                     i {
-                        font-size: 28px;
-                        color: $color-link-hover;
+                        font-size: rem(28);
+                        color: var(--color-secondary);
                     }
                 }
             }

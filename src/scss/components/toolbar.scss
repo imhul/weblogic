@@ -6,85 +6,168 @@
 }
 
 .Toolbar {
-    transition: all 0.3s ease-in-out !important;
+    transition: width 0.35s ease-in-out, height 0.35s ease-in-out,
+        box-shadow 0.35s ease-in-out;
     position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 120px;
-    height: 120px;
-    padding-top: 76px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-top: 0;
+    top: rem(10);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(60);
+    height: rem(60);
+    background-color: rgb(0 0 0 / 20%);
     border-radius: 50%;
     z-index: 10;
 
-    .ant-switch {
-        line-height: 1;
-        background: $transparent;
-        margin-left: 5px;
-        @extend %no-border;
+    .burger {
+        font-size: rem(32);
+        color: var(--color-white);
+        background-color: var(--transparent) !important;
+        border-color: var(--transparent) !important;
 
-        &:focus {
-            @extend %no-border;
-        }
+        svg {
+            transition: color 0.1s !important;
 
-        &.ant-switch-checked {
-            background: $transparent;
-
-            &:hover {
-                background: $color-footer;
+            path {
+                transition: color 0.1s !important;
             }
-        }
-
-        .ant-click-animating-node {
-            @extend %no-border;
-        }
-
-        .ant-switch-inner {
-            font-size: 16px;
-
-            .ant-switch-inner-checked {
-                margin-top: 3px;
-            }
-
-            .ant-switch-inner-unchecked {
-                margin-top: -12px;
-            }
-        }
-
-        .ant-switch-handle {
-            @extend %no-border;
-
-            &::before {
-                @extend %no-border;
-                background-color: $transparent;
-            }
-        }
-    }
-
-    .ant-switch-checked {
-        margin-left: 20px;
-        background: $transparent;
-        @extend %no-border;
-
-        &:focus {
-            @extend %no-border;
         }
     }
 
     &:hover {
-        width: 140px;
-        height: 140px;
-        box-shadow: 0 0 30px $color-white;
-        background: $transparent;
+        box-shadow: 0 0 rem(30) var(--color-white);
+        background: var(--transparent);
 
-        .ant-switch {
-            margin-left: 22px;
+        .burger {
+            color: var(--color-secondary);
+        }
+    }
+}
 
-            .ant-switch-handle {
-                &::before {
-                    background: $color-white;
-                    @extend %no-border;
+.ant-drawer {
+    z-index: 1080;
+
+    .ant-drawer-content-wrapper {
+        .ant-drawer-content {
+            background-color: var(--color-primary);
+
+            .ant-menu {
+                background: var(--color-primary);
+                border-inline-end: none;
+
+                .ant-menu-item {
+                    .anticon,
+                    .ant-menu-title-content {
+                        color: var(--color-white);
+                    }
+
+                    &:hover {
+                        background: var(--color-black);
+
+                        .anticon,
+                        .ant-menu-title-content {
+                            color: var(--color-secondary);
+                        }
+                    }
+
+                    &.ant-menu-item-selected {
+                        background: var(--color-black);
+
+                        .anticon,
+                        .ant-menu-title-content {
+                            color: var(--color-secondary);
+                        }
+                    }
+                }
+            }
+
+            .ant-typography {
+                margin-bottom: 0;
+                color: var(--color-white);
+            }
+
+            .user-card {
+                width: 100%;
+                justify-content: space-between;
+                padding: 0;
+                margin: 0 auto !important;
+
+                .ant-col {
+                    padding: 0 !important;
+
+                    img {
+                        border-radius: 50%;
+                        width: rem(60);
+                        height: auto;
+                    }
+                }
+            }
+
+            .ant-divider {
+                border-block-start: var(--color-white);
+
+                .ant-divider-inner-text {
+                    color: var(--color-white);
+                }
+            }
+
+            .ant-drawer-header {
+                border-bottom-color: var(--color-white);
+
+                .ant-drawer-title {
+                    color: var(--color-white);
+                    text-align: center;
+                }
+
+                .anticon {
+                    color: var(--color-white);
+
+                    svg {
+                        transition: color 0s !important;
+
+                        path {
+                            transition: color 0s !important;
+                        }
+                    }
+
+                    &:hover {
+                        color: var(--color-secondary);
+                    }
+                }
+            }
+
+            .ant-card {
+                background: var(--color-primary);
+                border: rem(1) solid var(--color-white);
+
+                .ant-card-head {
+                    padding: rem(12) rem(24);
+                    background: var(--color-black);
+                    color: var(--color-white);
+                    border-bottom: rem(1) solid var(--color-white);
+                }
+
+                .ant-card-body {
+                    color: var(--color-white);
+                }
+            }
+
+            .ant-form-item-required {
+                color: var(--color-white);
+            }
+
+            .ant-segmented {
+                background-color: var(--color-black);
+
+                .ant-segmented-item {
+                    color: var(--color-white);
+
+                    &.ant-segmented-item-selected {
+                        background-color: var(--color-primary);
+                        color: var(--color-secondary);
+                    }
                 }
             }
         }

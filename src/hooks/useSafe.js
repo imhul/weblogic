@@ -1,6 +1,6 @@
 // core
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const initial = {
     ipify: 'https://api.ipify.org/?format=json',
@@ -9,6 +9,7 @@ const initial = {
 };
 
 const useSafe = () => {
+    const { safe } = useSelector(state => state.ui);
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
 
@@ -38,23 +39,24 @@ const useSafe = () => {
                 getEmail: decode(process.env.REACT_APP_GET_EMAIL),
                 getMongo: process.env.REACT_APP_GET_MONGO,
                 authdb: process.env.MONGO_ATLAS_AUTH_DB,
-                authCollection: process.env.MONGO_ATLAS_AUTH_COLLECTION
+                authCollection: process.env.MONGO_ATLAS_AUTH_COLLECTION,
+                tipKey: process.env.REACT_APP_TIP_KEY
             }
         });
         setLoaded(true);
     }
 
     useEffect(() => {
-        if (loaded) return;
-        setEnv();
+        if (loaded && safe) return;
+        // setEnv();
         const checkProcessEnv = async () => {
             while (!process.env.REACT_APP_LINK) {
                 await new Promise(resolve => setTimeout(resolve, 100));
             }
-            setEnv();
+            if (!safe) setEnv();
         };
         checkProcessEnv();
-    }, [loaded]);
+    }, [loaded, safe]);
 };
 
 export default useSafe;

@@ -7,7 +7,7 @@ import { Timeline } from 'antd/lib';
 import translate from '../../utils/translations';
 
 const Roadmap = memo(() => {
-    const { lang } = useSelector(state => state.ux);
+    const { lang } = useSelector(state => state.ui);
     const items = [
         {
             children: (

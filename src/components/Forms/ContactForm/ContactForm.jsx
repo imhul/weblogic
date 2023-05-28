@@ -23,9 +23,9 @@ import {
     MessageOutlined
 } from '@ant-design/icons';
 // utils
-import translate from '../../utils/translations';
-import { getTelegram, sendEmail } from '../../utils/api';
-import { messageOptions } from '../../utils/config';
+import translate from '../../../utils/translations';
+import { getTelegram, sendEmail } from '../../../utils/api';
+import { messageOptions } from '../../../utils/config';
 
 const Fragment = React.Fragment;
 const { TextArea } = Input;
@@ -52,18 +52,21 @@ const subjects = [
 ];
 
 const ContactForm = memo(() => {
-    const { lang, tgMessage, isFilled } = useSelector(state => state.ux);
+    const { safe, lang, tgMessage, isFilled, contactMethod } = useSelector(
+        state => state.ui
+    );
     const [submitting, setSubmitting] = useState(false);
-    const { safe } = useSelector(state => state.ui);
-    const [formtype, setFormtype] = useState('tg'); // tg, email, sms
     const [emailMessage, setEmailMessage] = useState('');
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const inDevelopment = false;
     const maxSize = 4096;
 
-    const setForm = value => {
-        setFormtype(value);
+    const setContactMethod = value => {
+        dispatch({
+            type: 'CHANGE_CONTACT_METHOD',
+            payload: value
+        });
         if (tgMessage.length) {
             return dispatch({
                 type: 'TEXTAREA_UPDATE',
@@ -135,7 +138,7 @@ const ContactForm = memo(() => {
             console.info('getSmsAPI');
         }
 
-        switch (formtype) {
+        switch (contactMethod) {
             case 'tg':
                 getTelegramAPI();
                 break;
@@ -146,7 +149,7 @@ const ContactForm = memo(() => {
                 getSmsAPI();
                 break;
         }
-    }, [formtype, isFilled, tgMessage, lang, safe]);
+    }, [contactMethod, isFilled, tgMessage, lang, safe]);
 
     const renderOptions = subjects.map(option => (
         <Option key={option.id} value={option.title}>
@@ -156,6 +159,7 @@ const ContactForm = memo(() => {
 
     const SubmitButton = () => (
         <Button
+            block
             size="large"
             type="primary"
             htmlType="submit"
@@ -300,12 +304,12 @@ const ContactForm = memo(() => {
     );
 
     const renderForm = () => {
-        switch (formtype) {
-            case 'tg':
+        switch (contactMethod) {
+            case 'Telegram':
                 return tgForm();
-            case 'email':
+            case 'Email':
                 return inDevelopment ? smsForm() : emailForm();
-            case 'sms':
+            case 'SMS':
                 return smsForm();
         }
     };
@@ -321,21 +325,21 @@ const ContactForm = memo(() => {
                 <Row gutter={24} type="flex" justify="center" align="middle">
                     <Col span={12} className="mb-10">
                         <Group
-                            onChange={e => setForm(e.target.value)}
-                            value={formtype}
+                            onChange={e => setContactMethod(e.target.value)}
+                            value={contactMethod}
                             buttonStyle="solid"
                             optionType="button"
                             size="small"
                         >
-                            <Radio value={'tg'}>
+                            <Radio value={'Telegram'}>
                                 <SendOutlined />
                                 <span className="mobile-hide"> Telegram</span>
                             </Radio>
-                            <Radio value={'email'}>
+                            <Radio value={'Email'}>
                                 <MailOutlined />
                                 <span className="mobile-hide"> Email</span>
                             </Radio>
-                            <Radio value={'sms'}>
+                            <Radio value={'SMS'}>
                                 <MessageOutlined />
                                 <span className="mobile-hide"> SMS</span>
                             </Radio>
