@@ -8,7 +8,7 @@ import translate from '../../../utils/translations';
 
 const FormItem = Form.Item;
 
-const Login = () => {
+const Login = ({ onSubmit }) => {
     const { currentUser } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
@@ -16,12 +16,18 @@ const Login = () => {
         <Row gutter={24} className="Login">
             <Col span={24}>
                 <FormItem
-                    name="email"
+                    name="login"
                     rules={[
+                        {
+                            type: 'email',
+                            message: translate(
+                                'message_invalid_email'
+                            )
+                        },
                         {
                             required: true,
                             message: translate(
-                                'email_required_message'
+                                'message_required_email'
                             )
                         }
                     ]}
@@ -31,6 +37,7 @@ const Login = () => {
                             <MailOutlined className="white" />
                         }
                         placeholder="Email"
+                        autoComplete="email"
                     />
                 </FormItem>
             </Col>
@@ -71,15 +78,33 @@ const Login = () => {
             </Col>
 
             <Col span={8} className="right">
-                <Button htmlType="submit">
+                <Button htmlType="submit" onClick={onSubmit}>
                     {translate('login_submit')}
                 </Button>
             </Col>
             <Col span={10} className="padding-small left">
-                <Button type="link">{translate('reg_form')}</Button>
+                <Button
+                    type="link"
+                    onClick={() =>
+                        dispatch({
+                            type: 'CHANGE_AUTH_FORM_TYPE',
+                            payload: 'reg'
+                        })
+                    }
+                >
+                    {translate('reg_form')}
+                </Button>
             </Col>
             <Col span={14} className="padding-small right">
-                <Button type="link">
+                <Button
+                    type="link"
+                    onClick={() =>
+                        dispatch({
+                            type: 'CHANGE_AUTH_FORM_TYPE',
+                            payload: 'forgot'
+                        })
+                    }
+                >
                     {translate('forgot_form')}
                 </Button>
             </Col>

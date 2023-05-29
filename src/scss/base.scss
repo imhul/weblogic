@@ -212,6 +212,25 @@ svg {
     margin-inline-end: 0 !important;
 }
 
+%danger {
+    border-color: var(--color-danger) !important;
+    color: var(--color-danger) !important;
+}
+
+.ant-input-status-error,
+.ant-form-item-explain-error,
+.ant-input-group-wrapper-status-error {
+    @extend %danger;
+
+    .ant-input-group-addon {
+        @extend %danger;
+
+        .anticon {
+            @extend %danger;
+        }
+    }
+}
+
 .ant-checkbox-wrapper {
     color: var(--color-white);
 
@@ -361,7 +380,20 @@ svg {
 }
 
 .icon-lamp {
+    position: relative;
+    top: rem(2);
     outline: none !important;
+    font-family: lamp !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    cursor: pointer;
+
+    &::before {
+        content: '\e900';
+    }
 }
 
 .align-left {

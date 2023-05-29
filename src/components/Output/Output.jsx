@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../../utils/bg';
 import JsonLd from '../../utils/microdata';
 import menu from '../../utils/menu';
+import { saveToLocalStorage } from '../../utils/local';
 // components
 import {
     ContextMenu,
@@ -43,19 +44,28 @@ const Page = ({ location }) => {
 const Output = () => {
     useInitialization();
     useSafe();
-    const { safe, location, lang } = useSelector(state => state.ui);
+    const { safe, location, lang, isUserLangSelected } = useSelector(
+        state => state.ui
+    );
     const { currentUser } = useSelector(state => state.auth);
     const dispatch = useDispatch();
-    // useIpify(safe);
+    useIpify(safe);
 
-    // useEffect(() => {
-    //     if (currentUser && currentUser.lang.length && currentUser.lang !== lang) {
-    //         dispatch({
-    //             type: 'CHANGE_LANG',
-    //             payload: currentUser.lang
-    //         });
-    //     }
-    // }, [currentUser, lang]);
+    useEffect(() => {
+        if (
+            !isUserLangSelected &&
+            currentUser &&
+            currentUser.lang.length &&
+            currentUser.lang !== lang
+        ) {
+            dispatch({
+                type: 'CHANGE_LANG',
+                payload: currentUser.lang
+            });
+        }
+    }, [currentUser, lang, isUserLangSelected]);
+
+    useEffect(() => saveToLocalStorage('lang', lang), [lang]);
 
     // useTip();
 

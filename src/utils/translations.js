@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { getFromLocalStorage } from '../utils/local';
 
 const translations = {
     english: {
@@ -22,19 +22,21 @@ const translations = {
         yes: 'Yes',
         cancel: 'Cancel',
         user_name_title: 'You entered as',
-        login_form: 'Login Form',
-        reg_form: 'Registration',
         forgot_form: 'Forgot Password?',
         change_pass_form: 'Change Password',
         remember_me: 'Remember me',
         pass_required_message: 'Please enter password!',
         email_required_message: 'Please enter email!',
-        login_submit: 'Login',
+        name_required_message: 'Please enter name!',
         pass: 'Password',
         lang_title: 'Language selection',
         toolbar_heading: 'Profile',
         loading: 'Loading...',
         like_btn: 'Tnx!',
+        reg_form: 'Registration',
+        reg_submit: 'Register',
+        login_form: 'Login Form',
+        login_submit: 'Login',
         logout: 'Logout',
         logout_question: 'Are you sure you want to log out?',
         menu_heading: 'Menu',
@@ -187,19 +189,21 @@ const translations = {
         yes: 'Так',
         cancel: 'Скасувати',
         user_name_title: 'Ви війшли як',
-        login_form: 'Вхід',
-        reg_form: 'Реєстрація',
         forgot_form: 'Забули пароль?',
         change_pass_form: 'Зміна паролю',
         remember_me: 'Запам`ятати мене',
         pass_required_message: 'Будь ласка, введіть пароль!',
         email_required_message: 'Будь ласка, введіть email!',
-        login_submit: 'Логін',
+        name_required_message: 'Будь ласка, введіть ім`я!',
         pass: 'Пароль',
         lang_title: 'Вибір мови',
         toolbar_heading: 'Профіль',
         loading: "Йде з'єднання...",
         like_btn: 'Дякую!',
+        reg_form: 'Реєстрація',
+        reg_submit: 'Зареєструватися',
+        login_form: 'Вхід',
+        login_submit: 'Увійти',
         logout: 'Вихід',
         logout_question: 'Ви впевнені, що бажаєте вийти?',
         menu_heading: 'Меню',
@@ -333,7 +337,7 @@ const translations = {
 };
 
 const translate = text => {
-    const lang = useSelector(state => state.ui.lang);
+    const lang = getFromLocalStorage('lang', 'english');
     return translations[lang][text];
 };
 

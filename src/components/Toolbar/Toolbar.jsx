@@ -42,13 +42,26 @@ const Title = Typography.Title;
 
 const Toolbar = memo(() => {
     const [currentPage, setCurrentPage] = useState('Home');
-    const { tip, location, lang, isMenuOpen, contactMethod } =
-        useSelector(state => state.ui);
-    const { users, currentUser } = useSelector(state => state.auth);
-    const [formType, setFormType] = useState(
-        !currentUser.isAuth ? 'login' : ''
-    ); // login | reg | forgot | change_pass
+    const {
+        tip,
+        lang,
+        location,
+        isMenuOpen,
+        authFormType,
+        contactMethod
+    } = useSelector(state => state.ui);
+    const { currentUser } = useSelector(state => state.auth);
     const dispatch = useDispatch();
+    const [form] = Form.useForm();
+
+    useEffect(() => {
+        if (!currentUser.isAuth && !authFormType.length) {
+            dispatch({
+                type: 'CHANGE_AUTH_FORM_TYPE',
+                payload: 'login'
+            });
+        }
+    }, [authFormType, currentUser.isAuth]);
 
     const UserBlock = () => (
         <Row
@@ -132,11 +145,14 @@ const Toolbar = memo(() => {
         });
     };
 
+    const submit = () => {
+        console.info('submit');
+    };
+
     const renderForm = () => {
-        const id = forms[formType].id;
-        switch (id) {
+        switch (authFormType) {
             case 'login':
-                return Login();
+                return <Login onSubmit={submit} />;
             case 'reg':
                 return Registration();
             case 'forgot':
@@ -150,8 +166,8 @@ const Toolbar = memo(() => {
 
     return (
         <div className="Toolbar">
-            <MenuOutlined
-                className="burger"
+            <i
+                className="icon-lamp burger"
                 onClick={() =>
                     dispatch({
                         type: 'TOGGLE_TOOLBAR',
@@ -188,11 +204,16 @@ const Toolbar = memo(() => {
                     mode="inline"
                     items={menuItems}
                 />
-                <Divider>
-                    {translate(`${forms[formType].id}_form`)}
-                </Divider>
+                <Divider>{translate(`${authFormType}_form`)}</Divider>
 
-                <Form layout="vertical">{renderForm()}</Form>
+                <Form
+                    form={form}
+                    className="auth-form"
+                    name="auth-form"
+                    layout="vertical"
+                >
+                    {renderForm()}
+                </Form>
                 <Divider>{translate('lang_title')}</Divider>
                 <Segmented
                     block
@@ -200,12 +221,13 @@ const Toolbar = memo(() => {
                     defaultValue={'english'}
                     options={langOptions}
                     value={lang}
-                    onChange={data =>
+                    onChange={data => {
+                        dispatch({ type: 'TOGGLE_USER_LANG_SELECT' });
                         dispatch({
                             type: 'CHANGE_LANG',
                             payload: data
-                        })
-                    }
+                        });
+                    }}
                 />
                 <Divider>{translate('contact_method')}</Divider>
                 <Segmented

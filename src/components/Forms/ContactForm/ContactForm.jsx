@@ -114,6 +114,14 @@ const ContactForm = memo(() => {
                 form.resetFields();
             } else return;
 
+            if (values.email) {
+                console.info('values.email: ', values.email);
+                dispatch({
+                    type: 'USER_EMAIL_AUTO_UPDATE',
+                    payload: values.email
+                });
+            }
+
             setSubmitting(true);
             const emailURL =
                 safe.getEmail +
@@ -218,7 +226,7 @@ const ContactForm = memo(() => {
                         {
                             required: true,
                             message: translate(
-                                'message_required_name'
+                                'name_required_message'
                             )
                         }
                     ]}
@@ -349,7 +357,6 @@ const ContactForm = memo(() => {
                 form={form}
                 className="contact-form"
                 name="email-form"
-                data-netlify="true"
             >
                 <Row
                     gutter={24}

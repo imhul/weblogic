@@ -35,6 +35,18 @@ export default (state = initState, action) => {
                 lang: action.payload
             };
 
+        case typesUX.TOGGLE_USER_LANG_SELECT:
+            return {
+                ...state,
+                isUserLangSelected: true
+            };
+
+        case typesUX.CHANGE_AUTH_FORM_TYPE:
+            return {
+                ...state,
+                authFormType: action.payload
+            };
+
         case typesUX.SET_TIP_OF_THE_DAY:
             return {
                 ...state,

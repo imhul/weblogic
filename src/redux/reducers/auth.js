@@ -34,6 +34,15 @@ export default function (state = initState, action) {
                 }
             };
 
+        case type.USER_EMAIL_AUTO_UPDATE:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    email: action.payload
+                }
+            };
+
         case type.USER_LOGIN:
             return {
                 ...state,

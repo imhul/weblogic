@@ -86,14 +86,7 @@
                 }
 
                 .icon-lamp {
-                    font-family: lamp !important;
-                    speak: none;
-                    font-style: normal;
-                    font-weight: normal;
-                    font-variant: normal;
-                    text-transform: none;
                     line-height: 1;
-                    position: relative;
                     top: rem(8);
                     transition: all 1.6s ease;
 
@@ -101,10 +94,6 @@
                         color: var(--color-secondary);
                         text-shadow: 0 0 rem(20)
                             var(--color-secondary);
-                    }
-
-                    &::before {
-                        content: '\e900';
                     }
                 }
             }
