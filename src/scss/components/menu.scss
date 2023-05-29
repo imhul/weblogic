@@ -8,7 +8,9 @@
 
         &:hover {
             &::after {
-                border-bottom-color: var(--color-secondary) !important;
+                border-bottom-color: var(
+                    --color-secondary
+                ) !important;
             }
 
             span {
@@ -64,7 +66,9 @@
             }
 
             &::after {
-                border-bottom-color: var(--color-secondary) !important;
+                border-bottom-color: var(
+                    --color-secondary
+                ) !important;
             }
 
             &.ant-menu-submenu-active {

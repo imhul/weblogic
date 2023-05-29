@@ -1,7 +1,10 @@
 import React, { memo, useState, useEffect } from 'react';
 // components
 import { Button, Tooltip, message } from 'antd/lib';
-import { QuestionCircleOutlined, RedoOutlined } from '@ant-design/icons';
+import {
+    QuestionCircleOutlined,
+    RedoOutlined
+} from '@ant-design/icons';
 // utils
 import { messageOptions } from '../../utils/config';
 
@@ -24,7 +27,9 @@ const HowTo = memo(() => {
             <Tooltip placement="left" title="Reset" open={open}>
                 <Button
                     type="primary"
-                    onClick={() => window.bgJSDom[0].bgJS.fn.particlesRefresh()}
+                    onClick={() =>
+                        window.bgJSDom[0].bgJS.fn.particlesRefresh()
+                    }
                     shape="circle"
                     icon={<RedoOutlined />}
                     size="large"

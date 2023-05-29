@@ -12,8 +12,8 @@ const Roadmap = memo(() => {
         {
             children: (
                 <span>
-                    <span>{translate(lang, 'nov')} 2008:</span>
-                    {translate(lang, 'step_2008')}
+                    <span>{translate('nov')} 2008:</span>
+                    {translate('step_2008')}
                 </span>
             )
         },
@@ -21,7 +21,7 @@ const Roadmap = memo(() => {
             children: (
                 <span>
                     <span>2011: </span>
-                    {translate(lang, 'step_2011')}
+                    {translate('step_2011')}
                 </span>
             )
         },
@@ -29,7 +29,7 @@ const Roadmap = memo(() => {
             children: (
                 <span>
                     <span>2013: </span>
-                    {translate(lang, 'step_2013')}
+                    {translate('step_2013')}
                 </span>
             )
         },
@@ -37,7 +37,7 @@ const Roadmap = memo(() => {
             children: (
                 <span>
                     <span>2015: </span>
-                    {translate(lang, 'step_2015')}
+                    {translate('step_2015')}
                 </span>
             )
         },
@@ -45,23 +45,23 @@ const Roadmap = memo(() => {
             children: (
                 <span>
                     <span>2016: </span>
-                    {translate(lang, 'step_2016')}
+                    {translate('step_2016')}
                 </span>
             )
         },
         {
             children: (
                 <span>
-                    <span>{translate(lang, 'dec')} 2017: </span>
-                    {translate(lang, 'step_2017')}
+                    <span>{translate('dec')} 2017: </span>
+                    {translate('step_2017')}
                 </span>
             )
         },
         {
             children: (
                 <span>
-                    <span>{translate(lang, 'aug')} 2018: </span>
-                    {translate(lang, 'step_2018')}
+                    <span>{translate('aug')} 2018: </span>
+                    {translate('step_2018')}
                 </span>
             )
         },
@@ -69,23 +69,23 @@ const Roadmap = memo(() => {
             children: (
                 <span>
                     <span>2020: </span>
-                    {translate(lang, 'step_2020')}
+                    {translate('step_2020')}
                 </span>
             )
         },
         {
             children: (
                 <span>
-                    <span>{translate(lang, 'aug')} 2021: </span>
-                    {translate(lang, 'step_2021')}
+                    <span>{translate('aug')} 2021: </span>
+                    {translate('step_2021')}
                 </span>
             )
         },
         {
             children: (
                 <span>
-                    <span>{translate(lang, 'apr')} 2023: </span>
-                    {translate(lang, 'step_2023')}
+                    <span>{translate('apr')} 2023: </span>
+                    {translate('step_2023')}
                 </span>
             )
         }
@@ -93,14 +93,18 @@ const Roadmap = memo(() => {
 
     const pending = (
         <span>
-            <span>2024: </span>I believe in the victory of Ukraine! I believe in
-            the Armed Forces!
+            <span>2024: </span>I believe in the victory of Ukraine! I
+            believe in the Armed Forces!
         </span>
     );
 
     return (
         <div className="Roadmap content">
-            <Timeline pending={pending} mode="alternate" items={items} />
+            <Timeline
+                pending={pending}
+                mode="alternate"
+                items={items}
+            />
         </div>
     );
 });

@@ -32,7 +32,11 @@ $min-width-x-large: 1600px;
 }
 
 @mixin responsive-font($min-size, $index, $max-size) {
-    font-size: clamp($min-size, calc((1vw + 1vh) * $index), $max-size);
+    font-size: clamp(
+        $min-size,
+        calc((1vw + 1vh) * $index),
+        $max-size
+    );
 }
 
 @mixin truncate($lines) {
@@ -65,8 +69,8 @@ $min-width-x-large: 1600px;
     transition-delay: 0s;
     transition-duration: $duration;
     transition-timing-function: $ease;
-    transition-property: color, background-color, border-color, fill, filter,
-        stroke, text-shadow, box-shadow;
+    transition-property: color, background-color, border-color, fill,
+        filter, stroke, text-shadow, box-shadow;
 }
 
 // EXAMPLE USAGE:

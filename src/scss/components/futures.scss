@@ -26,14 +26,17 @@
                     .tap-target {
                         transform: scale(1);
                         opacity: 0.95;
-                        transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+                        transition: opacity 0.3s
+                                cubic-bezier(0.42, 0, 0.58, 1),
                             -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
                         transition: transform 0.3s
                                 cubic-bezier(0.42, 0, 0.58, 1),
-                            opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+                            opacity 0.3s
+                                cubic-bezier(0.42, 0, 0.58, 1);
                         transition: transform 0.3s
                                 cubic-bezier(0.42, 0, 0.58, 1),
-                            opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+                            opacity 0.3s
+                                cubic-bezier(0.42, 0, 0.58, 1),
                             -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
                     }
 
@@ -45,13 +48,15 @@
                         &::after {
                             visibility: visible;
                             animation: pulse-animation 1s
-                                cubic-bezier(0.24, 0, 0.38, 1) infinite;
+                                cubic-bezier(0.24, 0, 0.38, 1)
+                                infinite;
                             transition: opacity 0.3s, visibility 0s 1s,
                                 -webkit-transform 0.3s;
                             transition: opacity 0.3s, transform 0.3s,
                                 visibility 0s 1s;
                             transition: opacity 0.3s, transform 0.3s,
-                                visibility 0s 1s, -webkit-transform 0.3s;
+                                visibility 0s 1s,
+                                -webkit-transform 0.3s;
                         }
                     }
                 }
@@ -71,11 +76,14 @@
                 right: 50%;
                 opacity: 0;
                 transform: scale(0);
-                transition: opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+                transition: opacity 0.3s
+                        cubic-bezier(0.42, 0, 0.58, 1),
                     -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
-                transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+                transition: transform 0.3s
+                        cubic-bezier(0.42, 0, 0.58, 1),
                     opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1);
-                transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+                transition: transform 0.3s
+                        cubic-bezier(0.42, 0, 0.58, 1),
                     opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1),
                     -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1);
 
@@ -129,9 +137,10 @@
                     visibility: hidden;
                     transition: opacity 0.3s, visibility 0s,
                         -webkit-transform 0.3s;
-                    transition: opacity 0.3s, transform 0.3s, visibility 0s;
-                    transition: opacity 0.3s, transform 0.3s, visibility 0s,
-                        -webkit-transform 0.3s;
+                    transition: opacity 0.3s, transform 0.3s,
+                        visibility 0s;
+                    transition: opacity 0.3s, transform 0.3s,
+                        visibility 0s, -webkit-transform 0.3s;
                     z-index: -1;
                     bottom: 0;
                     background-color: var(--color-secondary);
@@ -178,8 +187,8 @@
                     transition: opacity 0.3s, transform 0.3s;
                     transition: opacity 0.3s, transform 0.3s,
                         -webkit-transform 0.3s;
-                    animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1)
-                        infinite;
+                    animation: pulse-animation 1s
+                        cubic-bezier(0.24, 0, 0.38, 1) infinite;
                     z-index: -1;
                 }
             }

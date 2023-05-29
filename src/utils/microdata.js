@@ -38,7 +38,9 @@ export const microdata = {
 const JsonLd = () => (
     <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata) }}
+        dangerouslySetInnerHTML={{
+            __html: JSON.stringify(microdata)
+        }}
     />
 );
 

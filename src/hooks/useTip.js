@@ -14,7 +14,7 @@ const roles = {
 const useTip = () => {
     const { safe, tip, lang } = useSelector(state => state.ui);
     const dispatch = useDispatch();
-    const content = translate(lang, 'tip_request');
+    const content = translate('tip_request');
     const question = [{ role: roles.USER, content }];
 
     useEffect(() => {
@@ -28,20 +28,26 @@ const useTip = () => {
                 const openai = new OpenAIApi(configuration);
 
                 try {
-                    const response = await openai.createChatCompletion({
-                        model: 'gpt-3.5-turbo-0301', // gpt-3.5-turbo
-                        messages: question
-                    });
+                    const response =
+                        await openai.createChatCompletion({
+                            model: 'gpt-3.5-turbo-0301', // gpt-3.5-turbo
+                            messages: question
+                        });
                     if (response.data.choices[0].message.content) {
                         dispatch({
                             type: 'SET_TIP_OF_THE_DAY',
-                            payload: response.data.choices[0].message.content
+                            payload:
+                                response.data.choices[0].message
+                                    .content
                         });
                     } else {
                         console.warn('AI Chat Unknown Error!');
                     }
                 } catch (error) {
-                    console.warn('AI Chat Error: ', error.message || error);
+                    console.warn(
+                        'AI Chat Error: ',
+                        error.message || error
+                    );
                 }
             }
             clearTimeout(timeout);

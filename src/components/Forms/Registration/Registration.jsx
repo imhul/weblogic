@@ -54,7 +54,8 @@ const Registration = () => {
                         rules={[
                             {
                                 required: true,
-                                message: 'please enter url description'
+                                message:
+                                    'please enter url description'
                             }
                         ]}
                     >

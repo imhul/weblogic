@@ -52,9 +52,8 @@ const subjects = [
 ];
 
 const ContactForm = memo(() => {
-    const { safe, lang, tgMessage, isFilled, contactMethod } = useSelector(
-        state => state.ui
-    );
+    const { safe, lang, tgMessage, isFilled, contactMethod } =
+        useSelector(state => state.ui);
     const [submitting, setSubmitting] = useState(false);
     const [emailMessage, setEmailMessage] = useState('');
     const dispatch = useDispatch();
@@ -87,7 +86,7 @@ const ContactForm = memo(() => {
                         // TODO: response.ok !== undefined. Must be response.ok
                         message.success({
                             ...messageOptions,
-                            content: `${translate(lang, 'message_success')}`
+                            content: `${translate('message_success')}`
                         });
                         dispatch({
                             type: 'TEXTAREA_UPDATE',
@@ -100,7 +99,9 @@ const ContactForm = memo(() => {
 
         async function getEmailAPI() {
             const values = form.getFieldsValue();
-            const filled = Object.keys(values).every(key => values[key] !== '');
+            const filled = Object.keys(values).every(
+                key => values[key] !== ''
+            );
             if (values) {
                 dispatch({
                     type: 'FORM_UPDATE',
@@ -122,11 +123,15 @@ const ContactForm = memo(() => {
             await sendEmail(emailURL, lang)
                 .then(res => {
                     // TODO: resolve status 0
-                    if (res.status === 0 || res.status === 200 || res.ok) {
+                    if (
+                        res.status === 0 ||
+                        res.status === 200 ||
+                        res.ok
+                    ) {
                         // temporary solution is: res.status === 0
                         message.success({
                             ...messageOptions,
-                            content: `${translate(lang, 'message_success')}`
+                            content: `${translate('message_success')}`
                         });
                     }
                     return res;
@@ -170,7 +175,7 @@ const ContactForm = memo(() => {
             {submitting && !safe ? (
                 <LoadingOutlined style={{ color: '#bcc8ce' }} />
             ) : (
-                translate(lang, 'submit')
+                translate('submit')
             )}
         </Button>
     );
@@ -185,7 +190,7 @@ const ContactForm = memo(() => {
                     cols={30}
                     tabIndex="1"
                     key="TextInput"
-                    placeholder={`${translate(lang, 'placeholder')}`}
+                    placeholder={`${translate('placeholder')}`}
                     onChange={event =>
                         dispatch({
                             type: 'TEXTAREA_UPDATE',
@@ -202,50 +207,70 @@ const ContactForm = memo(() => {
 
     const emailForm = () => (
         <Fragment key="emailForm">
-            <Col xs={{ span: 24 }} md={{ span: 20 }} lg={{ span: 14 }}>
+            <Col
+                xs={{ span: 24 }}
+                md={{ span: 20 }}
+                lg={{ span: 14 }}
+            >
                 <Item
                     name="name"
                     rules={[
                         {
                             required: true,
-                            message: translate(lang, 'message_required_name')
+                            message: translate(
+                                'message_required_name'
+                            )
                         }
                     ]}
                 >
                     <Input
-                        placeholder={translate(lang, 'name_placeholder')}
+                        placeholder={translate('name_placeholder')}
                         prefix={<UserOutlined className="white" />}
                     />
                 </Item>
             </Col>
-            <Col xs={{ span: 24 }} md={{ span: 20 }} lg={{ span: 14 }}>
+            <Col
+                xs={{ span: 24 }}
+                md={{ span: 20 }}
+                lg={{ span: 14 }}
+            >
                 <Item
                     name="email"
                     rules={[
                         {
                             type: 'email',
-                            message: translate(lang, 'message_invalid_email')
+                            message: translate(
+                                'message_invalid_email'
+                            )
                         },
                         {
                             required: true,
-                            message: translate(lang, 'message_required_email')
+                            message: translate(
+                                'message_required_email'
+                            )
                         }
                     ]}
                 >
                     <Input
-                        placeholder={translate(lang, 'email_placeholder')}
+                        placeholder={translate('email_placeholder')}
                         prefix={<MailOutlined className="white" />}
                         autoComplete="email"
                     />
                 </Item>
             </Col>
-            <Col xs={{ span: 24 }} md={{ span: 20 }} lg={{ span: 14 }}>
+            <Col
+                xs={{ span: 24 }}
+                md={{ span: 20 }}
+                lg={{ span: 14 }}
+            >
                 <Item
                     name="subject"
                     rules={[
                         {
                             required: true,
-                            message: translate(lang, 'message_required_subject')
+                            message: translate(
+                                'message_required_subject'
+                            )
                         }
                     ]}
                 >
@@ -270,7 +295,9 @@ const ContactForm = memo(() => {
                     rules={[
                         {
                             required: true,
-                            message: translate(lang, 'message_required_subject')
+                            message: translate(
+                                'message_required_subject'
+                            )
                         }
                     ]}
                 >
@@ -279,8 +306,10 @@ const ContactForm = memo(() => {
                         rows={4}
                         cols={30}
                         tabIndex="1"
-                        placeholder={translate(lang, 'placeholder')}
-                        onChange={event => setEmailMessage(event.target.value)}
+                        placeholder={translate('placeholder')}
+                        onChange={event =>
+                            setEmailMessage(event.target.value)
+                        }
                     />
                 </Item>
             </Col>
@@ -322,10 +351,17 @@ const ContactForm = memo(() => {
                 name="email-form"
                 data-netlify="true"
             >
-                <Row gutter={24} type="flex" justify="center" align="middle">
+                <Row
+                    gutter={24}
+                    type="flex"
+                    justify="center"
+                    align="middle"
+                >
                     <Col span={12} className="mb-10">
                         <Group
-                            onChange={e => setContactMethod(e.target.value)}
+                            onChange={e =>
+                                setContactMethod(e.target.value)
+                            }
                             value={contactMethod}
                             buttonStyle="solid"
                             optionType="button"
@@ -333,15 +369,24 @@ const ContactForm = memo(() => {
                         >
                             <Radio value={'Telegram'}>
                                 <SendOutlined />
-                                <span className="mobile-hide"> Telegram</span>
+                                <span className="mobile-hide">
+                                    {' '}
+                                    Telegram
+                                </span>
                             </Radio>
                             <Radio value={'Email'}>
                                 <MailOutlined />
-                                <span className="mobile-hide"> Email</span>
+                                <span className="mobile-hide">
+                                    {' '}
+                                    Email
+                                </span>
                             </Radio>
                             <Radio value={'SMS'}>
                                 <MessageOutlined />
-                                <span className="mobile-hide"> SMS</span>
+                                <span className="mobile-hide">
+                                    {' '}
+                                    SMS
+                                </span>
                             </Radio>
                         </Group>
                     </Col>
@@ -359,7 +404,7 @@ const ContactForm = memo(() => {
                     </Col>
                     <Divider>
                         <h3 className="white">
-                            {translate(lang, 'contact_form')}
+                            {translate('contact_form')}
                         </h3>
                     </Divider>
                     {renderForm()}

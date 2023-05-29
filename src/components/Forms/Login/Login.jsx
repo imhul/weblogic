@@ -9,7 +9,6 @@ import translate from '../../../utils/translations';
 const FormItem = Form.Item;
 
 const Login = () => {
-    const { lang } = useSelector(state => state.ui);
     const { currentUser } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
@@ -21,12 +20,16 @@ const Login = () => {
                     rules={[
                         {
                             required: true,
-                            message: translate(lang, 'email_required_message')
+                            message: translate(
+                                'email_required_message'
+                            )
                         }
                     ]}
                 >
                     <Input
-                        addonBefore={<MailOutlined className="white" />}
+                        addonBefore={
+                            <MailOutlined className="white" />
+                        }
                         placeholder="Email"
                     />
                 </FormItem>
@@ -37,13 +40,17 @@ const Login = () => {
                     rules={[
                         {
                             required: true,
-                            message: translate(lang, 'pass_required_message')
+                            message: translate(
+                                'pass_required_message'
+                            )
                         }
                     ]}
                 >
                     <Input
-                        addonBefore={<LockOutlined className="white" />}
-                        placeholder={translate(lang, 'pass')}
+                        addonBefore={
+                            <LockOutlined className="white" />
+                        }
+                        placeholder={translate('pass')}
                     />
                 </FormItem>
             </Col>
@@ -58,14 +65,22 @@ const Login = () => {
                             })
                         }
                     >
-                        {translate(lang, 'remember_me')}
+                        {translate('remember_me')}
                     </Checkbox>
                 </FormItem>
             </Col>
 
             <Col span={8} className="right">
                 <Button htmlType="submit">
-                    {translate(lang, 'login_submit')}
+                    {translate('login_submit')}
+                </Button>
+            </Col>
+            <Col span={10} className="padding-small left">
+                <Button type="link">{translate('reg_form')}</Button>
+            </Col>
+            <Col span={14} className="padding-small right">
+                <Button type="link">
+                    {translate('forgot_form')}
                 </Button>
             </Col>
         </Row>

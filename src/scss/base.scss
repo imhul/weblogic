@@ -119,9 +119,13 @@ textarea {
 button.ant-btn {
     font-family: Open-Sans, sans-serif;
     color: var(--color-white);
-    border-color: var(--color-white);
+
     background: var(--transparent);
     cursor: pointer;
+
+    &:not(.ant-btn-link) {
+        border-color: var(--color-white);
+    }
 
     .anticon {
         svg {
@@ -136,7 +140,10 @@ button.ant-btn {
     &:hover {
         text-shadow: var(--color-secondary) 0 0 rem(20);
         color: var(--color-secondary) !important;
-        border-color: var(--color-secondary) !important;
+
+        &:not(.ant-btn-link) {
+            border-color: var(--color-secondary) !important;
+        }
 
         .anticon {
             color: var(--color-secondary);
@@ -213,7 +220,8 @@ svg {
             border-color: var(--color-white);
             background-color: var(--transparent);
             transition: border-color 0.35s ease-in-out,
-                background-color 0.35s ease-in-out, color 0.35s ease-in-out;
+                background-color 0.35s ease-in-out,
+                color 0.35s ease-in-out;
         }
 
         &.ant-checkbox-checked {
@@ -245,7 +253,9 @@ svg {
 
             &.ant-checkbox-checked {
                 .ant-checkbox-inner {
-                    background-color: var(--color-secondary) !important;
+                    background-color: var(
+                        --color-secondary
+                    ) !important;
                     border-color: var(--color-black) !important;
                 }
 
@@ -323,6 +333,25 @@ svg {
     }
 }
 
+.ant-popover {
+    z-index: 1110;
+
+    .ant-popover-inner {
+        background-color: var(--color-black);
+        border: rem(1) solid var(--color-white);
+
+        .ant-popconfirm-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .ant-btn:hover {
+                background-color: var(--transparent) !important;
+            }
+        }
+    }
+}
+
 .react-contextmenu {
     @extend %context-menu;
 }
@@ -362,6 +391,10 @@ svg {
         align-items: center;
         justify-content: center;
     }
+}
+
+.no-p {
+    padding: 0 !important;
 }
 
 .mb-0 {

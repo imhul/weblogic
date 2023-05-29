@@ -19,7 +19,8 @@ const Captcha = memo(() => {
 
     useEffect(() => {
         if (!currentUser.ip.length && !safe) return;
-        if (!ip.length && currentUser.ip.length) setIp(currentUser.ip);
+        if (!ip.length && currentUser.ip.length)
+            setIp(currentUser.ip);
     }, [currentUser.ip, ip, safe]);
 
     const verify = useCallback(
@@ -36,12 +37,16 @@ const Captcha = memo(() => {
                     payload: captcha
                 });
                 message.success({
-                    content: `${translate(lang, 'message_success_recaptcha')}`,
+                    content: `${translate(
+                        'message_success_recaptcha'
+                    )}`,
                     ...messageOptions
                 });
             } else {
                 message.error({
-                    content: `${translate(lang, 'message_error_recaptcha')}`,
+                    content: `${translate(
+                        'message_error_recaptcha'
+                    )}`,
                     ...messageOptions
                 });
             }

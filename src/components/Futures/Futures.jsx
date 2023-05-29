@@ -40,7 +40,9 @@ const Futures = memo(() => {
                     <div className="tap-target">
                         <div className="tap-target-content white">
                             <h2 className="white">Hello!</h2>
-                            <h3 className="white">v0.0.8 Changelog:</h3>
+                            <h3 className="white">
+                                v0.0.8 Changelog:
+                            </h3>
                             <p>
                                 <a
                                     href="https://core.telegram.org/bots/api"
@@ -55,7 +57,8 @@ const Futures = memo(() => {
                                     href="https://developers.google.com/recaptcha/docs/display"
                                     target="_blank"
                                 >
-                                    <ApiOutlined /> Google reCaptcha API
+                                    <ApiOutlined /> Google reCaptcha
+                                    API
                                 </a>{' '}
                                 is implemented
                             </p>
@@ -72,7 +75,9 @@ const Futures = memo(() => {
                             shape="circle"
                             icon="fire"
                             size="large"
-                            onClick={() => dispatch({ type: 'TOGGLE_FUTURES' })}
+                            onClick={() =>
+                                dispatch({ type: 'TOGGLE_FUTURES' })
+                            }
                         />
                     </div>
                 </div>

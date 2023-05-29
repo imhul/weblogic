@@ -15,62 +15,82 @@ import {
     Tooltip,
     Divider,
     Segmented,
-    Typography
+    Typography,
+    Popconfirm
 } from 'antd/lib';
 import {
-    CloseCircleOutlined,
-    MenuOutlined,
     HeartFilled,
-    LogoutOutlined
+    MenuOutlined,
+    LogoutOutlined,
+    CloseCircleOutlined,
+    QuestionCircleOutlined
 } from '@ant-design/icons';
 import Gravatar from 'react-gravatar';
 import Registration from '../Forms/Registration';
 import ChangePass from '../Forms/ChangePass';
 import Forgot from '../Forms/Forgot';
 import Login from '../Forms/Login';
+// utils
 import translate from '../../utils/translations';
+import {
+    forms,
+    langOptions,
+    contactMethodOptions
+} from '../../utils/config';
 
 const Title = Typography.Title;
-const forms = {
-    login: {
-        title: 'Login',
-        id: 'login'
-    },
-    reg: {
-        title: 'Registration',
-        id: 'reg'
-    },
-    forgot: {
-        title: 'Forgot password?',
-        id: 'forgot'
-    },
-    reset: {
-        title: 'Change password',
-        id: 'change_pass'
-    }
-};
-
-const contactMethodOptions = [
-    { label: 'Telegram', value: 'Telegram', disabled: false },
-    { label: 'Email', value: 'Email', disabled: false },
-    { label: 'SMS', value: 'SMS', disabled: true }
-];
-
-const langOptions = [
-    { label: 'English', value: 'english', disabled: false },
-    { label: 'Ukrainian', value: 'ukrainian', disabled: false }
-];
 
 const Toolbar = memo(() => {
     const [currentPage, setCurrentPage] = useState('Home');
-    const { tip, location, lang, isMenuOpen, contactMethod } = useSelector(
-        state => state.ui
-    );
+    const { tip, location, lang, isMenuOpen, contactMethod } =
+        useSelector(state => state.ui);
     const { users, currentUser } = useSelector(state => state.auth);
     const [formType, setFormType] = useState(
         !currentUser.isAuth ? 'login' : ''
-    ); // login | reg | forgot | reset
+    ); // login | reg | forgot | change_pass
     const dispatch = useDispatch();
+
+    const UserBlock = () => (
+        <Row
+            gutter={24}
+            type="flex"
+            justify="center"
+            align="middle"
+            className="user-card"
+        >
+            <Col>
+                <Gravatar email={currentUser.email} size={100} />
+            </Col>
+            <Col>
+                <span>{translate('user_name_title')}</span>
+                <Title level={4}>{currentUser.name}</Title>
+            </Col>
+        </Row>
+    );
+
+    const Extra = () => (
+        <Popconfirm
+            placement="topLeft"
+            title={translate('logout')}
+            description={translate('logout_question')}
+            onConfirm={logout}
+            okText={translate('yes')}
+            cancelText={translate('cancel')}
+            icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+        >
+            <Tooltip
+                overlayInnerStyle={{ color: '#fdd835' }}
+                color="#2a414c"
+                placement="left"
+                zIndex={1100}
+                title={translate('logout')}
+            >
+                <Button type="link" className="no-p">
+                    <LogoutOutlined style={{ fontSize: 32 }} />
+                </Button>
+            </Tooltip>
+        </Popconfirm>
+    );
 
     const navigate = useCallback(e => {
         const key = e.key;
@@ -117,12 +137,12 @@ const Toolbar = memo(() => {
         switch (id) {
             case 'login':
                 return Login();
-            // case id:
-            //     return Registration();
-            // case id:
-            //     return Forgot();
-            // case id:
-            //     return ChangePass();
+            case 'reg':
+                return Registration();
+            case 'forgot':
+                return Forgot();
+            case 'change_pass':
+                return ChangePass();
             default:
                 return null;
         }
@@ -142,7 +162,7 @@ const Toolbar = memo(() => {
             <Drawer
                 title={
                     <Title level={3}>
-                        {translate(lang, 'toolbar_heading')}
+                        {translate('toolbar_heading')}
                     </Title>
                 }
                 width={320}
@@ -152,41 +172,16 @@ const Toolbar = memo(() => {
                         payload: false
                     })
                 }
-                closeIcon={<CloseCircleOutlined style={{ fontSize: 32 }} />}
+                closeIcon={
+                    <CloseCircleOutlined style={{ fontSize: 32 }} />
+                }
                 open={isMenuOpen}
                 bodyStyle={{ paddingBottom: 80 }}
-                extra={
-                    <Tooltip
-                        overlayInnerStyle={{ color: '#fdd835' }}
-                        color="#2a414c"
-                        placement="left"
-                        zIndex={1100}
-                        title={translate(lang, 'logout')}
-                    >
-                        <LogoutOutlined
-                            style={{ fontSize: 32 }}
-                            onClick={logout}
-                        />
-                    </Tooltip>
-                }
+                extra={<Extra />}
             >
-                <Row
-                    gutter={24}
-                    type="flex"
-                    justify="center"
-                    align="middle"
-                    className="user-card"
-                >
-                    <Col>
-                        <Gravatar email={currentUser.email} size={100} />
-                    </Col>
-                    <Col>
-                        <span>{translate(lang, 'user_name_title')}</span>
-                        <Title level={4}>{currentUser.name}</Title>
-                    </Col>
-                </Row>
+                <UserBlock />
 
-                <Divider>{translate(lang, 'menu_heading')}</Divider>
+                <Divider>{translate('menu_heading')}</Divider>
                 <Menu
                     onClick={navigate}
                     selectedKeys={[currentPage]}
@@ -194,11 +189,11 @@ const Toolbar = memo(() => {
                     items={menuItems}
                 />
                 <Divider>
-                    {translate(lang, `${forms[formType].id}_form`)}
+                    {translate(`${forms[formType].id}_form`)}
                 </Divider>
 
                 <Form layout="vertical">{renderForm()}</Form>
-                <Divider>{translate(lang, 'lang_title')}</Divider>
+                <Divider>{translate('lang_title')}</Divider>
                 <Segmented
                     block
                     size="small"
@@ -212,7 +207,7 @@ const Toolbar = memo(() => {
                         })
                     }
                 />
-                <Divider>{translate(lang, 'contact_method')}</Divider>
+                <Divider>{translate('contact_method')}</Divider>
                 <Segmented
                     block
                     size="small"
@@ -227,23 +222,23 @@ const Toolbar = memo(() => {
                     }
                 />
 
-                <Divider>{translate(lang, 'tip_heading')}</Divider>
+                <Divider>{translate('tip_heading')}</Divider>
                 <Card
                     type="inner"
                     title={
                         tip
-                            ? translate(lang, 'tip_like')
-                            : translate(lang, 'tip_await')
+                            ? translate('tip_like')
+                            : translate('tip_await')
                     }
                     extra={
                         tip ? (
                             <Button icon={<HeartFilled />}>
-                                {translate(lang, 'like_btn')}
+                                {translate('like_btn')}
                             </Button>
                         ) : null
                     }
                 >
-                    {tip ? tip : translate(lang, 'loading')}
+                    {tip ? tip : translate('loading')}
                 </Card>
             </Drawer>
         </div>

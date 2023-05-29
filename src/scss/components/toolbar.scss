@@ -169,6 +169,28 @@
                         color: var(--color-secondary);
                     }
                 }
+
+                .ant-segmented-thumb {
+                    background-color: var(--color-primary);
+                }
+            }
+
+            .Login {
+                .padding-small {
+                    --padding: rem(1);
+
+                    &.left {
+                        padding-right: var(--padding) !important;
+                    }
+
+                    &.right {
+                        padding-left: var(--padding) !important;
+                    }
+                }
+
+                .ant-btn-link {
+                    padding: 0;
+                }
             }
         }
     }

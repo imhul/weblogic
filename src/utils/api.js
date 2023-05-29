@@ -1,18 +1,27 @@
 // utils
 import { message } from 'antd/lib';
 import translate from '../utils/translations';
-import { messageOptions, GET_CONFIG, GET_JSON_CONFIG } from '../utils/config';
+import {
+    messageOptions,
+    GET_CONFIG,
+    GET_JSON_CONFIG
+} from '../utils/config';
 import { getErrorByCode } from '../utils/statuses';
 
 const getContent = (response, lang) => {
-    const status = response.status ?? response.code ?? '::: no status :::';
-    return `${translate(lang, 'message_error')} \nStatus: ${status} \nError: ${
+    const status =
+        response.status ?? response.code ?? '::: no status :::';
+    return `${translate(
+        'message_error'
+    )} \nStatus: ${status} \nError: ${
         response.statusText ??
         response.errorMessage ??
         response.message ??
         response.error ??
         '::: unknown error :::'
-    } \nDescription: ${getErrorByCode(status) ?? '::: no description :::'}`;
+    } \nDescription: ${
+        getErrorByCode(status) ?? '::: no description :::'
+    }`;
 };
 
 const request = async (url, config, lang) => {

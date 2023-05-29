@@ -13,7 +13,12 @@ const useIpify = safe => {
     useEffect(() => {
         function fetching() {
             const timeout = setTimeout(async () => {
-                if (!ipified && !ignore && process.env && safe.ipify.length) {
+                if (
+                    !ipified &&
+                    !ignore &&
+                    process.env &&
+                    safe.ipify.length
+                ) {
                     try {
                         const response = await axios.get(safe.ipify);
                         if (

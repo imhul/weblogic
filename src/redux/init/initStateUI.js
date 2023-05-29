@@ -18,5 +18,20 @@ export const initStateUI = {
     loaded: false,
     initialized: false,
     heroStyle: {},
-    hero: ['T', 'k', 'a', 'c', 'h', 'u', 'k', ' ', 'Z', 'a', 'k', 'h', 'a', 'r']
+    hero: [
+        'T',
+        'k',
+        'a',
+        'c',
+        'h',
+        'u',
+        'k',
+        ' ',
+        'Z',
+        'a',
+        'k',
+        'h',
+        'a',
+        'r'
+    ]
 };

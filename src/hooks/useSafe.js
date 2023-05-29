@@ -39,7 +39,8 @@ const useSafe = () => {
                 getEmail: decode(process.env.REACT_APP_GET_EMAIL),
                 getMongo: process.env.REACT_APP_GET_MONGO,
                 authdb: process.env.MONGO_ATLAS_AUTH_DB,
-                authCollection: process.env.MONGO_ATLAS_AUTH_COLLECTION,
+                authCollection:
+                    process.env.MONGO_ATLAS_AUTH_COLLECTION,
                 tipKey: process.env.REACT_APP_TIP_KEY
             }
         });
@@ -51,7 +52,9 @@ const useSafe = () => {
         // setEnv();
         const checkProcessEnv = async () => {
             while (!process.env.REACT_APP_LINK) {
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve =>
+                    setTimeout(resolve, 100)
+                );
             }
             if (!safe) setEnv();
         };

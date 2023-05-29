@@ -18,7 +18,10 @@ const build = async event => {
 
     const data = JSON.parse(
         decodeURIComponent(
-            event.rawUrl.replace((getEmail || env.getEmail) + '/?=', '')
+            event.rawUrl.replace(
+                (getEmail || env.getEmail) + '/?=',
+                ''
+            )
         )
     );
 

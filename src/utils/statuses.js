@@ -1,7 +1,11 @@
-const env = process.env.NODE_ENV !== 'development' ? 'Netlify' : 'Common';
+const env =
+    process.env.NODE_ENV !== 'development' ? 'Netlify' : 'Common';
 
 export const statuses = {
-    303: '::: ' + env + ' error: Recaptcha server return status 303! :::',
+    303:
+        '::: ' +
+        env +
+        ' error: Recaptcha server return status 303! :::',
     404: '::: ' + env + ' error: Page Not Found! :::',
     405: '::: ' + env + ' error: Method Not Allowed! :::',
     500: '::: ' + env + ' error: Internal Server Error! :::',

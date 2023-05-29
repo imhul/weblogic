@@ -19,12 +19,12 @@ const CopyButton = () => {
     const copySuccess = useCallback(e => {
         if (e.text.length) {
             message.success({
-                content: `${translate(lang, 'message_success_email_copy')}`,
+                content: `${translate('message_success_email_copy')}`,
                 ...messageOptions
             });
         } else {
             message.error({
-                content: `${translate(lang, 'message_error_wrong')}`,
+                content: `${translate('message_error_wrong')}`,
                 ...messageOptions
             });
         }

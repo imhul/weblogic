@@ -13,7 +13,7 @@ import {
 
 const Game = memo(() => {
     const { safe, lang } = useSelector(state => state.ui);
-    const title = translate(lang, 'game_title');
+    const title = translate('game_title');
 
     return (
         <div className="Game">
@@ -27,10 +27,12 @@ const Game = memo(() => {
                     <Col span={24}>
                         <h1 className="center">{title}</h1>
                         <h2 className="center">
-                            {translate(lang, 'game_subtitle')}
+                            {translate('game_subtitle')}
                         </h2>
                         <div className="center">
-                            <span>{translate(lang, 'game_description')}</span>
+                            <span>
+                                {translate('game_description')}
+                            </span>
                         </div>
 
                         <div className="mobile-reverse">
@@ -50,7 +52,7 @@ const Game = memo(() => {
                                         rel="external"
                                     >
                                         <CrownOutlined />{' '}
-                                        {translate(lang, 'game_demo')}
+                                        {translate('game_demo')}
                                     </a>
                                 </Col>
                                 <Col
@@ -65,7 +67,7 @@ const Game = memo(() => {
                                         rel="external"
                                     >
                                         <GithubOutlined />{' '}
-                                        {translate(lang, 'game_git')}
+                                        {translate('game_git')}
                                     </a>
                                 </Col>
                                 <Col
@@ -80,7 +82,7 @@ const Game = memo(() => {
                                         rel="external"
                                     >
                                         <DollarCircleOutlined />{' '}
-                                        {translate(lang, 'game_donate')}
+                                        {translate('game_donate')}
                                     </a>
                                 </Col>
                             </Row>

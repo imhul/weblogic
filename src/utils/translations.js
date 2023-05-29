@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const translations = {
     english: {
@@ -18,6 +19,8 @@ const translations = {
         apr: 'Apr',
 
         // form EN
+        yes: 'Yes',
+        cancel: 'Cancel',
         user_name_title: 'You entered as',
         login_form: 'Login Form',
         reg_form: 'Registration',
@@ -33,6 +36,7 @@ const translations = {
         loading: 'Loading...',
         like_btn: 'Tnx!',
         logout: 'Logout',
+        logout_question: 'Are you sure you want to log out?',
         menu_heading: 'Menu',
         contact_method: 'Contact Method',
         tip_heading: 'ChatGPT Tip of the Day',
@@ -48,7 +52,8 @@ const translations = {
         copy_contacts: 'copy contacts',
         copy_email: 'Copy email to clipboard',
         copy_phone: 'Copy phone to clipboard',
-        cooperation_ready: 'Always ready for mutually beneficial cooperation.',
+        cooperation_ready:
+            'Always ready for mutually beneficial cooperation.',
         submit: 'Submit',
         placeholder: 'Your Message',
         linkedin: 'My personal LinkedIn Page',
@@ -64,15 +69,18 @@ const translations = {
         message_required_name: 'Name is required',
         message_required_subject: 'Subject is required',
         message_success_phone: 'Phone number successfully copied!',
-        message_success_email_copy: 'Email address successfully copied!',
+        message_success_email_copy:
+            'Email address successfully copied!',
         message_success: 'Message sent successfully!',
         message_success_recaptcha:
             'You have successfully passed the verification!',
         message_error: 'Error while sending!',
-        message_error_phone: 'Error while sending: Enter the phone number!',
+        message_error_phone:
+            'Error while sending: Enter the phone number!',
         message_error_wrong: 'Something wrong!',
         message_error_recaptcha: 'Recaptca server is not response!',
-        message_retry_recaptcha: 'Recaptcha needs to be checked again...',
+        message_retry_recaptcha:
+            'Recaptcha needs to be checked again...',
 
         // Intro EN
         believe: 'I believe that design makes the world better',
@@ -80,11 +88,12 @@ const translations = {
         front_dev: 'front-end developer',
         tagline: (
             <span>
-                Using new technologies, such as <mark> React </mark> or{' '}
-                <mark> Svelte </mark> always gives inspiration. I prefer
-                non-standard <mark>UI</mark> and <mark>UX</mark> solutions,
-                taking as a basis the concept of <mark>Material Design</mark>{' '}
-                and <mark>Neumorphism</mark>
+                Using new technologies, such as <mark> React </mark>{' '}
+                or <mark> Svelte </mark> always gives inspiration. I
+                prefer non-standard <mark>UI</mark> and{' '}
+                <mark>UX</mark> solutions, taking as a basis the
+                concept of <mark>Material Design</mark> and{' '}
+                <mark>Neumorphism</mark>
             </span>
         ),
         what_i_do: 'What I do?',
@@ -119,8 +128,8 @@ const translations = {
                 >
                     Svelte
                 </a>{' '}
-                and it's great. After an in-depth study, I can say with
-                confidence that this is a top!
+                and it's great. After an in-depth study, I can say
+                with confidence that this is a top!
             </>
         ),
 
@@ -133,9 +142,10 @@ const translations = {
         work_6: 'e-commerce project, React + Redux + masonry + design',
         work_7: (
             <span>
-                The iSoftBet European online casino game, which was released in
-                2017. Then an article on the www.softgamings.com was written
-                about her. Animation on Pixi.js + TypeScript
+                The iSoftBet European online casino game, which was
+                released in 2017. Then an article on the
+                www.softgamings.com was written about her. Animation
+                on Pixi.js + TypeScript
             </span>
         ),
         work_8: 'Analytical resource, JavaScript + jQuery + Materialize + design',
@@ -174,6 +184,8 @@ const translations = {
         apr: 'Квітень',
 
         // form UA
+        yes: 'Так',
+        cancel: 'Скасувати',
         user_name_title: 'Ви війшли як',
         login_form: 'Вхід',
         reg_form: 'Реєстрація',
@@ -189,6 +201,7 @@ const translations = {
         loading: "Йде з'єднання...",
         like_btn: 'Дякую!',
         logout: 'Вихід',
+        logout_question: 'Ви впевнені, що бажаєте вийти?',
         menu_heading: 'Меню',
         contact_method: 'Спосіб зв`язку',
         tip_heading: 'Порада дня від ChatGPT',
@@ -204,7 +217,8 @@ const translations = {
         copy_contacts: 'скопіюйте контакти',
         copy_email: 'Скопіювати email',
         copy_phone: 'Скопіювати телефон',
-        cooperation_ready: 'Завжди готовий до взаємовигідного співробітництва.',
+        cooperation_ready:
+            'Завжди готовий до взаємовигідного співробітництва.',
         submit: 'Відправити',
         placeholder: 'Ваше повідомлення',
         linkedin: 'Моя сторінка на LinkedIn',
@@ -224,10 +238,12 @@ const translations = {
         message_success: 'Повідомлення успішно скопійовано!',
         message_success_recaptcha: 'Вы успішно пройшли перевірку!',
         message_error: 'Помилка при відправці!',
-        message_error_phone: 'Помилка при відправці: введіть номер телефону!',
+        message_error_phone:
+            'Помилка при відправці: введіть номер телефону!',
         message_error_wrong: 'Щось пішло не так!',
         message_error_recaptcha: 'Сервер Recaptca не відповідає!',
-        message_retry_recaptcha: 'Потрібно повторити перевірку Recaptca...',
+        message_retry_recaptcha:
+            'Потрібно повторити перевірку Recaptca...',
 
         // Intro UA
         believe: 'Вірю, що дизайн робить світ кращим',
@@ -235,10 +251,11 @@ const translations = {
         front_dev: 'фронтенд разробник',
         tagline: (
             <span>
-                Використання новых технологій, таких як <mark>React</mark> або{' '}
-                <mark>Svelte</mark> завжди надихає. Я надаю перевагу
-                нестандартним <mark>UI</mark> та <mark>UX</mark> рішенням,
-                беручи за основу концепції{' '}
+                Використання новых технологій, таких як{' '}
+                <mark>React</mark> або <mark>Svelte</mark> завжди
+                надихає. Я надаю перевагу нестандартним{' '}
+                <mark>UI</mark> та <mark>UX</mark> рішенням, беручи за
+                основу концепції{' '}
                 <mark>неоморфізму та Material Design</mark>
             </span>
         ),
@@ -275,8 +292,8 @@ const translations = {
                 >
                     Svelte
                 </a>{' '}
-                і це прекрасно. Після поглибленого вивчення можу сказати
-                впевнено, що це топ!
+                і це прекрасно. Після поглибленого вивчення можу
+                сказати впевнено, що це топ!
             </>
         ),
 
@@ -289,9 +306,10 @@ const translations = {
         work_6: 'Інтернет-магазин, React + Redux + masonry + дизайн',
         work_7: (
             <span>
-                Гра для європейского онлайн-казино iSoftBet, котра вийшла в
-                реліз у 2017 році. Тоді ж про неї була опублікована стаття на
-                сайті www.softgamings.com. Анімація на Pixi.js + TypeScript
+                Гра для європейского онлайн-казино iSoftBet, котра
+                вийшла в реліз у 2017 році. Тоді ж про неї була
+                опублікована стаття на сайті www.softgamings.com.
+                Анімація на Pixi.js + TypeScript
             </span>
         ),
         work_8: 'Аналітичний ресурс, JavaScript + jQuery + Materialize + дизайн',
@@ -314,6 +332,9 @@ const translations = {
     }
 };
 
-const translate = (lang, text) => translations[lang][text];
+const translate = text => {
+    const lang = useSelector(state => state.ui.lang);
+    return translations[lang][text];
+};
 
 export default translate;

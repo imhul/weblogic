@@ -62,7 +62,9 @@
 
                         &:hover {
                             * {
-                                color: var(--color-secondary) !important;
+                                color: var(
+                                    --color-secondary
+                                ) !important;
                             }
                         }
 

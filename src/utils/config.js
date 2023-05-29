@@ -45,3 +45,33 @@ export const MONGO_ACTIONS = {
     DELETE_MANY: '/action/deleteMany',
     RUN: '/action/aggregate'
 };
+
+export const forms = {
+    login: {
+        title: 'Login',
+        id: 'login'
+    },
+    reg: {
+        title: 'Registration',
+        id: 'reg'
+    },
+    forgot: {
+        title: 'Forgot password?',
+        id: 'forgot'
+    },
+    reset: {
+        title: 'Change password',
+        id: 'change_pass'
+    }
+};
+
+export const contactMethodOptions = [
+    { label: 'Telegram', value: 'Telegram', disabled: false },
+    { label: 'Email', value: 'Email', disabled: false },
+    { label: 'SMS', value: 'SMS', disabled: true }
+];
+
+export const langOptions = [
+    { label: 'English', value: 'english', disabled: false },
+    { label: 'Ukrainian', value: 'ukrainian', disabled: false }
+];

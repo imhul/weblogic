@@ -6,7 +6,11 @@ import '../../utils/bg';
 import JsonLd from '../../utils/microdata';
 import menu from '../../utils/menu';
 // components
-import { ContextMenu, MenuItem, ContextMenuTrigger } from 'react-contextmenu';
+import {
+    ContextMenu,
+    MenuItem,
+    ContextMenuTrigger
+} from 'react-contextmenu';
 import { Layout } from 'antd/lib';
 import Portal from '../Portal';
 import Toolbar from '../Toolbar';

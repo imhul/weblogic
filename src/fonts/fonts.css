@@ -2,8 +2,10 @@
     font-family: 'lamp';
     src: url('lamp.eot');
     src: url('lamp.eot?#iefix') format('embedded-opentype'),
-        url('lamp.woff2') format('woff2'), url('lamp.woff') format('woff'),
-        url('lamp.ttf') format('truetype'), url('lamp.svg#lamp') format('svg');
+        url('lamp.woff2') format('woff2'),
+        url('lamp.woff') format('woff'),
+        url('lamp.ttf') format('truetype'),
+        url('lamp.svg#lamp') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -11,8 +13,10 @@
 @font-face {
     font-family: 'anticon';
     src: url('iconfont.eot?t=1494480257283'); /* IE9*/
-    src: url('iconfont.eot?t=1494480257283#iefix') format('embedded-opentype'),
-        /* IE6-IE8 */ url('iconfont.woff?t=1494480257283') format('woff'),
+    src: url('iconfont.eot?t=1494480257283#iefix')
+            format('embedded-opentype'),
+        /* IE6-IE8 */ url('iconfont.woff?t=1494480257283')
+            format('woff'),
         /* chrome, firefox */ url('iconfont.ttf?t=1494480257283')
             format('truetype'),
         /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/

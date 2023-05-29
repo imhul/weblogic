@@ -7,7 +7,10 @@ const build = async event => {
     const { atlasConnect, atlasName, atlasPass, getMongo } = env;
     const data = JSON.parse(
         decodeURIComponent(
-            event.rawUrl.replace((getMongo || env.getMongo) + '/?=', '')
+            event.rawUrl.replace(
+                (getMongo || env.getMongo) + '/?=',
+                ''
+            )
         )
     );
 

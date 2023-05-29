@@ -7,7 +7,10 @@ const FPS = () => {
             if (currentTime > state.prevTime + 1000) {
                 const nextFPS = [
                     ...new Array(
-                        Math.floor((currentTime - state.prevTime - 1000) / 1000)
+                        Math.floor(
+                            (currentTime - state.prevTime - 1000) /
+                                1000
+                        )
                     ).fill(0),
                     Math.max(
                         1,

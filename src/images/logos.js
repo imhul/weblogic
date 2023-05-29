@@ -473,7 +473,13 @@ const BootstrapLogo = () => (
         role="img"
     >
         <defs>
-            <linearGradient id="c" x1="50%" x2="50%" y1="0%" y2="100%">
+            <linearGradient
+                id="c"
+                x1="50%"
+                x2="50%"
+                y1="0%"
+                y2="100%"
+            >
                 <stop offset="0%" stopColor="#5C24AE"></stop>
                 <stop offset="100%" stopColor="#30135A"></stop>
             </linearGradient>
@@ -504,7 +510,13 @@ const BootstrapLogo = () => (
                     values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
                 ></feColorMatrix>
             </filter>
-            <linearGradient id="f" x1="50%" x2="50%" y1="-17.303%" y2="100%">
+            <linearGradient
+                id="f"
+                x1="50%"
+                x2="50%"
+                y1="-17.303%"
+                y2="100%"
+            >
                 <stop offset="0%" stopColor="#7331D4"></stop>
                 <stop offset="100%" stopColor="#461B84"></stop>
             </linearGradient>
@@ -535,7 +547,13 @@ const BootstrapLogo = () => (
                     values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
                 ></feColorMatrix>
             </filter>
-            <linearGradient id="i" x1="50%" x2="50%" y1="0%" y2="100%">
+            <linearGradient
+                id="i"
+                x1="50%"
+                x2="50%"
+                y1="0%"
+                y2="100%"
+            >
                 <stop offset="0%" stopColor="#905BDD"></stop>
                 <stop offset="100%" stopColor="#5521A0"></stop>
             </linearGradient>
@@ -569,15 +587,27 @@ const BootstrapLogo = () => (
         </defs>
         <g fill="none">
             <g transform="translate(75 23)">
-                <use fill="#000" filter="url(#a)" xlinkHref="#b"></use>
+                <use
+                    fill="#000"
+                    filter="url(#a)"
+                    xlinkHref="#b"
+                ></use>
                 <use fill="url(#c)" xlinkHref="#b"></use>
             </g>
             <g transform="translate(75 23)">
-                <use fill="#000" filter="url(#d)" xlinkHref="#e"></use>
+                <use
+                    fill="#000"
+                    filter="url(#d)"
+                    xlinkHref="#e"
+                ></use>
                 <use fill="url(#f)" xlinkHref="#e"></use>
             </g>
             <g transform="translate(75 23)">
-                <use fill="#000" filter="url(#g)" xlinkHref="#h"></use>
+                <use
+                    fill="#000"
+                    filter="url(#g)"
+                    xlinkHref="#h"
+                ></use>
                 <use fill="url(#i)" xlinkHref="#h"></use>
             </g>
             <path

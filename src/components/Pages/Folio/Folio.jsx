@@ -44,7 +44,7 @@ const Folio = memo(() => {
             header={
                 <div className="bg">
                     <div>
-                        {translate(lang, load.key)}
+                        {translate(load.key)}
                         {load.icon}
                     </div>
                 </div>
