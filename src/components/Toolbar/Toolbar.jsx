@@ -154,11 +154,11 @@ const Toolbar = memo(() => {
             case 'login':
                 return <Login onSubmit={submit} />;
             case 'reg':
-                return Registration();
+                return <Registration onSubmit={submit} />;
             case 'forgot':
-                return Forgot();
+                return <Forgot onSubmit={submit} />;
             case 'change_pass':
-                return ChangePass();
+                return <ChangePass onSubmit={submit} />;
             default:
                 return null;
         }

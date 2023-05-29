@@ -76,9 +76,11 @@ const Login = ({ onSubmit }) => {
                     </Checkbox>
                 </FormItem>
             </Col>
-
             <Col span={8} className="right">
-                <Button htmlType="submit" onClick={onSubmit}>
+                <Button
+                    htmlType="submit"
+                    onClick={() => onSubmit('login')}
+                >
                     {translate('login_submit')}
                 </Button>
             </Col>

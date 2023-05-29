@@ -2,7 +2,11 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Checkbox, Button, Col, Form, Input, Row } from 'antd/lib';
-import { MailOutlined, LockOutlined } from '@ant-design/icons';
+import {
+    MailOutlined,
+    LockOutlined,
+    UserOutlined
+} from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
 
@@ -97,7 +101,10 @@ const Registration = ({ onSubmit }) => {
             </Col>
 
             <Col span={12} className="right">
-                <Button htmlType="submit" onClick={onSubmit}>
+                <Button
+                    htmlType="submit"
+                    onClick={() => onSubmit('reg')}
+                >
                     {translate('reg_submit')}
                 </Button>
             </Col>

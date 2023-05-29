@@ -43,6 +43,42 @@ export default function (state = initState, action) {
                 }
             };
 
+        case type.USER_NAME_AUTO_UPDATE:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    name: action.payload
+                }
+            };
+
+        case type.USER_SUBJECT_AUTO_UPDATE:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    subject: action.payload
+                }
+            };
+
+        case type.USER_MAIL_MESSAGE_AUTO_UPDATE:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    message: action.payload
+                }
+            };
+
+        case type.USER_TG_MESSAGE_AUTO_UPDATE:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    tgMessage: action.payload
+                }
+            };
+
         case type.USER_LOGIN:
             return {
                 ...state,

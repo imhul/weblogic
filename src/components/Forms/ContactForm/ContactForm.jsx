@@ -94,7 +94,13 @@ const ContactForm = memo(() => {
                         });
                     }
                 })
-                .finally(() => setSubmitting(false));
+                .finally(() => {
+                    setSubmitting(false);
+                    dispatch({
+                        type: 'USER_TG_MESSAGE_AUTO_UPDATE',
+                        payload: tgMessage
+                    });
+                });
         }
 
         async function getEmailAPI() {
@@ -111,16 +117,36 @@ const ContactForm = memo(() => {
                     }
                 });
 
+                if (values.email) {
+                    dispatch({
+                        type: 'USER_EMAIL_AUTO_UPDATE',
+                        payload: values.email
+                    });
+                }
+
+                if (values.name) {
+                    dispatch({
+                        type: 'USER_NAME_AUTO_UPDATE',
+                        payload: values.name
+                    });
+                }
+
+                if (values.subject) {
+                    dispatch({
+                        type: 'USER_SUBJECT_AUTO_UPDATE',
+                        payload: values.subject
+                    });
+                }
+
+                if (values.message) {
+                    dispatch({
+                        type: 'USER_MAIL_MESSAGE_AUTO_UPDATE',
+                        payload: values.message
+                    });
+                }
+
                 form.resetFields();
             } else return;
-
-            if (values.email) {
-                console.info('values.email: ', values.email);
-                dispatch({
-                    type: 'USER_EMAIL_AUTO_UPDATE',
-                    payload: values.email
-                });
-            }
 
             setSubmitting(true);
             const emailURL =
@@ -152,13 +178,13 @@ const ContactForm = memo(() => {
         }
 
         switch (contactMethod) {
-            case 'tg':
+            case 'Telegram':
                 getTelegramAPI();
                 break;
-            case 'email':
+            case 'Email':
                 getEmailAPI();
                 break;
-            case 'sms':
+            case 'SMS':
                 getSmsAPI();
                 break;
         }
@@ -174,7 +200,6 @@ const ContactForm = memo(() => {
         <Button
             block
             size="large"
-            type="primary"
             htmlType="submit"
             key="SubmitButton"
             disabled={submitting}
@@ -290,7 +315,6 @@ const ContactForm = memo(() => {
                         menuItemSelectedIcon={<CheckOutlined />}
                         dropdownStyle={{
                             backgroundColor: '#bcc8ce'
-                            // color: '#bcc8ce'
                         }}
                     >
                         {renderOptions}
