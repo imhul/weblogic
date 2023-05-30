@@ -1,13 +1,10 @@
 // core
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import '../../utils/bg';
-import parseResponseBody from '../../utils/parseBody';
 import JsonLd from '../../utils/microdata';
 import menu from '../../utils/menu';
-import { getMongoDB } from '../../utils/api';
-import { MONGO_ACTIONS } from '../../utils/config';
 // components
 import {
     ContextMenu,
@@ -26,6 +23,8 @@ import Game from '../Pages/Game';
 import useInitialization from '../../hooks/useInitialization';
 import useSafe from '../../hooks/useSafe';
 import useIpify from '../../hooks/useIpify';
+import useLang from '../../hooks/useLang';
+import useAllUsers from '../../hooks/useAllUsers';
 import useTip from '../../hooks/useTip';
 
 const { Content } = Layout;
@@ -46,58 +45,12 @@ const Page = ({ location }) => {
 const Output = () => {
     useInitialization();
     useSafe();
-    const { safe, lang, location, isUserLangSelected } = useSelector(
-        state => state.ui
-    );
-
-    const dispatch = useDispatch();
-    const { currentUser } = useSelector(state => state.auth);
-
+    const { safe, location } = useSelector(s => s.ui);
     useIpify(safe);
-
-    useEffect(() => {
-        if (
-            !isUserLangSelected &&
-            currentUser &&
-            currentUser.lang.length &&
-            currentUser.lang !== lang
-        ) {
-            dispatch({
-                type: 'CHANGE_LANG',
-                payload: currentUser.lang
-            });
-        }
-    }, [currentUser, lang, isUserLangSelected]);
-
+    useLang();
     // useTip();
-
-    useEffect(() => {
-        if (safe && lang && currentUser && currentUser.ip) {
-            mongoCheck();
-        } else return;
-
-        async function mongoCheck() {
-            const connected = await getMongoDB(
-                `${safe.getMongo}/?=${encodeURIComponent(
-                    JSON.stringify({
-                        action: MONGO_ACTIONS.FIND,
-                        db: safe.authdb,
-                        collection: safe.authCollection,
-                        query: {}
-                    })
-                )}`,
-                lang
-            );
-            console.info('::: connected: ', connected);
-            if (!connected.ok) {
-                console.warn('::: NOT connected!');
-                return;
-            }
-            const result = await parseResponseBody(connected);
-
-            console.info('::: result: ', result);
-        }
-    }, [safe, lang, currentUser]);
+    useAllUsers();
+    const dispatch = useDispatch();
 
     const navigate = key => {
         dispatch({
