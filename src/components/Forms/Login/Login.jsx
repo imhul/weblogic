@@ -28,11 +28,15 @@ const Login = () => {
         if (submitting && !safe) return;
         setSubmitting(true);
         const values = form.getFieldsValue();
+        console.info('values: ', values);
         const beingCheckedUser = users.find(
             user => user.email === values.login
         );
 
+        console.info('beingCheckedUser: ', beingCheckedUser);
+
         if (!beingCheckedUser) {
+            
             message.error({
                 content: translate(
                     lang,
