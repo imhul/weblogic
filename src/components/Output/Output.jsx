@@ -53,26 +53,26 @@ const Output = () => {
     const dispatch = useDispatch();
     const { currentUser } = useSelector(state => state.auth);
 
-    useIpify(safe);
+    // useIpify(safe);
+
+    // useEffect(() => {
+    //     if (
+    //         !isUserLangSelected &&
+    //         currentUser &&
+    //         currentUser.lang.length &&
+    //         currentUser.lang !== lang
+    //     ) {
+    //         dispatch({
+    //             type: 'CHANGE_LANG',
+    //             payload: currentUser.lang
+    //         });
+    //     }
+    // }, [currentUser, lang, isUserLangSelected]);
+
+    // useTip();
 
     useEffect(() => {
-        if (
-            !isUserLangSelected &&
-            currentUser &&
-            currentUser.lang.length &&
-            currentUser.lang !== lang
-        ) {
-            dispatch({
-                type: 'CHANGE_LANG',
-                payload: currentUser.lang
-            });
-        }
-    }, [currentUser, lang, isUserLangSelected]);
-
-    useTip();
-
-    useEffect(() => {
-        if (safe) {
+        if (safe && lang) {
             mongoCheck();
         } else return;
 
