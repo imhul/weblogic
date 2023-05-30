@@ -6,13 +6,13 @@ import { getMongoDB } from '../utils/api';
 import { MONGO_ACTIONS } from '../utils/config';
 import parseResponseBody from '../utils/parseBody';
 
-const useAllUsers = mthod => {
+const useAllUsers = () => {
     const { safe, lang } = useSelector(state => state.ui);
     const { currentUser } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (safe && lang && currentUser && currentUser.ip) {
+        if (safe && lang && currentUser?.ip) {
             getAllUsers();
         } else return;
 

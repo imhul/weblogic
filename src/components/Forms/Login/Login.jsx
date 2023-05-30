@@ -29,7 +29,7 @@ const Login = () => {
         setSubmitting(true);
         const values = form.getFieldsValue();
         console.info('values: ', values);
-        console.info('users: ', users);
+        console.info('users: ', users); // TODO: why users is empty? users = []
         const beingCheckedUser = users.find(
             user => user.email === values.login
         );
@@ -37,7 +37,6 @@ const Login = () => {
         console.info('beingCheckedUser: ', beingCheckedUser);
 
         if (!beingCheckedUser) {
-
             message.error({
                 content: translate(
                     lang,
@@ -54,13 +53,13 @@ const Login = () => {
                         currentUser.ip === beingCheckedUser.ip
                             ? beingCheckedUser
                             : {
-                                ...beingCheckedUser,
-                                ip: currentUser.ip,
-                                ips: [
-                                    beingCheckedUser.ip,
-                                    currentUser.ip
-                                ]
-                            }
+                                  ...beingCheckedUser,
+                                  ip: currentUser.ip,
+                                  ips: [
+                                      beingCheckedUser.ip,
+                                      currentUser.ip
+                                  ]
+                              }
                 });
             } else {
                 message.error({
