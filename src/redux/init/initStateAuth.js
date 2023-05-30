@@ -4,7 +4,7 @@ export const initStateAuth = {
         userId: '',
         ip: '',
         isAuth: false,
-        isRobot: true,
+        isRobot: false, // TODO: true for production!
         lastRobotCheck: '',
         lastSignInTime: '',
         lastSignOutTime: '',
@@ -16,7 +16,6 @@ export const initStateAuth = {
         message: '',
         tgMessage: '',
         pass: '',
-        login: '',
         avatar: '',
         system: {},
         lang: 'english',

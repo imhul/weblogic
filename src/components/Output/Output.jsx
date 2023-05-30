@@ -3,9 +3,11 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import '../../utils/bg';
+import parseResponseBody from '../../utils/parseBody';
 import JsonLd from '../../utils/microdata';
 import menu from '../../utils/menu';
-import { saveToLocalStorage } from '../../utils/local';
+import { getMongoDB } from '../../utils/api';
+import { MONGO_ACTIONS } from '../../utils/config';
 // components
 import {
     ContextMenu,
@@ -44,11 +46,13 @@ const Page = ({ location }) => {
 const Output = () => {
     useInitialization();
     useSafe();
-    const { safe, location, lang, isUserLangSelected } = useSelector(
+    const { safe, lang, location, isUserLangSelected } = useSelector(
         state => state.ui
     );
-    const { currentUser } = useSelector(state => state.auth);
+
     const dispatch = useDispatch();
+    const { currentUser } = useSelector(state => state.auth);
+
     useIpify(safe);
 
     useEffect(() => {
@@ -65,9 +69,35 @@ const Output = () => {
         }
     }, [currentUser, lang, isUserLangSelected]);
 
-    useEffect(() => saveToLocalStorage('lang', lang), [lang]);
+    useTip();
 
-    // useTip();
+    useEffect(() => {
+        if (safe) {
+            mongoCheck();
+        } else return;
+
+        async function mongoCheck() {
+            const connected = await getMongoDB(
+                `${safe.getMongo}/?=${encodeURIComponent(
+                    JSON.stringify({
+                        action: MONGO_ACTIONS.FIND,
+                        db: safe.authdb,
+                        collection: safe.authCollection,
+                        query: {}
+                    })
+                )}`,
+                lang
+            );
+            console.info('::: connected: ', connected);
+            if (!connected.ok) {
+                console.warn('::: NOT connected!');
+                return;
+            }
+            const result = await parseResponseBody(connected);
+
+            console.info('::: result: ', result);
+        }
+    }, [safe, lang]);
 
     const navigate = key => {
         dispatch({

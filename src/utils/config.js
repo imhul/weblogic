@@ -75,3 +75,9 @@ export const langOptions = [
     { label: 'English', value: 'english', disabled: false },
     { label: 'Ukrainian', value: 'ukrainian', disabled: false }
 ];
+
+export const SYSTEM_LANG =
+    navigator.language ||
+    navigator.userLanguage ||
+    window.navigator.userLanguage ||
+    window.navigator.language;

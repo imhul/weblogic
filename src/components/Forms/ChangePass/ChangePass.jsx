@@ -16,6 +16,7 @@ const ChangePass = () => {
                     rules={[
                         {
                             required: true,
+                            whitespace: true,
                             message: 'Please enter user name'
                         }
                     ]}
@@ -30,6 +31,7 @@ const ChangePass = () => {
                     rules={[
                         {
                             required: true,
+                            whitespace: true,
                             message: 'Please enter url'
                         }
                     ]}

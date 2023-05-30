@@ -12,6 +12,7 @@ const getContent = (response, lang) => {
     const status =
         response.status ?? response.code ?? '::: no status :::';
     return `${translate(
+        lang,
         'message_error'
     )} \nStatus: ${status} \nError: ${
         response.statusText ??

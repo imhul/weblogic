@@ -16,7 +16,7 @@ const Contact = memo(() => {
 
     return (
         <div className="Contact content">
-            {!currentUser.isRobot ? (
+            {currentUser.isRobot ? (
                 <Captcha />
             ) : (
                 <Row
@@ -34,7 +34,7 @@ const Contact = memo(() => {
                         <a
                             className="link"
                             href="https://www.codecademy.com/profiles/weblogicfront"
-                            title={`${translate('codecademy')}`}
+                            title={`${translate(lang, 'codecademy')}`}
                             target="_blank"
                         >
                             <BarChartOutlined /> codecedemy
@@ -49,7 +49,7 @@ const Contact = memo(() => {
                         <a
                             href="https://github.com/imhul"
                             className="link"
-                            title={`${translate('github')}`}
+                            title={`${translate(lang, 'github')}`}
                             target="_blank"
                         >
                             <GithubOutlined /> github
@@ -59,23 +59,25 @@ const Contact = memo(() => {
                     <ContactForm />
 
                     <Col span={24} className="mt-20 center">
-                        {translate('or')}
+                        {translate(lang, 'or')}
                     </Col>
 
                     <Col span={24} className="mb-20 center">
-                        <h2>{translate('copy_contacts')}</h2>
+                        <h2>{translate(lang, 'copy_contacts')}</h2>
                     </Col>
 
                     <Col
                         span={24}
                         className="mb-20 center"
-                        title={translate('copy_email')}
+                        title={translate(lang, 'copy_email')}
                     >
                         <CopyButton />
                     </Col>
 
                     <Col span={24} className="center mb-20">
-                        <h2>{translate('cooperation_ready')}</h2>
+                        <h2>
+                            {translate(lang, 'cooperation_ready')}
+                        </h2>
                     </Col>
                 </Row>
             )}

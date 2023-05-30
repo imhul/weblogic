@@ -28,7 +28,7 @@ class Intro extends Component {
             <div className="Intro content">
                 <Row gutter={24}>
                     <Col span={24}>
-                        <h2>{translate('believe')} ;)</h2>
+                        <h2>{translate(lang, 'believe')} ;)</h2>
                     </Col>
 
                     <Col
@@ -47,25 +47,27 @@ class Intro extends Component {
                         style={{ marginTop: 0 }}
                         className="center"
                     >
-                        <p className="name">{translate('my_name')}</p>
+                        <p className="name">
+                            {translate(lang, 'my_name')}
+                        </p>
                         <p className="italic">
-                            {translate('front_dev')}
+                            {translate(lang, 'front_dev')}
                         </p>
                     </Col>
 
                     <Col span={24}>
-                        <p>{translate('tagline')}</p>
+                        <p>{translate(lang, 'tagline')}</p>
                     </Col>
 
                     <Col span={24}>
                         <h2 className="margin">
-                            {translate('what_i_do')}
+                            {translate(lang, 'what_i_do')}
                         </h2>
 
-                        <p>{translate('my_offer')}</p>
+                        <p>{translate(lang, 'my_offer')}</p>
 
                         <h2 className="margin">
-                            {translate('fav_tech')}
+                            {translate(lang, 'fav_tech')}
                         </h2>
 
                         {/* LOGOS */}

@@ -38,6 +38,7 @@ const Captcha = memo(() => {
                 });
                 message.success({
                     content: `${translate(
+                        lang,
                         'message_success_recaptcha'
                     )}`,
                     ...messageOptions
@@ -45,6 +46,7 @@ const Captcha = memo(() => {
             } else {
                 message.error({
                     content: `${translate(
+                        lang,
                         'message_error_recaptcha'
                     )}`,
                     ...messageOptions

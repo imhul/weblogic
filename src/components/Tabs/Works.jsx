@@ -29,64 +29,64 @@ const Works = memo(() => {
     const { lang } = useSelector(state => state.ui);
     const links = [
         {
-            name: translate('work_1'),
-            type: translate('demo'),
+            name: translate(lang, 'work_1'),
+            type: translate(lang, 'demo'),
             icon: <ExperimentOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://puzzle-demo-game.netlify.app/',
             back: `${puzzleImg}`,
             demo: true
         },
         {
-            name: translate('work_2'),
-            type: translate('released'),
+            name: translate(lang, 'work_2'),
+            type: translate(lang, 'released'),
             icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'http://ekta.ua/',
             back: `${ektaImg}`,
             demo: false
         },
         {
-            name: translate('work_3'),
-            type: translate('released'),
+            name: translate(lang, 'work_3'),
+            type: translate(lang, 'released'),
             icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'http://ekta.ua/projects/calc',
             back: `${calcImg}`,
             demo: false
         },
         {
-            name: translate('work_4'),
-            type: translate('released'),
+            name: translate(lang, 'work_4'),
+            type: translate(lang, 'released'),
             icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://marketplace.atlassian.com/apps/1224120/testomatio',
             back: `${testomatioImg}`,
             demo: false
         },
         {
-            name: translate('work_5'),
-            type: translate('released'),
+            name: translate(lang, 'work_5'),
+            type: translate(lang, 'released'),
             icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://uapay.ua/',
             back: `${uapayImg}`,
             demo: false
         },
         {
-            name: translate('work_6'),
-            type: translate('released'),
+            name: translate(lang, 'work_6'),
+            type: translate(lang, 'released'),
             icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://silverstemcannabis.com/',
             back: `${silverImg}`,
             demo: false
         },
         {
-            name: translate('work_7'),
-            type: translate('released'),
+            name: translate(lang, 'work_7'),
+            type: translate(lang, 'released'),
             icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://www.youtube.com/watch?v=BVdyHZSsD3Y',
             back: `${aliceImg}`,
             demo: false
         },
         {
-            name: translate('work_9'),
-            type: translate('released'),
+            name: translate(lang, 'work_9'),
+            type: translate(lang, 'released'),
             icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://mailcheck.co/',
             back: `${mailcheckImg}`,
@@ -97,18 +97,18 @@ const Works = memo(() => {
     const Header = () => (
         <Row gutter={24}>
             <Col span={12} style={{ textAlign: 'left' }}>
-                {translate('project_desc')}
+                {translate(lang, 'project_desc')}
             </Col>
             <Col span={12} style={{ textAlign: 'right' }}>
-                {translate('status')}
+                {translate(lang, 'status')}
             </Col>
         </Row>
     );
 
     const Footer = () => (
         <div>
-            <div>{translate('demo_status_desc')}</div>
-            <div>{translate('released_status_desc')}</div>
+            <div>{translate(lang, 'demo_status_desc')}</div>
+            <div>{translate(lang, 'released_status_desc')}</div>
         </div>
     );
 

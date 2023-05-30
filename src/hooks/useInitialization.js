@@ -16,10 +16,14 @@ const useInitialization = () => {
             dispatch({ type: 'INITIALIZE' });
             message.info({
                 content: 'Keep clicking anywhere!',
-                ...messageOptions
+                ...messageOptions,
+                style: {
+                    marginTop: '5rem'
+                }
             });
             const timeout = setTimeout(() => {
                 dispatch({ type: 'HERO_ANIMATE' });
+                dispatch({ type: 'GUEST_INIT' });
                 clearTimeout(timeout);
             }, 500);
         }

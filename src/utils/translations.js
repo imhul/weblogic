@@ -17,6 +17,8 @@ const translations = {
         dec: 'Dec',
         aug: 'Aug',
         apr: 'Apr',
+        parts: 'parts',
+        fps: 'fps',
 
         // form EN
         yes: 'Yes',
@@ -29,6 +31,15 @@ const translations = {
         email_required_message: 'Please enter email!',
         name_required_message: 'Please enter name!',
         pass: 'Password',
+        new_pass: 'New Password',
+        old_pass: 'Old Password',
+        repeat_pass: 'Repeat Password',
+        repeat_new_pass: 'Repeat New Password',
+        new_pass_required_message: 'Please enter new password!',
+        old_pass_required_message: 'Please enter old password!',
+        confirm_pass_required_message: 'Please confirm password!',
+        confirm_new_pass_required_message:
+            'Please confirm new password!',
         lang_title: 'Language selection',
         toolbar_heading: 'Profile',
         loading: 'Loading...',
@@ -184,6 +195,8 @@ const translations = {
         dec: 'Грудень',
         aug: 'Серпень',
         apr: 'Квітень',
+        parts: 'частин',
+        fps: 'кадрів/с',
 
         // form UA
         yes: 'Так',
@@ -196,6 +209,18 @@ const translations = {
         email_required_message: 'Будь ласка, введіть email!',
         name_required_message: 'Будь ласка, введіть ім`я!',
         pass: 'Пароль',
+        new_pass: 'Новий ароль',
+        repeat_pass: 'Повторіть пароль',
+        old_pass: 'Старий пароль',
+        repeat_new_pass: 'Повторіть новий пароль',
+        old_pass_required_message:
+            'Будь ласка, введіть старий пароль!',
+        new_pass_required_message:
+            'Будь ласка, введіть новий пароль!',
+        confirm_pass_required_message:
+            'Будь ласка, підтвердіть пароль!',
+        confirm_new_pass_required_message:
+            'Будь ласка, підтвердіть новий пароль!',
         lang_title: 'Вибір мови',
         toolbar_heading: 'Профіль',
         loading: "Йде з'єднання...",
@@ -336,9 +361,6 @@ const translations = {
     }
 };
 
-const translate = text => {
-    const lang = getFromLocalStorage('lang', 'english');
-    return translations[lang][text];
-};
+const translate = (lang, text) => translations[lang][text];
 
 export default translate;

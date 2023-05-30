@@ -86,7 +86,10 @@ const ContactForm = memo(() => {
                         // TODO: response.ok !== undefined. Must be response.ok
                         message.success({
                             ...messageOptions,
-                            content: `${translate('message_success')}`
+                            content: `${translate(
+                                lang,
+                                'message_success'
+                            )}`
                         });
                         dispatch({
                             type: 'TEXTAREA_UPDATE',
@@ -165,7 +168,10 @@ const ContactForm = memo(() => {
                         // temporary solution is: res.status === 0
                         message.success({
                             ...messageOptions,
-                            content: `${translate('message_success')}`
+                            content: `${translate(
+                                lang,
+                                'message_success'
+                            )}`
                         });
                     }
                     return res;
@@ -208,7 +214,7 @@ const ContactForm = memo(() => {
             {submitting && !safe ? (
                 <LoadingOutlined style={{ color: '#bcc8ce' }} />
             ) : (
-                translate('submit')
+                translate(lang, 'submit')
             )}
         </Button>
     );
@@ -223,7 +229,7 @@ const ContactForm = memo(() => {
                     cols={30}
                     tabIndex="1"
                     key="TextInput"
-                    placeholder={`${translate('placeholder')}`}
+                    placeholder={`${translate(lang, 'placeholder')}`}
                     onChange={event =>
                         dispatch({
                             type: 'TEXTAREA_UPDATE',
@@ -250,14 +256,19 @@ const ContactForm = memo(() => {
                     rules={[
                         {
                             required: true,
+                            whitespace: true,
                             message: translate(
+                                lang,
                                 'name_required_message'
                             )
                         }
                     ]}
                 >
                     <Input
-                        placeholder={translate('name_placeholder')}
+                        placeholder={translate(
+                            lang,
+                            'name_placeholder'
+                        )}
                         prefix={<UserOutlined className="white" />}
                     />
                 </Item>
@@ -273,19 +284,25 @@ const ContactForm = memo(() => {
                         {
                             type: 'email',
                             message: translate(
+                                lang,
                                 'message_invalid_email'
                             )
                         },
                         {
                             required: true,
+                            whitespace: true,
                             message: translate(
+                                lang,
                                 'message_required_email'
                             )
                         }
                     ]}
                 >
                     <Input
-                        placeholder={translate('email_placeholder')}
+                        placeholder={translate(
+                            lang,
+                            'email_placeholder'
+                        )}
                         prefix={<MailOutlined className="white" />}
                         autoComplete="email"
                     />
@@ -301,7 +318,9 @@ const ContactForm = memo(() => {
                     rules={[
                         {
                             required: true,
+                            whitespace: true,
                             message: translate(
+                                lang,
                                 'message_required_subject'
                             )
                         }
@@ -309,6 +328,7 @@ const ContactForm = memo(() => {
                 >
                     <Select
                         placeholder={translate(
+                            lang,
                             lang,
                             'select_subject_placeholder'
                         )}
@@ -327,7 +347,9 @@ const ContactForm = memo(() => {
                     rules={[
                         {
                             required: true,
+                            whitespace: true,
                             message: translate(
+                                lang,
                                 'message_required_subject'
                             )
                         }
@@ -338,7 +360,7 @@ const ContactForm = memo(() => {
                         rows={4}
                         cols={30}
                         tabIndex="1"
-                        placeholder={translate('placeholder')}
+                        placeholder={translate(lang, 'placeholder')}
                         onChange={event =>
                             setEmailMessage(event.target.value)
                         }
@@ -435,7 +457,7 @@ const ContactForm = memo(() => {
                     </Col>
                     <Divider>
                         <h3 className="white">
-                            {translate('contact_form')}
+                            {translate(lang, 'contact_form')}
                         </h3>
                     </Divider>
                     {renderForm()}

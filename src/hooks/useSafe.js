@@ -31,7 +31,6 @@ const useSafe = () => {
                 link: decode(process.env.REACT_APP_LINK),
                 key: decode(process.env.REACT_APP_KEY),
                 mCode: decode(process.env.REACT_APP_M_CODE),
-                fCode: decode(process.env.REACT_APP_F_CODE),
                 tCode: decode(process.env.REACT_APP_T_CODE),
                 cv: decode(process.env.REACT_APP_CV),
                 getNF: decode(process.env.REACT_APP_GET_NF),

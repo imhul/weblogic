@@ -1,23 +1,29 @@
 import { initStateAuth as initState } from '../init/initStateAuth';
-import { typesAuth as type } from '../constants/types';
+import { authTypes as type } from '../constants/types';
+// utils
+import { SYSTEM_LANG } from '../../utils/config';
 
 export default function (state = initState, action) {
     switch (action.type) {
         case type.IPIFY:
-            const sysLang =
-                navigator.language ||
-                navigator.userLanguage ||
-                window.navigator.userLanguage ||
-                window.navigator.language;
             return {
                 ...state,
                 currentUser: {
                     ...state.currentUser,
                     ip: action.payload.ip,
-                    system: action.payload.system,
+                    system: action.payload.system
+                }
+            };
+
+        case type.GUEST_INIT:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
                     role: 'guest',
                     lang:
-                        sysLang === 'uk-UA' || sysLang === 'ru-RU'
+                        SYSTEM_LANG === 'uk-UA' ||
+                        SYSTEM_LANG === 'ru-RU'
                             ? 'ukrainian'
                             : 'english'
                 }
@@ -79,7 +85,16 @@ export default function (state = initState, action) {
                 }
             };
 
-        case type.USER_LOGIN:
+        case type.SET_USER_ID:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    userId: action.payload
+                }
+            };
+
+        case type.USER_AUTH:
             return {
                 ...state,
                 currentUser: {
@@ -101,8 +116,11 @@ export default function (state = initState, action) {
             return {
                 ...state,
                 currentUser: {
-                    ...state.currentUser
-                    // TODO: add user to usersDB and to state.users
+                    ...state.currentUser,
+                    ...action.payload,
+                    role: 'user',
+                    isAuth: true,
+                    isRobot: false
                 }
             };
 
@@ -133,33 +151,17 @@ export default function (state = initState, action) {
                 }
             };
 
-        case type.ADD_NEW_USER:
-            // TODO: check if user already exists
+        case type.USER_UPDATE: {
+            const { id } = action.payload;
             return {
-                users: [...state.users, action.payload.user]
-            };
-
-        case type.GET_ALL_USERS:
-            return {
-                ...state,
-                users: action.payload
-            };
-
-        case type.UPDATE_USER: {
-            const updatedUser = { ...action.payload.user };
-            return {
-                users: [...state.users].map(user => {
-                    if (user.id === updatedUser.id) {
-                        return updatedUser;
-                    } else return user;
-                })
+                ...state
             };
         }
 
-        case type.DELETE_USER: {
+        case type.USER_DELETE: {
             const { id } = action.payload;
             return {
-                users: [...state.users].filter(user => user.id !== id)
+                ...state
             };
         }
 
@@ -167,27 +169,3 @@ export default function (state = initState, action) {
             return state;
     }
 }
-
-// from actions directory
-
-// export const fetchUsersFailure = errors => ({
-//     type: type.FETCH_USERS_FAILURE,
-//     payload: { errors }
-// });
-
-// // users
-
-// export const createUser = user => ({
-//     type: type.ADD_NEW_USER,
-//     payload: { user }
-// });
-
-// export const updateUser = user => ({
-//     type: type.UPDATE_USER,
-//     payload: { user }
-// });
-
-// export const deleteUser = id => ({
-//     type: type.DELETE_USER,
-//     payload: { id }
-// });

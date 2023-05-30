@@ -52,7 +52,6 @@ const Toolbar = memo(() => {
     } = useSelector(state => state.ui);
     const { currentUser } = useSelector(state => state.auth);
     const dispatch = useDispatch();
-    const [form] = Form.useForm();
 
     useEffect(() => {
         if (!currentUser.isAuth && !authFormType.length) {
@@ -75,7 +74,7 @@ const Toolbar = memo(() => {
                 <Gravatar email={currentUser.email} size={100} />
             </Col>
             <Col>
-                <span>{translate('user_name_title')}</span>
+                <span>{translate(lang, 'user_name_title')}</span>
                 <Title level={4}>{currentUser.name}</Title>
             </Col>
         </Row>
@@ -84,11 +83,11 @@ const Toolbar = memo(() => {
     const Extra = () => (
         <Popconfirm
             placement="topLeft"
-            title={translate('logout')}
-            description={translate('logout_question')}
+            title={translate(lang, 'logout')}
+            description={translate(lang, 'logout_question')}
             onConfirm={logout}
-            okText={translate('yes')}
-            cancelText={translate('cancel')}
+            okText={translate(lang, 'yes')}
+            cancelText={translate(lang, 'cancel')}
             icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
         >
             <Tooltip
@@ -96,7 +95,7 @@ const Toolbar = memo(() => {
                 color="#2a414c"
                 placement="left"
                 zIndex={1100}
-                title={translate('logout')}
+                title={translate(lang, 'logout')}
             >
                 <Button type="link" className="no-p">
                     <LogoutOutlined style={{ fontSize: 32 }} />
@@ -145,20 +144,16 @@ const Toolbar = memo(() => {
         });
     };
 
-    const submit = () => {
-        console.info('submit');
-    };
-
     const renderForm = () => {
         switch (authFormType) {
             case 'login':
-                return <Login onSubmit={submit} />;
+                return <Login />;
             case 'reg':
-                return <Registration onSubmit={submit} />;
+                return <Registration />;
             case 'forgot':
-                return <Forgot onSubmit={submit} />;
+                return <Forgot />;
             case 'change_pass':
-                return <ChangePass onSubmit={submit} />;
+                return <ChangePass />;
             default:
                 return null;
         }
@@ -178,7 +173,7 @@ const Toolbar = memo(() => {
             <Drawer
                 title={
                     <Title level={3}>
-                        {translate('toolbar_heading')}
+                        {translate(lang, 'toolbar_heading')}
                     </Title>
                 }
                 width={320}
@@ -196,25 +191,27 @@ const Toolbar = memo(() => {
                 extra={<Extra />}
             >
                 <UserBlock />
-
-                <Divider>{translate('menu_heading')}</Divider>
+                <Divider>{translate(lang, 'menu_heading')}</Divider>
                 <Menu
                     onClick={navigate}
                     selectedKeys={[currentPage]}
                     mode="inline"
                     items={menuItems}
                 />
-                <Divider>{translate(`${authFormType}_form`)}</Divider>
+                {!currentUser.isAuth && (
+                    <>
+                        <Divider>
+                            {translate(lang, `${authFormType}_form`)}
+                        </Divider>
+                        {currentUser.isRobot ? (
+                            <Captcha />
+                        ) : (
+                            renderForm()
+                        )}
+                    </>
+                )}
 
-                <Form
-                    form={form}
-                    className="auth-form"
-                    name="auth-form"
-                    layout="vertical"
-                >
-                    {renderForm()}
-                </Form>
-                <Divider>{translate('lang_title')}</Divider>
+                <Divider>{translate(lang, 'lang_title')}</Divider>
                 <Segmented
                     block
                     size="small"
@@ -229,7 +226,7 @@ const Toolbar = memo(() => {
                         });
                     }}
                 />
-                <Divider>{translate('contact_method')}</Divider>
+                <Divider>{translate(lang, 'contact_method')}</Divider>
                 <Segmented
                     block
                     size="small"
@@ -243,24 +240,23 @@ const Toolbar = memo(() => {
                         })
                     }
                 />
-
-                <Divider>{translate('tip_heading')}</Divider>
+                <Divider>{translate(lang, 'tip_heading')}</Divider>
                 <Card
                     type="inner"
                     title={
                         tip
-                            ? translate('tip_like')
-                            : translate('tip_await')
+                            ? translate(lang, 'tip_like')
+                            : translate(lang, 'tip_await')
                     }
                     extra={
                         tip ? (
                             <Button icon={<HeartFilled />}>
-                                {translate('like_btn')}
+                                {translate(lang, 'like_btn')}
                             </Button>
                         ) : null
                     }
                 >
-                    {tip ? tip : translate('loading')}
+                    {tip ? tip : translate(lang, 'loading')}
                 </Card>
             </Drawer>
         </div>

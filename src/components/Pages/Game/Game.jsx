@@ -13,7 +13,7 @@ import {
 
 const Game = memo(() => {
     const { safe, lang } = useSelector(state => state.ui);
-    const title = translate('game_title');
+    const title = translate(lang, 'game_title');
 
     return (
         <div className="Game">
@@ -27,11 +27,11 @@ const Game = memo(() => {
                     <Col span={24}>
                         <h1 className="center">{title}</h1>
                         <h2 className="center">
-                            {translate('game_subtitle')}
+                            {translate(lang, 'game_subtitle')}
                         </h2>
                         <div className="center">
                             <span>
-                                {translate('game_description')}
+                                {translate(lang, 'game_description')}
                             </span>
                         </div>
 
@@ -52,7 +52,7 @@ const Game = memo(() => {
                                         rel="external"
                                     >
                                         <CrownOutlined />{' '}
-                                        {translate('game_demo')}
+                                        {translate(lang, 'game_demo')}
                                     </a>
                                 </Col>
                                 <Col
@@ -67,7 +67,7 @@ const Game = memo(() => {
                                         rel="external"
                                     >
                                         <GithubOutlined />{' '}
-                                        {translate('game_git')}
+                                        {translate(lang, 'game_git')}
                                     </a>
                                 </Col>
                                 <Col
@@ -82,7 +82,10 @@ const Game = memo(() => {
                                         rel="external"
                                     >
                                         <DollarCircleOutlined />{' '}
-                                        {translate('game_donate')}
+                                        {translate(
+                                            lang,
+                                            'game_donate'
+                                        )}
                                     </a>
                                 </Col>
                             </Row>

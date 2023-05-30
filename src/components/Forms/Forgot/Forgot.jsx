@@ -1,51 +1,163 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // components
-import { Button, Col, Form, Input, Row } from 'antd/lib';
-// import { MenuOutlined } from '@ant-design/icons';
+import { Checkbox, Button, Col, Form, Input, Row } from 'antd/lib';
+import {
+    MailOutlined,
+    LockOutlined,
+    UserOutlined
+} from '@ant-design/icons';
+// utils
+import translate from '../../../utils/translations';
 
-const TextArea = Input.TextArea;
 const FormItem = Form.Item;
 
-const Forgot = () => {
+const Registration = () => {
+    const { currentUser } = useSelector(state => state.auth);
+    const { safe, lang } = useSelector(state => state.ui);
+    const [submitting, setSubmitting] = useState(false);
+    const dispatch = useDispatch();
+    const [form] = Form.useForm();
+
+    const submit = useCallback(async () => {
+        if (submitting && !safe) return;
+        setSubmitting(true);
+        const values = form.getFieldsValue();
+
+        try {
+            // TODO: add user to usersDB
+            // if result.ok:
+        } catch (error) {}
+
+        console.info('submit values: ', values);
+        setSubmitting(false);
+    }, [safe]);
+
     return (
-        <Row gutter={24}>
-            <Col span={24}>
-                <FormItem
-                    name="name"
-                    label="Name"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please enter user name'
+        <Form
+            form={form}
+            className="auth-form"
+            name="forgot-form"
+            layout="vertical"
+        >
+            <Row gutter={24} className="Forgot">
+                {/* old pass */}
+                <Col span={24}>
+                    <FormItem
+                        name="old-pass"
+                        rules={[
+                            {
+                                min: 6,
+                                required: true,
+                                whitespace: true,
+                                message: translate(
+                                    lang,
+                                    'old_pass_required_message'
+                                )
+                            }
+                        ]}
+                    >
+                        <Input
+                            addonBefore={
+                                <LockOutlined className="white" />
+                            }
+                            placeholder={translate(lang, 'old_pass')}
+                        />
+                    </FormItem>
+                </Col>
+                {/* new pass */}
+                <Col span={24}>
+                    <FormItem
+                        name="pass"
+                        hasFeedback
+                        rules={[
+                            {
+                                min: 6,
+                                required: true,
+                                whitespace: true,
+                                message: translate(
+                                    lang,
+                                    'new_pass_required_message'
+                                )
+                            }
+                        ]}
+                    >
+                        <Input
+                            addonBefore={
+                                <LockOutlined className="white" />
+                            }
+                            placeholder={translate(lang, 'new_pass')}
+                        />
+                    </FormItem>
+                </Col>
+                {/* confirm new pass */}
+                <Col span={24}>
+                    <FormItem
+                        name="confirm-pass"
+                        dependencies={['pass']}
+                        hasFeedback
+                        rules={[
+                            {
+                                min: 6,
+                                required: true,
+                                whitespace: true,
+                                message: translate(
+                                    lang,
+                                    'confirm_new_pass_required_message'
+                                )
+                            },
+                            ({ getFieldValue }) => ({
+                                validator(_, value) {
+                                    if (
+                                        !value ||
+                                        getFieldValue('pass') ===
+                                            value
+                                    ) {
+                                        return Promise.resolve();
+                                    }
+                                    return Promise.reject(
+                                        new Error(
+                                            'The two passwords that you entered do not match!'
+                                        )
+                                    );
+                                }
+                            })
+                        ]}
+                    >
+                        <Input
+                            addonBefore={
+                                <LockOutlined className="white" />
+                            }
+                            placeholder={translate(
+                                lang,
+                                'repeat_new_pass'
+                            )}
+                        />
+                    </FormItem>
+                </Col>
+                {/* buttons */}
+                <Col span={12} className="left">
+                    <Button
+                        type="link"
+                        onClick={() =>
+                            dispatch({
+                                type: 'CHANGE_AUTH_FORM_TYPE',
+                                payload: 'login'
+                            })
                         }
-                    ]}
-                >
-                    <Input placeholder="Please enter user name" />
-                </FormItem>
-            </Col>
-            <Col span={24}>
-                <FormItem
-                    name="url"
-                    label="Url"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please enter url'
-                        }
-                    ]}
-                >
-                    <Input
-                        style={{
-                            width: '100%'
-                        }}
-                        addonBefore="http://"
-                        addonAfter=".com"
-                        placeholder="Please enter url"
-                    />
-                </FormItem>
-            </Col>
-        </Row>
+                    >
+                        {translate(lang, 'login_submit')}
+                    </Button>
+                </Col>
+
+                <Col span={12} className="right">
+                    <Button htmlType="submit" onClick={submit}>
+                        {translate(lang, 'reg_submit')}
+                    </Button>
+                </Col>
+            </Row>
+        </Form>
     );
 };
 
-export default Forgot;
+export default Registration;

@@ -1,11 +1,8 @@
 // core
-import React, { memo, useEffect } from 'react';
+import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Helmet } from 'react-helmet';
-// utils
-// import { getMongoDB } from '../../../utils/api';
-// import { MONGO_ACTIONS } from '../../../utils/config';
 // assets
 import '../../../images/print.png';
 import '../../../images/logo.png';
@@ -14,46 +11,7 @@ const Home = memo(() => {
     const { safe, hero, heroStyle, lang } = useSelector(
         state => state.ui
     );
-    const { currentUser } = useSelector(state => state.auth);
     const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     if (safe) {
-    //         mongoCheck();
-    //     } else return;
-    //     async function parseResponseBody(response) {
-    //         const reader = response.body.getReader();
-    //         const decoder = new TextDecoder('utf-8');
-    //         let result = '';
-
-    //         while (true) {
-    //           const { done, value } = await reader.read();
-
-    //           if (done) break;
-
-    //           const chunk = decoder.decode(value);
-    //           result += chunk;
-    //         }
-
-    //         return JSON.parse(result);
-    //       }
-    //     async function mongoCheck() {
-    //         const connected = await getMongoDB(
-    //             `${safe.getMongo}/?=${encodeURIComponent(
-    //                 JSON.stringify({
-    //                     action: MONGO_ACTIONS.FIND,
-    //                     db: safe.authdb,
-    //                     collection: safe.authCollection,
-    //                     query: {}
-    //                 })
-    //             )}`,
-    //             lang
-    //         );
-    //         console.info('::: connected: ', connected);
-    //         const result = await parseResponseBody(connected);
-    //         console.info('::: result: ', result);
-    //     }
-    // }, [safe, lang]);
 
     const goFolio = () => {
         dispatch({
@@ -62,7 +20,7 @@ const Home = memo(() => {
         });
     };
 
-    const renderHero = hero.map((symbol, index) => {
+    const renderHero = hero[lang].map((symbol, index) => {
         return (
             <span key={index} className={`span-${index}`}>
                 {symbol}
