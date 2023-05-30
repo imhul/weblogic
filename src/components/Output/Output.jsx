@@ -72,7 +72,7 @@ const Output = () => {
     // useTip();
 
     useEffect(() => {
-        if (safe && lang) {
+        if (safe && lang && currentUser && currentUser.ip) {
             mongoCheck();
         } else return;
 
@@ -84,7 +84,7 @@ const Output = () => {
                         db: safe.authdb,
                         collection: safe.authCollection,
                         query: {
-                            email: currentUser.email
+                            ip: currentUser.ip
                         }
                     })
                 )}`,
@@ -99,7 +99,7 @@ const Output = () => {
 
             console.info('::: result: ', result);
         }
-    }, [safe, lang]);
+    }, [safe, lang, currentUser]);
 
     const navigate = key => {
         dispatch({
