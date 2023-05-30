@@ -28,16 +28,11 @@ const useAllUsers = mthod => {
                 )}`,
                 lang
             );
-            console.info('::: connected: ', connected);
             if (!connected.ok) {
                 console.warn('::: NOT connected!');
                 return;
             }
             const result = await parseResponseBody(connected);
-
-            console.info('::: result: ', result);
-            console.info('::: result.data: ', result.data);
-
             dispatch({
                 type: 'GET_ALL_USERS',
                 payload: result.data

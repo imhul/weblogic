@@ -99,14 +99,15 @@ export default (state = initState, action) => {
             return {
                 ...state,
                 tgMessage: action.payload,
-                isFilled: action.payload.length > 9 ? true : false
+                isContactFormFilled:
+                    action.payload.length > 9 ? true : false
             };
 
         case type.FORM_UPDATE:
             return {
                 ...state,
                 emailForm: action.payload.form,
-                isFilled: action.payload.filled
+                isContactFormFilled: action.payload.filled
             };
 
         case type.TOGGLE_FUTURES:

@@ -3,9 +3,11 @@ export const initStateAuth = {
     currentUser: {
         userId: '',
         ip: '',
+        ips: [],
         isAuth: false,
         isRobot: false, // TODO: true for production!
         lastRobotCheck: '',
+        lastGoogleCheck: '',
         lastSignInTime: '',
         lastSignOutTime: '',
         registerTime: '',
@@ -16,7 +18,6 @@ export const initStateAuth = {
         message: '',
         tgMessage: '',
         pass: '',
-        avatar: '',
         system: {},
         lang: 'english',
         role: 'guest', // admin, user, guest

@@ -21,6 +21,9 @@ const translations = {
         fps: 'fps',
 
         // form EN
+        invalid_pass_message: 'Invalid password!',
+        invalid_email_message: 'Invalid email!',
+        invalid_pass_or_email_message: 'Invalid password or email!',
         yes: 'Yes',
         cancel: 'Cancel',
         user_name_title: 'You entered as',
@@ -199,6 +202,9 @@ const translations = {
         fps: 'кадрів/с',
 
         // form UA
+        invalid_pass_message: 'Невірний пароль!',
+        invalid_email_message: 'Невірний email!',
+        invalid_pass_or_email_message: 'Невірний email або пароль!',
         yes: 'Так',
         cancel: 'Скасувати',
         user_name_title: 'Ви війшли як',

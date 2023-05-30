@@ -1,7 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
-import { Checkbox, Button, Col, Form, Input, Row } from 'antd/lib';
+import {
+    Checkbox,
+    Button,
+    Col,
+    Form,
+    Input,
+    Row,
+    message
+} from 'antd/lib';
 import {
     MailOutlined,
     LockOutlined,
@@ -9,6 +17,7 @@ import {
 } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
+import { messageOptions } from '../../../utils/config';
 import { v4 as uuidv4, v5 as uuidv5 } from 'uuid';
 
 const FormItem = Form.Item;
@@ -44,7 +53,10 @@ const Registration = () => {
                     email: values.email,
                     pass: values.pass,
                     name: values.name,
-                    userId: id
+                    userId: id,
+                    lang: lang,
+                    registerTime: Date.now(),
+                    lastSignInTime: Date.now()
                 }
             });
         } catch (error) {}
@@ -59,6 +71,7 @@ const Registration = () => {
             className="auth-form"
             name="reg-form"
             layout="vertical"
+            autoComplete="off"
         >
             <Row gutter={24} className="Registration">
                 {/* name */}
@@ -88,6 +101,7 @@ const Registration = () => {
                             />
                         ) : (
                             <Input
+                                autoComplete="name"
                                 placeholder={translate(
                                     lang,
                                     'name_placeholder'
@@ -132,6 +146,7 @@ const Registration = () => {
                             />
                         ) : (
                             <Input
+                                autoComplete="email"
                                 placeholder={translate(
                                     lang,
                                     'email_placeholder'
@@ -139,7 +154,6 @@ const Registration = () => {
                                 addonBefore={
                                     <MailOutlined className="white" />
                                 }
-                                autoComplete="email"
                             />
                         )}
                     </FormItem>
@@ -162,6 +176,7 @@ const Registration = () => {
                         ]}
                     >
                         <Input
+                            autoComplete="new-password"
                             addonBefore={
                                 <LockOutlined className="white" />
                             }
@@ -204,6 +219,7 @@ const Registration = () => {
                         ]}
                     >
                         <Input
+                            autoComplete="new-password"
                             addonBefore={
                                 <LockOutlined className="white" />
                             }
@@ -214,8 +230,24 @@ const Registration = () => {
                         />
                     </FormItem>
                 </Col>
+                {/* checkbox */}
+                <Col span={24} className="left">
+                    <FormItem name="remember">
+                        <Checkbox
+                            checked={currentUser.rememberMe}
+                            onChange={e =>
+                                dispatch({
+                                    type: 'TOGGLE_REMEMBER_ME',
+                                    payload: e.target.checked
+                                })
+                            }
+                        >
+                            {translate(lang, 'remember_me')}
+                        </Checkbox>
+                    </FormItem>
+                </Col>
                 {/* buttons */}
-                <Col span={12} className="left">
+                <Col span={12} className="padding-small left">
                     <Button
                         type="link"
                         onClick={() =>
@@ -229,7 +261,7 @@ const Registration = () => {
                     </Button>
                 </Col>
 
-                <Col span={12} className="right">
+                <Col span={12} className="padding-small right">
                     <Button htmlType="submit" onClick={submit}>
                         {translate(lang, 'reg_submit')}
                     </Button>

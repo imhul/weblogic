@@ -52,8 +52,13 @@ const subjects = [
 ];
 
 const ContactForm = memo(() => {
-    const { safe, lang, tgMessage, isFilled, contactMethod } =
-        useSelector(state => state.ui);
+    const {
+        safe,
+        lang,
+        tgMessage,
+        isContactFormFilled,
+        contactMethod
+    } = useSelector(state => state.ui);
     const [submitting, setSubmitting] = useState(false);
     const [emailMessage, setEmailMessage] = useState('');
     const dispatch = useDispatch();
@@ -194,7 +199,7 @@ const ContactForm = memo(() => {
                 getSmsAPI();
                 break;
         }
-    }, [contactMethod, isFilled, tgMessage, lang, safe]);
+    }, [contactMethod, isContactFormFilled, tgMessage, lang, safe]);
 
     const renderOptions = subjects.map(option => (
         <Option key={option.id} value={option.title}>

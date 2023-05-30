@@ -10,7 +10,7 @@ export const initStateUI = {
     authFormType: '', // login | reg | forgot | change_pass
     isDescShow: true,
     tgMessage: '',
-    isFilled: false,
+    isContactFormFilled: false,
     isFuturesOpen: false,
     isMenuOpen: false,
     emailForm: {},

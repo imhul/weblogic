@@ -6,12 +6,31 @@ import { SYSTEM_LANG } from '../../utils/config';
 export default function (state = initState, action) {
     switch (action.type) {
         case type.IPIFY:
+            const initIPs = [
+                ...state.currentUser.ips,
+                action.payload.ip
+            ];
             return {
                 ...state,
                 currentUser: {
                     ...state.currentUser,
                     ip: action.payload.ip,
-                    system: action.payload.system
+                    system: action.payload.system,
+                    ips: [...new Set(initIPs)]
+                }
+            };
+
+        case type.SET_USER_IP:
+            const loggedInIPs = [
+                ...state.currentUser.ips,
+                action.payload
+            ];
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    ip: action.payload,
+                    ips: [...new Set(loggedInIPs)]
                 }
             };
 
@@ -36,8 +55,15 @@ export default function (state = initState, action) {
                     ...state.currentUser,
                     isRobot: !action.payload,
                     role: 'human',
-                    lastRobotCheck: action.payload.challenge_ts
+                    lastRobotCheck: Date.now(),
+                    lastGoogleCheck: action.payload.challenge_ts
                 }
+            };
+
+        case type.GET_ALL_USERS:
+            return {
+                ...state,
+                users: action.payload
             };
 
         case type.USER_EMAIL_AUTO_UPDATE:
@@ -99,7 +125,11 @@ export default function (state = initState, action) {
                 ...state,
                 currentUser: {
                     ...state.currentUser,
-                    isAuth: true
+                    ...action.payload,
+                    isAuth: true,
+                    isRobot: false,
+                    ips: [...new Set(action.payload.ips)],
+                    lastSignInTime: Date.now()
                 }
             };
 
@@ -108,7 +138,8 @@ export default function (state = initState, action) {
                 ...state,
                 currentUser: {
                     ...state.currentUser,
-                    isAuth: false
+                    isAuth: false,
+                    lastSignOutTime: Date.now()
                 }
             };
 

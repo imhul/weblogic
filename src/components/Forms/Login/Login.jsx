@@ -1,15 +1,24 @@
 import React, { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
-import { Checkbox, Button, Col, Form, Input, Row } from 'antd/lib';
+import {
+    Checkbox,
+    Button,
+    Col,
+    Form,
+    Input,
+    Row,
+    message
+} from 'antd/lib';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
+import { messageOptions } from '../../../utils/config';
 
 const FormItem = Form.Item;
 
-const Login = ({ onSubmit }) => {
-    const { currentUser } = useSelector(state => state.auth);
+const Login = () => {
+    const { users, currentUser } = useSelector(state => state.auth);
     const { safe, lang } = useSelector(state => state.ui);
     const [submitting, setSubmitting] = useState(false);
     const dispatch = useDispatch();
@@ -18,23 +27,44 @@ const Login = ({ onSubmit }) => {
     const submit = useCallback(async () => {
         if (submitting && !safe) return;
         setSubmitting(true);
+        const values = form.getFieldsValue();
+        const beingCheckedUser = users.find(
+            user => user.email === values.login
+        );
 
-        try {
-            // TODO: check user in usersDB
-
-            // if result.ok:
-            dispatch({
-                type: 'USER_REGISTER',
-                payload: {
-                    email: values.email,
-                    pass: values.pass,
-                    name: values.name,
-                    userId: id
-                }
+        if (!beingCheckedUser) {
+            message.error({
+                content: translate(
+                    lang,
+                    'invalid_pass_or_email_message'
+                ),
+                ...messageOptions
             });
-        } catch (error) {}
+            return;
+        } else {
+            if (beingCheckedUser.pass === values.pass) {
+                dispatch({
+                    type: 'USER_AUTH',
+                    payload:
+                        currentUser.ip === beingCheckedUser.ip
+                            ? beingCheckedUser
+                            : {
+                                  ...beingCheckedUser,
+                                  ip: currentUser.ip,
+                                  ips: [
+                                      beingCheckedUser.ip,
+                                      currentUser.ip
+                                  ]
+                              }
+                });
+            } else {
+                message.error({
+                    content: translate(lang, 'invalid_pass_message'),
+                    ...messageOptions
+                });
+            }
+        }
 
-        console.info('submit');
         setSubmitting(false);
     }, [safe]);
 
@@ -44,7 +74,6 @@ const Login = ({ onSubmit }) => {
             className="auth-form"
             name="login-form"
             layout="vertical"
-            onFinish={submit}
         >
             <Row gutter={24} className="Login">
                 <Col span={24}>
@@ -52,7 +81,9 @@ const Login = ({ onSubmit }) => {
                         name="login"
                         rules={[
                             {
+                                min: 8,
                                 type: 'email',
+                                whitespace: true,
                                 message: translate(
                                     lang,
                                     'message_invalid_email'
@@ -60,7 +91,6 @@ const Login = ({ onSubmit }) => {
                             },
                             {
                                 required: true,
-                                whitespace: true,
                                 message: translate(
                                     lang,
                                     'message_required_email'
@@ -96,6 +126,7 @@ const Login = ({ onSubmit }) => {
                                 <LockOutlined className="white" />
                             }
                             placeholder={translate(lang, 'pass')}
+                            autoComplete="current-password"
                         />
                     </FormItem>
                 </Col>
@@ -115,10 +146,7 @@ const Login = ({ onSubmit }) => {
                     </FormItem>
                 </Col>
                 <Col span={8} className="right">
-                    <Button
-                        htmlType="submit"
-                        onClick={() => onSubmit('login')}
-                    >
+                    <Button htmlType="submit" onClick={submit}>
                         {translate(lang, 'login_submit')}
                     </Button>
                 </Col>
