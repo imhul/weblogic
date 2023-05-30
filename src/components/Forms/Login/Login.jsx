@@ -25,10 +25,11 @@ const Login = () => {
     const [form] = Form.useForm();
 
     const submit = useCallback(async () => {
-        if (submitting && !safe) return;
+        if (submitting && !safe && !users) return;
         setSubmitting(true);
         const values = form.getFieldsValue();
         console.info('values: ', values);
+        console.info('users: ', users);
         const beingCheckedUser = users.find(
             user => user.email === values.login
         );
@@ -36,7 +37,7 @@ const Login = () => {
         console.info('beingCheckedUser: ', beingCheckedUser);
 
         if (!beingCheckedUser) {
-            
+
             message.error({
                 content: translate(
                     lang,
@@ -53,13 +54,13 @@ const Login = () => {
                         currentUser.ip === beingCheckedUser.ip
                             ? beingCheckedUser
                             : {
-                                  ...beingCheckedUser,
-                                  ip: currentUser.ip,
-                                  ips: [
-                                      beingCheckedUser.ip,
-                                      currentUser.ip
-                                  ]
-                              }
+                                ...beingCheckedUser,
+                                ip: currentUser.ip,
+                                ips: [
+                                    beingCheckedUser.ip,
+                                    currentUser.ip
+                                ]
+                            }
                 });
             } else {
                 message.error({
@@ -70,7 +71,7 @@ const Login = () => {
         }
 
         setSubmitting(false);
-    }, [safe]);
+    }, [safe, users, submitting, form, lang, currentUser]);
 
     return (
         <Form
