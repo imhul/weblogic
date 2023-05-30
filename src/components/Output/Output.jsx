@@ -83,7 +83,9 @@ const Output = () => {
                         action: MONGO_ACTIONS.FIND,
                         db: safe.authdb,
                         collection: safe.authCollection,
-                        query: {}
+                        query: {
+                            email: currentUser.email
+                        }
                     })
                 )}`,
                 lang
