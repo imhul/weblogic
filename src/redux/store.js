@@ -6,7 +6,7 @@ const store = configureStore({
     reducer: reducer,
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware().concat(thunk),
-    devTools: process.env.NODE_ENV !== 'production',
+    devTools: true, // process.env.NODE_ENV !== 'production',
     preloadedState: {}
 });
 
