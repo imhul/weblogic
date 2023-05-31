@@ -33,6 +33,7 @@ const useAllUsers = () => {
                 return;
             }
             const result = await parseResponseBody(connected);
+            console.warn('::: Connected with result.data: ', result.data);
             dispatch({
                 type: 'GET_ALL_USERS',
                 payload: result.data
