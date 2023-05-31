@@ -40,3 +40,16 @@ export const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type'
 };
+
+export const MONGO_ACTIONS = {
+    ALL: '/action/find',
+    ADD: '/action/insertOne',
+    FIND: '/action/findOne',
+    UPDATE: '/action/updateOne',
+    DELETE: '/action/deleteOne',
+    ADD_MANY: '/action/insertMany',
+    FIND_MANY: '/action/find',
+    UPDATE_MANY: '/action/updateMany',
+    DELETE_MANY: '/action/deleteMany',
+    RUN: '/action/aggregate'
+};

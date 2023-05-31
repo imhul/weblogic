@@ -150,8 +150,10 @@ const Login = () => {
                     </FormItem>
                 </Col>
                 <Col span={8} className="right">
-                    <Button htmlType="submit" onClick={submit}>
-                        {translate(lang, 'login_submit')}
+                    <Button disabled={submitting && !safe && !users} htmlType="submit" onClick={submit}>
+                        {submitting && !safe && !users ? <LoadingOutlined
+                        style={{ color: '#bcc8ce' }}
+                    /> : translate(lang, 'login_submit')}
                     </Button>
                 </Col>
                 <Col span={10} className="padding-small left">
