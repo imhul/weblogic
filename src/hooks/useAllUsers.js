@@ -12,7 +12,7 @@ const useAllUsers = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (safe && lang && currentUser?.ip) {
+        if (safe && lang && !currentUser.isAuth && currentUser.ip) {
             getAllUsers();
         } else return;
 

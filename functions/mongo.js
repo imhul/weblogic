@@ -58,6 +58,7 @@ const build = async event => {
         }
 
         async function userUpdate() {
+            console.warn('run userUpdate!');
             const user = await collection.findOne({ _id: data._id });
             console.info('user: ', user);
             if (user) {
