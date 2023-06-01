@@ -15,15 +15,6 @@ export const env = {
     get mCode() {
         return decode(safe.mCode);
     },
-    get getNF() {
-        return decode(safe.getNF);
-    },
-    get getTG() {
-        return decode(safe.getTG);
-    },
-    get getEmail() {
-        return decode(safe.getEmail);
-    },
     ipify: safe.ipify,
     mPW: safe.mPW,
     atlasConnect: safe.atlasConnect,
@@ -32,7 +23,7 @@ export const env = {
     authdb: safe.authdb,
     atlasBase: safe.atlasBase,
     authCollection: safe.authCollection,
-    getMongo: safe.getMongo
+    mongoAPI: safe.mongoAPI
 };
 
 export const headers = {
@@ -52,4 +43,12 @@ export const MONGO_ACTIONS = {
     FIND_MANY: 'FIND_MANY', // '/action/find'
     UPDATE_MANY: 'UPDATE_MANY', // '/action/updateMany'
     DELETE_MANY: 'DELETE_MANY' // '/action/deleteMany'
+};
+
+export const API_ACTIONS = {
+    RECAPTCHA_PROXY: 'recaptcha',
+    TELEGRAM_BOT: 'telegram',
+    EMAIL: 'email',
+    MONGO_ALL: 'mongo',
+    MONGO_UPDATE: 'mongo-update'
 };

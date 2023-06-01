@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // utils
 import { getMongoDB } from '../utils/api';
-import { MONGO_ACTIONS } from '../utils/config';
+import { API_ACTIONS } from '../utils/config';
 import parseResponseBody from '../utils/parseBody';
 
 const useAllUsers = () => {
@@ -18,12 +18,12 @@ const useAllUsers = () => {
 
         async function getAllUsers() {
             const connected = await getMongoDB(
-                `${safe.getMongo}/?=${encodeURIComponent(
+                `${safe.mongoAPI}${
+                    API_ACTIONS.MONGO_ALL
+                }/?=${encodeURIComponent(
                     JSON.stringify({
-                        action: MONGO_ACTIONS.ALL,
                         db: safe.authdb,
-                        collection: safe.authCollection,
-                        query: {}
+                        collection: safe.authCollection
                     })
                 )}`,
                 lang

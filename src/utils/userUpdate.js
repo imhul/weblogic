@@ -1,5 +1,5 @@
 import { getMongoUserUpdate } from './api';
-import { MONGO_ACTIONS } from './config';
+import { API_ACTIONS } from './config';
 
 function userUpdate(user, lang, safe) {
     console.warn('run userUpdate!');
@@ -8,9 +8,10 @@ function userUpdate(user, lang, safe) {
 
         try {
             const connected = await getMongoUserUpdate(
-                `${safe.getMongo}/?=${encodeURIComponent(
+                `${safe.mongoAPI}${
+                    API_ACTIONS.MONGO_UPDATE
+                }/?=${encodeURIComponent(
                     JSON.stringify({
-                        action: MONGO_ACTIONS.UPDATE,
                         db: safe.authdb,
                         collection: safe.authCollection,
                         query: user

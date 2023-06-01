@@ -34,17 +34,12 @@ export const POST_JSON_CONFIG = {
     }
 };
 
-export const MONGO_ACTIONS = {
-    ALL: 'ALL', // '/action/find'
-    RUN: 'RUN', // '/action/aggregate'
-    ADD: 'ADD', // '/action/insertOne'
-    FIND: 'FIND', // '/action/findOne'
-    UPDATE: 'UPDATE', // '/action/updateOne'
-    DELETE: 'DELETE', // '/action/deleteOne'
-    ADD_MANY: 'ADD_MANY', // '/action/insertMany'
-    FIND_MANY: 'FIND_MANY', // '/action/find'
-    UPDATE_MANY: 'UPDATE_MANY', // '/action/updateMany'
-    DELETE_MANY: 'DELETE_MANY' // '/action/deleteMany'
+export const API_ACTIONS = {
+    RECAPTCHA_PROXY: 'recaptcha',
+    TELEGRAM_BOT: 'telegram',
+    EMAIL: 'email',
+    MONGO_ALL: 'mongo',
+    MONGO_UPDATE: 'mongo-update'
 };
 
 export const forms = {

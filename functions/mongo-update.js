@@ -36,7 +36,7 @@ const build = async event => {
     });
 
     try {
-        console.info('MONGO ALL! data: ', data);
+        console.info('MONGO UPDATE! data: ', data);
         await client.connect();
         console.info('connected to server!');
         const connect = await client.db(data.db).command({ ping: 1 });
@@ -45,24 +45,27 @@ const build = async event => {
         console.info('connected to db!');
         const collection = db.collection(data.collection);
         console.info('connected to collection!');
-        const users = await collection.find({}).toArray();
-        console.info('users is exist: ', Boolean(users.length));
-        if (users.length) {
+        const updated = await collection.updateOne(
+            { _id: data.query._id },
+            { $set: data.query }
+        );
+        console.info('updated: ', updated);
+        if (updated.modifiedCount) {
             return {
                 statusCode: 200,
                 body: JSON.stringify({
                     ok: true,
                     code: 200,
-                    data: users
+                    data: updated
                 })
             };
         } else {
             console.warn('Failed  mongodb connection!');
             return {
-                statusCode: 524,
+                statusCode: 526,
                 body: JSON.stringify({
                     error: 'Failed  mongodb connection!',
-                    code: 524
+                    code: 526
                 })
             };
         }

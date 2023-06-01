@@ -25,7 +25,7 @@ import {
 // utils
 import translate from '../../../utils/translations';
 import { getTelegram, sendEmail } from '../../../utils/api';
-import { messageOptions } from '../../../utils/config';
+import { messageOptions, API_ACTIONS } from '../../../utils/config';
 
 const Fragment = React.Fragment;
 const { TextArea } = Input;
@@ -85,7 +85,13 @@ const ContactForm = memo(() => {
 
         async function getTelegramAPI() {
             setSubmitting(true);
-            await getTelegram(safe.getTG + '' + tgMessage, lang)
+            await getTelegram(
+                safe.mongoAPI +
+                    API_ACTIONS.TELEGRAM_BOT +
+                    '?data=' +
+                    tgMessage,
+                lang
+            )
                 .then(response => {
                     if (response.ok !== undefined) {
                         // TODO: response.ok !== undefined. Must be response.ok
@@ -158,7 +164,7 @@ const ContactForm = memo(() => {
 
             setSubmitting(true);
             const emailURL =
-                safe.getEmail +
+                safe.mongoAPI +
                 '/?=' +
                 encodeURIComponent(JSON.stringify(values));
 

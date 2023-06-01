@@ -33,10 +33,7 @@ const useSafe = () => {
                 mCode: decode(process.env.REACT_APP_M_CODE),
                 tCode: decode(process.env.REACT_APP_T_CODE),
                 cv: decode(process.env.REACT_APP_CV),
-                getNF: decode(process.env.REACT_APP_GET_NF),
-                getTG: decode(process.env.REACT_APP_GET_TG),
-                getEmail: decode(process.env.REACT_APP_GET_EMAIL),
-                getMongo: process.env.REACT_APP_GET_MONGO,
+                mongoAPI: decode(process.env.REACT_APP_MONGO_API),
                 authdb: process.env.MONGO_ATLAS_AUTH_DB,
                 authCollection:
                     process.env.MONGO_ATLAS_AUTH_COLLECTION,

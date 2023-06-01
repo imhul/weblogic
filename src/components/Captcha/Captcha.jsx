@@ -6,7 +6,7 @@ import { Row, Col, message } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
 import { LoadingOutlined } from '@ant-design/icons';
 // utils
-import { messageOptions } from '../../utils/config';
+import { messageOptions, API_ACTIONS } from '../../utils/config';
 import translate from '../../utils/translations';
 // api
 import { getRecaptcha } from '../../utils/api';
@@ -25,9 +25,12 @@ const Captcha = memo(() => {
 
     const verify = useCallback(
         async response => {
-            if (!safe.getNF) return;
+            if (!safe.mongoAPI) return;
             const captcha = await getRecaptcha(
-                safe.getNF + '' + response,
+                safe.mongoAPI +
+                    API_ACTIONS.RECAPTCHA_PROXY +
+                    '?data=' +
+                    response,
                 lang
             );
 
@@ -53,7 +56,7 @@ const Captcha = memo(() => {
                 });
             }
         },
-        [lang, safe.getNF]
+        [lang, safe]
     );
 
     return (
