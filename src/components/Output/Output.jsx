@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../../utils/bg';
 import JsonLd from '../../utils/microdata';
 import menu from '../../utils/menu';
+import userUpdate from '../../utils/userUpdate';
 // components
 import {
     ContextMenu,

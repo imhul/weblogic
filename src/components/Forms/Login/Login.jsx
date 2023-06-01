@@ -14,7 +14,6 @@ import { MailOutlined, LockOutlined } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
 import { messageOptions } from '../../../utils/config';
-import userUpdate from '../../../utils/userUpdate';
 
 const FormItem = Form.Item;
 
