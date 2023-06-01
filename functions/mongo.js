@@ -5,7 +5,7 @@ import { env, MONGO_ACTIONS } from './utils/config';
 
 const build = async event => {
     const { atlasConnect, atlasName, atlasPass, getMongo } = env;
-    const data = JSON.parse(
+    let data = JSON.parse(
         decodeURIComponent(
             event.rawUrl.replace(
                 (getMongo || env.getMongo) + '/?=',
@@ -94,6 +94,8 @@ const build = async event => {
                     })
                 };
             }
+
+            data = {};
         }
 
         async function getAll() {
@@ -129,6 +131,7 @@ const build = async event => {
             })
         };
     } finally {
+        data = {};
         await client.close();
     }
 };
