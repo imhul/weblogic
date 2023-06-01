@@ -21,17 +21,17 @@ const Login = () => {
     const { users, currentUser } = useSelector(s => s.auth);
     const { safe, lang } = useSelector(s => s.ui);
     const [submitting, setSubmitting] = useState(false);
-    const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
+    const [isSubmitDisabled, setisSubmitDisabled] = useState(false);
     const dispatch = useDispatch();
     const [form] = Form.useForm();
 
     useEffect(() => {
-        const enabled = submitting && !safe && !users;
-        setIsSubmitEnabled(enabled);
+        const disabled = submitting && !safe && !users;
+        setisSubmitDisabled(disabled);
     }, [submitting, safe, users]);
 
     const submit = useCallback(async () => {
-        if (submitting && !safe && !users) return;
+        if (isSubmitDisabled) return;
         setSubmitting(true);
         const values = form.getFieldsValue();
         console.info('values: ', values);
@@ -160,11 +160,11 @@ const Login = () => {
                 </Col>
                 <Col span={8} className="right">
                     <Button
-                        disabled={!isSubmitEnabled}
+                        disabled={isSubmitDisabled}
                         htmlType="submit"
                         onClick={submit}
                     >
-                        {!isSubmitEnabled ? (
+                        {isSubmitDisabled ? (
                             <LoadingOutlined
                                 style={{ color: '#bcc8ce' }}
                             />

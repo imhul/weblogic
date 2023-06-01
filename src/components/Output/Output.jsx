@@ -56,10 +56,10 @@ const Output = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.warn('currentUser.isAuth: ', currentUser.isAuth);
-        console.warn('isUserUpdated: ', isUserUpdated);
+        console.info('currentUser.isAuth: ', currentUser.isAuth);
+        console.info('isUserUpdated: ', isUserUpdated);
         if (currentUser.isAuth && !isUserUpdated) {
-            console.warn('useEffect run userUpdate!');
+            console.info('useEffect run userUpdate!');
             userUpdate(currentUser, lang, safe);
             setIsUserUpdated(true);
         }
