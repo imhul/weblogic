@@ -2,6 +2,7 @@ import { getMongoUserUpdate } from './api';
 import { MONGO_ACTIONS } from './config';
 
 function userUpdate(user, lang, safe) {
+    console.warn('run userUpdate!');
     async function update() {
         if (!safe && !lang && !user) return;
         const connected = await getMongoUserUpdate(
