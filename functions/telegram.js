@@ -1,13 +1,16 @@
 import { builder } from '@netlify/functions';
 import { request } from 'undici';
-import { env, headers } from './utils/config';
+import { env, headers, API_ACTIONS } from './utils/config';
 
 const build = async event => {
-    const { tCode, getTG } = env;
+    const { tCode, mongoAPI } = env;
     const data =
         (await event.queryStringParameters?.data) ??
         event.body?.data ??
-        event.rawUrl.replace(getTG, '') ??
+        event.rawUrl.replace(
+            `${mongoAPI}${API_ACTIONS.TELEGRAM_BOT}`,
+            ''
+        ) ??
         null;
 
     if (!data) {

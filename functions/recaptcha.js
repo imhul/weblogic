@@ -1,12 +1,16 @@
 import { builder } from '@netlify/functions';
 import { request } from 'undici';
-import { env, headers } from './utils/config';
+import { env, headers, API_ACTIONS } from './utils/config';
 
 const build = async event => {
+    const { mongoAPI, link, ipify } = env;
     const data =
         (await event.queryStringParameters?.data) ??
         event.body?.data ??
-        event.rawUrl.replace(env.getNF, '') ??
+        event.rawUrl.replace(
+            `${mongoAPI}${API_ACTIONS.RECAPTCHA_PROXY}`,
+            ''
+        ) ??
         null;
 
     if (!data) {
@@ -24,10 +28,10 @@ const build = async event => {
     try {
         let ipifiedData;
         let apiURL = '';
-        const ipify = await request(env.ipify, { headers });
-        ipifiedData = await ipify.body.json();
+        const ipifyer = await request(ipify, { headers });
+        ipifiedData = await ipifyer.body.json();
 
-        if (!ipify) {
+        if (!ipifyer) {
             return {
                 statusCode: 518,
                 body: JSON.stringify({
@@ -42,12 +46,12 @@ const build = async event => {
                 body: JSON.stringify({
                     error:
                         '::: Netlify functions: ipify server bad response! ::: ' +
-                        JSON.stringify(ipifiedData ?? ipify)
+                        JSON.stringify(ipifiedData ?? ipifyer)
                 })
             };
         }
 
-        apiURL = `${env.link}${data}&remoteip=${ipifiedData.ip}`;
+        apiURL = `${link}${data}&remoteip=${ipifiedData.ip}`;
 
         if (!apiURL.length) {
             return {

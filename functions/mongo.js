@@ -1,14 +1,14 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 // utils
 import { builder } from '@netlify/functions';
-import { env } from './utils/config';
+import { env, API_ACTIONS } from './utils/config';
 
 const build = async event => {
-    const { atlasConnect, atlasName, atlasPass, getMongo } = env;
+    const { atlasConnect, atlasName, atlasPass, mongoAPI } = env;
     const data = JSON.parse(
         decodeURIComponent(
             event.rawUrl.replace(
-                (getMongo || env.getMongo) + '/?=',
+                `${mongoAPI}${API_ACTIONS.MONGO_ALL}?=`,
                 ''
             )
         )

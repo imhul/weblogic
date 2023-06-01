@@ -1,12 +1,12 @@
 import { builder } from '@netlify/functions';
 import nodemailer from 'nodemailer';
 // utils
-import { env } from './utils/config';
+import { env, API_ACTIONS } from './utils/config';
 
 const build = async event => {
-    const { mCode, getEmail, mPW } = env;
+    const { mCode, mongoAPI, mPW } = env;
 
-    if (!mCode.length && !getEmail.length && !mPW.length) {
+    if (!mCode.length && !mongoAPI.length && !mPW.length) {
         return {
             statusCode: 520,
             body: JSON.stringify({
@@ -19,7 +19,7 @@ const build = async event => {
     const data = JSON.parse(
         decodeURIComponent(
             event.rawUrl.replace(
-                (getEmail || env.getEmail) + '/?=',
+                `${mongoAPI}${API_ACTIONS.EMAIL}?=`,
                 ''
             )
         )
