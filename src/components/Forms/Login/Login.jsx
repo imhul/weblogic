@@ -10,7 +10,11 @@ import {
     Row,
     message
 } from 'antd/lib';
-import { MailOutlined, LockOutlined, LoadingOutlined } from '@ant-design/icons';
+import {
+    MailOutlined,
+    LockOutlined,
+    LoadingOutlined
+} from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
 import { messageOptions } from '../../../utils/config';

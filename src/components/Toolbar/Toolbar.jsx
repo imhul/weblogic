@@ -8,7 +8,6 @@ import {
     Row,
     Col,
     Menu,
-    Form,
     Card,
     Button,
     Drawer,
@@ -20,7 +19,6 @@ import {
 } from 'antd/lib';
 import {
     HeartFilled,
-    MenuOutlined,
     LogoutOutlined,
     CloseCircleOutlined,
     QuestionCircleOutlined
@@ -32,8 +30,8 @@ import Forgot from '../Forms/Forgot';
 import Login from '../Forms/Login';
 // utils
 import translate from '../../utils/translations';
+import userUpdate from '../../utils/userUpdate';
 import {
-    forms,
     langOptions,
     contactMethodOptions
 } from '../../utils/config';
@@ -45,11 +43,13 @@ const Toolbar = memo(() => {
     const {
         tip,
         lang,
+        safe,
         location,
         isMenuOpen,
         authFormType,
         contactMethod
     } = useSelector(s => s.ui);
+    const [isUserUpdated, setIsUserUpdated] = useState(false);
     const { currentUser } = useSelector(s => s.auth);
     const dispatch = useDispatch();
 
@@ -128,6 +128,16 @@ const Toolbar = memo(() => {
     useEffect(() => {
         if (location !== currentPage) setCurrentPage(location);
     }, [location]);
+
+    useEffect(() => {
+        console.info('currentUser.isAuth: ', currentUser.isAuth);
+        console.info('isUserUpdated: ', isUserUpdated);
+        if (currentUser.isAuth && !isUserUpdated && safe && lang) {
+            console.info('useEffect run userUpdate!');
+            userUpdate(currentUser, lang, safe);
+            setIsUserUpdated(true);
+        }
+    }, [isUserUpdated, currentUser, lang, safe]);
 
     const menuItems = menu
         .filter(item => !item.isBlank)

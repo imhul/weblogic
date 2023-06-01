@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../../utils/bg';
 import JsonLd from '../../utils/microdata';
 import menu from '../../utils/menu';
-import userUpdate from '../../utils/userUpdate';
 // components
 import {
     ContextMenu,
@@ -46,24 +45,12 @@ const Page = ({ location }) => {
 const Output = () => {
     useInitialization();
     useSafe();
-    const { safe, lang, location } = useSelector(s => s.ui);
-    const { currentUser } = useSelector(s => s.auth);
+    const { safe, location } = useSelector(s => s.ui);
     useIpify(safe);
     useLang();
     // useTip();
     useAllUsers();
-    const [isUserUpdated, setIsUserUpdated] = useState(false);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        console.info('currentUser.isAuth: ', currentUser.isAuth);
-        console.info('isUserUpdated: ', isUserUpdated);
-        if (currentUser.isAuth && !isUserUpdated) {
-            console.info('useEffect run userUpdate!');
-            userUpdate(currentUser, lang, safe);
-            setIsUserUpdated(true);
-        }
-    }, [isUserUpdated, currentUser]);
 
     const navigate = key => {
         dispatch({
