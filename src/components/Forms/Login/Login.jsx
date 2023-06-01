@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import {
@@ -21,8 +21,14 @@ const Login = () => {
     const { users, currentUser } = useSelector(s => s.auth);
     const { safe, lang } = useSelector(s => s.ui);
     const [submitting, setSubmitting] = useState(false);
+    const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
     const dispatch = useDispatch();
     const [form] = Form.useForm();
+
+    useEffect(() => {
+        const enabled = submitting && !safe && !users;
+        setIsSubmitEnabled(enabled);
+    }, [submitting, safe, users]);
 
     const submit = useCallback(async () => {
         if (submitting && !safe && !users) return;
@@ -154,11 +160,11 @@ const Login = () => {
                 </Col>
                 <Col span={8} className="right">
                     <Button
-                        disabled={submitting && !safe && !users}
+                        disabled={!isSubmitEnabled}
                         htmlType="submit"
                         onClick={submit}
                     >
-                        {submitting && !safe && !users ? (
+                        {!isSubmitEnabled ? (
                             <LoadingOutlined
                                 style={{ color: '#bcc8ce' }}
                             />
