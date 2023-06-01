@@ -6,8 +6,8 @@ import { Button } from 'antd/lib';
 import { ApiOutlined } from '@ant-design/icons';
 
 const Futures = memo(() => {
-    const { isFuturesOpen } = useSelector(state => state.ui);
-    // const { users } = useSelector(state => state.auth);
+    const { isFuturesOpen } = useSelector(s => s.ui);
+    // const { users } = useSelector(s => s.auth);
     const dispatch = useDispatch();
 
     useEffect(() => {

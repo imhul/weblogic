@@ -6,7 +6,7 @@ import { message } from 'antd/lib';
 import { messageOptions } from '../utils/config';
 
 const useInitialization = () => {
-    const { initialized } = useSelector(state => state.ui);
+    const { initialized } = useSelector(s => s.ui);
     const dispatch = useDispatch();
 
     useEffect(() => {

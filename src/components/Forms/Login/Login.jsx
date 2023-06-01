@@ -19,19 +19,11 @@ import userUpdate from '../../../utils/userUpdate';
 const FormItem = Form.Item;
 
 const Login = () => {
-    const { users, currentUser } = useSelector(state => state.auth);
-    const { safe, lang } = useSelector(state => state.ui);
+    const { users, currentUser } = useSelector(s => s.auth);
+    const { safe, lang } = useSelector(s => s.ui);
     const [submitting, setSubmitting] = useState(false);
-    const [isUserUpdated, setIsUserUpdated] = useState(false);
     const dispatch = useDispatch();
     const [form] = Form.useForm();
-
-    useEffect(() => {
-        if (currentUser.isAuth && !isUserUpdated) {
-            userUpdate(currentUser, lang, safe);
-            setIsUserUpdated(true);
-        }
-    }, [isUserUpdated, currentUser]);
 
     const submit = useCallback(async () => {
         if (submitting && !safe && !users) return;

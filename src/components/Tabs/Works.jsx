@@ -26,7 +26,7 @@ const ListItem = List.Item;
 const ListMeta = ListItem.Meta;
 
 const Works = memo(() => {
-    const { lang } = useSelector(state => state.ui);
+    const { lang } = useSelector(s => s.ui);
     const links = [
         {
             name: translate(lang, 'work_1'),

@@ -12,7 +12,7 @@ const roles = {
 };
 
 const useTip = () => {
-    const { safe, tip, lang } = useSelector(state => state.ui);
+    const { safe, tip, lang } = useSelector(s => s.ui);
     const dispatch = useDispatch();
     const content = translate('tip_request');
     const question = [{ role: roles.USER, content }];

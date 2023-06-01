@@ -16,7 +16,7 @@ import {
 const { Panel } = Collapse;
 
 const Folio = memo(() => {
-    const { safe, active, lang } = useSelector(state => state.ui);
+    const { safe, active, lang } = useSelector(s => s.ui);
     const dispatch = useDispatch();
     const renderTexts = [
         {

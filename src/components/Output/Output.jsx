@@ -1,5 +1,5 @@
 // core
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import '../../utils/bg';
@@ -45,12 +45,21 @@ const Page = ({ location }) => {
 const Output = () => {
     useInitialization();
     useSafe();
-    const { safe, location } = useSelector(s => s.ui);
+    const { safe, lang, location } = useSelector(s => s.ui);
+    const { currentUser } = useSelector(s => s.auth);
     useIpify(safe);
     useLang();
     // useTip();
     useAllUsers();
+    const [isUserUpdated, setIsUserUpdated] = useState(false);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (currentUser.isAuth && !isUserUpdated) {
+            userUpdate(currentUser, lang, safe);
+            setIsUserUpdated(true);
+        }
+    }, [isUserUpdated, currentUser]);
 
     const navigate = key => {
         dispatch({

@@ -12,8 +12,8 @@ import translate from '../../utils/translations';
 import { getRecaptcha } from '../../utils/api';
 
 const Captcha = memo(() => {
-    const { safe, lang } = useSelector(state => state.ui);
-    const { currentUser } = useSelector(state => state.auth);
+    const { safe, lang } = useSelector(s => s.ui);
+    const { currentUser } = useSelector(s => s.auth);
     const [ip, setIp] = useState('');
     const dispatch = useDispatch();
 

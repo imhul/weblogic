@@ -8,7 +8,7 @@ import { Modal, Button } from 'antd/lib';
 
 const TrelloModal = memo(() => {
     // useEffect(() => setTimeout(() => authenticateUser(), 1000));
-    const { trelloModalVisible } = useSelector(state => state.ui);
+    const { trelloModalVisible } = useSelector(s => s.ui);
     const dispatch = useDispatch();
 
     return (

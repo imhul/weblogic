@@ -6,7 +6,7 @@ const useLang = method => {
     const { isUserLangSelected, lang } = useSelector(
         state => state.ui
     );
-    const { currentUser } = useSelector(state => state.auth);
+    const { currentUser } = useSelector(s => s.auth);
     const dispatch = useDispatch();
 
     useEffect(() => {

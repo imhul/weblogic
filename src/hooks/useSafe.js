@@ -9,7 +9,7 @@ const initial = {
 };
 
 const useSafe = () => {
-    const { safe } = useSelector(state => state.ui);
+    const { safe } = useSelector(s => s.ui);
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
 

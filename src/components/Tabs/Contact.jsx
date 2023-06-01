@@ -11,8 +11,8 @@ import Captcha from '../Captcha';
 import translate from '../../utils/translations';
 
 const Contact = memo(() => {
-    const { lang } = useSelector(state => state.ui);
-    const { currentUser } = useSelector(state => state.auth);
+    const { lang } = useSelector(s => s.ui);
+    const { currentUser } = useSelector(s => s.auth);
 
     return (
         <div className="Contact content">

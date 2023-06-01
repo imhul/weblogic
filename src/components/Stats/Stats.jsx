@@ -6,7 +6,7 @@ import FPS from './FPS';
 import translate from '../../utils/translations';
 
 const Stats = memo(() => {
-    const { lang } = useSelector(state => state.ui);
+    const { lang } = useSelector(s => s.ui);
     const [parts, setParts] = useState(0);
 
     useEffect(() => {

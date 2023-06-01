@@ -58,7 +58,7 @@ const ContactForm = memo(() => {
         tgMessage,
         isContactFormFilled,
         contactMethod
-    } = useSelector(state => state.ui);
+    } = useSelector(s => s.ui);
     const [submitting, setSubmitting] = useState(false);
     const [emailMessage, setEmailMessage] = useState('');
     const dispatch = useDispatch();

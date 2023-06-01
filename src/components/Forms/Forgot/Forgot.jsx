@@ -13,8 +13,8 @@ import translate from '../../../utils/translations';
 const FormItem = Form.Item;
 
 const Registration = () => {
-    const { currentUser } = useSelector(state => state.auth);
-    const { safe, lang } = useSelector(state => state.ui);
+    const { currentUser } = useSelector(s => s.auth);
+    const { safe, lang } = useSelector(s => s.ui);
     const [submitting, setSubmitting] = useState(false);
     const dispatch = useDispatch();
     const [form] = Form.useForm();

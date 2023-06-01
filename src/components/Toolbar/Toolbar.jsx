@@ -49,8 +49,8 @@ const Toolbar = memo(() => {
         isMenuOpen,
         authFormType,
         contactMethod
-    } = useSelector(state => state.ui);
-    const { currentUser } = useSelector(state => state.auth);
+    } = useSelector(s => s.ui);
+    const { currentUser } = useSelector(s => s.auth);
     const dispatch = useDispatch();
 
     useEffect(() => {

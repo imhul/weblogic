@@ -7,8 +7,8 @@ import { MONGO_ACTIONS } from '../utils/config';
 import parseResponseBody from '../utils/parseBody';
 
 const useAllUsers = () => {
-    const { safe, lang } = useSelector(state => state.ui);
-    const { currentUser } = useSelector(state => state.auth);
+    const { safe, lang } = useSelector(s => s.ui);
+    const { currentUser } = useSelector(s => s.auth);
     const dispatch = useDispatch();
 
     useEffect(() => {
