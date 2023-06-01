@@ -20,7 +20,7 @@ const useAllUsers = () => {
             const connected = await getMongoDB(
                 `${safe.mongoAPI}${
                     API_ACTIONS.MONGO_ALL
-                }/?=${encodeURIComponent(
+                }?=${encodeURIComponent(
                     JSON.stringify({
                         db: safe.authdb,
                         collection: safe.authCollection
