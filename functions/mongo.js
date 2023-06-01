@@ -1,7 +1,7 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 // utils
 import { builder } from '@netlify/functions';
-import { env } from './utils/config';
+import { env, MONGO_ACTIONS } from './utils/config';
 
 const build = async event => {
     const { atlasConnect, atlasName, atlasPass, getMongo } = env;
@@ -32,9 +32,7 @@ const build = async event => {
             version: ServerApiVersion.v1,
             strict: false,
             deprecationErrors: true
-            // family: 4
         }
-        // connectTimeoutMS: 3000
     });
 
     try {
@@ -47,26 +45,80 @@ const build = async event => {
         console.info('connected 3!');
         const connect = await client.db(data.db).command({ ping: 1 });
         console.info('connected 4: ', connect);
-        const users = await collection.find(data.query).toArray();
-        console.info('users: ', users);
-        if (users.length) {
-            return {
-                statusCode: 200,
-                body: JSON.stringify({
-                    ok: true,
-                    code: 200,
-                    data: users
-                })
-            };
-        } else {
-            console.warn('Failed  mongodb connection!');
-            return {
-                statusCode: 524,
-                body: JSON.stringify({
-                    error: 'Failed  mongodb connection!',
-                    code: 524
-                })
-            };
+
+        switch (data.action) {
+            case MONGO_ACTIONS.ALL:
+                return await getAll();
+
+            case MONGO_ACTIONS.UPDATE:
+                return await userUpdate();
+
+            default:
+                break;
+        }
+
+        async function userUpdate() {
+            const user = await collection.findOne({ _id: data._id });
+            console.info('user: ', user);
+            if (user) {
+                const updated = await collection.updateOne(
+                    { _id: data._id },
+                    { $set: data.query }
+                );
+                console.info('updated: ', updated);
+                if (updated.modifiedCount) {
+                    return {
+                        statusCode: 200,
+                        body: JSON.stringify({
+                            ok: true,
+                            code: 200,
+                            data: updated
+                        })
+                    };
+                } else {
+                    console.warn('Failed  mongodb connection!');
+                    return {
+                        statusCode: 526,
+                        body: JSON.stringify({
+                            error: 'Failed  mongodb connection!',
+                            code: 526
+                        })
+                    };
+                }
+            } else {
+                console.warn('Failed  mongodb connection!');
+                return {
+                    statusCode: 527,
+                    body: JSON.stringify({
+                        error: 'Failed  mongodb connection!',
+                        code: 527
+                    })
+                };
+            }
+        }
+
+        async function getAll() {
+            const users = await collection.find(data.query).toArray();
+            console.info('users: ', users);
+            if (users.length) {
+                return {
+                    statusCode: 200,
+                    body: JSON.stringify({
+                        ok: true,
+                        code: 200,
+                        data: users
+                    })
+                };
+            } else {
+                console.warn('Failed  mongodb connection!');
+                return {
+                    statusCode: 524,
+                    body: JSON.stringify({
+                        error: 'Failed  mongodb connection!',
+                        code: 524
+                    })
+                };
+            }
         }
     } catch (error) {
         console.warn('Common mongodb error! ', error);

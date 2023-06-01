@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import {
@@ -14,6 +14,7 @@ import { MailOutlined, LockOutlined } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
 import { messageOptions } from '../../../utils/config';
+import userUpdate from '../../../utils/userUpdate';
 
 const FormItem = Form.Item;
 
@@ -21,15 +22,23 @@ const Login = () => {
     const { users, currentUser } = useSelector(state => state.auth);
     const { safe, lang } = useSelector(state => state.ui);
     const [submitting, setSubmitting] = useState(false);
+    const [isUserUpdated, setIsUserUpdated] = useState(false);
     const dispatch = useDispatch();
     const [form] = Form.useForm();
+
+    useEffect(() => {
+        if (currentUser.isAuth && !isUserUpdated) {
+            userUpdate(currentUser, lang, safe);
+            setIsUserUpdated(true);
+        }
+    }, [isUserUpdated, currentUser]);
 
     const submit = useCallback(async () => {
         if (submitting && !safe && !users) return;
         setSubmitting(true);
         const values = form.getFieldsValue();
         console.info('values: ', values);
-        console.info('users: ', users); // TODO: why users is empty? users = []
+        console.info('users: ', users);
         const beingCheckedUser = users.find(
             user => user.email === values.login
         );
@@ -55,10 +64,12 @@ const Login = () => {
                             : {
                                   ...beingCheckedUser,
                                   ip: currentUser.ip,
-                                  ips: [
-                                      beingCheckedUser.ip,
-                                      currentUser.ip
-                                  ]
+                                  ips: beingCheckedUser.ip
+                                      ? [
+                                            beingCheckedUser.ip,
+                                            currentUser.ip
+                                        ]
+                                      : [currentUser.ip]
                               }
                 });
             } else {
@@ -69,6 +80,7 @@ const Login = () => {
             }
         }
 
+        form.resetFields();
         setSubmitting(false);
     }, [safe, users, submitting, form, lang, currentUser]);
 
@@ -150,10 +162,18 @@ const Login = () => {
                     </FormItem>
                 </Col>
                 <Col span={8} className="right">
-                    <Button disabled={submitting && !safe && !users} htmlType="submit" onClick={submit}>
-                        {submitting && !safe && !users ? <LoadingOutlined
-                        style={{ color: '#bcc8ce' }}
-                    /> : translate(lang, 'login_submit')}
+                    <Button
+                        disabled={submitting && !safe && !users}
+                        htmlType="submit"
+                        onClick={submit}
+                    >
+                        {submitting && !safe && !users ? (
+                            <LoadingOutlined
+                                style={{ color: '#bcc8ce' }}
+                            />
+                        ) : (
+                            translate(lang, 'login_submit')
+                        )}
                     </Button>
                 </Col>
                 <Col span={10} className="padding-small left">

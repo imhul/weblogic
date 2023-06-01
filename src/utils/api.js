@@ -73,3 +73,8 @@ export const getMongoDB = async (url, lang) => {
     const result = await request(url, GET_JSON_CONFIG, lang);
     return result;
 };
+
+export const getMongoUserUpdate = async (url, lang) => {
+    const result = await request(url, GET_JSON_CONFIG, lang);
+    return result;
+};

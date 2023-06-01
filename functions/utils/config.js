@@ -42,14 +42,14 @@ export const headers = {
 };
 
 export const MONGO_ACTIONS = {
-    ALL: '/action/find',
-    ADD: '/action/insertOne',
-    FIND: '/action/findOne',
-    UPDATE: '/action/updateOne',
-    DELETE: '/action/deleteOne',
-    ADD_MANY: '/action/insertMany',
-    FIND_MANY: '/action/find',
-    UPDATE_MANY: '/action/updateMany',
-    DELETE_MANY: '/action/deleteMany',
-    RUN: '/action/aggregate'
+    ALL: 'ALL', // '/action/find'
+    RUN: 'RUN', // '/action/aggregate'
+    ADD: 'ADD', // '/action/insertOne'
+    FIND: 'FIND', // '/action/findOne'
+    UPDATE: 'UPDATE', // '/action/updateOne'
+    DELETE: 'DELETE', // '/action/deleteOne'
+    ADD_MANY: 'ADD_MANY', // '/action/insertMany'
+    FIND_MANY: 'FIND_MANY', // '/action/find'
+    UPDATE_MANY: 'UPDATE_MANY', // '/action/updateMany'
+    DELETE_MANY: 'DELETE_MANY' // '/action/deleteMany'
 };

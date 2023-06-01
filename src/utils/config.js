@@ -35,15 +35,16 @@ export const POST_JSON_CONFIG = {
 };
 
 export const MONGO_ACTIONS = {
-    ADD: 'ADD',
-    FIND: 'FIND',
-    UPDATE: 'UPDATE',
-    DELETE: 'DELETE',
-    ADD_MANY: 'ADD_MANY',
-    FIND_MANY: 'FIND_MANY',
-    UPDATE_MANY: 'UPDATE_MANY',
-    DELETE_MANY: 'DELETE_MANY',
-    RUN: 'RUN'
+    ALL: 'ALL', // '/action/find'
+    RUN: 'RUN', // '/action/aggregate'
+    ADD: 'ADD', // '/action/insertOne'
+    FIND: 'FIND', // '/action/findOne'
+    UPDATE: 'UPDATE', // '/action/updateOne'
+    DELETE: 'DELETE', // '/action/deleteOne'
+    ADD_MANY: 'ADD_MANY', // '/action/insertMany'
+    FIND_MANY: 'FIND_MANY', // '/action/find'
+    UPDATE_MANY: 'UPDATE_MANY', // '/action/updateMany'
+    DELETE_MANY: 'DELETE_MANY' // '/action/deleteMany'
 };
 
 export const forms = {
