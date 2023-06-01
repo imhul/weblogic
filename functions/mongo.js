@@ -59,9 +59,7 @@ const build = async event => {
 
         async function userUpdate() {
             console.warn('run userUpdate!');
-            const user = await collection.findOne({ _id: data._id });
-            console.info('user: ', user);
-            if (user) {
+            if (collection) {
                 const updated = await collection.updateOne(
                     { _id: data._id },
                     { $set: data.query }
