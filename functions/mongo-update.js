@@ -1,4 +1,4 @@
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ServerApiVersion, Long  } from 'mongodb';
 // utils
 import { builder } from '@netlify/functions';
 import { env, API_ACTIONS } from './utils/config';
@@ -16,9 +16,9 @@ const build = async event => {
 
     if (!data) {
         return {
-            statusCode: 526,
+            statusCode: 529,
             body: JSON.stringify({
-                code: 526,
+                code: 529,
                 message: 'No data provided!'
             })
         };
@@ -49,7 +49,7 @@ const build = async event => {
         const updated = await collection.updateOne(
             { _id: _id }, // _id: string
             { $set: {
-                lastGoogleCheck: parseInt(0, 10)
+                lastGoogleCheck: Long.fromNumber(Date.now()),
             } }
         );
         console.info('updated: ', updated);
@@ -63,22 +63,22 @@ const build = async event => {
                 })
             };
         } else {
-            console.warn('Failed  mongodb connection!');
+            console.warn('Failed  mongodb update!');
             return {
-                statusCode: 526,
+                statusCode: 527,
                 body: JSON.stringify({
-                    error: 'Failed  mongodb connection!',
-                    code: 526
+                    error: 'Failed  mongodb update!',
+                    code: 527
                 })
             };
         }
     } catch (error) {
         console.warn('Common mongodb error! ', error);
         return {
-            statusCode: 525,
+            statusCode: 528,
             body: JSON.stringify({
                 error: 'Common mongodb error! ' + error,
-                code: 525
+                code: 528
             })
         };
     } finally {
