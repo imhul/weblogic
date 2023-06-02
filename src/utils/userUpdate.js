@@ -6,7 +6,10 @@ function userUpdate(user, lang, safe) {
     async function update() {
         if (!safe && !lang && !user) return;
 
+        const { _id, userId, isAuth, isRobot, ...rest } = user;
+
         try {
+            console.info('rest: ', rest);
             const connected = await getMongoUserUpdate(
                 `${safe.mongoAPI}${
                     API_ACTIONS.MONGO_UPDATE
@@ -14,7 +17,7 @@ function userUpdate(user, lang, safe) {
                     JSON.stringify({
                         db: safe.authdb,
                         collection: safe.authCollection,
-                        query: user
+                        query: rest
                     })
                 )}`,
                 lang
