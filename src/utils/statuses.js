@@ -24,12 +24,12 @@ export const statuses = {
     521: '::: Netlify functions: Email: No mailOptions provided! :::',
     522: '::: Netlify functions: Email: Error sending email: transporter.sendMail error :::',
     523: '::: Netlify functions: Email: Error sending email: last catch error! :::',
-    524: '::: Netlify functions: Mongo: Failed  mongodb connection! :::',
-    525: '::: Netlify functions: Mongo: Common mongodb error! :::',
-    526: '::: Netlify functions: Mongo: No data provided! :::',
-    527: '::: :::',
-    528: '::: :::',
-    529: '::: :::',
+    524: '::: Netlify functions: Mongo: ALL: Failed  mongodb connection! :::',
+    525: '::: Netlify functions: Mongo: ALL: Common mongodb error! :::',
+    526: '::: Netlify functions: Mongo: ALL: No data provided! :::',
+    527: '::: Netlify functions: Mongo: UPDATE: No data provided! :::',
+    528: '::: Netlify functions: Mongo: UPDATE: Failed update! :::',
+    529: '::: Netlify functions: Mongo: UPDATE: Common mongodb error! :::',
     530: '::: :::'
 };
 
