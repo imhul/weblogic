@@ -148,7 +148,7 @@ const Login = () => {
                     </FormItem>
                 </Col>
                 <Col span={16} className="left">
-                    <FormItem name="remember">
+                    <FormItem name="remember" valuePropName="checked">
                         <Checkbox
                             checked={currentUser.rememberMe}
                             onChange={e =>

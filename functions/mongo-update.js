@@ -50,11 +50,7 @@ const build = async event => {
         console.info('userId: ', userId);
         const updated = await collection.updateOne(
             { userId: userId },
-            {
-                $set: {
-                    lastGoogleCheck: `${Date.now()}`
-                }
-            }
+            { $set: rest }
         );
         console.info('updated: ', updated);
         if (updated.modifiedCount) {
