@@ -49,7 +49,7 @@ const build = async event => {
         const updated = await collection.updateOne(
             { _id: _id }, // _id: string
             { $set: {
-                lastGoogleCheck: new parseInt(0, 10)
+                lastGoogleCheck: parseInt(0, 10)
             } }
         );
         console.info('updated: ', updated);
