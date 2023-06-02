@@ -28,7 +28,11 @@ const getContent = (response, lang) => {
 const request = async (url, config, lang) => {
     const response = await fetch(url, config);
     if (response.ok !== undefined) {
-        if (response.status !== 200 && response.code !== 200 && response.statusCode !== 200) {
+        if (
+            response.status !== 200 &&
+            response.code !== 200 &&
+            response.statusCode !== 200
+        ) {
             const content = getContent(response, lang);
             console.warn(content);
             message.error({

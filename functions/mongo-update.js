@@ -47,11 +47,12 @@ const build = async event => {
         const collection = db.collection(data.collection);
         console.info('connected to collection!');
         const { _id, ...rest } = data.query;
+        console.info('_id: ', _id);
         const updated = await collection.updateOne(
             { _id: _id }, // _id: string
             {
                 $set: {
-                    lastGoogleCheck: `${Date.now()}`,
+                    lastGoogleCheck: `${Date.now()}`
                 }
             }
         );
