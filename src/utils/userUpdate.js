@@ -6,10 +6,10 @@ function userUpdate(user, lang, safe) {
     async function update() {
         if (!safe && !lang && !user) return;
 
-        const { _id, userId, isAuth, isRobot, ...rest } = user;
+        const { userId, isAuth, isRobot, ...rest } = user;
 
         try {
-            console.info('rest: ', rest);
+            // console.info('rest: ', rest);
             const connected = await getMongoUserUpdate(
                 `${safe.mongoAPI}${
                     API_ACTIONS.MONGO_UPDATE

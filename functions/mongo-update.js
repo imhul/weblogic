@@ -45,9 +45,10 @@ const build = async event => {
         console.info('connected to db!');
         const collection = db.collection(data.collection);
         console.info('connected to collection!');
+        const { _id, ...rest } = data.query;
         const updated = await collection.updateOne(
-            { _id: data.query._id },
-            { $set: data.query }
+            { _id },
+            { $set: rest }
         );
         console.info('updated: ', updated);
         if (updated.modifiedCount) {
