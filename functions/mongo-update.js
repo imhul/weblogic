@@ -47,9 +47,9 @@ const build = async event => {
         console.info('connected to collection!');
         const { _id, ...rest } = data.query;
         const updated = await collection.updateOne(
-            { _id },
+            { _id: _id }, // _id: string
             { $set: {
-                lastGoogleCheck: 0
+                lastGoogleCheck: new Int64(0)
             } }
         );
         console.info('updated: ', updated);
