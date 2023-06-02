@@ -51,7 +51,7 @@ const build = async event => {
             { _id: _id }, // _id: string
             {
                 $set: {
-                    lastGoogleCheck: Long.fromNumber(Date.now())
+                    lastGoogleCheck: `${Date.now()}`,
                 }
             }
         );
