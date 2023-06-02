@@ -6,7 +6,7 @@ function userUpdate(user, lang, safe) {
     async function update() {
         if (!safe && !lang && !user) return;
 
-        const { userId, isAuth, isRobot, ...rest } = user;
+        const { _id, isAuth, isRobot, ...rest } = user;
 
         try {
             // console.info('rest: ', rest);
