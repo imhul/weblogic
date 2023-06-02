@@ -11,15 +11,18 @@ import {
     message
 } from 'antd/lib';
 import {
+    EyeOutlined,
     MailOutlined,
     LockOutlined,
-    LoadingOutlined
+    LoadingOutlined,
+    EyeInvisibleOutlined
 } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
 import { messageOptions } from '../../../utils/config';
 
 const FormItem = Form.Item;
+const Password = Input.Password;
 
 const Login = () => {
     const { users, currentUser } = useSelector(s => s.auth);
@@ -59,6 +62,7 @@ const Login = () => {
             if (beingCheckedUser.pass === values.pass) {
                 dispatch({
                     type: 'USER_AUTH',
+                    // TODO: check & write only needed fields
                     payload:
                         currentUser.ip === beingCheckedUser.ip
                             ? beingCheckedUser
@@ -138,9 +142,16 @@ const Login = () => {
                             }
                         ]}
                     >
-                        <Input
+                        <Password
                             addonBefore={
                                 <LockOutlined className="white" />
+                            }
+                            iconRender={visible =>
+                                visible ? (
+                                    <EyeOutlined className="white" />
+                                ) : (
+                                    <EyeInvisibleOutlined className="white" />
+                                )
                             }
                             placeholder={translate(lang, 'pass')}
                             autoComplete="current-password"

@@ -11,9 +11,11 @@ import {
     message
 } from 'antd/lib';
 import {
+    EyeOutlined,
     MailOutlined,
     LockOutlined,
-    UserOutlined
+    UserOutlined,
+    EyeInvisibleOutlined
 } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
@@ -21,6 +23,7 @@ import { messageOptions } from '../../../utils/config';
 import { v4 as uuidv4, v5 as uuidv5 } from 'uuid';
 
 const FormItem = Form.Item;
+const Password = Input.Password;
 
 const Registration = () => {
     const { currentUser } = useSelector(s => s.auth);
@@ -44,7 +47,7 @@ const Registration = () => {
         const values = form.getFieldsValue();
 
         try {
-            // TODO: add user to usersDB
+            // TODO: check by email if (user not exist) and add him to db!
 
             // if result.ok:
             dispatch({
@@ -175,8 +178,15 @@ const Registration = () => {
                             }
                         ]}
                     >
-                        <Input
+                        <Password
                             autoComplete="new-password"
+                            iconRender={visible =>
+                                visible ? (
+                                    <EyeOutlined className="white" />
+                                ) : (
+                                    <EyeInvisibleOutlined className="white" />
+                                )
+                            }
                             addonBefore={
                                 <LockOutlined className="white" />
                             }
@@ -218,8 +228,15 @@ const Registration = () => {
                             })
                         ]}
                     >
-                        <Input
+                        <Password
                             autoComplete="new-password"
+                            iconRender={visible =>
+                                visible ? (
+                                    <EyeOutlined className="white" />
+                                ) : (
+                                    <EyeInvisibleOutlined className="white" />
+                                )
+                            }
                             addonBefore={
                                 <LockOutlined className="white" />
                             }

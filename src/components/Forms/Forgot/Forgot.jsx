@@ -25,7 +25,6 @@ const Registration = () => {
         const values = form.getFieldsValue();
 
         try {
-            // TODO: add user to usersDB
             // if result.ok:
         } catch (error) {}
 

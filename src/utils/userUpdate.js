@@ -7,6 +7,7 @@ function userUpdate(user, lang, safe) {
         if (!safe && !lang && !user) return;
 
         const { _id, isAuth, isRobot, ...rest } = user;
+        // TODO: check & write only needed fields
 
         try {
             // console.info('rest: ', rest);
