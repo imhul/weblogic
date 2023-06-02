@@ -28,13 +28,14 @@ const getContent = (response, lang) => {
 const request = async (url, config, lang) => {
     const response = await fetch(url, config);
     if (response.ok !== undefined) {
-        if (response.status !== 200 && response.code !== 200) {
+        if (response.status !== 200 && response.code !== 200 && response.statusCode !== 200) {
+            const content = getContent(response, lang);
+            console.warn(content);
             message.error({
                 ...messageOptions,
-                content: getContent(response, lang)
+                content
             });
         }
-        // console.info('response 1: ', response);
         return response;
     }
     const resultJson = await response.json();
@@ -43,14 +44,16 @@ const request = async (url, config, lang) => {
     if (
         result.ok !== undefined &&
         response.status !== 200 &&
-        response.code !== 200
+        response.code !== 200 &&
+        response.statusCode !== 200
     ) {
+        const content = getContent(response, lang);
+        console.warn(content);
         message.error({
             ...messageOptions,
-            content: getContent(result, lang)
+            content
         });
     }
-    // console.info('response 2: ', result);
     return result;
 };
 

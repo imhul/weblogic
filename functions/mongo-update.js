@@ -17,6 +17,7 @@ const build = async event => {
     if (!data) {
         return {
             statusCode: 527,
+            statusText: 'No data provided: ' + data,
             body: JSON.stringify({
                 code: 527,
                 message: 'No data provided!'
@@ -68,6 +69,7 @@ const build = async event => {
             console.warn('Failed  mongodb update!');
             return {
                 statusCode: 528,
+                statusText: 'Failed  mongodb update: ' + updated,
                 body: JSON.stringify({
                     error: 'Failed  mongodb update!',
                     code: 528
@@ -75,11 +77,12 @@ const build = async event => {
             };
         }
     } catch (error) {
-        console.warn('Common mongodb error! ', error);
+        console.warn('Common mongodb error: ', error);
         return {
             statusCode: 529,
+            statusText: 'Common mongodb error: ' + error,
             body: JSON.stringify({
-                error: 'Common mongodb error! ' + error,
+                error: 'Common mongodb error: ' + error,
                 code: 529
             })
         };
