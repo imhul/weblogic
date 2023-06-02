@@ -48,7 +48,9 @@ const build = async event => {
         const { _id, ...rest } = data.query;
         const updated = await collection.updateOne(
             { _id },
-            { $set: rest }
+            { $set: {
+                lastGoogleCheck: 0
+            } }
         );
         console.info('updated: ', updated);
         if (updated.modifiedCount) {
