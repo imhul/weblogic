@@ -55,8 +55,8 @@ const Registration = () => {
                     name: values.name,
                     userId: id,
                     lang: lang,
-                    registerTime: Date.now(),
-                    lastSignInTime: Date.now()
+                    registerTime: `${Date.now()}`,
+                    lastSignInTime: `${Date.now()}`
                 }
             });
         } catch (error) {}

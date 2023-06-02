@@ -55,7 +55,7 @@ export default function (state = initState, action) {
                     ...state.currentUser,
                     isRobot: !action.payload,
                     role: 'human',
-                    lastRobotCheck: Date.now(),
+                    lastRobotCheck: `${Date.now()}`,
                     lastGoogleCheck: action.payload.challenge_ts
                 }
             };
@@ -129,7 +129,7 @@ export default function (state = initState, action) {
                     isAuth: true,
                     isRobot: false,
                     ips: [...new Set(action.payload.ips)],
-                    lastSignInTime: Date.now()
+                    lastSignInTime: `${Date.now()}`
                 }
             };
 
@@ -139,7 +139,7 @@ export default function (state = initState, action) {
                 currentUser: {
                     ...state.currentUser,
                     isAuth: false,
-                    lastSignOutTime: Date.now()
+                    lastSignOutTime: `${Date.now()}`
                 }
             };
 
