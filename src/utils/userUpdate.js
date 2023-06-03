@@ -2,7 +2,6 @@ import { getMongoUserUpdate } from './api';
 import { API_ACTIONS } from './config';
 
 function userUpdate(user, lang, safe) {
-    console.warn('run userUpdate!');
     async function update() {
         if (!safe && !lang && !user) return;
 
@@ -19,7 +18,6 @@ function userUpdate(user, lang, safe) {
         } = user;
 
         try {
-            // console.info('rest: ', rest);
             const connected = await getMongoUserUpdate(
                 `${safe.mongoAPI}${
                     API_ACTIONS.MONGO_UPDATE

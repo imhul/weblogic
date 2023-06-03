@@ -39,26 +39,8 @@ export const API_ACTIONS = {
     TELEGRAM_BOT: 'telegram',
     EMAIL: 'email',
     MONGO_ALL: 'mongo',
+    MONGO_ADD: 'mongo-add',
     MONGO_UPDATE: 'mongo-update'
-};
-
-export const forms = {
-    login: {
-        title: 'Login',
-        id: 'login'
-    },
-    reg: {
-        title: 'Registration',
-        id: 'reg'
-    },
-    forgot: {
-        title: 'Forgot password?',
-        id: 'forgot'
-    },
-    reset: {
-        title: 'Change password',
-        id: 'change_pass'
-    }
 };
 
 export const contactMethodOptions = [

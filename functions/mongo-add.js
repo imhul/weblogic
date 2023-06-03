@@ -8,7 +8,7 @@ const build = async event => {
     const data = JSON.parse(
         decodeURIComponent(
             event.rawUrl.replace(
-                `${mongoAPI}${API_ACTIONS.MONGO_UPDATE}?=`,
+                `${mongoAPI}${API_ACTIONS.MONGO_ADD}?=`,
                 ''
             )
         )
@@ -16,10 +16,10 @@ const build = async event => {
 
     if (!data) {
         return {
-            statusCode: 527,
+            statusCode: 530,
             statusText: 'No data provided: ' + data,
             body: JSON.stringify({
-                code: 527,
+                code: 530,
                 message: 'No data provided!'
             })
         };
@@ -46,13 +46,8 @@ const build = async event => {
         console.info('connected to db!');
         const collection = db.collection(data.collection);
         console.info('connected to collection!');
-        const { userId, ...rest } = data.query;
-        console.info('userId: ', userId);
-        const updated = await collection.updateOne(
-            { userId: userId },
-            { $set: rest }
-        );
-        console.info('updated: ', updated);
+        const add = await collection.insertOne({ ...data.query });
+        console.info('add: ', add);
         if (updated.modifiedCount) {
             return {
                 statusCode: 200,
@@ -63,24 +58,24 @@ const build = async event => {
                 })
             };
         } else {
-            console.warn('Failed  mongodb update!');
+            console.warn('Failed  mongodb add!');
             return {
-                statusCode: 528,
-                statusText: 'Failed  mongodb update: ' + updated,
+                statusCode: 531,
+                statusText: 'Failed  mongodb add: ' + updated,
                 body: JSON.stringify({
-                    error: 'Failed  mongodb update!',
-                    code: 528
+                    error: 'Failed  mongodb add!',
+                    code: 531
                 })
             };
         }
     } catch (error) {
         console.warn('Common mongodb error: ', error);
         return {
-            statusCode: 529,
+            statusCode: 532,
             statusText: 'Common mongodb error: ' + error,
             body: JSON.stringify({
                 error: 'Common mongodb error: ' + error,
-                code: 529
+                code: 532
             })
         };
     } finally {
