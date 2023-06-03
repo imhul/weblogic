@@ -60,14 +60,25 @@ const Login = () => {
             return;
         } else {
             if (beingCheckedUser.pass === values.pass) {
+                const {
+                    lastSignInTime,
+                    lastSignOutTime,
+                    lastRobotCheck,
+                    lastGoogleCheck,
+                    rememberMe,
+                    system,
+                    subject,
+                    tgMessage,
+                    message,
+                    ...rest
+                } = beingCheckedUser;
                 dispatch({
                     type: 'USER_AUTH',
-                    // TODO: check & write only needed fields
                     payload:
                         currentUser.ip === beingCheckedUser.ip
-                            ? beingCheckedUser
+                            ? rest
                             : {
-                                  ...beingCheckedUser,
+                                  ...rest,
                                   ip: currentUser.ip,
                                   ips: beingCheckedUser.ip
                                       ? [
