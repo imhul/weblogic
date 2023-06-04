@@ -27,22 +27,22 @@ const FormItem = Form.Item;
 const Password = Input.Password;
 
 const Registration = () => {
-    const { currentUser } = useSelector(s => s.auth);
+    const { users, currentUser } = useSelector(s => s.auth);
     const { safe, lang } = useSelector(s => s.ui);
     const [submitting, setSubmitting] = useState(false);
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const submit = useCallback(async () => {
-        if (submitting && !safe) return;
+        if (submitting && !safe && !users.length) return;
         setSubmitting(true);
         const userId = idGenerator(currentUser);
         const values = form.getFieldsValue();
         const now = `${Date.now()}`;
-
-        console.info('values.email: ', values.email);
-        console.info('currentUser.email: ', currentUser.email);
-
-        if (values.email === currentUser.email) {
+        const isUserExist = users.some(
+            obj => obj.email === values.email
+        );
+        console.info('isUserExist: ', isUserExist);
+        if (isUserExist) {
             message.error({
                 content: `${translate(
                     lang,
@@ -78,7 +78,7 @@ const Registration = () => {
         console.info('Reg.Comp: add user: ', user);
         setSubmitting(false);
         form.resetFields();
-    }, [safe, submitting, form, lang, currentUser]);
+    }, [safe, users, submitting, form, lang, currentUser]);
 
     return (
         <Form

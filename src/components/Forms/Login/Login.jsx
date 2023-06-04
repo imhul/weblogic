@@ -41,13 +41,9 @@ const Login = () => {
         if (isSubmitDisabled) return;
         setSubmitting(true);
         const values = form.getFieldsValue();
-        console.info('values: ', values);
-        console.info('users: ', users);
         const beingCheckedUser = users.find(
             user => user.email === values.login
         );
-
-        console.info('beingCheckedUser: ', beingCheckedUser);
 
         if (!beingCheckedUser) {
             message.error({
