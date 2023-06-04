@@ -41,7 +41,6 @@ const Registration = () => {
         const isUserExist = users.some(
             obj => obj.email === values.email
         );
-        console.info('isUserExist: ', isUserExist);
         if (isUserExist) {
             message.error({
                 content: `${translate(
@@ -74,8 +73,14 @@ const Registration = () => {
         const user = !currentUser.registerTime
             ? { ...currentUser, ...payload }
             : currentUser;
-        userAdd(user, lang, safe);
-        console.info('Reg.Comp: add user: ', user);
+        const isAdded = await userAdd(user, lang, safe);
+        console.info('isAdded: ', isAdded);
+
+        if (isAdded)
+            message.success({
+                content: translate(lang, 'register_success_message'),
+                ...messageOptions
+            });
         setSubmitting(false);
         form.resetFields();
     }, [safe, users, submitting, form, lang, currentUser]);

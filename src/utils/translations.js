@@ -21,6 +21,7 @@ const translations = {
         fps: 'fps',
 
         // form EN
+        register_success_message: 'Registration success!',
         login_success_message: 'Login success!',
         invalid_pass_message: 'Invalid password!',
         invalid_email_message: 'Invalid email!',
@@ -204,6 +205,7 @@ const translations = {
         fps: 'кадрів/с',
 
         // form UA
+        register_success_message: 'Ви успішно зареєструвалися!',
         login_success_message: 'Ви успішно увійшли!',
         invalid_pass_message: 'Невірний пароль!',
         invalid_email_message: 'Невірний email!',

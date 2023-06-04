@@ -2,7 +2,7 @@ import { getMongoUserAdd } from './api';
 import { API_ACTIONS } from './config';
 
 function userUpdate(user, lang, safe) {
-    async function update() {
+    async function add() {
         if (!safe && !lang && !user) return;
 
         const { isAuth, isRobot, ...rest } = user;
@@ -26,12 +26,15 @@ function userUpdate(user, lang, safe) {
                     ? '::: User add NOT sended! :::'
                     : '::: User add sended! :::'
             );
+
+            return true;
         } catch (error) {
             console.error('::: User add ERROR! :::', error);
+            return false;
         }
     }
 
-    update();
+    return add();
 }
 
 export default userUpdate;
