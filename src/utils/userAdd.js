@@ -5,7 +5,7 @@ function userUpdate(user, lang, safe) {
     async function update() {
         if (!safe && !lang && !user) return;
 
-        const { _id, isAuth, isRobot, ...rest } = user;
+        const { isAuth, isRobot, ...rest } = user;
 
         try {
             const connected = await getMongoUserAdd(
@@ -27,7 +27,7 @@ function userUpdate(user, lang, safe) {
                     : '::: User add sended! :::'
             );
         } catch (error) {
-            console.error('::: User update ERROR! :::', error);
+            console.error('::: User add ERROR! :::', error);
         }
     }
 

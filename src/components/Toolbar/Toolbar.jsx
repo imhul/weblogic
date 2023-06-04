@@ -130,11 +130,11 @@ const Toolbar = memo(() => {
     }, [location]);
 
     useEffect(() => {
-        if (currentUser.isAuth && !isUserUpdated && safe && lang) {
+        if (currentUser.isAuth && !isUserUpdated && safe && lang && authFormType === 'login') {
             userUpdate(currentUser, lang, safe);
             setIsUserUpdated(true);
         }
-    }, [isUserUpdated, currentUser, lang, safe]);
+    }, [isUserUpdated, currentUser, lang, safe, authFormType]);
 
     const menuItems = menu
         .filter(item => !item.isBlank)
