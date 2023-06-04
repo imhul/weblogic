@@ -6,8 +6,7 @@
 }
 
 .Toolbar {
-    transition: width 0.35s ease-in-out, height 0.35s ease-in-out,
-        box-shadow 0.35s ease-in-out;
+    transition: width 0.35s ease-in-out, height 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
     position: absolute;
     top: rem(10);
     left: 50%;
@@ -52,6 +51,11 @@
     .ant-drawer-content-wrapper {
         .ant-drawer-content {
             background-color: var(--color-primary);
+
+            .ant-drawer-body {
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
 
             .ant-menu {
                 background: var(--color-primary);
@@ -175,22 +179,20 @@
                 }
             }
 
-            .Login {
-                .padding-small {
-                    --padding: rem(1);
+            .padding-small {
+                --padding: rem(1);
 
-                    &.left {
-                        padding-right: var(--padding) !important;
-                    }
-
-                    &.right {
-                        padding-left: var(--padding) !important;
-                    }
+                &.left {
+                    padding-right: var(--padding) !important;
                 }
 
-                .ant-btn-link {
-                    padding: 0;
+                &.right {
+                    padding-left: var(--padding) !important;
                 }
+            }
+
+            .ant-btn-link {
+                padding: 0;
             }
         }
     }

@@ -20,6 +20,7 @@ import {
 import {
     HeartFilled,
     LogoutOutlined,
+    LoadingOutlined,
     CloseCircleOutlined,
     QuestionCircleOutlined
 } from '@ant-design/icons';
@@ -50,7 +51,7 @@ const Toolbar = memo(() => {
         contactMethod
     } = useSelector(s => s.ui);
     const [isUserUpdated, setIsUserUpdated] = useState(false);
-    const { currentUser } = useSelector(s => s.auth);
+    const { users, currentUser } = useSelector(s => s.auth);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -174,15 +175,20 @@ const Toolbar = memo(() => {
 
     return (
         <div className="Toolbar">
-            <i
-                className="icon-lamp burger"
-                onClick={() =>
-                    dispatch({
-                        type: 'TOGGLE_TOOLBAR',
-                        payload: true
-                    })
-                }
-            />
+            {
+                !users.length || !currentUser.ip.length ? <LoadingOutlined className="white" /> : (
+                    <i
+                        className="icon-lamp burger"
+                        onClick={() =>
+                            dispatch({
+                                type: 'TOGGLE_TOOLBAR',
+                                payload: true
+                            })
+                        }
+                    />
+                )
+            }
+
             <Drawer
                 title={
                     <Title level={3}>

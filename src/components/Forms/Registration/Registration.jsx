@@ -276,7 +276,7 @@ const Registration = () => {
                     </FormItem>
                 </Col>
                 {/* buttons */}
-                <Col span={12} className="padding-small left">
+                <Col span={10} className="padding-small left">
                     <Button
                         type="link"
                         onClick={() =>
@@ -290,7 +290,7 @@ const Registration = () => {
                     </Button>
                 </Col>
 
-                <Col span={12} className="padding-small right">
+                <Col span={14} className="padding-small right">
                     <Button htmlType="submit" onClick={submit}>
                         {translate(lang, 'reg_submit')}
                     </Button>
