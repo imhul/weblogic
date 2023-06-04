@@ -149,7 +149,6 @@ export default function (state = initState, action) {
                 currentUser: {
                     ...state.currentUser,
                     ...action.payload,
-                    role: 'user',
                     isAuth: true,
                     isRobot: false
                 }

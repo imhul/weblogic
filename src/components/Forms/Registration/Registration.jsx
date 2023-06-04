@@ -39,6 +39,9 @@ const Registration = () => {
         const values = form.getFieldsValue();
         const now = `${Date.now()}`;
 
+        console.info('values.email: ', values.email);
+        console.info('currentUser.email: ', currentUser.email);
+
         if (values.email === currentUser.email) {
             message.error({
                 content: `${translate(
@@ -55,6 +58,7 @@ const Registration = () => {
             lang,
             userId,
             _id: null,
+            role: 'user',
             email: values.email,
             pass: values.pass,
             name: values.name,

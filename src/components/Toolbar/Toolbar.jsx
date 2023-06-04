@@ -130,7 +130,13 @@ const Toolbar = memo(() => {
     }, [location]);
 
     useEffect(() => {
-        if (currentUser.isAuth && !isUserUpdated && safe && lang && authFormType === 'login') {
+        if (
+            currentUser.isAuth &&
+            !isUserUpdated &&
+            safe &&
+            lang &&
+            authFormType === 'login'
+        ) {
             userUpdate(currentUser, lang, safe);
             setIsUserUpdated(true);
         }
