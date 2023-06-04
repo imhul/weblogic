@@ -175,19 +175,19 @@ const Toolbar = memo(() => {
 
     return (
         <div className="Toolbar">
-            {
-                !users.length || !currentUser.ip.length ? <LoadingOutlined className="white" /> : (
-                    <i
-                        className="icon-lamp burger"
-                        onClick={() =>
-                            dispatch({
-                                type: 'TOGGLE_TOOLBAR',
-                                payload: true
-                            })
-                        }
-                    />
-                )
-            }
+            {!users.length || !currentUser.ip.length ? (
+                <LoadingOutlined className="white" />
+            ) : (
+                <i
+                    className="icon-lamp burger"
+                    onClick={() =>
+                        dispatch({
+                            type: 'TOGGLE_TOOLBAR',
+                            payload: true
+                        })
+                    }
+                />
+            )}
 
             <Drawer
                 title={
