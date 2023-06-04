@@ -28,13 +28,13 @@ const Login = () => {
     const { users, currentUser } = useSelector(s => s.auth);
     const { safe, lang } = useSelector(s => s.ui);
     const [submitting, setSubmitting] = useState(false);
-    const [isSubmitDisabled, setisSubmitDisabled] = useState(false);
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
     const dispatch = useDispatch();
     const [form] = Form.useForm();
 
     useEffect(() => {
         const disabled = submitting && !safe && !users;
-        setisSubmitDisabled(disabled);
+        setIsSubmitDisabled(disabled);
     }, [submitting, safe, users]);
 
     const submit = useCallback(async () => {
@@ -87,6 +87,10 @@ const Login = () => {
                                         ]
                                       : [currentUser.ip]
                               }
+                });
+                message.success({
+                    content: translate(lang, 'login_success_message'),
+                    ...messageOptions
                 });
             } else {
                 message.error({

@@ -19,8 +19,9 @@ import {
 } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
+import { idGenerator } from '../../../utils/uuid';
 import { messageOptions } from '../../../utils/config';
-import { v4 as uuidv4, v5 as uuidv5 } from 'uuid';
+import userAdd from '../../../utils/userAdd';
 
 const FormItem = Form.Item;
 const Password = Input.Password;
@@ -31,42 +32,49 @@ const Registration = () => {
     const [submitting, setSubmitting] = useState(false);
     const dispatch = useDispatch();
     const [form] = Form.useForm();
-
-    function generateUserID() {
-        const value =
-            currentUser.ip || currentUser.email || currentUser.name;
-        const seed = uuidv4();
-        const id = uuidv5(value, seed);
-        return id;
-    }
-
     const submit = useCallback(async () => {
         if (submitting && !safe) return;
         setSubmitting(true);
-        const id = generateUserID();
+        const userId = idGenerator(currentUser);
         const values = form.getFieldsValue();
+        const now = `${Date.now()}`;
 
-        try {
-            // TODO: check by email if (user not exist) and add him to db!
-
-            // if result.ok:
-            dispatch({
-                type: 'USER_REGISTER',
-                payload: {
-                    email: values.email,
-                    pass: values.pass,
-                    name: values.name,
-                    userId: id,
-                    lang: lang,
-                    registerTime: `${Date.now()}`,
-                    lastSignInTime: `${Date.now()}`
-                }
+        if (values.email === currentUser.email) {
+            message.error({
+                content: `${translate(
+                    lang,
+                    'message_email_already_exists'
+                )}`,
+                ...messageOptions
             });
-        } catch (error) {}
+            setSubmitting(false);
+            return;
+        }
 
-        console.info('submit values: ', values);
+        const payload = {
+            lang,
+            userId,
+            _id: null,
+            email: values.email,
+            pass: values.pass,
+            name: values.name,
+            registerTime: now,
+            lastSignInTime: now
+        };
+
+        dispatch({
+            type: 'USER_REGISTER',
+            payload
+        });
+
+        const user = !currentUser.registerTime
+            ? { ...currentUser, ...payload }
+            : currentUser;
+        userAdd(user, lang, safe);
+        console.info('Reg.Comp: add user: ', user);
         setSubmitting(false);
-    }, [safe]);
+        form.resetFields();
+    }, [safe, submitting, form, lang, currentUser]);
 
     return (
         <Form

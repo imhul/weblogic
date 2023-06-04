@@ -48,20 +48,20 @@ const build = async event => {
         console.info('connected to collection!');
         const add = await collection.insertOne({ ...data.query });
         console.info('add: ', add);
-        if (updated.modifiedCount) {
+        if (add.acknowledged) {
             return {
                 statusCode: 200,
                 body: JSON.stringify({
                     ok: true,
                     code: 200,
-                    data: updated
+                    data: 'added'
                 })
             };
         } else {
             console.warn('Failed  mongodb add!');
             return {
                 statusCode: 531,
-                statusText: 'Failed  mongodb add: ' + updated,
+                statusText: 'Failed  mongodb add: ' + add,
                 body: JSON.stringify({
                     error: 'Failed  mongodb add!',
                     code: 531

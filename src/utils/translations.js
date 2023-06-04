@@ -21,6 +21,7 @@ const translations = {
         fps: 'fps',
 
         // form EN
+        login_success_message: 'Login success!',
         invalid_pass_message: 'Invalid password!',
         invalid_email_message: 'Invalid email!',
         invalid_pass_or_email_message: 'Invalid password or email!',
@@ -80,6 +81,7 @@ const translations = {
         email_placeholder: 'Your Email',
         select_subject_placeholder: 'Select the subject',
         custom_subject_placeholder: 'Custom subject',
+        message_email_already_exists: 'Email already exists!',
         message_invalid_email: 'The input is not valid email',
         message_required_email: 'Email is required',
         message_required_name: 'Name is required',
@@ -202,6 +204,7 @@ const translations = {
         fps: 'кадрів/с',
 
         // form UA
+        login_success_message: 'Ви успішно увійшли!',
         invalid_pass_message: 'Невірний пароль!',
         invalid_email_message: 'Невірний email!',
         invalid_pass_or_email_message: 'Невірний email або пароль!',
@@ -264,6 +267,7 @@ const translations = {
         email_placeholder: 'Ваш email',
         select_subject_placeholder: 'Оберіть тему',
         custom_subject_placeholder: 'Власна тема',
+        message_email_already_exists: 'Такий email вже існує!',
         message_invalid_email: 'Введіть, будь ласка, коректний email',
         message_required_email: 'Введіть, будь ласка, email',
         message_required_name: 'Введіть, будь ласка, ім`я',
