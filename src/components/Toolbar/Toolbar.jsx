@@ -177,9 +177,9 @@ const Toolbar = memo(() => {
 
     return (
         <div className="Toolbar">
-            {/* {!users.length || !currentUser.ip.length ? (
+            {!users.length || !currentUser.ip.length ? (
                 <LoadingOutlined className="white" />
-            ) : ( */}
+            ) : (
             <i
                 className="icon-lamp burger"
                 onClick={() =>
@@ -189,7 +189,7 @@ const Toolbar = memo(() => {
                     })
                 }
             />
-            {/* )} */}
+            )}
 
             <Drawer
                 title={
@@ -220,11 +220,11 @@ const Toolbar = memo(() => {
                     items={menuItems}
                 />
                 <Divider>
-                    {currentUser.isAuth
+                    {!currentUser.isAuth
                         ? translate(lang, `${authFormType}_form`)
                         : translate(lang, 'settings')}
                 </Divider>
-                {currentUser.isAuth ? (
+                {!currentUser.isAuth ? (
                     currentUser.isRobot ? (
                         <Captcha />
                     ) : (

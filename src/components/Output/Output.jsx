@@ -49,7 +49,7 @@ const Output = () => {
     useIpify(safe);
     useLang();
     // useTip();
-    // useAllUsers();
+    useAllUsers();
     const dispatch = useDispatch();
 
     const navigate = key => {
