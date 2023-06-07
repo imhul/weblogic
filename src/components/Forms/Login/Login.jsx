@@ -8,7 +8,7 @@ import {
     Form,
     Input,
     Row,
-    message
+    message as notify
 } from 'antd/lib';
 import {
     EyeOutlined,
@@ -46,7 +46,7 @@ const Login = () => {
         );
 
         if (!beingCheckedUser) {
-            message.error({
+            notify.error({
                 content: translate(
                     lang,
                     'invalid_pass_or_email_message'
@@ -84,12 +84,12 @@ const Login = () => {
                                       : [currentUser.ip]
                               }
                 });
-                message.success({
+                notify.success({
                     content: translate(lang, 'login_success_message'),
                     ...messageOptions
                 });
             } else {
-                message.error({
+                notify.error({
                     content: translate(lang, 'invalid_pass_message'),
                     ...messageOptions
                 });
