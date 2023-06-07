@@ -180,15 +180,15 @@ const Toolbar = memo(() => {
             {!users.length || !currentUser.ip.length ? (
                 <LoadingOutlined className="white" />
             ) : (
-            <i
-                className="icon-lamp burger"
-                onClick={() =>
-                    dispatch({
-                        type: 'TOGGLE_TOOLBAR',
-                        payload: true
-                    })
-                }
-            />
+                <i
+                    className="icon-lamp burger"
+                    onClick={() =>
+                        dispatch({
+                            type: 'TOGGLE_TOOLBAR',
+                            payload: true
+                        })
+                    }
+                />
             )}
 
             <Drawer

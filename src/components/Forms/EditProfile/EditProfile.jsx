@@ -70,12 +70,7 @@ const EditProfile = () => {
             });
             return;
         }
-        const query = {
-            userId: currentUser.userId,
-            name: '',
-            email: '',
-            pass: ''
-        };
+        const query = { userId: currentUser.userId };
         if (checkedName) {
             query.name = values.name || currentUser.name;
         }
