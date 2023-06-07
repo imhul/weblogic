@@ -63,25 +63,27 @@ const EditProfile = () => {
         setSubmitting(true);
         console.info('start submit');
         const values = form.getFieldsValue();
-        const query = {
-            userId: currentUser.userId,
-            name: checkedName ? values.name || currentUser.name : '',
-            email: checkedEmail
-                ? values.email || currentUser.email
-                : '',
-            pass: checkedPass ? values.pass || currentUser.pass : ''
-        };
-        if (
-            !query.name &&
-            !query.email &&
-            !query.pass &&
-            !currentUser.userId
-        ) {
+        if (!values.name && !values.email && !values.pass) {
             message.error({
                 content: `${translate(lang, 'no_changes_message')}`,
                 ...messageOptions
             });
             return;
+        }
+        const query = {
+            userId: currentUser.userId,
+            name: '',
+            email: '',
+            pass: ''
+        };
+        if (checkedName) {
+            query.name = values.name || currentUser.name;
+        }
+        if (checkedEmail) {
+            query.email = values.email || currentUser.email;
+        }
+        if (checkedPass) {
+            query.pass = values.pass || currentUser.pass;
         }
         dispatch({
             type: 'USER_UPDATE',
