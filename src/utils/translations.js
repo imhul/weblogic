@@ -1,5 +1,4 @@
 import React from 'react';
-import { getFromLocalStorage } from '../utils/local';
 
 const translations = {
     english: {
@@ -21,6 +20,10 @@ const translations = {
         fps: 'fps',
 
         // form EN
+        edit_success_message: 'Edit success!',
+        no_changes_message: 'No changes to save!',
+        save: 'Save',
+        settings: 'Settings',
         register_success_message: 'Registration success!',
         login_success_message: 'Login success!',
         invalid_pass_message: 'Invalid password!',
@@ -30,15 +33,24 @@ const translations = {
         cancel: 'Cancel',
         user_name_title: 'You entered as',
         forgot_form: 'Forgot Password?',
-        change_pass_form: 'Change Password',
+        change_profile: 'Change Profile',
+        change_name: 'Change Name',
+        change_email: 'Change email',
+        change_pass: 'Change Password',
+        change_name_title: 'Change Name',
+        change_email_title: 'Change email',
+        change_pass_title: 'Change Password',
         remember_me: 'Remember me',
+        two_pass_not_match_message: 'Passwords do not match!',
         pass_required_message: 'Please enter password!',
         email_required_message: 'Please enter email!',
         name_required_message: 'Please enter name!',
+        new_name_placeholder: 'Enter new name',
+        new_name_required_message: 'Please enter new name!',
         pass: 'Password',
         new_pass: 'New Password',
         old_pass: 'Old Password',
-        repeat_pass: 'Repeat Password',
+        repeat_pass: 'Confirm Password',
         repeat_new_pass: 'Repeat New Password',
         new_pass_required_message: 'Please enter new password!',
         old_pass_required_message: 'Please enter old password!',
@@ -205,6 +217,11 @@ const translations = {
         fps: 'кадрів/с',
 
         // form UA
+        edit_success_message: 'Дані успішно змінені!',
+        no_changes_message:
+            'Ви не вибрали жодного поля для редагування!',
+        save: 'Зберегти',
+        settings: 'Налаштування',
         register_success_message: 'Ви успішно зареєструвалися!',
         login_success_message: 'Ви успішно увійшли!',
         invalid_pass_message: 'Невірний пароль!',
@@ -214,16 +231,26 @@ const translations = {
         cancel: 'Скасувати',
         user_name_title: 'Ви війшли як',
         forgot_form: 'Забули пароль?',
-        change_pass_form: 'Зміна паролю',
+        change_profile: 'Змінити профіль',
+        change_name: 'Змінити ім`я',
+        change_email: 'Змінити email',
+        change_pass: 'Змінити пароль',
+        change_name_title: 'Зміна імені',
+        change_email_title: 'Зміна email',
+        change_pass_title: 'Зміна паролю',
         remember_me: 'Запам`ятати мене',
+        two_pass_not_match_message: 'Паролі не співпадають!',
         pass_required_message: 'Будь ласка, введіть пароль!',
         email_required_message: 'Будь ласка, введіть email!',
         name_required_message: 'Будь ласка, введіть ім`я!',
+        new_name_placeholder: 'Введіть нове ім`я',
+        new_email_placeholder: 'Введіть новий email',
+        new_name_required_message: 'Будь ласка, введіть нове ім`я!',
         pass: 'Пароль',
         new_pass: 'Новий ароль',
-        repeat_pass: 'Повторіть пароль',
         old_pass: 'Старий пароль',
-        repeat_new_pass: 'Повторіть новий пароль',
+        repeat_pass: 'Підтвердіть пароль',
+        repeat_new_pass: 'Підтвердіть новий пароль',
         old_pass_required_message:
             'Будь ласка, введіть старий пароль!',
         new_pass_required_message:

@@ -191,9 +191,7 @@ const Login = () => {
                         onClick={submit}
                     >
                         {isSubmitDisabled ? (
-                            <LoadingOutlined
-                                style={{ color: '#bcc8ce' }}
-                            />
+                            <LoadingOutlined className="white" />
                         ) : (
                             translate(lang, 'login_submit')
                         )}

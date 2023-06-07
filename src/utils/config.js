@@ -40,6 +40,7 @@ export const API_ACTIONS = {
     EMAIL: 'email',
     MONGO_ALL: 'mongo',
     MONGO_ADD: 'mongo-add',
+    MONGO_EDIT: 'mongo-edit',
     MONGO_UPDATE: 'mongo-update'
 };
 

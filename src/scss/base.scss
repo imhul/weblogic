@@ -1,3 +1,14 @@
+// Basic fragments
+%svg-transition-fix {
+    svg {
+        transition: color 0s, transform 0.35s !important;
+
+        path {
+            transition: color 0s, transform 0.35s !important;
+        }
+    }
+}
+
 /* Reset styles */
 html,
 body {
@@ -116,11 +127,12 @@ textarea {
     font-size: rem(20);
 }
 
-button.ant-btn {
+button.ant-btn,
+button.ant-btn-primary {
     font-family: Open-Sans, sans-serif;
     color: var(--color-white);
 
-    background: var(--transparent);
+    background-color: var(--transparent);
     cursor: pointer;
 
     &:not(.ant-btn-link) {
@@ -128,16 +140,11 @@ button.ant-btn {
     }
 
     .anticon {
-        svg {
-            transition: color 0s !important;
-
-            path {
-                transition: color 0s !important;
-            }
-        }
+        @extend %svg-transition-fix;
     }
 
     &:hover {
+        background-color: var(--transparent) !important;
         text-shadow: var(--color-secondary) 0 0 rem(20);
         color: var(--color-secondary) !important;
 
@@ -156,13 +163,7 @@ button.ant-btn.ant-btn-circle {
     border-color: var(--color-white);
 
     .anticon {
-        svg {
-            transition: color 0s !important;
-
-            path {
-                transition: color 0s !important;
-            }
-        }
+        @extend %svg-transition-fix;
     }
 
     &:not(:disabled):hover {

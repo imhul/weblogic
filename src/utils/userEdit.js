@@ -1,20 +1,9 @@
 import { getMongoUserUpdate } from './api';
 import { API_ACTIONS } from './config';
 
-function userUpdate(user, lang, safe) {
-    async function update() {
-        if (!safe && !lang && !user) return;
-
-        const {
-            _id,
-            name,
-            email,
-            pass,
-            role,
-            isAuth,
-            isRobot,
-            ...rest
-        } = user;
+function userEdit(query, lang, safe) {
+    async function edit() {
+        if (!safe && !lang && !query) return;
 
         try {
             const connected = await getMongoUserUpdate(
@@ -24,7 +13,7 @@ function userUpdate(user, lang, safe) {
                     JSON.stringify({
                         db: safe.authdb,
                         collection: safe.authCollection,
-                        query: rest
+                        query: query
                     })
                 )}`,
                 lang
@@ -32,15 +21,15 @@ function userUpdate(user, lang, safe) {
             console.warn('connected: ', connected);
             console.warn(
                 !connected.ok
-                    ? '::: User update NOT sended! :::'
-                    : '::: User update sended! :::'
+                    ? '::: User edit NOT sended! :::'
+                    : '::: User edit sended! :::'
             );
         } catch (error) {
-            console.error('::: User update ERROR! :::', error);
+            console.error('::: User edit ERROR! :::', error);
         }
     }
 
-    update();
+    edit();
 }
 
-export default userUpdate;
+export default userEdit;

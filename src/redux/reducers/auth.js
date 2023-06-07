@@ -163,7 +163,7 @@ export default function (state = initState, action) {
                 }
             };
 
-        case type.USER_RESET_PASSWORD:
+        case type.USER_CHANGE_PASSWORD:
             return {
                 ...state,
                 currentUser: {
@@ -182,9 +182,12 @@ export default function (state = initState, action) {
             };
 
         case type.USER_UPDATE: {
-            const { id } = action.payload;
             return {
-                ...state
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    ...action.payload
+                }
             };
         }
 

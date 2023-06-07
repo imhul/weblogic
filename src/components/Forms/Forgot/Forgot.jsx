@@ -40,30 +40,6 @@ const Registration = () => {
             layout="vertical"
         >
             <Row gutter={24} className="Forgot">
-                {/* old pass */}
-                <Col span={24}>
-                    <FormItem
-                        name="old-pass"
-                        rules={[
-                            {
-                                min: 6,
-                                required: true,
-                                whitespace: true,
-                                message: translate(
-                                    lang,
-                                    'old_pass_required_message'
-                                )
-                            }
-                        ]}
-                    >
-                        <Input
-                            addonBefore={
-                                <LockOutlined className="white" />
-                            }
-                            placeholder={translate(lang, 'old_pass')}
-                        />
-                    </FormItem>
-                </Col>
                 {/* new pass */}
                 <Col span={24}>
                     <FormItem

@@ -33,7 +33,12 @@ export const statuses = {
     530: '::: Netlify functions: Mongo: ADD: No data provided! :::',
     531: '::: Netlify functions: Mongo: ADD: Failed update! :::',
     532: '::: Netlify functions: Mongo: ADD: Common mongodb error! :::',
-    533: '::: :::'
+    533: '::: :::',
+    534: '::: :::',
+    535: '::: :::',
+    536: '::: :::',
+    537: '::: :::',
+    538: '::: :::'
 };
 
 export const getErrorByCode = code => statuses[code];

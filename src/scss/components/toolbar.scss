@@ -58,6 +58,33 @@
                 overflow-y: auto;
             }
 
+            .ant-collapse-item {
+                padding: rem(2);
+                border-radius: rem(4);
+                background-color: var(--color-black);
+
+                .ant-collapse-header {
+                    height: rem(20);
+                    padding: 0 rem(12);
+                    color: var(--color-white);
+                    border-radius: rem(4);
+                    line-height: rem(20);
+                    background-color: var(--color-primary);
+
+                    .ant-collapse-expand-icon {
+                        height: rem(20);
+
+                        .ant-collapse-arrow.anticon {
+                            @extend %svg-transition-fix;
+                        }
+                    }
+
+                    &:hover {
+                        color: var(--color-secondary);
+                    }
+                }
+            }
+
             .ant-menu {
                 background: var(--color-primary);
                 border-inline-end: none;
@@ -118,6 +145,12 @@
                 }
             }
 
+            .ant-form {
+                .ant-divider {
+                    border-block-start: var(--blue-grey-lighten-1);
+                }
+            }
+
             .ant-drawer-header {
                 border-bottom-color: var(--color-white);
 
@@ -127,15 +160,8 @@
                 }
 
                 .anticon {
+                    @extend %svg-transition-fix;
                     color: var(--color-white);
-
-                    svg {
-                        transition: color 0s !important;
-
-                        path {
-                            transition: color 0s !important;
-                        }
-                    }
 
                     &:hover {
                         color: var(--color-secondary);
@@ -194,6 +220,39 @@
 
             .ant-btn-link {
                 padding: 0;
+            }
+
+            .ant-input-group-wrapper-disabled {
+                .ant-input-group-addon {
+                    border-color: var(--blue-grey-lighten-1);
+
+                    .anticon {
+                        color: var(--blue-grey-lighten-1) !important;
+                    }
+                }
+
+                .ant-input-disabled,
+                .ant-input-affix-wrapper-disabled {
+                    border-color: var(--blue-grey-lighten-1);
+
+                    .ant-input-password-icon {
+                        color: var(--blue-grey-lighten-1) !important;
+                    }
+
+                    &:hover {
+                        border-color: var(
+                            --blue-grey-lighten-1
+                        ) !important;
+                    }
+                }
+            }
+
+            .ant-form-item-label {
+                text-align: right;
+
+                label {
+                    flex-direction: row-reverse;
+                }
             }
         }
     }

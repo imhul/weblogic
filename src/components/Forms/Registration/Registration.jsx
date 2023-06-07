@@ -81,8 +81,8 @@ const Registration = () => {
                 content: translate(lang, 'register_success_message'),
                 ...messageOptions
             });
-        setSubmitting(false);
         form.resetFields();
+        setSubmitting(false);
     }, [safe, users, submitting, form, lang, currentUser]);
 
     return (

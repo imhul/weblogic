@@ -13,6 +13,7 @@ import {
     Drawer,
     Tooltip,
     Divider,
+    Collapse,
     Segmented,
     Typography,
     Popconfirm
@@ -21,14 +22,15 @@ import {
     HeartFilled,
     LogoutOutlined,
     LoadingOutlined,
+    SettingOutlined,
     CloseCircleOutlined,
     QuestionCircleOutlined
 } from '@ant-design/icons';
 import Gravatar from 'react-gravatar';
 import Registration from '../Forms/Registration';
-import ChangePass from '../Forms/ChangePass';
 import Forgot from '../Forms/Forgot';
 import Login from '../Forms/Login';
+import EditProfile from '../Forms/EditProfile';
 // utils
 import translate from '../../utils/translations';
 import userUpdate from '../../utils/userUpdate';
@@ -38,6 +40,7 @@ import {
 } from '../../utils/config';
 
 const Title = Typography.Title;
+const Panel = Collapse.Panel;
 
 const Toolbar = memo(() => {
     const [currentPage, setCurrentPage] = useState('Home');
@@ -52,6 +55,7 @@ const Toolbar = memo(() => {
     } = useSelector(s => s.ui);
     const [isUserUpdated, setIsUserUpdated] = useState(false);
     const { users, currentUser } = useSelector(s => s.auth);
+    const [activeKey, setActiveKey] = useState('');
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -166,8 +170,6 @@ const Toolbar = memo(() => {
                 return <Registration />;
             case 'forgot':
                 return <Forgot />;
-            case 'change_pass':
-                return <ChangePass />;
             default:
                 return null;
         }
@@ -175,19 +177,19 @@ const Toolbar = memo(() => {
 
     return (
         <div className="Toolbar">
-            {!users.length || !currentUser.ip.length ? (
+            {/* {!users.length || !currentUser.ip.length ? (
                 <LoadingOutlined className="white" />
-            ) : (
-                <i
-                    className="icon-lamp burger"
-                    onClick={() =>
-                        dispatch({
-                            type: 'TOGGLE_TOOLBAR',
-                            payload: true
-                        })
-                    }
-                />
-            )}
+            ) : ( */}
+            <i
+                className="icon-lamp burger"
+                onClick={() =>
+                    dispatch({
+                        type: 'TOGGLE_TOOLBAR',
+                        payload: true
+                    })
+                }
+            />
+            {/* )} */}
 
             <Drawer
                 title={
@@ -217,17 +219,38 @@ const Toolbar = memo(() => {
                     mode="inline"
                     items={menuItems}
                 />
-                {!currentUser.isAuth && (
-                    <>
-                        <Divider>
-                            {translate(lang, `${authFormType}_form`)}
-                        </Divider>
-                        {currentUser.isRobot ? (
-                            <Captcha />
-                        ) : (
-                            renderForm()
+                <Divider>
+                    {currentUser.isAuth
+                        ? translate(lang, `${authFormType}_form`)
+                        : translate(lang, 'settings')}
+                </Divider>
+                {currentUser.isAuth ? (
+                    currentUser.isRobot ? (
+                        <Captcha />
+                    ) : (
+                        renderForm()
+                    )
+                ) : (
+                    <Collapse
+                        size="small"
+                        activeKey={activeKey}
+                        bordered={false}
+                        onChange={() =>
+                            setActiveKey(activeKey === '1' ? '' : '1')
+                        }
+                        expandIcon={({ isActive }) => (
+                            <SettingOutlined
+                                rotate={isActive ? 90 : 0}
+                            />
                         )}
-                    </>
+                    >
+                        <Panel
+                            header={translate(lang, 'change_profile')}
+                            key="1"
+                        >
+                            <EditProfile />
+                        </Panel>
+                    </Collapse>
                 )}
 
                 <Divider>{translate(lang, 'lang_title')}</Divider>

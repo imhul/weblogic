@@ -1,7 +1,7 @@
 import { getMongoUserAdd } from './api';
 import { API_ACTIONS } from './config';
 
-function userUpdate(user, lang, safe) {
+function userAdd(user, lang, safe) {
     async function add() {
         if (!safe && !lang && !user) return;
 
@@ -37,4 +37,4 @@ function userUpdate(user, lang, safe) {
     return add();
 }
 
-export default userUpdate;
+export default userAdd;
