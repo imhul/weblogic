@@ -19,7 +19,7 @@ import {
 } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
-import { messageOptions } from '../../../utils/config';
+import { NOTIFY_OPTIONS } from '../../../utils/config';
 
 const FormItem = Form.Item;
 const Password = Input.Password;
@@ -51,7 +51,7 @@ const Login = () => {
                     lang,
                     'invalid_pass_or_email_message'
                 ),
-                ...messageOptions
+                ...NOTIFY_OPTIONS
             });
             return;
         } else {
@@ -86,12 +86,12 @@ const Login = () => {
                 });
                 notify.success({
                     content: translate(lang, 'login_success_message'),
-                    ...messageOptions
+                    ...NOTIFY_OPTIONS
                 });
             } else {
                 notify.error({
                     content: translate(lang, 'invalid_pass_message'),
-                    ...messageOptions
+                    ...NOTIFY_OPTIONS
                 });
             }
         }

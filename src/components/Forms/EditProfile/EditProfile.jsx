@@ -20,7 +20,7 @@ import {
 } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
-import { messageOptions } from '../../../utils/config';
+import { NOTIFY_OPTIONS } from '../../../utils/config';
 import userEdit from '../../../utils/userEdit';
 
 const FormItem = Form.Item;
@@ -66,7 +66,7 @@ const EditProfile = () => {
         if (!values.name && !values.email && !values.pass) {
             message.error({
                 content: `${translate(lang, 'no_changes_message')}`,
-                ...messageOptions
+                ...NOTIFY_OPTIONS
             });
             return;
         }
@@ -91,7 +91,7 @@ const EditProfile = () => {
         setSubmitting(false);
         message.success({
             content: `${translate(lang, 'edit_success_message')}`,
-            ...messageOptions
+            ...NOTIFY_OPTIONS
         });
     }, [
         form,

@@ -2,7 +2,7 @@
 import { message } from 'antd/lib';
 import translate from '../utils/translations';
 import {
-    messageOptions,
+    NOTIFY_OPTIONS,
     GET_CONFIG,
     GET_JSON_CONFIG
 } from '../utils/config';
@@ -36,7 +36,7 @@ const request = async (url, config, lang) => {
             const content = getContent(response, lang);
             console.warn(content);
             message.error({
-                ...messageOptions,
+                ...NOTIFY_OPTIONS,
                 content
             });
         }
@@ -54,7 +54,7 @@ const request = async (url, config, lang) => {
         const content = getContent(response, lang);
         console.warn(content);
         message.error({
-            ...messageOptions,
+            ...NOTIFY_OPTIONS,
             content
         });
     }

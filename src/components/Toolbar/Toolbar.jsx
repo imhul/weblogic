@@ -35,8 +35,9 @@ import EditProfile from '../Forms/EditProfile';
 import translate from '../../utils/translations';
 import userUpdate from '../../utils/userUpdate';
 import {
-    langOptions,
-    contactMethodOptions
+    LANG_OPTIONS,
+    CONTACT_METHOD_OPTIONS,
+    GITHUB_PAGE
 } from '../../utils/config';
 
 const Title = Typography.Title;
@@ -85,29 +86,44 @@ const Toolbar = memo(() => {
         </Row>
     );
 
-    const Extra = () => (
-        <Popconfirm
-            placement="topLeft"
-            title={translate(lang, 'logout')}
-            description={translate(lang, 'logout_question')}
-            onConfirm={logout}
-            okText={translate(lang, 'yes')}
-            cancelText={translate(lang, 'cancel')}
-            icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
-        >
-            <Tooltip
-                overlayInnerStyle={{ color: '#fdd835' }}
-                color="#2a414c"
-                placement="left"
-                zIndex={1100}
+    const Extra = () =>
+        currentUser.isAuth ? (
+            <Popconfirm
+                placement="topLeft"
                 title={translate(lang, 'logout')}
+                description={translate(lang, 'logout_question')}
+                onConfirm={logout}
+                okText={translate(lang, 'yes')}
+                cancelText={translate(lang, 'cancel')}
+                icon={
+                    <QuestionCircleOutlined
+                        style={{ color: '#ff6f00' }}
+                    />
+                }
             >
-                <Button type="link" className="no-p">
-                    <LogoutOutlined style={{ fontSize: 32 }} />
-                </Button>
-            </Tooltip>
-        </Popconfirm>
-    );
+                <Tooltip
+                    overlayInnerStyle={{ color: '#fdd835' }}
+                    color="#2a414c"
+                    placement="left"
+                    zIndex={1100}
+                    title={translate(lang, 'logout')}
+                >
+                    <Button type="link" className="no-p">
+                        <LogoutOutlined style={{ fontSize: 32 }} />
+                    </Button>
+                </Tooltip>
+            </Popconfirm>
+        ) : (
+            <Button
+                type="link"
+                className="no-p"
+                target="_blank"
+                href={GITHUB_PAGE}
+                rel="noopener noreferrer"
+            >
+                <GithubOutlined />
+            </Button>
+        );
 
     const navigate = useCallback(e => {
         const key = e.key;
@@ -258,7 +274,7 @@ const Toolbar = memo(() => {
                     block
                     size="small"
                     defaultValue={'english'}
-                    options={langOptions}
+                    options={LANG_OPTIONS}
                     value={lang}
                     onChange={data => {
                         dispatch({ type: 'TOGGLE_USER_LANG_SELECT' });
@@ -273,7 +289,7 @@ const Toolbar = memo(() => {
                     block
                     size="small"
                     defaultValue={'Telegram'}
-                    options={contactMethodOptions}
+                    options={CONTACT_METHOD_OPTIONS}
                     value={contactMethod}
                     onChange={data =>
                         dispatch({

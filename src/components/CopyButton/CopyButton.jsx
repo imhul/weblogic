@@ -11,7 +11,7 @@ import {
 // utils
 import { message } from 'antd/lib';
 import translate from '../../utils/translations';
-import { messageOptions } from '../../utils/config';
+import { NOTIFY_OPTIONS } from '../../utils/config';
 
 const CopyButton = () => {
     const { safe, lang } = useSelector(s => s.ui);
@@ -23,12 +23,12 @@ const CopyButton = () => {
                     lang,
                     'message_success_email_copy'
                 )}`,
-                ...messageOptions
+                ...NOTIFY_OPTIONS
             });
         } else {
             message.error({
                 content: `${translate(lang, 'message_error_wrong')}`,
-                ...messageOptions
+                ...NOTIFY_OPTIONS
             });
         }
     });

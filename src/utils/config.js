@@ -1,4 +1,4 @@
-export const messageOptions = {
+export const NOTIFY_OPTIONS = {
     duration: 4,
     style: {
         marginTop: '2.5rem'
@@ -44,13 +44,13 @@ export const API_ACTIONS = {
     MONGO_UPDATE: 'mongo-update'
 };
 
-export const contactMethodOptions = [
+export const CONTACT_METHOD_OPTIONS = [
     { label: 'Telegram', value: 'Telegram', disabled: false },
     { label: 'Email', value: 'Email', disabled: false },
     { label: 'SMS', value: 'SMS', disabled: true }
 ];
 
-export const langOptions = [
+export const LANG_OPTIONS = [
     { label: 'English', value: 'english', disabled: false },
     { label: 'Ukrainian', value: 'ukrainian', disabled: false }
 ];
@@ -60,3 +60,6 @@ export const SYSTEM_LANG =
     navigator.userLanguage ||
     window.navigator.userLanguage ||
     window.navigator.language;
+
+export const GITHUB_PAGE = 'https://github.com/imhul';
+export const GITHUB_GAME_PAGE = 'https://github.com/imhul/proto-mass';

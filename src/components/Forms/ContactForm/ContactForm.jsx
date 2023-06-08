@@ -25,7 +25,7 @@ import {
 // utils
 import translate from '../../../utils/translations';
 import { getTelegram, sendEmail } from '../../../utils/api';
-import { messageOptions, API_ACTIONS } from '../../../utils/config';
+import { NOTIFY_OPTIONS, API_ACTIONS } from '../../../utils/config';
 
 const Fragment = React.Fragment;
 const { TextArea } = Input;
@@ -96,7 +96,7 @@ const ContactForm = memo(() => {
                     if (response.ok !== undefined) {
                         // TODO: response.ok !== undefined. Must be response.ok
                         message.success({
-                            ...messageOptions,
+                            ...NOTIFY_OPTIONS,
                             content: `${translate(
                                 lang,
                                 'message_success'
@@ -178,7 +178,7 @@ const ContactForm = memo(() => {
                     ) {
                         // temporary solution is: res.status === 0
                         message.success({
-                            ...messageOptions,
+                            ...NOTIFY_OPTIONS,
                             content: `${translate(
                                 lang,
                                 'message_success'

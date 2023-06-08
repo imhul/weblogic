@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import { message } from 'antd/lib';
-import { messageOptions } from '../utils/config';
+import { NOTIFY_OPTIONS } from '../utils/config';
 
 const useInitialization = () => {
     const { initialized } = useSelector(s => s.ui);
@@ -16,7 +16,7 @@ const useInitialization = () => {
             dispatch({ type: 'INITIALIZE' });
             message.info({
                 content: 'Keep clicking anywhere!',
-                ...messageOptions,
+                ...NOTIFY_OPTIONS,
                 style: {
                     marginTop: '5rem'
                 }

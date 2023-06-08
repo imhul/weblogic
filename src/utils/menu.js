@@ -8,6 +8,8 @@ import {
     ExperimentOutlined
     // DollarCircleOutlined
 } from '@ant-design/icons';
+// utils
+import { GITHUB_PAGE } from '../utils/config';
 
 const menu = [
     {
@@ -30,7 +32,7 @@ const menu = [
     },
     {
         key: 'Github',
-        url: 'https://github.com/imhul/',
+        url: GITHUB_PAGE,
         icon: <GithubOutlined />,
         isBlank: true
     }

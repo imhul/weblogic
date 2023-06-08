@@ -6,7 +6,7 @@ import {
     RedoOutlined
 } from '@ant-design/icons';
 // utils
-import { messageOptions } from '../../utils/config';
+import { NOTIFY_OPTIONS } from '../../utils/config';
 
 const HowTo = memo(() => {
     const [open, setOpen] = useState(false);
@@ -40,7 +40,7 @@ const HowTo = memo(() => {
                 onClick={() =>
                     message.info({
                         content: 'Keep clicking anywhere!',
-                        ...messageOptions
+                        ...NOTIFY_OPTIONS
                     })
                 }
                 shape="circle"

@@ -6,7 +6,7 @@ import { Row, Col, message } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
 import { LoadingOutlined } from '@ant-design/icons';
 // utils
-import { messageOptions, API_ACTIONS } from '../../utils/config';
+import { NOTIFY_OPTIONS, API_ACTIONS } from '../../utils/config';
 import translate from '../../utils/translations';
 // api
 import { getRecaptcha } from '../../utils/api';
@@ -44,7 +44,7 @@ const Captcha = memo(() => {
                         lang,
                         'message_success_recaptcha'
                     )}`,
-                    ...messageOptions
+                    ...NOTIFY_OPTIONS
                 });
             } else {
                 message.error({
@@ -52,7 +52,7 @@ const Captcha = memo(() => {
                         lang,
                         'message_error_recaptcha'
                     )}`,
-                    ...messageOptions
+                    ...NOTIFY_OPTIONS
                 });
             }
         },

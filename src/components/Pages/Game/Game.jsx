@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 // utils
 import translate from '../../../utils/translations';
+import { GITHUB_GAME_PAGE } from '../../../utils/config';
 // components
 import { Helmet } from 'react-helmet';
 import { Row, Col } from 'antd/lib';
@@ -62,7 +63,7 @@ const Game = memo(() => {
                                 >
                                     <a
                                         title="game github page"
-                                        href="https://github.com/imhul/proto-mass"
+                                        href={GITHUB_GAME_PAGE}
                                         target="_blank"
                                         rel="external"
                                     >

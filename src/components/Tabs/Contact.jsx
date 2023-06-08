@@ -9,6 +9,7 @@ import CopyButton from '../CopyButton';
 import Captcha from '../Captcha';
 // utils
 import translate from '../../utils/translations';
+import { GITHUB_PAGE } from '../../utils/config';
 
 const Contact = memo(() => {
     const { lang } = useSelector(s => s.ui);
@@ -47,7 +48,7 @@ const Contact = memo(() => {
                         className="mb-20 align-right mobile-center"
                     >
                         <a
-                            href="https://github.com/imhul"
+                            href={GITHUB_PAGE}
                             className="link"
                             title={`${translate(lang, 'github')}`}
                             target="_blank"

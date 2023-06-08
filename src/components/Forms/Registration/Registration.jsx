@@ -20,7 +20,7 @@ import {
 // utils
 import translate from '../../../utils/translations';
 import { idGenerator } from '../../../utils/uuid';
-import { messageOptions } from '../../../utils/config';
+import { NOTIFY_OPTIONS } from '../../../utils/config';
 import userAdd from '../../../utils/userAdd';
 
 const FormItem = Form.Item;
@@ -47,7 +47,7 @@ const Registration = () => {
                     lang,
                     'message_email_already_exists'
                 )}`,
-                ...messageOptions
+                ...NOTIFY_OPTIONS
             });
             setSubmitting(false);
             return;
@@ -79,7 +79,7 @@ const Registration = () => {
         if (isAdded)
             message.success({
                 content: translate(lang, 'register_success_message'),
-                ...messageOptions
+                ...NOTIFY_OPTIONS
             });
         form.resetFields();
         setSubmitting(false);
