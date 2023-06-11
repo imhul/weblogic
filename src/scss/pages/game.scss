@@ -15,7 +15,7 @@
         margin-top: rem(60);
     }
 
-    @media screen and (orientation: landscape) and (max-width: $media-small) {
+    @media only screen and (orientation: landscape) and (max-width: $media-small) {
         min-height: calc(100vh + 100%);
     }
 

@@ -2,9 +2,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // utils
+import translate from '../utils/translations';
 import { getMongoDB } from '../utils/api';
-import { API_ACTIONS } from '../utils/config';
+import { API_ACTIONS, NOTIFY_OPTIONS } from '../utils/config';
 import parseResponseBody from '../utils/parseBody';
+import { message } from 'antd';
 
 const useAllUsers = () => {
     const { safe, lang } = useSelector(s => s.ui);
@@ -29,13 +31,25 @@ const useAllUsers = () => {
                 lang
             );
             if (!connected.ok) {
-                console.warn('::: NOT connected!');
+                message.error({
+                    content: translate(lang, 'init_failed'),
+                    ...NOTIFY_OPTIONS,
+                    duration: 8
+                });
+                dispatch({
+                    type: 'LOCATION_UPDATE',
+                    payload: 'Home'
+                });
                 return;
             }
             const result = await parseResponseBody(connected);
             dispatch({
                 type: 'GET_ALL_USERS',
                 payload: result.data
+            });
+            dispatch({
+                type: 'LOCATION_UPDATE',
+                payload: 'Home'
             });
         }
     }, [safe, lang, currentUser.isAuth, currentUser.ip]);

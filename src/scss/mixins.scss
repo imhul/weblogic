@@ -60,7 +60,7 @@ $min-width-x-large: 1600px;
 }
 
 @mixin for($breakpoint) {
-    @media screen and (min-width: $breakpoint) {
+    @media only screen and (min-width: $breakpoint) {
         @content;
     }
 }

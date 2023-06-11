@@ -3,6 +3,7 @@ import React from 'react';
 const translations = {
     english: {
         // common EN
+        keep_clicking: 'Keep clicking anywhere!',
         summary: 'Summary',
         demo: 'Demo',
         released: 'Released',
@@ -18,6 +19,8 @@ const translations = {
         apr: 'Apr',
         parts: 'parts',
         fps: 'fps',
+        init_failed:
+            'Unfortunately, we could not connect to the server, so some features may not be available. Please try again later or refresh the page.',
 
         // form EN
         edit_success_message: 'Edit success!',
@@ -31,6 +34,10 @@ const translations = {
         invalid_pass_or_email_message: 'Invalid password or email!',
         yes: 'Yes',
         cancel: 'Cancel',
+        cookies_use_success_message: 'Cookies is applied!',
+        cookies_policy: 'Cookies Policy',
+        cookies_desk:
+            'This site uses cookies to offer you a better browsing experience. Find out more on our',
         user_name_title: 'You entered as',
         forgot_form: 'Forgot Password?',
         change_profile: 'Change Profile',
@@ -54,6 +61,7 @@ const translations = {
         repeat_new_pass: 'Repeat New Password',
         new_pass_required_message: 'Please enter new password!',
         old_pass_required_message: 'Please enter old password!',
+        confirm: 'Confirm',
         confirm_pass_required_message: 'Please confirm password!',
         confirm_new_pass_required_message:
             'Please confirm new password!',
@@ -200,6 +208,7 @@ const translations = {
 
     ukrainian: {
         // common UA
+        keep_clicking: 'Продовжуйте клікати будь-де!',
         summary: 'Резюме',
         demo: 'Демо',
         released: 'Реліз',
@@ -215,6 +224,8 @@ const translations = {
         apr: 'Квітень',
         parts: 'частин',
         fps: 'кадрів/с',
+        init_failed:
+            'Нажаль не вдалося підключитися до серверу, тому деякі функції можуть бути недоступні. Спробуйте ще раз пізніше, або оновіть сторінку.',
 
         // form UA
         edit_success_message: 'Дані успішно змінені!',
@@ -229,6 +240,11 @@ const translations = {
         invalid_pass_or_email_message: 'Невірний email або пароль!',
         yes: 'Так',
         cancel: 'Скасувати',
+        cookies_use_success_message:
+            'Використання cookies застосовано!',
+        cookies_policy: 'Політика Cookies',
+        cookies_desk:
+            'Цей сайт використовує файли cookie, щоб запропонувати вам кращий досвід перегляду. Дізнайтеся більше на моїй сторінці',
         user_name_title: 'Ви війшли як',
         forgot_form: 'Забули пароль?',
         change_profile: 'Змінити профіль',
@@ -255,6 +271,7 @@ const translations = {
             'Будь ласка, введіть старий пароль!',
         new_pass_required_message:
             'Будь ласка, введіть новий пароль!',
+        confirm: 'Підтвердити',
         confirm_pass_required_message:
             'Будь ласка, підтвердіть пароль!',
         confirm_new_pass_required_message:

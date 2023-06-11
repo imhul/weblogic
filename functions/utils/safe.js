@@ -10,5 +10,6 @@ export const safe = {
     atlasBase: process.env.MONGO_ATLAS_URL,
     authdb: process.env.MONGO_ATLAS_AUTH_DB,
     authCollection: process.env.MONGO_ATLAS_AUTH_COLLECTION,
-    mongoAPI: process.env.REACT_APP_MONGO_API
+    mongoAPI: process.env.REACT_APP_MONGO_API,
+    jwtKey: process.env.REACT_APP_JWT_KEY
 };

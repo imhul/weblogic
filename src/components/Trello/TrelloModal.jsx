@@ -15,7 +15,9 @@ const TrelloModal = memo(() => {
         <div>
             <Button
                 type="primary"
-                onClick={() => dispatch({ type: 'SHOW_MODAL' })}
+                onClick={() =>
+                    dispatch({ type: 'SHOW_TRELLO_MODAL' })
+                }
             >
                 Trello API
             </Button>

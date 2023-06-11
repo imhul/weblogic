@@ -104,3 +104,13 @@
         }
     }
 }
+
+.ant-drawer.cookies-modal {
+    .ant-drawer-content-wrapper {
+        height: rem(180) !important;
+
+        @media (min-width: $min-width-medium) {
+            height: rem(150) !important;
+        }
+    }
+}

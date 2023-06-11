@@ -1,6 +1,6 @@
 /* Folio page: landscape orientation */
 
-@media all and (orientation: landscape) {
+@media only screen and (orientation: landscape) {
     .Folio {
         /* Collapse */
 
@@ -27,7 +27,7 @@
                         height: 10vh;
 
                         // iPhones
-                        @media all and (max-width: $media-medium-max) {
+                        @media only screen and (max-width: $media-medium-max) {
                             height: 10vh;
                             padding: 0 0 0 rem(12);
                         }

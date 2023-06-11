@@ -1,6 +1,9 @@
 export const initStateUI = {
+    cookiesModalOpen: false,
+    cookiesAllowed: undefined,
+    cookiesAllowebByUser: undefined,
     likes: 0,
-    location: 'Home', // Home, Game, Folio
+    location: 'Loading', // Loading, Home, Game, Folio
     active: null,
     safe: null,
     cursorPos: {},
@@ -8,7 +11,6 @@ export const initStateUI = {
     lang: 'english',
     isUserLangSelected: false,
     authFormType: '', // login | reg | forgot | change_pass
-    isDescShow: true,
     tgMessage: '',
     isContactFormFilled: false,
     isFuturesOpen: false,

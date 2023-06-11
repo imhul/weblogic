@@ -5,6 +5,7 @@ export const initStateAuth = {
         userId: '',
         ip: '',
         ips: [],
+        cookies: false,
         isAuth: false,
         isRobot: false, // TODO: true for production!
         lastRobotCheck: '',

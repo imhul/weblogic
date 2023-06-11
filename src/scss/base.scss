@@ -463,6 +463,10 @@ svg {
     color: var(--color-white) !important;
 }
 
+.secondary {
+    color: var(--color-secondary) !important;
+}
+
 .ant-btn-background-ghost {
     display: block;
     background-color: var(--color-black) !important;
@@ -516,5 +520,16 @@ svg {
 
     .mobile-center {
         text-align: center !important;
+    }
+}
+
+.animated-lamp {
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (min-width: $min-width-small) {
+    .animated-lamp {
+        width: rem(400);
     }
 }

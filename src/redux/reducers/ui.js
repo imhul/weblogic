@@ -71,28 +71,16 @@ export default (state = initState, action) => {
                 cursorPos: action.payload
             };
 
-        case type.SHOW_MODAL:
+        case type.SHOW_TRELLO_MODAL:
             return {
                 ...state,
                 trelloModalVisible: true
             };
 
-        case type.CLOSE_MODAL:
+        case type.CLOSE_TRELLO_MODAL:
             return {
                 ...state,
                 trelloModalVisible: false
-            };
-
-        case type.SHOW_DESC:
-            return {
-                ...state,
-                isDescShow: true
-            };
-
-        case type.HIDE_DESC:
-            return {
-                ...state,
-                isDescShow: false
             };
 
         case type.TEXTAREA_UPDATE:
@@ -124,6 +112,24 @@ export default (state = initState, action) => {
                 ...state,
                 location: action.payload,
                 active: null
+            };
+
+        case type.SET_COOKIES_ALLOWED:
+            return {
+                ...state,
+                cookiesAllowed: action.payload
+            };
+
+        case type.SET_COOKIES_ALLOWED_BY_USER:
+            return {
+                ...state,
+                cookiesAllowebByUser: action.payload
+            };
+
+        case type.TOGGLE_COOKIES_MODAL:
+            return {
+                ...state,
+                cookiesModalOpen: action.payload
             };
 
         default:

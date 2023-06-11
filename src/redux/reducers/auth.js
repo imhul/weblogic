@@ -181,7 +181,7 @@ export default function (state = initState, action) {
                 }
             };
 
-        case type.USER_UPDATE: {
+        case type.USER_UPDATE:
             return {
                 ...state,
                 currentUser: {
@@ -189,14 +189,12 @@ export default function (state = initState, action) {
                     ...action.payload
                 }
             };
-        }
 
-        case type.USER_DELETE: {
+        case type.USER_DELETE:
             const { id } = action.payload;
             return {
                 ...state
             };
-        }
 
         default:
             return state;

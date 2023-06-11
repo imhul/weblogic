@@ -26,7 +26,9 @@ const Password = Input.Password;
 
 const Login = () => {
     const { users, currentUser } = useSelector(s => s.auth);
-    const { safe, lang } = useSelector(s => s.ui);
+    const { safe, lang, cookiesAllowebByUser } = useSelector(
+        s => s.ui
+    );
     const [submitting, setSubmitting] = useState(false);
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
     const dispatch = useDispatch();
@@ -72,9 +74,17 @@ const Login = () => {
                     type: 'USER_AUTH',
                     payload:
                         currentUser.ip === beingCheckedUser.ip
-                            ? rest
+                            ? {
+                                  ...rest,
+                                  cookies:
+                                      baseUser.cookies &&
+                                      cookiesAllowebByUser
+                              }
                             : {
                                   ...rest,
+                                  cookies:
+                                      baseUser.cookies &&
+                                      cookiesAllowebByUser,
                                   ip: currentUser.ip,
                                   ips: beingCheckedUser.ip
                                       ? [

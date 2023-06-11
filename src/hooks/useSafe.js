@@ -37,7 +37,8 @@ const useSafe = () => {
                 authdb: process.env.MONGO_ATLAS_AUTH_DB,
                 authCollection:
                     process.env.MONGO_ATLAS_AUTH_COLLECTION,
-                tipKey: process.env.REACT_APP_TIP_KEY
+                tipKey: process.env.REACT_APP_TIP_KEY,
+                jwtKey: process.env.REACT_APP_JWT_KEY
             }
         });
         setLoaded(true);

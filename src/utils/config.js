@@ -1,7 +1,7 @@
 export const NOTIFY_OPTIONS = {
     duration: 4,
     style: {
-        marginTop: '2.5rem'
+        marginTop: '5rem'
     }
 };
 
@@ -63,3 +63,7 @@ export const SYSTEM_LANG =
 
 export const GITHUB_PAGE = 'https://github.com/imhul';
 export const GITHUB_GAME_PAGE = 'https://github.com/imhul/proto-mass';
+export const COOKIES_POLICY = {
+    ukrainian: 'https://imhul.github.io/cookies-pilicy-ua/',
+    english: 'https://imhul.github.io/cookies-pilicy/'
+};

@@ -36,7 +36,7 @@
                 font-size: 2vw;
                 word-break: normal;
 
-                @media all and (max-width: $media-x-small) {
+                @media only screen and (max-width: $media-x-small) {
                     font-size: 6vw;
                 }
 

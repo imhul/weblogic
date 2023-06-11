@@ -18,6 +18,7 @@ import HowTo from '../HowTo';
 import Stats from '../Stats';
 import Home from '../Pages/Home';
 import Folio from '../Pages/Folio';
+import Loading from '../Pages/Loading';
 import Game from '../Pages/Game';
 // hooks
 import useInitialization from '../../hooks/useInitialization';
@@ -37,8 +38,10 @@ const Page = ({ location }) => {
             return <Game />;
         case 'Folio':
             return <Folio />;
+        case 'Loading':
+            return <Loading />;
         default:
-            return <Home />;
+            return <Loading />;
     }
 };
 
@@ -67,7 +70,7 @@ const Output = () => {
                     <HowTo />
                 </Portal>
             ) : null}
-            <Toolbar key={0} />
+            {location !== 'Loading' ? <Toolbar key={0} /> : null}
             <ContextMenuTrigger id="context-menu">
                 <Layout className="Main">
                     <Content>

@@ -81,7 +81,7 @@
                             i {
                                 font-size: rem(24);
 
-                                @media all and (max-width: $media-small) {
+                                @media only screen and (max-width: $media-small) {
                                     margin: rem(20) rem(20) 0 rem(20);
                                 }
                             }
@@ -90,7 +90,7 @@
                                 color: var(--color-white) !important;
                                 font-size: rem(18);
 
-                                @media all and (max-width: $media-x-small) {
+                                @media only screen and (max-width: $media-x-small) {
                                     font-size: 6vw;
                                     line-height: 6vw;
                                 }

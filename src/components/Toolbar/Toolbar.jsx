@@ -20,8 +20,8 @@ import {
 } from 'antd/lib';
 import {
     HeartFilled,
+    SyncOutlined,
     LogoutOutlined,
-    LoadingOutlined,
     SettingOutlined,
     CloseCircleOutlined,
     QuestionCircleOutlined
@@ -160,6 +160,7 @@ const Toolbar = memo(() => {
         ) {
             userUpdate(currentUser, lang, safe);
             setIsUserUpdated(true);
+            console.info('user: ', currentUser);
         }
     }, [isUserUpdated, currentUser, lang, safe, authFormType]);
 
@@ -194,7 +195,10 @@ const Toolbar = memo(() => {
     return (
         <div className="Toolbar">
             {!users.length || !currentUser.ip.length ? (
-                <LoadingOutlined className="white" />
+                <SyncOutlined
+                    className="burger"
+                    onClick={() => window.location.reload()}
+                />
             ) : (
                 <i
                     className="icon-lamp burger"

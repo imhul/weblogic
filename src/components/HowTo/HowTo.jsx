@@ -1,4 +1,5 @@
 import React, { memo, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 // components
 import { Button, Tooltip, message } from 'antd/lib';
 import {
@@ -6,9 +7,11 @@ import {
     RedoOutlined
 } from '@ant-design/icons';
 // utils
+import translate from '../../utils/translations';
 import { NOTIFY_OPTIONS } from '../../utils/config';
 
 const HowTo = memo(() => {
+    const { lang } = useSelector(state => state.ui);
     const [open, setOpen] = useState(false);
     const [repeats, setRepeats] = useState(0);
 
@@ -39,7 +42,7 @@ const HowTo = memo(() => {
                 type="primary"
                 onClick={() =>
                     message.info({
-                        content: 'Keep clicking anywhere!',
+                        content: translate(lang, 'keep_clicking'),
                         ...NOTIFY_OPTIONS
                     })
                 }

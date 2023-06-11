@@ -7,7 +7,7 @@
     & > div {
         position: fixed;
         top: 0;
-        font-size: rem(50);
+        font-size: rem(34);
         font-weight: bold;
         line-height: rem(50);
         z-index: 1;
@@ -16,9 +16,17 @@
         color: var(--color-white);
         text-align: center;
 
+        @media only screen and (min-width: $min-width-medium) {
+            font-size: rem(50);
+        }
+
         .text {
-            font-size: rem(24);
+            font-size: rem(14);
             line-height: 1;
+
+            @media only screen and (min-width: $min-width-medium) {
+                font-size: rem(24);
+            }
         }
     }
 

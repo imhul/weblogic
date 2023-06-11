@@ -54,3 +54,23 @@ export const API_ACTIONS = {
     MONGO_EDIT: 'mongo-edit',
     MONGO_UPDATE: 'mongo-update'
 };
+
+// TODO: code from cors.json
+// [
+//     {
+//       "origin": [
+//         "https://olo.live",
+//         "https://*.olo.live",
+//         "https://*.firebaseapp.com",
+//         "https://*.web.app",
+//         "http://*.liv",
+//         "http://olopanel.space",
+//         "http://*.olopanel.space",
+//         "http://localhost"
+//       ],
+//       "method": [
+//         "GET"
+//       ],
+//       "maxAgeSeconds": 3600
+//     }
+//   ]
