@@ -28,11 +28,11 @@
         "@fontsource/open-sans": "^5.0.1",
         "@netlify/functions": "^1.6.0",
         "@netlify/functions-utils": "^5.2.8",
-        "@parcel/babel-preset-env": "^2.9.1",
-        "@parcel/optimizer-cssnano": "^2.9.1",
-        "@parcel/transformer-image": "^2.9.1",
-        "@parcel/transformer-sass": "2.9.1",
-        "@parcel/transformer-svg-react": "^2.9.1",
+        "@parcel/babel-preset-env": "^2.9.2",
+        "@parcel/optimizer-cssnano": "^2.9.2",
+        "@parcel/transformer-image": "^2.9.2",
+        "@parcel/transformer-sass": "2.9.2",
+        "@parcel/transformer-svg-react": "^2.9.2",
         "@reduxjs/toolkit": "^1.9.5",
         "antd": "^5.5.2",
         "autoprefixer": "^10.4.14",
@@ -49,7 +49,7 @@
         "ms": "^2.1.3",
         "nodemailer": "^6.9.3",
         "openai": "^3.2.1",
-        "parcel": "^2.9.1",
+        "parcel": "^2.9.2",
         "parcel-transformer-url-loader": "^2.0.0",
         "postcss": "^8.4.24",
         "prettier": "^2.8.8",
@@ -80,6 +80,6 @@
     },
     "browserslist": "> 0.5%, last 2 versions, not dead",
     "engines": {
-        "parcel": "^2.9.1"
+        "parcel": "^2.9.2"
     }
 }
