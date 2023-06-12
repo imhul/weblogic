@@ -21,6 +21,7 @@ import {
 import {
     HeartFilled,
     SyncOutlined,
+    GithubOutlined,
     LogoutOutlined,
     SettingOutlined,
     CloseCircleOutlined,
