@@ -7,12 +7,11 @@ import {
     Col,
     Form,
     Input,
-    Button,
-    Divider,
-    Statistic,
     Radio,
     Select,
-    message
+    Button,
+    Divider,
+    Statistic
 } from 'antd/lib';
 import {
     MailOutlined,
@@ -25,7 +24,7 @@ import {
 // utils
 import translate from '../../../utils/translations';
 import { getTelegram, sendEmail } from '../../../utils/api';
-import { NOTIFY_OPTIONS, API_ACTIONS } from '../../../utils/config';
+import { API_ACTIONS } from '../../../utils/config';
 
 const Fragment = React.Fragment;
 const { TextArea } = Input;
@@ -95,12 +94,12 @@ const ContactForm = memo(() => {
                 .then(response => {
                     if (response.ok !== undefined) {
                         // TODO: response.ok !== undefined. Must be response.ok
-                        message.success({
-                            ...NOTIFY_OPTIONS,
-                            content: `${translate(
-                                lang,
-                                'message_success'
-                            )}`
+                        dispatch({
+                            type: 'NOTIFY',
+                            payload: {
+                                text: 'message_success',
+                                options: { type: 'success' }
+                            }
                         });
                         dispatch({
                             type: 'TEXTAREA_UPDATE',
@@ -177,12 +176,19 @@ const ContactForm = memo(() => {
                         res.ok
                     ) {
                         // temporary solution is: res.status === 0
-                        message.success({
-                            ...NOTIFY_OPTIONS,
-                            content: `${translate(
-                                lang,
-                                'message_success'
-                            )}`
+                        dispatch({
+                            type: 'NOTIFY',
+                            payload: {
+                                text: 'message_success',
+                                options: { type: 'success' }
+                            }
+                        });
+                        dispatch({
+                            type: 'NOTIFY',
+                            payload: {
+                                text: 'message_success',
+                                options: { type: 'success' }
+                            }
                         });
                     }
                     return res;

@@ -20,6 +20,7 @@ import Home from '../Pages/Home';
 import Folio from '../Pages/Folio';
 import Loading from '../Pages/Loading';
 import Game from '../Pages/Game';
+import Notify from '../Notify';
 // hooks
 import useInitialization from '../../hooks/useInitialization';
 import useSafe from '../../hooks/useSafe';
@@ -68,6 +69,7 @@ const Output = () => {
                 <Portal>
                     <Stats />
                     <HowTo />
+                    <Notify />
                 </Portal>
             ) : null}
             {location !== 'Loading' ? <Toolbar key={0} /> : null}

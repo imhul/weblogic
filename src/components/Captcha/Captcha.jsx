@@ -2,12 +2,11 @@
 import React, { memo, useCallback, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
-import { Row, Col, message } from 'antd/lib';
+import { Row, Col } from 'antd/lib';
 import Recaptcha from 'react-recaptcha';
 import { LoadingOutlined } from '@ant-design/icons';
 // utils
-import { NOTIFY_OPTIONS, API_ACTIONS } from '../../utils/config';
-import translate from '../../utils/translations';
+import { API_ACTIONS } from '../../utils/config';
 // api
 import { getRecaptcha } from '../../utils/api';
 
@@ -39,20 +38,20 @@ const Captcha = memo(() => {
                     type: 'ROBOT_CHECK',
                     payload: captcha
                 });
-                message.success({
-                    content: `${translate(
-                        lang,
-                        'message_success_recaptcha'
-                    )}`,
-                    ...NOTIFY_OPTIONS
+                dispatch({
+                    type: 'NOTIFY',
+                    payload: {
+                        text: 'message_success_recaptcha',
+                        options: { type: 'success' }
+                    }
                 });
             } else {
-                message.error({
-                    content: `${translate(
-                        lang,
-                        'message_error_recaptcha'
-                    )}`,
-                    ...NOTIFY_OPTIONS
+                dispatch({
+                    type: 'NOTIFY',
+                    payload: {
+                        text: 'message_error_recaptcha',
+                        options: { type: 'error' }
+                    }
                 });
             }
         },

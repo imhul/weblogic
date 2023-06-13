@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const useLang = method => {
+const useLang = () => {
     const { isUserLangSelected, lang } = useSelector(
         state => state.ui
     );

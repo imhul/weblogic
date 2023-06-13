@@ -1,15 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
-import {
-    Checkbox,
-    Button,
-    Col,
-    Form,
-    Input,
-    Row,
-    message
-} from 'antd/lib';
+import { Checkbox, Button, Col, Form, Input, Row } from 'antd/lib';
 import {
     EyeOutlined,
     MailOutlined,
@@ -20,7 +12,6 @@ import {
 // utils
 import translate from '../../../utils/translations';
 import { idGenerator } from '../../../utils/uuid';
-import { NOTIFY_OPTIONS } from '../../../utils/config';
 import userAdd from '../../../utils/userAdd';
 
 const FormItem = Form.Item;
@@ -42,12 +33,12 @@ const Registration = () => {
             obj => obj.email === values.email
         );
         if (isUserExist) {
-            message.error({
-                content: `${translate(
-                    lang,
-                    'message_email_already_exists'
-                )}`,
-                ...NOTIFY_OPTIONS
+            dispatch({
+                type: 'NOTIFY',
+                payload: {
+                    text: 'message_email_already_exists',
+                    options: { type: 'error' }
+                }
             });
             setSubmitting(false);
             return;
@@ -77,9 +68,12 @@ const Registration = () => {
         console.info('isAdded: ', isAdded);
 
         if (isAdded)
-            message.success({
-                content: translate(lang, 'register_success_message'),
-                ...NOTIFY_OPTIONS
+            dispatch({
+                type: 'NOTIFY',
+                payload: {
+                    text: 'register_success_message',
+                    options: { type: 'success' }
+                }
             });
         form.resetFields();
         setSubmitting(false);

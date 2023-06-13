@@ -4,10 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Helmet } from 'react-helmet';
 import CookiesModal from '../../CookiesModal';
-// utils
-import { message } from 'antd/lib';
-import translate from '../../../utils/translations';
-import { NOTIFY_OPTIONS } from '../../../utils/config';
 // assets
 import '../../../images/print.png';
 import '../../../images/logo.png';
@@ -19,9 +15,9 @@ const Home = memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        message.info({
-            content: translate(lang, 'keep_clicking'),
-            ...NOTIFY_OPTIONS
+        dispatch({
+            type: 'NOTIFY',
+            payload: { text: 'keep_clicking' }
         });
         const timeout = setTimeout(() => {
             dispatch({ type: 'HERO_ANIMATE' });

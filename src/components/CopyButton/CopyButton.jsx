@@ -18,17 +18,20 @@ const CopyButton = () => {
 
     const copySuccess = useCallback(e => {
         if (e.text.length) {
-            message.success({
-                content: `${translate(
-                    lang,
-                    'message_success_email_copy'
-                )}`,
-                ...NOTIFY_OPTIONS
+            dispatch({
+                type: 'NOTIFY',
+                payload: {
+                    text: 'message_success_email_copy',
+                    options: { type: 'success' }
+                }
             });
         } else {
-            message.error({
-                content: `${translate(lang, 'message_error_wrong')}`,
-                ...NOTIFY_OPTIONS
+            dispatch({
+                type: 'NOTIFY',
+                payload: {
+                    text: 'message_error_wrong',
+                    options: { type: 'error' }
+                }
             });
         }
     });

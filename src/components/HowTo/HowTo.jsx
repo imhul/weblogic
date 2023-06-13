@@ -1,19 +1,17 @@
 import React, { memo, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // components
-import { Button, Tooltip, message } from 'antd/lib';
+import { Button, Tooltip } from 'antd/lib';
 import {
     QuestionCircleOutlined,
     RedoOutlined
 } from '@ant-design/icons';
-// utils
-import translate from '../../utils/translations';
-import { NOTIFY_OPTIONS } from '../../utils/config';
 
 const HowTo = memo(() => {
     const { lang } = useSelector(state => state.ui);
     const [open, setOpen] = useState(false);
     const [repeats, setRepeats] = useState(0);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (repeats > 10) return;
@@ -41,9 +39,9 @@ const HowTo = memo(() => {
             <Button
                 type="primary"
                 onClick={() =>
-                    message.info({
-                        content: translate(lang, 'keep_clicking'),
-                        ...NOTIFY_OPTIONS
+                    dispatch({
+                        type: 'NOTIFY',
+                        payload: { text: 'keep_clicking' }
                     })
                 }
                 shape="circle"

@@ -17,9 +17,9 @@ const Loading = () => {
                 justifyContent: 'center'
             }}
         >
-            <img src="../../../images/icon-lamp-animated.svg" alt="lamp" className="animated-lamp" />
+            <img src={lamp} alt="lamp" className="animated-lamp" />
         </div>
     );
-}
+};
 
 export default Loading;

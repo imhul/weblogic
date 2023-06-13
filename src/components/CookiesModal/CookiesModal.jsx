@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
-import { Row, Col, Space, Drawer, Button, message } from 'antd/lib';
+import { Row, Col, Space, Drawer, Button } from 'antd/lib';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 // utils
 import translate from '../../utils/translations';
-import { COOKIES_POLICY, NOTIFY_OPTIONS } from '../../utils/config';
+import { COOKIES_POLICY } from '../../utils/config';
 
 const CookiesModal = () => {
     const {
@@ -54,12 +54,12 @@ const CookiesModal = () => {
     };
 
     const confirm = () => {
-        message.success({
-            content: `${translate(
-                lang,
-                'cookies_use_success_message'
-            )}`,
-            ...NOTIFY_OPTIONS
+        dispatch({
+            type: 'NOTIFY',
+            payload: {
+                text: 'cookies_use_success_message',
+                options: { type: 'success' }
+            }
         });
         dispatch({
             type: 'SET_COOKIES_ALLOWED_BY_USER',

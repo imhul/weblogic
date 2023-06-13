@@ -20,7 +20,6 @@ import {
 } from '@ant-design/icons';
 // utils
 import translate from '../../../utils/translations';
-import { NOTIFY_OPTIONS } from '../../../utils/config';
 import userEdit from '../../../utils/userEdit';
 
 const FormItem = Form.Item;
@@ -64,9 +63,12 @@ const EditProfile = () => {
         console.info('start submit');
         const values = form.getFieldsValue();
         if (!values.name && !values.email && !values.pass) {
-            message.error({
-                content: `${translate(lang, 'no_changes_message')}`,
-                ...NOTIFY_OPTIONS
+            dispatch({
+                type: 'NOTIFY',
+                payload: {
+                    text: 'no_changes_message',
+                    options: { type: 'error' }
+                }
             });
             return;
         }
@@ -89,9 +91,12 @@ const EditProfile = () => {
         console.info('EditProfileComponent: values: ', values);
         form.resetFields();
         setSubmitting(false);
-        message.success({
-            content: `${translate(lang, 'edit_success_message')}`,
-            ...NOTIFY_OPTIONS
+        dispatch({
+            type: 'NOTIFY',
+            payload: {
+                text: 'edit_success_message',
+                options: { type: 'success' }
+            }
         });
     }, [
         form,
