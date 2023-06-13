@@ -11,6 +11,7 @@
 .parcel-cache
 .cache
 dev
+dist
 build
 node_modules
 parcel-bundle-reports

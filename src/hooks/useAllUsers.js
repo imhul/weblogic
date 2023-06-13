@@ -20,8 +20,7 @@ const useAllUsers = () => {
 
         async function getAllUsers() {
             const connected = await getMongoDB(
-                `${safe.mongoAPI}${
-                    API_ACTIONS.MONGO_ALL
+                `${safe.mongoAPI}${API_ACTIONS.MONGO_ALL
                 }?=${encodeURIComponent(
                     JSON.stringify({
                         db: safe.authdb,
@@ -31,26 +30,25 @@ const useAllUsers = () => {
                 lang
             );
             if (!connected.ok) {
-                message.error({
-                    content: translate(lang, 'init_failed'),
-                    ...NOTIFY_OPTIONS,
-                    duration: 8
+                // message.error({
+                //     content: translate(lang, 'init_failed'),
+                //     ...NOTIFY_OPTIONS
+                // });
+                dispatch({
+                    type: 'LOCATION_UPDATE',
+                    payload: 'Home'
+                });
+            } else {
+                const result = await parseResponseBody(connected);
+                dispatch({
+                    type: 'GET_ALL_USERS',
+                    payload: result.data
                 });
                 dispatch({
                     type: 'LOCATION_UPDATE',
                     payload: 'Home'
                 });
-                return;
             }
-            const result = await parseResponseBody(connected);
-            dispatch({
-                type: 'GET_ALL_USERS',
-                payload: result.data
-            });
-            dispatch({
-                type: 'LOCATION_UPDATE',
-                payload: 'Home'
-            });
         }
     }, [safe, lang, currentUser.isAuth, currentUser.ip]);
 };

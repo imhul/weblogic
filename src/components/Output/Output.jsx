@@ -26,7 +26,7 @@ import useSafe from '../../hooks/useSafe';
 import useIpify from '../../hooks/useIpify';
 import useLang from '../../hooks/useLang';
 import useAllUsers from '../../hooks/useAllUsers';
-import useTip from '../../hooks/useTip';
+// import useTip from '../../hooks/useTip';
 
 const { Content } = Layout;
 
