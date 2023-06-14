@@ -1,9 +1,5 @@
 import React from 'react';
-
-const lamp = new URL(
-    '/src/images/icon-lamp-animated.svg',
-    import.meta.url
-);
+import lamp from '../../../images/icon-lamp-animated.svg';
 
 const Loading = () => {
     return (
@@ -17,7 +13,7 @@ const Loading = () => {
                 justifyContent: 'center'
             }}
         >
-            <img src={lamp} alt="lamp" className="animated-lamp" />
+            <img src={lamp} alt="loading" />
         </div>
     );
 };
