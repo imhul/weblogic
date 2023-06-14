@@ -1,7 +1,7 @@
 import React from 'react';
 
 const lamp = new URL(
-    '../../../images/icon-lamp-animated.svg',
+    '~/src/images/icon-lamp-animated.svg',
     import.meta.url
 );
 
