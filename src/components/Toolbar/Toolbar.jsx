@@ -42,6 +42,7 @@ import {
 // api
 import userUpdate from '../../utils/userUpdate';
 import { getCookies } from '../../utils/api';
+import { API_ACTIONS } from '../../utils/config';
 
 const Title = Typography.Title;
 const Panel = Collapse.Panel;
