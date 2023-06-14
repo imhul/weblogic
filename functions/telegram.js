@@ -3,12 +3,12 @@ import { request } from 'undici';
 import { env, headers, API_ACTIONS } from './utils/config';
 
 const build = async event => {
-    const { tCode, mongoAPI } = env;
+    const { tCode, apiURL } = env;
     const data =
         (await event.queryStringParameters?.data) ??
         event.body?.data ??
         event.rawUrl.replace(
-            `${mongoAPI}${API_ACTIONS.TELEGRAM_BOT}`,
+            `${apiURL}${API_ACTIONS.TELEGRAM_BOT}`,
             ''
         ) ??
         null;

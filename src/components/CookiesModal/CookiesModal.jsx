@@ -17,6 +17,7 @@ const CookiesModal = () => {
     const { currentUser } = useSelector(s => s.auth);
     const dispatch = useDispatch();
 
+    // checks whether cookies are allowed in the browser
     useEffect(() => {
         if (
             navigator.cookieEnabled !== undefined &&
@@ -29,6 +30,7 @@ const CookiesModal = () => {
         }
     }, [cookiesAllowed, navigator.cookieEnabled]);
 
+    // opens a modal window for acceptance/rejection of cookies by the user
     useEffect(() => {
         if (
             !currentUser.cookies &&

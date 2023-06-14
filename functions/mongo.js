@@ -4,11 +4,11 @@ import { builder } from '@netlify/functions';
 import { env, API_ACTIONS } from './utils/config';
 
 const build = async event => {
-    const { atlasConnect, atlasName, atlasPass, mongoAPI } = env;
+    const { atlasConnect, atlasName, atlasPass, apiURL } = env;
     const data = JSON.parse(
         decodeURIComponent(
             event.rawUrl.replace(
-                `${mongoAPI}${API_ACTIONS.MONGO_ALL}?=`,
+                `${apiURL}${API_ACTIONS.MONGO_ALL}?=`,
                 ''
             )
         )

@@ -41,6 +41,7 @@ export const API_ACTIONS = {
     MONGO_ALL: 'mongo',
     MONGO_ADD: 'mongo-add',
     MONGO_EDIT: 'mongo-edit',
+    AUTH: 'auth',
     MONGO_UPDATE: 'mongo-update'
 };
 

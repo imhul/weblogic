@@ -34,12 +34,14 @@ import Login from '../Forms/Login';
 import EditProfile from '../Forms/EditProfile';
 // utils
 import translate from '../../utils/translations';
-import userUpdate from '../../utils/userUpdate';
 import {
     LANG_OPTIONS,
     CONTACT_METHOD_OPTIONS,
     GITHUB_PAGE
 } from '../../utils/config';
+// api
+import userUpdate from '../../utils/userUpdate';
+import { getCookies } from '../../utils/api';
 
 const Title = Typography.Title;
 const Panel = Collapse.Panel;
@@ -158,10 +160,26 @@ const Toolbar = memo(() => {
             safe &&
             lang &&
             authFormType === 'login'
-        ) {
+        )
+            setCookies();
+
+        async function setCookies() {
             userUpdate(currentUser, lang, safe);
+            const body = encodeURIComponent(
+                JSON.stringify({
+                    auto_id: currentUser._id,
+                    uid: currentUser.userId,
+                    r: currentUser.role
+                })
+            );
+
+            const cookies = await getCookies(
+                safe.apiURL + API_ACTIONS.AUTH + '?data=' + body,
+                lang
+            );
+
+            console.info('cookies: ', cookies);
             setIsUserUpdated(true);
-            console.info('user: ', currentUser);
         }
     }, [isUserUpdated, currentUser, lang, safe, authFormType]);
 

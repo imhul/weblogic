@@ -9,7 +9,7 @@ function userAdd(user, lang, safe) {
 
         try {
             const connected = await getMongoUserAdd(
-                `${safe.mongoAPI}${
+                `${safe.apiURL}${
                     API_ACTIONS.MONGO_ADD
                 }?=${encodeURIComponent(
                     JSON.stringify({

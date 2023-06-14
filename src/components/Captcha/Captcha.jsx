@@ -24,9 +24,9 @@ const Captcha = memo(() => {
 
     const verify = useCallback(
         async response => {
-            if (!safe.mongoAPI) return;
+            if (!safe.apiURL) return;
             const captcha = await getRecaptcha(
-                safe.mongoAPI +
+                safe.apiURL +
                     API_ACTIONS.RECAPTCHA_PROXY +
                     '?data=' +
                     response,

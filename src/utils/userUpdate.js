@@ -18,7 +18,7 @@ function userUpdate(user, lang, safe) {
 
         try {
             const connected = await getMongoUserUpdate(
-                `${safe.mongoAPI}${
+                `${safe.apiURL}${
                     API_ACTIONS.MONGO_UPDATE
                 }?=${encodeURIComponent(
                     JSON.stringify({

@@ -4,9 +4,9 @@ import nodemailer from 'nodemailer';
 import { env, API_ACTIONS } from './utils/config';
 
 const build = async event => {
-    const { mCode, mongoAPI, mPW } = env;
+    const { mCode, apiURL, mPW } = env;
 
-    if (!mCode.length && !mongoAPI.length && !mPW.length) {
+    if (!mCode.length && !apiURL.length && !mPW.length) {
         return {
             statusCode: 520,
             body: JSON.stringify({
@@ -19,7 +19,7 @@ const build = async event => {
     const data = JSON.parse(
         decodeURIComponent(
             event.rawUrl.replace(
-                `${mongoAPI}${API_ACTIONS.EMAIL}?=`,
+                `${apiURL}${API_ACTIONS.EMAIL}?=`,
                 ''
             )
         )

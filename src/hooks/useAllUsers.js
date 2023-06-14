@@ -18,7 +18,7 @@ const useAllUsers = () => {
 
         async function getAllUsers() {
             const connected = await getMongoDB(
-                `${safe.mongoAPI}${
+                `${safe.apiURL}${
                     API_ACTIONS.MONGO_ALL
                 }?=${encodeURIComponent(
                     JSON.stringify({

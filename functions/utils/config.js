@@ -23,7 +23,7 @@ export const env = {
     authdb: safe.authdb,
     atlasBase: safe.atlasBase,
     authCollection: safe.authCollection,
-    mongoAPI: safe.mongoAPI
+    apiURL: safe.apiURL
 };
 
 export const headers = {
@@ -52,6 +52,7 @@ export const API_ACTIONS = {
     MONGO_ALL: 'mongo',
     MONGO_ADD: 'mongo-add',
     MONGO_EDIT: 'mongo-edit',
+    AUTH: 'auth',
     MONGO_UPDATE: 'mongo-update'
 };
 

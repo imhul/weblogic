@@ -3,12 +3,12 @@ import { request } from 'undici';
 import { env, headers, API_ACTIONS } from './utils/config';
 
 const build = async event => {
-    const { mongoAPI, link, ipify } = env;
+    const { apiURL, link, ipify } = env;
     const data =
         (await event.queryStringParameters?.data) ??
         event.body?.data ??
         event.rawUrl.replace(
-            `${mongoAPI}${API_ACTIONS.RECAPTCHA_PROXY}`,
+            `${apiURL}${API_ACTIONS.RECAPTCHA_PROXY}`,
             ''
         ) ??
         null;

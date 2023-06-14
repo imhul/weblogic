@@ -85,7 +85,7 @@ const ContactForm = memo(() => {
         async function getTelegramAPI() {
             setSubmitting(true);
             await getTelegram(
-                safe.mongoAPI +
+                safe.apiURL +
                     API_ACTIONS.TELEGRAM_BOT +
                     '?data=' +
                     tgMessage,
@@ -163,7 +163,7 @@ const ContactForm = memo(() => {
 
             setSubmitting(true);
             const emailURL =
-                safe.mongoAPI +
+                safe.apiURL +
                 '/?=' +
                 encodeURIComponent(JSON.stringify(values));
 
