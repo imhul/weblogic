@@ -1,5 +1,5 @@
 import React from 'react';
-import lamp from '../../../images/icon-lamp-animated.svg';
+import lamp from '~/src/images/icon-lamp-animated.svg';
 
 const Loading = () => {
     return (
