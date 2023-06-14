@@ -17,7 +17,6 @@ const Notify = () => {
     useEffect(() => {
         if (show && !progress) {
             setProgress(true);
-            console.info('Notify!');
             messageApi
                 .open({
                     key,

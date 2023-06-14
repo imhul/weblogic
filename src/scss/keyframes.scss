@@ -152,3 +152,33 @@
         transform: rotate(225deg);
     }
 }
+
+@keyframes draw-loading {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fade-loading {
+    0% {
+        stroke-opacity: 1;
+    }
+    85% {
+        stroke-opacity: 1;
+    }
+    100% {
+        stroke-opacity: 0;
+    }
+}
+
+@keyframes redraw-loading {
+    0% {
+        stroke-dashoffset: 3280;
+    }
+    57% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
