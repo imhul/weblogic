@@ -20,7 +20,6 @@ function userAdd(user, lang, safe) {
                 )}`,
                 lang
             );
-            console.warn('connected: ', connected);
             console.warn(
                 !connected.ok
                     ? '::: User add NOT sended! :::'

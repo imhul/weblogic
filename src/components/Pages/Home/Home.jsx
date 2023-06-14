@@ -15,16 +15,22 @@ const Home = memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({
-            type: 'NOTIFY',
-            payload: { text: 'keep_clicking' }
-        });
-        const timeout = setTimeout(() => {
+        const timeout2 = setTimeout(() => {
             dispatch({ type: 'HERO_ANIMATE' });
-            clearTimeout(timeout);
+            clearTimeout(timeout2);
         }, 1000);
+        const timeout1 = setTimeout(() => {
+            dispatch({
+                type: 'NOTIFY',
+                payload: { text: 'keep_clicking' }
+            });
+            clearTimeout(timeout1);
+        }, 6000);
 
-        return () => clearTimeout(timeout);
+        return () => {
+            clearTimeout(timeout1);
+            clearTimeout(timeout2);
+        };
     }, []);
 
     const goFolio = () => {

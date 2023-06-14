@@ -12,7 +12,6 @@ const useInitialization = () => {
         function initHomePage() {
             dispatch({ type: 'INITIALIZE' });
             const timeout = setTimeout(() => {
-                // dispatch({ type: 'HERO_ANIMATE' });
                 dispatch({ type: 'GUEST_INIT' });
                 clearTimeout(timeout);
             }, 500);

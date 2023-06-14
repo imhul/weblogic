@@ -18,7 +18,6 @@ function userEdit(query, lang, safe) {
                 )}`,
                 lang
             );
-            console.warn('connected: ', connected);
             console.warn(
                 !connected.ok
                     ? '::: User edit NOT sended! :::'

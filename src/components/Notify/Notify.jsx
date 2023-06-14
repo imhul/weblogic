@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
-import { idGenerator } from '../../utils/uuid';
 import translate from '../../utils/translations';
 import { message } from 'antd/lib';
 
@@ -12,15 +11,14 @@ const Notify = () => {
     const [progress, setProgress] = useState(false);
     const { lang } = useSelector(s => s.ui);
     const dispatch = useDispatch();
-    const key = idGenerator();
 
     useEffect(() => {
         if (show && !progress) {
             setProgress(true);
             messageApi
                 .open({
-                    key,
-                    type: options.type,
+                    key: text,
+                    type: options.type || 'info',
                     content: translate(lang, text),
                     duration: options.duration,
                     style: options.style

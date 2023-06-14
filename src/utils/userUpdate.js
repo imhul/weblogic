@@ -29,7 +29,6 @@ function userUpdate(user, lang, safe) {
                 )}`,
                 lang
             );
-            console.warn('connected: ', connected);
             console.warn(
                 !connected.ok
                     ? '::: User update NOT sended! :::'
