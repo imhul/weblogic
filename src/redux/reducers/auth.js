@@ -196,6 +196,20 @@ export default function (state = initState, action) {
                 ...state
             };
 
+        case type.SET_JWT:
+            return {
+                ...state,
+                jwt: action.payload,
+                emptyCookie: action.payload === null
+            };
+
+        case type.JWT_IS_NOT_EXIST:
+            return {
+                ...state,
+                jwt: null,
+                emptyCookie: true
+            };
+
         default:
             return state;
     }

@@ -28,6 +28,8 @@ export const UI_UX_types = {
 export const authTypes = {
     // checks
     IPIFY: 'IPIFY',
+    SET_JWT: 'SET_JWT',
+    JWT_IS_NOT_EXIST: 'JWT_IS_NOT_EXIST',
     USER_AUTH: 'USER_AUTH',
     GUEST_INIT: 'GUEST_INIT',
     USER_LOGOUT: 'USER_LOGOUT',

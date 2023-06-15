@@ -29,7 +29,7 @@ const useCookies = () => {
                     dispatch({ type: 'SET_JWT', payload: null });
                 }
             } else {
-                dispatch({ type: 'SET_JWT', payload: null });
+                dispatch({ type: 'JWT_IS_NOT_EXIST' });
             }
         };
 

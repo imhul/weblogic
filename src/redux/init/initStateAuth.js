@@ -1,4 +1,6 @@
 export const initStateAuth = {
+    jwt: null,
+    emptyCookie: null,
     users: [],
     currentUser: {
         _id: '',
