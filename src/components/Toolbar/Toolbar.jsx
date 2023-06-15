@@ -174,7 +174,7 @@ const Toolbar = memo(() => {
                 })
             )}`;
 
-            const url = safe.apiURL + API_ACTIONS.AUTH + '?data=' + body;
+            const url = safe.apiURL + API_ACTIONS.AUTH + '?=' + body;
             console.info('url: ', url);
             const cookies = await getCookies(url, lang);
 
