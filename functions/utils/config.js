@@ -23,7 +23,8 @@ export const env = {
     authdb: safe.authdb,
     atlasBase: safe.atlasBase,
     authCollection: safe.authCollection,
-    apiURL: safe.apiURL
+    apiURL: safe.apiURL,
+    jwtKey: safe.jwtKey,
 };
 
 export const headers = {
