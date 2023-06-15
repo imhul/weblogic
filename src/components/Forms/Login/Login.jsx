@@ -75,24 +75,24 @@ const Login = () => {
                     payload:
                         currentUser.ip === beingCheckedUser.ip
                             ? {
-                                ...rest,
-                                cookies:
-                                    beingCheckedUser.cookies &&
-                                    cookiesAllowebByUser
-                            }
+                                  ...rest,
+                                  cookies:
+                                      beingCheckedUser.cookies &&
+                                      cookiesAllowebByUser
+                              }
                             : {
-                                ...rest,
-                                cookies:
-                                    beingCheckedUser.cookies &&
-                                    cookiesAllowebByUser,
-                                ip: currentUser.ip,
-                                ips: beingCheckedUser.ip
-                                    ? [
-                                        beingCheckedUser.ip,
-                                        currentUser.ip
-                                    ]
-                                    : [currentUser.ip]
-                            }
+                                  ...rest,
+                                  cookies:
+                                      beingCheckedUser.cookies &&
+                                      cookiesAllowebByUser,
+                                  ip: currentUser.ip,
+                                  ips: beingCheckedUser.ip
+                                      ? [
+                                            beingCheckedUser.ip,
+                                            currentUser.ip
+                                        ]
+                                      : [currentUser.ip]
+                              }
                 });
                 notify.success({
                     content: translate(lang, 'login_success_message'),

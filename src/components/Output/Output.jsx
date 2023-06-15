@@ -54,6 +54,8 @@ const Output = () => {
     useLang();
     // useTip();
     useAllUsers();
+    useCookies();
+
     const dispatch = useDispatch();
 
     const navigate = key => {

@@ -24,7 +24,7 @@ export const env = {
     atlasBase: safe.atlasBase,
     authCollection: safe.authCollection,
     apiURL: safe.apiURL,
-    jwtKey: safe.jwtKey,
+    jwtKey: safe.jwtKey
 };
 
 export const headers = {

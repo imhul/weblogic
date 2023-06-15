@@ -1,4 +1,4 @@
-# Portfolio React App v1.3.0
+# Portfolio React App v1.3.2
 
 ### by Tkachuk Zakhar
 
@@ -23,8 +23,11 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
     -   `@netlify/functions`
     -   `undici`
     -   `reCapcha` proxy server
-    -   `telegram bot`
-    -   `email sending` with `nodemailer` + `gmail`
+    -   Telegram bot
+    -   Email sending with `nodemailer` + `gmail`
+    -   `mongoDB` API
+    -   Cookies
+    -   JWT with `jsonwebtoken`
 
 **Roadmap**
 
@@ -33,9 +36,7 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 -   **Backend:**
     -   OAuth
     -   trello API
-    -   firebase API
-    -   mongoDB API
-    -   cookies and sessions
-    -   feathersjs
+    -   supabase API
+    -   feathersjs + private server
 
 Try the published app [here](https://weblogic.netlify.app/) or [here](https://weblogic-ukraine.pp.ua/)
