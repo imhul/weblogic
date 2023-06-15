@@ -166,18 +166,17 @@ const Toolbar = memo(() => {
 
         async function setCookies() {
             userUpdate(currentUser, lang, safe);
-            const body = encodeURIComponent(
+            const body = `${encodeURIComponent(
                 JSON.stringify({
                     auto_id: currentUser._id,
                     uid: currentUser.userId,
                     r: currentUser.role
                 })
-            );
+            )}`;
 
-            const cookies = await getCookies(
-                safe.apiURL + API_ACTIONS.AUTH + '?data=' + body,
-                lang
-            );
+            const url = safe.apiURL + API_ACTIONS.AUTH + '?data=' + body;
+            console.info('url: ', url);
+            const cookies = await getCookies(url, lang);
 
             console.info('cookies: ', cookies);
             setIsUserUpdated(true);

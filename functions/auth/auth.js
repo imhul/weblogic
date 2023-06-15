@@ -14,6 +14,8 @@ const build = async event => {
         )
     );
 
+    console.info('data: ', data);
+
     if (!data) {
         return {
             statusCode: 533,
