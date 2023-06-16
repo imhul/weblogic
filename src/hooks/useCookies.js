@@ -21,7 +21,6 @@ const useCookies = () => {
         }
     }, [cookiesAllowed, navigator.cookieEnabled]);
 
-
     useEffect(() => {
         if (
             navigator.cookieEnabled !== undefined &&

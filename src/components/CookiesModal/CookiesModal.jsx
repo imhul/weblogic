@@ -62,7 +62,7 @@ const CookiesModal = () => {
                 options: { type: 'success' }
             }
         });
-        
+
         dispatch({ type: 'TOGGLE_COOKIES_MODAL', payload: false });
     };
 

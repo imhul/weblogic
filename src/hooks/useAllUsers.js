@@ -19,7 +19,8 @@ const useAllUsers = () => {
         async function getAllUsers() {
             if (!safe.apiURL) return;
             const connected = await getMongoDB(
-                `${safe.apiURL}${API_ACTIONS.MONGO_ALL
+                `${safe.apiURL}${
+                    API_ACTIONS.MONGO_ALL
                 }?=${encodeURIComponent(
                     JSON.stringify({
                         db: safe.authdb,
