@@ -76,15 +76,11 @@ const Login = () => {
                         currentUser.ip === beingCheckedUser.ip
                             ? {
                                   ...rest,
-                                  cookies:
-                                      beingCheckedUser.cookies &&
-                                      cookiesAllowebByUser
+                                  cookies: cookiesAllowebByUser
                               }
                             : {
                                   ...rest,
-                                  cookies:
-                                      beingCheckedUser.cookies &&
-                                      cookiesAllowebByUser,
+                                  cookies: cookiesAllowebByUser,
                                   ip: currentUser.ip,
                                   ips: beingCheckedUser.ip
                                       ? [

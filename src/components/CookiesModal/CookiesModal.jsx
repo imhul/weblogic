@@ -17,19 +17,6 @@ const CookiesModal = () => {
     const { currentUser } = useSelector(s => s.auth);
     const dispatch = useDispatch();
 
-    // checks whether cookies are allowed in the browser
-    useEffect(() => {
-        if (
-            navigator.cookieEnabled !== undefined &&
-            cookiesAllowed === undefined
-        ) {
-            dispatch({
-                type: 'SET_COOKIES_ALLOWED',
-                payload: navigator.cookieEnabled
-            });
-        }
-    }, [cookiesAllowed, navigator.cookieEnabled]);
-
     // opens a modal window for acceptance/rejection of cookies by the user
     useEffect(() => {
         if (
@@ -52,10 +39,22 @@ const CookiesModal = () => {
             type: 'SET_COOKIES_ALLOWED_BY_USER',
             payload: false
         });
+        dispatch({
+            type: 'SET_CURREN_USER_COOKIES',
+            payload: false
+        });
         dispatch({ type: 'TOGGLE_COOKIES_MODAL', payload: false });
     };
 
     const confirm = () => {
+        dispatch({
+            type: 'SET_COOKIES_ALLOWED_BY_USER',
+            payload: true
+        });
+        dispatch({
+            type: 'SET_CURREN_USER_COOKIES',
+            payload: true
+        });
         dispatch({
             type: 'NOTIFY',
             payload: {
@@ -63,10 +62,7 @@ const CookiesModal = () => {
                 options: { type: 'success' }
             }
         });
-        dispatch({
-            type: 'SET_COOKIES_ALLOWED_BY_USER',
-            payload: true
-        });
+        
         dispatch({ type: 'TOGGLE_COOKIES_MODAL', payload: false });
     };
 

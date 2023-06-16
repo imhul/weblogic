@@ -4,11 +4,35 @@ import { useDispatch, useSelector } from 'react-redux';
 import jwt from 'jsonwebtoken';
 
 const useCookies = () => {
-    const { safe } = useSelector(s => s.ui);
+    const { safe, cookiesAllowed } = useSelector(s => s.ui);
 
     const dispatch = useDispatch();
 
+    // checks whether cookies are allowed in the browser
     useEffect(() => {
+        if (
+            navigator.cookieEnabled !== undefined &&
+            cookiesAllowed === undefined
+        ) {
+            dispatch({
+                type: 'SET_COOKIES_ALLOWED',
+                payload: navigator.cookieEnabled
+            });
+        }
+    }, [cookiesAllowed, navigator.cookieEnabled]);
+
+
+    useEffect(() => {
+        if (
+            navigator.cookieEnabled !== undefined &&
+            cookiesAllowed === undefined
+        ) {
+            dispatch({
+                type: 'SET_COOKIES_ALLOWED',
+                payload: navigator.cookieEnabled
+            });
+        }
+
         const getJWT = () => {
             const { jwtKey } = safe;
             const cookies = document.cookie.split(';');
@@ -18,6 +42,14 @@ const useCookies = () => {
             );
             console.info('tokenCookie: ', tokenCookie);
             if (tokenCookie) {
+                dispatch({
+                    type: 'SET_COOKIES_ALLOWED_BY_USER',
+                    payload: true
+                });
+                dispatch({
+                    type: 'SET_CURREN_USER_COOKIES',
+                    payload: true
+                });
                 const token = tokenCookie.split('=')[1];
                 try {
                     const decoded = jwt.verify(token, jwtKey);

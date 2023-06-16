@@ -17,9 +17,9 @@ const useAllUsers = () => {
         } else return;
 
         async function getAllUsers() {
+            if (!safe.apiURL) return;
             const connected = await getMongoDB(
-                `${safe.apiURL}${
-                    API_ACTIONS.MONGO_ALL
+                `${safe.apiURL}${API_ACTIONS.MONGO_ALL
                 }?=${encodeURIComponent(
                     JSON.stringify({
                         db: safe.authdb,
@@ -30,11 +30,30 @@ const useAllUsers = () => {
             );
             if (!connected.ok) {
                 dispatch({
+                    type: 'NOTIFY',
+                    payload: {
+                        text: 'init_failed',
+                        options: { type: 'error' }
+                    }
+                });
+
+                dispatch({
                     type: 'LOCATION_UPDATE',
                     payload: 'Home'
                 });
+                return;
             } else {
                 const result = await parseResponseBody(connected);
+                if (!result) {
+                    dispatch({
+                        type: 'NOTIFY',
+                        payload: {
+                            text: 'init_failed',
+                            options: { type: 'error' }
+                        }
+                    });
+                    return;
+                }
                 dispatch({
                     type: 'GET_ALL_USERS',
                     payload: result.data

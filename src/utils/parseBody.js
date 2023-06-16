@@ -4,12 +4,12 @@ export default async function parseResponseBody(response) {
     let result = '';
     while (true) {
         const { done, value } = await reader.read();
-
         if (done) break;
-
         const chunk = decoder.decode(value);
         result += chunk;
     }
 
-    return JSON.parse(result);
+    if (result.startsWith('{')) {
+        return JSON.parse(result);
+    } else return false;
 }

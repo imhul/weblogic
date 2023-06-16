@@ -210,6 +210,12 @@ export default function (state = initState, action) {
                 emptyCookie: true
             };
 
+        case type.SET_CURREN_USER_COOKIES:
+            return {
+                ...state,
+                cookies: action.payload
+            };
+
         default:
             return state;
     }
