@@ -1,11 +1,17 @@
 // core
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import jwt from 'jsonwebtoken';
 
 const useCookies = () => {
-    const { safe, cookiesAllowed } = useSelector(s => s.ui);
-
+    const {
+        safe,
+        cookiesAllowed,
+        cookiesAllowebByUser,
+        cookiesModalOpen
+    } = useSelector(s => s.ui);
+    const { currentUser } = useSelector(s => s.auth);
+    const [checked, setChecked] = useState(false);
     const dispatch = useDispatch();
 
     // checks whether cookies are allowed in the browser
@@ -22,16 +28,6 @@ const useCookies = () => {
     }, [cookiesAllowed, navigator.cookieEnabled]);
 
     useEffect(() => {
-        if (
-            navigator.cookieEnabled !== undefined &&
-            cookiesAllowed === undefined
-        ) {
-            dispatch({
-                type: 'SET_COOKIES_ALLOWED',
-                payload: navigator.cookieEnabled
-            });
-        }
-
         const getJWT = () => {
             const { jwtKey } = safe;
             const cookies = document.cookie.split(';');
@@ -49,6 +45,7 @@ const useCookies = () => {
                     type: 'SET_CURREN_USER_COOKIES',
                     payload: true
                 });
+                setChecked(true);
                 const token = tokenCookie.split('=')[1];
                 try {
                     const decoded = jwt.verify(token, jwtKey);
@@ -62,6 +59,7 @@ const useCookies = () => {
                     dispatch({ type: 'SET_JWT', payload: null });
                 }
             } else {
+                setChecked(true);
                 dispatch({ type: 'JWT_IS_NOT_EXIST' });
             }
         };
@@ -72,6 +70,24 @@ const useCookies = () => {
             window.cookieStore.removeEventListener('change', getJWT);
         };
     }, []);
+
+    // opens a modal window for acceptance/rejection of cookies by the user
+    useEffect(() => {
+        if (
+            checked &&
+            !currentUser.cookies &&
+            cookiesAllowed &&
+            !cookiesModalOpen &&
+            cookiesAllowebByUser === undefined
+        ) {
+            dispatch({ type: 'TOGGLE_COOKIES_MODAL', payload: true });
+        }
+    }, [
+        currentUser.cookies,
+        cookiesModalOpen,
+        cookiesAllowed,
+        cookiesAllowebByUser
+    ]);
 
     return;
 };

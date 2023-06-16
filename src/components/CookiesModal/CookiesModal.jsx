@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // components
 import { Row, Col, Space, Drawer, Button } from 'antd/lib';
@@ -8,31 +8,8 @@ import translate from '../../utils/translations';
 import { COOKIES_POLICY } from '../../utils/config';
 
 const CookiesModal = () => {
-    const {
-        lang,
-        cookiesModalOpen,
-        cookiesAllowed,
-        cookiesAllowebByUser
-    } = useSelector(s => s.ui);
-    const { currentUser } = useSelector(s => s.auth);
+    const { lang, cookiesModalOpen } = useSelector(s => s.ui);
     const dispatch = useDispatch();
-
-    // opens a modal window for acceptance/rejection of cookies by the user
-    useEffect(() => {
-        if (
-            !currentUser.cookies &&
-            cookiesAllowed === true &&
-            !cookiesModalOpen &&
-            cookiesAllowebByUser === undefined
-        ) {
-            dispatch({ type: 'TOGGLE_COOKIES_MODAL', payload: true });
-        }
-    }, [
-        currentUser.cookies,
-        cookiesModalOpen,
-        cookiesAllowed,
-        cookiesAllowebByUser
-    ]);
 
     const cancel = () => {
         dispatch({

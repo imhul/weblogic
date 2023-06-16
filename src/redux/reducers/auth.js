@@ -213,7 +213,10 @@ export default function (state = initState, action) {
         case type.SET_CURREN_USER_COOKIES:
             return {
                 ...state,
-                cookies: action.payload
+                currentUser: {
+                    ...state.currentUser,
+                    cookies: action.payload
+                }
             };
 
         default:
