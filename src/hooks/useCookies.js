@@ -12,9 +12,11 @@ const useCookies = () => {
         const getJWT = () => {
             const { jwtKey } = safe;
             const cookies = document.cookie.split(';');
+            console.info('cookies: ', cookies);
             const tokenCookie = cookies.some(cookie =>
                 cookie.trim().startsWith('tx=')
             );
+            console.info('tokenCookie: ', tokenCookie);
             if (tokenCookie) {
                 const token = tokenCookie.split('=')[1];
                 try {
