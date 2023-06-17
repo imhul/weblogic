@@ -35,6 +35,7 @@ const useCookies = () => {
             console.info('getJWT run!');
             const { jwtKey } = safe;
             console.info('useCookies: jwtKey is exist: ', jwtKey);
+            console.info('useCookies: document.cookie: ', document.cookie);
             const cookies = document.cookie.split(';');
             console.info('useCookies: cookies is exist: ', cookies);
             const tokenCookie = cookies.some(cookie =>
