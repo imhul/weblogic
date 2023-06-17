@@ -28,7 +28,9 @@ const useCookies = () => {
     }, [cookiesAllowed, navigator.cookieEnabled]);
 
     useEffect(() => {
+        console.info('useCookies run!');
         if (!safe) return;
+        console.info('useCookies: safe is exist!');
         const getJWT = () => {
             const { jwtKey } = safe;
             const cookies = document.cookie.split(';');
