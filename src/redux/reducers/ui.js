@@ -29,7 +29,7 @@ export default (state = initState, action) => {
                     : action.payload[0];
             return { ...state, active };
 
-        case type.CHANGE_LANG:
+        case type.SET_LANG:
             return {
                 ...state,
                 lang: action.payload
@@ -41,7 +41,7 @@ export default (state = initState, action) => {
                 isUserLangSelected: true
             };
 
-        case type.CHANGE_AUTH_FORM_TYPE:
+        case type.SET_AUTH_FORM_TYPE:
             return {
                 ...state,
                 authFormType: action.payload
@@ -53,7 +53,7 @@ export default (state = initState, action) => {
                 tip: action.payload
             };
 
-        case type.CHANGE_CONTACT_METHOD:
+        case type.SET_CONTACT_METHOD:
             return {
                 ...state,
                 contactMethod: action.payload
@@ -104,7 +104,7 @@ export default (state = initState, action) => {
                 isFuturesOpen: !state.isFuturesOpen
             };
 
-        case type.LOCATION_UPDATE:
+        case type.SET_LOCATION:
             if (action.payload !== 'Home') {
                 window.bgJSDom[0].bgJS.fn.particlesRefresh();
             }

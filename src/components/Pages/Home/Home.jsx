@@ -35,7 +35,7 @@ const Home = memo(() => {
 
     const goFolio = () => {
         dispatch({
-            type: 'LOCATION_UPDATE',
+            type: 'SET_LOCATION',
             payload: 'Folio'
         });
     };

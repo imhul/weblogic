@@ -66,7 +66,7 @@ const Toolbar = memo(() => {
     useEffect(() => {
         if (!currentUser.isAuth && !authFormType.length) {
             dispatch({
-                type: 'CHANGE_AUTH_FORM_TYPE',
+                type: 'SET_AUTH_FORM_TYPE',
                 payload: 'login'
             });
         }
@@ -137,7 +137,7 @@ const Toolbar = memo(() => {
             payload: false
         });
         dispatch({
-            type: 'LOCATION_UPDATE',
+            type: 'SET_LOCATION',
             payload: key
         });
     });
@@ -145,7 +145,7 @@ const Toolbar = memo(() => {
     useEffect(() => {
         if (contactMethod === 'SMS')
             dispatch({
-                type: 'CHANGE_CONTACT_METHOD',
+                type: 'SET_CONTACT_METHOD',
                 payload: 'Telegram'
             });
     }, [contactMethod]);
@@ -302,7 +302,7 @@ const Toolbar = memo(() => {
                     onChange={data => {
                         dispatch({ type: 'TOGGLE_USER_LANG_SELECT' });
                         dispatch({
-                            type: 'CHANGE_LANG',
+                            type: 'SET_LANG',
                             payload: data
                         });
                     }}
@@ -316,7 +316,7 @@ const Toolbar = memo(() => {
                     value={contactMethod}
                     onChange={data =>
                         dispatch({
-                            type: 'CHANGE_CONTACT_METHOD',
+                            type: 'SET_CONTACT_METHOD',
                             payload: data
                         })
                     }

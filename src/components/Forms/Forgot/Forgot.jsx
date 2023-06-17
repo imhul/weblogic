@@ -116,7 +116,7 @@ const Registration = () => {
                         type="link"
                         onClick={() =>
                             dispatch({
-                                type: 'CHANGE_AUTH_FORM_TYPE',
+                                type: 'SET_AUTH_FORM_TYPE',
                                 payload: 'login'
                             })
                         }

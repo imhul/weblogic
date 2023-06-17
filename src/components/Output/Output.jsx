@@ -1,5 +1,5 @@
 // core
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import '../../utils/bg';
@@ -51,7 +51,7 @@ const Output = () => {
     useInitialization();
     useSafe();
     const { safe, location } = useSelector(s => s.ui);
-    // useIpify(safe);
+    useIpify(safe);
     useLang();
     // useTip();
     useAllUsers();
@@ -61,7 +61,7 @@ const Output = () => {
 
     const navigate = key => {
         dispatch({
-            type: 'LOCATION_UPDATE',
+            type: 'SET_LOCATION',
             payload: key
         });
     };

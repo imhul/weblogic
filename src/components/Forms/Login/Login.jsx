@@ -210,7 +210,7 @@ const Login = () => {
                         type="link"
                         onClick={() =>
                             dispatch({
-                                type: 'CHANGE_AUTH_FORM_TYPE',
+                                type: 'SET_AUTH_FORM_TYPE',
                                 payload: 'reg'
                             })
                         }
@@ -223,7 +223,7 @@ const Login = () => {
                         type="link"
                         onClick={() =>
                             dispatch({
-                                type: 'CHANGE_AUTH_FORM_TYPE',
+                                type: 'SET_AUTH_FORM_TYPE',
                                 payload: 'forgot'
                             })
                         }

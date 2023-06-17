@@ -67,7 +67,7 @@ const ContactForm = memo(() => {
 
     const setContactMethod = value => {
         dispatch({
-            type: 'CHANGE_CONTACT_METHOD',
+            type: 'SET_CONTACT_METHOD',
             payload: value
         });
         if (tgMessage.length) {

@@ -17,7 +17,7 @@ const useLang = () => {
             currentUser.lang !== lang
         ) {
             dispatch({
-                type: 'CHANGE_LANG',
+                type: 'SET_LANG',
                 payload: currentUser.lang
             });
         }

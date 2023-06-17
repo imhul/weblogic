@@ -39,7 +39,7 @@ const useAllUsers = () => {
                 });
 
                 dispatch({
-                    type: 'LOCATION_UPDATE',
+                    type: 'SET_LOCATION',
                     payload: 'Home'
                 });
                 return;
@@ -60,7 +60,7 @@ const useAllUsers = () => {
                     payload: result.data
                 });
                 dispatch({
-                    type: 'LOCATION_UPDATE',
+                    type: 'SET_LOCATION',
                     payload: 'Home'
                 });
             }

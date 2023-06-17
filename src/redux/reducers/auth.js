@@ -163,7 +163,7 @@ export default function (state = initState, action) {
                 }
             };
 
-        case type.USER_CHANGE_PASSWORD:
+        case type.USER_SET_PASSWORD:
             return {
                 ...state,
                 currentUser: {

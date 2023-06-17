@@ -60,10 +60,16 @@ const useCookies = () => {
                             user => user._id === decoded.auto_id
                         );
 
-                        console.info('useCookies checkedUser: ', checkedUser);
+                        console.info(
+                            'useCookies checkedUser: ',
+                            checkedUser
+                        );
                     }
                 } catch (error) {
-                    console.error('useCookies Error verifying token:', error);
+                    console.error(
+                        'useCookies Error verifying token:',
+                        error
+                    );
                     dispatch({ type: 'SET_JWT', payload: null });
                 }
             } else {
