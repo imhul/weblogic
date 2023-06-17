@@ -7,7 +7,9 @@ import { env, API_ACTIONS } from '../utils/config';
 import jwt from 'jsonwebtoken';
 
 const build = async event => {
-    console.info('event: ', event);
+    
+    const host = event.headers.host;
+    console.info('host: ', host);
     const { apiURL, jwtKey } = env;
     const data = JSON.parse(
         decodeURIComponent(
@@ -35,7 +37,10 @@ const build = async event => {
     console.info('token: ', token);
 
     if (token) {
-        const cookie = `tx=${token}; Domain=${event.headers.host}; Path=/; Expires=${new Date(
+        // const cookie = `tx=${token}; Domain=${host}; Path=/; Expires=${new Date(
+        //     new Date().getTime() + 3600000
+        // ).toUTCString()}; HttpOnly; Secure`;
+        const cookie = `tx=${token}; Path=/; Expires=${new Date(
             new Date().getTime() + 3600000
         ).toUTCString()}; HttpOnly; Secure`;
         const response = {
