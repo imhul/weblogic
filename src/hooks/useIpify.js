@@ -8,7 +8,7 @@ import Bowser from 'bowser';
 const useIpify = safe => {
     const [ipified, setIpified] = useState(false);
     const dispatch = useDispatch();
-    const system = Bowser.parse(window.navigator.userAgentData);
+    const system = Bowser.parse(window.navigator.userAgent);
 
     useEffect(() => {
         function fetching() {

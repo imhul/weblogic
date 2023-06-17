@@ -37,7 +37,7 @@ const build = async event => {
     if (token) {
         const cookie = `tx=${token}; Path=/; Expires=${new Date(
             new Date().getTime() + 3600000
-        ).toUTCString()}; HttpOnly; Secure; domain=${'weblogic.netlify.app'}`;
+        ).toUTCString()}; HttpOnly; Secure; Domain=${'weblogic.netlify.app'}`;
         const response = {
             statusCode: 200,
             statusText: 'OK',
