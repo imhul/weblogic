@@ -13,7 +13,6 @@ const useCookies = () => {
     const { users, currentUser } = useSelector(s => s.auth);
     const [checked, setChecked] = useState(false);
     const dispatch = useDispatch();
-    const { jwtKey } = safe;
 
     // checks whether cookies are allowed in the browser
     useEffect(() => {
@@ -29,7 +28,9 @@ const useCookies = () => {
     }, [cookiesAllowed, navigator.cookieEnabled]);
 
     useEffect(() => {
+        if (!safe) return;
         const getJWT = () => {
+            const { jwtKey } = safe;
             const cookies = document.cookie.split(';');
             const tokenCookie = cookies.some(cookie =>
                 cookie.trim().startsWith('tx=')
@@ -76,7 +77,7 @@ const useCookies = () => {
         return () => {
             window.cookieStore.removeEventListener('change', getJWT);
         };
-    }, []);
+    }, [safe]);
 
     // opens a modal window for acceptance/rejection of cookies by the user
     useEffect(() => {
