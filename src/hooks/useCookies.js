@@ -13,6 +13,7 @@ const useCookies = () => {
     const { users, currentUser } = useSelector(s => s.auth);
     const [checked, setChecked] = useState(false);
     const dispatch = useDispatch();
+    const { jwtKey } = safe;
 
     // checks whether cookies are allowed in the browser
     useEffect(() => {
@@ -29,12 +30,11 @@ const useCookies = () => {
 
     useEffect(() => {
         const getJWT = () => {
-            const { jwtKey } = safe;
             const cookies = document.cookie.split(';');
             const tokenCookie = cookies.some(cookie =>
                 cookie.trim().startsWith('tx=')
             );
-            console.info('tokenCookie: ', tokenCookie);
+            console.info('useCookies tokenCookie: ', tokenCookie);
             if (tokenCookie) {
                 dispatch({
                     type: 'SET_COOKIES_ALLOWED_BY_USER',
@@ -48,7 +48,7 @@ const useCookies = () => {
                 const token = tokenCookie.split('=')[1];
                 try {
                     const decoded = jwt.verify(token, jwtKey);
-                    console.info('decoded: ', decoded);
+                    console.info('useCookies decoded: ', decoded);
                     if (decoded) {
                         dispatch({
                             type: 'SET_JWT',
@@ -56,13 +56,13 @@ const useCookies = () => {
                         });
 
                         const checkedUser = users.find(
-                            user => user._id === decoded._id
+                            user => user._id === decoded.auto_id
                         );
 
-                        console.info('checkedUser: ', checkedUser);
+                        console.info('useCookies checkedUser: ', checkedUser);
                     }
                 } catch (error) {
-                    console.error('Error verifying token:', error);
+                    console.error('useCookies Error verifying token:', error);
                     dispatch({ type: 'SET_JWT', payload: null });
                 }
             } else {
