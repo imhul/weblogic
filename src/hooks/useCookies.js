@@ -30,12 +30,15 @@ const useCookies = () => {
 
     useEffect(() => {
         console.info('useCookies run!');
-        if (!safe && !users) return;
-        console.info('useCookies: safe is exist!');
-        const { jwtKey } = safe;
-        console.info('useCookies: jwtKey is exist: ', jwtKey);
+        if (safe && safe.jwtKey && users) {
+            console.info('useCookies: safe is exist!');
+            getJWT();
+        } else return;
+
         const getJWT = () => {
             console.info('getJWT run!');
+            const { jwtKey } = safe;
+            console.info('useCookies: jwtKey is exist: ', jwtKey);
             // console.info('useCookies: document.cookie: ', document.cookie);
             // const cookies = document.cookie.split(';');
             // console.info('useCookies: cookies is exist: ', cookies);
@@ -86,12 +89,13 @@ const useCookies = () => {
             }
         };
 
+
         // window.cookieStore.addEventListener('change', getJWT);
 
         // return () => {
         //     window.cookieStore.removeEventListener('change', getJWT);
         // };
-        getJWT();
+
     }, [safe, users]);
 
     // opens a modal window for acceptance/rejection of cookies by the user
