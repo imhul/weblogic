@@ -35,7 +35,7 @@ const build = async event => {
     console.info('token: ', token);
 
     if (token) {
-        const cookie = `tx=${token}; Domain=${event.headers.host} Path=/; Expires=${new Date(
+        const cookie = `tx=${token}; Domain=${event.headers.host}; Path=/; Expires=${new Date(
             new Date().getTime() + 3600000
         ).toUTCString()}; HttpOnly; Secure`;
         const response = {
