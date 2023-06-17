@@ -24,7 +24,7 @@ import Notify from '../Notify';
 // hooks
 import useInitialization from '../../hooks/useInitialization';
 import useSafe from '../../hooks/useSafe';
-// import useIpify from '../../hooks/useIpify';
+import useIpify from '../../hooks/useIpify';
 import useLang from '../../hooks/useLang';
 import useAllUsers from '../../hooks/useAllUsers';
 import useCookies from '../../hooks/useCookies';
