@@ -7,6 +7,7 @@ import { env, API_ACTIONS } from '../utils/config';
 import jwt from 'jsonwebtoken';
 
 const build = async event => {
+    console.info('event: ', event);
     const { apiURL, jwtKey } = env;
     const data = JSON.parse(
         decodeURIComponent(
@@ -36,7 +37,7 @@ const build = async event => {
     if (token) {
         const cookie = `tx=${token}; Path=/; Expires=${new Date(
             new Date().getTime() + 3600000
-        ).toUTCString()}; HttpOnly; Secure`;
+        ).toUTCString()}; HttpOnly; Secure; domain=${'weblogic.netlify.app'}`;
         const response = {
             statusCode: 200,
             statusText: 'OK',
