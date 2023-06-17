@@ -35,7 +35,7 @@ const useCookies = () => {
             getJWT();
         } else return;
 
-        const getJWT = () => {
+        function getJWT() {
             console.info('getJWT run!');
             const { jwtKey } = safe;
             console.info('useCookies: jwtKey is exist: ', jwtKey);
