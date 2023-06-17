@@ -46,6 +46,8 @@ const useCookies = () => {
             //     cookie.trim().startsWith('tx=')
             // );
             const tokenCookie = Cookies.get('tx');
+            const allCookies = Cookies.get();
+            console.info('useCookies allCookies: ', allCookies);
             console.info('useCookies tokenCookie: ', tokenCookie);
             if (tokenCookie) {
                 dispatch({
