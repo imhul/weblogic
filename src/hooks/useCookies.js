@@ -10,7 +10,7 @@ const useCookies = () => {
         cookiesAllowebByUser,
         cookiesModalOpen
     } = useSelector(s => s.ui);
-    const { currentUser } = useSelector(s => s.auth);
+    const { users, currentUser } = useSelector(s => s.auth);
     const [checked, setChecked] = useState(false);
     const dispatch = useDispatch();
 
@@ -31,7 +31,6 @@ const useCookies = () => {
         const getJWT = () => {
             const { jwtKey } = safe;
             const cookies = document.cookie.split(';');
-            console.info('cookies: ', cookies);
             const tokenCookie = cookies.some(cookie =>
                 cookie.trim().startsWith('tx=')
             );
@@ -50,10 +49,18 @@ const useCookies = () => {
                 try {
                     const decoded = jwt.verify(token, jwtKey);
                     console.info('decoded: ', decoded);
-                    dispatch({
-                        type: 'SET_JWT',
-                        payload: tokenCookie
-                    });
+                    if (decoded) {
+                        dispatch({
+                            type: 'SET_JWT',
+                            payload: tokenCookie
+                        });
+
+                        const checkedUser = users.find(
+                            user => user._id === decoded._id
+                        );
+
+                        console.info('checkedUser: ', checkedUser);
+                    }
                 } catch (error) {
                     console.error('Error verifying token:', error);
                     dispatch({ type: 'SET_JWT', payload: null });

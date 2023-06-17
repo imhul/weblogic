@@ -43,11 +43,11 @@ const Login = () => {
         if (isSubmitDisabled) return;
         setSubmitting(true);
         const values = form.getFieldsValue();
-        const beingCheckedUser = users.find(
+        const loadedUser = users.find(
             user => user.email === values.login
         );
 
-        if (!beingCheckedUser) {
+        if (!loadedUser) {
             notify.error({
                 content: translate(
                     lang,
@@ -57,7 +57,7 @@ const Login = () => {
             });
             return;
         } else {
-            if (beingCheckedUser.pass === values.pass) {
+            if (loadedUser.pass === values.pass) {
                 const {
                     lastSignInTime,
                     lastSignOutTime,
@@ -69,22 +69,24 @@ const Login = () => {
                     tgMessage,
                     message,
                     ...rest
-                } = beingCheckedUser;
+                } = loadedUser;
                 dispatch({
                     type: 'USER_AUTH',
                     payload:
-                        currentUser.ip === beingCheckedUser.ip
+                        currentUser.ip === loadedUser.ip
                             ? {
                                   ...rest,
-                                  cookies: cookiesAllowebByUser
+                                  cookies: cookiesAllowebByUser,
+                                  pass: ''
                               }
                             : {
                                   ...rest,
+                                  pass: '',
                                   cookies: cookiesAllowebByUser,
                                   ip: currentUser.ip,
-                                  ips: beingCheckedUser.ip
+                                  ips: loadedUser.ip
                                       ? [
-                                            beingCheckedUser.ip,
+                                            loadedUser.ip,
                                             currentUser.ip
                                         ]
                                       : [currentUser.ip]
