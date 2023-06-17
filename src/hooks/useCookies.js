@@ -83,11 +83,12 @@ const useCookies = () => {
             }
         };
 
-        window.cookieStore.addEventListener('change', getJWT);
+        // window.cookieStore.addEventListener('change', getJWT);
 
-        return () => {
-            window.cookieStore.removeEventListener('change', getJWT);
-        };
+        // return () => {
+        //     window.cookieStore.removeEventListener('change', getJWT);
+        // };
+        getJWT();
     }, [safe]);
 
     // opens a modal window for acceptance/rejection of cookies by the user
