@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import jwt from 'jsonwebtoken';
+import Cookies from 'js-cookie';
 
 const useCookies = () => {
     const {
@@ -29,18 +30,19 @@ const useCookies = () => {
 
     useEffect(() => {
         console.info('useCookies run!');
-        if (!safe) return;
+        if (!safe && !users) return;
         console.info('useCookies: safe is exist!');
+        const { jwtKey } = safe;
+        console.info('useCookies: jwtKey is exist: ', jwtKey);
         const getJWT = () => {
             console.info('getJWT run!');
-            const { jwtKey } = safe;
-            console.info('useCookies: jwtKey is exist: ', jwtKey);
-            console.info('useCookies: document.cookie: ', document.cookie);
-            const cookies = document.cookie.split(';');
-            console.info('useCookies: cookies is exist: ', cookies);
-            const tokenCookie = cookies.some(cookie =>
-                cookie.trim().startsWith('tx=')
-            );
+            // console.info('useCookies: document.cookie: ', document.cookie);
+            // const cookies = document.cookie.split(';');
+            // console.info('useCookies: cookies is exist: ', cookies);
+            // const tokenCookie = cookies.some(cookie =>
+            //     cookie.trim().startsWith('tx=')
+            // );
+            const tokenCookie = Cookies.get('tx');
             console.info('useCookies tokenCookie: ', tokenCookie);
             if (tokenCookie) {
                 dispatch({
@@ -90,7 +92,7 @@ const useCookies = () => {
         //     window.cookieStore.removeEventListener('change', getJWT);
         // };
         getJWT();
-    }, [safe]);
+    }, [safe, users]);
 
     // opens a modal window for acceptance/rejection of cookies by the user
     useEffect(() => {
