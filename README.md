@@ -32,7 +32,8 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 **Roadmap**
 
 -   **Frontend:**
-    `login/logout/register/forgot password/change password` forms
+    -   `login/logout/register/forgot password/change password` forms
+    -   `Redux Persist` [docs](https://github.com/rt2zz/redux-persist)
 -   **Backend:**
     -   OAuth
     -   trello API
