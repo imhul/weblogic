@@ -72,7 +72,7 @@ const Output = () => {
                 clearTimeout(timer);
             }, 2000);
         }
-    }, [location])
+    }, [location]);
 
     const navigate = key => {
         dispatch({

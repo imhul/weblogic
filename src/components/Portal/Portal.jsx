@@ -9,7 +9,9 @@ const Portal = memo(({ children }) => {
     useEffect(() => {
         portal.appendChild(element);
 
-        return () => {portal.removeChild(element)};
+        return () => {
+            portal.removeChild(element);
+        };
     });
 
     return createPortal(children, element, 'portal');

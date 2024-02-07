@@ -89,15 +89,13 @@ const useCookies = () => {
                 setChecked(true);
                 dispatch({ type: 'JWT_IS_NOT_EXIST' });
             }
-        };
-
+        }
 
         // window.cookieStore.addEventListener('change', getJWT);
 
         // return () => {
         //     window.cookieStore.removeEventListener('change', getJWT);
         // };
-
     }, [safe, users]);
 
     // opens a modal window for acceptance/rejection of cookies by the user

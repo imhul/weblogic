@@ -7,7 +7,6 @@ import { env, API_ACTIONS } from '../utils/config';
 import jwt from 'jsonwebtoken';
 
 const build = async event => {
-    
     const host = event.headers.host;
     console.info('host: ', host);
     const { apiURL, jwtKey } = env;

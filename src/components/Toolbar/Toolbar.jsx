@@ -8,7 +8,7 @@ import {
     Row,
     Col,
     Menu,
-    // Card,
+    Card,
     Button,
     Drawer,
     Tooltip,
@@ -338,6 +338,17 @@ const Toolbar = memo(() => {
                         })
                     }
                 />
+                <Divider>Donate</Divider>
+                <Card type="inner">
+                    You can buy me a ☕{' '}
+                    <a
+                        href="https://www.buymeacoffee.com/blashirkz"
+                        target="_blank"
+                        rel="noreferer noopener"
+                    >
+                        for support
+                    </a>
+                </Card>
                 {/* just for demo */}
                 {/* <Divider>{translate(lang, 'tip_heading')}</Divider>
                 <Card
