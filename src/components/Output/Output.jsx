@@ -1,5 +1,5 @@
 // core
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // utils
 import '../../utils/bg';
@@ -26,8 +26,9 @@ import useInitialization from '../../hooks/useInitialization';
 import useSafe from '../../hooks/useSafe';
 import useIpify from '../../hooks/useIpify';
 import useLang from '../../hooks/useLang';
-import useAllUsers from '../../hooks/useAllUsers';
-import useCookies from '../../hooks/useCookies';
+// just for demo
+// import useAllUsers from '../../hooks/useAllUsers';
+// import useCookies from '../../hooks/useCookies';
 // import useTip from '../../hooks/useTip';
 
 const { Content } = Layout;
@@ -53,11 +54,25 @@ const Output = () => {
     const { safe, location } = useSelector(s => s.ui);
     useIpify(safe);
     useLang();
+    // just for demo
     // useTip();
-    useAllUsers();
-    useCookies();
+    // useAllUsers();
+    // useCookies();
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        // just for demo
+        if (location === 'Loading') {
+            const timer = setTimeout(() => {
+                dispatch({
+                    type: 'SET_LOCATION',
+                    payload: 'Home'
+                });
+                clearTimeout(timer);
+            }, 2000);
+        }
+    }, [location])
 
     const navigate = key => {
         dispatch({

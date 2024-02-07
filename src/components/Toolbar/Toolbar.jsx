@@ -8,30 +8,31 @@ import {
     Row,
     Col,
     Menu,
-    Card,
+    // Card,
     Button,
     Drawer,
     Tooltip,
     Divider,
-    Collapse,
+    // Collapse,
     Segmented,
     Typography,
     Popconfirm
 } from 'antd/lib';
 import {
-    HeartFilled,
+    // HeartFilled,
     SyncOutlined,
     GithubOutlined,
     LogoutOutlined,
-    SettingOutlined,
+    // SettingOutlined,
     CloseCircleOutlined,
     QuestionCircleOutlined
 } from '@ant-design/icons';
 import Gravatar from 'react-gravatar';
-import Registration from '../Forms/Registration';
-import Forgot from '../Forms/Forgot';
-import Login from '../Forms/Login';
-import EditProfile from '../Forms/EditProfile';
+// just for demo
+// import Registration from '../Forms/Registration';
+// import Forgot from '../Forms/Forgot';
+// import Login from '../Forms/Login';
+// import EditProfile from '../Forms/EditProfile';
 // utils
 import translate from '../../utils/translations';
 import {
@@ -45,12 +46,14 @@ import { getCookies } from '../../utils/api';
 import { API_ACTIONS } from '../../utils/config';
 
 const Title = Typography.Title;
-const Panel = Collapse.Panel;
+// just for demo
+// const Panel = Collapse.Panel;
 
 const Toolbar = memo(() => {
     const [currentPage, setCurrentPage] = useState('Home');
     const {
-        tip,
+        // just for demo
+        // tip,
         lang,
         safe,
         location,
@@ -60,7 +63,8 @@ const Toolbar = memo(() => {
     } = useSelector(s => s.ui);
     const [isUserUpdated, setIsUserUpdated] = useState(false);
     const { users, currentUser } = useSelector(s => s.auth);
-    const [activeKey, setActiveKey] = useState('');
+    // just for demo
+    // const [activeKey, setActiveKey] = useState('');
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -213,7 +217,8 @@ const Toolbar = memo(() => {
 
     return (
         <div className="Toolbar">
-            {!users.length || !currentUser.ip.length ? (
+            {/* just for demo */}
+            {/* {!users.length || !currentUser.ip.length ? (
                 <SyncOutlined
                     className="burger"
                     onClick={() => window.location.reload()}
@@ -228,7 +233,18 @@ const Toolbar = memo(() => {
                         })
                     }
                 />
-            )}
+            )} */}
+
+            {/* just for demo */}
+            <i
+                className="icon-lamp burger"
+                onClick={() =>
+                    dispatch({
+                        type: 'TOGGLE_TOOLBAR',
+                        payload: true
+                    })
+                }
+            />
 
             <Drawer
                 title={
@@ -258,7 +274,8 @@ const Toolbar = memo(() => {
                     mode="inline"
                     items={menuItems}
                 />
-                <Divider>
+                {/* just for demo */}
+                {/* <Divider>
                     {!currentUser.isAuth
                         ? translate(lang, `${authFormType}_form`)
                         : translate(lang, 'settings')}
@@ -290,7 +307,7 @@ const Toolbar = memo(() => {
                             <EditProfile />
                         </Panel>
                     </Collapse>
-                )}
+                )} */}
 
                 <Divider>{translate(lang, 'lang_title')}</Divider>
                 <Segmented
@@ -321,7 +338,8 @@ const Toolbar = memo(() => {
                         })
                     }
                 />
-                <Divider>{translate(lang, 'tip_heading')}</Divider>
+                {/* just for demo */}
+                {/* <Divider>{translate(lang, 'tip_heading')}</Divider>
                 <Card
                     type="inner"
                     title={
@@ -338,7 +356,7 @@ const Toolbar = memo(() => {
                     }
                 >
                     {tip ? tip : translate(lang, 'loading')}
-                </Card>
+                </Card> */}
             </Drawer>
         </div>
     );
