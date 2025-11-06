@@ -88,7 +88,8 @@
         "packageExports": true
     },
     "engines": {
-        "parcel": "^2.16.1"
+        "parcel": "^2.16.1",
+        "node": "18.x"
     },
     "devDependencies": {
         "crypto-browserify": "^3.12.0",
