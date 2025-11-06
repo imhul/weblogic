@@ -1,4 +1,4 @@
 [context.production]
-environment = { NODE_VERSION = "18.20.8" }
+environment = { NODE_VERSION = "18" }
 [build]
 functions = "functions"
