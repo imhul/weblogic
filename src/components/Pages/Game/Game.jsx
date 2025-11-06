@@ -9,6 +9,8 @@ import { GITHUB_README } from '../../../utils/config';
 // components
 import ReactMarkdown from 'react-markdown';
 import { Helmet } from 'react-helmet';
+// assets
+const gameLogoUrl = new URL('../../../images/chicken-hell-logo.png', import.meta.url).href;
 // styles
 import "github-markdown-css/github-markdown.css"
 
@@ -34,6 +36,7 @@ const Game = memo(() => {
         </Helmet>
         <div className="Game">
             <div className="container">
+                <img src={gameLogoUrl} alt="Chicken Hell Logo" width="400" className="game-logo" />
                 <div className="preview-wrapper markdown-body">
                     <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                         {readme}

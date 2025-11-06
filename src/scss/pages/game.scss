@@ -23,6 +23,11 @@
     .container {
         height: 100%;
 
+        .game-logo {
+            display: block;
+            margin: rem(140) auto rem(60);
+        }
+
         .ant-row {
             .ant-col {
                 p,
@@ -64,7 +69,7 @@
         }
 
         .preview-wrapper {
-            padding: rem(140) 0 rem(100);
+            padding: 0 0 rem(100);
             background-color: transparent !important;
 
             @media (max-width: $media-small) {
@@ -75,6 +80,10 @@
             .preview {
                 width: 100%;
                 border: none;
+            }
+
+            img {
+                display: none;
             }
         }
     }
