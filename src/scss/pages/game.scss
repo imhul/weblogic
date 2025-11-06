@@ -7,6 +7,7 @@
     width: 100%;
     inset: 0;
     background-color: var(--color-content-bg);
+    overflow: hidden auto;
 
     @media (max-width: $media-small) {
         align-items: flex-start;
@@ -20,6 +21,8 @@
     }
 
     .container {
+        height: 100%;
+
         .ant-row {
             .ant-col {
                 p,
@@ -57,23 +60,21 @@
                         flex-direction: column-reverse;
                     }
                 }
+            }
+        }
 
-                .preview-wrapper {
-                    height: 0;
-                    width: 100%;
-                    padding-bottom: 56.25%;
-                    overflow: hidden;
+        .preview-wrapper {
+            padding: rem(140) 0 rem(100);
+            background-color: transparent !important;
 
-                    @media (max-width: $media-small) {
-                        height: rem(380);
-                        margin-top: rem(40);
-                    }
+            @media (max-width: $media-small) {
+                height: rem(380);
+                margin-top: rem(40);
+            }
 
-                    .preview {
-                        width: 100%;
-                        border: none;
-                    }
-                }
+            .preview {
+                width: 100%;
+                border: none;
             }
         }
     }

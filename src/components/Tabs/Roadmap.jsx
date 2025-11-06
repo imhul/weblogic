@@ -88,13 +88,29 @@ const Roadmap = memo(() => {
                     {translate(lang, 'step_2023')}
                 </span>
             )
+        },
+        {
+            children: (
+                <span>
+                    <span>2024: </span>
+                    {translate(lang, 'step_2024')}
+                </span>
+            )
+        }
+        ,
+        {
+            children: (
+                <span>
+                    <span>2025: </span>
+                    {translate(lang, 'step_2025')}
+                </span>
+            )
         }
     ];
 
     const pending = (
         <span>
-            <span>2024: </span>I believe in the victory of Ukraine! I
-            believe in the Armed Forces!
+            <span>2026: </span>{translate(lang, 'pending_step')}
         </span>
     );
 

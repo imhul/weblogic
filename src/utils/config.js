@@ -62,8 +62,10 @@ export const SYSTEM_LANG =
     window.navigator.userLanguage ||
     window.navigator.language;
 
+export const PROXY = "https://cors-anywhere.herokuapp.com/";
 export const GITHUB_PAGE = 'https://github.com/imhul';
-export const GITHUB_GAME_PAGE = 'https://github.com/imhul/proto-mass';
+export const GITHUB_README = 'https://raw.githubusercontent.com/imhul/chicken-hell/dev/README.md';
+export const GITHUB_GAME_PAGE = 'https://github.com/imhul/chicken-hell/';
 export const COOKIES_POLICY = {
     ukrainian: 'https://imhul.github.io/cookies-pilicy-ua/',
     english: 'https://imhul.github.io/cookies-pilicy/'

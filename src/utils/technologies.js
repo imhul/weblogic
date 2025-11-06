@@ -15,6 +15,11 @@ export const technologies = [
         link: 'https://www.gatsbyjs.com/'
     },
     {
+        id: 'Next.js',
+        list: 'fw',
+        link: 'https://nextjs.org/'
+    },
+    {
         id: 'Svelte',
         list: 'library',
         link: 'https://svelte.dev/'
@@ -50,8 +55,13 @@ export const technologies = [
         link: 'https://redux.js.org/'
     },
     {
+        id: 'MobX',
+        list: 'library',
+        link: 'https://mobx.js.org/'
+    },
+    {
         id: 'Ant Design',
-        list: 'flibrary',
+        list: 'cssfw',
         link: 'https://ant.design/'
     },
     {
@@ -83,6 +93,11 @@ export const technologies = [
         id: 'UIKit',
         list: 'cssfw',
         link: 'https://getuikit.com/'
+    },
+    {
+        id: 'shadcn/ui',
+        list: 'cssfw',
+        link: 'https://ui.shadcn.com/'
     },
     {
         id: 'Bootstrap',

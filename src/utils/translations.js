@@ -156,21 +156,10 @@ const translations = {
         step_2020: 'I had to work with Angular 8 for six months',
         step_2021:
             "Did a bit of work with Getsby and GraphQL. But later I joined the growing Svelte community as well as SvelteKIt and it's amazing! This is one of the best technologies I've come across. Thanks to this, I have a better understanding of SSR.",
-        step_2023: (
-            <>
-                Still working with{' '}
-                <a
-                    href="https://svelte.dev/"
-                    title="Svelte"
-                    rel="noreferer noopener"
-                    target="_blank"
-                >
-                    Svelte
-                </a>{' '}
-                and it's great. After an in-depth study, I can say
-                with confidence that this is a top!
-            </>
-        ),
+        step_2023: 'Working with Svelte and React and it\'s great. After an in-depth study, I can say with confidence that this is a top!',
+        step_2024: 'Delved into the world of MobX and mobx-state-tree.',
+        step_2025: 'Learned the basics of Next.js and started using it in my projects.',
+        pending_step: 'I believe in the victory of Ukraine! I believe in the Armed Forces! I plan to learn Python.',
 
         // Works EN
         work_1: 'Puzzle game, JavaScript + Canvas + design',
@@ -189,6 +178,7 @@ const translations = {
         ),
         work_8: 'Analytical resource, JavaScript + jQuery + Materialize + design',
         work_9: 'An application to clean your subscription list from bounces, and enrich data with customers. Verify your real customers in one way. SvelteKit + SCSS + RSS Feed',
+        work_10: 'Company Landing Page, used React 19 + GSAP',
         demo_status_desc:
             '* Demo status means that the project is available for viewing on my site.',
         released_status_desc:
@@ -196,11 +186,9 @@ const translations = {
         current_projects: 'Current Projects',
 
         // Game EN
-        game_title: 'Proto-Mass. The Game',
-        game_subtitle:
-            'React-based Pixel-Art Sandbox Game with Indirect Control',
-        game_description:
-            'Far away on a distant planet inhabited by primitive life forms a small colony of robots accidentally trapped must build, develop and fight only to exist... How far can they go?',
+        game_title: 'Chicken Hell. The Game!',
+        game_subtitle: '',
+        game_description: '',
         game_demo: 'Demo App',
         game_git: 'GitHub',
         game_donate: 'Patreon'
@@ -369,21 +357,10 @@ const translations = {
         step_2020: 'Довелося півроку попрацювати з Angular 8',
         step_2021:
             'Трохи попрацював із Getsby та GraphQL. Але пізніше приєднався до спільноти Svelte, що розвивається, і це приголомшливо! Це одна з найкращих технологій, з якою мені доводилося стикатися. Завдяки цьому став краще розуміти SSR.',
-        step_2023: (
-            <>
-                Все ще працюю зі{' '}
-                <a
-                    href="https://svelte.dev/"
-                    title="Svelte"
-                    rel="noreferer noopener"
-                    target="_blank"
-                >
-                    Svelte
-                </a>{' '}
-                і це прекрасно. Після поглибленого вивчення можу
-                сказати впевнено, що це топ!
-            </>
-        ),
+        step_2023: 'Працюю зі Svelte та React і це прекрасно. Після поглибленого вивчення можу сказати впевнено, що це топ!',
+        step_2024: 'Поглибився у світ MobX та mobx-state-tree.',
+        step_2025: 'Вивчив основи Next.js і почав використовувати його у своїх проектах.',
+        pending_step: 'Вірю у перемогу України! Вірю у ЗСУ! Планую вивчити Python.',
 
         // Works UA
         work_1: 'Гра "Пазли", JavaScript + Canvas + дизайн',
@@ -402,6 +379,7 @@ const translations = {
         ),
         work_8: 'Аналітичний ресурс, JavaScript + jQuery + Materialize + дизайн',
         work_9: 'Додаток для очищення вашого списку підписок від відмов та поповнення даних про клієнтів. Перевіряйте своїх реальних клієнтів одним способом. SvelteKit + SCSS + RSS Feed',
+        work_10: 'Лендінгова сторінка компанії, зроблена за допомогою React 19 + GSAP',
         demo_status_desc:
             '* Статус Демо означає, що проект можливо переглянути на моєму сайті, натиснувши на нього.',
         released_status_desc:
@@ -409,11 +387,9 @@ const translations = {
         current_projects: 'Поточні проекти',
 
         // Game UA
-        game_title: 'Proto-Mass. On-line гра',
-        game_subtitle:
-            'Піксель-арт пісочниця с непрямим управлінням на основі React. На даний час ведеться паралельна розробка на Svelte.',
-        game_description:
-            'На далекій планеті, населеній примітивними формами життя, невелика колонія роботів, що випадково потрапили в пастку, повинна будувати, розвиватися і боротися, щоб вижити... Як далеко це може зайти?',
+        game_title: 'Chicken Hell. Гра!',
+        game_subtitle: '',
+        game_description: '',
         game_demo: 'Демо',
         game_git: 'GitHub',
         game_donate: 'Patreon'

@@ -21,6 +21,7 @@ import testomatioImg from '../../images/works/testomatio.png';
 import uapayImg from '../../images/works/uapay.png';
 import aliceImg from '../../images/works/alice.png';
 import mailcheckImg from '../../images/works/mailcheck.png';
+import dorukImg from '../../images/works/doruk.jpg';
 
 const ListItem = List.Item;
 const ListMeta = ListItem.Meta;
@@ -90,6 +91,14 @@ const Works = memo(() => {
             icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
             href: 'https://mailcheck.co/',
             back: `${mailcheckImg}`,
+            demo: false
+        },
+        {
+            name: translate(lang, 'work_10'),
+            type: translate(lang, 'demo'),
+            icon: <LinkOutlined style={{ color: '#bcc8ce' }} />,
+            href: 'https://www-dev.doruk.digital/',
+            back: `${dorukImg}`,
             demo: false
         }
     ];

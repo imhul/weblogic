@@ -1,4 +1,5 @@
 /* Home page */
+@use "sass:math";
 
 .Home {
     height: rem(280);
@@ -66,17 +67,18 @@
 
         /* Hero animation */
         @for $i from 0 through 15 {
-            $rondomAngle: random(360);
-            $rondomTranslate: random(6) * 0.38;
-            $opacity: random(9);
-            $shadow: random(12);
+            $rondomAngle: math.random(360);
+            $rondomTranslate: math.random(6) * 0.38;
+            $opacity: math.random(9);
+            $shadow: math.random(12);
 
             .span-#{$i} {
-                opacity: #{'0.' + $opacity};
+                opacity: #{"0." + $opacity};
                 text-shadow: 0 0 #{$shadow}px var(--color-white);
                 color: rgb(188 200 206 / 100%);
                 display: inline-block;
-                animation: rotate #{$rondomTranslate}s ease-in 2,
+                animation:
+                    rotate #{$rondomTranslate}s ease-in 2,
                     stop #{$rondomTranslate}s ease-out;
                 transition: transform #{$rondomTranslate}s;
 
@@ -92,8 +94,7 @@
 
                     @media (max-width: $media-small) {
                         color: var(--color-secondary);
-                        text-shadow: 0 0 rem(20)
-                            var(--color-secondary);
+                        text-shadow: 0 0 rem(20) var(--color-secondary);
                     }
                 }
             }
